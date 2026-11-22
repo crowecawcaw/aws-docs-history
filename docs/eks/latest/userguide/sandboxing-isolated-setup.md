@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Run a pod in isolated mode
-<a name="sandboxing-isolated-setup"></a>
 
 Isolated mode protects the node and other pods from a compromised container. The parent instance is trusted.
 
@@ -19,7 +18,7 @@ Auto Mode includes Nitro Sandbox support with no additional setup. You do not bu
 **Set the Kubernetes version when you create the cluster**  
 Nitro Sandboxes requires Kubernetes version 1.36 or later. If you create your cluster with `eksctl`, pass `--version`, because `eksctl` uses an older default version. For example:  
 
-```
+```bash
 eksctl create cluster --name sandbox-demo --region us-west-2 --version 1.37 --enable-auto-mode
 ```
 
@@ -36,7 +35,7 @@ Alternatively, if you run your own node groups outside of Auto Mode, build a cus
 
 Set `runtimeClassName: isolated-sandbox` in your pod spec:
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -55,13 +54,13 @@ spec:
 
 Apply the manifest:
 
-```
+```bash
 kubectl apply -f manifest.yaml
 ```
 
 Verify the pod is running:
 
-```
+```bash
 kubectl get pod my-app
 ```
 
@@ -92,7 +91,7 @@ An annotation on the controller’s own metadata is accepted and then ignored. F
 
 Example Deployment:
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -122,7 +121,7 @@ spec:
 
 Verify that the created pods carry the runtime class:
 
-```
+```bash
 kubectl get pods -l app=my-app \
   -o custom-columns='NAME:.metadata.name,RUNTIME:.spec.runtimeClassName'
 ```

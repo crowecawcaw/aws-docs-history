@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Concepts for hybrid nodes
-<a name="hybrid-nodes-concepts"></a>
 
 With *Amazon EKS Hybrid Nodes*, you join physical or virtual machines running in on-premises or edge environments to Amazon EKS clusters running in the AWS Cloud. This approach brings many benefits, but also introduces new networking concepts and architectures for those familiar with running Kubernetes clusters in a single network environment.
 

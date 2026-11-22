@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Troubleshoot issues with Argo CD capabilities
-<a name="argocd-troubleshooting"></a>
 
 **Note**  
 EKS Capabilities are fully managed and run outside your cluster. You do not have direct access to controller namespaces. You can configure controller log delivery for visibility into controller behavior. See [Access EKS Capabilities controller logs](capabilities-controller-logs.md). Troubleshooting focuses on capability health, application status, and configuration.
@@ -31,7 +30,7 @@ You can view capability health and status issues in the EKS console or using the
 
  ** AWS CLI**:
 
-```
+```bash
 # View capability status and health
 aws eks describe-capability \
   --region {{region-code}} \
@@ -50,7 +49,7 @@ aws eks describe-capability \
 
  **Check application status**:
 
-```
+```bash
 # List applications
 kubectl get application -n argocd
 
@@ -63,7 +62,7 @@ kubectl get application {{my-app}} -n argocd -o jsonpath='{.status.health}'
 
  **Check application conditions**:
 
-```
+```bash
 # Describe application to see detailed status
 kubectl describe application {{my-app}} -n argocd
 
@@ -79,7 +78,7 @@ If an Application or ApplicationSet in an additional namespace isn’t reconcile
 Use the following checklist:
 +  **Check the namespace ConfigMap**: Confirm that `argocd-cmd-params-cm` exists in the primary Argo CD namespace and contains the additional namespace. For an Application, check `application.namespaces`. For an ApplicationSet, check both `application.namespaces` and `applicationsetcontroller.namespaces`.
 
-  ```
+  ```bash
   kubectl get configmap argocd-cmd-params-cm \
     -n {{primary-namespace}} -o yaml
   ```
@@ -88,7 +87,7 @@ Use the following checklist:
 +  **Wait for the configuration to apply**: Allow up to 10 minutes after changing `argocd-cmd-params-cm`.
 +  **Check reconciliation**: Query each resource by its namespace-qualified name. For an Application, also check whether `status.reconciledAt` is populated.
 
-  ```
+  ```bash
   kubectl get application {{application-name}} \
     -n {{additional-namespace}} \
     -o jsonpath='{.status.reconciledAt}'
@@ -103,7 +102,7 @@ Use the following checklist:
   A successful Argo CD command confirms that Argo CD can access the resource in the additional namespace. The Application command can return a permission error for multiple reasons, including a missing Application or insufficient Argo CD role-based access control (RBAC) permissions, so use the resource status or controller logs to identify the cause. If the ApplicationSet command returns `namespace '<namespace>' is not permitted`, the namespace isn’t effective.
 +  **Check controller logs**: If you deliver controller logs to CloudWatch Logs, query the corresponding log type. For an Application, query `EKS_CAPABILITY_ARGOCD_APPLICATION_LOGS` by its name and source namespace.
 
-  ```
+  ```sql
   fields @timestamp, message, error
   | filter application = "application-name"
   | filter `app-namespace` = "additional-namespace"
@@ -113,7 +112,7 @@ Use the following checklist:
 
   For an ApplicationSet, query `EKS_CAPABILITY_ARGOCD_APPLICATIONSET_LOGS`.
 
-  ```
+  ```sql
   fields @timestamp, message, error
   | filter applicationSet = "applicationset-name"
   | filter `appSet-namespace` = "additional-namespace"
@@ -132,7 +131,7 @@ If an application shows `Progressing` but never reaches `Healthy`, check the app
 
  **Check resource health**:
 
-```
+```bash
 # View application resources
 kubectl get application {{my-app}} -n argocd -o jsonpath='{.status.resources}'
 
@@ -148,7 +147,7 @@ kubectl describe application {{my-app}} -n argocd | grep -A 10 "Health Status"
 
  **Verify target cluster configuration** (for multi-cluster setups):
 
-```
+```bash
 # List registered clusters
 kubectl get secret -n argocd -l argocd.argoproj.io/secret-type=cluster
 
@@ -165,7 +164,7 @@ If Argo CD cannot access your Git repositories, verify the authentication config
 
 Verify the IAM Capability Role has CodeCommit permissions:
 
-```
+```bash
 # View IAM policies
 aws iam list-attached-role-policies --role-name {{my-argocd-capability-role}}
 aws iam list-role-policies --role-name {{my-argocd-capability-role}}
@@ -180,7 +179,7 @@ The role needs `codecommit:GitPull` permission for the repositories.
 
 Verify repository credentials are correctly configured:
 
-```
+```bash
 # Check repository secret exists
 kubectl get secret -n argocd {{repo-secret-name}} -o yaml
 ```
@@ -189,7 +188,7 @@ Ensure the secret contains the correct authentication credentials (SSH key, toke
 
  **For repositories using Secrets Manager**:
 
-```
+```bash
 # Verify IAM Capability Role has Secrets Manager permissions
 aws iam list-attached-role-policies --role-name {{my-argocd-capability-role}}
 
@@ -204,7 +203,7 @@ If applications are not deploying to remote clusters, verify the cluster registr
 
  **Check cluster registration**:
 
-```
+```bash
 # List registered clusters
 kubectl get secret -n argocd -l argocd.argoproj.io/secret-type=cluster
 
@@ -218,7 +217,7 @@ Ensure the `server` field contains the EKS cluster ARN, not the Kubernetes API U
 
 On the target cluster, check that the Argo CD Capability Role has an Access Entry:
 
-```
+```bash
 # List access entries (run on target cluster or use AWS CLI)
 aws eks list-access-entries --cluster-name {{target-cluster}}
 
@@ -244,7 +243,7 @@ If your applications are syncing but taking longer than expected, use the follow
 
 Confirm the delay by reviewing when applications last synced:
 
-```
+```bash
 # View last sync time for all applications
 kubectl get application -n argocd -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.status.operationState.finishedAt}{"\n"}{end}'
 
@@ -257,7 +256,7 @@ kubectl get application {{my-app}} -n argocd -o jsonpath='{.status.operationStat
 
 Review application conditions for reconciliation queue delays:
 
-```
+```bash
 # Check conditions on an application
 kubectl get application {{my-app}} -n argocd -o jsonpath='{.status.conditions}'
 ```
@@ -267,7 +266,7 @@ kubectl get application {{my-app}} -n argocd -o jsonpath='{.status.conditions}'
 
 Applications using `targetRevision: HEAD` invalidate the manifest cache on every commit to the repository, which slows sync times:
 
-```
+```bash
 # List applications using HEAD as targetRevision
 kubectl get application -n argocd -o jsonpath='{range .items[?(@.spec.source.targetRevision=="HEAD")]}{.metadata.name}{"\n"}{end}'
 ```
@@ -295,7 +294,7 @@ If your application syncs and then immediately goes `OutOfSync`, or if it stays 
 ### Gather diagnostic information
 <a name="_gather_diagnostic_information"></a>
 
-```
+```bash
 # View current sync and health status
 argocd app get {{my-app}}
 
@@ -319,7 +318,7 @@ The symptoms are:
 
 To resolve this, add `ignoreDifferences` for the affected fields and enable `RespectIgnoreDifferences` in your sync options:
 
-```
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -347,7 +346,7 @@ When `selfHeal` is enabled, Argo CD re-syncs the application when it detects dri
 
 To resolve this, first fix the underlying drift (see the certificate scenario). If drift is not the cause, consider disabling self-heal for workloads that you manage exclusively through Git:
 
-```
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -371,7 +370,7 @@ To resolve this:
 + Make the contended resource unique per owner. Add an environment or cluster suffix to the resource name.
 + When renaming an ApplicationSet, set `preserveResourcesOnDeletion: true` first to avoid destructive teardown of existing resources:
 
-```
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -388,7 +387,7 @@ If an application is stuck in `Terminating` state or shows "N objects remaining 
 
 To confirm, list resources that have a deletion timestamp but have not been removed:
 
-```
+```bash
 kubectl get all -n {{my-namespace}} -o json | \
   jq '.items[] | select(.metadata.deletionTimestamp != null) | {name: .metadata.name, kind: .kind, finalizers: .metadata.finalizers}'
 ```
@@ -399,7 +398,7 @@ To resolve this:
 
 Using the finalizer list that the previous command printed, set the list to the finalizers you want to keep and leave out only the blocking one. Replace `finalizer-a` and `finalizer-b` with those names:
 
-```
+```bash
 kubectl patch {{resource-kind}}
             {{resource-name}} -n {{my-namespace}} \
   --type merge -p '{"metadata":{"finalizers":["finalizer-a","finalizer-b"]}}'
@@ -418,14 +417,14 @@ After a sync to a specific revision fails, Argo CD does not auto-retry the same 
 
 Confirm by checking the application status:
 
-```
+```bash
 argocd app get {{my-app}}
 # Look for: Operation: Sync  Phase: Failed  Revision: <sha>
 ```
 
 To resolve this, fix the manifest defect in your Git repository and push a new commit. Alternatively, trigger a manual sync:
 
-```
+```bash
 argocd app sync {{my-app}}
 ```
 
@@ -436,7 +435,7 @@ If many applications track `HEAD` on the same repository, any commit to that rep
 
 To scope regeneration to only the files each application uses, add the `manifest-generate-paths` annotation:
 
-```
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -461,7 +460,7 @@ If your application shows `OutOfSync` immediately after a sync, check the diff f
 
 To resolve this for fields managed by another controller (such as `/spec/replicas` when an HPA manages scaling), add `ignoreDifferences`:
 
-```
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -479,7 +478,7 @@ spec:
 
 For fields added by Kubernetes defaulting or mutating webhooks, you can enable server-side diff on the application:
 
-```
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:

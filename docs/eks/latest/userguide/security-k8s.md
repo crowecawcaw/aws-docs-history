@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Security considerations for Kubernetes
-<a name="security-k8s"></a>
 
 The following are considerations for security in the cloud, as they affect Kubernetes in Amazon EKS clusters. For an in-depth review of security controls and practices in Kubernetes, see [Cloud Native Security and Kubernetes](https://kubernetes.io/docs/concepts/security/cloud-native-security/) in the Kubernetes documentation.
 

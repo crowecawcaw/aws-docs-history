@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Set up Amazon EKS cluster for AI/ML workloads using Terraform
-<a name="ml-cluster-setup-tf"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
@@ -33,7 +32,7 @@ The resources you create in this tutorial, including EKS clusters, GPU instances
 
 Check how many VPCs the Region already has against your quota:
 
-```
+```bash
 aws ec2 describe-vpcs --region [.replaceable]`region-code` --query 'length(Vpcs)'
 
 aws service-quotas get-service-quota \
@@ -48,7 +47,7 @@ If the Region is already at its VPC quota, the apply fails partway through with 
 
 Verify your tool versions:
 
-```
+```bash
 terraform --version
 aws --version
 kubectl version --client
@@ -57,7 +56,7 @@ jq --version
 
 This walkthrough uses the Terraform code in the [sample-eks-docs](https://github.com/aws-samples/sample-eks-docs) AWS Samples GitHub repository. Clone the repository into a working directory:
 
-```
+```bash
 git clone https://github.com/aws-samples/sample-eks-docs.git
 cd sample-eks-docs/ai-ml/set-up-cluster
 ```
@@ -130,7 +129,7 @@ The repository provides two deployment paths. **Choose only one and use it throu
 **Grafana is publicly accessible over HTTP with default credentials**  
 The Grafana ALB `Ingress` defaults `var.my_cidr` to `0.0.0.0/0`, which exposes Grafana to the public internet over plain HTTP with default admin credentials. Automated scanners discover public load balancers within minutes. You **must** restrict access by overriding `var.my_cidr` with your own IP address:  
 
-```
+```bash
 export MY_CIDR="$(curl -s https://checkip.amazonaws.com)/32"
 terraform apply -var "my_cidr=${MY_CIDR}"
 ```
@@ -148,7 +147,7 @@ Run `terraform apply` directly, as shown in the following steps. Do not save a p
 ------
 #### [ EKS Auto Mode ]
 
-```
+```bash
 cd terraform/auto-mode
 terraform init
 terraform apply
@@ -159,7 +158,7 @@ This command takes a few minutes to complete.
 ------
 #### [ Self-managed Karpenter ]
 
-```
+```bash
 cd terraform/karpenter
 terraform init
 terraform apply
@@ -196,7 +195,7 @@ The preceding resource count is for the EKS Auto Mode path. The self-managed Kar
 
 Point `kubectl` at the new cluster. The `configure_kubectl` output is a ready-to-run command:
 
-```
+```bash
 eval "$(terraform output -raw configure_kubectl)"
 ```
 
@@ -206,13 +205,13 @@ eval "$(terraform output -raw configure_kubectl)"
 ------
 #### [ EKS Auto Mode ]
 
-```
+```bash
 kubectl get pods --all-namespaces
 ```
 
 Expected output:
 
-```
+```bash
 NAMESPACE     NAME                                                       READY   STATUS    RESTARTS   AGE
 kube-system   metrics-server-5db89f9ffd-h4mlr                            1/1     Running   0          3m
 kube-system   metrics-server-5db89f9ffd-nd748                            1/1     Running   0          3m
@@ -228,13 +227,13 @@ In EKS Auto Mode, the VPC CNI, kube-proxy, and CoreDNS run as managed components
 ------
 #### [ Self-managed Karpenter ]
 
-```
+```bash
 kubectl get pods --all-namespaces
 ```
 
 Expected output includes Karpenter, CoreDNS, kube-proxy, aws-node (VPC CNI), the Amazon EBS CSI driver, the EKS Pod Identity Agent, the EKS node monitoring agent, the AWS Load Balancer Controller, and the NVIDIA device plugin:
 
-```
+```bash
 NAMESPACE     NAME                                                              READY   STATUS    RESTARTS   AGE
 kube-system   aws-load-balancer-controller-56c454df76-bbt9h                     1/1     Running   0          5m
 kube-system   aws-load-balancer-controller-56c454df76-drdp6                     1/1     Running   0          5m
@@ -268,13 +267,13 @@ monitoring    prometheus-kube-prometheus-stack-prometheus-0                     
 
 Verify the NVIDIA device plugin is installed. Zero device plugin Pods appear until a GPU NodePool with the matching `amiFamily=al2023` label is provisioned:
 
-```
+```bash
 kubectl get daemonset nvidia-device-plugin -n kube-system
 ```
 
 Expected output:
 
-```
+```bash
 NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR      AGE
 nvidia-device-plugin   0         0         0       0            0           amiFamily=al2023   5m
 ```
@@ -293,7 +292,7 @@ This section covers verification of the deployed monitoring components.
 
 Wait for all monitoring pods to be ready:
 
-```
+```bash
 kubectl wait --for=condition=Ready pod --all -n monitoring --timeout=300s
 kubectl get pods -n monitoring
 ```
@@ -315,13 +314,13 @@ prometheus-kube-prometheus-stack-prometheus-0              2/2     Running   0  
 
 Grafana is exposed through an internet-facing AWS Application Load Balancer (ALB), restricted to the CIDR you set in `var.my_cidr`. Print the load balancer URL (allow a minute or two for the ALB to provision):
 
-```
+```bash
 echo "http://$(kubectl get ingress kube-prometheus-stack-grafana -n monitoring -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
 ```
 
 Open the URL in your browser. Log in with username `admin` and the password from the following command:
 
-```
+```bash
 kubectl --namespace monitoring get secrets kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
 ```
 
@@ -349,7 +348,7 @@ The DCGM Exporter DaemonSet runs on GPU nodes and reports GPU utilization, memor
 
 Verify the DCGM exporter DaemonSet:
 
-```
+```bash
 kubectl get daemonset dcgm-exporter -n monitoring
 ```
 
@@ -377,14 +376,14 @@ Terraform already created an Amazon S3 bucket for storing model weights, a `mode
 
 Retrieve the bucket name from Terraform outputs:
 
-```
+```bash
 MODEL_BUCKET=$(terraform output -raw model_bucket)
 echo ${MODEL_BUCKET}
 ```
 
 Verify the bucket exists:
 
-```
+```bash
 aws s3api head-bucket --bucket ${MODEL_BUCKET}
 ```
 
@@ -403,7 +402,7 @@ Expected output:
 
 Run a one-off Pod with the AWS CLI image, using the `model-storage-sa` ServiceAccount, to confirm EKS Pod Identity is wired up and S3 access works:
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
@@ -437,7 +436,7 @@ EOF
 
 Wait for the Pod to complete and check the logs:
 
-```
+```bash
 kubectl wait --for=jsonpath='{.status.phase}'=Succeeded pod/s3-test --timeout=300s
 kubectl logs s3-test
 ```
@@ -468,7 +467,7 @@ The caller identity confirms the Pod assumed the model storage role through EKS 
 
 Clean up the test Pod:
 
-```
+```bash
 kubectl delete pod s3-test
 ```
 
@@ -488,21 +487,21 @@ If you plan to continue with the next sections of this guide, skip the full clea
 
 Delete the test workloads from the GPU NodePool walkthrough first, so no Pod holds a GPU node while the nodes drain:
 
-```
+```bash
 kubectl delete pod nvidia-smi --ignore-not-found
 kubectl delete deployment gpu-overflow-test --ignore-not-found
 ```
 
 Drain the Karpenter-managed nodes before destroying, so no in-flight node lifecycle blocks the destroy. Delete any PodDisruptionBudgets that would prevent a drain, then delete the NodeClaims:
 
-```
+```bash
 kubectl delete pdb -A --all --ignore-not-found
 kubectl delete nodeclaim --all --wait=true --timeout=900s
 ```
 
 Next, delete the Grafana `Ingress` and wait for its load balancer to disappear. The AWS Load Balancer Controller creates that load balancer and its security groups in response to the `Ingress`, so Terraform does not track them. If they still exist when Terraform reaches the VPC, their network interfaces hold the public subnets, which stalls the destroy on the subnets, internet gateway, and VPC:
 
-```
+```bash
 kubectl delete ingress kube-prometheus-stack-grafana -n monitoring --ignore-not-found
 
 aws elbv2 describe-load-balancers \
@@ -515,7 +514,7 @@ The load balancer name is `grafana-ai-eks-docs` even if you overrode `cluster_na
 
 Wait until the second command returns an empty result, then destroy everything Terraform created, including the EKS cluster, the VPC, the monitoring stack, the NodePools and NodeClasses, the S3 model bucket, and any ODCR:
 
-```
+```bash
 terraform destroy
 ```
 
@@ -533,7 +532,7 @@ The repository also ships a `scripts/cleanup.sh` helper that deletes the PodDisr
 
 If the destroy stalls on `module.vpc.aws_vpc.this[0]` for more than a few minutes, a security group that the AWS Load Balancer Controller created is still in the VPC. The controller tags every security group it creates with `elbv2.k8s.aws/cluster`, so list only those, and then delete them:
 
-```
+```bash
 aws ec2 describe-security-groups \
   --region [.replaceable]`region-code` \
   --filters "Name=tag:elbv2.k8s.aws/cluster,Values=[.replaceable]`cluster-name`" \
@@ -550,7 +549,7 @@ The groups this returns are named `k8s-traffic-{{cluster-name}}- ` and `k8s-{{na
 
 Confirm no active Capacity Reservation remains for the cluster:
 
-```
+```bash
 aws ec2 describe-capacity-reservations \
   --filters "Name=state,Values=active" "Name=tag:nodepool,Values=reserved-spot-ondemand" \
   --query 'CapacityReservations[].CapacityReservationId' \
@@ -568,7 +567,7 @@ If you ever interrupted a `terraform apply` while it was creating the ODCR, Terr
 
 Confirm the cluster, its nodes, its VPC, and the model bucket are gone. Run each command against the Region you deployed to, replacing {{cluster-name}} with the value of `cluster_name` you deployed with, which defaults to `ai-eks-docs`:
 
-```
+```bash
 aws eks list-clusters --region [.replaceable]`region-code`
 
 aws ec2 describe-instances \

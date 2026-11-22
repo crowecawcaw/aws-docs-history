@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Add flexibility to plan Kubernetes version upgrades by enabling EKS extended support
-<a name="enable-extended-support"></a>
 
 This topic describes how to set the *upgrade policy* of an EKS cluster to enable extended support. The upgrade policy of an EKS cluster determines what happens when a cluster reaches the end of the standard *support period*. If a cluster upgrade policy has extended support enabled, it will enter the extended support period at the end of the standard support period. The cluster will not be automatically upgraded at the end of the standard support period.
 
@@ -38,7 +37,7 @@ If you do not enable extended support, your cluster will be automatically upgrad
 
 1. Run the following command:
 
-   ```
+   ```bash
    aws eks update-cluster-config \
    --name <cluster-name> \
    --upgrade-policy supportType=EXTENDED

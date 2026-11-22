@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Grant the EKS Auto Mode load balancer controller access to a specific Secret
-<a name="auto-managed-rbac-example"></a>
 
 In this tutorial, you grant the Amazon EKS Auto Mode load balancer controller read access to a specific Kubernetes `Secret`. This unblocks OpenID Connect (OIDC) authentication on an Application Load Balancer (ALB) `Ingress`. You use a namespace-scoped `Role` and `RoleBinding` targeted at the `eks:managed` group.
 
@@ -13,7 +12,7 @@ This tutorial takes approximately 15 minutes to complete. The Kubernetes role-ba
 
 The Amazon EKS Auto Mode load balancer controller supports OIDC authentication on ALB `Ingress` objects. It uses the `alb.ingress.kubernetes.io/auth-type: oidc` annotation to enable this authentication. To resolve the OIDC configuration, the controller reads a Kubernetes `Secret` named in the `alb.ingress.kubernetes.io/auth-idp-oidc` annotation. Its managed access policy does not currently grant `get` on `Secret` objects, so the reconciler fails with a message similar to:
 
-```
+```text
 Failed build model due to ingress: <ns>/<name>:
   secrets "<secret>" is forbidden:
   User "arn:aws:sts::<acct>:assumed-role/AWSServiceRoleForAmazonEKS/<session>"
@@ -36,7 +35,7 @@ Before you begin, make sure you have:
 
 The OIDC configuration on an ALB `Ingress` looks like the following. Record the `Secret` name and the `Ingress` namespace — the RBAC objects must live in the same namespace as the `Secret`.
 
-```
+```yaml
 annotations:
   alb.ingress.kubernetes.io/auth-type: oidc
   alb.ingress.kubernetes.io/auth-idp-oidc: >
@@ -56,7 +55,7 @@ The rest of this example uses namespace `monitoring` and `Secret` name `oidc`.
 
 This form grants exactly `get` on exactly the named `Secret` in exactly one namespace. Save the following as `eks-managed-oidc-secret-reader.yaml`:
 
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -85,7 +84,7 @@ roleRef:
 
 Apply it:
 
-```
+```bash
 kubectl apply -f eks-managed-oidc-secret-reader.yaml
 ```
 
@@ -104,7 +103,7 @@ Keep the `Role` and `RoleBinding` in place for as long as the ALB `Ingress` uses
 
 If you stop using OIDC on the `Ingress`, remove the grant:
 
-```
+```bash
 kubectl delete rolebinding eks-managed-oidc-secret-reader -n monitoring
 kubectl delete role        eks-managed-oidc-secret-reader -n monitoring
 ```

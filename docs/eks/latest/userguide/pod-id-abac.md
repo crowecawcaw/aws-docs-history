@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Grant Pods access to AWS resources based on tags
-<a name="pod-id-abac"></a>
 
 Attribute-based access control (ABAC) grants rights to users through policies which combine attributes together. EKS Pod Identity attaches tags to the temporary credentials to each Pod with attributes such as cluster name, namespace, and service account name. These role session tags enable administrators to author a single role that can work across service accounts by allowing access to AWS resources based on matching tags. By adding support for role session tags, you can enforce tighter security boundaries between clusters, and workloads within clusters, while reusing the same IAM roles and IAM policies.
 
@@ -14,7 +13,7 @@ Attribute-based access control (ABAC) grants rights to users through policies wh
 
 Below is an IAM policy example that grants `s3:GetObject` permissions when the corresponding object is tagged with the EKS cluster name.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create a Node Pool for EKS Auto Mode
-<a name="create-node-pool"></a>
 
 Amazon EKS node pools offer a flexible way to manage compute resources in your Kubernetes cluster. This topic demonstrates how to create and configure node pools by using Karpenter, a node provisioning tool that helps optimize cluster scaling and resource utilization. With Karpenter’s NodePool resource, you can define specific requirements for your compute resources, including instance types, availability zones, architectures, and capacity types.
 
@@ -24,19 +23,19 @@ Follow these steps to create a NodePool for your Amazon EKS cluster:
 
 1. Apply the NodePool to your cluster:
 
-   ```
+   ```bash
    kubectl apply -f nodepool.yaml
    ```
 
 1. Verify that the NodePool was created successfully:
 
-   ```
+   ```bash
    kubectl get nodepools
    ```
 
 1. (Optional) Monitor the NodePool status:
 
-   ```
+   ```bash
    kubectl describe nodepool default
    ```
 
@@ -45,7 +44,7 @@ Ensure that your NodePool references a valid NodeClass that exists in your clust
 ## Sample NodePool
 <a name="_sample_nodepool"></a>
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -159,7 +158,7 @@ When you create a cluster without built-in node pools, the `default` NodeClass i
 1. Create an EKS cluster with both `nodePools` and `nodeRoleArn` values empty.
    + Sample eksctl `autoModeConfig`:
 
-     ```
+     ```yaml
      autoModeConfig:
        enabled: true
        nodePools: []

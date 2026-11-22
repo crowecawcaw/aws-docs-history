@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # View a preview of pull request content
-<a name="pr-preview"></a>
 
 The Amazon EKS User Guide GitHub is configured to build and generate a preview of the docs site. This preview doesn’t have the full AWS theme, but it does check the content builds properly and links work.
 

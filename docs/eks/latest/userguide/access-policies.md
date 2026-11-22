@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Associate access policies with access entries
-<a name="access-policies"></a>
 
 You can assign one or more access policies to *access entries* of *type* `STANDARD`. Amazon EKS automatically grants the other types of access entries the permissions required to function properly in your cluster. Amazon EKS access policies include Kubernetes permissions, not IAM permissions. Before associating an access policy to an access entry, make sure that you’re familiar with the Kubernetes permissions included in each access policy. For more information, see [Review access policy permissions](access-policy-permissions.md). If none of the access policies meet your requirements, then don’t associate an access policy to an access entry. Instead, specify one or more *group names* for the access entry and create and manage Kubernetes role-based access control objects. For more information, see [Create access entries](creating-access-entries.md).
 + An existing access entry. To create one, see [Create access entries](creating-access-entries.md).
@@ -14,6 +13,7 @@ You can assign one or more access policies to *access entries* of *type* `STANDA
 Before associating access policies with access entries, consider the following requirements:
 + You can associate multiple access policies to each access entry, but you can only associate each policy to an access entry once. If you associate multiple access policies, the access entry’s IAM principal has all permissions included in all associated access policies.
 + You can scope an access policy to all resources on a cluster or by specifying the name of one or more Kubernetes namespaces. You can use wildcard characters for a namespace name. For example, if you want to scope an access policy to all namespaces that start with `dev-`, you can specify `dev-*` as a namespace name. Make sure that the namespaces exist on your cluster and that your spelling matches the actual namespace name on the cluster. Amazon EKS doesn’t confirm the spelling or existence of the namespaces on your cluster.
++ If you restrict namespaces with the `eks:namespaces` IAM condition key, then use an allowlist instead of a denylist. IAM evaluates the namespace value in your request as a literal string. As a result, a `Deny` for `kube-system` doesn’t block `kube-*`, `\*`, or a `cluster` access scope. For more information, see [Restrict namespace scope with IAM policies](#access-policies-restrict-namespaces).
 + You can change the *access scope* for an access policy after you associate it to an access entry. If you’ve scoped the access policy to Kubernetes namespaces, you can add and remove namespaces for the association, as necessary.
 + If you associate an access policy to an access entry that also has *group names* specified, then the IAM principal has all the permissions in all associated access policies. It also has all the permissions in any Kubernetes `Role` or `ClusterRole` object that is specified in any Kubernetes `Role` and `RoleBinding` objects that specify the group names.
 + If you run the `kubectl auth can-i --list` command, you won’t see any Kubernetes permissions assigned by access policies associated with an access entry for the IAM principal you’re using when you run the command. The command only shows Kubernetes permissions if you’ve granted them in Kubernetes `Role` or `ClusterRole` objects that you’ve bound to the group names or username that you specified for an access entry.
@@ -47,13 +47,13 @@ You can associate an access policy to an access entry using the AWS Management C
 
 1. View the available access policies.
 
-   ```
+   ```bash
    aws eks list-access-policies --output table
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    ---------------------------------------------------------------------------------------------------------
    |                                          ListAccessPolicies                                           |
    +-------------------------------------------------------------------------------------------------------+
@@ -72,13 +72,13 @@ You can associate an access policy to an access entry using the AWS Management C
 
 1. View your existing access entries. Replace {{my-cluster}} with the name of your cluster.
 
-   ```
+   ```bash
    aws eks list-access-entries --cluster-name my-cluster
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    {
        "accessEntries": [
            "arn:aws:iam::111122223333:role/my-role",
@@ -89,7 +89,7 @@ You can associate an access policy to an access entry using the AWS Management C
 
 1. Associate an access policy to an access entry. The following example associates the `AmazonEKSViewPolicy` access policy to an access entry. Whenever the {{my-role}} IAM role attempts to access Kubernetes objects on the cluster, Amazon EKS will authorize the role to use the permissions in the policy to access Kubernetes objects in the {{my-namespace1}} and {{my-namespace2}} Kubernetes namespaces only. Replace {{my-cluster}} with the name of your cluster, {{111122223333}} with your AWS account ID, and {{my-role}} with the name of the IAM role that you want Amazon EKS to authorize access to Kubernetes cluster objects for.
 
-   ```
+   ```bash
    aws eks associate-access-policy --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role \
        --access-scope type=namespace,namespaces=my-namespace1,my-namespace2 --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy
    ```
@@ -100,13 +100,13 @@ If you later want to change the scope of an associated access policy, run the pr
 
 1. Determine which access policies are associated to an access entry.
 
-   ```
+   ```bash
    aws eks list-associated-access-policies --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    {
        "clusterName": "my-cluster",
        "principalArn": "arn:aws:iam::111122223333:role/my-role",
@@ -140,9 +140,91 @@ If you later want to change the scope of an associated access policy, run the pr
 
 1. Disassociate an access policy from an access entry. In this example, the `AmazonEKSAdminPolicy` policy is disassociated from an access entry. The IAM principal retains the permissions in the `AmazonEKSViewPolicy` access policy for objects in the {{my-namespace1}} and {{my-namespace2}} namespaces however, because that access policy is not disassociated from the access entry.
 
-   ```
+   ```bash
    aws eks disassociate-access-policy --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role \
        --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy
    ```
 
 To list available access policies, see [Review access policy permissions](access-policy-permissions.md).
+
+## Restrict namespace scope with IAM policies
+<a name="access-policies-restrict-namespaces"></a>
+
+Before you begin, make sure that you understand how the `eks:namespaces` condition key is evaluated, and identify the namespaces that each IAM principal needs.
+
+When you request an access scope, IAM evaluates each namespace value in your request as a literal string, but your cluster treats that same value as a wildcard pattern. As a result, a `Deny` for a single namespace doesn’t block the wildcards that match it, as shown in the following table.
+
+
+| Namespace value in your request | Blocked by a `Deny` for `kube-system`? | Reason | 
+| --- | --- | --- | 
+|  `kube-system`  | Yes | The value in your request exactly matches the value in the policy. | 
+|  `kube-\*`  | No | IAM compares the literal string `kube-*`, which doesn’t equal `kube-system`. Your cluster then expands `kube-\*` to include `kube-system`. | 
+|  `\*`  | No | IAM compares the literal string `*`, which doesn’t equal `kube-system`. Your cluster then expands `\*` to all namespaces. | 
+| None, for a `cluster` access scope | No | Your request includes no namespaces, so the `eks:namespaces` key is absent and the condition doesn’t match. | 
+
+Don’t use a denylist. Instead, allow only the values that you want the principal to use. In the following IAM policy example, replace `team-a` and `team-a-\*` with the namespaces that you want to allow:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "eks:AssociateAccessPolicy",
+            "Resource": "*",
+            "Condition": {
+                "ForAllValues:StringLike": {
+                    "eks:namespaces": ["team-a", "team-a-*"]
+                },
+                "Null": {
+                    "eks:namespaces": "false"
+                }
+            }
+        }
+    ]
+}
+```
+
+The preceding policy uses the following elements:
++ Namespace values – Replace `team-a` and `team-a-*` with the namespaces that you want to allow. Use `StringLike` instead of `StringEquals` so that `team-a-\*` matches every namespace that begins with `team-a-`, such as `team-a-dev`. If you use `StringEquals`, IAM matches only the literal value `team-a-\*`.
++  `ForAllValues:StringLike` – Requires every namespace in your request to match one of the values in the policy. If your request includes even one other namespace, IAM denies it.
++  `Null` condition set to `false` – Requires your request to include at least one namespace. This blocks `cluster` access scope requests, which include no namespaces.
+
+Because IAM evaluates the value in your request literally, a principal can’t widen its scope by requesting a broader wildcard. A value such as `*` or `k\*` doesn’t match the pattern `team-a-\*`. Any value that does match must begin with `team-a-`, so your cluster can only expand it to namespaces under that prefix.
+
+**Important**  
+Use only the `*` wildcard character in your policy values. A policy value of `team-?` also allows a request for `team-\*`, which your cluster expands to `team-a`, `team-b`, `team-a-dev`, and `team-b-prod`.
+
+If the principal has broader permissions, such as `eks:*`, then use `Deny` statements so that other policies can’t override the restriction. The following IAM policy example denies any request that includes a namespace outside of `team-a` and `team-a-\*`, and denies `cluster` access scope requests:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": "eks:AssociateAccessPolicy",
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:StringNotLike": {
+                    "eks:namespaces": ["team-a", "team-a-*"]
+                }
+            }
+        },
+        {
+            "Effect": "Deny",
+            "Action": "eks:AssociateAccessPolicy",
+            "Resource": "*",
+            "Condition": {
+                "Null": {
+                    "eks:namespaces": "true"
+                }
+            }
+        }
+    ]
+}
+```
+
+The preceding policy uses the following elements:
++  `ForAnyValue:StringNotLike` – Denies your request if any namespace in it doesn’t match one of the values in the policy.
++  `Null` condition set to `true` – Denies your request if it includes no namespaces. You need a second statement for this condition, because the first statement doesn’t apply when the `eks:namespaces` key is absent from your request.

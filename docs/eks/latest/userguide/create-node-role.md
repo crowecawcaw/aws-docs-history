@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS node IAM role
-<a name="create-node-role"></a>
 
 The Amazon EKS node `kubelet` daemon makes calls to AWS APIs on your behalf. Nodes receive permissions for these API calls through an IAM instance profile and associated policies. Before you can launch nodes and register them into a cluster, you must create an IAM role for those nodes to use when they are launched. This requirement applies to nodes launched with the Amazon EKS optimized AMI provided by Amazon, or with any other node AMIs that you intend to use. Additionally, this requirement applies to both managed node groups and self-managed nodes.
 
@@ -43,7 +42,7 @@ If the **AmazonEKS\_CNI\_Policy** policy is attached to the role, we recommend r
 
 1. Verify that the trust relationship contains the following policy. If the trust relationship matches the following policy, choose **Cancel**. If the trust relationship doesn’t match, copy the policy into the **Edit trust policy** window and choose **Update policy**.
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -113,7 +112,7 @@ You can create the node IAM role with the AWS Management Console or the AWS CLI.
 
 1. Run the following command to create the `node-role-trust-relationship.json` file.
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -134,7 +133,7 @@ You can create the node IAM role with the AWS Management Console or the AWS CLI.
 
 1. Create the IAM role.
 
-   ```
+   ```bash
    aws iam create-role \
      --role-name AmazonEKSNodeRole \
      --assume-role-policy-document file://"node-role-trust-relationship.json"
@@ -142,7 +141,7 @@ You can create the node IAM role with the AWS Management Console or the AWS CLI.
 
 1. Attach two required IAM managed policies to the IAM role.
 
-   ```
+   ```bash
    aws iam attach-role-policy \
      --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy \
      --role-name AmazonEKSNodeRole
@@ -154,7 +153,7 @@ You can create the node IAM role with the AWS Management Console or the AWS CLI.
 1. Attach one of the following IAM policies to the IAM role depending on which IP family you created your cluster with. The policy must be attached to this role or to a role associated to the Kubernetes `aws-node` service account that’s used for the Amazon VPC CNI plugin for Kubernetes. We recommend assigning the policy to the role associated to the Kubernetes service account. To assign the policy to the role associated to the Kubernetes service account, see [Configure Amazon VPC CNI plugin to use IRSA](cni-iam-role.md).
    + IPv4
 
-     ```
+     ```bash
      aws iam attach-role-policy \
        --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy \
        --role-name AmazonEKSNodeRole
@@ -163,7 +162,7 @@ You can create the node IAM role with the AWS Management Console or the AWS CLI.
 
      1. Copy the following text and save it to a file named `vpc-cni-ipv6-policy.json`.
 
-        ```
+        ```json
         {
             "Version":"2012-10-17",		 	 	 
             "Statement": [
@@ -193,13 +192,13 @@ You can create the node IAM role with the AWS Management Console or the AWS CLI.
 
      1. Create the IAM policy.
 
-        ```
+        ```bash
         aws iam create-policy --policy-name AmazonEKS_CNI_IPv6_Policy --policy-document file://vpc-cni-ipv6-policy.json
         ```
 
      1. Attach the IAM policy to the IAM role. Replace {{111122223333}} with your account ID.
 
-        ```
+        ```bash
         aws iam attach-role-policy \
           --policy-arn arn:aws:iam::111122223333:policy/AmazonEKS_CNI_IPv6_Policy \
           --role-name AmazonEKSNodeRole

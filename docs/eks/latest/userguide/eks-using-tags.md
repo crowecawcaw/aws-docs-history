@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Organize Amazon EKS resources with tags
-<a name="eks-using-tags"></a>
 
 You can use *tags* to help you manage your Amazon EKS resources. This topic provides an overview of the tags function and shows how you can create tags.
 
@@ -131,21 +130,21 @@ The following examples show how to tag or untag resources using the AWS CLI.
 **Example 1: Tag an existing cluster**  
 The following command tags an existing cluster.
 
-```
+```bash
 aws eks tag-resource --resource-arn resource_ARN --tags team=devs
 ```
 
 **Example 2: Untag an existing cluster**  
 The following command deletes a tag from an existing cluster.
 
-```
+```bash
 aws eks untag-resource --resource-arn resource_ARN --tag-keys tag_key
 ```
 
 **Example 3: List tags for a resource**  
 The following command lists the tags that are associated with an existing resource.
 
-```
+```bash
 aws eks list-tags-for-resource --resource-arn resource_ARN
 ```
 

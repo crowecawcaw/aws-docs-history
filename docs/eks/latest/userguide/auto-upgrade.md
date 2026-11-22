@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Update the Kubernetes Version of an EKS Auto Mode cluster
-<a name="auto-upgrade"></a>
 
 This topic explains how to update the Kubernetes version of your Auto Mode cluster. Auto Mode simplifies the version update process by handling the coordination of control plane updates with node replacements, while maintaining workload availability through pod disruption budgets.
 

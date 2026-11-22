@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Place distributed AI/ML workloads with network topology labels
-<a name="ml-workload-topology"></a>
 
 ## Overview
 <a name="_overview"></a>
@@ -71,7 +70,7 @@ Not every size within a family is supported. For the authoritative per-size list
 
 Display the topology labels as columns to see how your fleet is grouped:
 
-```
+```bash
 kubectl get nodes \
   -L node.kubernetes.io/instance-type \
   -L topology.k8s.aws/zone-id \
@@ -84,7 +83,7 @@ If you run a four-layer family, add `-L topology.k8s.aws/network-node-layer-4` t
 
 An example response from a cluster with one `g7e.12xlarge` node and one `m5.large` node, both in the same Availability Zone. The `g7e` node reports all three layers. The `m5.large` node is in the same zone but is not a supported instance type, so it has no topology labels at all.
 
-```
+```bash
 NAME                  INSTANCE-TYPE   ZONE-ID    NETWORK-NODE-LAYER-1   NETWORK-NODE-LAYER-2   NETWORK-NODE-LAYER-3
 i-0018afcc092475f5e   g7e.12xlarge    usw2-az3   nn-e50490a237cb0f01a   nn-92a6a64ff2aef5492   nn-bb8ee55d5c5a78452
 i-0bdc4d83b3f8a6263   m5.large        usw2-az3
@@ -94,7 +93,7 @@ Nodes whose bottom-layer value is identical are the closest together that the to
 
 Count the nodes in each bottom-layer domain to find the largest group a job could fit into. On a four-layer family, substitute `network-node-layer-4`:
 
-```
+```bash
 kubectl get nodes \
   -o jsonpath='{range .items[*]}{.metadata.labels.topology\.k8s\.aws/network-node-layer-3}{"\n"}{end}' \
   | sort | uniq -c | sort -rn
@@ -107,7 +106,7 @@ Use Pod affinity with the bottom-layer label as the `topologyKey`. Each Pod is t
 
 Because the label selector matches the Pods' own label, the first Pod has nothing to attract it and schedules onto any eligible node. Every later Pod is confined to that Pod’s domain. The domain is therefore chosen by wherever the first Pod lands, not by you; to choose it yourself, see [Step 3: Pin a job to a specific network domain](#ml-workload-topology-pin).
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -149,7 +148,7 @@ A node that does not carry the `topologyKey` label is not a candidate for a Pod 
 
 When a job must run alongside capacity that is already placed, for example to join nodes that an earlier job left behind, require the specific bottom-layer value with node affinity. In this example, replace `nn-bb8ee55d5c5a78452` with a value that Step 1 reported for your own nodes.
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -171,7 +170,7 @@ spec:
 
 Make the constraint a preference instead if you would rather have the job start on distant nodes than not start at all:
 
-```
+```yaml
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -195,7 +194,7 @@ Capacity Blocks for ML and P6e-GB200 UltraServers give you a contiguous, pre-pla
 Each of the following snippets is a pair of `matchExpressions` entries. Add them to a `nodeAffinity` block built like the one in Step 3, in place of that example’s single expression.
 +  **EKS managed node groups and self-managed nodes** — There is no node label for the reservation. Match the bottom network-node layer, narrowed to Capacity Block capacity:
 
-  ```
+  ```yaml
                 - key: eks.amazonaws.com/capacityType
                   operator: In
                   values: ["CAPACITY_BLOCK"]
@@ -205,7 +204,7 @@ Each of the following snippets is a pair of `matchExpressions` entries. Add them
   ```
 +  **EKS Auto Mode and Karpenter** — Match the reservation directly. Nodes launched from a reservation that a NodeClass selected carry `karpenter.sh/capacity-type: reserved` plus a capacity reservation ID label: `eks.amazonaws.com/capacity-reservation-id` on EKS Auto Mode, and `karpenter.k8s.aws/capacity-reservation-id` on Karpenter.
 
-  ```
+  ```yaml
                 - key: karpenter.sh/capacity-type
                   operator: In
                   values: ["reserved"]

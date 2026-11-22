@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Review EKS Auto Mode release notes
-<a name="auto-change"></a>
 
 This page documents updates to Amazon EKS Auto Mode. You can periodically check this page for announcements about features, bug fixes, known issues, and deprecated functionality.
 
@@ -20,7 +19,7 @@ https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/auto
 
  **Feature**: Amazon EKS Auto Mode now supports Nitro Sandboxes, which run isolated and confidential pods inside hardware-isolated virtual machines on the AWS Nitro System. Auto Mode includes Nitro Sandbox support with no additional configuration. You do not build or manage an AMI. Set `runtimeClassName` to `isolated-sandbox` or `confidential-sandbox` on the pod. Auto Mode then provisions a node on a supported instance type with Nitro Enclaves enabled and runs the pod in a Nitro Sandbox.
 + Isolated pods (`isolated-sandbox`): Protect the node and other pods from a compromised workload. The parent instance is trusted.
-+ Confidential pods (`confidential-sandbox`): Protect workload data from the node operator or a compromised parent instance. A Cedar policy pins container admission, and you gate AWS KMS access on attestation.
++ Confidential pods (`confidential-sandbox`): Protect workload data from cluster administrators, node administrators, or a compromised parent instance. A Cedar policy pins container admission, and you gate AWS KMS access on attestation.
 + Additional protections: Nitro Sandboxes provide per-pod policy enforcement, encrypted container images, and image signature verification with AWS Signer.
 
 Nitro Sandboxes with EKS Auto Mode requires Kubernetes version 1.36 or later.
@@ -83,7 +82,7 @@ Advanced compute configuration is available in all AWS Regions where EKS Auto Mo
 
 To keep the previous default behavior on a new EKS 1.37 Auto Mode Node Pool, set it explicitly:
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:

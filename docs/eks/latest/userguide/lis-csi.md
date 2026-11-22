@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EC2 instance store for Kubernetes volume storage
-<a name="lis-csi"></a>
 
 The Amazon EC2 Instance Store CSI driver is a Container Storage Interface (CSI) plugin that enables Kubernetes to use EC2 instance store volumes. Instance store volumes provide ephemeral block-level storage that is physically attached to the host computer. The driver manages the lifecycle of these NVMe storage volumes and makes them available as Kubernetes [persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 
@@ -31,7 +30,7 @@ The Amazon EC2 Instance Store CSI driver will erase all data on ephemeral disks 
 Before you begin, make sure you have the following:
 + An existing Amazon EKS cluster. To see all available versions of the add-on, run the following AWS CLI command:
 
-  ```
+  ```bash
   aws eks describe-addon-versions --addon-name aws-ec2-local-instance-store-csi-driver
   ```
 
@@ -74,7 +73,7 @@ The following table shows how the StorageClass parameter and PVC annotation inte
 
 To disable throttling for all volumes in a StorageClass:
 
-```
+```yaml
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -90,7 +89,7 @@ volumeBindingMode: WaitForFirstConsumer
 
 To disable throttling on an individual PVC while using a throttled StorageClass:
 
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -123,10 +122,14 @@ Newly launched EC2 instances with local instance storage have updated NVMe Ident
 <a name="_updated_field_values"></a>
 
 The following fields have changed on newly launched instances compared to older instances of the same type:
+
+<a name="_identify_controller_nvme_id_ctrl"></a>**Identify Controller (`nvme id-ctrl`)**
 + Bit 3 of OACS: changed from 0 to 1
 + Bit 8 of OAES: changed from 0 to 1
 + NN: changed from 1 to a value <= 256
 + TNVMCAP: changed from 0 to the actual size of the local storage
+
+<a name="_identify_namespace_nvme_id_ns"></a>**Identify Namespace (`nvme id-ns`)**
 + NVMCAP: changed from 0 to the actual size of the local storage
 + NGUID: changed from all zeros to a valid NGUID
 
@@ -137,7 +140,7 @@ All updated values conform to the NVMe specification.
 
 These changes apply exclusively to EC2 local instance storage. Amazon EBS volumes are not affected. To distinguish between EBS volumes and local instance storage, run the following command:
 
-```
+```bash
 sudo nvme list
 ```
 
@@ -150,7 +153,7 @@ In the output:
 
 To query these values using `nvme-cli`:
 
-```
+```bash
 # Identify Controller
 sudo nvme id-ctrl /dev/nvme1
 

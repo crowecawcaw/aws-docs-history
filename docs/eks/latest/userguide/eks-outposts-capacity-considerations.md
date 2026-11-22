@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Select instance types and placement groups for Amazon EKS clusters on AWS Outposts based on capacity considerations
-<a name="eks-outposts-capacity-considerations"></a>
 
 This topic provides guidance for selecting the Kubernetes control plane instance type and (optionally) using placement groups to meet high-availability requirements for your local Amazon EKS cluster on an Outpost.
 

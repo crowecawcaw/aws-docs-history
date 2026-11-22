@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Continuous Deployment with Argo CD
-<a name="argocd"></a>
 
 Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. With Argo CD, you can automate the deployment and lifecycle management of your applications across multiple clusters and environments. Argo CD supports multiple source types including Git repositories, Helm registries (HTTP and OCI), and OCI images—providing flexibility for organizations with different security and compliance requirements.
 
@@ -28,7 +27,7 @@ Argo CD provides three primary resource types:
 
 The following example shows how to create an Argo CD `Application` resource:
 
-```
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:

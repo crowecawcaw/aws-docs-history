@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create a kro capability using the Console
-<a name="kro-create-console"></a>
 
 Create a kro capability on your Amazon EKS cluster using the AWS Management Console.
 
@@ -92,7 +91,7 @@ You should see the `ResourceGraphDefinition` resource type listed.
 
  **Using kubectl** 
 
-```
+```bash
 kubectl api-resources | grep kro.run
 ```
 

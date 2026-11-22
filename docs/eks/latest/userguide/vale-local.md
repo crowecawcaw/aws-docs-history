@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # View style feedback as you type by installing Vale locally
-<a name="vale-local"></a>
 
 You can see style feedback as you type. This helps identify awkward writing and typos.
 
@@ -48,7 +47,7 @@ Vale uses the `.vale.ini` configuration file in your project root to determine w
 
 1. Run the command:
 
-   ```
+   ```bash
    vale sync
    ```
 

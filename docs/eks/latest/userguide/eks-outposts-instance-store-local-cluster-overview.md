@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Overview of local Amazon EKS clusters on AWS Outposts configured with EC2 instance store
-<a name="eks-outposts-instance-store-local-cluster-overview"></a>
 
 You can use local clusters to run your entire Amazon EKS cluster locally on AWS Outposts. This helps mitigate the risk of application downtime that might result from temporary network disconnects to the cloud and can help address data residency requirements. Because the entire Kubernetes cluster runs locally on Outposts, applications remain available, and you can perform cluster operations during network disconnects from the cloud.
 

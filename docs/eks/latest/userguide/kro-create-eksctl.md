@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create a kro capability using eksctl
-<a name="kro-create-eksctl"></a>
 
 Create a kro capability on your Amazon EKS cluster using eksctl.
 
@@ -17,7 +16,7 @@ The following steps require eksctl version `0.215.0` or later. To check your ver
 
 Create a trust policy file:
 
-```
+```bash
 cat > kro-trust-policy.json << 'EOF'
 {
   "Version": "2012-10-17",		 	 	 
@@ -39,7 +38,7 @@ EOF
 
 Create the IAM role:
 
-```
+```bash
 aws iam create-role \
   --role-name KROCapabilityRole \
   --assume-role-policy-document file://kro-trust-policy.json
@@ -53,7 +52,7 @@ Unlike ACK and Argo CD, kro does not require additional IAM permissions beyond t
 
 Create the kro capability using eksctl. Replace {{region-code}} with the AWS Region that your cluster is in and replace {{my-cluster}} with the name of your cluster.
 
-```
+```bash
 eksctl create capability \
   --region {{region-code}} \
   --cluster {{my-cluster}} \
@@ -69,7 +68,7 @@ The command returns immediately, but the capability takes some time to become ac
 
 Check the capability status. Replace {{region-code}} with the AWS Region that your cluster is in and replace {{my-cluster}} with the name of your cluster.
 
-```
+```bash
 eksctl get capability \
   --region {{region-code}} \
   --cluster {{my-cluster}} \
@@ -85,7 +84,7 @@ By default, kro can only create and manage ResourceGraphDefinitions and their in
 
 Get the capability role ARN:
 
-```
+```bash
 CAPABILITY_ROLE_ARN=$(aws eks describe-capability \
   --region {{region-code}} \
   --cluster-name {{my-cluster}} \
@@ -96,7 +95,7 @@ CAPABILITY_ROLE_ARN=$(aws eks describe-capability \
 
 Associate the cluster admin policy:
 
-```
+```bash
 aws eks associate-access-policy \
   --region {{region-code}} \
   --cluster-name {{my-cluster}} \
@@ -113,7 +112,7 @@ The `AmazonEKSClusterAdminPolicy` grants broad permissions to create and manage 
 
 After the capability is active, verify that kro custom resources are available in your cluster:
 
-```
+```bash
 kubectl api-resources | grep kro.run
 ```
 

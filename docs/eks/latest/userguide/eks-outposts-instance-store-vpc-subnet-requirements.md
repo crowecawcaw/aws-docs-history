@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create a VPC and subnets for Amazon EKS local clusters on AWS Outposts configured with EC2 instance store
-<a name="eks-outposts-instance-store-vpc-subnet-requirements"></a>
 
 When you create a local cluster, you specify a VPC and at least one private subnet that runs on Outposts. This topic provides an overview of the VPC and subnet requirements for your local cluster.
 

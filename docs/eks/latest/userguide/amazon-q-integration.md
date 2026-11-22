@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Use AWS assistant on the Amazon EKS console
-<a name="amazon-q-integration"></a>
 
 Amazon Elastic Kubernetes Service (EKS) integrates with the AWS assistant to provide AI-powered troubleshooting directly in the AWS Management Console. This integration helps you quickly investigate and resolve cluster, control plane, node, and workload issues with AI assistance from the AWS assistant.
 

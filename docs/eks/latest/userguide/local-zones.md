@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Launch low-latency EKS clusters with AWS Local Zones
-<a name="local-zones"></a>
 
 An [AWS Local Zone](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) is an extension of an AWS Region in geographic proximity to your users. Local Zones have their own connections to the internet and support [AWS Direct Connect](https://aws.amazon.com/directconnect/). Resources created in a Local Zone can serve local users with low-latency communications. For more information, see the [AWS Local Zones User Guide](https://docs.aws.amazon.com/local-zones/latest/ug/what-is-aws-local-zones.html) and [Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones) in the *Amazon EC2 User Guide*.
 

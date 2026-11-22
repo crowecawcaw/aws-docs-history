@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure the Amazon EKS node monitoring agent
-<a name="node-monitoring-agent-configure"></a>
 
 The EKS node monitoring agent is deployed as a DaemonSet. For the node health issues that the agent detects, see [Detect node health issues with the EKS node monitoring agent](node-health-nma.md).
 
@@ -43,7 +42,7 @@ These configuration values apply to agent version `v1.6.0` (add-on version `v1.6
 
 You can pass any of the agent’s command-line arguments that don’t have a dedicated configuration value, such as `hostname-override` and `verbosity`, through `nodeAgent.additionalArgs` with EKS add-ons or a Helm installation.
 
-```
+```bash
 aws eks update-addon \
   --cluster-name my-cluster \
   --addon-name eks-node-monitoring-agent \
@@ -93,7 +92,7 @@ You can also set `global.podLabels` and `global.podAnnotations` to apply labels 
 
 If you run an agent version earlier than `v1.7.3`, the following AWS CLI example updates the add-on so that `dcgm-server` tolerates the `nvidia.com/gpu` taint. If your GPU nodes carry a custom taint, replace the `key` value with the key of that taint.
 
-```
+```bash
 aws eks update-addon \
   --cluster-name my-cluster \
   --addon-name eks-node-monitoring-agent \
@@ -102,7 +101,7 @@ aws eks update-addon \
 
 After the add-on update completes, verify that a `dcgm-server` Pod is running on each GPU node.
 
-```
+```bash
 kubectl get pods -n kube-system -l k8s-app=dcgm-server -o wide
 ```
 
@@ -123,7 +122,7 @@ To use an existing host engine, set the following configuration values.
 
 The following example points the agent at the GPU Operator’s `nvidia-dcgm` Service.
 
-```
+```json
 {
   "dcgmAgent": {
     "enabled": false
@@ -137,7 +136,7 @@ The following example points the agent at the GPU Operator’s `nvidia-dcgm` Ser
 
 Apply it to the EKS add-on with the following command.
 
-```
+```bash
 aws eks update-addon \
   --cluster-name my-cluster \
   --addon-name eks-node-monitoring-agent \
@@ -146,7 +145,7 @@ aws eks update-addon \
 
 After the update completes, confirm that the agent reports GPU health through the external host engine. Your GPU nodes should report `AcceleratedHardwareReady=True`, and no `dcgm-server` Pods should be running.
 
-```
+```bash
 kubectl get pods -n kube-system -l k8s-app=dcgm-server
 kubectl get nodes -o custom-columns='NAME:.metadata.name,ACCEL:.status.conditions[?(@.type=="AcceleratedHardwareReady")].status,REASON:.status.conditions[?(@.type=="AcceleratedHardwareReady")].reason'
 ```
@@ -156,7 +155,7 @@ If you set `dcgmAgent.enabled` to `false` without providing a reachable `nodeAge
 
 To disable GPU health monitoring entirely rather than redirect it, disable the bundled server and the NVIDIA monitor together. Disabling the server alone leaves the monitor registered, which produces the `DCGMError` condition described previously.
 
-```
+```json
 {
   "dcgmAgent": {
     "enabled": false
@@ -178,7 +177,7 @@ You can use the following AWS CLI commands to get useful information about the v
 
 Get the latest agent add-on version for your Kubernetes version. Replace `1.35` with your Kubernetes version.
 
-```
+```bash
 aws eks describe-addon-versions \
   --addon-name eks-node-monitoring-agent \
   --kubernetes-version 1.35 \
@@ -187,7 +186,7 @@ aws eks describe-addon-versions \
 
 Get the agent add-on schema supported in EKS add-ons. This returns the configuration values that the version you specify accepts. Replace `v1.7.3-eksbuild.1` with your agent version.
 
-```
+```bash
 aws eks describe-addon-configuration \
   --addon-name eks-node-monitoring-agent \
   --addon-version v1.7.3-eksbuild.1 \

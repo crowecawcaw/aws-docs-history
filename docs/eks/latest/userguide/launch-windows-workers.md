@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create self-managed Microsoft Windows nodes
-<a name="launch-windows-workers"></a>
 
 This topic describes how to launch Auto Scaling groups of Windows nodes that register with your Amazon EKS cluster. After the nodes join the cluster, you can deploy Kubernetes applications to them.
 
@@ -26,7 +25,7 @@ You can launch self-managed Windows nodes with either of the following:
 
 This procedure requires that you have installed `eksctl`, and that your `eksctl` version is at least `0.215.0`. You can check your version with the following command.
 
-```
+```bash
 eksctl version
 ```
 
@@ -43,7 +42,7 @@ This procedure only works for clusters that were created with `eksctl`.
 **Important**  
 To deploy a node group to AWS Outposts, AWS Wavelength, or AWS Local Zone subnets, don’t pass the AWS Outposts, Wavelength, or Local Zone subnets when you create the cluster. Create the node group with a config file, specifying the AWS Outposts, Wavelength, or Local Zone subnets. For more information, see [Create a nodegroup from a config file](https://eksctl.io/usage/nodegroups/#creating-a-nodegroup-from-a-config-file) and [Config file schema](https://eksctl.io/usage/schema/) in the `eksctl` documentation.
 
-   ```
+   ```bash
    eksctl create nodegroup \
        --region region-code \
        --cluster my-cluster \
@@ -59,13 +58,13 @@ To deploy a node group to AWS Outposts, AWS Wavelength, or AWS Local Zone subnet
 If nodes fail to join the cluster, see [Nodes fail to join cluster](troubleshooting.md#worker-node-fail) in the Troubleshooting guide.
 To see the available options for `eksctl` commands, enter the following command.  
 
-     ```
+     ```bash
      eksctl command -help
      ```
 
    An example output is as follows. Several lines are output while the nodes are created. One of the last lines of output is the following example line.
 
-   ```
+   ```bash
    [✔]  created 1 nodegroup(s) in cluster "my-cluster"
    ```
 
@@ -150,7 +149,7 @@ If you select AWS Outposts, Wavelength, or Local Zone subnets, then the subnets 
 
 1. Check to see if you already have an `aws-auth` `ConfigMap`.
 
-   ```
+   ```bash
    kubectl describe configmap -n kube-system aws-auth
    ```
 
@@ -158,13 +157,13 @@ If you select AWS Outposts, Wavelength, or Local Zone subnets, then the subnets 
 
    1. Open the `ConfigMap` for editing.
 
-      ```
+      ```bash
       kubectl edit -n kube-system configmap/aws-auth
       ```
 
    1. Add new `mapRoles` entries as needed. Set the `rolearn` values to the **NodeInstanceRole** values that you recorded in the previous procedures.
 
-      ```
+      ```yaml
       [...]
       data:
         mapRoles: |
@@ -188,13 +187,13 @@ If you select AWS Outposts, Wavelength, or Local Zone subnets, then the subnets 
 
    1. Download the configuration map.
 
-      ```
+      ```bash
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm-windows.yaml
       ```
 
    1. In the `aws-auth-cm-windows.yaml` file, set the `rolearn` values to the applicable **NodeInstanceRole** values that you recorded in the previous procedures. You can do this with a text editor, or by replacing the example values and running the following command:
 
-      ```
+      ```bash
       sed -i.bak -e 's|<ARN of linux instance role (not instance profile)>|my-node-linux-instance-role|' \
           -e 's|<ARN of windows instance role (not instance profile)>|my-node-windows-instance-role|' aws-auth-cm-windows.yaml
       ```
@@ -204,13 +203,13 @@ Don’t use the same IAM role for both Windows and Linux nodes.
 
    1. Apply the configuration. This command might take a few minutes to finish.
 
-      ```
+      ```bash
       kubectl apply -f aws-auth-cm-windows.yaml
       ```
 
 1. Watch the status of your nodes and wait for them to reach the `Ready` status.
 
-   ```
+   ```bash
    kubectl get nodes --watch
    ```
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # kro considerations for EKS
-<a name="kro-considerations"></a>
 
 Review important considerations for using the EKS managed capability for kro, including when to use resource composition, RBAC patterns, and integration with other EKS capabilities.
 
@@ -46,7 +45,7 @@ Platform teams create and maintain ResourceGraphDefinitions (RGDs) that define c
 
  **Example ClusterRole for platform team**:
 
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS connector IAM role
-<a name="connector-iam-role"></a>
 
 You can connect Kubernetes clusters to view them in your AWS Management Console. To connect to a Kubernetes cluster, create an IAM role.
 
@@ -28,7 +27,7 @@ You can use the following procedure to check and see if your account already has
 
 1. Verify that the trust relationship contains the following policy. If the trust relationship matches the following policy, choose **Cancel**. If the trust relationship doesn’t match, copy the policy into the **Edit trust policy** window and choose **Update policy**.
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -54,7 +53,7 @@ You can use the AWS Management Console or AWS CloudFormation to create the conne
 
 1. Create a file named `eks-connector-agent-trust-policy.json` that contains the following JSON to use for the IAM role.
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -73,7 +72,7 @@ You can use the AWS Management Console or AWS CloudFormation to create the conne
 
 1. Create a file named `eks-connector-agent-policy.json` that contains the following JSON to use for the IAM role.
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -101,7 +100,7 @@ You can use the AWS Management Console or AWS CloudFormation to create the conne
 
 1. Create the Amazon EKS Connector agent role using the trust policy and policy you created in the previous list items.
 
-   ```
+   ```bash
    aws iam create-role \
         --role-name AmazonEKSConnectorAgentRole \
         --assume-role-policy-document file://eks-connector-agent-trust-policy.json
@@ -109,7 +108,7 @@ You can use the AWS Management Console or AWS CloudFormation to create the conne
 
 1. Attach the policy to your Amazon EKS Connector agent role.
 
-   ```
+   ```bash
    aws iam put-role-policy \
         --role-name AmazonEKSConnectorAgentRole \
         --policy-name AmazonEKSConnectorAgentPolicy \
@@ -122,7 +121,7 @@ You can use the AWS Management Console or AWS CloudFormation to create the conne
 **Note**  
 This template also creates the service-linked role that would otherwise be created when the `registerCluster` API is called. See [Using roles to connect a Kubernetes cluster to Amazon EKS](using-service-linked-roles-eks-connector.md) for details.
 
-   ```
+   ```yaml
    ---
    AWSTemplateFormatVersion: '2010-09-09'
    Description: 'Provisions necessary resources needed to register clusters in EKS'

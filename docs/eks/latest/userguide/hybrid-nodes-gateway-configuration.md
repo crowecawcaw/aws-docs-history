@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS Hybrid Nodes gateway configuration reference
-<a name="hybrid-nodes-gateway-configuration"></a>
 
 This page documents all configurable parameters for the Amazon EKS Hybrid Nodes gateway. For installation instructions, see [Get started with EKS Hybrid Nodes gateway](hybrid-nodes-gateway-getting-started.md). For an overview of the gateway, see [Amazon EKS Hybrid Nodes gateway](hybrid-nodes-gateway-overview.md).
 
@@ -32,7 +31,7 @@ The following table lists all values in the `eks-hybrid-nodes-gateway` Helm char
 
  **EKS Auto Mode** (default):
 
-```
+```bash
 helm install eks-hybrid-nodes-gateway oci://public.ecr.aws/eks/eks-hybrid-nodes-gateway \
   --version 1.0.0 \
   --namespace eks-hybrid-nodes-gateway \
@@ -44,7 +43,7 @@ helm install eks-hybrid-nodes-gateway oci://public.ecr.aws/eks/eks-hybrid-nodes-
 
  **Managed node groups or self-managed nodes**:
 
-```
+```bash
 helm install eks-hybrid-nodes-gateway oci://public.ecr.aws/eks/eks-hybrid-nodes-gateway \
   --version 1.0.0 \
   --namespace eks-hybrid-nodes-gateway \

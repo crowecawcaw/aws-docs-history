@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Connect kubectl to an EKS cluster by creating a kubeconfig file
-<a name="create-kubeconfig"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS workshops.
@@ -16,7 +15,7 @@ The `kubectl` command-line tool uses configuration information in `kubeconfig` f
 
 Amazon EKS uses the `aws eks get-token` command with `kubectl` for cluster authentication. By default, the AWS CLI uses the same credentials that are returned with the following command:
 
-```
+```bash
 aws sts get-caller-identity
 ```
 + An existing Amazon EKS cluster. To deploy one, see [Get started with Amazon EKS](getting-started.md).
@@ -39,7 +38,7 @@ You can connect to your cluster directly from the AWS Management Console using A
 
 Once connected, you can run `kubectl` commands immediately:
 
-```
+```bash
 kubectl get nodes
 kubectl get pods -A
 ```
@@ -53,7 +52,7 @@ CloudShell sessions include `kubectl`, the AWS CLI, and standard CloudShell util
 
   1. Create or update a `kubeconfig` file for your cluster. Replace {{region-code}} with the AWS Region that your cluster is in and replace {{my-cluster}} with the name of your cluster.
 
-     ```
+     ```bash
      aws eks update-kubeconfig --region region-code --name my-cluster
      ```
 
@@ -65,13 +64,13 @@ CloudShell sessions include `kubectl`, the AWS CLI, and standard CloudShell util
 
   1. Test your configuration.
 
-     ```
+     ```bash
      kubectl get svc
      ```
 
      An example output is as follows.
 
-     ```
+     ```bash
      NAME             TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
      svc/kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   1m
      ```

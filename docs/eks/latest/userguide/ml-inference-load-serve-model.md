@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Load & Serve Models on Amazon EKS
-<a name="ml-inference-load-serve-model"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
@@ -46,14 +45,14 @@ Complete the following sections first:
 
 If you opened a new terminal, set the cluster name and region you used in the [Cluster Setup via CLI](ml-cluster-setup-cli.md) section:
 
-```
+```bash
 export CLUSTER_NAME=ai-eks-docs
 export AWS_REGION=us-east-2
 ```
 
 Look up the model weights bucket you created in the [Model weights S3 bucket](ml-cluster-setup-cli.md#cluster-setup-cli-model-bucket) step:
 
-```
+```bash
 MODEL_BUCKET=$(aws s3api list-buckets \
   --query "Buckets[?starts_with(Name, '${CLUSTER_NAME}-models-')].Name | [0]" \
   --output text)
@@ -69,7 +68,7 @@ To download the model, apply the following Job manifest:
 
 **Example Model download Job manifest**  
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: batch/v1
 kind: Job
@@ -132,25 +131,25 @@ EOF
 
 Wait for the Job to complete. The model weights (consolidated.safetensors) are approximately 10.4 GB, and this step typically takes 3-5 minutes.
 
-```
+```bash
 kubectl wait --for=condition=complete job/model-download --timeout=600s
 ```
 
 Expected output:
 
-```
+```console
 job.batch/model-download condition met
 ```
 
 Verify that the model weights were uploaded to S3:
 
-```
+```bash
 aws s3 ls s3://$(kubectl get job model-download -o jsonpath='{.spec.template.spec.containers[0].env[?(@.name=="MODEL_BUCKET")].value}')/Ministral-3-8B-Instruct-2512/ --recursive
 ```
 
 Expected output:
 
-```
+```console
 2026-05-18 10:29:53      20311 Ministral-3-8B-Instruct-2512/README.md
 2026-05-18 10:29:53       2361 Ministral-3-8B-Instruct-2512/SYSTEM_PROMPT.txt
 2026-05-18 10:29:53       1903 Ministral-3-8B-Instruct-2512/config.json
@@ -184,7 +183,7 @@ Apply the manifest:
 
 **Example vLLM Deployment and Service YAML**  
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
@@ -256,13 +255,13 @@ EOF
 
 Check that the vLLM pod is in the Ready state:
 
-```
+```bash
 kubectl get pod -l app=vllm-inference-app -w
 ```
 
 Expected output:
 
-```
+```console
 NAME                                  READY   STATUS    RESTARTS   AGE
 vllm-inference-app-65df5fddc8-5kmjm   1/1     Running   0          86s
 ```
@@ -271,13 +270,13 @@ It may take \~2 minutes for the container image to pull and for vLLM to stream m
 
 The combination of EKS, SOCI, and Run:ai Model Streamer enables fast pod startup. To check the startup time for each stage, view the pod events:
 
-```
+```bash
 kubectl describe pod -l app=vllm-inference-app | grep -A 20 "Events:"
 ```
 
 Expected output:
 
-```
+```console
 Events:
   Type     Reason            Age   From                   Message
   ----     ------            ----  ----                   -------
@@ -294,13 +293,13 @@ In this example, the GPU node was provisioned in 30 seconds and the 8.8 GB conta
 
 Next, check the vLLM logs to verify the model loading time:
 
-```
+```bash
 kubectl logs $(kubectl get pod -l app=vllm-inference-app -o jsonpath='{.items[0].metadata.name}') | grep -i 'Model loading took'
 ```
 
 Expected output:
 
-```
+```console
 INFO 05-18 18:41:49 [gpu_model_runner.py:4959] Model loading took 9.81 GiB memory and 5.023344 seconds
 ```
 
@@ -318,19 +317,19 @@ With the vLLM Deployment running, validate the inference endpoint and deploy a c
 
 Expose the inference endpoint via port forward:
 
-```
+```bash
 kubectl port-forward svc/vllm-inference-svc 8000:8000
 ```
 
 Open a new terminal window, and then validate that the inference container is responding:
 
-```
+```bash
 curl -sI -X GET http://localhost:8000/health
 ```
 
 Expected output:
 
-```
+```console
 HTTP/1.1 200 OK
 date: Fri, 18 May 2026 00:39:23 GMT
 server: uvicorn
@@ -350,7 +349,7 @@ You must complete the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-mon
 
 A ServiceMonitor tells Prometheus where to scrape vLLM metrics.
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -372,13 +371,13 @@ EOF
 
 Verify that the ServiceMonitor was created:
 
-```
+```bash
 kubectl get servicemonitor vllm-inference-app
 ```
 
 Expected output:
 
-```
+```console
 NAME                  AGE
 vllm-inference-app    5s
 ```
@@ -390,14 +389,14 @@ To populate the dashboard with metrics, generate inference traffic against the v
 
 Discover the served model name:
 
-```
+```bash
 MODEL_NAME=$(curl -s http://localhost:8000/v1/models | jq -r '.data[0].id')
 echo "Using model: $MODEL_NAME"
 ```
 
 Send 50 chat completion requests in parallel:
 
-```
+```bash
 for i in $(seq 1 50); do
   curl -s -X POST http://localhost:8000/v1/chat/completions \
     -H "Content-Type: application/json" \
@@ -409,7 +408,7 @@ wait
 
 While traffic is flowing (or immediately after), check token-throughput metrics directly from the vLLM `/metrics` endpoint:
 
-```
+```bash
 curl -s http://localhost:8000/metrics | grep -E '^vllm:(prompt_tokens_total|generation_tokens_total|avg_generation_throughput_toks_per_s|avg_prompt_throughput_toks_per_s)' | head
 ```
 
@@ -422,13 +421,13 @@ The kube-prometheus-stack values file from the [Monitoring](ml-cluster-setup-cli
 
 Access Grafana through the load balancer you set up in the [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer) section. Print its URL:
 
-```
+```bash
 echo "http://$(kubectl get ingress kube-prometheus-stack-grafana -n monitoring -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
 ```
 
 Open the URL in your browser and log in with username `admin` and the password from the following command:
 
-```
+```bash
 kubectl --namespace monitoring get secrets kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
 ```
 
@@ -450,7 +449,7 @@ To deploy the Open WebUI application, apply the following manifest:
 
 **Example Open WebUI Deployment and Service YAML**  
 
-```
+```yaml
 cat << 'EOF' | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
@@ -523,13 +522,13 @@ EOF
 
 Wait for the Open WebUI pod to be ready:
 
-```
+```bash
 kubectl wait --for=condition=ready pod -l app=open-webui --timeout=300s
 ```
 
 Expected output:
 
-```
+```console
 pod/open-webui-6cbfc9867f-jf9w9 condition met
 ```
 
@@ -540,7 +539,7 @@ Open WebUI runs with authentication disabled (`WEBUI_AUTH: "False"`), so anyone 
 
 Find your public IP address and store it as a `/32` CIDR:
 
-```
+```bash
 export MY_CIDR="$(curl -s https://checkip.amazonaws.com)/32"
 echo $MY_CIDR
 ```
@@ -549,7 +548,7 @@ The result looks like `203.0.113.4/32`. If your network assigns addresses dynami
 
 Apply the following `Ingress` to create the ALB:
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -584,7 +583,7 @@ The `healthcheck-path` annotation points the load balancer health checks at the 
 
 The load balancer is created asynchronously and takes a minute or two. Print the URL:
 
-```
+```bash
 echo "http://$(kubectl get ingress open-webui -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
 ```
 
@@ -601,7 +600,7 @@ Port-forwarding (`kubectl port-forward svc/open-webui 8080:80`) remains an optio
 
 To remove the workload resources that you created in this section, delete the Open WebUI application, the vLLM inference server, and the model-download Job:
 
-```
+```bash
 kubectl delete ingress open-webui
 kubectl delete deployment open-webui
 kubectl delete service open-webui

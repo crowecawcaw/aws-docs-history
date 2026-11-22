@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS MCP Server Tools Reference
-<a name="eks-mcp-tools"></a>
 
 The server exposes the following [MCP tools](https://modelcontextprotocol.io/docs/concepts/tools).
 

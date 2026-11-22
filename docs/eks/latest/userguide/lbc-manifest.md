@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Install AWS Load Balancer Controller with manifests
-<a name="lbc-manifest"></a>
 
 **Tip**  
 With Amazon EKS Auto Mode, you don’t need to install or upgrade networking add-ons. Auto Mode includes pod networking and load balancing capabilities.  
@@ -44,18 +43,18 @@ The following steps refer to the AWS Load Balancer Controller **v2.14.1** releas
 ------
 #### [  AWS  ]
 
-   ```
+   ```shell
    curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/install/iam_policy.json
    ```
 
 ------
 #### [  AWS GovCloud (US) ]
 
-   ```
+   ```shell
    curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/install/iam_policy_us-gov.json
    ```
 
-   ```
+   ```shell
    mv iam_policy_us-gov.json iam_policy.json
    ```
 
@@ -63,7 +62,7 @@ The following steps refer to the AWS Load Balancer Controller **v2.14.1** releas
 
 1. Create an IAM policy using the policy downloaded in the previous step.
 
-   ```
+   ```shell
    aws iam create-policy \
        --policy-name AWSLoadBalancerControllerIAMPolicy \
        --policy-document file://iam_policy.json
@@ -75,7 +74,7 @@ If you view the policy in the AWS Management Console, the console shows warnings
 
 1. Replace {{my-cluster}} with the name of your cluster, {{111122223333}} with your account ID, and then run the command.
 
-   ```
+   ```shell
    eksctl create iamserviceaccount \
      --cluster=my-cluster \
      --namespace=kube-system \
@@ -87,13 +86,13 @@ If you view the policy in the AWS Management Console, the console shows warnings
 
 1. Retrieve your cluster’s OIDC provider ID and store it in a variable.
 
-   ```
+   ```bash
    oidc_id=$(aws eks describe-cluster --name my-cluster --query "cluster.identity.oidc.issuer" --output text | cut -d '/' -f 5)
    ```
 
 1. Determine whether an IAM OIDC provider with your cluster’s ID is already in your account. You need OIDC configured for both the cluster and IAM.
 
-   ```
+   ```bash
    aws iam list-open-id-connect-providers | grep $oidc_id | cut -d "/" -f4
    ```
 
@@ -101,7 +100,7 @@ If you view the policy in the AWS Management Console, the console shows warnings
 
 1. Copy the following contents to your device. Replace {{111122223333}} with your account ID. Replace {{region-code}} with the AWS Region that your cluster is in. Replace {{EXAMPLED539D4633E53DE1B71EXAMPLE}} with the output returned in the previous step.
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -124,7 +123,7 @@ If you view the policy in the AWS Management Console, the console shows warnings
 
 1. Create the IAM role.
 
-   ```
+   ```bash
    aws iam create-role \
      --role-name AmazonEKSLoadBalancerControllerRole \
      --assume-role-policy-document file://"load-balancer-role-trust-policy.json"
@@ -132,7 +131,7 @@ If you view the policy in the AWS Management Console, the console shows warnings
 
 1. Attach the required Amazon EKS managed IAM policy to the IAM role. Replace {{111122223333}} with your account ID.
 
-   ```
+   ```bash
    aws iam attach-role-policy \
      --policy-arn arn:aws:iam::111122223333:policy/AWSLoadBalancerControllerIAMPolicy \
      --role-name AmazonEKSLoadBalancerControllerRole
@@ -140,7 +139,7 @@ If you view the policy in the AWS Management Console, the console shows warnings
 
 1. Copy the following contents to your device. Replace {{111122223333}} with your account ID. After replacing the text, run the modified command to create the `aws-load-balancer-controller-service-account.yaml` file.
 
-   ```
+   ```yaml
    cat >aws-load-balancer-controller-service-account.yaml <<EOF
    apiVersion: v1
    kind: ServiceAccount
@@ -157,7 +156,7 @@ If you view the policy in the AWS Management Console, the console shows warnings
 
 1. Create the Kubernetes service account on your cluster. The Kubernetes service account named `aws-load-balancer-controller` is annotated with the IAM role that you created named {{AmazonEKSLoadBalancerControllerRole}}.
 
-   ```
+   ```shell
    kubectl apply -f aws-load-balancer-controller-service-account.yaml
    ```
 
@@ -172,7 +171,7 @@ We recommend using the `quay.io` container registry to install `cert-manager`. I
 
 1. If your nodes have access to the `quay.io` container registry, install `cert-manager` to inject certificate configuration into the webhooks.
 
-   ```
+   ```shell
    kubectl apply \
        --validate=false \
        -f https://github.com/jetstack/cert-manager/releases/download/v1.13.5/cert-manager.yaml
@@ -182,13 +181,13 @@ We recommend using the `quay.io` container registry to install `cert-manager`. I
 
 1. Download the manifest.
 
-   ```
+   ```bash
    curl -Lo cert-manager.yaml https://github.com/jetstack/cert-manager/releases/download/v1.13.5/cert-manager.yaml
    ```
 
 1. Pull the following images and push them to a repository that your nodes have access to. For more information on how to pull, tag, and push the images to your own repository, see [Copy a container image from one repository to another repository](copy-image-to-repository.md).
 
-   ```
+   ```bash
    quay.io/jetstack/cert-manager-cainjector:v1.13.5
    quay.io/jetstack/cert-manager-controller:v1.13.5
    quay.io/jetstack/cert-manager-webhook:v1.13.5
@@ -196,13 +195,13 @@ We recommend using the `quay.io` container registry to install `cert-manager`. I
 
 1. Replace `quay.io` in the manifest for the three images with your own registry name. The following command assumes that your private repository’s name is the same as the source repository. Replace {{111122223333.dkr.ecr.region-code.amazonaws.com}} with your private registry.
 
-   ```
+   ```shell
    sed -i.bak -e 's|quay.io|111122223333.dkr.ecr.region-code.amazonaws.com|' ./cert-manager.yaml
    ```
 
 1. Apply the manifest.
 
-   ```
+   ```shell
    kubectl apply \
        --validate=false \
        -f ./cert-manager.yaml
@@ -213,7 +212,7 @@ We recommend using the `quay.io` container registry to install `cert-manager`. I
 
 1. Download the controller specification. For more information about the controller, see the [documentation](https://kubernetes-sigs.github.io/aws-load-balancer-controller/) on GitHub.
 
-   ```
+   ```bash
    curl -Lo v2_14_1_full.yaml https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases/download/v2.14.1/v2_14_1_full.yaml
    ```
 
@@ -221,13 +220,13 @@ We recommend using the `quay.io` container registry to install `cert-manager`. I
 
    1. If you downloaded the `v2_14_1_full.yaml` file, run the following command to remove the `ServiceAccount` section in the manifest. If you don’t remove this section, the required annotation that you made to the service account in a previous step is overwritten. Removing this section also preserves the service account that you created in a previous step if you delete the controller.
 
-      ```
+      ```shell
       sed -i.bak -e '764,772d' ./v2_14_1_full.yaml
       ```
 
       If you downloaded a different file version, then open the file in an editor and remove the following lines.
 
-      ```
+      ```yaml
       apiVersion: v1
       kind: ServiceAccount
       metadata:
@@ -241,19 +240,19 @@ We recommend using the `quay.io` container registry to install `cert-manager`. I
 
    1. Replace `your-cluster-name` in the `Deployment` `spec` section of the file with the name of your cluster by replacing {{my-cluster}} with the name of your cluster.
 
-      ```
+      ```shell
       sed -i.bak -e 's|your-cluster-name|my-cluster|' ./v2_14_1_full.yaml
       ```
 
    1. If your nodes don’t have access to the Amazon EKS Amazon ECR image repositories, then you need to pull the following image and push it to a repository that your nodes have access to. For more information on how to pull, tag, and push an image to your own repository, see [Copy a container image from one repository to another repository](copy-image-to-repository.md).
 
-      ```
+      ```bash
       public.ecr.aws/eks/aws-load-balancer-controller:v2.14.1
       ```
 
       Add your registry’s name to the manifest. The following command assumes that your private repository’s name is the same as the source repository and adds your private registry’s name to the file. Replace {{111122223333.dkr.ecr.region-code.amazonaws.com}} with your registry. This line assumes that you named your private repository the same as the source repository. If not, change the `eks/aws-load-balancer-controller` text after your private registry name to your repository name.
 
-      ```
+      ```shell
       sed -i.bak -e 's|public.ecr.aws/eks/aws-load-balancer-controller|111122223333.dkr.ecr.region-code.amazonaws.com/eks/aws-load-balancer-controller|' ./v2_14_1_full.yaml
       ```
 
@@ -261,7 +260,7 @@ We recommend using the `quay.io` container registry to install `cert-manager`. I
 
       If you’re deploying the controller to Amazon EC2 nodes that have [restricted access to the Amazon EC2 instance metadata service (IMDS)](https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node), or if you’re deploying to Fargate or Amazon EKS Hybrid Nodes, then add the `following parameters` under `- args:`.
 
-      ```
+      ```yaml
       [...]
       spec:
             containers:
@@ -277,19 +276,19 @@ We recommend using the `quay.io` container registry to install `cert-manager`. I
 
 1. Apply the file.
 
-   ```
+   ```shell
    kubectl apply -f v2_14_1_full.yaml
    ```
 
 1. Download the `IngressClass` and `IngressClassParams` manifest to your cluster.
 
-   ```
+   ```shell
    curl -Lo v2.14.1_ingclass.yaml https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases/download/v2.14.1/v2_14_1_ingclass.yaml
    ```
 
 1. Apply the manifest to your cluster.
 
-   ```
+   ```shell
    kubectl apply -f v2.14.1_ingclass.yaml
    ```
 
@@ -298,13 +297,13 @@ We recommend using the `quay.io` container registry to install `cert-manager`. I
 
 1. Verify that the controller is installed.
 
-   ```
+   ```shell
    kubectl get deployment -n kube-system aws-load-balancer-controller
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
    aws-load-balancer-controller   2/2     2            2           84s
    ```

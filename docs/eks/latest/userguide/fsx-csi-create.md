@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy the FSx for Lustre driver
-<a name="fsx-csi-create"></a>
 
 This topic shows you how to deploy the [FSx for Lustre CSI driver](fsx-csi.md) to your Amazon EKS cluster and verify that it works. We recommend using the latest version of the driver. For available versions, see [CSI Specification Compatibility Matrix](https://github.com/kubernetes-sigs/aws-fsx-csi-driver/blob/master/docs/README.md#csi-specification-compatibility-matrix) on GitHub.
 
@@ -34,7 +33,7 @@ The following procedure shows you how to create an IAM role and attach the AWS m
 
 1. Create an IAM role and attach the AWS managed policy with the following command. Replace `my-cluster` with the name of the cluster you want to use. The command deploys an AWS CloudFormation stack that creates an IAM role and attaches the IAM policy to it.
 
-   ```
+   ```bash
    eksctl create iamserviceaccount \
        --name fsx-csi-controller-sa \
        --namespace kube-system \
@@ -47,7 +46,7 @@ The following procedure shows you how to create an IAM role and attach the AWS m
 
    You’ll see several lines of output as the service account is created. The last lines of output are similar to the following.
 
-   ```
+   ```bash
    [ℹ]  1 task: {
        2 sequential sub-tasks: {
            create IAM role for serviceaccount "kube-system/fsx-csi-controller-sa",
@@ -71,7 +70,7 @@ We recommend that you install the Amazon FSx CSI driver through the Amazon EKS a
 **Important**  
 Pre-existing Amazon FSx CSI driver installations in the cluster can cause add-on installation failures. When you attempt to install the Amazon EKS add-on version while a non-EKS FSx CSI Driver exists, the installation will fail due to resource conflicts. Use the `OVERWRITE` flag during installation to resolve this issue.  
 
-```
+```bash
 aws eks create-addon --addon-name aws-fsx-csi-driver --cluster-name my-cluster --resolve-conflicts OVERWRITE
 ```
 
@@ -84,7 +83,7 @@ This procedure uses the [FSx for Lustre Container Storage Interface (CSI) driver
 
 1. Note the security group for your cluster. You can see it in the AWS Management Console in the **Networking** section of the **Configuration** tab or by using the following AWS CLI command. Replace `my-cluster` with the name of the cluster you want to use.
 
-   ```
+   ```bash
    aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.clusterSecurityGroupId
    ```
 
@@ -92,13 +91,13 @@ This procedure uses the [FSx for Lustre Container Storage Interface (CSI) driver
 
 1. Download the storage class manifest with the following command.
 
-   ```
+   ```bash
    curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-fsx-csi-driver/master/examples/kubernetes/dynamic_provisioning/specs/storageclass.yaml
    ```
 
 1. Edit the parameters section of the `storageclass.yaml` file. Replace every example value with your own values.
 
-   ```
+   ```yaml
    parameters:
      subnetId: subnet-0eabfaa81fb22bcaf
      securityGroupIds: sg-068000ccf82dfba88
@@ -120,25 +119,25 @@ This procedure uses the [FSx for Lustre Container Storage Interface (CSI) driver
 
 1. Create the storage class manifest.
 
-   ```
+   ```bash
    kubectl apply -f storageclass.yaml
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    storageclass.storage.k8s.io/fsx-sc created
    ```
 
 1. Download the persistent volume claim manifest.
 
-   ```
+   ```bash
    curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-fsx-csi-driver/master/examples/kubernetes/dynamic_provisioning/specs/claim.yaml
    ```
 
 1. (Optional) Edit the `claim.yaml` file. Change `1200Gi` to one of the following increment values, based on your storage requirements and the `deploymentType` that you selected in a previous step.
 
-   ```
+   ```yaml
    storage: 1200Gi
    ```
    +  `SCRATCH_2` and `PERSISTENT` – `1.2 TiB`, `2.4 TiB`, or increments of 2.4 TiB over 2.4 TiB.
@@ -146,25 +145,25 @@ This procedure uses the [FSx for Lustre Container Storage Interface (CSI) driver
 
 1. Create the persistent volume claim.
 
-   ```
+   ```bash
    kubectl apply -f claim.yaml
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    persistentvolumeclaim/fsx-claim created
    ```
 
 1. Confirm that the file system is provisioned.
 
-   ```
+   ```bash
    kubectl describe pvc
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    Name:          fsx-claim
    Namespace:     default
    StorageClass:  fsx-sc
@@ -176,32 +175,32 @@ The `Status` may show as `Pending` for 5-10 minutes, before changing to `Bound`.
 
 1. Deploy the sample application.
 
-   ```
+   ```bash
    kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-fsx-csi-driver/master/examples/kubernetes/dynamic_provisioning/specs/pod.yaml
    ```
 
 1. Verify that the sample application is running.
 
-   ```
+   ```bash
    kubectl get pods
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME      READY   STATUS              RESTARTS   AGE
    fsx-app   1/1     Running             0          8s
    ```
 
 1. Verify that the file system is mounted correctly by the application.
 
-   ```
+   ```bash
    kubectl exec -ti fsx-app -- df -h
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    Filesystem                   Size  Used Avail Use% Mounted on
    overlay                       80G  4.0G   77G   5% /
    tmpfs                         64M     0   64M   0% /dev
@@ -216,13 +215,13 @@ The `Status` may show as `Pending` for 5-10 minutes, before changing to `Bound`.
 
 1. Verify that data was written to the FSx for Lustre file system by the sample app.
 
-   ```
+   ```bash
    kubectl exec -it fsx-app -- ls /data
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    out.txt
    ```
 

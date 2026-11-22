@@ -5,16 +5,15 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Storage with Nitro Sandboxes
-<a name="sandboxing-storage"></a>
 
-Pods running in Nitro Sandboxes support several storage options through standard Kubernetes CSI drivers.
+Pods running in Nitro Sandboxes support the storage options on this page. Other in-tree volume types are not supported, and pods that use them fail to start.
 
 ## Amazon EBS volumes
 <a name="sandboxing-storage-ebs"></a>
 
 EKS Auto Mode uses the `ebs.csi.eks.amazonaws.com` provisioner for EBS volumes. Create a StorageClass that references this provisioner:
 
-```
+```yaml
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:

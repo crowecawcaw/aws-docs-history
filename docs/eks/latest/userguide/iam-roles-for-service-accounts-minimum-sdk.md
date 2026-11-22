@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Use IRSA with the AWS SDK
-<a name="iam-roles-for-service-accounts-minimum-sdk"></a>
 
 **Using the credentials**  
 To use the credentials from IAM roles for service accounts (IRSA), your code can use any AWS SDK to create a client for an AWS service with an SDK, and by default the SDK searches in a chain of locations for AWS Identity and Access Management credentials to use. The IAM roles for service accounts credentials will be used if you don’t specify a credential provider when you create the client or otherwise initialize the SDK.

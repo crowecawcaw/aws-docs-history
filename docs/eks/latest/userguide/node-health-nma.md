@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Detect node health issues with the EKS node monitoring agent
-<a name="node-health-nma"></a>
 
 This topic details the node health issues detected by the EKS node monitoring agent, how those issues are surfaced as node conditions or events, and how to configure the EKS node monitoring agent.
 
@@ -109,13 +108,13 @@ The following table lists the well-known XID codes, their meanings, and the defa
 
 To view the current node conditions related to GPU health, run the following command.
 
-```
+```bash
 kubectl get nodes -o custom-columns='NAME:.metadata.name,ACCELERATOR_READY:.status.conditions[?(@.type=="AcceleratedHardwareReady")].status,REASON:.status.conditions[?(@.type=="AcceleratedHardwareReady")].reason'
 ```
 
 To view XID-related events on your cluster, run one of the following commands.
 
-```
+```bash
 kubectl get events | grep -i "NvidiaXID"
 ```
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Alternate CNI plugins for Amazon EKS clusters
-<a name="alternate-cni-plugins"></a>
 
 The [Amazon VPC CNI plugin for Kubernetes](https://github.com/aws/amazon-vpc-cni-plugins) is the only CNI plugin supported by Amazon EKS with Amazon EC2 nodes. Amazon EKS supports the core capabilities of Cilium and Calico for Amazon EKS Hybrid Nodes. Amazon EKS runs upstream Kubernetes, so you can install alternate compatible CNI plugins to Amazon EC2 nodes in your cluster. If you have Fargate nodes in your cluster, the Amazon VPC CNI plugin for Kubernetes is already on your Fargate nodes. It’s the only CNI plugin you can use with Fargate nodes. An attempt to install an alternate CNI plugin on Fargate nodes fails.
 

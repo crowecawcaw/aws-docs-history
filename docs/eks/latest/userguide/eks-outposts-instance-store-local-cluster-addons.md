@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS add-ons for local clusters on AWS Outposts configured with EC2 instance store
-<a name="eks-outposts-instance-store-local-cluster-addons"></a>
 
 Local clusters on AWS Outposts configured with EC2 instance store support Amazon EKS add-ons. The following add-ons have been validated for use with local clusters. Additional add-ons will be validated over time.
 

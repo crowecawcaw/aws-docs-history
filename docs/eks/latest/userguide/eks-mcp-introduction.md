@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS Model Context Protocol (MCP) Server
-<a name="eks-mcp-introduction"></a>
 
 The Amazon EKS MCP server is a fully managed service enabling AI-powered experiences for development and operations. [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) provides a standardized interface that enriches AI agents and applications with real-time, contextual knowledge of your EKS clusters and Kubernetes resources, enabling more accurate, context-aware responses and AI-powered workflows throughout the application lifecycle, from initial setup through production optimization, and troubleshooting.
 

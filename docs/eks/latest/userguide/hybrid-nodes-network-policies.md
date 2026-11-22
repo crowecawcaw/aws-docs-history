@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure Kubernetes Network Policies for hybrid nodes
-<a name="hybrid-nodes-network-policies"></a>
 
  AWS supports Kubernetes Network Policies (Layer 3 / Layer 4) for pod ingress and egress traffic when using Cilium as the CNI with EKS Hybrid Nodes. If you are running EKS clusters with nodes in AWS Cloud, AWS supports the [Amazon VPC CNI for Kubernetes Network Policies](cni-network-policy.md).
 
@@ -42,17 +41,17 @@ The Bookinfo application consists of four separate microservices with the follow
 
   1. Create the sample application.
 
-     ```
+     ```bash
      kubectl apply -f https://raw.githubusercontent.com/istio/istio/refs/heads/master/samples/bookinfo/platform/kube/bookinfo.yaml
      ```
 
   1. Confirm the application is running successfully and note the pod IP address for the productpage microservice. You will use this pod IP address to query each microservice in the subsequent steps.
 
-     ```
+     ```bash
      kubectl get pods -o wide
      ```
 
-     ```
+     ```bash
      NAME                              READY   STATUS    RESTARTS   AGE   IP            NODE
      details-v1-766844796b-9wff2       1/1     Running   0          7s    10.86.3.7     mi-0daa253999fe92daa
      productpage-v1-54bb874995-lwfgg   1/1     Running   0          7s    10.86.2.193   mi-082f73826a163626e
@@ -64,29 +63,29 @@ The Bookinfo application consists of four separate microservices with the follow
 
   1. Create a pod that will be used throughout to test the network policies. Note the pod is created in the `default` namespace with the label `access: true`.
 
-     ```
+     ```bash
      kubectl run curl-pod --image=curlimages/curl -i --tty --labels=access=true --namespace=default --overrides='{"spec": { "nodeSelector": {"eks.amazonaws.com/compute-type": "hybrid"}}}' -- /bin/sh
      ```
 
   1. Test access to the productpage microservice. In the example below, we use the pod IP address of the productpage pod (`10.86.2.193`) to query the microservice. Replace this with the pod IP address of the productpage pod in your environment.
 
-     ```
+     ```bash
      curl -s http://10.86.2.193:9080/productpage | grep -o "<title>.*</title>"
      ```
 
-     ```
+     ```bash
      <title>Simple Bookstore App</title>
      ```
 
   1. You can exit the test curl pod by typing `exit` and can reattach to the pod by running the following command.
 
-     ```
+     ```bash
      kubectl attach curl-pod -c curl-pod -i -t
      ```
 
   1. To demonstrate the effects of the network policies in the following steps, we first create a network policy that denies all traffic for the BookInfo microservices. Create a file called `network-policy-deny-bookinfo.yaml` that defines the deny network policy.
 
-     ```
+     ```yaml
      apiVersion: networking.k8s.io/v1
      kind: NetworkPolicy
      metadata:
@@ -105,17 +104,17 @@ The Bookinfo application consists of four separate microservices with the follow
 
   1. Apply the deny network policy to your cluster.
 
-     ```
+     ```bash
      kubectl apply -f network-policy-default-deny-bookinfo.yaml
      ```
 
   1. Test access to the BookInfo application. In the example below, we use the pod IP address of the productpage pod (`10.86.2.193`) to query the microservice. Replace this with the pod IP address of the productpage pod in your environment.
 
-     ```
+     ```bash
      curl http://10.86.2.193:9080/productpage --max-time 10
      ```
 
-     ```
+     ```bash
      curl: (28) Connection timed out after 10001 milliseconds
      ```
 
@@ -124,7 +123,7 @@ The Bookinfo application consists of four separate microservices with the follow
      + allows egress TCP traffic on port `9080` for the details, reviews, and ratings microservices
      + allows egress TCP/UDP traffic on port `53` for CoreDNS which runs in the `kube-system` namespace
 
-       ```
+       ```yaml
        apiVersion: networking.k8s.io/v1
        kind: NetworkPolicy
        metadata:
@@ -168,39 +167,39 @@ The Bookinfo application consists of four separate microservices with the follow
 
   1. Apply the productpage network policy to your cluster.
 
-     ```
+     ```bash
      kubectl apply -f network-policy-productpage.yaml
      ```
 
   1. Connect to the curl pod and test access to the Bookinfo application. Access to the productpage microservice is now allowed, but the other microservices are still denied because they are still subject to the deny network policy. In the examples below, we use the pod IP address of the productpage pod (`10.86.2.193`) to query the microservice. Replace this with the pod IP address of the productpage pod in your environment.
 
-     ```
+     ```bash
      kubectl attach curl-pod -c curl-pod -i -t
      ```
 
-     ```
+     ```bash
      curl -s http://10.86.2.193:9080/productpage | grep -o "<title>.*</title>"
      <title>Simple Bookstore App</title>
      ```
 
-     ```
+     ```bash
      curl -s http://10.86.2.193:9080/api/v1/products/1
      {"error": "Sorry, product details are currently unavailable for this book."}
      ```
 
-     ```
+     ```bash
      curl -s http://10.86.2.193:9080/api/v1/products/1/reviews
      {"error": "Sorry, product reviews are currently unavailable for this book."}
      ```
 
-     ```
+     ```bash
      curl -s http://10.86.2.193:9080/api/v1/products/1/ratings
      {"error": "Sorry, product ratings are currently unavailable for this book."}
      ```
 
   1. Create a file called `network-policy-details.yaml` that defines the details network policy. The policy allows only ingress traffic from the productpage microservice.
 
-     ```
+     ```yaml
      apiVersion: networking.k8s.io/v1
      kind: NetworkPolicy
      metadata:
@@ -221,7 +220,7 @@ The Bookinfo application consists of four separate microservices with the follow
 
   1. Create a file called `network-policy-reviews.yaml` that defines the reviews network policy. The policy allows only ingress traffic from the productpage microservice and only egress traffic to the ratings microservice and CoreDNS.
 
-     ```
+     ```yaml
      apiVersion: networking.k8s.io/v1
      kind: NetworkPolicy
      metadata:
@@ -260,7 +259,7 @@ The Bookinfo application consists of four separate microservices with the follow
 
   1. Create a file called `network-policy-ratings.yaml` that defines the ratings network policy. The policy allows only ingress traffic from the productpage and reviews microservices.
 
-     ```
+     ```yaml
      apiVersion: networking.k8s.io/v1
      kind: NetworkPolicy
      metadata:
@@ -283,7 +282,7 @@ The Bookinfo application consists of four separate microservices with the follow
 
   1. Apply the details, reviews, and ratings network policies to your cluster.
 
-     ```
+     ```bash
      kubectl apply -f network-policy-details.yaml
      kubectl apply -f network-policy-reviews.yaml
      kubectl apply -f network-policy-ratings.yaml
@@ -291,43 +290,43 @@ The Bookinfo application consists of four separate microservices with the follow
 
   1. Connect to the curl pod and test access to the Bookinfo application. In the examples below, we use the pod IP address of the productpage pod (`10.86.2.193`) to query the microservice. Replace this with the pod IP address of the productpage pod in your environment.
 
-     ```
+     ```bash
      kubectl attach curl-pod -c curl-pod -i -t
      ```
 
      Test the details microservice.
 
-     ```
+     ```bash
      curl -s http://10.86.2.193:9080/api/v1/products/1
      ```
 
-     ```
+     ```bash
      {"id": 1, "author": "William Shakespeare", "year": 1595, "type": "paperback", "pages": 200, "publisher": "PublisherA", "language": "English", "ISBN-10": "1234567890", "ISBN-13": "123-1234567890"}
      ```
 
      Test the reviews microservice.
 
-     ```
+     ```bash
      curl -s http://10.86.2.193:9080/api/v1/products/1/reviews
      ```
 
-     ```
+     ```bash
      {"id": "1", "podname": "reviews-v1-598b896c9d-p2289", "clustername": "null", "reviews": [{"reviewer": "Reviewer1", "text": "An extremely entertaining play by Shakespeare. The slapstick humour is refreshing!"}, {"reviewer": "Reviewer2", "text": "Absolutely fun and entertaining. The play lacks thematic depth when compared to other plays by Shakespeare."}]}
      ```
 
      Test the ratings microservice.
 
-     ```
+     ```bash
      curl -s http://10.86.2.193:9080/api/v1/products/1/ratings
      ```
 
-     ```
+     ```bash
      {"id": 1, "ratings": {"Reviewer1": 5, "Reviewer2": 4}}
      ```
 
   1. Clean up the resources you created in this procedure.
 
-     ```
+     ```bash
      kubectl delete -f network-policy-deny-bookinfo.yaml
      kubectl delete -f network-policy-productpage.yaml
      kubectl delete -f network-policy-details.yaml

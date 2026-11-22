@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Authenticate to another account with IRSA
-<a name="cross-account-access"></a>
 
 You can configure cross-account IAM permissions either by creating an identity provider from another account’s cluster or by using chained `AssumeRole` operations. In the following examples, *Account A* owns an Amazon EKS cluster that supports IAM roles for service accounts. Pods that are running on that cluster must assume IAM permissions from *Account B*.
 +  **Option 1** is simpler but requires Account B to create and manage an OIDC identity provider for Account A’s cluster.
@@ -16,7 +15,7 @@ You can configure cross-account IAM permissions either by creating an identity p
 
 In this example, Account A provides Account B with the OpenID Connect (OIDC) issuer URL from their cluster. Account B follows the instructions in [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md) and [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md) using the OIDC issuer URL from Account A’s cluster. Then, a cluster administrator annotates the service account in Account A’s cluster to use the role from Account B ({{444455556666}}).
 
-```
+```yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -36,7 +35,7 @@ Account B ({{444455556666}}) creates an IAM role with the permissions that Pods 
 
  **Trust policy for Account B’s role** — This policy allows Account A’s specific IRSA role to assume this role.
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -62,7 +61,7 @@ Account A ({{111122223333}}) creates a role with a trust policy that gets creden
 
  **Trust policy for Account A’s role (OIDC federation)** — This policy allows the EKS cluster’s OIDC provider to issue credentials for this role.
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -85,7 +84,7 @@ Account A ({{111122223333}}) creates a role with a trust policy that gets creden
 **Important**  
 For least privilege, add a `StringEquals` condition for the `sub` claim to restrict this role to a specific Kubernetes service account. Without a `sub` condition, any service account in the cluster can assume this role. The `sub` value uses the format `system:serviceaccount:NAMESPACE:SERVICE_ACCOUNT_NAME `. For example, to restrict to a service account named `my-service-account` in the `default` namespace:  
 
-```
+```json
 "oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:default:my-service-account"
 ```
 
@@ -96,7 +95,7 @@ Account A attaches a permission policy to the role created in Step 2. This polic
 
  **Permission policy for Account A’s role** — This policy grants `sts:AssumeRole` on Account B’s target role.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

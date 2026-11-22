@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # kro concepts
-<a name="kro-concepts"></a>
 
 kro enables platform teams to create custom Kubernetes APIs that compose multiple resources into higher-level abstractions. This topic walks through a practical example, then explains the core concepts you need to understand when working with the EKS Capability for kro.
 
@@ -16,7 +15,7 @@ After creating the kro capability (see [Create a kro capability](create-kro-capa
 
 Here’s a complete example that creates a simple web application abstraction:
 
-```
+```yaml
 apiVersion: kro.run/v1alpha1
 kind: ResourceGraphDefinition
 metadata:
@@ -69,7 +68,7 @@ spec:
 
 After applying this ResourceGraphDefinition, application teams can create web applications using your simplified API:
 
-```
+```yaml
 apiVersion: kro.run/v1alpha1
 kind: WebApplication
 metadata:
@@ -104,7 +103,7 @@ For more information, see [ResourceGraphDefinition Overview](https://kro.run/doc
 
 SimpleSchema provides a simplified way to define API schemas without requiring OpenAPI knowledge:
 
-```
+```yaml
 schema:
   apiVersion: v1alpha1
   kind: Database
@@ -125,7 +124,7 @@ kro uses Common Expression Language (CEL) to reference values dynamically and ad
 
  **Standalone expressions** - The entire field value is a single expression:
 
-```
+```yaml
 spec:
   replicas: ${schema.spec.replicaCount}  # Expression returns integer
   labels: ${schema.spec.labelMap}        # Expression returns object
@@ -135,7 +134,7 @@ The expression result replaces the entire field value and must match the field�
 
  **String templates** - One or more expressions embedded in a string:
 
-```
+```yaml
 metadata:
   name: "${schema.spec.prefix}-${schema.spec.name}"  # Multiple expressions
   annotation: "Created by ${schema.spec.owner}"      # Single expression in string
@@ -145,7 +144,7 @@ All expressions in string templates must return strings. Use `string()` to conve
 
  **Field references** - Access instance spec values using `schema.spec`:
 
-```
+```yaml
 template:
   metadata:
     name: ${schema.spec.name}-deployment
@@ -156,7 +155,7 @@ template:
 
  **Optional field access** - Use `?` for fields that might not exist:
 
-```
+```yaml
 # For ConfigMaps or Secrets with unknown structure
 value: ${configmap.data.?DATABASE_URL}
 
@@ -168,7 +167,7 @@ If the field doesn’t exist, the expression returns `null` instead of failing.
 
  **Conditional resources** - Include resources only when conditions are met:
 
-```
+```yaml
 resources:
 - id: ingress
   includeWhen:
@@ -181,7 +180,7 @@ The `includeWhen` field accepts a list of boolean expressions. All conditions mu
 
  **Transformations** - Transform values using ternary operators and functions:
 
-```
+```yaml
 template:
   spec:
     resources:
@@ -197,7 +196,7 @@ template:
 
  **Cross-resource references** - Reference values from other resources:
 
-```
+```yaml
 resources:
 - id: bucket
   template:
@@ -224,7 +223,7 @@ For more information, see [CEL Expressions](https://kro.run/docs/concepts/rgd/ce
 
 kro automatically infers dependencies from CEL expressions—you don’t specify the order, you describe relationships. When one resource references another using a CEL expression, kro creates a dependency and determines the correct creation order.
 
-```
+```yaml
 resources:
 - id: bucket
   template:
@@ -253,7 +252,7 @@ The expression `${bucket.spec.name}` creates a dependency. kro builds a directed
 
 You can view the computed creation order:
 
-```
+```bash
 kubectl get resourcegraphdefinition my-rgd -o jsonpath='{.status.topologicalOrder}'
 ```
 
@@ -264,7 +263,7 @@ For more information, see [Graph inference](https://kro.run/docs/concepts/rgd/de
 
 kro works seamlessly with the EKS Capability for ACK to compose AWS resources with Kubernetes resources:
 
-```
+```yaml
 resources:
 # Create {aws} S3 bucket with ACK
 - id: bucket

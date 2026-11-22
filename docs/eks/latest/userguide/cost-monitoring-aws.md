@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # View costs by Pod in AWS billing with split cost allocation
-<a name="cost-monitoring-aws"></a>
 
 ## Cost monitoring using AWS split cost allocation data for Amazon EKS
 <a name="cost_monitoring_using_shared_aws_split_cost_allocation_data_for_amazon_eks"></a>

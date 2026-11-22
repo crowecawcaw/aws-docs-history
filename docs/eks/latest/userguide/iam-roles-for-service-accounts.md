@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # IAM roles for service accounts
-<a name="iam-roles-for-service-accounts"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS workshops.
@@ -29,7 +28,7 @@ Enable IAM roles for service accounts by completing the following procedures:
 **Note**  
 If your cluster’s VPC has no outbound internet access and you haven’t set up private access to the cluster OIDC endpoint, operations that reach that endpoint from inside the VPC, such as creating an OIDC provider with `eksctl`, can’t resolve the OIDC issuer hostname. An example error message follows:  
 
-   ```
+   ```bash
    server cant find oidc.eks.region.amazonaws.com: NXDOMAIN
    ```
 To reach the cluster OIDC endpoint privately from your VPC, create a VPC interface endpoint for it (`com.amazonaws.{{region-code}}.oidc-eks`) with private DNS enabled. For more information, see [Access Amazon EKS using AWS PrivateLink](vpc-interface-endpoints.md).  

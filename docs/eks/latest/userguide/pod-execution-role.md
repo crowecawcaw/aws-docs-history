@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS Pod execution IAM role
-<a name="pod-execution-role"></a>
 
 The Amazon EKS Pod execution role is required to run Pods on AWS Fargate infrastructure.
 
@@ -44,7 +43,7 @@ You can use the following procedure to check and see if your account already has
 
 1. On the **Edit trust policy** page, verify that the trust relationship contains the following policy and has a line for Fargate profiles on your cluster. If so, choose **Cancel**.
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -66,7 +65,7 @@ You can use the following procedure to check and see if your account already has
 
    If the policy matches but doesn’t have a line specifying the Fargate profiles on your cluster, you can add the following line at the top of the `ArnLike` object. Replace {{region-code}} with the AWS Region that your cluster is in, {{111122223333}} with your account ID, and {{my-cluster}} with the name of your cluster.
 
-   ```
+   ```json
    "aws:SourceArn": "arn:aws:eks:region-code:111122223333:fargateprofile/my-cluster/*",
    ```
 
@@ -117,7 +116,7 @@ If you don’t already have the Amazon EKS Pod execution role for your cluster, 
 
    1. Copy and paste the following contents into the **Edit trust policy** form. Replace {{region-code}} with the AWS Region that your cluster is in. If you want to use the same role in all AWS Regions in your account, replace {{region-code}} with `*`. Replace {{111122223333}} with your account ID and {{my-cluster}} with the name of your cluster. If you want to use the same role for all clusters in your account, replace {{my-cluster}} with `*`.
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -143,7 +142,7 @@ If you don’t already have the Amazon EKS Pod execution role for your cluster, 
 
 1. Copy and paste the following contents to a file named `pod-execution-role-trust-policy.json`. Replace {{region-code}} with the AWS Region that your cluster is in. If you want to use the same role in all AWS Regions in your account, replace {{region-code}} with `*`. Replace {{111122223333}} with your account ID and {{my-cluster}} with the name of your cluster. If you want to use the same role for all clusters in your account, replace {{my-cluster}} with `*`.
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -165,7 +164,7 @@ If you don’t already have the Amazon EKS Pod execution role for your cluster, 
 
 1. Create a Pod execution IAM role.
 
-   ```
+   ```bash
    aws iam create-role \
      --role-name AmazonEKSFargatePodExecutionRole \
      --assume-role-policy-document file://"pod-execution-role-trust-policy.json"
@@ -173,7 +172,7 @@ If you don’t already have the Amazon EKS Pod execution role for your cluster, 
 
 1. Attach the required Amazon EKS managed IAM policy to the role.
 
-   ```
+   ```bash
    aws iam attach-role-policy \
      --policy-arn arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy \
      --role-name AmazonEKSFargatePodExecutionRole

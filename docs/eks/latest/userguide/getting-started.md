@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Get started with Amazon EKS
-<a name="getting-started"></a>
 
 Make sure that you are set up to use Amazon EKS before going through the getting started guides. For more information, see [Set up to use Amazon EKS](setting-up.md).
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Access EKS Capabilities controller logs
-<a name="capabilities-controller-logs"></a>
 
 EKS Capabilities controllers for ACK, kro, and Argo CD run in AWS-managed infrastructure outside your clusters. You can configure log delivery for these controllers using Amazon CloudWatch Vended Logs, giving you visibility into controller behavior for monitoring and troubleshooting.
 
@@ -67,7 +66,7 @@ Setting up logging requires three steps:
 
 You can retrieve the capability ARN using the `describe-capability` command:
 
-```
+```bash
 aws eks describe-capability \
   --region {{region-code}} \
   --cluster-name {{my-cluster}} \
@@ -87,7 +86,7 @@ Depending on the destination selected, you might need to configure IAM policies 
 
 To view error logs across all controllers:
 
-```
+```sql
 fields @timestamp, controller, message, error
 | filter level = "error"
 | sort @timestamp desc

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Enable EKS Auto Mode on an existing cluster
-<a name="auto-enable-existing"></a>
 
 This topic describes how to enable Amazon EKS Auto Mode on your existing Amazon EKS clusters. Enabling Auto Mode on an existing cluster requires updating IAM permissions and configuring core EKS Auto Mode settings. Once enabled, you can begin migrating your existing compute workloads to take advantage of Auto Mode’s simplified operations and automated infrastructure management.
 
@@ -44,7 +43,7 @@ The Cluster IAM role of an EKS Cluster cannot be changed after the cluster is cr
 
 1. Insert the following Cluster IAM Role trust policy, and select **Update policy** 
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

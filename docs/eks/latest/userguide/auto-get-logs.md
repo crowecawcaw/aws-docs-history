@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Retrieve node logs using kubectl and Amazon S3
-<a name="auto-get-logs"></a>
 
 Learn how to retrieve node logs from an Amazon EKS node that runs the EKS node monitoring agent. The agent collects log and configuration bundles from the node and uploads them to your S3 bucket.
 
@@ -28,7 +27,7 @@ Make sure you have the following:
 
 If you don’t already have an S3 bucket to store the logs, create one. Use the following AWS CLI command. The bucket defaults to the `private` access control list. Replace {{bucket-name}} with your chosen unique bucket name.
 
-```
+```bash
 aws s3api create-bucket --bucket {{<bucket-name>}}
 ```
 
@@ -46,7 +45,7 @@ You must use the AWS API or a SDK to create the pre-signed S3 upload URL for EKS
 
 1. Save the following Python code to the file {{presign-upload.py}}. Replace {{<bucket-name>}} and {{<key>}}. The key should end with `.tar.gz`.
 
-   ```
+   ```python
    import boto3; print(boto3.client('s3').generate_presigned_url(
       ClientMethod='put_object',
       Params={'Bucket': '<bucket-name>', 'Key': '<key>'},
@@ -69,13 +68,13 @@ For more information, see [Generate a presigned URL to upload a file](https://bo
 
 Identify the name of the node you want to collect logs from, as reported by `kubectl get nodes`. Depending on the compute type, this is either an EC2 instance ID or a private DNS name. Use the name exactly as `kubectl` reports it.
 
-```
+```bash
 kubectl get nodes
 ```
 
 Create a `NodeDiagnostic` manifest that uses the name of the node as the resource’s name, and providing a HTTP PUT URL destination.
 
-```
+```bash
 apiVersion: eks.amazonaws.com/v1alpha1
 kind: NodeDiagnostic
 metadata:
@@ -87,19 +86,19 @@ spec:
 
 Apply the manifest to the cluster.
 
-```
+```bash
 kubectl apply -f nodediagnostic.yaml
 ```
 
 You can check on the status of the collection by describing the `NodeDiagnostic` resource. Collection usually finishes within a few seconds.
 
-```
+```bash
 kubectl describe nodediagnostics.eks.amazonaws.com/{{<node-name>}}
 ```
 
 The result appears under `Status` as a capture status of type `Log`. To read just the status, use the following command.
 
-```
+```bash
 kubectl get nodediagnostics.eks.amazonaws.com/{{<node-name>}} \
     -o jsonpath='{.status.captureStatuses}'
 ```
@@ -116,7 +115,7 @@ The `spec` of the `NodeDiagnostic` resource stores the destination URL in full, 
 
 Wait until the `NodeDiagnostic` resource reports a `reason` of `Success` or `SuccessWithErrors`. Then, use the S3 CLI to download the logs.
 
-```
+```bash
 # Once NodeDiagnostic shows Success status, download the logs
 aws s3 cp s3://{{<bucket-name>}}/{{key}} ./{{<path-to-node-logs>}}.tar.gz
 ```
@@ -125,7 +124,7 @@ aws s3 cp s3://{{<bucket-name>}}/{{key}} ./{{<path-to-node-logs>}}.tar.gz
 <a name="_step_5_clean_up_nodediagnostic_resource"></a>
 +  `NodeDiagnostic` resources do not get automatically deleted. You should clean these up on your own after you have obtained your log artifacts
 
-```
+```bash
 # Delete the NodeDiagnostic resource
 kubectl delete nodediagnostics.eks.amazonaws.com/{{<node-name>}}
 ```
@@ -135,7 +134,7 @@ kubectl delete nodediagnostics.eks.amazonaws.com/{{<node-name>}}
 
 Starting with version `v1.6.1-eksbuild.1` of the EKS node monitoring agent, you can set the log collection destination to `node` instead of a pre-signed URL. This collects the logs and persists them temporarily on the node for later collection, so you don’t need an S3 bucket or pre-signed URL.
 
-```
+```yaml
 apiVersion: eks.amazonaws.com/v1alpha1
 kind: NodeDiagnostic
 metadata:
@@ -152,7 +151,7 @@ The EKS node monitoring agent’s GitHub repository also includes a `kubectl` pl
 ## Example Usage
 <a name="_example_usage"></a>
 
-```
+```bash
 # Collect NodeDiagnostic logs from a single node
 kubectl ekslogs <node-name>
 

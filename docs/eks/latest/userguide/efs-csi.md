@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Use elastic file system storage with Amazon EFS
-<a name="efs-csi"></a>
 
  [Amazon Elastic File System](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html) (Amazon EFS) provides serverless, fully elastic file storage so that you can share file data without provisioning or managing storage capacity and performance. The [Amazon EFS Container Storage Interface (CSI) driver](https://github.com/kubernetes-sigs/aws-efs-csi-driver) allows Kubernetes clusters running on AWS to mount Amazon EFS file systems as persistent volumes. This topic shows you how to deploy the Amazon EFS CSI driver to your Amazon EKS cluster.
 
@@ -58,7 +57,7 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
 Run the following commands to create an IAM role and Pod Identity association with `eksctl`. Replace `my-cluster` with your cluster name. You can also replace `AmazonEKS_EFS_CSI_DriverRole` with a different name.
 
-```
+```bash
 export cluster_name=my-cluster
 export role_name=AmazonEKS_EFS_CSI_DriverRole
 eksctl create podidentityassociation \
@@ -74,7 +73,7 @@ eksctl create podidentityassociation \
 
 Run the following commands to create an IAM role with `eksctl`. Replace `my-cluster` with your cluster name. You can also replace `AmazonEKS_EFS_CSI_DriverRole` with a different name.
 
-```
+```bash
 export cluster_name=my-cluster
 export role_name=AmazonEKS_EFS_CSI_DriverRole
 eksctl create iamserviceaccount \
@@ -169,13 +168,13 @@ Run the following to create an IAM role with AWS Management Console.
 
       1. Find the line that looks similar to the following line:
 
-         ```
+         ```json
          "oidc.eks.region-code.amazonaws.com/id/<EXAMPLED539D4633E53DE1B71EXAMPLE>:aud": "sts.amazonaws.com"
          ```
 
          Add the following line above the previous line. Replace `<region-code>` with the AWS Region that your cluster is in. Replace `<EXAMPLED539D4633E53DE1B71EXAMPLE>` with your cluster’s OIDC provider ID.
 
-         ```
+         ```json
          "oidc.eks.<region-code>.amazonaws.com/id/<EXAMPLED539D4633E53DE1B71EXAMPLE>:sub": "system:serviceaccount:kube-system:efs-csi-*",
          ```
 
@@ -195,7 +194,7 @@ Run the following commands to create an IAM role with AWS CLI.
 
    1. Copy the following contents to a file named `aws-efs-csi-driver-trust-policy-pod-identity.json`.
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -216,7 +215,7 @@ Run the following commands to create an IAM role with AWS CLI.
 
    1. Create the role. Replace `my-cluster` with your cluster name. You can also replace `AmazonEKS_EFS_CSI_DriverRole` with a different name.
 
-      ```
+      ```bash
       export cluster_name=my-cluster
       export role_name=AmazonEKS_EFS_CSI_DriverRole
       aws iam create-role \
@@ -226,7 +225,7 @@ Run the following commands to create an IAM role with AWS CLI.
 
 1. Attach the required AWS managed policy to the role with the following command.
 
-   ```
+   ```bash
    aws iam attach-role-policy \
      --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy \
      --role-name $role_name
@@ -234,7 +233,7 @@ Run the following commands to create an IAM role with AWS CLI.
 
 1. Run the following command to create the Pod Identity association. Replace `<111122223333>` with your account ID.
 
-   ```
+   ```bash
    aws eks create-pod-identity-association --cluster-name $cluster_name --role-arn arn:aws:iam::<111122223333>:role/$role_name --namespace kube-system --service-account efs-csi-controller-sa
    ```
 
@@ -245,7 +244,7 @@ Run the following commands to create an IAM role with AWS CLI.
 
 1. View your cluster’s OIDC provider URL. Replace `my-cluster` with your cluster name. You can also replace `AmazonEKS_EFS_CSI_DriverRole` with a different name.
 
-   ```
+   ```bash
    export cluster_name=my-cluster
    export role_name=AmazonEKS_EFS_CSI_DriverRole
    aws eks describe-cluster --name $cluster_name --query "cluster.identity.oidc.issuer" --output text
@@ -253,7 +252,7 @@ Run the following commands to create an IAM role with AWS CLI.
 
    An example output is as follows.
 
-   ```
+   ```bash
    https://oidc.eks.<region-code>.amazonaws.com/id/<EXAMPLED539D4633E53DE1B71EXAMPLE>
    ```
 
@@ -263,7 +262,7 @@ Run the following commands to create an IAM role with AWS CLI.
 
    1. Copy the following contents to a file named `aws-efs-csi-driver-trust-policy.json`. Replace `<111122223333>` with your account ID. Replace `<EXAMPLED539D4633E53DE1B71EXAMPLE>` and `<region-code>` with the values returned in the previous step.
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -286,7 +285,7 @@ Run the following commands to create an IAM role with AWS CLI.
 
    1. Create the role.
 
-      ```
+      ```bash
       aws iam create-role \
         --role-name $role_name \
         --assume-role-policy-document file://"aws-efs-csi-driver-trust-policy.json"
@@ -294,7 +293,7 @@ Run the following commands to create an IAM role with AWS CLI.
 
 1. Attach the required AWS managed policy to the role with the following command.
 
-   ```
+   ```bash
    aws iam attach-role-policy \
      --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy \
      --role-name $role_name

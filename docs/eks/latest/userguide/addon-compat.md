@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Verify Amazon EKS add-on version compatibility with a cluster
-<a name="addon-compat"></a>
 
 Before you create an Amazon EKS add-on you need to verify that the Amazon EKS add-on version is compatible with your cluster.
 
@@ -19,13 +18,13 @@ Use the [describe-addon-versions API](https://docs.aws.amazon.com/eks/latest/API
 
 1. Use the AWS CLI to retrieve the addon versions that are compatible with the Kubernetes version of your cluster.
 
-   ```
+   ```bash
    aws eks describe-addon-versions --addon-name amazon-cloudwatch-observability --kubernetes-version 1.37
    ```
 
    An example output is as follows.
 
-   ```
+   ```json
    {
        "addons": [
            {

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Customize managed nodes with launch templates
-<a name="launch-templates"></a>
 
 For the highest level of customization, you can deploy managed nodes with your own launch template based on the steps on this page. Using a launch template allows capabilities such as to provide bootstrap arguments during deployment of a node (e.g., extra [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) arguments), assign IP addresses to Pods from a different CIDR block than the IP address assigned to the node, deploy your own custom AMI to nodes, or deploy your own custom CNI to nodes.
 
@@ -99,7 +98,7 @@ echo "Running custom user data script"
  **Amazon Linux 2023 user data**   
 Amazon Linux 2023 (AL2023) introduces a new node initialization process `nodeadm` that uses a YAML configuration schema. If you’re using self-managed node groups or an AMI with a launch template, you’ll now need to provide additional cluster metadata explicitly when creating a new node group. An [example](https://awslabs.github.io/amazon-eks-ami/nodeadm/) of the minimum required parameters is as follows, where `apiServerEndpoint`, `certificateAuthority`, and service `cidr` are now required:  
 
-```
+```yaml
 ---
 apiVersion: node.eks.aws/v1alpha1
 kind: NodeConfig
@@ -112,7 +111,7 @@ spec:
 ```
 You’ll typically set this configuration in your user data, either as-is or embedded within a MIME multi-part document:  
 
-```
+```bash
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="BOUNDARY"
 
@@ -128,7 +127,7 @@ kind: NodeConfig spec: [...]
 In AL2, the metadata from these parameters was discovered from the Amazon EKS `DescribeCluster` API call. With AL2023, this behavior has changed since the additional API call risks throttling during large node scale ups. This change doesn’t affect you if you’re using managed node groups without a launch template or if you’re using Karpenter. For more information on `certificateAuthority` and service `cidr`, see [`DescribeCluster`](https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeCluster.html) in the *Amazon EKS API Reference*.  
 Here’s a complete example of AL2023 user data that combines a shell script for customizing the node (like installing packages or pre-caching container images) with the required `nodeadm` configuration. This example shows common customizations including: \* Installing additional system packages \* Pre-caching container images to improve Pod startup time \* Setting up HTTP proxy configuration \* Configuring `kubelet` flags for node labeling  
 
-```
+```bash
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="BOUNDARY"
 
@@ -198,7 +197,7 @@ When creating Windows node groups, Amazon EKS updates the `aws-auth` `ConfigMap`
 When no AMI ID is specified in the launch template, don’t use the Windows Amazon EKS Bootstrap script in user data to configure Amazon EKS.
 Example user data is as follows.  
 
-```
+```xml
 <powershell>
 Write-Host "Running custom user data script"
 </powershell>
@@ -220,22 +219,22 @@ Create a file named {{my-nodegroup.yaml}} with the following contents. Replace e
   +  [Retrieve recommended Microsoft Windows AMI IDs](retrieve-windows-ami-id.md) 
 + To retrieve the {{certificate-authority}} for your cluster, run the following command.
 
-  ```
+  ```bash
   aws eks describe-cluster --query "cluster.certificateAuthority.data" --output text --name my-cluster --region region-code
   ```
 + To retrieve the {{api-server-endpoint}} for your cluster, run the following command.
 
-  ```
+  ```bash
   aws eks describe-cluster --query "cluster.endpoint" --output text --name my-cluster --region region-code
   ```
 + The value for `--dns-cluster-ip` is your service CIDR with `.10` at the end. To retrieve the {{service-cidr}} for your cluster, run the following command. For example, if the returned value for is `ipv4 10.100.0.0/16`, then your value is {{10.100.0.10}}.
 
-  ```
+  ```bash
   aws eks describe-cluster --query "cluster.kubernetesNetworkConfig.serviceIpv4Cidr" --output text --name my-cluster --region region-code
   ```
 + This example provides a `kubelet` argument to set a custom `max-pods` value using the `bootstrap.sh` script included with the Amazon EKS optimized AMI. The node group name can’t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters. For help with selecting {{my-max-pods-value}}, see [How maxPods is determined](choosing-instance-type.md#max-pods-precedence). For more information about how `maxPods` is determined when using managed node groups, see [How maxPods is determined](choosing-instance-type.md#max-pods-precedence).
 
-  ```
+  ```yaml
   ---
   apiVersion: eksctl.io/v1alpha5
   kind: ClusterConfig
@@ -265,7 +264,7 @@ Create a file named {{my-nodegroup.yaml}} with the following contents. Replace e
 
   Create a node group with the following command.
 
-  ```
+  ```bash
   eksctl create nodegroup --config-file=my-nodegroup.yaml
   ```  
  **User data in a launch template**   
@@ -273,17 +272,17 @@ Specify the following information in the user data section of your launch templa
 + The only required argument is the cluster name ({{my-cluster}}).
 + To retrieve the {{certificate-authority}} for your cluster, run the following command.
 
-  ```
+  ```bash
   aws eks describe-cluster --query "cluster.certificateAuthority.data" --output text --name my-cluster --region region-code
   ```
 + To retrieve the {{api-server-endpoint}} for your cluster, run the following command.
 
-  ```
+  ```bash
   aws eks describe-cluster --query "cluster.endpoint" --output text --name my-cluster --region region-code
   ```
 + The value for `--dns-cluster-ip` is your service CIDR with `.10` at the end. To retrieve the {{service-cidr}} for your cluster, run the following command. For example, if the returned value for is `ipv4 10.100.0.0/16`, then your value is {{10.100.0.10}}.
 
-  ```
+  ```bash
   aws eks describe-cluster --query "cluster.kubernetesNetworkConfig.serviceIpv4Cidr" --output text --name my-cluster --region region-code
   ```
 + This example provides a `kubelet` argument to set a custom `max-pods` value using the `bootstrap.sh` script included with the Amazon EKS optimized AMI. For help with selecting {{my-max-pods-value}}, see [How maxPods is determined](choosing-instance-type.md#max-pods-precedence). For more information about how `maxPods` is determined when using managed node groups, see [How maxPods is determined](choosing-instance-type.md#max-pods-precedence).
@@ -316,24 +315,24 @@ Specify the following information in the user data section of your launch templa
 + The only required argument is the cluster name ({{my-cluster}}).
 + To retrieve the {{certificate-authority}} for your cluster, run the following command.
 
-  ```
+  ```bash
   aws eks describe-cluster --query "cluster.certificateAuthority.data" --output text --name my-cluster --region region-code
   ```
 + To retrieve the {{api-server-endpoint}} for your cluster, run the following command.
 
-  ```
+  ```bash
   aws eks describe-cluster --query "cluster.endpoint" --output text --name my-cluster --region region-code
   ```
 + The value for `--dns-cluster-ip` is your service CIDR with `.10` at the end. To retrieve the {{service-cidr}} for your cluster, run the following command. For example, if the returned value for is `ipv4 10.100.0.0/16`, then your value is {{10.100.0.10}}.
 
-  ```
+  ```bash
   aws eks describe-cluster --query "cluster.kubernetesNetworkConfig.serviceIpv4Cidr" --output text --name my-cluster --region region-code
   ```
 + For additional arguments, see [Bootstrap script configuration parameters](eks-optimized-windows-ami.md#bootstrap-script-configuration-parameters).
 **Note**  
 If you’re using custom service CIDR, then you need to specify it using the `-ServiceCIDR` parameter. Otherwise, the DNS resolution for Pods in the cluster will fail.
 
-```
+```xml
 <powershell>
 [string]$EKSBootstrapScriptFile = "$env:ProgramFiles\Amazon\EKS\Start-EKSBootstrap.ps1"
 & $EKSBootstrapScriptFile -EKSClusterName my-cluster `
@@ -372,13 +371,13 @@ The following are the limits and conditions involved with specifying an AMI ID w
 
   1. Open the AWS IAM Authenticator configuration map for editing.
 
-     ```
+     ```bash
      kubectl edit -n kube-system cm aws-auth
      ```
 
   1. Add this entry to the `groups` list under each `rolearn` associated with Windows nodes. Your configuration map should look similar to [aws-auth-cm-windows.yaml](https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm-windows.yaml).
 
-     ```
+     ```yaml
      - eks:kube-proxy-windows
      ```
 

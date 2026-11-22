@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Enable outbound internet access for Pods
-<a name="external-snat"></a>
 
  **Applies to**: Linux `IPv4` Fargate nodes, Linux nodes with Amazon EC2 instances
 
@@ -24,7 +23,7 @@ If either of the following statements are true in your environment, then change 
 + You have resources in networks or VPCs that are connected to your cluster VPC using [VPC peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html), a [transit VPC](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/transit-vpc-option.html), or [AWS Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html) that need to initiate communication with your Pods using an `IPv4` address and your plugin version is earlier than `1.8.0`.
 + You want the Pod’s source IP address to be preserved when traffic leaves the node, with SNAT performed by a [NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) instead of the node — for example, so network appliances or logs observe the Pod’s IP address. Your nodes must be in a [private subnet](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html#subnet-basics) with a route to a NAT gateway, because Pod-sourced traffic can’t route through an internet gateway.
 
-```
+```bash
 kubectl set env daemonset -n kube-system aws-node AWS_VPC_K8S_CNI_EXTERNALSNAT=true
 ```
 

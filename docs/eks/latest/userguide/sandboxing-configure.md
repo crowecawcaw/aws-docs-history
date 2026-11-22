@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure sandboxes
-<a name="sandboxing-configure"></a>
 
 Configure how your sandboxed pods handle images, networking, storage, AWS credentials, and debugging.
 

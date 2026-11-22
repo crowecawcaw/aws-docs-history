@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # ACK concepts
-<a name="ack-concepts"></a>
 
 ACK manages AWS resources through Kubernetes APIs by continuously reconciling the desired state in your manifests with the actual state in AWS. When you create or update a Kubernetes custom resource, ACK makes the necessary AWS API calls to create or modify the corresponding AWS resource, then monitors it for drift and updates the Kubernetes status to reflect the current state. This approach lets you manage infrastructure using familiar Kubernetes tools and workflows while maintaining consistency between your cluster and AWS.
 
@@ -18,7 +17,7 @@ After creating the ACK capability (see [Create an ACK capability](create-ack-cap
 
 As an example, create this S3 bucket manifest in `bucket.yaml`, choosing your own unique bucket name.
 
-```
+```yaml
 apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
@@ -30,32 +29,32 @@ spec:
 
 Apply the manifest:
 
-```
+```bash
 kubectl apply -f bucket.yaml
 ```
 
 Check the status:
 
-```
+```bash
 kubectl get bucket my-test-bucket
 kubectl describe bucket my-test-bucket
 ```
 
 Verify the bucket was created in AWS:
 
-```
+```bash
 aws s3 ls | grep {{my-unique-bucket-name-12345}}
 ```
 
 Delete the Kubernetes resource:
 
-```
+```bash
 kubectl delete bucket my-test-bucket
 ```
 
 Verify the bucket was deleted from AWS:
 
-```
+```bash
 aws s3 ls | grep {{my-unique-bucket-name-12345}}
 ```
 
@@ -110,7 +109,7 @@ ACK resources use status conditions to communicate their state. Understanding th
 
 Check resource status:
 
-```
+```bash
 # Check if resource is ready
 kubectl get bucket my-bucket -o jsonpath='{.status.conditions[?(@.type=="Ready")].status}'
 
@@ -120,7 +119,7 @@ kubectl get bucket my-bucket -o jsonpath='{.status.conditions[?(@.type=="ACK.Ter
 
 Example status:
 
-```
+```yaml
 status:
   conditions:
   - type: Ready
@@ -148,7 +147,7 @@ ACK’s deletion policy controls what happens to AWS resources when you delete t
 
 The AWS resource is deleted when you delete the Kubernetes resource: This is the default behavior.
 
-```
+```yaml
 # No annotation needed - this is the default
 apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
@@ -164,7 +163,7 @@ Deleting this resource deletes the S3 bucket in AWS.
 
 The AWS resource is kept when you delete the Kubernetes resource:
 
-```
+```yaml
 apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
@@ -193,7 +192,7 @@ When to use adoption:
 
 How adoption works:
 
-```
+```yaml
 apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
@@ -231,7 +230,7 @@ ACK can manage resources in different AWS accounts and regions from a single clu
 
 You can specify the region of an AWS resource using an annotation:
 
-```
+```yaml
 apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
@@ -248,7 +247,7 @@ You can also specify the region of all AWS resources created in a given namespac
 
 Set a default region for all resources in a namespace:
 
-```
+```yaml
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -263,7 +262,7 @@ Resources created in this namespace use this region unless overridden with a res
 
 Use IAM Role Selectors to map specific IAM roles to namespaces:
 
-```
+```yaml
 apiVersion: services.k8s.aws/v1alpha1
 kind: IAMRoleSelector
 metadata:
@@ -308,7 +307,7 @@ Retry strategy:
 
 Check resource status for error details using `kubectl describe`:
 
-```
+```bash
 kubectl describe bucket my-bucket
 ```
 

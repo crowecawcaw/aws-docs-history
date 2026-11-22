@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Prepare for Kubernetes version upgrades and troubleshoot misconfigurations with cluster insights
-<a name="cluster-insights"></a>
 
 Amazon EKS cluster insights provide detection of issues and recommendations to resolve them to help you manage your cluster. Every Amazon EKS cluster undergoes automatic, recurring checks against an Amazon EKS curated list of insights. These *insight checks* are fully managed by Amazon EKS and offer recommendations on how to address any findings.
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Assign IPs to Pods with the Amazon VPC CNI
-<a name="managing-vpc-cni"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS workshops.
@@ -26,13 +25,13 @@ The following table lists the latest available version of the Amazon EKS add-on 
 
 | Kubernetes version | Amazon EKS type of VPC CNI version | 
 | --- | --- | 
-| 1.37 | v1.23.2-eksbuild.8 | 
-| 1.36 | v1.23.2-eksbuild.8 | 
-| 1.35 | v1.23.2-eksbuild.8 | 
-| 1.34 | v1.23.2-eksbuild.8 | 
-| 1.33 | v1.23.2-eksbuild.8 | 
-| 1.32 | v1.23.2-eksbuild.8 | 
-| 1.31 | v1.23.2-eksbuild.8 | 
+| 1.37 | v1.23.2-eksbuild.12 | 
+| 1.36 | v1.23.2-eksbuild.12 | 
+| 1.35 | v1.23.2-eksbuild.12 | 
+| 1.34 | v1.23.2-eksbuild.12 | 
+| 1.33 | v1.23.2-eksbuild.12 | 
+| 1.32 | v1.23.2-eksbuild.12 | 
+| 1.31 | v1.23.2-eksbuild.12 | 
 
 **Important**  
 If you’re self-managing this add-on, the versions in the table might not be the same as the available self-managed versions. For more information about updating the self-managed type of this add-on, see [Update the Amazon VPC CNI (self-managed add-on)](vpc-add-on-self-managed-update.md).

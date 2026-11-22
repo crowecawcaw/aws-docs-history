@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Autoscale AI inference with HPA and KEDA
-<a name="ml-inference-autoscaling-hpa-keda"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
@@ -27,7 +26,7 @@ This subsection continues from [Find scaling metric thresholds](ml-inference-aut
 
 If you opened a new terminal, set the cluster name and region you used earlier:
 
-```
+```bash
 export CLUSTER_NAME=ai-eks-docs
 export AWS_REGION=us-east-2
 ```
@@ -37,7 +36,7 @@ export AWS_REGION=us-east-2
 
 Install KEDA with Helm into its own namespace:
 
-```
+```bash
 helm repo add kedacore https://kedacore.github.io/charts
 helm repo update
 
@@ -46,13 +45,13 @@ helm install keda kedacore/keda --namespace keda --create-namespace
 
 Verify the KEDA pods are running:
 
-```
+```bash
 kubectl get pods -n keda
 ```
 
 Expected output:
 
-```
+```console
 NAME                                      READY   STATUS    RESTARTS   AGE
 keda-admission-webhooks-7d4d6c6f9-xxxxx   1/1     Running   0          40s
 keda-operator-6b8f9c5d7c-xxxxx            1/1     Running   0          40s
@@ -66,7 +65,7 @@ A `ScaledObject` tells KEDA which Deployment to scale, the replica bounds, and t
 
 This walkthrough uses the example thresholds from the [Find scaling metric thresholds](ml-inference-autoscaling-thresholds.md) section: scale up when average queue depth exceeds **25 waiting requests per pod** or when p95 end-to-end latency exceeds **5 seconds**. Substitute the values you measured for your own model, GPU, and request shapes.
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
@@ -124,13 +123,13 @@ The key settings:
 
 Verify the ScaledObject is ready:
 
-```
+```bash
 kubectl get scaledobject vllm-inference-app
 ```
 
 Expected output:
 
-```
+```console
 NAME                 SCALETARGETKIND      SCALETARGETNAME      MIN   MAX   READY   ACTIVE
 vllm-inference-app   apps/v1.Deployment   vllm-inference-app   1     5     True    False
 ```
@@ -139,13 +138,13 @@ vllm-inference-app   apps/v1.Deployment   vllm-inference-app   1     5     True 
 
 When you create the ScaledObject, KEDA automatically creates and manages a backing Horizontal Pod Autoscaler (HPA) with the same name. You do not create or edit this HPA yourself. Confirm it exists:
 
-```
+```bash
 kubectl get hpa vllm-inference-app
 ```
 
 Expected output:
 
-```
+```console
 NAME                 REFERENCE                       TARGETS                MINPODS   MAXPODS   REPLICAS
 vllm-inference-app   Deployment/vllm-inference-app   0/25 (avg), 0/5 (avg)  1         5         1
 ```
@@ -157,7 +156,7 @@ The `TARGETS` column shows the current value of each metric against its threshol
 
 The load test reuses the `vllm-loadtest-script` ConfigMap that you created in [Find scaling metric thresholds](ml-inference-autoscaling-thresholds.md). Confirm it still exists:
 
-```
+```bash
 kubectl get configmap vllm-loadtest-script
 ```
 
@@ -165,7 +164,7 @@ If it is missing, recreate it from [Find scaling metric thresholds](ml-inference
 
 Run a single load test at 60 requests per second for 10 minutes to drive scale-up. The Job reads the model bucket from the `MODEL_BUCKET` environment variable you set earlier and passes the rate and duration through the `TARGET_RPS` and `DURATION` variables that the load-test script reads.
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: batch/v1
 kind: Job
@@ -208,19 +207,19 @@ Watch the autoscaler respond to the load from the previous step. Run each of the
 
 Watch the HPA. The `TARGETS` column climbs above the configured targets and `REPLICAS` increases:
 
-```
+```bash
 kubectl get hpa vllm-inference-app -w
 ```
 
 Watch the vLLM pods. New replicas appear and reach `Ready` once the model loads into GPU memory:
 
-```
+```bash
 kubectl get pods -l app=vllm-inference-app -w
 ```
 
 Confirm the ScaledObject is active. `ACTIVE` changes to `True` once a trigger threshold is breached:
 
-```
+```bash
 kubectl get scaledobject vllm-inference-app
 ```
 
@@ -232,7 +231,7 @@ Expected behavior:
 
 When the load test finishes, delete the load-test Job. Leave the `vllm-loadtest-script` ConfigMap in place, since it is shared with the thresholds section:
 
-```
+```bash
 kubectl delete jobs -l app=vllm-loadtest-scaleup --ignore-not-found
 ```
 
@@ -244,7 +243,7 @@ If you plan to continue using autoscaling, skip this cleanup. Only run it when y
 
 To remove the autoscaling resources that you created in this section, delete the `ScaledObject` and uninstall KEDA:
 
-```
+```bash
 kubectl delete scaledobject vllm-inference-app --ignore-not-found
 helm uninstall keda -n keda
 kubectl delete namespace keda

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # EKS Capabilities considerations
-<a name="capabilities-considerations"></a>
 
 Review important considerations before deploying EKS capabilities, including access control design, choosing between managed and self-managed solutions, architectural patterns for multi-cluster deployments, and operational best practices.
 

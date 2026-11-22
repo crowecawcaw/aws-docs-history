@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Prepare cluster access for hybrid nodes
-<a name="hybrid-nodes-cluster-prep"></a>
 
 Before connecting hybrid nodes to your Amazon EKS cluster, you must enable your Hybrid Nodes IAM Role with Kubernetes permissions to join the cluster. See [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md) for information on how to create the Hybrid Nodes IAM role. Amazon EKS supports two ways to associate IAM principals with Kubernetes Role-Based Access Control (RBAC), Amazon EKS access entries and the `aws-auth` ConfigMap. For more information on Amazon EKS access management, see [Grant IAM users and roles access to Kubernetes APIs](grant-k8s-access.md).
 
@@ -23,7 +22,7 @@ There is an Amazon EKS access entry type for hybrid nodes named HYBRID\_LINUX th
 
 1. Create your access entry with the following command. Replace CLUSTER\_NAME with the name of your cluster and HYBRID\_NODES\_ROLE\_ARN with the ARN of the role you created in the steps for [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md).
 
-   ```
+   ```shell
    aws eks create-access-entry --cluster-name CLUSTER_NAME \
        --principal-arn HYBRID_NODES_ROLE_ARN \
        --type HYBRID_LINUX
@@ -57,7 +56,7 @@ In the following steps, you will create or update the `aws-auth` ConfigMap with 
 
 1. Check to see if you have an existing `aws-auth` ConfigMap for your cluster. Note that if you are using a specific `kubeconfig` file, use the `--kubeconfig` flag.
 
-   ```
+   ```shell
    kubectl describe configmap -n kube-system aws-auth
    ```
 
@@ -65,13 +64,13 @@ In the following steps, you will create or update the `aws-auth` ConfigMap with 
 
    1. Open the ConfigMap for editing.
 
-      ```
+      ```shell
       kubectl edit -n kube-system configmap/aws-auth
       ```
 
    1. Add a new `mapRoles` entry as needed. Replace `HYBRID_NODES_ROLE_ARN` with the ARN of your Hybrid Nodes IAM role. Note, `{{SessionName}}` is the correct template format to save in the ConfigMap. Do not replace it with other values.
 
-      ```
+      ```yaml
       data:
         mapRoles: |
         - groups:
@@ -85,7 +84,7 @@ In the following steps, you will create or update the `aws-auth` ConfigMap with 
 
 1. If there is not an existing `aws-auth` ConfigMap for your cluster, create it with the following command. Replace `HYBRID_NODES_ROLE_ARN` with the ARN of your Hybrid Nodes IAM role. Note that `{{SessionName}}` is the correct template format to save in the ConfigMap. Do not replace it with other values.
 
-   ```
+   ```shell
    kubectl apply -f=/dev/stdin <<-EOF
    apiVersion: v1
    kind: ConfigMap

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure networking for Amazon EKS clusters
-<a name="eks-networking"></a>
 
 Your Amazon EKS cluster is created in a VPC. Pod networking is provided by the Amazon VPC Container Network Interface (CNI) plugin for nodes that run on AWS infrastructure. If you are running nodes on your own infrastructure, see [Configure CNI for hybrid nodes](hybrid-nodes-cni.md). This chapter includes the following topics for learning more about networking for your cluster.
 

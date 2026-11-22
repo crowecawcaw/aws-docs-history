@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS add-ons
-<a name="eks-add-ons"></a>
 
 An add-on is software that provides supporting operational capabilities to Kubernetes applications, but is not specific to the application. This includes software like observability agents or Kubernetes drivers that allow the cluster to interact with underlying AWS resources for networking, compute, and storage. Add-on software is typically built and maintained by the Kubernetes community, cloud providers like AWS, or third-party vendors. Amazon EKS automatically installs self-managed add-ons such as the Amazon VPC CNI plugin for Kubernetes, `kube-proxy`, and CoreDNS for every cluster. Note that the VPC CNI add-on isn’t compatible with Amazon EKS Hybrid Nodes and doesn’t deploy to hybrid nodes. You can change the default configuration of the add-ons and update them when desired.
 
@@ -49,13 +48,13 @@ The predefined namespace for an add-on is the namespace it will be installed int
 
 To get the predefined namespace for an add-on, use the following command:
 
-```
+```bash
 aws eks describe-addon-versions --addon-name <addon-name> --query "addons[].defaultNamespace"
 ```
 
 Example output:
 
-```
+```json
 [
     "kube-system"
 ]
@@ -92,6 +91,7 @@ If you are planning to enable EKS Auto Mode on an existing cluster, you may need
 +  ** AWS Add-ons:** These add-ons are built and fully supported by AWS.
   + Use an AWS add-on to work with other AWS services, such as Amazon EFS.
   + For more information, see [AWS add-ons](workloads-add-ons-available-eks.md).
+  + Add-ons for clusters that orchestrate an Amazon SageMaker HyperPod cluster are listed in [Amazon SageMaker add-ons](workloads-add-ons-available-sagemaker.md).
 +  ** AWS Marketplace Add-ons:** These add-ons are scanned by AWS and supported by an independent AWS partner.
   + Use a marketplace add-on to add valuable and sophisticated features to your cluster, such as monitoring with Splunk.
   + For more information, see [AWS Marketplace add-ons](workloads-add-ons-available-vendors.md).

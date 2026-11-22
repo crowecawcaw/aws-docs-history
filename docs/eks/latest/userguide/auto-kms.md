@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Enable EBS Volume Encryption with Customer Managed KMS Keys for EKS Auto Mode
-<a name="auto-kms"></a>
 
 You can encrypt the ephemeral root volume for EKS Auto Mode instances with a customer managed KMS key.
 
@@ -35,7 +34,7 @@ Configure your key policy with the following structure:
 **Note**  
 This policy only includes permissions for EKS Auto Mode. The key policy may need additional permissions if other identities need to use the key or manage grants.
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "MyKeyPolicy",
@@ -92,7 +91,7 @@ When configuring the key policy:
 
 After configuring the key policy, reference the KMS key in your EKS Auto Mode NodeClass configuration:
 
-```
+```yaml
 apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
@@ -122,7 +121,7 @@ You can specify the KMS key using any of the following formats:
 
 Apply the NodeClass configuration using kubectl:
 
-```
+```bash
 kubectl apply -f nodeclass.yaml
 ```
 

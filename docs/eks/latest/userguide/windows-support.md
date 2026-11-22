@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy Windows nodes on EKS clusters
-<a name="windows-support"></a>
 
 Learn how to enable and manage Windows support for your Amazon EKS cluster to run Windows containers alongside Linux containers.
 
@@ -34,7 +33,7 @@ Before deploying Windows nodes, be aware of the following considerations.
 
     To create an access entry for a Windows node:
 
-    ```
+    ```bash
     aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/<role-name> --type EC2_Windows
     ```
 
@@ -49,13 +48,13 @@ Before deploying Windows nodes, be aware of the following considerations.
 
 1. If you don’t have Amazon Linux nodes in your cluster and use security groups for Pods, skip to the next step. Otherwise, confirm that the `AmazonEKSVPCResourceController` managed policy is attached to your [cluster role](cluster-iam-role.md). Replace {{eksClusterRole}} with your cluster role name.
 
-   ```
+   ```bash
    aws iam list-attached-role-policies --role-name eksClusterRole
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    {
        "AttachedPolicies": [
            {
@@ -74,7 +73,7 @@ Before deploying Windows nodes, be aware of the following considerations.
 
 1. Attach the ** [AmazonEKSVPCResourceController](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEKSVPCResourceController.html) ** managed policy to your [Amazon EKS cluster IAM role](cluster-iam-role.md). Replace {{eksClusterRole}} with your cluster role name.
 
-   ```
+   ```bash
    aws iam attach-role-policy \
      --role-name eksClusterRole \
      --policy-arn arn:aws:iam::aws:policy/AmazonEKSVPCResourceController
@@ -84,7 +83,7 @@ Before deploying Windows nodes, be aware of the following considerations.
 
    1. Create a file named {{vpc-resource-controller-configmap.yaml}} with the following contents.
 
-      ```
+      ```yaml
       apiVersion: v1
       kind: ConfigMap
       metadata:
@@ -96,20 +95,20 @@ Before deploying Windows nodes, be aware of the following considerations.
 
    1. Apply the `ConfigMap` to your cluster.
 
-      ```
+      ```bash
       kubectl apply -f vpc-resource-controller-configmap.yaml
       ```
 
 1. If your cluster has the authentication mode set to enable the `aws-auth` configmap:
    + Verify that your `aws-auth` `ConfigMap` contains a mapping for the instance role of the Windows node to include the `eks:kube-proxy-windows` RBAC permission group. You can verify by running the following command.
 
-     ```
+     ```bash
      kubectl get configmap aws-auth -n kube-system -o yaml
      ```
 
      An example output is as follows.
 
-     ```
+     ```bash
      apiVersion: v1
      kind: ConfigMap
      metadata:
@@ -137,7 +136,7 @@ When you deploy Pods to your cluster, you need to specify the operating system t
 
 For Linux Pods, use the following node selector text in your manifests.
 
-```
+```yaml
 nodeSelector:
         kubernetes.io/os: linux
         kubernetes.io/arch: amd64
@@ -145,7 +144,7 @@ nodeSelector:
 
 For Windows Pods, use the following node selector text in your manifests.
 
-```
+```yaml
 nodeSelector:
         kubernetes.io/os: windows
         kubernetes.io/arch: amd64
@@ -158,7 +157,7 @@ You can deploy a [sample application](sample-deployment.md) to see the node sele
 
 In Amazon EKS, each Pod is allocated an `IPv4` address from your VPC. Due to this, the number of Pods that you can deploy to a node is constrained by the available IP addresses, even if there are sufficient resources to run more Pods on the node. Since only one elastic network interface is supported by a Windows node, by default, the maximum number of available IP addresses on a Windows node is equal to:
 
-```
+```bash
 Number of private IPv4 addresses for each interface on the node - 1
 ```
 
@@ -166,7 +165,7 @@ One IP address is used as the primary IP address of the network interface, so it
 
 You can enable higher Pod density on Windows nodes by enabling IP prefix delegation. This feature enables you to assign a `/28` `IPv4` prefix to the primary network interface, instead of assigning secondary `IPv4` addresses. Assigning an IP prefix increases the maximum available `IPv4` addresses on the node to:
 
-```
+```bash
 (Number of private IPv4 addresses assigned to the interface attached to the node - 1) * 16
 ```
 

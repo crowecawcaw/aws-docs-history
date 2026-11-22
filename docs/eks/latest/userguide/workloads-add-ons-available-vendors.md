@@ -5,11 +5,10 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # AWS Marketplace add-ons
-<a name="workloads-add-ons-available-vendors"></a>
 
 In addition to the previous list of Amazon EKS add-ons, you can also add a wide selection of operational software Amazon EKS add-ons from independent software vendors. Choose an add-on to learn more about it and its installation requirements.
 
-[![AWS Videos](https://img.youtube.com/vi/IIPj119mspc?rel=0/0.jpg)](https://www.youtube.com/watch?v=IIPj119mspc?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/IIPj119mspc/0.jpg)](https://www.youtube.com/watch?v=IIPj119mspc)
 
 
 ## Accuknox
@@ -78,7 +77,7 @@ This add-on uses the `AWSMarketplaceMeteringRegisterUsage` managed policy. For m
 
 The following command requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md). Replace {{my-cluster}} with the name of your cluster and {{my-calyptia-role}} with the name for your role. This command requires that you have [eksctl](https://eksctl.io) installed on your device. If you need to use a different tool to create the role and annotate the Kubernetes service account, see [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md).
 
-```
+```bash
 eksctl create iamserviceaccount --name service-account-name  --namespace calyptia-fluentbit --cluster my-cluster --role-name my-calyptia-role \
     --role-only --attach-policy-arn arn:aws:iam::aws:policy/AWSMarketplaceMeteringRegisterUsage --approve
 ```
@@ -215,7 +214,7 @@ The managed policy is AWSLicenseManagerConsumptionPolicy. For more information, 
 
 The following command requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md). Replace {{my-cluster}} with the name of your cluster and {{my-datree-role}} with the name for your role. This command requires that you have [eksctl](https://eksctl.io) installed on your device. If you need to use a different tool to create the role and annotate the Kubernetes service account, see [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md).
 
-```
+```bash
 eksctl create iamserviceaccount --name datree-webhook-server-awsmp --namespace datree --cluster my-cluster --role-name my-datree-role \
     --role-only --attach-policy-arn arn:aws:iam::aws:policy/service-role/AWSLicenseManagerConsumptionPolicy --approve
 ```
@@ -347,7 +346,7 @@ The managed policy is AWSLicenseManagerConsumptionPolicy. For more information, 
 
 The following command requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md). Replace {{my-cluster}} with the name of your cluster and {{my-haproxy-role}} with the name for your role. This command requires that you have [eksctl](https://eksctl.io) installed on your device. If you need to use a different tool to create the role and annotate the Kubernetes service account, see [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md).
 
-```
+```bash
 eksctl create iamserviceaccount --name service-account-name  --namespace haproxy-controller --cluster my-cluster --role-name my-haproxy-role \
     --role-only --attach-policy-arn arn:aws:iam::aws:policy/service-role/AWSLicenseManagerConsumptionPolicy --approve
 ```
@@ -379,7 +378,7 @@ The managed policy is AWSLicenseManagerConsumptionPolicy. For more information, 
 
 The following command requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md). Replace {{my-cluster}} with the name of your cluster and {{my-kpow-role}} with the name for your role. This command requires that you have [eksctl](https://eksctl.io) installed on your device. If you need to use a different tool to create the role and annotate the Kubernetes service account, see [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md).
 
-```
+```bash
 eksctl create iamserviceaccount --name kpow --namespace factorhouse --cluster my-cluster --role-name my-kpow-role \
     --role-only --attach-policy-arn arn:aws:iam::aws:policy/service-role/AWSLicenseManagerConsumptionPolicy --approve
 ```
@@ -437,7 +436,7 @@ The managed policy is AWSLicenseManagerConsumptionPolicy. For more information, 
 
 The following command requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md). Replace {{my-cluster}} with the name of your cluster and {{my-kasten-role}} with the name for your role. This command requires that you have [eksctl](https://eksctl.io) installed on your device. If you need to use a different tool to create the role and annotate the Kubernetes service account, see [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md).
 
-```
+```bash
 eksctl create iamserviceaccount --name k10-k10 --namespace kasten-io --cluster my-cluster --role-name my-kasten-role \
     --role-only --attach-policy-arn arn:aws:iam::aws:policy/service-role/AWSLicenseManagerConsumptionPolicy --approve
 ```

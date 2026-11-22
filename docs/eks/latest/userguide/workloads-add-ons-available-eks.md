@@ -5,9 +5,16 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # AWS add-ons
-<a name="workloads-add-ons-available-eks"></a>
 
-The following Amazon EKS add-ons are available to create on your cluster. You can view the most current list of available add-ons using `eksctl`, the AWS Management Console, or the AWS CLI. To see all available add-ons or to install an add-on, see [Create an Amazon EKS add-on](creating-an-add-on.md). If an add-on requires IAM permissions, then you must have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md). You can create or delete an add-on after you’ve installed it. For more information, see [Update an Amazon EKS add-on](updating-an-add-on.md) or [Remove an Amazon EKS add-on from a cluster](removing-an-add-on.md). For more information about considerations specific to running EKS add-ons with Amazon EKS Hybrid Nodes, see [Configure add-ons for hybrid nodes](hybrid-nodes-add-ons.md).
+The following Amazon EKS add-ons are available to create on your cluster. You can view the most current list of available add-ons using `eksctl`, the AWS Management Console, or the AWS CLI. To see all available add-ons or to install an add-on, see [Create an Amazon EKS add-on](creating-an-add-on.md).
+
+If an add-on requires IAM permissions, then you must have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md).
+
+You can update or remove an add-on after you’ve installed it. For more information, see [Update an Amazon EKS add-on](updating-an-add-on.md) or [Remove an Amazon EKS add-on from a cluster](removing-an-add-on.md).
+
+For more information about considerations specific to running EKS add-ons with Amazon EKS Hybrid Nodes, see [Configure add-ons for hybrid nodes](hybrid-nodes-add-ons.md).
+
+Add-ons for clusters that orchestrate an Amazon SageMaker HyperPod cluster, such as HyperPod task governance and the HyperPod training operator, are listed separately. For more information, see [Amazon SageMaker add-ons](workloads-add-ons-available-sagemaker.md).
 
 You can use any of the following Amazon EKS add-ons.
 
@@ -25,10 +32,6 @@ You can use any of the following Amazon EKS add-ons.
 | Provide Amazon S3 storage for your cluster |  [Mountpoint for Amazon S3 CSI Driver](#mountpoint-for-s3-add-on)  | EC2, EKS Auto Mode | 
 | Detect additional node health issues |  [Node monitoring agent](#add-ons-eks-node-monitoring-agent)  | EC2, EKS Hybrid Nodes | 
 | Enable the use of snapshot functionality in compatible CSI drivers, such as the Amazon EBS CSI driver |  [CSI snapshot controller](#addons-csi-snapshot-controller)  | EC2, Fargate, EKS Auto Mode, EKS Hybrid Nodes | 
-| SageMaker HyperPod task governance optimizes compute resource allocation and usage across teams in Amazon EKS clusters, addressing inefficiencies in task prioritization and resource sharing. |  [Amazon SageMaker HyperPod task governance](#addons-hyperpod)  | EC2, EKS Auto Mode | 
-| The Amazon SageMaker HyperPod Observability AddOn provides comprehensive monitoring and observability capabilities for HyperPod clusters. |  [Amazon SageMaker HyperPod Observability Add-on](#addons-hyperpod-observability)  | EC2, EKS Auto Mode | 
-| Amazon SageMaker HyperPod training operator enables efficient distributed training on Amazon EKS clusters with advanced scheduling and resource management capabilities. |  [Amazon SageMaker HyperPod training operator](#addons-hyperpod-training-operator)  | EC2, EKS Auto Mode | 
-| Amazon SageMaker HyperPod inference operator enables deployment and management of high-performance AI inference workloads with optimized resource utilization and cost efficiency. |  [Amazon SageMaker HyperPod inference operator](#addons-hyperpod-inference-operator)  | EC2, EKS Auto Mode | 
 | A Kubernetes agent that collects and reports network flow data to Amazon CloudWatch, enabling comprehensive monitoring of TCP connections across cluster nodes. |  [AWS Network Flow Monitor Agent](#addons-network-flow)  | EC2, EKS Auto Mode | 
 | Secure, production-ready, AWS supported distribution of the OpenTelemetry project |  [AWS Distro for OpenTelemetry](#add-ons-adot)  | EC2, Fargate, EKS Auto Mode, EKS Hybrid Nodes | 
 | Security monitoring service that analyzes and processes foundational data sources including AWS CloudTrail management events and Amazon VPC flow logs. Amazon GuardDuty also processes features, such as Kubernetes audit logs and runtime monitoring |  [Amazon GuardDuty agent](#add-ons-guard-duty)  | EC2, EKS Auto Mode | 
@@ -37,7 +40,6 @@ You can use any of the following Amazon EKS add-ons.
 | Enable cert-manager to issue X.509 certificates from AWS Private CA. Requires cert-manager. |  [AWS Private CA Connector for Kubernetes](#add-ons-aws-privateca-connector)  | EC2, Fargate, EKS Auto Mode, EKS Hybrid Nodes | 
 | Generate Prometheus metrics about SR-IOV network device performance |  [SR-IOV Network Metrics Exporter](#add-ons-sriov-network-metrics-exporter)  | EC2 | 
 | Retrieve secrets from AWS Secrets Manager and parameters from AWS Systems Manager Parameter Store and mount them as files in Kubernetes pods. |  [AWS Secrets Store CSI Driver provider](#add-ons-aws-secrets-store-csi-driver-provider)  | EC2, EKS Auto Mode, EKS Hybrid Nodes | 
-| With Spaces, you can create and manage JupyterLab and Code Editor applications to run interactive ML workloads. |  [Amazon SageMaker Spaces](#add-ons-amazon-sagemaker-spaces)  | Hyperpod | 
 
 ## Amazon VPC CNI plugin for Kubernetes
 <a name="add-ons-vpc-cni"></a>
@@ -58,7 +60,7 @@ If your cluster uses the `IPv4` family, the permissions in the [AmazonEKS\_CNI\_
 
 Replace {{my-cluster}} with the name of your cluster and {{AmazonEKSVPCCNIRole}} with the name for your role. If your cluster uses the `IPv6` family, then replace {{AmazonEKS\_CNI\_Policy}} with the name of the policy that you created. This command requires that you have [eksctl](https://eksctl.io) installed on your device. If you need to use a different tool to create the role, attach the policy to it, and annotate the Kubernetes service account, see [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md).
 
-```
+```bash
 eksctl create iamserviceaccount --name aws-node --namespace kube-system --cluster my-cluster --role-name AmazonEKSVPCCNIRole \
     --role-only --attach-policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy --approve
 ```
@@ -131,7 +133,7 @@ This add-on utilizes the IAM roles for service accounts capability of Amazon EKS
 
 If migrating from `AmazonEBSCSIDriverPolicy`, please see [EBS CSI Driver policy migration](https://github.com/kubernetes-sigs/aws-ebs-csi-driver/issues/2918).
 
-```
+```bash
 eksctl create iamserviceaccount \
     --name ebs-csi-controller-sa \
     --namespace kube-system \
@@ -183,7 +185,7 @@ The specific AWS managed policy you need depends on which file system type you w
 
 You can create an IAM role and attach the managed policy to it with the following commands. Replace {{my-cluster}} with the name of your cluster and {{AmazonEKS\_EFS\_CSI\_DriverRole}} with the name for your role. The following example attaches the `AmazonEFSCSIDriverPolicy` for Amazon EFS file systems. If you’re using an Amazon S3 file system, replace the policy ARN with ` arn:aws:iam::aws:policy/service-role/AmazonS3FilesCSIDriverPolicy`. If you’re using both file system types, add an additional `--attach-policy-arn` flag with the second policy ARN. These commands require that you have [eksctl](https://eksctl.io) installed on your device. If you need to use a different tool, see [Step 1: Create an IAM role](efs-csi.md#efs-create-iam-resources) for Amazon EFS or [Step 1: Create IAM roles](s3files-csi.md#s3files-create-iam-resources) for Amazon S3 Files.
 
-```
+```bash
 export cluster_name=my-cluster
 export role_name=AmazonEKS_EFS_CSI_DriverRole
 eksctl create iamserviceaccount \
@@ -217,7 +219,7 @@ The Amazon EKS add-on name is `aws-fsx-csi-driver`.
 **Note**  
 Pre-existing Amazon FSx CSI driver installations in the cluster can cause add-on installation failures. When you attempt to install the Amazon EKS add-on version while a non-EKS FSx CSI Driver exists, the installation will fail due to resource conflicts. Use the `OVERWRITE` flag during installation to resolve this issue:  
 
-  ```
+  ```bash
   aws eks create-addon --addon-name aws-fsx-csi-driver --cluster-name my-cluster --resolve-conflicts OVERWRITE
   ```
 The Amazon FSx CSI Driver EKS add-on supports authentication through either EKS Pod Identity or IAM Roles for Service Accounts (IRSA). To use EKS Pod Identity, install the Pod Identity agent before or after deploying the FSx CSI Driver add-on. For more information, see [Set up the Amazon EKS Pod Identity Agent](pod-id-agent-setup.md). To use IRSA instead, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md).
@@ -227,7 +229,7 @@ The Amazon FSx CSI Driver EKS add-on supports authentication through either EKS 
 
 This add-on utilizes the IAM roles for service accounts capability of Amazon EKS. For more information, see [IAM roles for service accounts](iam-roles-for-service-accounts.md). The permissions in the [AmazonFSxFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonFSxFullAccess.html) AWS managed policy are required. You can create an IAM role and attach the managed policy to it with the following command. Replace {{my-cluster}} with the name of your cluster and {{AmazonEKS\_FSx\_CSI\_DriverRole}} with the name for your role. This command requires that you have [eksctl](https://eksctl.io) installed on your device.
 
-```
+```bash
 eksctl create iamserviceaccount \
     --name fsx-csi-controller-sa \
     --namespace kube-system \
@@ -259,7 +261,7 @@ The IAM role that is created will require a policy that gives access to S3. Foll
 
 You can create an IAM role and attach your policy to it with the following commands. Replace {{my-cluster}} with the name of your cluster, {{region-code}} with the correct AWS Region code, {{AmazonEKS\_S3\_CSI\_DriverRole}} with the name for your role, and {{AmazonEKS\_S3\_CSI\_DriverRole\_ARN}} with the role ARN. These commands require that you have [eksctl](https://eksctl.io) installed on your device. For instructions on using the IAM console or AWS CLI, see [Step 2: Create an IAM role](s3-csi-create.md#s3-create-iam-role).
 
-```
+```bash
 CLUSTER_NAME=my-cluster
 REGION=region-code
 ROLE_NAME=AmazonEKS_S3_CSI_DriverRole
@@ -297,122 +299,6 @@ This add-on doesn’t require any permissions.
 
 To learn more about the add-on, see [Enable snapshot functionality for CSI volumes](csi-snapshot-controller.md).
 
-## Amazon SageMaker HyperPod task governance
-<a name="addons-hyperpod"></a>
-
-SageMaker HyperPod task governance is a robust management system designed to streamline resource allocation and ensure efficient utilization of compute resources across teams and projects for your Amazon EKS clusters. This provides administrators with the capability to set:
-+ Priority levels for various tasks
-+ Compute allocation for each team
-+ How each team lends and borrows idle compute
-+ If a team preempts their own tasks
-
-HyperPod task governance also provides Amazon EKS cluster Observability, offering real-time visibility into cluster capacity. This includes compute availability and usage, team allocation and utilization, and task run and wait time information, setting you up for informed decision-making and proactive resource management.
-
-The Amazon EKS add-on name is `amazon-sagemaker-hyperpod-taskgovernance`.
-
-### Required IAM permissions
-<a name="_required_iam_permissions"></a>
-
-This add-on doesn’t require any permissions.
-
-### Additional information
-<a name="_additional_information"></a>
-
-To learn more about the add-on, see [SageMaker HyperPod task governance](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-eks-operate-console-ui-governance.html) 
-
-## Amazon SageMaker HyperPod Observability Add-on
-<a name="addons-hyperpod-observability"></a>
-
-The Amazon SageMaker HyperPod Observability Add-on provides comprehensive monitoring and observability capabilities for HyperPod clusters. This add-on automatically deploys and manages essential monitoring components including node exporter, DCGM exporter, kube-state-metrics, and EFA exporter. It collects and forwards metrics to a customer-designated Amazon Managed Prometheus (AMP) instance and exposes an OTLP endpoint for custom metrics and event ingestion from customer training jobs.
-
-The add-on integrates with the broader HyperPod ecosystem by scraping metrics from various components including HyperPod Task Governance add-on, HyperPod Training Operator, Kubeflow, and KEDA. All collected metrics are centralized in Amazon Managed Prometheus, enabling customers to achieve a unified observability view through Amazon Managed Grafana dashboards. This provides end-to-end visibility into cluster health, resource utilization, and training job performance across the entire HyperPod environment.
-
-The Amazon EKS add-on name is `amazon-sagemaker-hyperpod-observability`.
-
-### Required IAM permissions
-<a name="_required_iam_permissions_2"></a>
-
-This add-on uses the IAM roles for service accounts capability of Amazon EKS. For more information, see [IAM roles for service accounts](iam-roles-for-service-accounts.md). The following managed policies are required:
-+  `AmazonPrometheusRemoteWriteAccess` - for remote writing metrics from the cluster to AMP
-+  `CloudWatchAgentServerPolicy` - for remote writing the logs from the cluster to CloudWatch
-
-### Additional information
-<a name="_additional_information_2"></a>
-
-To learn more about the add-on and its capabilities, see [SageMaker HyperPod Observability](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-eks-cluster-observability-cluster.html).
-
-## Amazon SageMaker HyperPod training operator
-<a name="addons-hyperpod-training-operator"></a>
-
-The Amazon SageMaker HyperPod training operator helps you accelerate generative AI model development by efficiently managing distributed training across large GPU clusters. It introduces intelligent fault recovery, hang job detection, and process-level management capabilities that minimize training disruptions and reduce costs. Unlike traditional training infrastructure that requires complete job restarts when failures occur, this operator implements surgical process recovery to keep your training jobs running smoothly.
-
-The operator also works with HyperPod’s health monitoring and observability functions, providing real-time visibility into training execution and automatic monitoring of critical metrics like loss spikes and throughput degradation. You can define recovery policies through simple YAML configurations without code changes, allowing you to quickly respond to and recover from unrecoverable training states. These monitoring and recovery capabilities work together to maintain optimal training performance while minimizing operational overhead.
-
-The Amazon EKS add-on name is `amazon-sagemaker-hyperpod-training-operator`.
-
-For more information, see [Using the HyperPod training operator](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-eks-operator.html) in the *Amazon SageMaker Developer Guide*.
-
-### Required IAM permissions
-<a name="_required_iam_permissions_3"></a>
-
-This add-on requires IAM permissions, and uses EKS Pod Identity.
-
- AWS suggests the `AmazonSageMakerHyperPodTrainingOperatorAccess` [managed policy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSageMakerHyperPodTrainingOperatorAccess.html).
-
-For more information, see [Installing the training operator](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-eks-operator-install.html#sagemaker-eks-operator-install-operator) in the *Amazon SageMaker Developer Guide*.
-
-### Additional information
-<a name="_additional_information_3"></a>
-
-To learn more about the add-on, see [SageMaker HyperPod training operator](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-eks-operator.html).
-
-## Amazon SageMaker HyperPod inference operator
-<a name="addons-hyperpod-inference-operator"></a>
-
-Amazon SageMaker HyperPod offers an end-to-end experience supporting the full lifecycle of AI development from interactive experimentation and training to inference and post training workflows. It now provides a comprehensive inference platform that combines the flexibility of Kubernetes with the operational excellence of a managed experience. Deploy, scale, and optimize your GenAI models with enterprise-grade reliability using the same HyperPod compute throughout the entire model lifecycle.
-
-Amazon SageMaker HyperPod offers flexible deployment interfaces that allow you to deploy models through multiple methods including kubectl, Python SDK, Amazon SageMaker Studio UI, or HyperPod CLI. The capability provides advanced autoscaling capabilities with dynamic resource allocation that automatically adjusts based on demand. Additionally, it includes comprehensive observability and monitoring features that track critical metrics such as time-to-first-token, latency, and GPU utilization to help you optimize performance.
-
-The Amazon EKS add-on name is `amazon-sagemaker-hyperpod-inference`.
-
-### Installation methods
-<a name="_installation_methods"></a>
-
-You can install this add-on using one of the following methods:
-+  **SageMaker Console (Recommended)**: Provides a streamlined installation experience with guided configuration.
-+  **EKS Add-ons Console or CLI**: Requires manual installation of dependency add-ons before installing the inference operator. See the prerequisites section below for required dependencies.
-
-### Prerequisites
-<a name="_prerequisites"></a>
-
-Before installing the inference operator add-on via the EKS Add-ons Console or CLI, ensure the following dependencies are installed.
-
-Required EKS add-ons:
-+ Amazon S3 Mountpoint CSI Driver (minimum version: v1.14.1-eksbuild.1)
-+ Metrics Server (minimum version: v0.7.2-eksbuild.4)
-+ Amazon FSx CSI Driver (minimum version: v1.6.0-eksbuild.1)
-+ Cert Manager (minimum version: v1.18.2-eksbuild.2)
-
-For detailed installation instructions for each dependency, see [Installing the inference operator](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-model-deployment-setup.html).
-
-### Required IAM permissions
-<a name="_required_iam_permissions_4"></a>
-
-This add-on requires IAM permissions, and uses OIDC/IRSA.
-
-The following managed policies are recommended as they provide the minimum scoped permissions:
-+  `AmazonSageMakerHyperPodInferenceAccess` - provides admin privileges required for setting up the inference operator
-+  `AmazonSageMakerHyperPodGatedModelAccess` - provides SageMaker HyperPod access to gated models in SageMaker Jumpstart (e.g., Meta Llama, GPT-Neo)
-
-For more information, see [Installing the inference operator](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-model-deployment-setup.html).
-
-### Additional information
-<a name="_additional_information_4"></a>
-
-To learn more about the Amazon SageMaker HyperPod inference operator, see [SageMaker HyperPod inference operator](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-model-deployment.html).
-
-For troubleshooting information, see [Troubleshooting SageMaker HyperPod model deployment](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-model-deployment-ts.html).
-
 ## AWS Network Flow Monitor Agent
 <a name="addons-network-flow"></a>
 
@@ -421,7 +307,7 @@ The Amazon CloudWatch Network Flow Monitor Agent is a Kubernetes application tha
 The Amazon EKS add-on name is `aws-network-flow-monitoring-agent`.
 
 ### Required IAM permissions
-<a name="_required_iam_permissions_5"></a>
+<a name="_required_iam_permissions"></a>
 
 This add-on does require IAM permissions.
 
@@ -432,7 +318,7 @@ For more information on the required IAM setup, see [IAM Policy](https://github.
 For more information about the managed policy, see [CloudWatchNetworkFlowMonitorAgentPublishPolicy](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/security-iam-awsmanpol-network-flow-monitor.html#security-iam-awsmanpol-CloudWatchNetworkFlowMonitorAgentPublishPolicy) in the Amazon CloudWatch User Guide.
 
 ### Additional information
-<a name="_additional_information_5"></a>
+<a name="_additional_information"></a>
 
 To learn more about the add-on, see the [Amazon CloudWatch Network Flow Monitor Agent GitHub repo](https://github.com/aws/network-flow-monitor-agent?tab=readme-ov-file).
 
@@ -505,7 +391,7 @@ The Amazon EKS add-on name is `amazon-cloudwatch-observability`.
 
 This add-on uses the IAM roles for service accounts capability of Amazon EKS. For more information, see [IAM roles for service accounts](iam-roles-for-service-accounts.md). The permissions in the [AWSXrayWriteOnlyAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess) and [CloudWatchAgentServerPolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy) AWS managed policies are required. You can create an IAM role, attach the managed policies to it, and annotate the Kubernetes service account used by the add-on with the following command. Replace {{my-cluster}} with the name of your cluster and {{AmazonEKS\_Observability\_role}} with the name for your role. This command requires that you have [eksctl](https://eksctl.io) installed on your device. If you need to use a different tool to create the role, attach the policy to it, and annotate the Kubernetes service account, see [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md).
 
-```
+```bash
 eksctl create iamserviceaccount \
     --name cloudwatch-agent \
     --namespace amazon-cloudwatch \
@@ -602,27 +488,8 @@ The add-on does not require IAM permissions. However, application pods will requ
 For more information about the required permissions, see `AWSSecretsManagerClientReadOnlyAccess` in the AWS Managed Policy Reference.
 
 ### Additional information
-<a name="_additional_information_6"></a>
+<a name="_additional_information_2"></a>
 
 For more information, please see the secrets-store-csi-driver-provider-aws [GitHub repository](https://github.com/aws/secrets-store-csi-driver-provider-aws).
 
 To learn more about the add-on, please refer to the [AWS Secrets Manager documentation for the add-on](https://docs.aws.amazon.com/secretsmanager/latest/userguide/ascp-eks-installation.html).
-
-## Amazon SageMaker Spaces
-<a name="add-ons-amazon-sagemaker-spaces"></a>
-
-The Amazon SageMaker Spaces Add-on provides ability to run IDEs and Notebooks on EKS or HyperPod-EKS clusters. Administrators can use EKS Console to install the add-on on their cluster, and define default space configurations such as images, compute resources, local storage for notebook settings (additional storage to be attached to their spaces), file systems, and initialization scripts.
-
-AI developers can use kubectl to create, update, and delete spaces. They have the flexibility to use default configurations provided by admins or customize settings. AI developers can access their spaces on EKS or HyperPod-EKS using their local VS Code IDEs, and/or their web browser that hosts their JupyterLab or CodeEditor IDE on custom DNS domain configured by their admins. They can also use kubernetes’ port forwarding feature to access spaces in their web browsers.
-
-The Amazon EKS add-on name is `amazon-sagemaker-spaces`.
-
-### Required IAM permissions
-<a name="_required_iam_permissions_6"></a>
-
-This add-on requires IAM permissions. For more information about the required IAM setup, see [IAM Permissions Setup](https://docs.aws.amazon.com/sagemaker/latest/dg/permission-setup.html) in the *Amazon SageMaker Developer Guide*.
-
-### Additional information
-<a name="_additional_information_7"></a>
-
-To learn more about the add-on and its capabilities, see [SageMaker AI Notebooks on HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-eks-cluster-ide.html) in the *Amazon SageMaker Developer Guide*.

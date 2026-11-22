@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # AsciiDoc syntax reference
-<a name="asciidoc-syntax"></a>
 
 AsciiDoc is the preferred markup language for AWS documentation. While the tooling has partial support for Markdown syntax (such as headings and lists), we recommend using AsciiDoc syntax for all content to ensure consistency and proper rendering.
 
@@ -21,7 +20,7 @@ Every new AsciiDoc document should begin with the structure defined in [Create a
 
 Use headings to organize your content hierarchically:
 
-```
+```asciidoc
 = Page/topic title (level 1)
 == Section title (level 2)
 === Level 3 heading
@@ -37,7 +36,7 @@ Note: Always use sentence case for headings in AWS documentation.
 
 Format text to emphasize important information:
 
-```
+```asciidoc
 Use *bold text* for UI labels.
 Use _italic text_ for introducing terms or light emphasis.
 Use `monospace text` for code, file names, and commands.
@@ -51,7 +50,7 @@ Use `monospace text` for code, file names, and commands.
 
 Create bulleted lists for items without a specific sequence:
 
-```
+```asciidoc
 * First item
 * Second item
 ** Nested item
@@ -64,7 +63,7 @@ Create bulleted lists for items without a specific sequence:
 
 Create numbered lists for sequential steps or prioritized items:
 
-```
+```asciidoc
 . First step
 . Second step
 .. Substep 1
@@ -85,7 +84,7 @@ See [Insert a link](insert-link.md) for details on how to properly format links.
 
 Use backticks for inline code:
 
-```
+```asciidoc
 Use the `kubectl get pods` command to list all pods.
 ```
 
@@ -94,7 +93,7 @@ Use the `kubectl get pods` command to list all pods.
 
 Create code blocks with syntax highlighting and support for attributes (similar to entities):
 
-```
+```asciidoc
  [source,python,subs="verbatim,attributes"]
  ----
  def hello_world():
@@ -107,7 +106,7 @@ Create code blocks with syntax highlighting and support for attributes (similar 
 
 Insert images with alt text for accessibility:
 
-```
+```asciidoc
 image::images/image-file.png[Alt text description]
 ```
 
@@ -116,7 +115,7 @@ image::images/image-file.png[Alt text description]
 
 Create tables to organize information:
 
-```
+```asciidoc
 [%header,cols="2"]
 |===
 |Header 1
@@ -137,7 +136,7 @@ For more complex tables, see the [AsciiDoc table documentation](https://docs.asc
 
 Use callouts to highlight important information and admonitions:
 
-```
+```asciidoc
 NOTE: This is a note callout for general information.
 
 TIP: This is a tip callout for helpful advice.
@@ -155,7 +154,7 @@ This is a note callout.
 
 Include content from other files:
 
-```
+```asciidoc
  include::filename.adoc[]
 ```
 
@@ -164,11 +163,11 @@ Include content from other files:
 
 Use predefined attributes to maintain consistency. In particular, you MUST use attributes for AWS and ` arn:aws: `.
 
-```
+```asciidoc
 {aws} provides Amazon EKS as a managed Kubernetes service.
 ```
 
-```
+```asciidoc
  [source,bash,subs="verbatim,attributes"]
  ----
  aws iam attach-role-policy \
@@ -184,7 +183,7 @@ For a list of attributes, look in the `../attributes.txt` file.
 
 Format step-by-step procedures:
 
-```
+```asciidoc
 To create an Amazon EKS cluster, do the following steps.
 
 . Sign in to the {aws} Management Console.

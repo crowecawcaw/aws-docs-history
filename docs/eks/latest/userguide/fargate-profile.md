@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Define which Pods use AWS Fargate when launched
-<a name="fargate-profile"></a>
 
 Before you schedule Pods on Fargate in your cluster, you must define at least one Fargate profile that specifies which Pods use Fargate when launched.
 
@@ -75,7 +74,7 @@ You can create a profile with the following:
 
 Create your Fargate profile with the following `eksctl` command, replacing every example value with your own values. You’re required to specify a namespace. However, the `--labels` option isn’t required.
 
-```
+```bash
 eksctl create fargateprofile \
     --cluster my-cluster \
     --name my-fargate-profile \

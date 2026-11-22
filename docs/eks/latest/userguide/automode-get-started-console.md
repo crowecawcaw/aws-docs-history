@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an EKS Auto Mode Cluster with the AWS Management Console
-<a name="automode-get-started-console"></a>
 
 Creating an EKS Auto Mode cluster in the AWS Management Console requires less configuration than other options. EKS integrates with AWS IAM and VPC Networking to help you create the resources associated with an EKS cluster.
 

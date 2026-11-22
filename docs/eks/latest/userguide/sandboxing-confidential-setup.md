@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Run a pod in confidential mode
-<a name="sandboxing-confidential-setup"></a>
 
 Confidential mode requires a Cedar policy. The policy pins every container admission field and controls which operations the parent instance can perform. Isolated mode does not require a Cedar policy. Without one, the sandbox applies a permissive built-in default that allows all containers and operations.
 
@@ -14,7 +13,7 @@ Confidential mode requires a Cedar policy. The policy pins every container admis
 
 Use `eks-nitro-sandbox-genpolicy`, which is included in the signed runtime binaries (see [Download and verify the runtime binaries](sandboxing-download-binaries.md)), to generate a policy from your Kubernetes manifest:
 
-```
+```bash
 eks-nitro-sandbox-genpolicy --profile confidential manifest.yaml
 ```
 
@@ -25,7 +24,7 @@ The command prints a base64-encoded policy to stdout and prints the predicted PC
 
 Add the generated policy to `manifest.yaml` as the `sandbox.amazonaws.com/policy` annotation. Replace `<base64 policy>` with the base64-encoded policy from Step 1. The following example shows the annotation on a pod that uses the `confidential-sandbox` runtime class:
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -53,7 +52,7 @@ Regenerate the policy, and update the `PCR17` condition on your KMS key policy, 
 
 Apply the manifest that now carries the policy annotation:
 
-```
+```bash
 kubectl apply -f manifest.yaml
 ```
 
@@ -73,6 +72,8 @@ A profile controls what the generated policy permits and denies. The following b
 | IMDS | Allowed | Allowed | 
 | Pod Identity | Allowed | Allowed | 
 | Overlay encryption | No | Yes | 
+
+When exec is denied, the generated policy still permits each `exec` liveness, readiness, and startup probe in the pod spec. The policy pins the exact probe command, so any other exec command is denied. Regenerate the policy when you change a probe command.
 
 ## Customizing the generated policy
 <a name="sandboxing-customize-policy"></a>
@@ -119,7 +120,7 @@ CLI flags override profile defaults:
 
 For use cases that don’t fit a built-in profile, create a custom profile YAML file:
 
-```
+```yaml
 # my-profile.yaml
 admission:
   pin_image: true
@@ -134,7 +135,7 @@ runtime:
 
 Pass the file path to `--profile`:
 
-```
+```bash
 eks-nitro-sandbox-genpolicy --profile ./my-profile.yaml manifest.yaml
 ```
 
@@ -149,7 +150,7 @@ As an alternative, you can require that an image carries a trusted AWS Signer si
 
 Generate the policy with one or more signer flags. Use `--require-any-signer` when a signature from any one of several profiles is sufficient (OR logic), or `--require-all-signers` when the image must be signed by every listed profile (AND logic). Give each flag a profile-level AWS Signer signing profile ARN:
 
-```
+```bash
 eks-nitro-sandbox-genpolicy --profile confidential \
   --require-any-signer arn:aws:signer:region-code:111122223333:/signing-profiles/my-profile \
   manifest.yaml
@@ -157,7 +158,7 @@ eks-nitro-sandbox-genpolicy --profile confidential \
 
 To let the image evolve without regenerating the policy, also pass `--skip-image-ref-container` to drop the digest pin for that container and rely on the signature alone:
 
-```
+```bash
 eks-nitro-sandbox-genpolicy --profile confidential \
   --require-any-signer arn:aws:signer:region-code:111122223333:/signing-profiles/my-profile \
   --skip-image-ref-container my-container-name \
@@ -183,7 +184,7 @@ Signature verification requires network access from the Nitro Sandbox to the AWS
 ## Configure KMS key policies for attestation
 <a name="sandboxing-kms-attestation"></a>
 
-In confidential mode, configure AWS KMS key policies with `kms:RecipientAttestation:PCR<PCR_ID>` conditions to gate decryption on specific PCR values. PCR0 measures the system image; PCR17 measures the Cedar policy hash. A modified policy produces a different PCR17 value, so KMS refuses to release keys gated on the original value.
+In confidential mode, configure AWS KMS key policies with `kms:RecipientAttestation:PCR<PCR_ID>` conditions to gate decryption on specific PCR values. PCR17 measures the Cedar policy hash. A modified policy produces a different PCR17 value, so KMS refuses to release keys gated on the original value.
 
 Pin the Cedar policy with a `kms:RecipientAttestation:PCR17` condition set to the predicted PCR17 value from Step 1. Also add a `kms:RecipientAttestation:PCR8:ServiceName` condition set to `eks.amazonaws.com`.
 
@@ -191,7 +192,7 @@ PCR8 is the measurement of the certificate that signed the guest image (the EIF)
 
 Gating on PCR17 alone is not sufficient: without the PCR8 condition, a policy with the same hash could be presented from a guest image that AWS did not sign. The following key policy condition block requires both:
 
-```
+```json
 "Condition": {
   "StringEqualsIgnoreCase": {
     "kms:RecipientAttestation:PCR17": "5dafcce823381ecda1f1f8f16fc9e1992e2b9c1f78efd09bb75713026e07d57600f3fff0d785fd52e236e6ce9d2ae025",

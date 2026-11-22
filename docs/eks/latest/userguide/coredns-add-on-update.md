@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Update the CoreDNS Amazon EKS add-on
-<a name="coredns-add-on-update"></a>
 
 Update the Amazon EKS type of the add-on. If you haven’t added the Amazon EKS add-on to your cluster, either [add it](coredns-add-on-create.md) or see [Update the CoreDNS Amazon EKS self-managed add-on](coredns-add-on-self-managed-update.md).
 
@@ -13,13 +12,13 @@ Before you begin, review the upgrade considerations. For more information, see [
 
 1. See which version of the add-on is installed on your cluster. Replace {{my-cluster}} with your cluster name.
 
-   ```
+   ```bash
    aws eks describe-addon --cluster-name my-cluster --addon-name coredns --query "addon.addonVersion" --output text
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    v1.10.1-eksbuild.13
    ```
 
@@ -27,7 +26,7 @@ Before you begin, review the upgrade considerations. For more information, see [
 
 1. Save the configuration of your currently installed add-on.
 
-   ```
+   ```bash
    kubectl get deployment coredns -n kube-system -o yaml > aws-k8s-coredns-old.yaml
    ```
 
@@ -37,7 +36,7 @@ Before you begin, review the upgrade considerations. For more information, see [
    + The `--resolve-conflicts{{PRESERVE}} ` option preserves existing configuration values for the add-on. If you’ve set custom values for add-on settings, and you don’t use this option, Amazon EKS overwrites your values with its default values. If you use this option, then we recommend testing any field and value changes on a non-production cluster before updating the add-on on your production cluster. If you change this value to `OVERWRITE`, all settings are changed to Amazon EKS default values. If you’ve set custom values for any settings, they might be overwritten with Amazon EKS default values. If you change this value to `none`, Amazon EKS doesn’t change the value of any settings, but the update might fail. If the update fails, you receive an error message to help you resolve the conflict.
    + If you’re not updating a configuration setting, remove `--configuration-values '{{{"replicaCount":3}}}'` from the command. If you’re updating a configuration setting, replace {{"replicaCount":3}} with the setting that you want to set. In this example, the number of replicas of CoreDNS is set to `3`. The value that you specify must be valid for the configuration schema. If you don’t know the configuration schema, run `aws eks describe-addon-configuration --addon-name coredns --addon-version {{v1.11.3-eksbuild.1}} `, replacing {{v1.11.3-eksbuild.1}} with the version number of the add-on that you want to see the configuration for. The schema is returned in the output. If you have any existing custom configuration, want to remove it all, and set the values for all settings back to Amazon EKS defaults, remove {{"replicaCount":3}} from the command, so that you have empty `{}`. For more information about CoreDNS settings, see [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/) in the Kubernetes documentation.
 
-     ```
+     ```bash
      aws eks update-addon --cluster-name my-cluster --addon-name coredns --addon-version v1.11.3-eksbuild.1 \
          --resolve-conflicts PRESERVE --configuration-values '{"replicaCount":3}'
      ```
@@ -46,7 +45,7 @@ Before you begin, review the upgrade considerations. For more information, see [
 
 1. Confirm that the add-on version was updated. Replace {{my-cluster}} with the name of your cluster.
 
-   ```
+   ```bash
    aws eks describe-addon --cluster-name my-cluster --addon-name coredns
    ```
 
@@ -54,7 +53,7 @@ Before you begin, review the upgrade considerations. For more information, see [
 
    An example output is as follows.
 
-   ```
+   ```json
    {
        "addon": {
            "addonName": "coredns",

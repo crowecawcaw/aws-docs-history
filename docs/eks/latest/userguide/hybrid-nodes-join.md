@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Connect hybrid nodes
-<a name="hybrid-nodes-join"></a>
 
 **Note**  
 The following steps apply to hybrid nodes running compatible operating systems except Bottlerocket. For steps to connect a hybrid node that runs Bottlerocket, see [Connect hybrid nodes with Bottlerocket](hybrid-nodes-bottlerocket.md).
@@ -25,7 +24,7 @@ Before connecting hybrid nodes to your Amazon EKS cluster, make sure you have co
 **Required nodeadm version for SSM credential provider**  
 If you use AWS Systems Manager (SSM) as your credential provider for hybrid nodes, you must use `nodeadm` version `1.0.19` or later for new installations and upgrades. Earlier versions of `nodeadm` contain an outdated SSM signing key and fail during `nodeadm install` and `nodeadm upgrade` with the following signature verification error:  
 
-```
+```bash
 "msg":"Command failed","error":"failed to install ssm installer: validating ssm-setup-cli signature: Signature Verification Error: No matching signature"
 ```
 To resolve this error, [download the latest version](hybrid-nodes-nodeadm.md#hybrid-nodes-nodeadm-download) of `nodeadm` before running `nodeadm install` or `nodeadm upgrade`.
@@ -39,19 +38,19 @@ The hybrid nodes version of `nodeadm` is hosted in Amazon S3 fronted by Amazon C
 
  **For x86\_64 hosts:** 
 
-```
+```bash
 curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/amd64/nodeadm'
 ```
 
  **For ARM hosts** 
 
-```
+```bash
 curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/arm64/nodeadm'
 ```
 
 Add executable file permission to the downloaded binary on each host.
 
-```
+```bash
 chmod +x nodeadm
 ```
 
@@ -67,7 +66,7 @@ The hybrid nodes CLI (`nodeadm`) must be run with a user that has sudo/root acce
 + Replace `K8S_VERSION` with the Kubernetes minor version of your Amazon EKS cluster, for example `1.31`. See [Amazon EKS supported versions](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html) for a list of the supported Kubernetes versions.
 + Replace `CREDS_PROVIDER` with the on-premises credential provider you are using. Valid values are `ssm` for AWS SSM and `iam-ra` for AWS IAM Roles Anywhere.
 
-```
+```bash
 nodeadm install {{K8S_VERSION}} --credential-provider {{CREDS_PROVIDER}}
 ```
 
@@ -91,7 +90,7 @@ The hybrid nodes CLI (`nodeadm`) must be run with a user that has sudo/root acce
 
       1. Replace `ACTIVATION_ID` with the activation ID you received when creating your AWS SSM hybrid activation. You can retrieve this information from the AWS Systems Manager console or from the AWS CLI `aws ssm describe-activations` command.
 
-         ```
+         ```bash
          apiVersion: node.eks.aws/v1alpha1
          kind: NodeConfig
          spec:
@@ -122,7 +121,7 @@ The hybrid nodes CLI (`nodeadm`) must be run with a user that has sudo/root acce
 
       1. Replace `KEY_PATH` with the path in disk to your certificate private key. If you don’t specify it, the default is `/etc/iam/pki/server.key`.
 
-         ```
+         ```bash
          apiVersion: node.eks.aws/v1alpha1
          kind: NodeConfig
          spec:
@@ -141,7 +140,7 @@ The hybrid nodes CLI (`nodeadm`) must be run with a user that has sudo/root acce
 
 1. Run the `nodeadm init` command with your `nodeConfig.yaml` to connect your hybrid nodes to your Amazon EKS cluster.
 
-   ```
+   ```bash
    nodeadm init -c file://nodeConfig.yaml
    ```
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy EKS Auto Mode nodes onto Local Zones
-<a name="auto-local-zone"></a>
 
 EKS Auto Mode provides simplified cluster management with automatic node provisioning. AWS Local Zones extend AWS infrastructure to geographic locations closer to your end users, reducing latency for latency-sensitive applications. This guide walks you through the process of deploying EKS Auto Mode nodes onto AWS Local Zones, enabling you to run containerized applications with lower latency for users in specific geographic areas.
 
@@ -33,7 +32,7 @@ After creating your Local Zone subnet, you need to define a NodeClass that refer
 
 For more information, see [Create a Node Class for Amazon EKS](create-node-class.md).
 
-```
+```yaml
 apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
@@ -52,7 +51,7 @@ In the example below, we create a NodePool that references our "local-zone" Node
 
 For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md).
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -94,7 +93,7 @@ For optimal control over workload placement on Local Zone nodes, use both taints
 
 Here’s an example of a Deployment configured to run specifically on Local Zone nodes:
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -150,14 +149,14 @@ After setting up your NodeClass, NodePool, and Deployments, you should verify th
 
 Additionally, you can check the Kubernetes node list using `kubectl get nodes -o wide` to confirm that the nodes are joining your cluster with the correct labels and taints:
 
-```
+```bash
 kubectl get nodes -o wide
 kubectl describe node <node-name> | grep -A 5 Taints
 ```
 
 You can also verify that your workload pods are scheduled on the Local Zone nodes:
 
-```
+```bash
 kubectl get pods -o wide
 ```
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Get started with EKS Hybrid Nodes gateway
-<a name="hybrid-nodes-gateway-getting-started"></a>
 
 This page walks you through the prerequisites, environment preparation, installation, verification, and removal of the Amazon EKS Hybrid Nodes gateway. For an introduction to the gateway and its architecture, see [Amazon EKS Hybrid Nodes gateway](hybrid-nodes-gateway-overview.md).
 
@@ -32,7 +31,7 @@ Before you install the Hybrid Nodes gateway, confirm that your environment meets
 
     1. Install the EKS Pod Identity Agent add-on on your cluster if not already installed:
 
-       ```
+       ```bash
        aws eks create-addon \
          --cluster-name {{CLUSTER_NAME}} \
          --addon-name eks-pod-identity-agent
@@ -40,7 +39,7 @@ Before you install the Hybrid Nodes gateway, confirm that your environment meets
 
     1. Create an IAM role with the required EC2 permissions and a trust policy for EKS Pod Identity:
 
-       ```
+       ```bash
        cat > gateway-trust-policy.json << 'EOF'
        {
          "Version": "2012-10-17" 		 	 	 ,
@@ -78,7 +77,7 @@ Before you install the Hybrid Nodes gateway, confirm that your environment meets
 
     1. Create a pod identity association linking the IAM role to the gateway service account:
 
-       ```
+       ```bash
        aws eks create-pod-identity-association \
          --cluster-name {{CLUSTER_NAME}} \
          --namespace eks-hybrid-nodes-gateway \
@@ -91,7 +90,7 @@ Before you install the Hybrid Nodes gateway, confirm that your environment meets
 
     Attach an inline or managed policy with the required permissions to the IAM role associated with the gateway nodes' instance profile:
 
-    ```
+    ```bash
     aws iam put-role-policy \
       --role-name {{NODE_ROLE_NAME}} \
       --policy-name HybridNodesGatewayRouteTable \
@@ -132,7 +131,7 @@ Apply the following resources to your cluster, replacing the placeholder values:
 +  {{YOUR\_CLUSTER\_NAME}} — Your EKS cluster name.
 +  {{SUBNET\_ID\_1}}, {{SUBNET\_ID\_2}} — Subnet IDs in different Availability Zones where gateway nodes will be provisioned.
 
-```
+```yaml
 apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
@@ -213,7 +212,7 @@ When using managed node groups, create a dedicated node group for the gateway wi
 
 Create a launch template with user data that disables source/destination check on the primary ENI when the instance boots:
 
-```
+```bash
 # Create the launch template with user data to disable source/dest check
 USERDATA=$(cat <<'SCRIPT' | base64 -w 0
 MIME-Version: 1.0
@@ -254,7 +253,7 @@ The node’s IAM role must have `ec2:ModifyNetworkInterfaceAttribute` permission
 
 Create a dedicated managed node group with the gateway label, taint, and the launch template from Step 1:
 
-```
+```bash
 aws eks create-nodegroup \
   --cluster-name {{YOUR_CLUSTER_NAME}} \
   --nodegroup-name {{YOUR_CLUSTER_NAME}}-gateway-nodes \
@@ -283,7 +282,7 @@ Use subnets in different Availability Zones for high availability.
 
 Run the following command to install the gateway with EKS Auto Mode:
 
-```
+```bash
 helm install eks-hybrid-nodes-gateway \
   oci://public.ecr.aws/eks/eks-hybrid-nodes-gateway \
   --version 1.0.0 \
@@ -299,7 +298,7 @@ helm install eks-hybrid-nodes-gateway \
 
 For managed node groups or self-managed nodes, set `autoMode.enabled=false`:
 
-```
+```bash
 helm install eks-hybrid-nodes-gateway \
   oci://public.ecr.aws/eks/eks-hybrid-nodes-gateway \
   --version 1.0.0 \
@@ -335,7 +334,7 @@ After installing the gateway, verify that it is running and healthy.
 
 Confirm that two gateway pods are running:
 
-```
+```bash
 kubectl get pods -n eks-hybrid-nodes-gateway
 ```
 
@@ -352,7 +351,7 @@ eks-hybrid-nodes-gateway-5d4f6a7b8c-def34   1/1     Running   0          2m
 
 Verify that one pod has acquired the leader election lease:
 
-```
+```bash
 kubectl get lease -n eks-hybrid-nodes-gateway
 ```
 
@@ -368,7 +367,7 @@ hybrid-gateway-leader    eks-hybrid-nodes-gateway-5d4f6a7b8c-abc12   2m
 
 Verify the health endpoint is responding on the leader pod using port-forwarding:
 
-```
+```bash
 kubectl port-forward -n eks-hybrid-nodes-gateway {{LEADER_POD_NAME}} 8088:8088 &
 curl -s http://localhost:8088/healthz
 ```
@@ -380,7 +379,7 @@ A healthy gateway returns an HTTP 200 response.
 
 In the Amazon VPC console or using the AWS CLI, confirm that your VPC route tables contain entries for the hybrid pod CIDRs pointing to the leader gateway instance’s ENI:
 
-```
+```bash
 aws ec2 describe-route-tables \
   --route-table-ids {{ROUTE_TABLE_ID}} \
   --query "RouteTables[].Routes[?DestinationCidrBlock=='POD_CIDR']"
@@ -393,14 +392,14 @@ Each hybrid pod CIDR should have a route with the `NetworkInterfaceId` set to th
 
 To remove the Hybrid Nodes gateway, run:
 
-```
+```bash
 helm uninstall eks-hybrid-nodes-gateway --namespace eks-hybrid-nodes-gateway
 ```
 
 **Note**  
 Uninstalling the Helm chart does not automatically remove the VPC route table entries created by the gateway. After uninstalling, manually delete the routes for your hybrid pod CIDRs from the VPC route tables to avoid routing traffic to instances that are no longer running the gateway. You can remove routes using the AWS CLI:  
 
-```
+```bash
 aws ec2 delete-route \
   --route-table-id {{ROUTE_TABLE_ID}} \
   --destination-cidr-block {{POD_CIDR}}

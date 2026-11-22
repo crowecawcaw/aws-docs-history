@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create a kro capability using the AWS CLI
-<a name="kro-create-cli"></a>
 
 Create a kro capability on your Amazon EKS cluster using the AWS CLI. This procedure walks you through creating an IAM role and verifying the capability is active.
 
@@ -19,7 +18,7 @@ Create a kro capability on your Amazon EKS cluster using the AWS CLI. This proce
 
 Create a trust policy file:
 
-```
+```bash
 cat > kro-trust-policy.json << 'EOF'
 {
   "Version": "2012-10-17",		 	 	 
@@ -41,7 +40,7 @@ EOF
 
 Create the IAM role:
 
-```
+```bash
 aws iam create-role \
   --role-name KROCapabilityRole \
   --assume-role-policy-document file://kro-trust-policy.json
@@ -55,7 +54,7 @@ Unlike ACK and Argo CD, kro does not require additional IAM permissions. kro ope
 
 Create the kro capability resource on your cluster. Replace {{region-code}} with the AWS Region where your cluster is located (such as `us-west-2`) and {{my-cluster}} with your cluster name.
 
-```
+```bash
 aws eks create-capability \
   --region {{region-code}} \
   --cluster-name {{my-cluster}} \
@@ -78,7 +77,7 @@ You have the required IAM permissions
 
 Wait for the capability to become active. Replace {{region-code}} with the AWS Region that your cluster is in and replace {{my-cluster}} with the name of your cluster.
 
-```
+```bash
 aws eks describe-capability \
   --region {{region-code}} \
   --cluster-name {{my-cluster}} \
@@ -91,7 +90,7 @@ The capability is ready when the status shows `ACTIVE`.
 
 You can also view the full capability details:
 
-```
+```bash
 aws eks describe-capability \
   --region {{region-code}} \
   --cluster-name {{my-cluster}} \
@@ -114,7 +113,7 @@ For getting started quickly, testing, or development environments, use `AmazonEK
 
 Get the capability role ARN:
 
-```
+```bash
 CAPABILITY_ROLE_ARN=$(aws eks describe-capability \
   --region {{region-code}} \
   --cluster-name {{my-cluster}} \
@@ -125,7 +124,7 @@ CAPABILITY_ROLE_ARN=$(aws eks describe-capability \
 
 Associate the cluster admin policy:
 
-```
+```bash
 aws eks associate-access-policy \
   --region {{region-code}} \
   --cluster-name {{my-cluster}} \
@@ -142,7 +141,7 @@ The `AmazonEKSClusterAdminPolicy` grants broad permissions to create and manage 
 
 After the capability is active, verify that kro custom resources are available in your cluster:
 
-```
+```bash
 kubectl api-resources | grep kro.run
 ```
 

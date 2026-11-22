@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure Amazon VPC CNI plugin to use IRSA
-<a name="cni-iam-role"></a>
 
 The [Amazon VPC CNI plugin for Kubernetes](https://github.com/aws/amazon-vpc-cni-k8s) is the networking plugin for Pod networking in Amazon EKS clusters. The plugin is responsible for allocating VPC IP addresses to Kubernetes Pods and configuring the necessary networking for Pods on each node.
 
@@ -26,13 +25,13 @@ The Pods for the Amazon VPC CNI plugin for Kubernetes have access to the permiss
 
 1. Determine the IP family of your cluster.
 
-   ```
+   ```bash
    aws eks describe-cluster --name my-cluster | grep ipFamily
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    "ipFamily": "ipv4"
    ```
 
@@ -45,7 +44,7 @@ eksctl
 
        Replace {{my-cluster}} with your own value.
 
-       ```
+       ```bash
        eksctl create iamserviceaccount \
            --name aws-node \
            --namespace kube-system \
@@ -59,7 +58,7 @@ eksctl
 
        Replace {{my-cluster}} with your own value. Replace {{111122223333}} with your account ID and replace {{AmazonEKS\_CNI\_IPv6\_Policy}} with the name of your `IPv6` policy. If you don’t have an `IPv6` policy, see [Create IAM policy for clusters that use the `IPv6` family](#cni-iam-role-create-ipv6-policy) to create one. To use `IPv6` with your cluster, it must meet several requirements. For more information, see [Learn about IPv6 addresses to clusters, Pods, and services](cni-ipv6.md).
 
-       ```
+       ```bash
        eksctl create iamserviceaccount \
            --name aws-node \
            --namespace kube-system \
@@ -73,13 +72,13 @@ kubectl and the AWS CLI
 
    1. View your cluster’s OIDC provider URL.
 
-      ```
+      ```bash
       aws eks describe-cluster --name my-cluster --query "cluster.identity.oidc.issuer" --output text
       ```
 
       An example output is as follows.
 
-      ```
+      ```bash
       https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
       ```
 
@@ -87,7 +86,7 @@ kubectl and the AWS CLI
 
    1. Copy the following contents to a file named {{vpc-cni-trust-policy.json}}. Replace {{111122223333}} with your account ID and {{EXAMPLED539D4633E53DE1B71EXAMPLE}} with the output returned in the previous step. Replace {{region-code}} with the AWS Region that your cluster is in.
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -110,7 +109,7 @@ kubectl and the AWS CLI
 
    1. Create the role. You can replace {{AmazonEKSVPCCNIRole}} with any name that you choose.
 
-      ```
+      ```bash
       aws iam create-role \
         --role-name AmazonEKSVPCCNIRole \
         --assume-role-policy-document file://"vpc-cni-trust-policy.json"
@@ -119,7 +118,7 @@ kubectl and the AWS CLI
    1. Attach the required IAM policy to the role. Run the command that matches the IP family of your cluster.
       +  `IPv4` 
 
-        ```
+        ```bash
         aws iam attach-role-policy \
           --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy \
           --role-name AmazonEKSVPCCNIRole
@@ -128,7 +127,7 @@ kubectl and the AWS CLI
 
         Replace {{111122223333}} with your account ID and {{AmazonEKS\_CNI\_IPv6\_Policy}} with the name of your `IPv6` policy. If you don’t have an `IPv6` policy, see [Create IAM policy for clusters that use the `IPv6` family](#cni-iam-role-create-ipv6-policy) to create one. To use `IPv6` with your cluster, it must meet several requirements. For more information, see [Learn about IPv6 addresses to clusters, Pods, and services](cni-ipv6.md).
 
-        ```
+        ```bash
         aws iam attach-role-policy \
           --policy-arn arn:aws:iam::111122223333:policy/AmazonEKS_CNI_IPv6_Policy \
           --role-name AmazonEKSVPCCNIRole
@@ -136,7 +135,7 @@ kubectl and the AWS CLI
 
    1. Run the following command to annotate the `aws-node` service account with the ARN of the IAM role that you created previously. Replace the example values with your own values.
 
-      ```
+      ```bash
       kubectl annotate serviceaccount \
           -n kube-system aws-node \
           eks.amazonaws.com/role-arn=arn:aws:iam::111122223333:role/AmazonEKSVPCCNIRole
@@ -149,25 +148,25 @@ kubectl and the AWS CLI
 
 1. Delete and re-create any existing Pods that are associated with the service account to apply the credential environment variables. The annotation is not applied to Pods that are currently running without the annotation. The following command deletes the existing `aws-node` DaemonSet Pods and deploys them with the service account annotation.
 
-   ```
+   ```bash
    kubectl delete Pods -n kube-system -l k8s-app=aws-node
    ```
 
 1. Confirm that the Pods all restarted.
 
-   ```
+   ```bash
    kubectl get pods -n kube-system -l k8s-app=aws-node
    ```
 
 1. Describe one of the Pods and verify that the `AWS_WEB_IDENTITY_TOKEN_FILE` and `AWS_ROLE_ARN` environment variables exist. Replace {{cpjw7}} with the name of one of your Pods returned in the output of the previous step.
 
-   ```
+   ```bash
    kubectl describe pod -n kube-system aws-node-cpjw7 | grep 'AWS_ROLE_ARN:\|AWS_WEB_IDENTITY_TOKEN_FILE:'
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    AWS_ROLE_ARN:                 arn:aws:iam::111122223333:role/AmazonEKSVPCCNIRole
          AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
          AWS_ROLE_ARN:                           arn:aws:iam::111122223333:role/AmazonEKSVPCCNIRole
@@ -178,7 +177,7 @@ kubectl and the AWS CLI
 
    If your Pod is using the AWS Regional endpoint, then the following line is also returned in the previous output.
 
-   ```
+   ```bash
    AWS_STS_REGIONAL_ENDPOINTS=regional
    ```
 
@@ -188,14 +187,14 @@ kubectl and the AWS CLI
 If your [Amazon EKS node IAM role](create-node-role.md) currently has the `AmazonEKS_CNI_Policy` IAM (`IPv4`) policy or an [IPv6 policy](#cni-iam-role-create-ipv6-policy) attached to it, and you’ve created a separate IAM role, attached the policy to it instead, and assigned it to the `aws-node` Kubernetes service account, then we recommend that you remove the policy from your node role with the AWS CLI command that matches the IP family of your cluster. Replace {{AmazonEKSNodeRole}} with the name of your node role.
 +  `IPv4` 
 
-  ```
+  ```bash
   aws iam detach-role-policy --role-name AmazonEKSNodeRole --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
   ```
 +  `IPv6` 
 
   Replace {{111122223333}} with your account ID and {{AmazonEKS\_CNI\_IPv6\_Policy}} with the name of your `IPv6` policy.
 
-  ```
+  ```bash
   aws iam detach-role-policy --role-name AmazonEKSNodeRole --policy-arn arn:aws:iam::111122223333:policy/AmazonEKS_CNI_IPv6_Policy
   ```
 
@@ -206,7 +205,7 @@ If you created a cluster that uses the `IPv6` family and the cluster has version
 
 1. Copy the following text and save it to a file named `vpc-cni-ipv6-policy.json`.
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -237,6 +236,6 @@ If you created a cluster that uses the `IPv6` family and the cluster has version
 
 1. Create the IAM policy.
 
-   ```
+   ```bash
    aws iam create-policy --policy-name AmazonEKS_CNI_IPv6_Policy --policy-document file://vpc-cni-ipv6-policy.json
    ```

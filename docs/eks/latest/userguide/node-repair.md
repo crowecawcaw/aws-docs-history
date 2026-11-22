@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Automatically repair nodes in EKS clusters
-<a name="node-repair"></a>
 
 This topic details the EKS automatic node repair behavior and how to configure it to meet your requirements. EKS automatic node repair is enabled by default in EKS Auto Mode, and can be used with EKS managed node groups and Karpenter.
 
@@ -155,7 +154,7 @@ Each override requires all of the following fields:
 
 The following AWS CLI example creates a node group with custom repair settings.
 
-```
+```bash
 aws eks create-nodegroup \
   --cluster-name my-cluster \
   --nodegroup-name my-nodegroup \

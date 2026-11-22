@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # View current cluster support period
-<a name="view-support-status"></a>
 
 The **cluster support period** section of the AWS console indicates if your cluster is *currently* on standard or extended support. If your cluster support period is **Extended support**, you are being charged for EKS extended support.
 

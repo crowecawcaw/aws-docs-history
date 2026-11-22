@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an access entry using Kubernetes groups with the AWS CLI
-<a name="create-k8s-group-access-entry"></a>
 
 Create Amazon EKS access entries that use Kubernetes groups for authorization and require manual RBAC configuration.
 
@@ -43,7 +42,7 @@ This topic does not cover creating access entries for IAM identities used for Am
 
 After planning the access entry, use the AWS CLI to create it with the appropriate Kubernetes groups.
 
-```
+```bash
 aws eks create-access-entry --cluster-name <cluster-name> --principal-arn <iam-identity-arn> --type STANDARD --kubernetes-groups <groups>
 ```
 

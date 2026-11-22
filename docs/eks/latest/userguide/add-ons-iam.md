@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # IAM roles for Amazon EKS add-ons
-<a name="add-ons-iam"></a>
 
 Certain Amazon EKS add-ons need IAM roles and permissions to call AWS APIs. For example, the Amazon VPC CNI add-on calls certain AWS APIs to configure networking resources in your account. These add-ons need to be granted permission using IAM. More specifically, the service account of the pod running the add-on needs to be associated with an IAM role with a specific IAM policy.
 

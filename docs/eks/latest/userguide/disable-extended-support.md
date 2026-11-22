@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Prevent increased cluster costs by disabling EKS extended support
-<a name="disable-extended-support"></a>
 
 This topic describes how to set the *upgrade policy* of an EKS cluster to disable extended support. The upgrade policy of an EKS cluster determines what happens when a cluster reaches the end of the standard *support period*. If a cluster upgrade policy has extended support disabled, it will be automatically upgraded to the next Kubernetes version.
 
@@ -33,7 +32,7 @@ You cannot disable extended support once your cluster has entered it. You can on
 
 1. Run the following command:
 
-   ```
+   ```bash
    aws eks update-cluster-config \
    --name <cluster-name> \
    --upgrade-policy supportType=STANDARD

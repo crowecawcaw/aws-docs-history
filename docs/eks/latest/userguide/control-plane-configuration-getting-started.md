@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure advanced Kubernetes control plane parameters
-<a name="control-plane-configuration-getting-started"></a>
 
 This guide walks you through setting and viewing advanced Kubernetes control plane parameters using the AWS CLI and AWS Management Console. For an explanation of each parameter and its effect on your cluster, see [Advanced Kubernetes control plane configuration](control-plane-configuration.md).
 
@@ -17,7 +16,7 @@ Before you begin, make sure that you have:
 +  ** AWS CLI** – A command line tool for working with AWS services, including Amazon EKS. For more information, see [Installing](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) in the * AWS Command Line Interface User Guide*. After installing the AWS CLI, we recommend that you also configure it. For more information, see [Quick configuration with aws configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config) in the * AWS Command Line Interface User Guide*.
 +  **Required IAM permissions** – The IAM principal that you’re using must have permissions to describe and update Amazon EKS clusters. To check the current principal, run the following command:
 
-  ```
+  ```bash
   aws sts get-caller-identity
   ```
 
@@ -26,7 +25,7 @@ We recommend that you complete the steps in this topic in a Bash shell. If you a
 
 Set your preferred cluster name and region before running the commands in this topic:
 
-```
+```bash
 export CLUSTER=my-eks-cluster
 export AWS_REGION=us-west-2
 ```
@@ -54,13 +53,13 @@ These values apply to the Kubernetes versions available at publication and can c
 
 The `DescribeClusterVersions` operation reports the default value and the supported values for every control plane parameter, for each Kubernetes version. Read the values from this operation rather than hardcoding them, particularly if you automate cluster configuration or manage clusters across several Kubernetes versions.
 
-```
+```bash
 aws eks describe-cluster-versions --cluster-versions 1.35
 ```
 
 The response includes a `controlPlaneComponentConfig` object, organized by control plane component. Each parameter reports a `defaultValue` and a `constraints` object:
 
-```
+```json
 {
     "clusterVersions": [
         {
@@ -177,7 +176,7 @@ The preceding response shows the version support dates, Provisioned Control Plan
 
 To return only the configuration fields, use the `--query` option:
 
-```
+```bash
 aws eks describe-cluster-versions --cluster-versions 1.35 \
 --query 'clusterVersions[0].controlPlaneComponentConfig'
 ```
@@ -192,7 +191,7 @@ Each control plane component has its own parameter: `--kube-scheduler-config`, `
 
 The following command creates a cluster that retains new Kubernetes events for 10 minutes instead of the default 60 minutes. Parameters you don’t specify use their default values.
 
-```
+```bash
 aws eks create-cluster \
 --name "$CLUSTER" \
 --kubernetes-version 1.35 \
@@ -205,7 +204,7 @@ aws eks create-cluster \
 
 Response:
 
-```
+```json
 {
     "cluster": {
         "name": "my-eks-cluster",
@@ -240,7 +239,7 @@ Response:
 ### View the control plane configuration for a cluster
 <a name="_view_the_control_plane_configuration_for_a_cluster"></a>
 
-```
+```bash
 aws eks describe-cluster --name "$CLUSTER"
 ```
 
@@ -248,14 +247,14 @@ The response includes `kubeSchedulerConfig`, `kubeControllerManagerConfig`, and 
 
 To return the configuration for a single component, use the `--query` option:
 
-```
+```bash
 aws eks describe-cluster --name "$CLUSTER" \
 --query 'cluster.kubeSchedulerConfig'
 ```
 
 Response:
 
-```
+```json
 {
     "nodeResourcesFit": {
         "scoringStrategy": {
@@ -270,7 +269,7 @@ Response:
 
 By default, the scheduler uses the `LeastAllocated` strategy, which spreads pods across nodes. The following command changes it to `MostAllocated`, which prefers nodes that already have higher resource allocation and packs pods onto fewer nodes.
 
-```
+```bash
 aws eks update-cluster-config \
 --name "$CLUSTER" \
 --kube-scheduler-config '{
@@ -284,7 +283,7 @@ aws eks update-cluster-config \
 
 Response:
 
-```
+```json
 {
     "update": {
         "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -311,7 +310,7 @@ The other control plane parameters follow the same pattern, each with its own co
 
 You can specify multiple component parameters in a single call:
 
-```
+```bash
 aws eks update-cluster-config \
 --name "$CLUSTER" \
 --kube-scheduler-config '{"nodeResourcesFit":{"scoringStrategy":{"type":"MostAllocated"}}}' \
@@ -325,7 +324,7 @@ Updates merge with your existing configuration. Only the fields you specify chan
 
 A configuration change isn’t in effect when `update-cluster-config` returns. Amazon EKS applies the new configuration through a rolling update of your control plane, which takes several minutes. To block until the change completes:
 
-```
+```bash
 aws eks wait cluster-active --name "$CLUSTER"
 ```
 
@@ -333,13 +332,13 @@ This command returns when the cluster reaches `ACTIVE` status, typically within 
 
 To list updates for your cluster:
 
-```
+```bash
 aws eks list-updates --name "$CLUSTER"
 ```
 
 Response:
 
-```
+```json
 {
     "updateIds": [
         "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
@@ -349,7 +348,7 @@ Response:
 
 To view the status of a specific update:
 
-```
+```bash
 aws eks describe-update --name "$CLUSTER" \
 --update-id a1b2c3d4-5678-90ab-cdef-EXAMPLE11111
 ```

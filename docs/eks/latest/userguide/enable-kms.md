@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Encrypt Kubernetes secrets with KMS on existing clusters
-<a name="enable-kms"></a>
 
 **Important**  
  **Deprecation notice:** This procedure is deprecated and only applies to EKS clusters running Kubernetes version 1.27 or lower. If you are running Kubernetes version 1.28 or higher, Amazon EKS protects your Kubernetes secrets with envelope encryption by default. For more information, see [Default envelope encryption for all Kubernetes API Data](envelope-encryption.md).
@@ -29,7 +28,7 @@ You can enable encryption in two ways:
 
   To automatically re-encrypt your secrets, run the following command.
 
-  ```
+  ```bash
   eksctl utils enable-secrets-encryption \
       --cluster my-cluster \
       --key-arn arn:aws:kms:region-code:account:key/key
@@ -37,7 +36,7 @@ You can enable encryption in two ways:
 
   To opt-out of automatically re-encrypting your secrets, run the following command.
 
-  ```
+  ```bash
   eksctl utils enable-secrets-encryption \
       --cluster my-cluster \
       --key-arn arn:aws:kms:region-code:account:key/key \
@@ -45,7 +44,7 @@ You can enable encryption in two ways:
   ```
 + Add encryption to your cluster with a `kms-cluster.yaml` file.
 
-  ```
+  ```yaml
   apiVersion: eksctl.io/v1alpha5
   kind: ClusterConfig
   
@@ -59,13 +58,13 @@ You can enable encryption in two ways:
 
   To have your secrets re-encrypt automatically, run the following command.
 
-  ```
+  ```bash
   eksctl utils enable-secrets-encryption -f kms-cluster.yaml
   ```
 
   To opt out of automatically re-encrypting your secrets, run the following command.
 
-  ```
+  ```bash
   eksctl utils enable-secrets-encryption -f kms-cluster.yaml --encrypt-existing-secrets=false
   ```  
  AWS Management Console   
@@ -89,7 +88,7 @@ You can enable encryption in two ways:
 
   1. Associate the [secrets encryption](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) configuration with your cluster using the following AWS CLI command. Replace the example values with your own.
 
-     ```
+     ```bash
      aws eks associate-encryption-config \
          --cluster-name my-cluster \
          --encryption-config '[{"resources":["secrets"],"provider":{"keyArn":"arn:aws:kms:region-code:account:key/key"}}]'
@@ -97,7 +96,7 @@ You can enable encryption in two ways:
 
      An example output is as follows.
 
-     ```
+     ```json
      {
        "update": {
          "id": "3141b835-8103-423a-8e68-12c2521ffa4d",
@@ -117,7 +116,7 @@ You can enable encryption in two ways:
 
   1. You can monitor the status of your encryption update with the following command. Use the specific `cluster name` and `update ID` that was returned in the previous output. When a `Successful` status is displayed, the update is complete.
 
-     ```
+     ```bash
      aws eks describe-update \
          --region region-code \
          --name my-cluster \
@@ -126,7 +125,7 @@ You can enable encryption in two ways:
 
      An example output is as follows.
 
-     ```
+     ```json
      {
        "update": {
          "id": "3141b835-8103-423a-8e68-12c2521ffa4d",
@@ -146,7 +145,7 @@ You can enable encryption in two ways:
 
   1. To verify that encryption is enabled in your cluster, run the `describe-cluster` command. The response contains an `EncryptionConfig` string.
 
-     ```
+     ```bash
      aws eks describe-cluster --region region-code --name my-cluster
      ```
 
@@ -155,7 +154,7 @@ After you enabled encryption on your cluster, you must encrypt all existing secr
 **Note**  
 If you use `eksctl`, running the following command is necessary only if you opt out of re-encrypting your secrets automatically.
 
-```
+```bash
 kubectl get secrets --all-namespaces -o json | kubectl annotate --overwrite -f - kms-encryption-timestamp="time value"
 ```
 

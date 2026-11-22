@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure Argo CD settings
-<a name="argocd-configure-settings"></a>
 
 The EKS Capability for Argo CD provides a fully managed Argo CD experience. Upstream Argo CD offers many optional settings and features, and the capability supports a subset of them. For general settings, use the `argocd-cm` ConfigMap. Use the `argocd-cmd-params-cm` ConfigMap to turn on the source hydrator with `hydrator.enabled` and configure additional Application and ApplicationSet source namespaces. The capability reads supported fields from these ConfigMaps in your cluster and applies them to the managed Argo CD instance.
 
@@ -30,7 +29,7 @@ Create the ConfigMap with the following requirements:
 
 The following example shows the ConfigMap structure, with a setting that displays a banner across the Argo CD UI. Add other supported settings under `data` in the same way.
 
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -63,7 +62,7 @@ The **primary Argo CD namespace** is the `namespace` value in the capability’s
 
 Create an `argocd-cmd-params-cm` ConfigMap in the primary Argo CD namespace. This is a separate ConfigMap from the `argocd-cm` ConfigMap that you use for the settings in [Supported settings](#argocd-supported-settings). The following example enables both resource types in two team namespaces:
 
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -193,7 +192,7 @@ The Lua script has access to the resource object through the global `obj` variab
 
 The following example ConfigMap defines a health check for a `Database` Custom Resource. The script reports the resource as `Healthy` when its status phase is `Ready`, and as `Progressing` otherwise:
 
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:

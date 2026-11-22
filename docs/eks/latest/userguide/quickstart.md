@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Quickstart: Deploy a web app and store data
-<a name="quickstart"></a>
 
 This quickstart tutorial guides you through the steps to deploy the 2048 game sample application and persist its data on an Amazon EKS Auto Mode cluster using [eksctl](https://eksctl.io/).
 
@@ -36,7 +35,7 @@ In this section, you’ll create a cluster using EKS Auto Mode for dynamic node 
 
 Create a `cluster-config.yaml` file and paste the following contents into it. Replace `region-code` with a valid Region (e.g., `us-east-1`).
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -52,7 +51,7 @@ Now, we’re ready to create the cluster.
 
 Create the EKS cluster using the `cluster-config.yaml`:
 
-```
+```bash
 eksctl create cluster -f cluster-config.yaml
 ```
 
@@ -66,7 +65,7 @@ Create a Kubernetes `IngressClass` for EKS Auto Mode. The IngressClass defines h
 
 Save the following yaml file as `ingressclass.yaml`:
 
-```
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: IngressClass
 metadata:
@@ -93,25 +92,25 @@ The `docker-2048` image in the example is an `x86_64` container image and will n
 
 1. Create a Kubernetes namespace called `game-2048` with the `--save-config` flag.
 
-   ```
+   ```bash
    kubectl create namespace game-2048 --save-config
    ```
 
    You should see the following response output:
 
-   ```
+   ```bash
    namespace/game-2048 created
    ```
 
 1. Deploy the [2048 Game Sample application](https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.8.0/docs/examples/2048/2048_full.yaml).
 
-   ```
+   ```bash
    kubectl apply -n game-2048 -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.8.0/docs/examples/2048/2048_full.yaml
    ```
 
    This manifest sets up a Kubernetes Deployment, Service, and Ingress for the `game-2048` namespace, creating the necessary resources to deploy and expose the `game-2048` application within the cluster. It includes the creation of a service named `service-2048` that exposes the deployment on port `80`, and an Ingress resource named `ingress-2048` that defines routing rules for incoming HTTP traffic and annotations for an internet-facing Application Load Balancer (ALB). You should see the following response output:
 
-   ```
+   ```bash
    namespace/game-2048 configured
    deployment.apps/deployment-2048 created
    service/service-2048 created
@@ -120,13 +119,13 @@ The `docker-2048` image in the example is an `x86_64` container image and will n
 
 1. Run the following command to get the Ingress resource for the `game-2048` namespace.
 
-   ```
+   ```bash
    kubectl get ingress -n game-2048
    ```
 
    You should see the following response output:
 
-   ```
+   ```bash
    NAME           CLASS   HOSTS   ADDRESS                                                                    PORTS   AGE
    ingress-2048   alb     *       k8s-game2048-ingress2-eb379a0f83-378466616.region-code.elb.amazonaws.com   80      31s
    ```
@@ -135,7 +134,7 @@ The `docker-2048` image in the example is an `x86_64` container image and will n
 
 1. Open a web browser and enter the `ADDRESS` from the previous step to access the web application. For example:
 
-   ```
+   ```bash
    k8s-game2048-ingress2-eb379a0f83-378466616.region-code.elb.amazonaws.com
    ```
 
@@ -149,7 +148,7 @@ Now that the 2048 game is up and running on your Amazon EKS cluster, it’s time
 
 1. Create a file named `storage-class.yaml`:
 
-   ```
+   ```yaml
    apiVersion: storage.k8s.io/v1
    kind: StorageClass
    metadata:
@@ -165,13 +164,13 @@ Now that the 2048 game is up and running on your Amazon EKS cluster, it’s time
 
 1. Apply the `StorageClass`:
 
-   ```
+   ```bash
    kubectl apply -f storage-class.yaml
    ```
 
 1. Create a Persistent Volume Claim (PVC) to request storage for your game data. Create a file named `ebs-pvc.yaml` and add the following content to it:
 
-   ```
+   ```bash
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
@@ -188,19 +187,19 @@ Now that the 2048 game is up and running on your Amazon EKS cluster, it’s time
 
 1. Apply the PVC to your cluster:
 
-   ```
+   ```bash
    kubectl apply -f ebs-pvc.yaml
    ```
 
    You should see the following response output:
 
-   ```
+   ```bash
    persistentvolumeclaim/game-data-pvc created
    ```
 
 1. Now, you need to update your 2048 game deployment to use this PVC for storing data. The following deployment is configured to use the PVC for storing game data. Create a file named `ebs-deployment.yaml` and add the following contents to it:
 
-   ```
+   ```bash
    apiVersion: apps/v1
    kind: Deployment
    metadata:
@@ -233,13 +232,13 @@ Now that the 2048 game is up and running on your Amazon EKS cluster, it’s time
 
 1. Apply the updated deployment:
 
-   ```
+   ```bash
    kubectl apply -f ebs-deployment.yaml
    ```
 
    You should see the following response output:
 
-   ```
+   ```bash
    deployment.apps/deployment-2048 configured
    ```
 
@@ -254,6 +253,6 @@ To avoid incurring future charges, you need to delete the associated CloudFormat
 
 Delete the CloudFormation stack:
 
-```
+```bash
 eksctl delete cluster -f ./cluster-config.yaml
 ```

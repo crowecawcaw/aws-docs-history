@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure compute and scaling
-<a name="auto-configure-compute"></a>
 
 Configure how Amazon EKS Auto Mode provisions and scales compute for your workloads. Use the following topics to customize node classes, node pools, capacity, and related compute controls.
 

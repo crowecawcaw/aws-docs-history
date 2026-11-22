@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Collect AWS Fargate app and usage metrics
-<a name="monitoring-fargate-usage"></a>
 
 You can collect system metrics and CloudWatch usage metrics for AWS Fargate.
 
@@ -41,7 +40,7 @@ The following dimensions are used to refine the usage metrics that are published
 ### Creating a CloudWatch alarm to monitor Fargate resource usage metrics
 <a name="service-quota-alarm"></a>
 
- AWS Fargate provides CloudWatch usage metrics that correspond to the AWS service quotas for Fargate On-Demand resource usage. In the Service Quotas console, you can visualize your usage on a graph. You can also configure alarms that alert you when your usage approaches a service quota. For more information, see [Collect AWS Fargate app and usage metrics](#monitoring-fargate-usage).
+ AWS Fargate provides CloudWatch usage metrics that correspond to the AWS service quotas for Fargate On-Demand resource usage. In the Service Quotas console, you can visualize your usage on a graph. You can also configure alarms that alert you when your usage approaches a service quota. For more information, see [Collect AWS Fargate app and usage metrics](monitoring-fargate-usage.md).
 
 Use the following steps to create a CloudWatch alarm based on the Fargate resource usage metrics.
 

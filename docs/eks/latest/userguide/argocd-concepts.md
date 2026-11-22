@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Argo CD concepts
-<a name="argocd-concepts"></a>
 
 Argo CD implements GitOps by treating Git as the single source of truth for your application deployments. This topic walks through a practical example, then explains the core concepts you need to understand when working with the EKS Capability for Argo CD.
 
@@ -21,7 +20,7 @@ After creating the Argo CD capability (see [Create an Argo CD capability](create
 
 Register the cluster where you want to deploy applications. For this example, we’ll register the same cluster where Argo CD is running (you can use the name `in-cluster` for compatibility with most Argo CD examples):
 
-```
+```bash
 # Get your cluster ARN
 CLUSTER_ARN=$(aws eks describe-cluster \
   --name my-cluster \
@@ -51,7 +50,7 @@ For AWS services (ECR for Helm charts, CodeConnections, and CodeCommit), you can
 
 Create this Application manifest in `my-app.yaml`:
 
-```
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -76,7 +75,7 @@ spec:
 
 Apply the Application:
 
-```
+```bash
 kubectl apply -f my-app.yaml
 ```
 
@@ -84,7 +83,7 @@ After applying this Application, Argo CD: 1. Syncs the application from Git to y
 
 View the application status:
 
-```
+```bash
 kubectl get application guestbook -n argocd
 ```
 
@@ -134,7 +133,7 @@ Argo CD continuously monitors your sources and clusters to detect and correct di
 
  **Sync waves** control resource creation order using annotations:
 
-```
+```yaml
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"  # Default if not specified
@@ -144,7 +143,7 @@ Resources are applied in wave order (lower numbers first, including negative num
 
  **Self-healing** automatically reverts manual changes:
 
-```
+```yaml
 spec:
   syncPolicy:
     automated:
@@ -203,7 +202,7 @@ Fine-tune sync behavior with common options:
 +  `ServerSideApply=true` - Use server-side apply for better conflict resolution
 +  `SkipDryRunOnMissingResource=true` - Skip dry run when CRDs don’t exist yet (useful for kro instances)
 
-```
+```yaml
 spec:
   syncPolicy:
     syncOptions:

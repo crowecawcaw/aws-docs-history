@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Grant IAM users access to Kubernetes with EKS access entries
-<a name="access-entries"></a>
 
 This section is designed to show you how to manage IAM principal access to Kubernetes clusters in Amazon Elastic Kubernetes Service (EKS) using access entries and policies. You’ll find details on changing authentication modes, migrating from legacy `aws-auth` ConfigMap entries, creating, updating, and deleting access entries, associating policies with entries, reviewing predefined policy permissions, and key prerequisites and considerations for secure access management.
 

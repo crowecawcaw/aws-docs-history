@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy Amazon EKS on-premises with AWS Outposts
-<a name="eks-outposts"></a>
 
 You can use Amazon EKS to run on-premises Kubernetes applications on AWS Outposts. You can deploy Amazon EKS on Outposts in the following ways:
 +  **Extended clusters** – Run the Kubernetes control plane in an AWS Region and nodes on your Outpost.

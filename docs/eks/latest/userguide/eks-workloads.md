@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Learn how to deploy workloads and add-ons to Amazon EKS
-<a name="eks-workloads"></a>
 
 Your workloads are deployed in containers, which are deployed in Pods in Kubernetes. A Pod includes one or more containers. Typically, one or more Pods that provide the same service are deployed in a Kubernetes service. Once you’ve deployed multiple Pods that provide the same service, you can:
 +  [View information about the workloads](view-kubernetes-resources.md) running on each of your clusters using the AWS Management Console.

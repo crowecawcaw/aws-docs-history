@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an Argo CD capability using the Console
-<a name="argocd-create-console"></a>
 
 Create an Argo CD capability on your Amazon EKS cluster using the AWS Management Console.
 

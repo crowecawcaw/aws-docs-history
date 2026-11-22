@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Build a custom Windows AMI with Image Builder
-<a name="eks-custom-ami-windows"></a>
 
 You can use EC2 Image Builder to create custom Amazon EKS optimized Windows AMIs with one of the following options:
 +  [Using an Amazon EKS optimized Windows AMI as a base](#custom-windows-ami-as-base) 

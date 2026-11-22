@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Connect to Git repositories with AWS CodeConnections
-<a name="integration-codeconnections"></a>
 
  [AWS CodeConnections](https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html) provides a secure way to connect AWS services to third-party source code repositories. AWS CodeConnections supports GitHub, GitLab, Bitbucket, and [other providers](https://docs.aws.amazon.com/dtconsole/latest/userguide/supported-versions-connections.html). To learn more and get started, see [Working with connections](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections.html).
 
@@ -33,7 +32,7 @@ When using the EKS capability for Argo CD, you can choose to use AWS CodeConnect
 
 1. Ensure the Argo CD capability role has permissions to use the connection with a resource-based policy:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [

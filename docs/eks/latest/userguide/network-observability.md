@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Monitor Kubernetes workload traffic with Container Network Observability
-<a name="network-observability"></a>
 
 Amazon EKS provides enhanced network observability features that provide deeper insights into your container networking environment. These capabilities help you better understand, monitor, and troubleshoot your Kubernetes network landscape in AWS. With enhanced container network observability, you can leverage granular, network-related metrics for better proactive anomaly detection across cluster traffic, cross-AZ flows, and AWS services. Using these metrics, you can measure system performance and visualize the underlying metrics using your preferred observability stack.
 
@@ -69,7 +68,7 @@ When using Network Flow Monitor in EKS, you can maintain your existing observabi
 
 You can use the `CloudWatchNetworkFlowMonitorAgentPublishPolicy` [AWS managed policy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorAgentPublishPolicy.html) with Pod Identity. This policy contains permissions for the NFM agent to send telemetry reports (metrics) to a Network Flow Monitor endpoint.
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -89,7 +88,7 @@ You can use the `CloudWatchNetworkFlowMonitorAgentPublishPolicy` [AWS managed po
 
 The following permissions are required to enable the feature and visualize the service map and flow table in the console.
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -117,7 +116,7 @@ The following permissions are required to enable the feature and visualize the s
 ## Using AWS CLI, EKS API and NFM API
 <a name="using_shared_aws_cli_eks_api_and_nfm_api"></a>
 
-```
+```bash
 #!/bin/bash
 
 # Script to create required Network Flow Monitor resources
@@ -197,7 +196,7 @@ If you are using Terraform to manage your AWS cloud infrastructure, you can incl
 #### NFM Scope
 <a name="_nfm_scope"></a>
 
-```
+```terraform
 data "aws_caller_identity" "current" {}
 
 resource "aws_networkflowmonitor_scope" "example" {
@@ -220,7 +219,7 @@ resource "aws_networkflowmonitor_scope" "example" {
 #### NFM Monitor
 <a name="_nfm_monitor"></a>
 
-```
+```terraform
 resource "aws_networkflowmonitor_monitor" "example" {
   monitor_name = "eks-cluster-name-monitor"
   scope_arn    = aws_networkflowmonitor_scope.example.scope_arn
@@ -244,7 +243,7 @@ resource "aws_networkflowmonitor_monitor" "example" {
 #### EKS add-on for NFM
 <a name="_eks_add_on_for_nfm"></a>
 
-```
+```terraform
 resource "aws_eks_addon" "example" {
   cluster_name                = aws_eks_cluster.example.name
   addon_name                  = "aws-network-flow-monitoring-agent"
@@ -267,7 +266,7 @@ If you are running third party (3P) tooling to monitor your EKS environment (suc
 
 To enable these metrics, override the following environment variables using the configuration variables during the installation process (see: https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/):
 
-```
+```yaml
 OPEN_METRICS:
     Enable or disable open metrics. Disabled if not supplied
     Type: String

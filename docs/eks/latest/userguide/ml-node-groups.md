@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Manage compute for AI/ML workloads on Amazon EKS with node groups
-<a name="ml-node-groups"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
@@ -60,7 +59,7 @@ These requirements are shown in the examples below for creating the launch templ
 
    Replace the contents for `CapacityReservationId` and `InstanceType` with the values for your Capacity Block. For more information on the additional EC2 launch template fields, see [Customize managed nodes with launch templates](launch-templates.md) and [Use Capacity Blocks for machine learning workloads](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-template-capacity-blocks.html).
 
-   ```
+   ```json
    {
      "LaunchTemplateData": {
        "InstanceMarketOptions": {
@@ -78,7 +77,7 @@ These requirements are shown in the examples below for creating the launch templ
 
 1. Create the launch template.
 
-   ```
+   ```bash
    aws ec2 create-launch-template \
        --launch-template-name EKS-Capacity-Block-Launch-Template \
        --launch-template-data file://eks-capacity-block-lt.json
@@ -121,7 +120,7 @@ These requirements are shown in the examples below for creating the launch templ
 
    Replace the contents for `IamInstanceProfile`, `ImageId`, `SecurityGroupIds`, `UserData`, `KeyName` with the values for your environment.
 
-   ```
+   ```json
    {
      "LaunchTemplateData": {
        "InstanceMarketOptions": {
@@ -147,7 +146,7 @@ These requirements are shown in the examples below for creating the launch templ
 
 1. Create the launch template.
 
-   ```
+   ```bash
    aws ec2 create-launch-template \
        --launch-template-name EKS-Capacity-Block-Launch-Template \
        --launch-template-data file://eks-capacity-block-lt.json

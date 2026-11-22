@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Use a security group policy for an Amazon EKS Pod
-<a name="sg-pods-example-deployment"></a>
 
 To use security groups for Pods, you must have an existing security group. The following steps show you how to use the security group policy for a Pod. Unless otherwise noted, complete all steps from the same terminal because variables are used in the following steps that don’t persist across terminals.
 
@@ -13,7 +12,7 @@ If you have a Pod with Amazon EC2 instances, you must configure the plugin befor
 
 1. Create a Kubernetes namespace to deploy resources to. You can replace {{my-namespace}} with the name of a namespace that you want to use.
 
-   ```
+   ```bash
    kubectl create namespace my-namespace
    ```
 
@@ -23,7 +22,7 @@ If you have a Pod with Amazon EC2 instances, you must configure the plugin befor
 
       You must replace {{my\_pod\_security\_group\_id}} with the ID of an existing security group. If you don’t have an existing security group, then you must create one. For more information, see [Amazon EC2 security groups for Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) in the [Amazon EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/). You can specify 1-5 security group IDs. If you specify more than one ID, then the combination of all the rules in all the security groups are effective for the selected Pods.
 
-      ```
+      ```yaml
       cat >my-security-group-policy.yaml <<EOF
       apiVersion: vpcresources.k8s.aws/v1beta1
       kind: SecurityGroupPolicy
@@ -50,7 +49,7 @@ Security group policies only apply to newly scheduled Pods. They do not affect r
 
    1. Deploy the policy.
 
-      ```
+      ```bash
       kubectl apply -f my-security-group-policy.yaml
       ```
 
@@ -58,7 +57,7 @@ Security group policies only apply to newly scheduled Pods. They do not affect r
 
    1. Copy the following contents to your device. Replace the example values with your own and then run the modified command. If you replace {{my-role}}, make sure that it’s the same as the value you specified for the selector in a previous step.
 
-      ```
+      ```yaml
       cat >sample-application.yaml <<EOF
       apiVersion: apps/v1
       kind: Deployment
@@ -104,19 +103,19 @@ Security group policies only apply to newly scheduled Pods. They do not affect r
 
    1. Deploy the application with the following command. When you deploy the application, the Amazon VPC CNI plugin for Kubernetes matches the `role` label and the security groups that you specified in the previous step are applied to the Pod.
 
-      ```
+      ```bash
       kubectl apply -f sample-application.yaml
       ```
 
 1. View the Pods deployed with the sample application. For the remainder of this topic, this terminal is referred to as `TerminalA`.
 
-   ```
+   ```bash
    kubectl get pods -n my-namespace -o wide
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME                             READY   STATUS    RESTARTS   AGE     IP               NODE                                            NOMINATED NODE   READINESS GATES
    my-deployment-5df6f7687b-4fbjm   1/1     Running   0          7m51s   192.168.53.48    ip-192-168-33-28.region-code.compute.internal   <none>           <none>
    my-deployment-5df6f7687b-j9fl4   1/1     Running   0          7m51s   192.168.70.145   ip-192-168-92-33.region-code.compute.internal   <none>           <none>
@@ -130,7 +129,7 @@ If any Pods are stuck in the `Pending` state, confirm that your node instance ty
 
    If you run `kubectl describe pod {{my-deployment-xxxxxxxxxx-xxxxx}} -n {{my-namespace}} ` and see a message similar to the following message, then it can be safely ignored. This message might appear when the Amazon VPC CNI plugin for Kubernetes tries to set up host networking and fails while the network interface is being created. The plugin logs this event until the network interface is created.
 
-   ```
+   ```bash
    Failed to create Pod sandbox: rpc error: code = Unknown desc = failed to set up sandbox container "e24268322e55c8185721f52df6493684f6c2c3bf4fd59c9c121fd4cdc894579f" network for Pod "my-deployment-5df6f7687b-4fbjm": networkPlugin
    cni failed to set up Pod "my-deployment-5df6f7687b-4fbjm-c89wx_my-namespace" network: add cmd: failed to assign an IP address to container
    ```
@@ -139,19 +138,19 @@ If any Pods are stuck in the `Pending` state, confirm that your node instance ty
 
 1. In a separate terminal, shell into one of the Pods. For the remainder of this topic, this terminal is referred to as `TerminalB`. Replace {{5df6f7687b-4fbjm}} with the ID of one of the Pods returned in your output from the previous step.
 
-   ```
+   ```bash
    kubectl exec -it -n my-namespace my-deployment-5df6f7687b-4fbjm -- /bin/bash
    ```
 
 1. From the shell in `TerminalB`, confirm that the sample application works.
 
-   ```
+   ```bash
    curl my-app
    ```
 
    An example output is as follows.
 
-   ```
+   ```html
    <!DOCTYPE html>
    <html>
    <head>
@@ -163,20 +162,20 @@ If any Pods are stuck in the `Pending` state, confirm that your node instance ty
 
 1. From `TerminalA`, remove the security group rules that allow DNS communication to the cluster security group from your security group. If you didn’t add the DNS rules to the cluster security group in a previous step, then replace {{$my\_cluster\_security\_group\_id}} with the ID of the security group that you created the rules in.
 
-   ```
+   ```bash
    aws ec2 revoke-security-group-ingress --group-id $my_cluster_security_group_id --security-group-rule-ids $my_tcp_rule_id
    aws ec2 revoke-security-group-ingress --group-id $my_cluster_security_group_id --security-group-rule-ids $my_udp_rule_id
    ```
 
 1. From `TerminalB`, attempt to access the application again.
 
-   ```
+   ```bash
    curl my-app
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    curl: (6) Could not resolve host: my-app
    ```
 
@@ -186,7 +185,7 @@ If any Pods are stuck in the `Pending` state, confirm that your node instance ty
 
 1. Once you’ve finished experimenting, you can remove the sample security group policy, application, and security group that you created. Run the following commands from `TerminalA`.
 
-   ```
+   ```bash
    kubectl delete namespace my-namespace
    aws ec2 revoke-security-group-ingress --group-id $my_pod_security_group_id --security-group-rule-ids $my_inbound_self_rule_id
    wait

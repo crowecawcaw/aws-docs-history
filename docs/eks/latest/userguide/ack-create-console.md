@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an ACK capability using the Console
-<a name="ack-create-console"></a>
 
 Create an ACK capability on your Amazon EKS cluster using the AWS Management Console.
 
@@ -76,7 +75,7 @@ You should see a number of CRDs listed for AWS resources.
 
  **Using kubectl** 
 
-```
+```bash
 kubectl api-resources | grep services.k8s.aws
 ```
 

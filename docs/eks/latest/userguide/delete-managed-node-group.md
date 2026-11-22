@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Delete a managed node group from your cluster
-<a name="delete-managed-node-group"></a>
 
 This topic describes how you can delete an Amazon EKS managed node group. When you delete a managed node group, Amazon EKS first sets the minimum, maximum, and desired size of your Auto Scaling group to zero. This then causes your node group to scale down.
 
@@ -26,7 +25,7 @@ You can delete a managed node group with:
 
 Enter the following command. Replace every `<example value>` with your own values.
 
-```
+```bash
 eksctl delete nodegroup \
   --cluster <my-cluster> \
   --name <my-mng> \
@@ -57,7 +56,7 @@ For more options, see [Deleting and draining nodegroups](https://eksctl.io/usage
 
 1. Enter the following command. Replace every `<example value>` with your own values.
 
-   ```
+   ```bash
    aws eks delete-nodegroup \
      --cluster-name <my-cluster> \
      --nodegroup-name <my-mng> \

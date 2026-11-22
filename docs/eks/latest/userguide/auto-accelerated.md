@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy an accelerated workload
-<a name="auto-accelerated"></a>
 
 This tutorial demonstrates how Amazon EKS Auto Mode simplifies launching hardware-accelerated workloads. Amazon EKS Auto Mode streamlines operations beyond the cluster itself by automating key infrastructure components providing compute, networking, load balancing, storage, and Identity and Access Management capabilities out of the box.
 
@@ -52,7 +51,7 @@ To deploy the Amazon EKS Auto Mode `NodePool` and the sample `workload`, review 
 
  **nodepool-gpu.yaml** 
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -90,7 +89,7 @@ spec:
 
  **pod.yaml** 
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -122,21 +121,21 @@ Note the `eks.amazonaws.com/compute-type: auto` selector requires the workload b
 
 Apply the NodePool and workload to your cluster.
 
-```
+```bash
 kubectl apply -f nodepool-gpu.yaml
 kubectl apply -f pod.yaml
 ```
 
 You should see the following output:
 
-```
+```bash
 nodepool.karpenter.sh/gpu created
 pod/nvidia-smi created
 ```
 
 Wait a few seconds, and check the nodes in your cluster. You should now see a new node provisioned in your Amazon EKS Auto Mode cluster:
 
-```
+```bash
 > kubectl get nodes
 
 NAME        TYPE          CAPACITY    ZONE         NODE                  READY   AGE
@@ -148,7 +147,7 @@ gpu-dnknr   g6e.2xlarge   on-demand   us-west-2b   i-02315c7d7643cdee6   True   
 
 You can see Amazon EKS Auto Mode launched a `g6e.2xlarge` rather than a `g6.2xlarge` as the workload required an instance with an L40S `GPU`, according to the following Kubernetes scheduling constraints:
 
-```
+```yaml
 ...
   nodeSelector:
     eks.amazonaws.com/instance-gpu-name: l40s
@@ -164,13 +163,13 @@ You can see Amazon EKS Auto Mode launched a `g6e.2xlarge` rather than a `g6.2xla
 
 Now, look at the container’s logs by running the following command:
 
-```
+```bash
 kubectl logs nvidia-smi
 ```
 
 Sample output:
 
-```
+```bash
 +---------------------------------------------------------------------------------------+
 | NVIDIA-SMI 580.178.04             Driver Version: 580.178.04   CUDA Version: 13.0     |
 |-----------------------------------------+----------------------+----------------------+
@@ -207,7 +206,7 @@ kubectl delete -f pod.yaml
 ## Deploy an accelerated workload with Dynamic Resource Allocation
 <a name="auto-accelerated-dra"></a>
 
-The walkthrough in [Deploy an accelerated workload](#auto-accelerated) requests a GPU as the `nvidia.com/gpu` extended resource, which the NVIDIA device plugin advertises. On Kubernetes version 1.36 and later, you can instead request devices through Dynamic Resource Allocation (DRA). DRA lets you select devices by attributes such as GPU model or memory, constrain a GPU and an EFA device to the same PCIe root for distributed training, and share one GPU across several Pods.
+The walkthrough in [Deploy an accelerated workload](auto-accelerated.md) requests a GPU as the `nvidia.com/gpu` extended resource, which the NVIDIA device plugin advertises. On Kubernetes version 1.36 and later, you can instead request devices through Dynamic Resource Allocation (DRA). DRA lets you select devices by attributes such as GPU model or memory, constrain a GPU and an EFA device to the same PCIe root for distributed training, and share one GPU across several Pods.
 
 EKS Auto Mode includes the NVIDIA DRA driver and the EFA DRA driver (DRANET) in the node runtime, so there are no drivers to install. You do need to create the `DeviceClass` objects that your claims reference, which a driver’s Helm chart would otherwise create for you.
 
@@ -218,7 +217,7 @@ EKS Auto Mode keeps DRA and device plugins from managing the same device type on
 + A Kubernetes cluster with Amazon EKS Auto Mode configured, running **Kubernetes version 1.36 or later**. DRA is not available on EKS Auto Mode clusters running earlier versions. To check your cluster version, run `kubectl version`. For information about updating a cluster, see [Update existing cluster to new Kubernetes version](update-cluster.md).
 + A `default` EKS Node class as created when the `general-purpose` or `system` Managed Node Pools are enabled.
 +  `kubectl` configured to communicate with your cluster, see [Install or update `kubectl`](install-kubectl.md#kubectl-install-update) for more information.
-+ A GPU instance family that EKS Auto Mode has DRA device metadata for. The `g7e` instance family is not supported with DRA and dynamic capacity provisioning. Use the NVIDIA device plugin for `g7e` GPUs, as shown in [Deploy an accelerated workload](#auto-accelerated).
++ A GPU instance family that EKS Auto Mode has DRA device metadata for. The `g7e` instance family is not supported with DRA and dynamic capacity provisioning. Use the NVIDIA device plugin for `g7e` GPUs, as shown in [Deploy an accelerated workload](auto-accelerated.md).
 + For EFA devices with dynamic capacity provisioning, use an instance type with NVIDIA GPUs. EKS Auto Mode doesn’t yet have EFA DRA device metadata for EFA-enabled instance types without GPUs. Examples include `hpc7a` and `c6in`. Support for these instance types is coming soon. For more information, see [aws/karpenter-provider-aws\#9879](https://github.com/aws/karpenter-provider-aws/pull/9879) on GitHub. Until then, use static capacity provisioning or the EFA device plugin for them.
 
 ### Step 1: Create the DeviceClass
@@ -226,7 +225,7 @@ EKS Auto Mode keeps DRA and device plugins from managing the same device type on
 
 A `DeviceClass` names a category of devices and defines the expression that selects them. Your `ResourceClaimTemplate` references it by name. EKS Auto Mode does not create these objects, so create the one for NVIDIA GPUs before you deploy the workload.
 
-```
+```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: resource.k8s.io/v1
 kind: DeviceClass
@@ -241,13 +240,13 @@ EOF
 
 Confirm that it exists:
 
-```
+```bash
 kubectl get deviceclass
 ```
 
 An example output is as follows.
 
-```
+```bash
 NAME             AGE
 gpu.nvidia.com   5s
 ```
@@ -265,7 +264,7 @@ To deploy the `NodePool`, `ResourceClaimTemplate`, and sample workload, review t
 
  **nodepool-gpu-dra.yaml** 
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -302,7 +301,7 @@ spec:
 
  **pod-dra.yaml** 
 
-```
+```yaml
 apiVersion: resource.k8s.io/v1
 kind: ResourceClaimTemplate
 metadata:
@@ -341,18 +340,18 @@ spec:
     operator: Exists
 ```
 
-Note that the Pod requests the GPU through `resources.claims` and `resourceClaims`, rather than through the `nvidia.com/gpu` extended resource used in [Deploy an accelerated workload](#auto-accelerated). The `NodePool` also sets a taint that only allows Pods with tolerations for NVIDIA GPUs to be scheduled.
+Note that the Pod requests the GPU through `resources.claims` and `resourceClaims`, rather than through the `nvidia.com/gpu` extended resource used in [Deploy an accelerated workload](auto-accelerated.md). The `NodePool` also sets a taint that only allows Pods with tolerations for NVIDIA GPUs to be scheduled.
 
 Apply the `NodePool` and workload to your cluster.
 
-```
+```bash
 kubectl apply -f nodepool-gpu-dra.yaml
 kubectl apply -f pod-dra.yaml
 ```
 
 You should see the following output:
 
-```
+```bash
 nodepool.karpenter.sh/gpu-dra created
 resourceclaimtemplate.resource.k8s.io/single-gpu created
 pod/nvidia-smi-dra created
@@ -365,20 +364,20 @@ Wait a few seconds, and check the nodes in your cluster. EKS Auto Mode launches 
 
 Confirm that the node is a DRA node for NVIDIA GPUs by checking the device manager label:
 
-```
+```bash
 kubectl get nodes -L eks.amazonaws.com/device-manager-nvidia
 ```
 
 An example output is as follows.
 
-```
+```bash
 NAME                  STATUS   ROLES    AGE   VERSION   DEVICE-MANAGER-NVIDIA
 i-02315c7d7643cdee6   Ready    <none>   76s   v1.36.0   dra
 ```
 
 Look at the container’s logs by running the following command:
 
-```
+```bash
 kubectl logs nvidia-smi-dra
 ```
 
@@ -386,13 +385,13 @@ The output shows the GPU that the DRA driver allocated to the container, and con
 
 You can also confirm that the claim was allocated. Kubernetes generates a `ResourceClaim` for each Pod that uses a `ResourceClaimTemplate`, named after the Pod and the claim name in the Pod’s `resourceClaims` list. For the preceding Pod, that is `nvidia-smi-dra-gpu-` followed by a random suffix.
 
-```
+```bash
 kubectl get resourceclaims
 ```
 
 An example output is as follows.
 
-```
+```bash
 NAME                       STATE                AGE
 nvidia-smi-dra-gpu-h4gff   allocated,reserved   12s
 ```
@@ -405,14 +404,14 @@ This Pod runs `nvidia-smi` once and then completes, and Kubernetes deletes the g
 
 To remove all objects created, use `kubectl` to delete the sample workload and NodePool so the node is terminated:
 
-```
+```bash
 kubectl delete -f pod-dra.yaml
 kubectl delete -f nodepool-gpu-dra.yaml
 ```
 
 You can leave the `gpu.nvidia.com` `DeviceClass` in place for future workloads. To remove it as well, run the following command:
 
-```
+```bash
 kubectl delete deviceclass gpu.nvidia.com
 ```
 
@@ -431,7 +430,7 @@ The following NodePool defines:
 
  **Example NodePool with GPU instance family and consolidation** 
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -470,7 +469,7 @@ If you have specific storage requirements you can tune the nodes ephemeral stora
 
  **Example storage configuration for NodeClass** 
 
-```
+```yaml
 apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
@@ -506,7 +505,7 @@ The following example reserves eight `p5.48xlarge` nodes from a Capacity Block.
 
  **Example NodeClass referencing a Capacity Block** 
 
-```
+```yaml
 apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
@@ -530,7 +529,7 @@ Configuring `capacityReservationSelectorTerms` on any `NodeClass` in a cluster s
 
  **Example static NodePool using the Capacity Block** 
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Use the NVIDIA DRA driver or device plugin on Amazon EKS
-<a name="device-management-nvidia-dra-device-plugin"></a>
 
 Amazon EKS supports two mechanisms for managing NVIDIA GPU devices in your EKS clusters: the *NVIDIA DRA driver for GPUs* and the *NVIDIA Kubernetes device plugin*.
 
@@ -101,7 +100,7 @@ When using the NVIDIA DRA driver for GPU device management, do not deploy it alo
 **Disable the built-in NVIDIA device plugin on Bottlerocket**  
 The EKS-optimized Bottlerocket NVIDIA variants include the NVIDIA device plugin and enable it by default. The DRA driver cannot run alongside the device plugin on the same node. Before you use the DRA driver, disable the built-in device plugin on your Bottlerocket GPU nodes. Set `settings.kubelet-device-plugins.nvidia.enabled` to `false` in the Bottlerocket node user data.  
 
-```
+```toml
 [settings.kubelet-device-plugins.nvidia]
 enabled = false
 ```
@@ -109,7 +108,7 @@ The `settings.kubelet-device-plugins.nvidia.enabled` setting is available in Bot
 
 1. Install the NVIDIA DRA driver directly from the Kubernetes SIG OCI registry. To find available versions, see the [NVIDIA DRA driver releases](https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu/releases) on GitHub.
 
-   ```
+   ```bash
    helm install dra-driver-nvidia-gpu \
        oci://registry.k8s.io/dra-driver-nvidia/charts/dra-driver-nvidia-gpu \
        --version {{0.4.1}} \
@@ -123,42 +122,42 @@ The `settings.kubelet-device-plugins.nvidia.enabled` setting is available in Bot
 
 1. (Optional) To use time-slicing through the DRA driver, add the `TimeSlicingSettings` feature gate to the `helm install` command in the previous step. This is an alpha feature that is disabled by default. For more information, see [Use GPU time-slicing with the NVIDIA DRA driver](device-management-nvidia-time-slicing.md#eks-time-slicing-dra).
 
-   ```
+   ```bash
    --set featureGates.TimeSlicingSettings=true
    ```
 
 1. (Optional) To use dynamic MIG through the DRA driver, add the `DynamicMIG` feature gate to the `helm install` command in the previous step. This is an alpha feature that is disabled by default. You cannot combine the `DynamicMIG` feature gate with the `PassthroughSupport`, `NVMLDeviceHealthCheck`, or `MPSSupport` feature gates. For more information, see [Use MIG with the NVIDIA DRA driver](device-management-nvidia-mig.md#eks-mig-dra-driver).
 
-   ```
+   ```bash
    --set featureGates.DynamicMIG=true
    ```
 
 1. Verify that the DRA driver pods are running.
 
-   ```
+   ```bash
    kubectl get pods -n nvidia
    ```
 
 1. Verify that the `DeviceClass` objects were created.
 
-   ```
+   ```bash
    kubectl get deviceclass
    ```
 
-   ```
+   ```bash
    NAME            AGE
    gpu.nvidia.com  60s
    ```
 
 1. Verify that `ResourceSlice` objects are published for your GPU nodes.
 
-   ```
+   ```bash
    kubectl get resourceslice
    ```
 
    To request NVIDIA GPUs using the DRA driver, create a `ResourceClaimTemplate` that references the `gpu.nvidia.com` `DeviceClass` and reference it in your Pod specification. The following example requests a single GPU. See [Topology-aware EFA and GPU/Neuron device allocation](device-management-efa.md#efa-dra-topology-aware) for steps to allocate NVIDIA GPUs with topology-aligned EFA interfaces.
 
-   ```
+   ```yaml
    apiVersion: resource.k8s.io/v1
    kind: ResourceClaimTemplate
    metadata:
@@ -201,7 +200,7 @@ A `DeviceClass` names a category of devices and defines the expression that sele
 
 When you install the NVIDIA DRA driver with Helm, as described in [Install the NVIDIA DRA driver](#eks-nvidia-dra-driver), the chart creates this object for you and there is nothing more to do. EKS Auto Mode runs the driver from the node runtime rather than from a Helm chart, so on EKS Auto Mode you create it yourself.
 
-```
+```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: resource.k8s.io/v1
 kind: DeviceClass
@@ -216,13 +215,13 @@ EOF
 
 Confirm that it exists.
 
-```
+```bash
 kubectl get deviceclass
 ```
 
 An example output is as follows.
 
-```
+```bash
 NAME             AGE
 gpu.nvidia.com   5s
 ```
@@ -255,19 +254,19 @@ The NVIDIA Kubernetes device plugin advertises NVIDIA GPUs as `nvidia.com/gpu` e
 
 1. Add the NVIDIA device plugin Helm chart repository.
 
-   ```
+   ```bash
    helm repo add nvdp https://nvidia.github.io/k8s-device-plugin
    ```
 
 1. Update your local Helm repository.
 
-   ```
+   ```bash
    helm repo update
    ```
 
 1. Install the NVIDIA Kubernetes device plugin.
 
-   ```
+   ```bash
    helm install nvdp nvdp/nvidia-device-plugin \
        --create-namespace \
        --namespace nvidia
@@ -276,7 +275,7 @@ The NVIDIA Kubernetes device plugin advertises NVIDIA GPUs as `nvidia.com/gpu` e
 The device plugin advertises `nvidia.com/gpu` extended resources and schedules GPU Pods on its own. On the EKS-optimized AL2023 NVIDIA AMI, the `nvidia.com/gpu.present=true` node label is already applied at boot by `nodeadm`, so GPU Feature Discovery (GFD) is not required for basic GPU scheduling.  
 Enable GFD with `--set gfd.enabled=true` if you want the node labeled with detailed GPU attributes—such as `nvidia.com/gpu.product`, `nvidia.com/gpu.memory`, `nvidia.com/gpu.count`, MIG profile labels, and driver/CUDA versions. With these labels, you can target specific GPU types with `nodeSelector` or node affinity (for example, scheduling a workload only onto A10G GPUs or onto a particular MIG profile). GPU sharing configurations such as time-slicing and MIG also use these labels. If you don’t need attribute-based node selection or GPU sharing, you can omit the flag.  
 
-   ```
+   ```bash
    helm install nvdp nvdp/nvidia-device-plugin \
        --create-namespace \
        --namespace nvidia \
@@ -286,7 +285,7 @@ Enable GFD with `--set gfd.enabled=true` if you want the node labeled with detai
  `k8s-device-plugin` v0.19.0 through v0.19.2 enabled the GDRCopy and MOFED features by default. This default enablement was reverted in `k8s-device-plugin` v0.19.3. As a result of the revert, GDRCopy (`gdrdrv`) can no longer be enabled per-container with the `NVIDIA_GDRCOPY=enabled` environment variable in a Pod spec, that variable is now ignored.  
 If your workloads use GDRCopy (GPUDirect RDMA copy), you must enable it on the device plugin at install time by setting `gdrcopyEnabled=true`:  
 
-   ```
+   ```bash
    helm upgrade --install nvdp nvdp/nvidia-device-plugin \
        --namespace nvidia \
        --create-namespace \
@@ -300,24 +299,24 @@ You can also install and manage the NVIDIA Kubernetes device plugin using the [N
 
 1. Verify the NVIDIA device plugin DaemonSet is running.
 
-   ```
+   ```bash
    kubectl get ds -n nvidia nvdp-nvidia-device-plugin
    ```
 
-   ```
+   ```bash
    NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
    nvdp-nvidia-device-plugin   2         2         2       2            2           <none>          60s
    ```
 
 1. Verify that your nodes have allocatable GPUs.
 
-   ```
+   ```bash
    kubectl get nodes "-o=custom-columns=NAME:.metadata.name,GPU:.status.allocatable.nvidia\.com/gpu"
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME                                           GPU
    ip-192-168-11-225.us-west-2.compute.internal   1
    ip-192-168-24-96.us-west-2.compute.internal    1
@@ -328,7 +327,7 @@ You can also install and manage the NVIDIA Kubernetes device plugin using the [N
 
 To request NVIDIA GPUs using the device plugin, specify the `nvidia.com/gpu` resource in your container resource requests and limits.
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -354,14 +353,14 @@ spec:
 
 To run this test, apply the manifest and view the logs:
 
-```
+```bash
 kubectl apply -f nvidia-smi.yaml
 kubectl logs nvidia-smi
 ```
 
 An example output is as follows.
 
-```
+```bash
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI XXX.XXX.XX            Driver Version: XXX.XXX.XX     CUDA Version: XX.X      |
 |-----------------------------------------+------------------------+----------------------+

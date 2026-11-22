@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an Amazon EKS cluster
-<a name="create-cluster"></a>
 
 **Note**  
 This topic covers creating Amazon EKS clusters without EKS Auto Mode.  
@@ -34,7 +33,7 @@ For more information, see [Sandboxing on Amazon EKS with isolated and confidenti
 
 1. Run the following command to create an IAM trust policy JSON file.
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -51,7 +50,7 @@ For more information, see [Sandboxing on Amazon EKS with isolated and confidenti
 
 1. Create the Amazon EKS cluster IAM role. If necessary, preface {{eks-cluster-role-trust-policy.json}} with the path on your computer that you wrote the file to in the previous step. The command associates the trust policy that you created in the previous step to the role. To create an IAM role, the [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal) that is creating the role must be assigned the `iam:CreateRole` action (permission).
 
-   ```
+   ```bash
    aws iam create-role --role-name myAmazonEKSClusterRole --assume-role-policy-document file://"eks-cluster-role-trust-policy.json"
    ```
 
@@ -59,7 +58,7 @@ For more information, see [Sandboxing on Amazon EKS with isolated and confidenti
 
    Attach the Amazon EKS managed policy named [AmazonEKSClusterPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEKSClusterPolicy.html#AmazonEKSClusterPolicy-json) to the role. To attach an IAM policy to an [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal), the principal that is attaching the policy must be assigned one of the following IAM actions (permissions): `iam:AttachUserPolicy` or `iam:AttachRolePolicy`.
 
-   ```
+   ```bash
    aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy --role-name myAmazonEKSClusterRole
    ```
 
@@ -101,13 +100,13 @@ You can create a cluster by using:
 
 1. Run the following command:
 
-   ```
+   ```bash
    eksctl create cluster --name my-cluster --region region-code --version 1.37 --vpc-private-subnets subnet-ExampleID1,subnet-ExampleID2 --without-nodegroup
    ```
 
    Cluster provisioning takes several minutes. While the cluster is being created, several lines of output appear. The last line of output is similar to the following example line.
 
-   ```
+   ```bash
    [✓]  EKS cluster "my-cluster" in "region-code" region is ready
    ```
 
@@ -235,7 +234,7 @@ You might receive an error that one of the Availability Zones in your request do
      Whether you choose any security groups or not, Amazon EKS creates a security group that enables communication between your cluster and your VPC. Amazon EKS associates this security group, and any that you choose, to the network interfaces that it creates. For more information about the cluster security group that Amazon EKS creates, see [View Amazon EKS security group requirements for clusters](sec-group-reqs.md). You can modify the rules in the cluster security group that Amazon EKS creates.
    + (Optional) To manage the egress path from the control plane to your VPC yourself, add `controlPlaneEgressMode=CUSTOMER_ROUTED` to `--resources-vpc-config`. The default is `AWS_MANAGED`. You can also change this setting after cluster creation. For more information, see [Configuring control plane egress routing](control-plane-egress.md).
 
-     ```
+     ```bash
      aws eks create-cluster --region region-code --name my-cluster --kubernetes-version 1.37 \
         --role-arn arn:aws:iam::111122223333:role/myAmazonEKSClusterRole \
         --resources-vpc-config subnetIds=subnet-ExampleID1,subnet-ExampleID2,securityGroupIds=sg-ExampleID1
@@ -265,7 +264,7 @@ You might receive an error that one of the Availability Zones in your request do
 
 1. It takes several minutes to provision the cluster. You can query the status of your cluster with the following command.
 
-   ```
+   ```bash
    aws eks describe-cluster --region region-code --name my-cluster --query "cluster.status"
    ```
 
@@ -278,25 +277,25 @@ You might receive an error that one of the Availability Zones in your request do
 
 1. If you created your cluster using `eksctl`, then you can skip this step. This is because `eksctl` already completed this step for you. Enable `kubectl` to communicate with your cluster by adding a new context to the `kubectl` `config` file. For more information about how to create and update the file, see [Connect kubectl to an EKS cluster by creating a kubeconfig file](create-kubeconfig.md).
 
-   ```
+   ```bash
    aws eks update-kubeconfig --region region-code --name my-cluster
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    Added new context arn:aws:eks:region-code:111122223333:cluster/my-cluster to /home/username/.kube/config
    ```
 
 1. Confirm communication with your cluster by running the following command.
 
-   ```
+   ```bash
    kubectl get svc
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
    kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   28h
    ```

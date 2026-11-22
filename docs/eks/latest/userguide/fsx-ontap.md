@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Use high-performance app storage with FSx for NetApp ONTAP
-<a name="fsx-ontap"></a>
 
 The NetApp Trident provides dynamic storage orchestration using a Container Storage Interface (CSI) compliant driver. This allows Amazon EKS clusters to manage the lifecycle of persistent volumes (PVs) backed by Amazon FSx for NetApp ONTAP file systems. Note that the Amazon FSx for NetApp ONTAP CSI driver is not compatible with Amazon EKS Hybrid Nodes. To get started, see [Use Trident with Amazon FSx for NetApp ONTAP](https://docs.netapp.com/us-en/trident/trident-use/trident-fsx.html) in the NetApp Trident documentation.
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Route application and HTTP traffic with Application Load Balancers
-<a name="alb-ingress"></a>
 
 **Note**  
  **New:** Amazon EKS Auto Mode automates routine tasks for load balancing. For more information, see:  
@@ -41,14 +40,14 @@ Before you can load balance application traffic to an application, you must meet
   If the subnet role tags aren’t explicitly added, the Kubernetes service controller examines the route table of your cluster VPC subnets. This is to determine if the subnet is private or public. We recommend that you don’t rely on this behavior. Rather, explicitly add the private or public role tags. The AWS Load Balancer Controller doesn’t examine route tables. It also requires the private and public tags to be present for successful auto discovery.
 + The [AWS Load Balancer Controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller) creates ALBs and the necessary supporting AWS resources whenever a Kubernetes ingress resource is created on the cluster with the `kubernetes.io/ingress.class: alb` annotation. The ingress resource configures the ALB to route HTTP or HTTPS traffic to different Pods within the cluster. To ensure that your ingress objects use the AWS Load Balancer Controller, add the following annotation to your Kubernetes ingress specification. For more information, see [Ingress specification](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/ingress/spec/) on GitHub.
 
-  ```
+  ```yaml
   annotations:
       kubernetes.io/ingress.class: alb
   ```
 **Note**  
 If you’re load balancing to `IPv6` Pods, add the following annotation to your ingress spec. You can only load balance over `IPv6` to IP targets, not instance targets. Without this annotation, load balancing is over `IPv4`.
 
-  ```
+  ```yaml
   alb.ingress.kubernetes.io/ip-address-type: dualstack
   ```
 + The AWS Load Balancer Controller supports the following traffic modes:
@@ -66,7 +65,7 @@ You can share an application load balancer across multiple service resources usi
 
 To join an ingress to a group, add the following annotation to a Kubernetes ingress resource specification.
 
-```
+```yaml
 alb.ingress.kubernetes.io/group.name: my-group
 ```
 
@@ -83,7 +82,7 @@ Specify an ingress group for an ingress only when all the Kubernetes users that 
 
 You can add an order number of your ingress resource.
 
-```
+```yaml
 alb.ingress.kubernetes.io/group.order: '10'
 ```
 
@@ -101,7 +100,7 @@ You can run the sample application on a cluster that has Amazon EC2 nodes, Farga
 
 1. If you’re not deploying to Fargate, skip this step. If you’re deploying to Fargate, create a Fargate profile. You can create the profile by running the following command or in the [AWS Management Console](fargate-profile.md#create-fargate-profile) using the same values for `name` and `namespace` that are in the command. Replace the example values with your own.
 
-   ```
+   ```bash
    eksctl create fargateprofile \
        --cluster my-cluster \
        --region region-code \
@@ -114,14 +113,14 @@ You can run the sample application on a cluster that has Amazon EC2 nodes, Farga
    1. If you’re deploying to Pods in a cluster that you created with the `IPv6` family, skip to the next step.
       +  **Public**::
 
-      ```
+      ```bash
       kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
       ```
       +  **Private**::
 
         1. Download the manifest.
 
-           ```
+           ```bash
            curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
            ```
 
@@ -131,7 +130,7 @@ You can run the sample application on a cluster that has Amazon EC2 nodes, Farga
 
         1. Apply the manifest to your cluster.
 
-           ```
+           ```bash
            kubectl apply -f 2048_full.yaml
            ```
 
@@ -139,13 +138,13 @@ You can run the sample application on a cluster that has Amazon EC2 nodes, Farga
 
       1. Download the manifest.
 
-         ```
+         ```bash
          curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
          ```
 
       1. Open the file in an editor and add the following line to the annotations in the ingress spec.
 
-         ```
+         ```yaml
          alb.ingress.kubernetes.io/ip-address-type: dualstack
          ```
 
@@ -155,19 +154,19 @@ You can run the sample application on a cluster that has Amazon EC2 nodes, Farga
 
       1. Apply the manifest to your cluster.
 
-         ```
+         ```bash
          kubectl apply -f 2048_full.yaml
          ```
 
 1. After a few minutes, verify that the ingress resource was created with the following command.
 
-   ```
+   ```bash
    kubectl get ingress/ingress-2048 -n game-2048
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME           CLASS    HOSTS   ADDRESS                                                                   PORTS   AGE
    ingress-2048   <none>   *       k8s-game2048-ingress2-xxxxxxxxxx-yyyyyyyyyy.region-code.elb.amazonaws.com   80      2m32s
    ```
@@ -176,7 +175,7 @@ If you created the load balancer in a private subnet, the value under `ADDRESS` 
 
 If your ingress wasn’t successfully created after several minutes, run the following command to view the AWS Load Balancer Controller logs. These logs might contain error messages that you can use to diagnose issues with your deployment.
 
-```
+```bash
 kubectl logs -f -n kube-system -l app.kubernetes.io/instance=aws-load-balancer-controller
 ```
 
@@ -186,11 +185,11 @@ kubectl logs -f -n kube-system -l app.kubernetes.io/instance=aws-load-balancer-c
 1. When you finish experimenting with your sample application, delete it by running one of the following commands.
    + If you applied the manifest, rather than applying a copy that you downloaded, use the following command.
 
-     ```
+     ```bash
      kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
      ```
    + If you downloaded and edited the manifest, use the following command.
 
-     ```
+     ```bash
      kubectl delete -f 2048_full.yaml
      ```

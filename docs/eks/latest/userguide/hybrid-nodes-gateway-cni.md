@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure CNI for the Hybrid Nodes gateway
-<a name="hybrid-nodes-gateway-cni"></a>
 
 The Amazon EKS Hybrid Nodes gateway requires specific Cilium configuration to enable VXLAN-based connectivity between your VPC and hybrid nodes. You must enable Cilium VTEP (VXLAN Tunnel Endpoint) support and disable the L7 proxy.
 
@@ -25,7 +24,7 @@ If you are running an older version, upgrade Cilium before enabling VTEP. For up
 
 Set the Cilium version and run the `helm upgrade` command to enable VTEP and disable the L7 proxy on your existing Cilium installation. You can find the latest available patch version at [Amazon ECR Public: eks/cilium/cilium](https://gallery.ecr.aws/eks/cilium/cilium).
 
-```
+```bash
 helm upgrade cilium oci://public.ecr.aws/eks/cilium/cilium \
   --version {{CILIUM_VERSION}} \
   --namespace kube-system \
@@ -36,7 +35,7 @@ helm upgrade cilium oci://public.ecr.aws/eks/cilium/cilium \
 
 After the upgrade completes, restart the Cilium DaemonSet to apply the new configuration:
 
-```
+```bash
 kubectl rollout restart daemonset/cilium -n kube-system
 kubectl rollout status daemonset/cilium -n kube-system
 ```
@@ -55,7 +54,7 @@ kubectl rollout status daemonset/cilium -n kube-system
 
 After upgrading Cilium, verify that VTEP is enabled and the L7 proxy is disabled:
 
-```
+```bash
 kubectl get configmap cilium-config -n kube-system -o yaml | grep -E "enable-vtep|enable-l7-proxy"
 ```
 
@@ -73,7 +72,7 @@ By default, the AWS VPC CNI applies source NAT (SNAT) to all pod traffic leaving
 
 Set the `AWS_VPC_K8S_CNI_EXCLUDE_SNAT_CIDRS` environment variable on the `aws-node` DaemonSet to your hybrid pod CIDR(s):
 
-```
+```bash
 kubectl set env daemonset aws-node -n kube-system \
   AWS_VPC_K8S_CNI_EXCLUDE_SNAT_CIDRS={{POD_CIDRS}}
 ```

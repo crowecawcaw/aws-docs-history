@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Comparing EKS Capability for ACK to self-managed ACK
-<a name="ack-comparison"></a>
 
 The EKS Capability for ACK provides the same functionality as self-managed ACK controllers, but with significant operational advantages. For a general comparison of EKS Capabilities vs self-managed solutions, see [EKS Capabilities considerations](capabilities-considerations.md). This topic focuses on ACK-specific differences.
 
@@ -48,7 +47,7 @@ The steps use the S3 controller (`ack-s3-controller`) as an example.
 
 1. Create the ACK capability with those services turned off (see [Create an ACK capability](create-ack-capability.md)). For example, if you self-manage S3, EC2, and IAM:
 
-   ```
+   ```bash
    aws eks create-capability \
      --region {{region-code}} \
      --cluster-name {{my-cluster}} \
@@ -63,14 +62,14 @@ The steps use the S3 controller (`ack-s3-controller`) as an example.
 
 1. For the service that you want to migrate, scale its self-managed controller down to zero replicas **before** you turn the service on in the capability:
 
-   ```
+   ```bash
    kubectl scale deployment ack-s3-controller \
      --namespace ack-system --replicas=0
    ```
 
 1. Turn the service on in the capability by removing it from `disabledServices`. Specify the complete list of services that you want to remain turned off. If this service was the only one turned off, specify an empty list:
 
-   ```
+   ```bash
    aws eks update-capability \
      --region {{region-code}} \
      --cluster-name {{my-cluster}} \
@@ -84,7 +83,7 @@ The steps use the S3 controller (`ack-s3-controller`) as an example.
 
 1. Remove the self-managed controller for that service:
 
-   ```
+   ```bash
    helm uninstall ack-s3-controller --namespace ack-system
    ```
 
@@ -113,7 +112,7 @@ With this approach, running a controller self-managed alongside the capability i
 
 1. Enable leader election on your self-managed ACK controller and move its lease to `kube-system`:
 
-   ```
+   ```bash
    helm upgrade --install ack-s3-controller \
      oci://public.ecr.aws/aws-controllers-k8s/s3-chart \
      --namespace ack-system \
@@ -129,7 +128,7 @@ With this approach, running a controller self-managed alongside the capability i
 
 1. When you are ready to begin the migration, scale the self-managed controller down to zero replicas. This releases the lease so that the capability can acquire leadership and take over reconciliation:
 
-   ```
+   ```bash
    kubectl scale deployment ack-s3-controller \
      --namespace ack-system --replicas=0
    ```
@@ -140,7 +139,7 @@ With this approach, running a controller self-managed alongside the capability i
 
 1. After you have confirmed the capability is managing your resources correctly, remove the self-managed controller:
 
-   ```
+   ```bash
    helm uninstall ack-s3-controller --namespace ack-system
    ```
 
@@ -155,7 +154,7 @@ This creates a risk if you run a self-managed preview controller on a cluster th
 
 To avoid this, before you run a self-managed preview controller alongside the capability:
 + Enable leader election on the self-managed preview controller and point its lease at `kube-system`, using the same `leaderElection.enabled=true` and `leaderElection.namespace=kube-system` settings shown in the migration steps. This ensures that if the controller is promoted and the capability takes it over, the two coordinate through a shared lease rather than reconciling in parallel.
-+ Track the upstream GA status of any preview controllers you depend on, and plan to migrate them following the [migration path](#ack-comparison) when they are promoted. You can check the current status of each controller on the [ACK services page](https://aws-controllers-k8s.github.io/docs/services/) on the ACK website.
++ Track the upstream GA status of any preview controllers you depend on, and plan to migrate them following the [migration path](ack-comparison.md) when they are promoted. You can check the current status of each controller on the [ACK services page](https://aws-controllers-k8s.github.io/docs/services/) on the ACK website.
 
 ## Next steps
 <a name="_next_steps"></a>

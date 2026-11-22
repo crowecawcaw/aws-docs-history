@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # ACK considerations for EKS
-<a name="ack-considerations"></a>
 
 This topic covers important considerations for using the EKS Capability for ACK, including IAM configuration, multi-account patterns, and integration with other EKS capabilities.
 
@@ -27,7 +26,7 @@ For development, testing, or simple use cases, grant all necessary permissions d
 
  **Example**: Add S3 and RDS permissions to your Capability Role with resource tagging conditions:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -173,7 +172,7 @@ ACK supports adopting existing AWS resources without recreating them, enabling z
 
  **Adopt an existing resource**:
 
-```
+```yaml
 apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
@@ -222,7 +221,7 @@ The AWS resource is kept when you delete the Kubernetes resource. This protects 
 + Disaster recovery scenarios where you want to preserve infrastructure
 + Resources with complex dependencies that require careful decommissioning
 
-```
+```yaml
 apiVersion: rds.services.k8s.aws/v1alpha1
 kind: DBInstance
 metadata:

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Scale pod deployments with Horizontal Pod Autoscaler
-<a name="horizontal-pod-autoscaler"></a>
 
 The Kubernetes [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) automatically scales the number of Pods in a deployment, replication controller, or replica set based on that resource’s CPU utilization. This can help your applications scale out to meet increased demand or scale in when resources are not needed, thus freeing up your nodes for other applications. When you set a target CPU utilization percentage, the Horizontal Pod Autoscaler scales your application in or out to try to meet that target.
 
@@ -29,7 +28,7 @@ This example is based on the [Horizontal Pod autoscaler walkthrough](https://kub
 
 1. Deploy a simple Apache web server application with the following command.
 
-   ```
+   ```bash
    kubectl apply -f https://k8s.io/examples/application/php-apache.yaml
    ```
 
@@ -37,7 +36,7 @@ This example is based on the [Horizontal Pod autoscaler walkthrough](https://kub
 
 1. Create a Horizontal Pod Autoscaler resource for the `php-apache` deployment.
 
-   ```
+   ```bash
    kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
    ```
 
@@ -45,13 +44,13 @@ This example is based on the [Horizontal Pod autoscaler walkthrough](https://kub
 
 1. Describe the autoscaler with the following command to view its details.
 
-   ```
+   ```bash
    kubectl get hpa
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME         REFERENCE               TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
    php-apache   Deployment/php-apache   0%/50%    1         10        1          51s
    ```
@@ -60,7 +59,7 @@ This example is based on the [Horizontal Pod autoscaler walkthrough](https://kub
 
 1.  Create a load for the web server by running a container.
 
-   ```
+   ```bash
    kubectl run -i \
        --tty load-generator \
        --rm --image=busybox \
@@ -70,13 +69,13 @@ This example is based on the [Horizontal Pod autoscaler walkthrough](https://kub
 
 1. To watch the deployment scale out, periodically run the following command in a separate terminal from the terminal that you ran the previous step in.
 
-   ```
+   ```bash
    kubectl get hpa php-apache
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME         REFERENCE               TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
    php-apache   Deployment/php-apache   250%/50%   1         10        5          4m44s
    ```
@@ -87,13 +86,13 @@ It may take a few minutes before you see the replica count reach its maximum. If
 
 1. Stop the load. In the terminal window you’re generating the load in, stop the load by holding down the `Ctrl+C` keys. You can watch the replicas scale back to 1 by running the following command again in the terminal that you’re watching the scaling in.
 
-   ```
+   ```bash
    kubectl get hpa
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME         REFERENCE               TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
    php-apache   Deployment/php-apache   0%/50%    1         10        1          25m
    ```
@@ -102,6 +101,6 @@ The default timeframe for scaling back down is five minutes, so it will take som
 
 1. When you are done experimenting with your sample application, delete the `php-apache` resources.
 
-   ```
+   ```bash
    kubectl delete deployment.apps/php-apache service/php-apache horizontalpodautoscaler.autoscaling/php-apache
    ```

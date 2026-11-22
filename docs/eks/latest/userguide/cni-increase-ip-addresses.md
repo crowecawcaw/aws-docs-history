@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Assign more IP addresses to Amazon EKS nodes with prefixes
-<a name="cni-increase-ip-addresses"></a>
 
  **Applies to**: Linux and Windows nodes with Amazon EC2 instances
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create and update a Nitro Sandbox AMI
-<a name="sandboxing-ami-create-update"></a>
 
 EKS Auto Mode includes Nitro Sandbox support with no additional configuration. If you run managed node groups or self-managed nodes outside of Auto Mode, you build a custom AMI that contains the components in this topic, then join nodes built from that AMI to your cluster. For a scripted alternative to the manual steps that follow, use the pod-isolation provisioner in the [Amazon EKS AMI](https://github.com/awslabs/amazon-eks-ami) repository, which builds the AMI with Packer: [install-pod-isolation.sh](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/provisioners/install-pod-isolation.sh).
 
@@ -39,7 +38,7 @@ The host kernel must include the patches that let the parent instance talk to th
 
  **Other operating systems** build a kernel from a vanilla kernel source tree with the Amazon Linux sandbox patch applied. The patch is published at https://github.com/amazonlinux/linux/commit/4ae89f6e09f949848123407602b4e5a8bb8d8631.patch. The following example builds and installs a patched 6.18 kernel:
 
-```
+```bash
 # 1. Download the vanilla kernel source.
 curl -LO https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.56.tar.xz
 tar xf linux-6.18.56.tar.xz && cd linux-6.18.56
@@ -74,7 +73,7 @@ The guest image is a matched pair of files that AWS publishes for each supported
 
  AWS publishes the guest image in Amazon S3, keyed by your cluster’s Kubernetes version, the release date, and the node architecture (`amd64` or `arm64`). The download path has this form:
 
-```
+```text
 https://amazon-eks.s3.us-west-2.amazonaws.com/<kubernetes-version>/<release-date>/nitro-sandbox-guest/linux/<arch>/nitro-sandbox-guest.eif
 https://amazon-eks.s3.us-west-2.amazonaws.com/<kubernetes-version>/<release-date>/nitro-sandbox-guest/linux/<arch>/nitro-sandbox-guest-disk.img
 ```
@@ -100,7 +99,7 @@ The agent inside the EIF is built reproducibly, so you can rebuild it from sourc
 
 1. Write the shim configuration to `/etc/containerd/nitro-sandbox.toml`, pointing `kernel_path` at the staged guest image EIF. The full file looks like this:
 
-   ```
+   ```toml
    # kernel_path points at the guest image EIF, not a bare kernel file. The EIF
    # carries the guest kernel and its command line. Stage the guest disk image in
    # the same directory as the EIF, and keep both outside data_base_dir.
@@ -132,7 +131,7 @@ The agent inside the EIF is built reproducibly, so you can rebuild it from sourc
 
 1. Register the `containerd` runtime handlers for `isolated-sandbox` and `confidential-sandbox` by adding them to the `containerd` configuration (`/etc/containerd/config.toml`). Both handlers use the same shim; the CRI proxy selects the isolation mode from the handler name. Then bake the AMI.
 
-   ```
+   ```toml
    [plugins."io.containerd.cri.v1.runtime".containerd.runtimes.isolated-sandbox]
      runtime_type = "io.containerd.nitro-sandbox.v2"
      sandboxer = "shim"
@@ -150,7 +149,7 @@ The agent inside the EIF is built reproducibly, so you can rebuild it from sourc
 
 Apply the two `RuntimeClass` objects to the cluster once. They are not part of the AMI. Each one sets a `handler` that matches its name, the per-pod memory and sandbox-slot overhead, and a `nodeSelector` that schedules sandbox pods onto your sandbox-capable nodes:
 
-```
+```yaml
 apiVersion: node.k8s.io/v1
 kind: RuntimeClass
 metadata:
@@ -203,7 +202,7 @@ Three version identifiers appear across these steps, and AWS tracks them indepen
 
 Bake a new AMI with the updated components, update your launch template to the new AMI, and roll out the node group one node at a time.
 
-**Update Cedar policies when the guest image changes**  
-When the guest image changes, PCR0 changes, and existing Cedar policies for confidential pods no longer match. Before rolling out, regenerate the Cedar policies with the new bundle’s `eks-nitro-sandbox-genpolicy` and update any KMS key policy conditions that reference the old PCR0 value. Nodes on the old AMI keep serving existing confidential workloads until you drain them. For more information, see [Run a pod in confidential mode](sandboxing-confidential-setup.md).
+**Cedar policies and KMS conditions when the guest image changes**  
+Cedar policies generated with an earlier version of `eks-nitro-sandbox-genpolicy` keep working on a new guest image, so existing confidential pods and their KMS `PCR17` and `PCR8:ServiceName` conditions do not need to change. If a KMS key policy pins a raw `PCR0` or `PCR8` value instead, update it before rolling out, or switch to `PCR8:ServiceName`. For more information, see [Run a pod in confidential mode](sandboxing-confidential-setup.md).
 
 Tag each AMI with the bundle identifier (for example, `nitro-sandbox-ga-20260929-r2`) so you can track which bundle version each node group runs.

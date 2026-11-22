@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an Amazon EKS Auto Mode cluster
-<a name="create-cluster-auto"></a>
 
 This topic provides detailed instructions for creating an Amazon EKS Auto Mode cluster using advanced configuration options. It covers prerequisites, networking options, and add-on configurations. The process includes setting up IAM roles, configuring cluster settings, specifying networking parameters, and selecting add-ons. Users can create clusters using either the AWS Management Console or the AWS CLI, with step-by-step guidance provided for both methods.
 
@@ -127,7 +126,7 @@ The following CLI instructions cover creating IAM resources and creating the clu
 
 Create a trust policy that allows the Amazon EKS service to assume the role. Save the policy as `trust-policy.json`:
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -172,7 +171,7 @@ Attach the following AWS managed policies to the Cluster IAM Role to grant the n
 
  **AmazonEKSClusterPolicy**:
 
-```
+```bash
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
@@ -180,7 +179,7 @@ aws iam attach-role-policy \
 
  **AmazonEKSComputePolicy**:
 
-```
+```bash
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSComputePolicy
@@ -188,7 +187,7 @@ aws iam attach-role-policy \
 
  **AmazonEKSBlockStoragePolicyV2**:
 
-```
+```bash
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicyV2
@@ -196,7 +195,7 @@ aws iam attach-role-policy \
 
  **AmazonEKSLoadBalancingPolicy**:
 
-```
+```bash
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy
@@ -204,7 +203,7 @@ aws iam attach-role-policy \
 
  **AmazonEKSNetworkingPolicy**:
 
-```
+```bash
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy
@@ -218,7 +217,7 @@ aws iam attach-role-policy \
 
 Create a trust policy that allows the Amazon EKS service to assume the role. Save the policy as `node-trust-policy.json`:
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -260,7 +259,7 @@ Attach the following AWS managed policies to the Node IAM Role to provide the ne
 
  **AmazonEKSWorkerNodeMinimalPolicy**:
 
-```
+```bash
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoNodeRole \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy
@@ -268,7 +267,7 @@ aws iam attach-role-policy \
 
  **AmazonEC2ContainerRegistryPullOnly**:
 
-```
+```bash
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoNodeRole \
     --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
@@ -290,7 +289,7 @@ aws iam attach-role-policy \
 
      Whether you choose any security groups or not, Amazon EKS creates a security group that enables communication between your cluster and your VPC. Amazon EKS associates this security group, and any that you choose, to the network interfaces that it creates. For more information about the cluster security group that Amazon EKS creates, see [View Amazon EKS security group requirements for clusters](sec-group-reqs.md). You can modify the rules in the cluster security group that Amazon EKS creates.
 
-     ```
+     ```bash
      aws eks create-cluster \
        --region region-code \
        --name my-cluster \
@@ -322,7 +321,7 @@ You might receive an error that one of the Availability Zones in your request do
 
 1. It takes several minutes to provision the cluster. You can query the status of your cluster with the following command.
 
-   ```
+   ```bash
    aws eks describe-cluster --region region-code --name my-cluster --query "cluster.status"
    ```
 

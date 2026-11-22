@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure kro permissions
-<a name="kro-permissions"></a>
 
 Unlike ACK and Argo CD, kro does not require IAM permissions. kro operates entirely within your Kubernetes cluster and does not make AWS API calls. Control access to kro resources using standard Kubernetes RBAC.
 
@@ -27,7 +26,7 @@ Platform teams need permissions to create and manage ResourceGraphDefinitions.
 
  **Example ClusterRole for platform teams**:
 
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -40,7 +39,7 @@ rules:
 
  **Bind to platform team members**:
 
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
@@ -62,7 +61,7 @@ Application teams need permissions to create instances of custom resources in th
 
  **Example Role for application teams**:
 
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -76,7 +75,7 @@ rules:
 
  **Bind to application team members**:
 
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -102,7 +101,7 @@ Grant read-only access to view ResourceGraphDefinitions and instances without mo
 
  **Read-only ClusterRole**:
 
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -115,7 +114,7 @@ rules:
 
  **Read-only Role for instances**:
 
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -134,7 +133,7 @@ Grant application teams access to multiple namespaces using ClusterRoles with Ro
 
  **ClusterRole for multi-namespace access**:
 
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -147,7 +146,7 @@ rules:
 
  **Bind to specific namespaces**:
 
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:

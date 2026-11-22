@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an Amazon EKS add-on
-<a name="creating-an-add-on"></a>
 
 Amazon EKS add-ons are add-on software for Amazon EKS clusters. All Amazon EKS add-ons:
 + Include the latest security patches and bug fixes.
@@ -33,13 +32,13 @@ You can create an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
 1. View the names of add-ons available for a cluster version. Replace {{1.37}} with the version of your cluster.
 
-   ```
+   ```bash
    eksctl utils describe-addon-versions --kubernetes-version 1.37 | grep AddonName
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    "AddonName": "aws-ebs-csi-driver",
                            "AddonName": "coredns",
                            "AddonName": "kube-proxy",
@@ -54,13 +53,13 @@ You can create an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
 1. View the versions available for the add-on that you would like to create. Replace {{1.37}} with the version of your cluster. Replace {{name-of-addon}} with the name of the add-on you want to view the versions for. The name must be one of the names returned in the previous step.
 
-   ```
+   ```bash
    eksctl utils describe-addon-versions --kubernetes-version 1.37 --name name-of-addon | grep AddonVersion
    ```
 
    The following output is an example of what is returned for the add-on named `vpc-cni`. You can see that the add-on has several available versions.
 
-   ```
+   ```bash
    "AddonVersions": [
        "AddonVersion": "v1.12.0-eksbuild.1",
        "AddonVersion": "v1.11.4-eksbuild.1",
@@ -70,13 +69,13 @@ You can create an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
    1. Determine whether the add-on you want to create is an Amazon EKS or AWS Marketplace add-on. The AWS Marketplace has third party add-ons that require you to complete additional steps to create the add-on.
 
-      ```
+      ```bash
       eksctl utils describe-addon-versions --kubernetes-version 1.37 --name name-of-addon | grep ProductUrl
       ```
 
       If no output is returned, then the add-on is an Amazon EKS add-on. If output is returned, then the add-on is an AWS Marketplace add-on. The following output is for an add-on named `teleport_teleport`.
 
-      ```
+      ```bash
       "ProductUrl": "https://aws.amazon.com/marketplace/pp?sku=3bda70bb-566f-4976-806c-f96faef18b26"
       ```
 
@@ -91,14 +90,14 @@ You can create an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
      If the add-on doesn’t use a service account role, delete `--service-account-role-arnarn:aws:iam::111122223333:role/role-name`.
    + This example command overwrites the configuration of any existing self-managed version of the add-on, if there is one. If you don’t want to overwrite the configuration of an existing self-managed add-on, remove the {{--force}} option. If you remove the option, and the Amazon EKS add-on needs to overwrite the configuration of an existing self-managed add-on, then creation of the Amazon EKS add-on fails with an error message to help you resolve the conflict. Before specifying this option, make sure that the Amazon EKS add-on doesn’t manage settings that you need to manage, because those settings are overwritten with this option.
 
-     ```
+     ```bash
      eksctl create addon --cluster my-cluster --name name-of-addon --version latest \
          --service-account-role-arn arn:aws:iam::111122223333:role/role-name --force
      ```
 
      You can see a list of all available options for the command.
 
-     ```
+     ```bash
      eksctl create addon --help
      ```
 
@@ -171,14 +170,14 @@ You can create an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
 1. Determine which add-ons are available. You can see all available add-ons, their type, and their publisher. You can also see the URL for add-ons that are available through the AWS Marketplace. Replace {{1.37}} with the version of your cluster.
 
-   ```
+   ```bash
    aws eks describe-addon-versions --kubernetes-version 1.37 \
        --query 'addons[].{MarketplaceProductUrl: marketplaceInformation.productUrl, Name: addonName, Owner: owner, Publisher: publisher, Type: type}' --output table
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    ---------------------------------------------------------------------------------------------------------------------------------------------------------
    |                                                                 DescribeAddonVersions                                                                 |
    +---------------------------------------------------------------+-------------------------------+------------------+--------------+---------------------+
@@ -201,14 +200,14 @@ You can create an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
 1. You can see which versions are available for each add-on. Replace {{1.37}} with the version of your cluster and replace {{vpc-cni}} with the name of an add-on returned in the previous step.
 
-   ```
+   ```bash
    aws eks describe-addon-versions --kubernetes-version 1.37 --addon-name vpc-cni \
        --query 'addons[].addonVersions[].{Version: addonVersion, Defaultversion: compatibilities[0].defaultVersion}' --output table
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    ------------------------------------------
    |          DescribeAddonVersions         |
    +-----------------+----------------------+
@@ -225,11 +224,11 @@ You can create an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
 1. (Optional) Find the configuration options for your chosen add-on by running the following command:
 
-   ```
+   ```bash
    aws eks describe-addon-configuration --addon-name vpc-cni --addon-version v1.12.0-eksbuild.1
    ```
 
-   ```
+   ```bash
    {
        "addonName": "vpc-cni",
        "addonVersion": "v1.12.0-eksbuild.1",
@@ -241,7 +240,7 @@ You can create an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
    Here is an example of valid configuration values, in JSON format, that works with the schema above.
 
-   ```
+   ```bash
    {
      "resources": {
        "limits": {
@@ -253,7 +252,7 @@ You can create an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
    Here is an example of valid configuration values, in YAML format, that works with the schema above.
 
-   ```
+   ```bash
      resources:
        limits:
          cpu: 100m
@@ -273,29 +272,29 @@ You can create an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
    + Do one of the following:
      + If the add-on (1) requires IAM permissions, and (2) your cluster uses EKS Pod Identities, replace {{<service-account-configuration>}} with the following pod identity association. Replace {{<service-account-name>}} with the service account name used by the add-on. Replace {{<role-arn>}} with the ARN of an IAM role. The role must have the trust policy required by EKS Pod Identities.
 
-       ```
+       ```bash
        --pod-identity-associations 'serviceAccount=<service-account-name>,roleArn=<role-arn>'
        ```
      + If the add-on (1) requires IAM permissions, and (2) your cluster uses IRSA, replace {{<service-account-configuration>}} with the following IRSA configuration. Replace {{111122223333}} with your account ID and {{role-name}} with the name of an existing IAM role that you’ve created. For instructions on creating the role, see the documentation for the add-on that you’re creating. For a list of add-ons, see [AWS add-ons](workloads-add-ons-available-eks.md). Specifying a service account role requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one for your cluster, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md).
 
-       ```
+       ```bash
        --service-account-role-arn arn:aws:iam::111122223333:role/role-name
        ```
    + These example commands overwrite the `--configuration-values` option of any existing self-managed version of the add-on, if there is one. Replace this with the desired configuration values, such as a string or a file input. If you don’t want to provide configuration values, then delete the `--configuration-values` option. If you don’t want the AWS CLI to overwrite the configuration of an existing self-managed add-on, remove the {{--resolve-conflicts OVERWRITE}} option. If you remove the option, and the Amazon EKS add-on needs to overwrite the configuration of an existing self-managed add-on, then creation of the Amazon EKS add-on fails with an error message to help you resolve the conflict. Before specifying this option, make sure that the Amazon EKS add-on doesn’t manage settings that you need to manage, because those settings are overwritten with this option.
 
-     ```
+     ```bash
      aws eks create-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version version-number \
           <service-account-configuration> --configuration-values '{"resources":{"limits":{"cpu":"100m"}}}' --resolve-conflicts OVERWRITE
      ```
 
-     ```
+     ```bash
      aws eks create-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version version-number \
          <service-account-configuration> --configuration-values 'file://example.yaml' --resolve-conflicts OVERWRITE
      ```
 
      For a full list of available options, see ` [create-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/create-addon.html) ` in the Amazon EKS Command Line Reference. If the add-on that you created has `aws-marketplace` listed in the `Owner` column of a previous step, then creation may fail, and you may receive an error message similar to the following error.
 
-     ```
+     ```json
      {
          "addon": {
              "addonName": "addon-name",

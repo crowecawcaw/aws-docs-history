@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Select instance types and placement for Amazon EKS local clusters on AWS Outposts configured with EC2 instance store
-<a name="eks-outposts-instance-store-capacity-considerations"></a>
 
 This topic provides guidance for selecting Kubernetes control plane instance types and configuring placement to meet high-availability requirements for your local Amazon EKS cluster on an AWS Outpost configured with EC2 instance store.
 

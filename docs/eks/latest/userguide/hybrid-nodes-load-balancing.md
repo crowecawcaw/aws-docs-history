@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure Services of type LoadBalancer for hybrid nodes
-<a name="hybrid-nodes-load-balancing"></a>
 
 This topic describes how to configure Layer 4 (L4) load balancing for applications running on Amazon EKS Hybrid Nodes. Kubernetes Services of type LoadBalancer are used to expose Kubernetes applications external to the cluster. Services of type LoadBalancer are commonly used with physical load balancer infrastructure in the cloud or on-premises environment to serve the workload’s traffic. This load balancer infrastructure is commonly provisioned with an environment-specific controller.
 
@@ -32,13 +31,13 @@ You can use the [AWS Load Balancer Controller](aws-load-balancer-controller.md) 
 
 1. Download an IAM policy for the AWS Load Balancer Controller that allows it to make calls to AWS APIs on your behalf.
 
-   ```
+   ```bash
    curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/refs/heads/main/docs/install/iam_policy.json
    ```
 
 1. Create an IAM policy using the policy downloaded in the previous step.
 
-   ```
+   ```bash
    aws iam create-policy \
        --policy-name AWSLoadBalancerControllerIAMPolicy \
        --policy-document file://iam_policy.json
@@ -46,7 +45,7 @@ You can use the [AWS Load Balancer Controller](aws-load-balancer-controller.md) 
 
 1. Replace the values for cluster name (`CLUSTER_NAME`), AWS Region (`AWS_REGION`), and AWS account ID (`AWS_ACCOUNT_ID`) with your settings and run the following command.
 
-   ```
+   ```bash
    eksctl create iamserviceaccount \
        --cluster=CLUSTER_NAME \
        --namespace=kube-system \
@@ -59,19 +58,19 @@ You can use the [AWS Load Balancer Controller](aws-load-balancer-controller.md) 
 
 1. Add the eks-charts Helm chart repository. AWS maintains this repository on GitHub.
 
-   ```
+   ```bash
    helm repo add eks https://aws.github.io/eks-charts
    ```
 
 1. Update your local Helm repository to make sure that you have the most recent charts.
 
-   ```
+   ```bash
    helm repo update eks
    ```
 
 1. Install the AWS Load Balancer Controller. Replace the values for cluster name (`CLUSTER_NAME`), AWS Region (`AWS_REGION`), VPC ID (`VPC_ID`), and AWS Load Balancer Controller Helm chart version (`AWS_LBC_HELM_VERSION`) with your settings. You can find the latest version of the Helm chart by running `helm search repo eks/aws-load-balancer-controller --versions`. If you are running a mixed mode cluster with both hybrid nodes and nodes in AWS Cloud, you can run the AWS Load Balancer Controller on cloud nodes following the instructions at [AWS Load Balancer Controller](hybrid-nodes-webhooks.md#hybrid-nodes-mixed-lbc).
 
-   ```
+   ```bash
    helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
      -n kube-system \
      --version {{AWS_LBC_HELM_VERSION}} \
@@ -84,18 +83,18 @@ You can use the [AWS Load Balancer Controller](aws-load-balancer-controller.md) 
 
 1. Verify the AWS Load Balancer Controller was installed successfully.
 
-   ```
+   ```bash
    kubectl get -n kube-system deployment aws-load-balancer-controller
    ```
 
-   ```
+   ```bash
    NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
    aws-load-balancer-controller   2/2     2            2           84s
    ```
 
 1. Define a sample application in a file named `tcp-sample-app.yaml`. The example below uses a simple NGINX deployment with a TCP port.
 
-   ```
+   ```bash
    apiVersion: apps/v1
    kind: Deployment
    metadata:
@@ -121,13 +120,13 @@ You can use the [AWS Load Balancer Controller](aws-load-balancer-controller.md) 
 
 1. Apply the deployment to your cluster.
 
-   ```
+   ```bash
    kubectl apply -f tcp-sample-app.yaml
    ```
 
 1. Define a Service of type LoadBalancer for the deployment in a file named `tcp-sample-service.yaml`.
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: Service
    metadata:
@@ -149,30 +148,30 @@ You can use the [AWS Load Balancer Controller](aws-load-balancer-controller.md) 
 
 1. Apply the Service configuration to your cluster.
 
-   ```
+   ```bash
    kubectl apply -f tcp-sample-service.yaml
    ```
 
 1. Provisioning the NLB for the Service may take a few minutes. Once the NLB is provisioned, the Service will have an address assigned to it that corresponds to the DNS name of the NLB deployment.
 
-   ```
+   ```bash
    kubectl get svc tcp-sample-service
    ```
 
-   ```
+   ```bash
    NAME                 TYPE           CLUSTER-IP       EXTERNAL-IP                                                                    PORT(S)        AGE
    tcp-sample-service   LoadBalancer   172.16.115.212   k8s-default-tcpsampl-xxxxxxxxxx-xxxxxxxxxxxxxxxx.elb.<region>.amazonaws.com   80:30396/TCP   8s
    ```
 
 1. Access the Service using the address of the NLB.
 
-   ```
+   ```bash
    curl k8s-default-tcpsampl-xxxxxxxxxx-xxxxxxxxxxxxxxxx.elb.<region>.amazonaws.com
    ```
 
    An example output is below.
 
-   ```
+   ```bash
    <!DOCTYPE html>
    <html>
    <head>
@@ -182,7 +181,7 @@ You can use the [AWS Load Balancer Controller](aws-load-balancer-controller.md) 
 
 1. Clean up the resources you created.
 
-   ```
+   ```bash
    kubectl delete -f tcp-sample-service.yaml
    kubectl delete -f tcp-sample-app.yaml
    ```
@@ -210,7 +209,7 @@ If you are not using Cilium’s kube-proxy replacement, you can still use Cilium
    + Replace `LB_IP_CIDR` with the IP address range to use for the Load Balancer IP addresses. To select a single IP address, use a `/32` CIDR. For more information, see [LoadBalancer IP Address Management](https://docs.cilium.io/en/stable/network/lb-ipam/) in the Cilium documentation.
    + The `serviceSelector` field is configured to match against the name of the Service you will create in a subsequent step. With this configuration, IPs from this pool will only be allocated to Services with the name `tcp-sample-service`.
 
-     ```
+     ```yaml
      apiVersion: cilium.io/v2alpha1
      kind: CiliumLoadBalancerIPPool
      metadata:
@@ -225,17 +224,17 @@ If you are not using Cilium’s kube-proxy replacement, you can still use Cilium
 
 1. Apply the `CiliumLoadBalancerIPPool` resource to your cluster.
 
-   ```
+   ```bash
    kubectl apply -f cilium-lbip-pool-loadbalancer.yaml
    ```
 
 1. Confirm there is at least one IP address available in the pool.
 
-   ```
+   ```bash
    kubectl get ciliumloadbalancerippools.cilium.io
    ```
 
-   ```
+   ```bash
    NAME               DISABLED   CONFLICTING   IPS AVAILABLE   AGE
    tcp-service-pool   false      False         1               24m
    ```
@@ -244,7 +243,7 @@ If you are not using Cilium’s kube-proxy replacement, you can still use Cilium
    + The `advertisementType` field is set to `Service` and `service.addresses` is set to `LoadBalancerIP` to only advertise the `LoadBalancerIP` for Services of type `LoadBalancer`.
    + The `selector` field is configured to match against the name of the Service you will create in a subsequent step. With this configuration, only `LoadBalancerIP` for Services with the name `tcp-sample-service` will be advertised.
 
-     ```
+     ```yaml
      apiVersion: cilium.io/v2alpha1
      kind: CiliumBGPAdvertisement
      metadata:
@@ -264,13 +263,13 @@ If you are not using Cilium’s kube-proxy replacement, you can still use Cilium
 
 1. Apply the `CiliumBGPAdvertisement` resource to your cluster. If you are not using Cilium BGP, you can skip this step.
 
-   ```
+   ```bash
    kubectl apply -f cilium-bgp-advertisement-loadbalancer.yaml
    ```
 
 1. Define a sample application in a file named `tcp-sample-app.yaml`. The example below uses a simple NGINX deployment with a TCP port.
 
-   ```
+   ```bash
    apiVersion: apps/v1
    kind: Deployment
    metadata:
@@ -296,7 +295,7 @@ If you are not using Cilium’s kube-proxy replacement, you can still use Cilium
 
 1. Apply the deployment to your cluster.
 
-   ```
+   ```bash
    kubectl apply -f tcp-sample-app.yaml
    ```
 
@@ -304,7 +303,7 @@ If you are not using Cilium’s kube-proxy replacement, you can still use Cilium
    + You can request a specific IP address from the load balancer IP pool with the `lbipam.cilium.io/ips` annotation on the Service object. You can remove this annotation if you do not want to request a specific IP address for the Service.
    + The `loadBalancerClass` spec field is required to prevent the legacy AWS Cloud Provider from creating a Classic Load Balancer for the Service. In the example below this is configured to `io.cilium/bgp-control-plane` to use Cilium’s BGP Control Plane as the load balancer class. This field can alternatively be configured to `io.cilium/l2-announcer` to use Cilium’s [L2 Announcements feature](https://docs.cilium.io/en/latest/network/l2-announcements/) (currently in beta and not officially supported by AWS).
 
-     ```
+     ```yaml
      apiVersion: v1
      kind: Service
      metadata:
@@ -325,28 +324,28 @@ If you are not using Cilium’s kube-proxy replacement, you can still use Cilium
 
 1. Apply the Service to your cluster. The Service will be created with an external IP address that you can use to access the application.
 
-   ```
+   ```bash
    kubectl apply -f tcp-sample-service.yaml
    ```
 
 1. Verify the Service was created successfully and has an IP assigned to it from the `CiliumLoadBalancerIPPool` created in the previous step.
 
-   ```
+   ```bash
    kubectl get svc tcp-sample-service
    ```
 
-   ```
+   ```bash
    NAME                 TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)        AGE
    tcp-sample-service   LoadBalancer   172.16.117.76   {{LB_IP_ADDRESS}}   80:31129/TCP   14m
    ```
 
 1. If you are using Cilium in kube-proxy replacement mode, you can confirm Cilium is handling the load balancing for the Service by running the following command. In the output below, the `10.86.2.x` addresses are the pod IP addresses of the backend pods for the Service.
 
-   ```
+   ```bash
    kubectl -n kube-system exec ds/cilium -- cilium-dbg service list
    ```
 
-   ```
+   ```bash
    ID   Frontend               Service Type   Backend
    ...
    41   {{LB_IP_ADDRESS}}:80/TCP   LoadBalancer   1 => 10.86.2.76:80/TCP (active)
@@ -356,7 +355,7 @@ If you are not using Cilium’s kube-proxy replacement, you can still use Cilium
 
 1. Confirm Cilium is advertising the IP address to the on-premises network via BGP. In the example below, there are five hybrid nodes, each advertising the `LB_IP_ADDRESS` for the `tcp-sample-service` Service to the on-premises network.
 
-   ```
+   ```bash
    Node                   VRouter      Prefix             NextHop   Age     Attrs
    mi-026d6a261e355fba7   {{NODES_ASN}}
                      {{LB_IP_ADDRESS}}/32   0.0.0.0   12m3s   [{Origin: i} {Nexthop: 0.0.0.0}]
@@ -372,13 +371,13 @@ If you are not using Cilium’s kube-proxy replacement, you can still use Cilium
 
 1. Access the Service using the assigned load balancerIP address.
 
-   ```
+   ```bash
    curl {{LB_IP_ADDRESS}}
    ```
 
    An example output is below.
 
-   ```
+   ```bash
    <!DOCTYPE html>
    <html>
    <head>
@@ -388,7 +387,7 @@ If you are not using Cilium’s kube-proxy replacement, you can still use Cilium
 
 1. Clean up the resources you created.
 
-   ```
+   ```bash
    kubectl delete -f tcp-sample-service.yaml
    kubectl delete -f tcp-sample-app.yaml
    kubectl delete -f cilium-lb-ip-pool.yaml

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an Amazon VPC for your Amazon EKS cluster
-<a name="creating-a-vpc"></a>
 
 You can use Amazon Virtual Private Cloud (Amazon VPC) to launch AWS resources into a virtual network that you’ve defined. This virtual network closely resembles a traditional network that you might operate in your own data center. However, it comes with the benefits of using the scalable infrastructure of Amazon Web Services. We recommend that you have a thorough understanding of the Amazon VPC service before deploying production Amazon EKS clusters. For more information, see the [Amazon VPC User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/).
 

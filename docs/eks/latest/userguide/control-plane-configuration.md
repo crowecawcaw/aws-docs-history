@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Advanced Kubernetes control plane configuration
-<a name="control-plane-configuration"></a>
 
 ## Overview
 <a name="_overview"></a>
@@ -95,7 +94,7 @@ To configure this parameter, your cluster must be on Amazon EKS Provisioned Cont
 <a name="_effect_on_the_number_of_hpa_objects_your_cluster_supports"></a>
 +  **Shortening the sync period reduces the number of `HorizontalPodAutoscaler` objects your control plane can reconcile** on schedule, because the controller has less time to work through the same queue. Reducing the period from `15s` to `10s` lowers the supported object count by roughly one third. Before you shorten the sync period, count the `HorizontalPodAutoscaler` objects in your cluster and confirm the shorter period still supports that count on your scaling tier:
 
-  ```
+  ```bash
   kubectl get hpa --all-namespaces --no-headers | wc -l
   ```
 +  **EKS doesn’t validate the sync period against your HPA object count.** The configuration change succeeds even if your cluster already has more `HorizontalPodAutoscaler` objects than the shorter period supports. Verify the count yourself before making the change.

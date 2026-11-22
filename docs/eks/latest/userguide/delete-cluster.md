@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Delete a cluster
-<a name="delete-cluster"></a>
 
 When you’re done using an Amazon EKS cluster, you should delete the resources associated with it so that you don’t incur any unnecessary costs.
 
@@ -33,23 +32,23 @@ The following are steps that you must first perform before you can delete a clus
 
 1. List all services running in your cluster.
 
-   ```
+   ```bash
    kubectl get svc --all-namespaces
    ```
 
 1. Delete any services that have an associated `EXTERNAL-IP` value. These services are fronted by an Elastic Load Balancing load balancer, and you must delete them in Kubernetes to allow the load balancer and associated resources to be properly released. Replace {{service-name}} with the name of each service listed as described.
 
-   ```
+   ```bash
    kubectl delete svc service-name
    ```
 
 1. Delete any ingress resources as well. If you don’t delete the ingress resources, the application load balancer remains even if you deleted the cluster. Replace {{ingress-name}} with the name of your ingress resources.
 
-   ```
+   ```bash
    kubectl get ingress --all-namespaces
    ```
 
-   ```
+   ```bash
    kubectl delete ing ingress-name
    ```
 
@@ -58,7 +57,7 @@ The following are steps that you must first perform before you can delete a clus
 
 This procedure requires `eksctl` version `0.215.0` or later. You can check your version with the following command:
 
-```
+```bash
 eksctl version
 ```
 
@@ -66,13 +65,13 @@ For instructions on how to install or upgrade `eksctl`, see [Installation](https
 
 1. Go through the [prerequisite steps](#prerequisite-steps). After doing so, delete your cluster and its associated nodes with the following command, replacing {{prod}} with your cluster name.
 
-   ```
+   ```bash
    eksctl delete cluster --name prod
    ```
 
    Output:
 
-   ```
+   ```bash
    [ℹ]  using region region-code
    [ℹ]  deleting EKS cluster "prod"
    [ℹ]  will delete stack "eksctl-prod-nodegroup-standard-nodes"
@@ -129,7 +128,7 @@ The node groups listed are [managed node groups](managed-node-groups.md) only.
 
    1. List the node groups in your cluster with the following command.
 
-      ```
+      ```bash
       aws eks list-nodegroups --cluster-name my-cluster
       ```
 **Note**  
@@ -137,31 +136,31 @@ The node groups listed are [managed node groups](managed-node-groups.md) only.
 
    1. Delete each node group with the following command. Delete all node groups in the cluster.
 
-      ```
+      ```bash
       aws eks delete-nodegroup --nodegroup-name my-nodegroup --cluster-name my-cluster
       ```
 
    1. List the Fargate profiles in your cluster with the following command.
 
-      ```
+      ```bash
       aws eks list-fargate-profiles --cluster-name my-cluster
       ```
 
    1. Delete each Fargate profile with the following command. Delete all Fargate profiles in the cluster.
 
-      ```
+      ```bash
       aws eks delete-fargate-profile --fargate-profile-name my-fargate-profile --cluster-name my-cluster
       ```
 
    1. List the capabilities on your cluster with the following command.
 
-      ```
+      ```bash
       aws eks list-capabilities --cluster-name my-cluster
       ```
 
    1. Delete each capability with the following command. Delete all capabilities in the cluster. For more information, see [Delete a capability](working-with-capabilities.md#capabilities-delete).
 
-      ```
+      ```bash
       aws eks delete-capability --cluster-name my-cluster --capability-name my-capability-name
       ```
 
@@ -169,19 +168,19 @@ The node groups listed are [managed node groups](managed-node-groups.md) only.
 
    1. List your available AWS CloudFormation stacks with the following command. Find the node template name in the resulting output.
 
-      ```
+      ```bash
       aws cloudformation list-stacks --query "StackSummaries[].StackName"
       ```
 
    1. Delete each node stack with the following command, replacing {{node-stack}} with your node stack name. Delete all self-managed node stacks in the cluster.
 
-      ```
+      ```bash
       aws cloudformation delete-stack --stack-name node-stack
       ```
 
 1. Delete the cluster with the following command, replacing {{my-cluster}} with your cluster name.
 
-   ```
+   ```bash
    aws eks delete-cluster --name my-cluster
    ```
 
@@ -189,12 +188,12 @@ The node groups listed are [managed node groups](managed-node-groups.md) only.
 
    1. List your available AWS CloudFormation stacks with the following command. Find the VPC template name in the resulting output.
 
-      ```
+      ```bash
       aws cloudformation list-stacks --query "StackSummaries[].StackName"
       ```
 
    1. Delete the VPC stack with the following command, replacing {{my-vpc-stack}} with your VPC stack name.
 
-      ```
+      ```bash
       aws cloudformation delete-stack --stack-name my-vpc-stack
       ```

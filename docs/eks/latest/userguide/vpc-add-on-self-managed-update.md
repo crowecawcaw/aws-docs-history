@@ -5,14 +5,13 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Update the Amazon VPC CNI (self-managed add-on)
-<a name="vpc-add-on-self-managed-update"></a>
 
 **Important**  
 We recommend adding the Amazon EKS type of the add-on to your cluster instead of using the self-managed type of the add-on. If you’re not familiar with the difference between the types, see [Amazon EKS add-ons](eks-add-ons.md). For more information about adding an Amazon EKS add-on to your cluster, see [Create an Amazon EKS add-on](creating-an-add-on.md). If you’re unable to use the Amazon EKS add-on, we encourage you to submit an issue about why you can’t to the [Containers roadmap GitHub repository](https://github.com/aws/containers-roadmap/issues).
 
 1. Confirm that you don’t have the Amazon EKS type of the add-on installed on your cluster. Replace {{my-cluster}} with the name of your cluster.
 
-   ```
+   ```bash
    aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni --query addon.addonVersion --output text
    ```
 
@@ -20,13 +19,13 @@ We recommend adding the Amazon EKS type of the add-on to your cluster instead of
 
 1. See which version of the container image is currently installed on your cluster.
 
-   ```
+   ```bash
    kubectl describe daemonset aws-node --namespace kube-system | grep amazon-k8s-cni: | cut -d : -f 3
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    v1.20.0-eksbuild.1
    ```
 
@@ -34,7 +33,7 @@ We recommend adding the Amazon EKS type of the add-on to your cluster instead of
 
 1. Backup your current settings so you can configure the same settings once you’ve updated your version.
 
-   ```
+   ```bash
    kubectl get daemonset aws-node -n kube-system -o yaml > aws-k8s-cni-old.yaml
    ```
 
@@ -42,25 +41,25 @@ We recommend adding the Amazon EKS type of the add-on to your cluster instead of
    + If you don’t have any custom settings for the add-on, then run the command under the `To apply this release:` heading on GitHub for the [release](https://github.com/aws/amazon-vpc-cni-k8s/releases) that you’re updating to.
    + If you have custom settings, download the manifest file with the following command. Change {{https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/v1.20.0/config/master/aws-k8s-cni.yaml}} to the URL for the release on GitHub that you’re updating to.
 
-     ```
+     ```bash
      curl -O https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/v1.20.3/config/master/aws-k8s-cni.yaml
      ```
 
      If necessary, modify the manifest with the custom settings from the backup you made in a previous step and then apply the modified manifest to your cluster. If your nodes don’t have access to the private Amazon EKS Amazon ECR repositories that the images are pulled from (see the lines that start with `image:` in the manifest), then you’ll have to download the images, copy them to your own repository, and modify the manifest to pull the images from your repository. For more information, see [Copy a container image from one repository to another repository](copy-image-to-repository.md).
 
-     ```
+     ```bash
      kubectl apply -f aws-k8s-cni.yaml
      ```
 
 1. Confirm that the new version is now installed on your cluster.
 
-   ```
+   ```bash
    kubectl describe daemonset aws-node --namespace kube-system | grep amazon-k8s-cni: | cut -d : -f 3
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    v1.20.3
    ```
 

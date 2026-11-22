@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create a GPU NodePool using Terraform
-<a name="ml-inference-gpu-nodepool-tf"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
@@ -29,7 +28,7 @@ The GPU instances this section provisions incur charges, and an On-Demand Capaci
 
 Confirm you are in the right directory, with state that matches the cluster `kubectl` points at:
 
-```
+```bash
 terraform output cluster_name
 
 kubectl config current-context
@@ -76,7 +75,7 @@ GPU NodePools are opt-in. By default, `terraform apply` creates the cluster and 
 
 Enable the `spot-ondemand` strategy, which provisions G-family GPU instances with a generation greater than 4, using Spot capacity with On-Demand as a fallback:
 
-```
+```bash
 terraform apply -var 'nodepools={"spot-ondemand"={}}'
 ```
 
@@ -89,13 +88,13 @@ The NodePool references the managed `default` NodeClass, which already selects t
 
 Validate the NodePool:
 
-```
+```bash
 kubectl get nodepools,nodeclasses
 ```
 
 Expected output. The `gpu-inf` NodePool joins the built-in `general-purpose` and `system` NodePools, and all three reference the managed `default` NodeClass:
 
-```
+```bash
 NAME                                    NODECLASS   NODES   READY   AGE
 nodepool.karpenter.sh/general-purpose   default     0       True    12m
 nodepool.karpenter.sh/gpu-inf           default     0       True    20s
@@ -112,13 +111,13 @@ Terraform applies a custom `gpu-inf` `EC2NodeClass` alongside the NodePool. The 
 
 Validate the NodePool and EC2NodeClass:
 
-```
+```bash
 kubectl get nodepools,ec2nodeclasses
 ```
 
 Expected output. The `gpu-inf` pair joins the `general-purpose` NodePool and EC2NodeClass that Terraform creates for non-GPU workloads:
 
-```
+```bash
 NAME                                    NODECLASS         NODES   READY   AGE
 nodepool.karpenter.sh/general-purpose   general-purpose   1       True    14m
 nodepool.karpenter.sh/gpu-inf           gpu-inf           0       True    25s
@@ -142,7 +141,7 @@ The `g7` instance family requires NVIDIA driver version 595 or later, and the tw
 
 Test your GPU NodePool setup with an `nvidia-smi` Pod:
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
@@ -168,7 +167,7 @@ EOF
 
 Verify the Pod is scheduled and running:
 
-```
+```bash
 kubectl get pods nvidia-smi
 ```
 
@@ -181,7 +180,7 @@ nvidia-smi   1/1     Running     0          67s
 
 The Pod runs `nvidia-smi` and then sleeps for 5 minutes. This keeps the Pod, and the node it runs on, available long enough for you to retrieve the logs. If the Pod completes, Karpenter can consolidate the empty node before you read the logs. Check the Pod logs to see the GPU detected by the node:
 
-```
+```bash
 kubectl logs nvidia-smi
 ```
 
@@ -214,7 +213,7 @@ The output shows the GPU model, driver version, CUDA version, and available memo
 
 To understand how Karpenter and the Kubernetes scheduler coordinated to provision a node and place the Pod, check the Pod’s lifecycle events:
 
-```
+```bash
 kubectl describe pod nvidia-smi
 ```
 
@@ -241,7 +240,7 @@ On a self-managed Karpenter cluster, the `Nominated` event comes `From` `karpent
 
 A NodeClaim is a request Karpenter creates to provision a specific node. It shows the instance type, capacity type, AZ, and whether the node is ready:
 
-```
+```bash
 kubectl get nodeclaims
 ```
 
@@ -257,7 +256,7 @@ The instance type, capacity type, and AZ vary. Any G-family instance with a gene
 **Tip**  
 If no node appears, check for Insufficient Capacity Errors:  
 
-```
+```bash
 kubectl get events | grep InsufficientCapacityError
 ```
 Karpenter caches unavailable offerings for 3 minutes. Widening the allowed instance types and AZs in your NodePool increases the chances of landing capacity.
@@ -277,13 +276,13 @@ The following command creates an ODCR that bills immediately and continues billi
 
 Use defaults (`g6e.4xlarge`, 1 instance, first cluster AZ):
 
-```
+```bash
 terraform apply -var 'nodepools={"reserved-spot-ondemand"={reservation={}}}'
 ```
 
 Pick the instance type, count, and AZ:
 
-```
+```bash
 terraform apply -var 'nodepools={"reserved-spot-ondemand"={reservation={instance_type="g6e.2xlarge",instance_count=1,az="us-east-2a"}}}'
 ```
 
@@ -299,7 +298,7 @@ GPU capacity for reservations is often constrained, so expect to retry. AWS does
 
 Because each unsuccessful attempt costs you a long apply and a reservation to clean up, find a combination that AWS can fulfill before you run Terraform. Create a reservation by hand, check its state, and cancel it. Repeat with other instance types and Availability Zones until one reports `active`, then pass that pair to `terraform apply`:
 
-```
+```bash
 CR_ID=$(aws ec2 create-capacity-reservation \
   --instance-type [.replaceable]`g6e.4xlarge` \
   --instance-platform Linux/UNIX \
@@ -328,7 +327,7 @@ An `InsufficientInstanceCapacity` error from the first command, or any state oth
 
 If the apply does not finish within a few minutes, check the reservation state from a second terminal:
 
-```
+```bash
 aws ec2 describe-capacity-reservations \
   --filters "Name=tag:nodepool,Values=reserved-spot-ondemand" \
   --query 'CapacityReservations[].[CapacityReservationId,InstanceType,AvailabilityZone,State]' \
@@ -338,20 +337,20 @@ aws ec2 describe-capacity-reservations \
 
 If the state is `failed`, or if the apply returns an `InsufficientInstanceCapacity` error, the reservation cannot be fulfilled as requested. Cancel the Terraform operation (Ctrl\+C), then re-run with a different `az` value:
 
-```
+```bash
 terraform apply -var 'nodepools={"reserved-spot-ondemand"={reservation={instance_type="g6e.4xlarge",az="us-east-2b"}}}'
 ```
 
 If no Availability Zone in the Region has capacity, reserve a different instance type instead. A smaller size of the same family or another G-family generation greater than 4 both work, because the NodePool accepts any of them:
 
-```
+```bash
 terraform apply -var 'nodepools={"reserved-spot-ondemand"={reservation={instance_type="g5.xlarge",az="us-east-2b"}}}'
 ```
 
 **Important**  
 Interrupting the apply with Ctrl\+C while the reservation is being created leaves the reservation outside of Terraform state, so neither `terraform destroy` nor a later apply removes it. A `failed` reservation does not incur charges, but cancel it anyway to keep your account clean:  
 
-```
+```bash
 aws ec2 cancel-capacity-reservation \
   --capacity-reservation-id [.replaceable]`cr-1234567890abcdef0` \
   --region [.replaceable]`region-code`
@@ -363,7 +362,7 @@ On the EKS Auto Mode path, Terraform creates a custom `gpu-inf` NodeClass (becau
 
 Verify the ODCR was created:
 
-```
+```bash
 aws ec2 describe-capacity-reservations \
   --filters "Name=state,Values=active" "Name=tag:nodepool,Values=reserved-spot-ondemand" \
   --query 'CapacityReservations[0].{Id:CapacityReservationId,State:State,InstanceType:InstanceType,AvailableCount:AvailableInstanceCount}' \
@@ -376,26 +375,26 @@ Verify the NodeClass references the ODCR:
 ------
 #### [ EKS Auto Mode ]
 
-```
+```bash
 kubectl get nodeclasses gpu-inf -o yaml | grep 'id: cr-.*'
 ```
 
 Expected output:
 
-```
+```bash
         id: cr-xxxxxxxxxxxxxxxxx
 ```
 
 ------
 #### [ Self-managed Karpenter ]
 
-```
+```bash
 kubectl get ec2nodeclasses gpu-inf -o yaml | grep 'id: cr-.*'
 ```
 
 Expected output:
 
-```
+```bash
         id: cr-xxxxxxxxxxxxxxxxx
 ```
 
@@ -403,7 +402,7 @@ Expected output:
 
 Verify the NodePool is ready:
 
-```
+```bash
 kubectl get nodepools gpu-inf
 ```
 
@@ -422,7 +421,7 @@ After applying the changes, validate that Karpenter prioritizes reserved capacit
 **Important**  
 Keep the `nodeSelector`. The NodePool allows multi-GPU instance types, and without it Karpenter can satisfy both replicas with one multi-GPU Spot instance. The reserved node is then left empty, consolidation terminates it, and you see two Pods on a single Spot node instead of the reserved and Spot split described here. On the EKS Auto Mode path, use `eks.amazonaws.com/instance-gpu-count` as the `nodeSelector` key instead.
 
-```
+```yaml
 cat << 'EOF' | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
@@ -461,7 +460,7 @@ Unlike the `nvidia-smi` test Pod from Step 2, which exits after 5 minutes, this 
 
 Verify the Pods scheduled on different nodes:
 
-```
+```bash
 kubectl get pods -l app=gpu-overflow-test -o wide
 ```
 
@@ -475,7 +474,7 @@ gpu-overflow-test-55d55ff5b9-hw4m9   1/1     Running   0          4m43s   10.0.8
 
 Check the NodeClaims to see the capacity types:
 
-```
+```bash
 kubectl get nodeclaims
 ```
 
@@ -491,7 +490,7 @@ The reserved node launched first, followed by a Spot or On-Demand node after the
 
 Clean up the test deployment:
 
-```
+```bash
 kubectl delete deployment gpu-overflow-test
 ```
 
@@ -508,7 +507,7 @@ If you plan to continue with the next sections of this guide, skip this cleanup.
 
 Delete the test workloads so no Pods are holding GPU nodes:
 
-```
+```bash
 kubectl delete pod nvidia-smi --ignore-not-found
 kubectl delete deployment gpu-overflow-test --ignore-not-found
 ```
@@ -518,7 +517,7 @@ kubectl delete deployment gpu-overflow-test --ignore-not-found
 
 If you only want to release the ODCR and fall back to Spot and On-Demand capacity, switch the `nodepools` variable back to the `spot-ondemand` strategy:
 
-```
+```bash
 terraform apply -var 'nodepools={"spot-ondemand"={}}'
 ```
 
@@ -529,7 +528,7 @@ Cancelling a reservation does not terminate instances already running on it. Tho
 
 To remove the GPU NodePool entirely and return the cluster to no GPU capacity, run `terraform apply` without the `nodepools` variable:
 
-```
+```bash
 terraform apply
 ```
 
@@ -538,7 +537,7 @@ Keep every other `-var` override you used when you deployed the cluster, such as
 
 Confirm the GPU nodes are gone, so no GPU instance keeps running:
 
-```
+```bash
 kubectl get nodeclaims
 ```
 

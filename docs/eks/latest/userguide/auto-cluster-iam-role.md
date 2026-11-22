@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS Auto Mode cluster IAM role
-<a name="auto-cluster-iam-role"></a>
 
 An Amazon EKS cluster IAM role is required for each cluster. Kubernetes clusters managed by Amazon EKS use this role to automate routine tasks for storage, networking, and compute autoscaling.
 
@@ -28,7 +27,7 @@ The following example policy allows tagging when EKS Auto Mode creates resources
 ### View custom tag policy example
 <a name="auto-tag-policy"></a>
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -164,7 +163,7 @@ You can use the following procedure to check and see if your account already has
 
 1. Verify that the trust relationship contains the following policy. If the trust relationship matches the following policy, choose **Cancel**. If the trust relationship doesn’t match, copy the policy into the **Edit trust policy** window and choose **Update policy**.
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -221,7 +220,7 @@ You can use the AWS Management Console or the AWS CLI to create the cluster role
 
 1. Copy the following contents to a file named {{cluster-trust-policy.json}}.
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -241,7 +240,7 @@ You can use the AWS Management Console or the AWS CLI to create the cluster role
 
 1. Create the role. You can replace {{AmazonEKSAutoClusterRole}} with any name that you choose.
 
-   ```
+   ```bash
    aws iam create-role \
      --role-name AmazonEKSAutoClusterRole \
      --assume-role-policy-document file://"cluster-trust-policy.json"
@@ -251,7 +250,7 @@ You can use the AWS Management Console or the AWS CLI to create the cluster role
 
  **AmazonEKSClusterPolicy**:
 
-```
+```bash
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
@@ -259,7 +258,7 @@ aws iam attach-role-policy \
 
  **AmazonEKSComputePolicy**:
 
-```
+```bash
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSComputePolicy
@@ -267,7 +266,7 @@ aws iam attach-role-policy \
 
  **AmazonEKSBlockStoragePolicyV2**:
 
-```
+```bash
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicyV2
@@ -275,7 +274,7 @@ aws iam attach-role-policy \
 
  **AmazonEKSLoadBalancingPolicy**:
 
-```
+```bash
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy
@@ -283,7 +282,7 @@ aws iam attach-role-policy \
 
  **AmazonEKSNetworkingPolicy**:
 
-```
+```bash
 aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
     --policy-arn arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy

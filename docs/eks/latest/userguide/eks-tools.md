@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS tools
-<a name="eks-tools"></a>
 
 Amazon EKS provides a suite of AWS tools that help you manage, troubleshoot, and interact with your EKS clusters more efficiently. These tools leverage AI-powered capabilities and standardized interfaces to simplify cluster operations, accelerate troubleshooting, and enable natural language interactions with your Kubernetes resources. Available tools include:
 +  **Amazon EKS Model Context Protocol (MCP) Server** - A fully managed service that enables AI-powered experiences for EKS cluster management. The EKS MCP Server integrates with MCP-compatible AI coding assistants to provide real-time, contextual knowledge of your clusters and Kubernetes resources. Use it to manage clusters, deploy applications, troubleshoot issues, and query EKS documentation through natural language interactions.

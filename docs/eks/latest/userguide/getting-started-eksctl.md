@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Get started with Amazon EKS – `eksctl`
-<a name="getting-started-eksctl"></a>
 
 **Note**  
 This topic covers getting started **without** EKS Auto Mode.  
@@ -34,11 +33,11 @@ Create your Amazon EKS cluster with the following command. You can replace {{my-
 
 **Example**  
 
-```
+```bash
 eksctl create cluster --name my-cluster --region region-code --fargate
 ```
 
-```
+```bash
 eksctl create cluster --name my-cluster --region region-code
 ```
 
@@ -58,7 +57,7 @@ After cluster creation is complete, view the AWS CloudFormation stack named `eks
 
 1. View your cluster nodes.
 
-   ```
+   ```bash
    kubectl get nodes -o wide
    ```
 
@@ -89,7 +88,7 @@ After cluster creation is complete, view the AWS CloudFormation stack named `eks
 
 1. View the workloads running on your cluster.
 
-   ```
+   ```bash
    kubectl get pods -A -o wide
    ```
 
@@ -127,7 +126,7 @@ After cluster creation is complete, view the AWS CloudFormation stack named `eks
 
 After you’ve finished with the cluster and nodes that you created for this tutorial, you should clean up by deleting the cluster and nodes with the following command. If you want to do more with this cluster before you clean up, see [Next steps](#gs-eksctl-next-steps).
 
-```
+```bash
 eksctl delete cluster --name my-cluster --region region-code
 ```
 

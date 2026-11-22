@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy a sample application on Windows
-<a name="sample-deployment-win"></a>
 
 In this topic, you deploy a sample application to your cluster on Windows nodes.
 
@@ -23,7 +22,7 @@ Though many variables are changeable in the following steps, we recommend only c
 
 A namespace allows you to group resources in Kubernetes. For more information, see [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in the Kubernetes documentation. If you plan to deploy your sample application to [Simplify compute management with AWS Fargate](fargate.md), make sure that the value for `namespace` in your [Define which Pods use AWS Fargate when launched](fargate-profile.md) is `eks-sample-app`.
 
-```
+```bash
 kubectl create namespace eks-sample-app
 ```
 
@@ -35,7 +34,7 @@ This sample deployment pulls a container image from a public repository and depl
 1. Save the following contents to a file named `eks-sample-deployment.yaml`. The containers in the sample application don’t use network storage, but you might have applications that need to. For more information, see [Use application data storage for your cluster](storage.md).
    + The `kubernetes.io/os: windows` `nodeSelector` means that if you had Windows and Linux nodes (for example) in your cluster, the image would only be deployed to Windows nodes. For more information, see [Well-Known Labels, Annotations and Taints](https://kubernetes.io/docs/reference/labels-annotations-taints/) in the Kubernetes documentation.
 
-     ```
+     ```yaml
      apiVersion: apps/v1
      kind: Deployment
      metadata:
@@ -79,7 +78,7 @@ This sample deployment pulls a container image from a public repository and depl
 
 1. Apply the deployment manifest to your cluster.
 
-   ```
+   ```bash
    kubectl apply -f eks-sample-deployment.yaml
    ```
 
@@ -90,7 +89,7 @@ A service allows you to access all replicas through a single IP address or name.
 
 1. Save the following contents to a file named `eks-sample-service.yaml`. Kubernetes assigns the service its own IP address that is accessible only from within the cluster. To access the service from outside of your cluster, deploy the [AWS Load Balancer Controller](aws-load-balancer-controller.md) to load balance [application](alb-ingress.md) or [network](network-load-balancing.md) traffic to the service.
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: Service
    metadata:
@@ -109,7 +108,7 @@ A service allows you to access all replicas through a single IP address or name.
 
 1. Apply the service manifest to your cluster.
 
-   ```
+   ```bash
    kubectl apply -f eks-sample-service.yaml
    ```
 
@@ -118,13 +117,13 @@ A service allows you to access all replicas through a single IP address or name.
 
 1. View all resources that exist in the `eks-sample-app` namespace.
 
-   ```
+   ```bash
    kubectl get all -n eks-sample-app
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME                                               READY   STATUS    RESTARTS   AGE
    pod/eks-sample-windows-deployment-65b7669776-m6qxz   1/1     Running   0          27m
    pod/eks-sample-windows-deployment-65b7669776-mmxvd   1/1     Running   0          27m
@@ -146,13 +145,13 @@ Kubernetes maintains the number of replicas that are specified in the manifest. 
 
 1. View the details of the deployed service.
 
-   ```
+   ```bash
    kubectl -n eks-sample-app describe service eks-sample-windows-service
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    Name:              eks-sample-windows-service
    Namespace:         eks-sample-app
    Labels:            app=eks-sample-windows-app
@@ -173,13 +172,13 @@ Kubernetes maintains the number of replicas that are specified in the manifest. 
 
 1. View the details of one of the Pods listed in the output when you [viewed the namespace](#sample-app-view-namespace-win) in a previous step. Replace {{65b7669776-m6qxz}} with the value returned for one of your Pods.
 
-   ```
+   ```bash
    kubectl -n eks-sample-app describe pod eks-sample-windows-deployment-65b7669776-m6qxz
    ```
 
    Abbreviated example output
 
-   ```
+   ```bash
    Name:         eks-sample-windows-deployment-65b7669776-m6qxz
    Namespace:    eks-sample-app
    Priority:     0
@@ -213,19 +212,19 @@ Rather than using the command line, you can view many details about Pods, servic
 
 1. Run a shell on the Pod that you described in the previous step, replacing {{65b7669776-m6qxz}} with the ID of one of your Pods.
 
-   ```
+   ```bash
    kubectl exec -it eks-sample-windows-deployment-65b7669776-m6qxz -n eks-sample-app -- powershell.exe
    ```
 
 1. From the Pod shell, view the output from the web server that was installed with your deployment in a previous step. You only need to specify the service name. It is resolved to the service’s IP address by CoreDNS, which is deployed with an Amazon EKS cluster, by default.
 
-   ```
+   ```bash
    Invoke-WebRequest -uri eks-sample-windows-service/default.html -UseBasicParsing
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    StatusCode        : 200
    StatusDescription : OK
    Content           : < h t m l > < b o d y > < b r / > < b r / > < m a r q u e e > < H 1 > H e l l o
@@ -234,13 +233,13 @@ Rather than using the command line, you can view many details about Pods, servic
 
 1. From the Pod shell, view the DNS server for the Pod.
 
-   ```
+   ```bash
    Get-NetIPConfiguration
    ```
 
    Abbreviated output
 
-   ```
+   ```bash
    InterfaceAlias       : vEthernet
    [...]
    IPv4Address          : 192.168.63.14
@@ -254,7 +253,7 @@ Rather than using the command line, you can view many details about Pods, servic
 
 1. Once you’re finished with the sample application, you can remove the sample namespace, service, and deployment with the following command.
 
-   ```
+   ```bash
    kubectl delete namespace eks-sample-app
    ```
 

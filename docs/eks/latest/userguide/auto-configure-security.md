@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure security and compliance
-<a name="auto-configure-security"></a>
 
 Configure the security and compliance posture of your Amazon EKS Auto Mode clusters. Use the following topics to grant RBAC to managed controllers, generate compliance reports, encrypt volumes, and enable advanced security features.
 

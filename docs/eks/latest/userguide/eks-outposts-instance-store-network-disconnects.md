@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Prepare local Amazon EKS clusters on AWS Outposts configured with EC2 instance store for network disconnects
-<a name="eks-outposts-instance-store-network-disconnects"></a>
 
 If the AWS Outposts service link connecting your local network to the AWS Cloud has lost connectivity, you can continue to use your local Amazon EKS cluster on an Outpost. This topic covers how to prepare your local cluster for network disconnects and related considerations.
 + Local clusters enable stability and continued operations during temporary, unplanned network disconnects. AWS Outposts remains a fully connected offering that acts as an extension of the AWS Cloud in your data center. In the event of network disconnects between your Outpost and the AWS Cloud, we recommend attempting to restore your connection. For instructions, see [AWS Outposts rack network troubleshooting checklist](https://docs.aws.amazon.com/outposts/latest/userguide/network-troubleshoot.html) in the * AWS Outposts User Guide*.
@@ -34,18 +33,18 @@ To create an admin certificate:
 
 1. Generate a private key and certificate signing request (CSR):
 
-   ```
+   ```bash
    openssl req -new -newkey rsa:4096 -nodes \
        -keyout admin.key -out admin.csr -subj "/CN=admin"
    ```
 
 1. Create a Kubernetes `CertificateSigningRequest` resource and approve it:
 
-   ```
+   ```bash
    cat admin.csr | base64 | tr -d '\n' > admin.csr.b64
    ```
 
-   ```
+   ```bash
    apiVersion: certificates.k8s.io/v1
    kind: CertificateSigningRequest
    metadata:
@@ -57,27 +56,27 @@ To create an admin certificate:
        - client auth
    ```
 
-   ```
+   ```bash
    kubectl apply -f admin-csr.yaml
    kubectl certificate approve admin-csr
    ```
 
 1. Retrieve the signed certificate:
 
-   ```
+   ```bash
    kubectl get csr admin-csr -o jsonpath='{.status.certificate}' | base64 --decode > admin.crt
    ```
 
 1. Create a `ClusterRoleBinding` to grant admin access:
 
-   ```
+   ```bash
    kubectl create clusterrolebinding admin --clusterrole=cluster-admin \
        --user=admin --group=system:masters
    ```
 
 1. Build a `kubeconfig` that uses the certificate:
 
-   ```
+   ```bash
    kubectl config --kubeconfig admin.kubeconfig set-cluster my-cluster \
        --certificate-authority=ca.crt --server $APISERVER_ENDPOINT --embed-certs
    kubectl config --kubeconfig admin.kubeconfig set-credentials admin \
@@ -122,7 +121,7 @@ To prevent DNS failures during disconnected operation, configure your worker nod
 
 The following example shows worker node userdata:
 
-```
+```yaml
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="BOUNDARY"
 
@@ -192,7 +191,7 @@ Before you go into production with your local cluster, simulate a disconnect to 
 
 1. Test the connection to your local cluster using the x.509 certificate you created:
 
-   ```
+   ```bash
    kubectl --kubeconfig admin.kubeconfig get nodes
    ```
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS architecture
-<a name="eks-architecture"></a>
 
 Amazon EKS aligns with the general cluster architecture of Kubernetes. For more information, see [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/) in the Kubernetes documentation. The following sections summarize some extra architecture details for Amazon EKS.
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Encrypted container images
-<a name="sandboxing-encrypted-images"></a>
 
 Container image layers are visible to the parent instance unless encrypted. Encrypted images follow the OCI image encryption specification. Only layers are encrypted. The manifest and image config remain in plaintext so that registries and container runtimes can inspect them. When a pod uses an encrypted image, the parent instance transfers the encrypted layer blobs into the Nitro Sandbox. The sandbox unwraps the symmetric key by using AWS KMS and decrypts each layer before unpacking it.
 
@@ -19,7 +18,7 @@ Every layer of the image must be encrypted. Isolated and confidential pods do no
 + The `nitro-sandbox-keyprovider` binary installed on your build machine.
 + An ocicrypt keyprovider configuration file at `/etc/ocicrypt.json`:
 
-  ```
+  ```json
   {
     "key-providers": {
       "awskms": {
@@ -38,7 +37,7 @@ Every layer of the image must be encrypted. Isolated and confidential pods do no
 
 Use `skopeo` to copy an image from a source registry to a destination registry, encrypting layers in transit:
 
-```
+```bash
 OCICRYPT_KEYPROVIDER_CONFIG=/etc/ocicrypt.json \
   skopeo copy \
     --encryption-key provider:awskms:arn:aws:kms:region-code:111122223333:key/mrk-example \
@@ -54,7 +53,7 @@ OCICRYPT_KEYPROVIDER_CONFIG=/etc/ocicrypt.json \
 
 Generate a Cedar policy the same way as for unencrypted images. Pass `--with-pod-identity` so the sandbox receives the Pod Identity token it uses to call AWS KMS:
 
-```
+```bash
 eks-nitro-sandbox-genpolicy --with-pod-identity manifest.yaml
 ```
 
@@ -74,7 +73,7 @@ To pin groups exactly even with an encrypted image, set `securityContext.supplem
 
 Recommended workaround — set `securityContext` in the pod spec:
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -100,7 +99,7 @@ spec:
 
 1. Apply the manifest:
 
-   ```
+   ```bash
    kubectl apply -f manifest.yaml
    ```
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Optimize Amazon FSx for Lustre performance on nodes (non-EFA)
-<a name="fsx-csi-tuning-non-efa"></a>
 
 You can optimize Amazon FSx for Lustre performance by applying tuning parameters during node initialization using launch template user data.
 
@@ -96,13 +95,13 @@ The example script defined in this topic performs these operations:
 **Important**  
 Adjust these values for your environment in both section `# 5. Mount FSx filesystem` and the `setup_persistence()` function of `apply_lustre_tunings.sh` in section `# 8. Setup persistence`:  
 
-   ```
+   ```bash
    FSX_DNS="<your-fsx-filesystem-dns>" # Needs to be adjusted.
    MOUNT_NAME="<your-mount-name>" # Needs to be adjusted.
    MOUNT_POINT="</your/mount/point>" # Needs to be adjusted.
    ```
 
-   ```
+   ```bash
    MIME-Version: 1.0
    Content-Type: multipart/mixed; boundary="==MYBOUNDARY=="
    --==MYBOUNDARY==

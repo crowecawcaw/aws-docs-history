@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create access entries
-<a name="creating-access-entries"></a>
 
 Before creating access entries, consider the following:
 + A properly set authentication mode. See [Change authentication mode to use access entries](setting-up-access-entries.md).
@@ -108,26 +107,26 @@ You can create an access entry using the AWS Management Console or the AWS CLI.
 1. To create an access entry You can use any of the following examples to create access entries:
    + Create an access entry for a self-managed Amazon EC2 Linux node group. Replace {{my-cluster}} with the name of your cluster, {{111122223333}} with your AWS account ID, and {{EKS-my-cluster-self-managed-ng-1}} with the name of your [node IAM role](create-node-role.md). If your node group is a Windows node group, then replace {{EC2\_LINUX}} with `EC2_WINDOWS`.
 
-     ```
+     ```bash
      aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/EKS-my-cluster-self-managed-ng-1 --type EC2_LINUX
      ```
 
      You can’t use the `--kubernetes-groups` option when you specify a type other than `STANDARD`. You can’t associate an access policy to this access entry.
    + Create an access entry for self-managed Amazon EC2 Linux nodes that use the EC2 instance ID as the node name, such as Amazon Linux 2023 nodes with the `InstanceIdNodeName` feature gate enabled in `nodeadm`. Replace {{my-cluster}} with the name of your cluster, {{111122223333}} with your AWS account ID, and {{EKS-my-cluster-self-managed-ng-1}} with the name of your [node IAM role](create-node-role.md).
 
-     ```
+     ```bash
      aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/EKS-my-cluster-self-managed-ng-1 --type EC2
      ```
 
      You don’t need to associate an access policy with this access entry.
    + Create an access entry that allows an IAM role that’s not used for an Amazon EC2 self-managed node group, that you want Kubernetes to authorize access to your cluster with. Replace {{my-cluster}} with the name of your cluster, {{111122223333}} with your AWS account ID, and {{my-role}} with the name of your IAM role. Replace {{Viewers}} with the name of a group that you’ve specified in a Kubernetes `RoleBinding` or `ClusterRoleBinding` object on your cluster.
 
-     ```
+     ```bash
      aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role --type STANDARD --username Viewers --kubernetes-groups Viewers
      ```
    + Create an access entry that allows an IAM user to authenticate to your cluster. This example is provided because this is possible, though IAM best practices recommend accessing your cluster using IAM *roles* that have short-term credentials, rather than IAM *users* that have long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-users-federation-idp) in the *IAM User Guide*.
 
-     ```
+     ```bash
      aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:user/my-user --type STANDARD --username my-user
      ```
 

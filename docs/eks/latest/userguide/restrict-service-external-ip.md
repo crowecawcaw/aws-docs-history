@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Restrict external IP addresses that can be assigned to services
-<a name="restrict-service-external-ip"></a>
 
 Kubernetes services can be reached from inside of a cluster through:
 + A cluster IP address that is assigned automatically by Kubernetes
@@ -15,19 +14,19 @@ To learn more about Kubernetes services, see [Service](https://kubernetes.io/doc
 
 1. Deploy `cert-manager` to manage webhook certificates. For more information, see the [cert-manager](https://cert-manager.io/docs/) documentation.
 
-   ```
+   ```bash
    kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.5.4/cert-manager.yaml
    ```
 
 1. Verify that the `cert-manager` Pods are running.
 
-   ```
+   ```bash
    kubectl get pods -n cert-manager
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME                                       READY   STATUS    RESTARTS   AGE
    cert-manager-58c8844bb8-nlx7q              1/1     Running   0          15s
    cert-manager-cainjector-745768f6ff-696h5   1/1     Running   0          15s
@@ -36,13 +35,13 @@ To learn more about Kubernetes services, see [Service](https://kubernetes.io/doc
 
 1. Review your existing services to ensure that none of them have external IP addresses assigned to them that aren’t contained within the CIDR block you want to limit addresses to.
 
-   ```
+   ```bash
    kubectl get services -A
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAMESPACE                      NAME                                    TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)         AGE
    cert-manager                   cert-manager                            ClusterIP      10.100.102.137   <none>          9402/TCP        20m
    cert-manager                   cert-manager-webhook                    ClusterIP      10.100.6.136     <none>          443/TCP         20m
@@ -56,13 +55,13 @@ To learn more about Kubernetes services, see [Service](https://kubernetes.io/doc
 
 1. Download the external IP webhook manifest. You can also view the [source code for the webhook](https://github.com/kubernetes-sigs/externalip-webhook) on GitHub.
 
-   ```
+   ```bash
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/docs/externalip-webhook.yaml
    ```
 
 1. Specify CIDR blocks. Open the downloaded file in your editor and remove the `\#` at the start of the following lines.
 
-   ```
+   ```yaml
    #args:
    #- --allowed-external-ip-cidrs=10.0.0.0/8
    ```
@@ -71,7 +70,7 @@ To learn more about Kubernetes services, see [Service](https://kubernetes.io/doc
 
 1. If your cluster is not in the `us-west-2` AWS Region, then replace `us-west-2`, `602401143452`, and `amazonaws.com` in the file with the following commands. Before running the commands, replace {{region-code}} and {{111122223333}} with the value for your AWS Region from the list in [View Amazon container image registries for Amazon EKS add-ons](add-ons-images.md).
 
-   ```
+   ```bash
    sed -i.bak -e 's|602401143452|111122223333|' externalip-webhook.yaml
    sed -i.bak -e 's|us-west-2|region-code|' externalip-webhook.yaml
    sed -i.bak -e 's|amazonaws.com||' externalip-webhook.yaml
@@ -79,7 +78,7 @@ To learn more about Kubernetes services, see [Service](https://kubernetes.io/doc
 
 1. Apply the manifest to your cluster.
 
-   ```
+   ```bash
    kubectl apply -f externalip-webhook.yaml
    ```
 

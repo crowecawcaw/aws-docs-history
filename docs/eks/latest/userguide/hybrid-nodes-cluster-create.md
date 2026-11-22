@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an Amazon EKS cluster with hybrid nodes
-<a name="hybrid-nodes-cluster-create"></a>
 
 This topic provides an overview of the available options and describes what to consider when you create a hybrid nodes-enabled Amazon EKS cluster. EKS Hybrid Nodes have the same [Kubernetes version support](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html) as Amazon EKS clusters with cloud nodes, including standard and extended support.
 
@@ -33,7 +32,7 @@ If you already have a cluster IAM role, or you’re going to create your cluster
 
 1. Run the following command to create an IAM trust policy JSON file.
 
-   ```
+   ```bash
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -50,7 +49,7 @@ If you already have a cluster IAM role, or you’re going to create your cluster
 
 1. Create the Amazon EKS cluster IAM role. If necessary, preface eks-cluster-role-trust-policy.json with the path on your computer that you wrote the file to in the previous step. The command associates the trust policy that you created in the previous step to the role. To create an IAM role, the [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles#iam-term-principal) that is creating the role must be assigned the `iam:CreateRole` action (permission).
 
-   ```
+   ```bash
    aws iam create-role \
        --role-name myAmazonEKSClusterRole \
        --assume-role-policy-document file://"eks-cluster-role-trust-policy.json"
@@ -58,7 +57,7 @@ If you already have a cluster IAM role, or you’re going to create your cluster
 
 1. You can assign either the Amazon EKS managed policy or create your own custom policy. For the minimum permissions that you must use in your custom policy, see [Amazon EKS node IAM role](create-node-role.md). Attach the Amazon EKS managed policy named `AmazonEKSClusterPolicy` to the role. To attach an IAM policy to an [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles#iam-term-principal), the principal that is attaching the policy must be assigned one of the following IAM actions (permissions): `iam:AttachUserPolicy` or `iam:AttachRolePolicy`.
 
-   ```
+   ```bash
    aws iam attach-role-policy \
        --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy \
        --role-name myAmazonEKSClusterRole
@@ -102,7 +101,7 @@ You need to install the latest version of the `eksctl` command line tool. To ins
 
       1. Not overlap with each other, the `VPC CIDR` for your cluster, or your Kubernetes service IPv4 CIDR
 
-         ```
+         ```bash
          apiVersion: eksctl.io/v1alpha5
          kind: ClusterConfig
          
@@ -124,13 +123,13 @@ You need to install the latest version of the `eksctl` command line tool. To ins
 
 1. Run the following command:
 
-   ```
+   ```bash
    eksctl create cluster -f cluster-config.yaml
    ```
 
    Cluster provisioning takes several minutes. While the cluster is being created, several lines of output appear. The last line of output is similar to the following example line.
 
-   ```
+   ```bash
    [✓]  EKS cluster "CLUSTER_NAME" in "REGION" region is ready
    ```
 
@@ -143,7 +142,7 @@ The CloudFormation stack creates the EKS cluster IAM role and an EKS cluster wit
 
 1. Download the CloudFormation template.
 
-   ```
+   ```bash
    curl -OL 'https://raw.githubusercontent.com/aws/eks-hybrid/refs/heads/main/example/hybrid-eks-cfn.yaml'
    ```
 
@@ -175,7 +174,7 @@ The CloudFormation stack creates the EKS cluster IAM role and an EKS cluster wit
 
    1.  `K8S_VERSION`: the Kubernetes version to use for your cluster. See [Amazon EKS supported versions](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html).
 
-      ```
+      ```json
       {
         "Parameters": {
           "ClusterName": "CLUSTER_NAME",
@@ -194,7 +193,7 @@ The CloudFormation stack creates the EKS cluster IAM role and an EKS cluster wit
 
 1. Deploy the CloudFormation stack. Replace `STACK_NAME` with your name for the CloudFormation stack and `AWS_REGION` with your AWS Region where the cluster will be created.
 
-   ```
+   ```bash
    aws cloudformation deploy \
        --stack-name STACK_NAME \
        --region AWS_REGION \
@@ -205,7 +204,7 @@ The CloudFormation stack creates the EKS cluster IAM role and an EKS cluster wit
 
    Cluster provisioning takes several minutes. You can check the status of your stack with the following command. Replace `STACK_NAME` with your name for the CloudFormation stack and `AWS_REGION` with your AWS Region where the cluster will be created.
 
-   ```
+   ```bash
    aws cloudformation describe-stacks \
        --stack-name STACK_NAME \
        --region AWS_REGION \
@@ -247,7 +246,7 @@ The CloudFormation stack creates the EKS cluster IAM role and an EKS cluster wit
 
       1. Not overlap with each other, the `VPC CIDR` for your Amazon EKS cluster, or your Kubernetes service IPv4 CIDR.
 
-         ```
+         ```bash
          aws eks create-cluster \
              --name CLUSTER_NAME \
              --region AWS_REGION \
@@ -260,7 +259,7 @@ The CloudFormation stack creates the EKS cluster IAM role and an EKS cluster wit
 
 1. It takes several minutes to provision the cluster. You can query the status of your cluster with the following command. Replace `CLUSTER_NAME` with the name of the cluster you are creating and `AWS_REGION` with the AWS Region where the cluster is creating. Don’t proceed to the next step until the output returned is `ACTIVE`.
 
-   ```
+   ```bash
    aws eks describe-cluster \
        --name CLUSTER_NAME \
        --region AWS_REGION \
@@ -361,25 +360,25 @@ The CloudFormation stack creates the EKS cluster IAM role and an EKS cluster wit
 
 If you created your cluster using `eksctl`, then you can skip this step. This is because `eksctl` already completed this step for you. Enable `kubectl` to communicate with your cluster by adding a new context to the `kubectl` config file. For more information about how to create and update the file, see [Connect kubectl to an EKS cluster by creating a kubeconfig file](create-kubeconfig.md).
 
-```
+```bash
 aws eks update-kubeconfig --name CLUSTER_NAME --region AWS_REGION
 ```
 
 An example output is as follows.
 
-```
+```bash
 Added new context arn:aws:eks:AWS_REGION:111122223333:cluster/CLUSTER_NAME to /home/username/.kube/config
 ```
 
 Confirm communication with your cluster by running the following command.
 
-```
+```bash
 kubectl get svc
 ```
 
 An example output is as follows.
 
-```
+```bash
 NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   28h
 ```

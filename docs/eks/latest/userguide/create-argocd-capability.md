@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an Argo CD capability
-<a name="create-argocd-capability"></a>
 
 This topic explains how to create an Argo CD capability on your Amazon EKS cluster.
 

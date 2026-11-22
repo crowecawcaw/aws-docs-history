@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure advanced security settings for nodes
-<a name="auto-advanced-security"></a>
 
 This topic describes how to configure advanced security settings for Amazon EKS Auto Mode nodes using the `advancedSecurity` specification in your Node Class.
 
@@ -22,7 +21,7 @@ Before you begin, ensure you have:
 
 To configure advanced security settings for your nodes, set the `advancedSecurity` fields in your Node Class specification:
 
-```
+```yaml
 apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
@@ -48,7 +47,7 @@ spec:
 
 Apply this configuration:
 
-```
+```bash
 kubectl apply -f nodeclass.yaml
 ```
 

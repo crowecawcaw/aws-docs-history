@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Review access policy permissions
-<a name="access-policy-permissions"></a>
 
 Access policies include `rules` that contain Kubernetes `verbs` (permissions) and `resources`. Access policies don’t include IAM permissions or resources. Similar to Kubernetes `Role` and `ClusterRole` objects, access policies only include `allow` `rules`. You can’t modify the contents of an access policy. You can’t create your own access policies. If the permissions in the access policies don’t meet your needs, then create Kubernetes RBAC objects and specify *group names* for your access entries. For more information, see [Create access entries](creating-access-entries.md). The permissions contained in access policies are similar to the permissions in the Kubernetes user-facing cluster roles. For more information, see [User-facing roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) in the Kubernetes documentation.
 
@@ -14,7 +13,7 @@ Access policies include `rules` that contain Kubernetes `verbs` (permissions) an
 
 Use any one of the access policies listed on this page, or retrieve a list of all available access policies using the AWS CLI:
 
-```
+```bash
 aws eks list-access-policies
 ```
 

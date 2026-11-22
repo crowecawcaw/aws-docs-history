@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Update existing cluster to new Kubernetes version
-<a name="update-cluster"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS workshops.
@@ -63,12 +62,12 @@ The high-level summary of the Amazon EKS cluster upgrade process is as follows:
 Compare the Kubernetes version of your cluster control plane to the Kubernetes version of your nodes.
 + Get the Kubernetes version of your cluster control plane.
 
-  ```
+  ```bash
   kubectl version
   ```
 + Get the Kubernetes version of your nodes. This command returns all self-managed and managed Amazon EC2, Fargate, and hybrid nodes. Each Fargate Pod is listed as its own node.
 
-  ```
+  ```bash
   kubectl get nodes
   ```
 
@@ -114,7 +113,7 @@ You can submit the request to upgrade your EKS control plane version using:
 
 This procedure requires `eksctl` version `0.215.0` or later. You can check your version with the following command:
 
-```
+```bash
 eksctl version
 ```
 
@@ -122,7 +121,7 @@ For instructions on how to install and update `eksctl`, see [Installation](https
 
 Update the Kubernetes version of your Amazon EKS control plane. Replace `<cluster-name>` with your cluster name. Replace `<version-number>` with the Amazon EKS supported version number that you want to update your cluster to. For a list of supported version numbers, see [Amazon EKS supported versions](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html).
 
-```
+```bash
 eksctl upgrade cluster --name <cluster-name> --version <version-number> --approve
 ```
 
@@ -148,14 +147,14 @@ Continue to [Step 4: Update cluster components](#step4).
 
 1. Update your Amazon EKS cluster with the following AWS CLI command. Replace `<cluster-name>` and `<region-code>` of the cluster you want to upgrade. Replace `<version-number>` with the Amazon EKS supported version number that you want to update your cluster to. For a list of supported version numbers, see [Amazon EKS supported versions](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html).
 
-   ```
+   ```bash
    aws eks update-cluster-version --name <cluster-name> \
      --kubernetes-version <version-number> --region <region-code>
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    {
        "update": {
            "id": "<update-id>",
@@ -178,7 +177,7 @@ Continue to [Step 4: Update cluster components](#step4).
 
 1. The update takes several minutes to complete. Monitor the status of your cluster update with the following command. In addition to using the same `<cluster-name>` and `<region-code>`, use the `<update-id>` that the previous command returned.
 
-   ```
+   ```bash
    aws eks describe-update --name <cluster-name> \
       --region <region-code> --update-id <update-id>
    ```
@@ -198,13 +197,13 @@ Continue to [Step 4: Update cluster components](#step4).
 
    1. Set the Cluster Autoscaler image tag to the version that you recorded in the previous step with the following command. If necessary, replace `X.XX.X` with your own value.
 
-      ```
+      ```bash
       kubectl -n kube-system set image deployment.apps/cluster-autoscaler cluster-autoscaler=registry.k8s.io/autoscaling/cluster-autoscaler:vX.XX.X
       ```
 
 1. (Clusters with GPU nodes only) If your cluster has node groups with GPU support (for example, `p3.2xlarge`), you must update the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin) DaemonSet on your cluster. Replace `<vX.X.X>` with your desired [NVIDIA/k8s-device-plugin](https://github.com/NVIDIA/k8s-device-plugin/releases) version before running the following command.
 
-   ```
+   ```bash
    kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/<vX.X.X>/deployments/static/nvidia-device-plugin.yml
    ```
 

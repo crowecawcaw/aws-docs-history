@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # View and manage Amazon EKS and Fargate service quotas
-<a name="service-quotas"></a>
 
 Amazon EKS has integrated with Service Quotas, an AWS service that you can use to view and manage your quotas from a central location. For more information, see [What Is Service Quotas?](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html) in the *Service Quotas User Guide*. With Service Quotas integration, you can quickly look up the value of your Amazon EKS and AWS Fargate service quotas using the AWS Management Console and AWS CLI.
 
@@ -31,7 +30,7 @@ To work more with service quotas using the AWS Management Console, see the [Serv
 
 Run the following command to view your Amazon EKS quotas.
 
-```
+```bash
 aws service-quotas list-aws-default-service-quotas \
     --query 'Quotas[*].{Adjustable:Adjustable,Name:QuotaName,Value:Value,Code:QuotaCode}' \
     --service-code eks \
@@ -40,7 +39,7 @@ aws service-quotas list-aws-default-service-quotas \
 
 Run the following command to view your Fargate quotas.
 
-```
+```bash
 aws service-quotas list-aws-default-service-quotas \
     --query 'Quotas[*].{Adjustable:Adjustable,Name:QuotaName,Value:Value,Code:QuotaCode}' \
     --service-code fargate \

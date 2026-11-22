@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Migrate applications to a new node group
-<a name="migrate-stack"></a>
 
 This topic describes how you can create a new node group, gracefully migrate your existing applications to the new group, and remove the old node group from your cluster. You can migrate to a new node group using `eksctl` or the AWS Management Console.
 +  [`eksctl`](#eksctl_migrate_apps) 
@@ -20,7 +19,7 @@ For more information on using eksctl for migration, see [Unmanaged nodegroups](h
 
 This procedure requires `eksctl` version `0.215.0` or later. You can check your version with the following command:
 
-```
+```bash
 eksctl version
 ```
 
@@ -31,13 +30,13 @@ This procedure only works for clusters and node groups that were created with `e
 
 1. Retrieve the name of your existing node groups, replacing {{my-cluster}} with your cluster name.
 
-   ```
+   ```bash
    eksctl get nodegroups --cluster=my-cluster
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    CLUSTER      NODEGROUP          CREATED               MIN SIZE      MAX SIZE     DESIRED CAPACITY     INSTANCE TYPE     IMAGE ID
    default      standard-nodes   2019-05-01T22:26:58Z  1             4            3                    t3.medium         ami-05a71d034119ffc12
    ```
@@ -54,7 +53,7 @@ This procedure only works for clusters and node groups that were created with `e
 **Note**  
 For more available flags and their descriptions, see https://eksctl.io/.
 
-   ```
+   ```bash
    eksctl create nodegroup \
      --cluster my-cluster \
      --version 1.37 \
@@ -68,13 +67,13 @@ For more available flags and their descriptions, see https://eksctl.io/.
 
 1. When the previous command completes, verify that all of your nodes have reached the `Ready` state with the following command:
 
-   ```
+   ```bash
    kubectl get nodes
    ```
 
 1. Delete the original node group with the following command. In the command, replace every {{example value}} with your cluster and node group names:
 
-   ```
+   ```bash
    eksctl delete nodegroup --cluster my-cluster --name standard-nodes-old
    ```
 
@@ -97,7 +96,7 @@ If you attached any additional IAM policies to your old node group IAM role, att
 
       You can use the following AWS CLI commands to get the security group IDs from the stack names. In these commands, `oldNodes` is the AWS CloudFormation stack name for your older node stack, and `newNodes` is the name of the stack that you are migrating to. Replace every {{example value}} with your own values.
 
-      ```
+      ```bash
       oldNodes="old_node_CFN_stack_name"
       newNodes="new_node_CFN_stack_name"
       
@@ -113,7 +112,7 @@ If you attached any additional IAM policies to your old node group IAM role, att
 
       The following AWS CLI commands add inbound rules to each security group that allow all traffic on all protocols from the other security group. This configuration allows Pods in each node group to communicate with each other while you’re migrating your workload to the new group.
 
-      ```
+      ```bash
       aws ec2 authorize-security-group-ingress --group-id $oldSecGroup \
       --source-group $newSecGroup --protocol -1
       aws ec2 authorize-security-group-ingress --group-id $newSecGroup \
@@ -122,13 +121,13 @@ If you attached any additional IAM policies to your old node group IAM role, att
 
 1. Edit the `aws-auth` configmap to map the new node instance role in RBAC.
 
-   ```
+   ```bash
    kubectl edit configmap -n kube-system aws-auth
    ```
 
    Add a new `mapRoles` entry for the new node group.
 
-   ```
+   ```yaml
    apiVersion: v1
    data:
      mapRoles: |
@@ -148,25 +147,25 @@ If you attached any additional IAM policies to your old node group IAM role, att
 
 1. Watch the status of your nodes and wait for your new nodes to join your cluster and reach the `Ready` status.
 
-   ```
+   ```bash
    kubectl get nodes --watch
    ```
 
 1. (Optional) If you’re using the [Kubernetes Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler), scale the deployment down to zero (0) replicas to avoid conflicting scaling actions.
 
-   ```
+   ```bash
    kubectl scale deployments/cluster-autoscaler --replicas=0 -n kube-system
    ```
 
 1. Use the following command to taint each of the nodes that you want to remove with `NoSchedule`. This is so that new Pods aren’t scheduled or rescheduled on the nodes that you’re replacing. For more information, see [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) in the Kubernetes documentation.
 
-   ```
+   ```bash
    kubectl taint nodes node_name key=value:NoSchedule
    ```
 
    If you’re upgrading your nodes to a new Kubernetes version, you can identify and taint all of the nodes of a particular Kubernetes version (in this case, `1.35`) with the following code snippet. The version number can’t be later than the Kubernetes version of your control plane. It also can’t be more than two minor versions earlier than the Kubernetes version of your control plane. We recommend that you use the same version as your control plane.
 
-   ```
+   ```bash
    K8S_VERSION=1.35
    nodes=$(kubectl get nodes -o jsonpath="{.items[?(@.status.nodeInfo.kubeletVersion==\"v$K8S_VERSION\")].metadata.name}")
    for node in ${nodes[@]}
@@ -178,32 +177,32 @@ If you attached any additional IAM policies to your old node group IAM role, att
 
 1.  Determine your cluster’s DNS provider.
 
-   ```
+   ```bash
    kubectl get deployments -l k8s-app=kube-dns -n kube-system
    ```
 
    An example output is as follows. This cluster is using CoreDNS for DNS resolution, but your cluster can return `kube-dns` instead):
 
-   ```
+   ```bash
    NAME      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
    coredns   1         1         1            1           31m
    ```
 
 1. If your current deployment is running fewer than two replicas, scale out the deployment to two replicas. Replace {{coredns}} with `kubedns` if your previous command output returned that instead.
 
-   ```
+   ```bash
    kubectl scale deployments/coredns --replicas=2 -n kube-system
    ```
 
 1. Drain each of the nodes that you want to remove from your cluster with the following command:
 
-   ```
+   ```bash
    kubectl drain node_name --ignore-daemonsets --delete-emptydir-data
    ```
 
    If you’re upgrading your nodes to a new Kubernetes version, identify and drain all of the nodes of a particular Kubernetes version (in this case, {{1.35}}) with the following code snippet.
 
-   ```
+   ```bash
    K8S_VERSION=1.35
    nodes=$(kubectl get nodes -o jsonpath="{.items[?(@.status.nodeInfo.kubeletVersion==\"v$K8S_VERSION\")].metadata.name}")
    for node in ${nodes[@]}
@@ -219,7 +218,7 @@ If you attached any additional IAM policies to your old node group IAM role, suc
 
    1. Revoke the inbound rules that you created for your node security groups earlier. In these commands, `oldNodes` is the AWS CloudFormation stack name for your older node stack, and `newNodes` is the name of the stack that you are migrating to.
 
-      ```
+      ```bash
       oldNodes="old_node_CFN_stack_name"
       newNodes="new_node_CFN_stack_name"
       
@@ -245,13 +244,13 @@ If you attached any additional IAM policies to your old node group IAM role, suc
 
 1. Edit the `aws-auth` configmap to remove the old node instance role from RBAC.
 
-   ```
+   ```bash
    kubectl edit configmap -n kube-system aws-auth
    ```
 
    Delete the `mapRoles` entry for the old node group.
 
-   ```
+   ```yaml
    apiVersion: v1
    data:
      mapRoles: |
@@ -273,7 +272,7 @@ If you attached any additional IAM policies to your old node group IAM role, suc
 **Note**  
 You must also tag your new Auto Scaling group appropriately (for example, `k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/my-cluster`) and update the command for your Cluster Autoscaler deployment to point to the newly tagged Auto Scaling group. For more information, see [Cluster Autoscaler on AWS](https://github.com/kubernetes/autoscaler/tree/cluster-autoscaler-release-1.3/cluster-autoscaler/cloudprovider/aws).
 
-   ```
+   ```bash
    kubectl scale deployments/cluster-autoscaler --replicas=1 -n kube-system
    ```
 
@@ -281,6 +280,6 @@ You must also tag your new Auto Scaling group appropriately (for example, `k8s.i
 
 1. If your cluster is using `kube-dns` for DNS resolution (see [[migrate-determine-dns-step]](#migrate-determine-dns-step)), scale in the `kube-dns` deployment to one replica.
 
-   ```
+   ```bash
    kubectl scale deployments/kube-dns --replicas=1 -n kube-system
    ```

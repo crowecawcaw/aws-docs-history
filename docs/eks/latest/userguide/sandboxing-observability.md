@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Observability
-<a name="sandboxing-observability"></a>
 
 Running a pod inside a Nitro Sandbox changes what you can observe and how. What you can see depends on the pod’s mode, because the Cedar policy controls which operations the parent instance can perform.
 

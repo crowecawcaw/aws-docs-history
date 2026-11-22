@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Run critical add-ons on dedicated instances
-<a name="critical-workload"></a>
 
 In this topic, you will learn how to deploy a workload with a `CriticalAddonsOnly` toleration so EKS Auto Mode will schedule it onto the `system` node pool.
 
@@ -29,7 +28,7 @@ Review the example yaml below. Note the following configurations:
 +  `nodeSelector` — This associates the workload with the built-in `system` node pool. This node pool must be enabled with the AWS API. For more information, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md).
 +  `tolerations` — This toleration overcomes the `CriticalAddonsOnly` taint on nodes in the `system` node pool.
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Getting started with the Amazon EKS Provisioned Control Plane
-<a name="eks-provisioned-control-plane-getting-started"></a>
 
 This guide walks you through the steps to set up and use EKS Provisioned Control Plane using AWS CLI and AWS Management Console.
 
@@ -16,7 +15,7 @@ Before you begin, ensure you have:
 +  ** AWS CLI** – A command line tool for working with AWS services, including Amazon EKS. For more information, see [Installing](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) in the * AWS Command Line Interface User Guide*. After installing the AWS CLI, we recommend that you also configure it. For more information, see [Quick configuration with aws configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config) in the * AWS Command Line Interface User Guide*. Note that AWS CLI v2 is required to use the **update-kubeconfig** option shown in this page.
 +  **Required IAM permissions** – The IAM security principal that you’re using must have permissions to work with Amazon EKS IAM roles, service linked roles, AWS CloudFormation, a VPC, and related resources. For more information, see [Actions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelastickubernetesservice.html) and [Using service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) in the *IAM User Guide*. You must complete all steps in this guide as the same user. To check the current user, run the following command:
 
-  ```
+  ```bash
   aws sts get-caller-identity
   ```
 
@@ -29,7 +28,7 @@ We recommend that you complete the steps in this topic in a Bash shell. If you a
 ### Create cluster with EKS Provisioned Control Plane Scaling Tier
 <a name="_create_cluster_with_eks_provisioned_control_plane_scaling_tier"></a>
 
-```
+```bash
 aws eks create-cluster --name prod-cluster \
 --role-arn arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI \
 --resources-vpc-config subnetIds=subnet-6782e71e,subnet-e7e761ac,securityGroupIds=sg-6979fe18 \
@@ -38,7 +37,7 @@ aws eks create-cluster --name prod-cluster \
 
 Response:
 
-```
+```json
 {
     "cluster": {
         "name": "my-eks-cluster",
@@ -124,13 +123,13 @@ Response:
 ### View cluster’s Control Plane Scaling Tier
 <a name="_view_clusters_control_plane_scaling_tier"></a>
 
-```
+```bash
 aws eks describe-cluster --name prod-cluster
 ```
 
 Response:
 
-```
+```json
 {
     "cluster": {
         "name": "my-eks-cluster",
@@ -216,14 +215,14 @@ Response:
 ### Update cluster to use EKS Provisioned Control Plane
 <a name="_update_cluster_to_use_eks_provisioned_control_plane"></a>
 
-```
+```bash
 aws eks update-cluster-config --name prod-cluster \
 --control-plane-scaling-config tier=tier-2xl
 ```
 
 Response:
 
-```
+```json
 {
     "update": {
         "id": "7551c64b-1d27-4b1e-9f8e-c45f056eb6fd",
@@ -248,13 +247,13 @@ Response:
 ### View Control Plane Scaling update
 <a name="_view_control_plane_scaling_update"></a>
 
-```
+```bash
 aws eks list-updates --name example
 ```
 
 Response:
 
-```
+```json
 {
     "updateIds": [
         "7551c64b-1d27-4b1e-9f8e-c45f056eb6fd1"
@@ -265,14 +264,14 @@ Response:
 ### Exit Provisioned Control Plane to Standard Control Plane
 <a name="_exit_provisioned_control_plane_to_standard_control_plane"></a>
 
-```
+```bash
 aws eks update-cluster-config --name prod-cluster \
 --control-plane-scaling-config tier=standard
 ```
 
 Response:
 
-```
+```json
 {
     "update": {
         "id": "7551c64b-1d27-4b1e-9f8e-c45f056eb6fd",

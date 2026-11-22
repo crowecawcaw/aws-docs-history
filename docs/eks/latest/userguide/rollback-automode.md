@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Rollback EKS Auto Mode clusters
-<a name="rollback-automode"></a>
 
 When you initiate a version rollback on a cluster running EKS Auto Mode, Amazon EKS automatically manages the rollback of Auto Mode worker nodes before reverting the control plane. This page explains how Auto Mode node rollback works, how to speed it up, and how to cancel it if needed.
 
@@ -47,7 +46,7 @@ The cluster status remains `ACTIVE` during the node rollback phase. Use `ListUpd
 
 To track individual node progress during rollback, check the Kubernetes version of your Auto Mode nodes:
 
-```
+```bash
 kubectl get nodes -l karpenter.sh/nodepool=<nodepool-name> -o wide
 ```
 
@@ -67,7 +66,7 @@ NodePool disruption budgets control how many nodes can be disrupted simultaneous
 
 Example NodePool with a disruption budget that allows 10% of nodes to be replaced at a time:
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -114,13 +113,13 @@ If rollback is taking longer than expected, you can adjust disruption controls w
 
 Edit the NodePool resource to allow more concurrent node replacements:
 
-```
+```bash
 kubectl edit nodepool default
 ```
 
 Change the budget to a higher value:
 
-```
+```yaml
 spec:
   disruption:
     budgets:
@@ -134,7 +133,7 @@ spec:
 
 List nodes with the annotation and remove it:
 
-```
+```bash
 # List nodes with the annotation
 kubectl get nodes -o json | jq '.items[] | select(.metadata.annotations["karpenter.sh/do-not-disrupt"] == "true") | .metadata.name'
 
@@ -147,7 +146,7 @@ kubectl annotate node <node-name> karpenter.sh/do-not-disrupt-
 
 If PDBs are slowing down pod eviction, temporarily adjust them:
 
-```
+```bash
 kubectl edit pdb <pdb-name> -n <namespace>
 ```
 
@@ -163,7 +162,7 @@ For more information about managing disruption controls, see [Preventing pod and
 
 A rollback is in a cancellable state only while nodes are rolling back. You can use CancelUpdate during this phase to stop the operation.
 
-```
+```bash
 aws eks cancel-update \
   --name my-cluster \
   --update-id <update-id> \
@@ -207,7 +206,7 @@ CloudFormation and Terraform do not directly support the CancelUpdate API. If yo
 
 Auto Mode node rollback has a configurable timeout controlled by the `timeoutMinutes` parameter in `rollbackConfig`. The default timeout is 720 minutes (12 hours). You can set a value between 120 minutes (2 hours) and 10080 minutes (7 days). The timeout is a minimum-bound property, meaning it occurs no sooner than the time you specify, but can occur shortly thereafter.
 
-```
+```bash
 aws eks update-cluster-version \
   --name my-cluster \
   --kubernetes-version 1.30 \

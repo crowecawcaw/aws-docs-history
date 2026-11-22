@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Generate CIS compliance reports from Kubernetes nodes using kubectl debug
-<a name="auto-cis"></a>
 
 This topic describes how to generate CIS (Center for Internet Security) compliance reports for Amazon EKS nodes using the `kubectl debug` command. The command allows you to temporarily create a debugging container on a Kubernetes node and run CIS compliance checks using the `apiclient` tool. The `apiclient` tool is part of Bottlerocket OS, the OS used by EKS Auto Mode nodes.
 
@@ -24,7 +23,7 @@ For more information about using debugging profiles with `kubectl`, see [Debuggi
 
 1. Determine the AWS Instance ID of the node you want to run the report on. Use the following command to list the nodes in the cluster. The instance ID is found in the name column, and begins with `i-`:
 
-   ```
+   ```bash
    kubectl get nodes
    ```
 
@@ -35,7 +34,7 @@ For more information about using debugging profiles with `kubectl`, see [Debuggi
 
 1. Run the following command, replacing `<instance-id>` with the instance ID of the node you want to query:
 
-   ```
+   ```bash
    kubectl debug node/<instance-id> -it --profile=sysadmin --image=public.ecr.aws/amazonlinux/amazonlinux:2023 -- bash -c "yum install -q -y util-linux-core; nsenter -t 1 -m apiclient report cis --level 1 --format text"
    ```
 

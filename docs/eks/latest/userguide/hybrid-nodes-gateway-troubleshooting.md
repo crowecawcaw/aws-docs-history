@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS Hybrid Nodes gateway troubleshooting
-<a name="hybrid-nodes-gateway-troubleshooting"></a>
 
 This page provides guidance for diagnosing and resolving common issues with the Amazon EKS Hybrid Nodes gateway. Each section describes a symptom, possible causes, diagnostic steps, and resolutions. For operational details, see [Amazon EKS Hybrid Nodes gateway operations](hybrid-nodes-gateway-operations.md).
 
@@ -24,7 +23,7 @@ Pods running on hybrid nodes are not reachable from resources in the VPC, such a
 
 1.  **Check VPC route table entries.** Verify that routes for your hybrid pod CIDRs exist and point to the active gateway instance’s primary ENI:
 
-   ```
+   ```bash
    aws ec2 describe-route-tables \
      --route-table-ids {{ROUTE_TABLE_ID}} \
      --query "RouteTables[].Routes[?DestinationCidrBlock=='POD_CIDR']"
@@ -34,7 +33,7 @@ Pods running on hybrid nodes are not reachable from resources in the VPC, such a
 
 1.  **Check gateway pod status and leader election.** Confirm that two gateway pods are running and one holds the leader lease:
 
-   ```
+   ```bash
    kubectl get pods -n eks-hybrid-nodes-gateway
    kubectl get lease -n eks-hybrid-nodes-gateway
    ```
@@ -43,7 +42,7 @@ Pods running on hybrid nodes are not reachable from resources in the VPC, such a
 
 1.  **Check Cilium VTEP configuration on hybrid nodes.** Verify that the `CiliumVTEPConfig` resource exists and contains the leader’s node IP:
 
-   ```
+   ```bash
    kubectl get ciliumvtepconfig hybrid-gateway -o yaml
    ```
 
@@ -51,7 +50,7 @@ Pods running on hybrid nodes are not reachable from resources in the VPC, such a
 
 1.  **Check source/destination check.** Verify that source/destination check is disabled on the gateway EC2 instances:
 
-   ```
+   ```bash
    aws ec2 describe-instance-attribute \
      --instance-id {{GATEWAY_INSTANCE_ID}} \
      --attribute sourceDestCheck
@@ -74,7 +73,7 @@ The Kubernetes API server cannot reach webhook endpoints running on hybrid nodes
 
 1.  **Check the CiliumVTEPConfig resource.** Verify the resource exists and the `tunnelEndpoint` matches the current leader’s node IP:
 
-   ```
+   ```bash
    kubectl get ciliumvtepconfig hybrid-gateway -o yaml
    ```
 
@@ -102,19 +101,19 @@ The gateway logs show errors related to VPC route table operations, and routes f
 
 1.  **Check route table IDs in the configuration.** Verify that the `ROUTE_TABLE_IDS` environment variable contains valid route table IDs in the gateway deployment:
 
-   ```
+   ```bash
    kubectl get deployment eks-hybrid-nodes-gateway -n eks-hybrid-nodes-gateway -o jsonpath='{.spec.template.spec.containers[0].env}' | jq .
    ```
 
    Confirm the route table IDs exist in your VPC:
 
-   ```
+   ```bash
    aws ec2 describe-route-tables --route-table-ids {{ROUTE_TABLE_ID}}
    ```
 
 1.  **Check gateway logs for route table errors.** Look for error messages related to route table operations:
 
-   ```
+   ```bash
    kubectl logs -n eks-hybrid-nodes-gateway {{LEADER_POD}} | grep -i "route table"
    ```
 
@@ -137,13 +136,13 @@ Gateway pods are in `CrashLoopBackOff`, `Error`, or `Pending` state, or the heal
 
 1.  **Check pod logs.** View the logs for the failing pod to identify the error:
 
-   ```
+   ```bash
    kubectl logs -n eks-hybrid-nodes-gateway {{LEADER_POD}}
    ```
 
 1.  **Check required environment variables.** The gateway requires `NODE_IP`, `VPC_CIDR`, and `POD_CIDRS`. If any are missing, the gateway exits immediately. Verify the pod spec:
 
-   ```
+   ```bash
    kubectl get pod -n eks-hybrid-nodes-gateway {{LEADER_POD}} -o jsonpath='{.spec.containers[0].env}' | jq .
    ```
    +  `NODE_IP` is set automatically from `status.hostIP` in the pod spec. If it is empty, the pod may not be scheduled on a node yet.
@@ -151,7 +150,7 @@ Gateway pods are in `CrashLoopBackOff`, `Error`, or `Pending` state, or the heal
 
 1.  **Check IP forwarding.** The gateway checks that IP forwarding is enabled at startup and exits if it is not. Look for the error message `IP forwarding is not enabled` in the pod logs. Enable IP forwarding on the node:
 
-   ```
+   ```bash
    # Check current setting
    cat /proc/sys/net/ipv4/ip_forward
    
@@ -163,7 +162,7 @@ Gateway pods are in `CrashLoopBackOff`, `Error`, or `Pending` state, or the heal
 
 1.  **Check node label and scheduling constraints.** The gateway pods require nodes with the `hybrid-gateway-node=true` label. Pod anti-affinity ensures each pod runs on a separate node. If pods are `Pending`, check for scheduling issues:
 
-   ```
+   ```bash
    kubectl describe pod -n eks-hybrid-nodes-gateway {{LEADER_POD}}
    ```
 
@@ -183,7 +182,7 @@ The gateway pods are running but no pod acquires the leader lease, or leadership
 
 1.  **Check the Lease object.** Verify the Lease exists and inspect its current holder:
 
-   ```
+   ```bash
    kubectl get lease -n eks-hybrid-nodes-gateway hybrid-gateway-leader -o yaml
    ```
 
@@ -191,7 +190,7 @@ The gateway pods are running but no pod acquires the leader lease, or leadership
 
 1.  **Check RBAC permissions.** The gateway service account needs permissions to get, create, and update Lease objects in the gateway namespace. Verify the Role and RoleBinding:
 
-   ```
+   ```bash
    kubectl get role -n eks-hybrid-nodes-gateway
    kubectl get rolebinding -n eks-hybrid-nodes-gateway
    ```
@@ -200,7 +199,7 @@ The gateway pods are running but no pod acquires the leader lease, or leadership
 
 1.  **Check pod logs for lease errors.** Look for leader election errors in the pod logs:
 
-   ```
+   ```bash
    kubectl logs -n eks-hybrid-nodes-gateway {{LEADER_POD}} | grep -i "leader\|lease"
    ```
 
@@ -210,7 +209,7 @@ The gateway pods are running but no pod acquires the leader lease, or leadership
 
 1.  **Check leader election parameters.** Verify the configured values:
 
-   ```
+   ```bash
    kubectl get deployment eks-hybrid-nodes-gateway -n eks-hybrid-nodes-gateway -o jsonpath='{.spec.template.spec.containers[0].args}'
    ```
 

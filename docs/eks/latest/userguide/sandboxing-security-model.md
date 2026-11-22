@@ -5,14 +5,13 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Security model and parent instance trust assumptions
-<a name="sandboxing-security-model"></a>
 
 Isolated and confidential pods run your workload inside a Nitro Sandbox, which provides hardware-enforced isolation from the parent instance. However, the parent instance still controls resources that the sandbox depends on: CPU, memory, network, and storage. This page describes what the parent instance can and cannot do, and what assumptions your workload code should make.
 
 ## Trust boundary and supported inputs
 <a name="sandboxing-trust-boundary"></a>
 
-Isolated and confidential pods treat the Nitro Sandbox as the security boundary. The feature is designed to run untrusted container images. The binaries, libraries, and scripts that execute inside the container can come from an untrusted source, and the sandbox contains them so a compromised workload cannot reach the parent instance or other pods. It is not designed to run untrusted pod specs.
+Isolated and confidential pods treat the Nitro Sandbox as the security boundary. The feature is designed to run untrusted container images. The binaries, libraries, and scripts that execute inside the container can come from an untrusted source, and the sandbox contains them so a compromised workload cannot reach the parent instance or other pods. It is not designed to run untrusted pod specs. `hostPath` volumes resolve against the sandbox’s own filesystem, not the parent instance’s filesystem, so a pod cannot use them to read or write files on the parent instance.
 
 The pod spec and the Cedar policy generated from it are trusted inputs. This includes the container image references, command and args, environment variables, volumes and mounts, `securityContext`, and resource requests and limits.
 
@@ -22,7 +21,7 @@ Restrict who can create or modify pods that use the `isolated-sandbox` or `confi
 ## The guest workload is outside the confidentiality boundary
 <a name="sandboxing-workload-boundary"></a>
 
-Confidential mode protects the workload’s data from the parent instance. It does not protect that data from the workload itself. A workload running inside a confidential sandbox can defeat its own confidentiality guarantees in ways the runtime cannot prevent. For example:
+Confidential mode protects the workload’s data from the parent instance. It does not protect that data from the workload itself. A workload running inside a confidential sandbox can defeat its own confidentiality protections in ways the runtime cannot prevent. For example:
 + Writing secrets to stdout or stderr when `ReadLogs` is permitted, or to any file the parent instance can otherwise read.
 + Writing plaintext secrets to an Amazon EFS volume. The parent instance can mount the same filesystem directly with its own IAM identity.
 + Writing plaintext to an Amazon EBS volume mounted through the EBS CSI driver. EBS volumes are attached as raw virtio-blk devices and the parent instance can read their contents directly.
@@ -35,17 +34,17 @@ When you use confidential mode to protect sensitive data, you are responsible fo
 ## Why external attestation verification is required
 <a name="sandboxing-external-attestation"></a>
 
-The Cedar policy is authored by the cluster operator and delivered to the sandbox as a pod annotation. The Nitro Sandbox measures the policy into PCR17, but measurement alone is passive: no component inside the sandbox or on the parent instance verifies the measurement against an expected value. The trust loop is closed only when an external service checks the attestation document before releasing secrets. AWS KMS serves this role.
+The Cedar policy is authored by the cluster administrator and delivered to the sandbox as a pod annotation. The Nitro Sandbox measures the policy into PCR17, but measurement alone is passive: no component inside the sandbox or on the parent instance verifies the measurement against an expected value. The trust loop is closed only when an external service checks the attestation document before releasing secrets. AWS KMS serves this role.
 
 When you configure a KMS key policy with `kms:RecipientAttestation:PCR<PCR_ID>` conditions on PCR values, KMS validates the attestation document attached to each Decrypt request and releases the data key only if the measurements match. A modified policy produces a different PCR17 value, so KMS refuses to decrypt. For more information, see [AWS KMS condition keys for AWS Nitro Enclaves](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-nitro-enclave.html).
 
 **Configure attestation conditions**  
-Always configure `kms:RecipientAttestation:PCR<PCR_ID>` conditions on any KMS key that protects confidential workload data. This is the mechanism that enforces the integrity of the Cedar policy and system image against modification. Attestation without a verifier is a measurement without enforcement.
+Always configure `kms:RecipientAttestation:PCR17` (policy hash) and `kms:RecipientAttestation:PCR8:ServiceName` (system image signer) conditions on any KMS key that protects confidential workload data. This is the mechanism that enforces the integrity of the Cedar policy and system image against modification. Attestation without a verifier is a measurement without enforcement. For more information, see [Run a pod in confidential mode](sandboxing-confidential-setup.md).
 
 ## What the parent instance cannot do
 <a name="sandboxing-parent-cannot"></a>
 
-The AWS Nitro hypervisor and the Nitro Sandbox runtime together enforce the following guarantees:
+The AWS Nitro hypervisor and the Nitro Sandbox runtime together enforce the following:
 + The parent instance cannot read or write guest memory.
 + The parent instance cannot access CPU register state inside the sandbox.
 + The parent instance cannot forge attestation documents or NSM measurements.
@@ -82,8 +81,9 @@ When writing code that runs inside a Nitro Sandbox in confidential mode:
 +  **Use encrypted container images for confidential content.** Container image layers are visible to the parent instance unless encrypted.
 +  **Use AWS KMS key ARNs, not aliases.** The sandbox derives the KMS endpoint from the ARN itself, ignoring any region metadata from the parent instance. Key aliases do not contain region information.
 +  **Gate KMS access on attestation.** Use `kms:RecipientAttestation:PCR<PCR_ID>` conditions to ensure secrets are only released to workloads with the expected PCR values. Include at minimum PCR8:ServiceName (system image signing certificate) and PCR17 (policy hash).
++  **Treat the parent instance ID as visible in attestation documents.** The NSM attestation document includes a module ID in the format `i-<instance-id>-enc<enclave-id>`, so anyone who receives an attestation document can tell which EC2 instance ran the sandbox. Do not treat instance placement as confidential if you share attestation documents with third parties.
 +  **Restrict logs and exec in the policy.** Log streaming and exec relay data from the sandbox to the parent instance. If your workload processes confidential data that could appear in stdout/stderr, deny logs as well.
 +  **Do not rely on CSI-mounted secrets for confidentiality.** Secrets delivered by the Secrets Store CSI Driver are visible to the parent instance. Store secrets encrypted and decrypt inside your application code using a KMS key gated by attestation.
 +  **Treat Pod Identity credentials as visible to the parent instance.** Follow least privilege on the pod identity role.
-+  **Encrypt confidential data before writing to shared NFS storage.** EFS volumes are visible to anyone with IAM access to the filesystem. The mount uses the EFS CSI Node DaemonSet’s IAM identity, not the workload pod’s, so all pods on a node share one IAM principal. The generated policy permits any filesystem ID at a mount path. In confidential mode, write a custom permit that pins `context.file_system_id` so the parent instance cannot redirect the mount to a filesystem it controls.
++  **Encrypt confidential data before writing to shared NFS storage.** EFS volumes are visible to anyone with IAM access to the filesystem. The mount uses the EFS CSI Node DaemonSet’s IAM identity, not the workload pod’s, so all pods on a node share one IAM principal. The generated policy permits any filesystem ID at a mount path. In confidential mode, write a custom permit that pins `context.file_system_id` so the parent instance cannot redirect the mount to a filesystem it controls. Do not rely on EFS access points to isolate pods on the same node from each other. For mounts with the `iam` option, the runtime signs the mount credential for the filesystem ID only, using the EFS CSI Node DaemonSet’s IAM identity that every pod on the node shares, so nothing outside the sandbox checks which access point the sandbox mounts. Mounts without the `iam` option use no credentials. A compromised pod that knows the ID of another access point on the same filesystem can mount it. To isolate pods that do not trust each other, give each its own filesystem, mount it with the `iam` option, and use a file system policy that requires IAM authorization. The runtime signs credentials for a pod only for the filesystems in that pod’s own volumes.
 +  **Assume the parent instance can deny service at any time.** Design for unexpected termination. Use idempotent operations.

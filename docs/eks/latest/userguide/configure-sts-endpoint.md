@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure the AWS Security Token Service endpoint for a service account
-<a name="configure-sts-endpoint"></a>
 
 If you’re using a Kubernetes service account with [IAM roles for service accounts](iam-roles-for-service-accounts.md), then you can configure the type of AWS Security Token Service endpoint that’s used by the service account.
 
@@ -21,13 +20,13 @@ The following examples all use the aws-node Kubernetes service account used by t
 
 1. Select a Pod that uses a service account that you want to change the endpoint for. Determine which AWS Region that the Pod runs in. Replace {{aws-node-6mfgv}} with your Pod name and {{kube-system}} with your Pod’s namespace.
 
-   ```
+   ```bash
    kubectl describe pod aws-node-6mfgv -n kube-system |grep Node:
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    ip-192-168-79-166.us-west-2/192.168.79.166
    ```
 
@@ -35,13 +34,13 @@ The following examples all use the aws-node Kubernetes service account used by t
 
 1. Determine the endpoint type that the Pod’s service account is using.
 
-   ```
+   ```bash
    kubectl describe pod aws-node-6mfgv -n kube-system |grep AWS_STS_REGIONAL_ENDPOINTS
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    AWS_STS_REGIONAL_ENDPOINTS: regional
    ```
 
@@ -50,7 +49,7 @@ The following examples all use the aws-node Kubernetes service account used by t
 1. You can change the endpoint type used by your service account from the default type to a different type with one of the following commands. Replace {{aws-node}} with the name of your service account and {{kube-system}} with the namespace for your service account.
    + If your default or current endpoint type is global and you want to change it to regional:
 
-     ```
+     ```bash
      kubectl annotate serviceaccount -n kube-system aws-node eks.amazonaws.com/sts-regional-endpoints=true
      ```
 
@@ -61,7 +60,7 @@ The following examples all use the aws-node Kubernetes service account used by t
      ```
    + If your default or current endpoint type is regional and you want to change it to global:
 
-     ```
+     ```bash
      kubectl annotate serviceaccount -n kube-system aws-node eks.amazonaws.com/sts-regional-endpoints=false
      ```
 
@@ -77,24 +76,24 @@ The following examples all use the aws-node Kubernetes service account used by t
 
 1. Delete and re-create any existing Pods that are associated with the service account to apply the credential environment variables. The mutating web hook doesn’t apply them to Pods that are already running. You can replace {{Pods}}, {{kube-system}}, and {{-l k8s-app=aws-node}} with the information for the Pods that you set your annotation for.
 
-   ```
+   ```bash
    kubectl delete Pods -n kube-system -l k8s-app=aws-node
    ```
 
 1. Confirm that all Pods restarted.
 
-   ```
+   ```bash
    kubectl get Pods -n kube-system -l k8s-app=aws-node
    ```
 
 1. View the environment variables for one of the Pods. Verify that the `AWS_STS_REGIONAL_ENDPOINTS` value is what you set it to in a previous step.
 
-   ```
+   ```bash
    kubectl describe pod aws-node-kzbtr -n kube-system |grep AWS_STS_REGIONAL_ENDPOINTS
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    AWS_STS_REGIONAL_ENDPOINTS=regional
    ```

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Fetch signing keys to validate OIDC tokens
-<a name="irsa-fetch-keys"></a>
 
 Kubernetes issues a `ProjectedServiceAccountToken` to each Kubernetes Service Account. This token is an OIDC token, which is further a type of JSON web token (JWT). Amazon EKS hosts a public OIDC endpoint for each cluster that contains the signing keys for the token so external systems can validate it.
 
@@ -24,7 +23,7 @@ If your validator runs in a VPC without outbound internet access, you can fetch 
 
 1. Retrieve the OIDC URL for your Amazon EKS cluster using the AWS CLI.
 
-   ```
+   ```bash
    $ aws eks describe-cluster --name my-cluster --query 'cluster.identity.oidc.issuer'
    "https://oidc.eks.us-west-2.amazonaws.com/id/8EBDXXXX00BAE"
    ```
@@ -35,7 +34,7 @@ Amazon EKS throttles calls to the OIDC endpoint. You should cache the public sig
 **Important**  
 Amazon EKS rotates the OIDC signing key every seven days.
 
-   ```
+   ```bash
    $ curl https://oidc.eks.us-west-2.amazonaws.com/id/8EBDXXXX00BAE/keys
    {"keys":[{"kty":"RSA","kid":"2284XXXX4a40","use":"sig","alg":"RS256","n":"wklbXXXXMVfQ","e":"AQAB"}]}
    ```

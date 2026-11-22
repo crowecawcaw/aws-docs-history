@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Cost optimization in EKS Auto Mode
-<a name="auto-cost-control"></a>
 
 EKS Auto Mode continuously optimizes your cluster’s compute costs through consolidation, bin-packing, and right-sizing. However, certain workload configurations can prevent these optimizations. This topic explains how cost optimization works, what can block it, and how to configure your cluster to maintain cost efficiency.
 
@@ -53,7 +52,7 @@ Consolidation is blocked when EKS Auto Mode determines that disrupting a node wo
 
 The `karpenter.sh/do-not-disrupt` annotation instructs EKS Auto Mode to preserve a node as long as the annotated pod is running on it. This prevents the node from being consolidated, replaced, or terminated, even if the node is underutilized.
 
-```
+```yaml
 metadata:
   annotations:
     karpenter.sh/do-not-disrupt: "true"
@@ -83,7 +82,7 @@ NodePool `limits` set a hard ceiling on the total compute resources that a NodeP
 
 Use `limits` as a cost guardrail, particularly for NodePools that serve non-production, test, or bursty workloads where unbounded scaling is not appropriate.
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -119,7 +118,7 @@ By default, EKS Auto Mode selects from a broad range of instance types to maximi
 
 If your workloads do not request GPU or accelerator resources, exclude accelerated instance families from your NodePool. This prevents scenarios where accelerated instances are selected during capacity constraints.
 
-```
+```yaml
 spec:
   template:
     spec:
@@ -145,7 +144,7 @@ In addition to restricting instance families, you can limit the maximum instance
 
 Use the `eks.amazonaws.com/instance-cpu` label to limit maximum instance sizes in your NodePool requirements:
 
-```
+```yaml
 requirements:
   - key: "eks.amazonaws.com/instance-cpu"
     operator: Lte
@@ -177,7 +176,7 @@ CI/CD pipelines, batch jobs, and ephemeral runners create burst-and-idle pattern
 ### Example: CI runner NodePool
 <a name="_example_ci_runner_nodepool"></a>
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:

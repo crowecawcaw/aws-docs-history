@@ -5,19 +5,18 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Fetch control plane raw metrics in Prometheus format
-<a name="view-raw-metrics"></a>
 
 The Kubernetes control plane exposes a number of metrics that are represented in a [Prometheus format](https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md). These metrics are useful for monitoring and analysis. They are exposed internally through metrics endpoints, and can be accessed without fully deploying Prometheus. However, deploying Prometheus more easily allows analyzing metrics over time.
 
 To view the raw metrics output, replace `endpoint` and run the following command.
 
-```
+```bash
 kubectl get --raw endpoint
 ```
 
 This command allows you to pass any endpoint path and returns the raw response. The output lists different metrics line-by-line, with each line including a metric name, tags, and a value.
 
-```
+```bash
 metric_name{tag="value"[,...]} value
 ```
 
@@ -26,13 +25,13 @@ metric_name{tag="value"[,...]} value
 
 The general API server endpoint is exposed on the Amazon EKS control plane. This endpoint is primarily useful when looking at a specific metric.
 
-```
+```bash
 kubectl get --raw /metrics
 ```
 
 An example output is as follows.
 
-```
+```bash
 [...]
 # HELP rest_client_requests_total Number of HTTP requests, partitioned by status code, method, and host.
 # TYPE rest_client_requests_total counter
@@ -66,13 +65,13 @@ If you have a webhook configuration that could block the creation of the new `AP
 
 To retrieve `kube-scheduler` metrics, use the following command.
 
-```
+```bash
 kubectl get --raw "/apis/metrics.eks.amazonaws.com/v1/ksh/container/metrics"
 ```
 
 An example output is as follows.
 
-```
+```bash
 # TYPE scheduler_pending_pods gauge
 scheduler_pending_pods{queue="active"} 0
 scheduler_pending_pods{queue="backoff"} 0
@@ -91,13 +90,13 @@ scheduler_pod_scheduling_attempts_bucket{le="+Inf"} 81
 
 Due to the potentially large amount of data returned, there is an additional `kube-scheduler` metrics endpoint for retrieving `kube_pod_resource_request` and `kube_pod_resource_limit` metrics. To retrieve these metrics, use the following command.
 
-```
+```bash
 kubectl get --raw "/apis/metrics.eks.amazonaws.com/v1/ksh/container/resourcemetrics"
 ```
 
 An example output is as follows.
 
-```
+```bash
 # HELP kube_pod_resource_limit [STABLE] Resources limit for workloads on the cluster, broken down by pod. This shows the resource usage the scheduler and kubelet expect per pod for resources along with the unit for the resource if any.
 # TYPE kube_pod_resource_limit gauge
 kube_pod_resource_limit{namespace="kube-system",node="ip-192-168-87-3.us-west-2.compute.internal",pod="coredns-7bf648ff5d-dj4ss",priority="2000000000",resource="memory",scheduler="default-scheduler",unit="bytes"} 1.7825792e+08
@@ -113,13 +112,13 @@ kube_pod_resource_request{namespace="kube-system",node="ip-192-168-87-3.us-west-
 
 To retrieve `kube-controller-manager` metrics, use the following command.
 
-```
+```bash
 kubectl get --raw "/apis/metrics.eks.amazonaws.com/v1/kcm/container/metrics"
 ```
 
 An example output is as follows.
 
-```
+```bash
 [...]
 workqueue_work_duration_seconds_sum{name="pvprotection"} 0
 workqueue_work_duration_seconds_count{name="pvprotection"} 0
@@ -166,7 +165,7 @@ The following table describes the scheduler and controller manager metrics that 
 
 To deploy a Prometheus scraper to consistently scrape the metrics, use the following configuration:
 
-```
+```yaml
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -255,7 +254,7 @@ spec:
 
 The permission that follows is required for the Pod to access the new metrics endpoint.
 
-```
+```json
 {
   "effect": "allow",
   "apiGroups": [
@@ -272,7 +271,7 @@ The permission that follows is required for the Pod to access the new metrics en
 
 To patch the role being used, you can use the following command.
 
-```
+```bash
 kubectl patch clusterrole <role-name> --type=json -p='[
   {
     "op": "add",
@@ -288,7 +287,7 @@ kubectl patch clusterrole <role-name> --type=json -p='[
 
 Then you can view the Prometheus dashboard by proxying the port of the Prometheus scraper to your local port.
 
-```
+```bash
 kubectl port-forward pods/prom-pod 9090:9090
 ```
 

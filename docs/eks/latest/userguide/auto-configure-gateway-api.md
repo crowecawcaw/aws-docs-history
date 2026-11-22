@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure the Kubernetes Gateway API in EKS Auto Mode
-<a name="auto-configure-gateway-api"></a>
 
 Amazon Elastic Kubernetes Service (Amazon EKS) Auto Mode supports the Kubernetes Gateway API for configuring load balancing. The Gateway API is the next-generation Kubernetes standard for managing traffic routing into and within your cluster. It provides a role-oriented, expressive, and portable model that addresses limitations of the older Ingress API. It natively supports L4 (TCP/UDP/TLS) and L7 (HTTP/gRPC) routing, cross-namespace routing, weighted traffic splitting, and header-based routing.
 
@@ -58,7 +57,7 @@ Gateway API CRDs are cluster-wide, so only one party owns them at a time. Choosi
 
 The following JSON shows the full network configuration payload that enables the Gateway API with AWS-managed CRDs:
 
-```
+```json
 {
     "kubernetesNetworkConfig": {
         "elasticLoadBalancing": {
@@ -130,7 +129,7 @@ Create a `GatewayClass` that references the EKS Auto Mode gateway controller. Th
 
 This example creates a `GatewayClass` named `eks-auto-alb` that uses the ALB controller, in a file named `gatewayclass.yaml`:
 
-```
+```yaml
 apiVersion: gateway.networking.k8s.io/v1
 kind: GatewayClass
 metadata:
@@ -141,7 +140,7 @@ spec:
 
 Apply the configuration to your cluster:
 
-```
+```bash
 kubectl apply -f gatewayclass.yaml
 ```
 
@@ -152,7 +151,7 @@ Create a workload that you want to expose. This can be any Kubernetes resource t
 
 This example uses a simple HTTP service called `service-2048` that listens on port `80`. Create this service and its deployment by applying the following manifest, `2048-deployment-service.yaml`:
 
-```
+```yaml
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -191,7 +190,7 @@ spec:
 
 Apply the configuration to your cluster:
 
-```
+```bash
 kubectl apply -f 2048-deployment-service.yaml
 ```
 
@@ -200,7 +199,7 @@ kubectl apply -f 2048-deployment-service.yaml
 
 Create a `Gateway` that references the `GatewayClass` and defines your listeners, in a file named `gateway.yaml`. This example defines an HTTP listener on port `80`.
 
-```
+```yaml
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
@@ -216,7 +215,7 @@ spec:
 
 Apply the configuration to your cluster:
 
-```
+```bash
 kubectl apply -f gateway.yaml
 ```
 
@@ -225,7 +224,7 @@ kubectl apply -f gateway.yaml
 
 Create an `HTTPRoute` that maps the Gateway’s listener to your workload’s Service, in a file named `httproute.yaml`. This example routes all traffic on the `http` listener to `service-2048` on port `80`.
 
-```
+```yaml
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
@@ -247,7 +246,7 @@ spec:
 
 Apply the configuration to your cluster:
 
-```
+```bash
 kubectl apply -f httproute.yaml
 ```
 
@@ -256,7 +255,7 @@ kubectl apply -f httproute.yaml
 
 It can take a few minutes for the load balancer to become available. Wait for the `Gateway` to be programmed, retrieve the load balancer address, and test it.
 
-```
+```bash
 kubectl wait --for=condition=Programmed gateway/my-gateway
 
 ADDRESS=$(kubectl get gateway my-gateway -o jsonpath='{.status.addresses[0].value}')
@@ -268,7 +267,7 @@ curl http://$ADDRESS
 
 To clean up the resources created in this topic, use the following commands:
 
-```
+```bash
 kubectl delete -f httproute.yaml
 kubectl delete -f gateway.yaml
 kubectl delete -f gatewayclass.yaml

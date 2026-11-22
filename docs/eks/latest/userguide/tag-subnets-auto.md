@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Tag subnets for EKS Auto Mode
-<a name="tag-subnets-auto"></a>
 
 If you use the load balancing capability of EKS Auto Mode, you need to add AWS tags to your VPC subnets.
 
@@ -72,7 +71,7 @@ Before you begin, identify which subnets are public (with Internet Gateway acces
 
 For public subnets:
 
-```
+```bash
 aws ec2 create-tags \
     --resources subnet-ID \
     --tags Key=kubernetes.io/role/elb,Value=1
@@ -80,7 +79,7 @@ aws ec2 create-tags \
 
 For private subnets:
 
-```
+```bash
 aws ec2 create-tags \
     --resources subnet-ID \
     --tags Key=kubernetes.io/role/internal-elb,Value=1

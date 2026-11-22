@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure networking and load balancing
-<a name="auto-configure-networking"></a>
 
 Configure the networking and load balancing behavior of your Amazon Elastic Kubernetes Service (Amazon EKS) Auto Mode clusters. Use the following topics to set up Application and Network Load Balancers, target groups, network policies, security groups for Pods, and subnet tagging.
 

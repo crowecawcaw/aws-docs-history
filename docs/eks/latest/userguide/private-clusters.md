@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy private clusters with limited internet access
-<a name="private-clusters"></a>
 
 This topic describes how to deploy an Amazon EKS cluster that is deployed on the AWS Cloud, but doesn’t have outbound internet access. If you have a local cluster on AWS Outposts, see [Create Amazon Linux nodes on AWS Outposts](eks-outposts-self-managed-nodes.md), instead of this topic.
 
@@ -25,19 +24,19 @@ If you’re not familiar with Amazon EKS networking, see [De-mystifying cluster 
 
   1. Determine the value of your cluster’s endpoint with the following command. Replace {{my-cluster}} with the name of your cluster.
 
-     ```
+     ```bash
      aws eks describe-cluster --name my-cluster --query cluster.endpoint --output text
      ```
 
      An example output is as follows.
 
-     ```
+     ```bash
      https://EXAMPLE108C897D9B2F1B21D5EXAMPLE.sk1.region-code.eks.amazonaws.com
      ```
 
   1. Determine the value of your cluster’s certificate authority with the following command. Replace {{my-cluster}} with the name of your cluster.
 
-     ```
+     ```bash
      aws eks describe-cluster --name my-cluster --query cluster.certificateAuthority --output text
      ```
 
@@ -46,7 +45,7 @@ If you’re not familiar with Amazon EKS networking, see [De-mystifying cluster 
   1. Replace the values of `apiServerEndpoint` and `certificateAuthority` in the NodeConfig object with the values returned in the output from the previous commands. For more information about specifying bootstrap arguments when launching self-managed Amazon Linux 2023 nodes, see [Create self-managed Amazon Linux nodes](launch-workers.md) and [Create self-managed Microsoft Windows nodes](launch-windows-workers.md).
      + For Linux nodes:
 
-       ```
+       ```bash
        ---
        MIME-Version: 1.0
        Content-Type: multipart/mixed; boundary="BOUNDARY"
@@ -70,7 +69,7 @@ If you’re not familiar with Amazon EKS networking, see [De-mystifying cluster 
 **Note**  
 If you’re using custom service CIDR, then you need to specify it using the `-ServiceCIDR` parameter. Otherwise, the DNS resolution for Pods in the cluster will fail.
 
-       ```
+       ```bash
        -APIServerEndpoint cluster-endpoint -Base64ClusterCA certificate-authority
        ```
 

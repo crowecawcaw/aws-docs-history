@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy Prometheus using Helm
-<a name="deploy-prometheus"></a>
 
 As an alternative to using Amazon Managed Service for Prometheus, you can deploy Prometheus into your cluster with Helm. If you already have Helm installed, you can check your version with the `helm version` command. Helm is a package manager for Kubernetes clusters. For more information about Helm and how to install it, see [Deploy applications with Helm on Amazon EKS](helm.md).
 
@@ -13,19 +12,19 @@ After you configure Helm for your Amazon EKS cluster, you can use it to deploy P
 
 1. Create a Prometheus namespace.
 
-   ```
+   ```bash
    kubectl create namespace prometheus
    ```
 
 1. Add the `prometheus-community` chart repository.
 
-   ```
+   ```bash
    helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
    ```
 
 1. Deploy Prometheus.
 
-   ```
+   ```bash
    helm upgrade -i prometheus prometheus-community/prometheus \
        --namespace prometheus \
        --set alertmanager.persistence.storageClass="gp2" \
@@ -38,13 +37,13 @@ If you get the error `Error: failed to download "stable/prometheus" (hint: runni
 
 1. Verify that all of the Pods in the `prometheus` namespace are in the `READY` state.
 
-   ```
+   ```bash
    kubectl get pods -n prometheus
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME                                             READY   STATUS    RESTARTS   AGE
    prometheus-alertmanager-59b4c8c744-r7bgp         1/2     Running   0          48s
    prometheus-kube-state-metrics-7cfd87cf99-jkz2f   1/1     Running   0          48s
@@ -57,7 +56,7 @@ If you get the error `Error: failed to download "stable/prometheus" (hint: runni
 
 1. Use `kubectl` to port forward the Prometheus console to your local machine.
 
-   ```
+   ```bash
    kubectl --namespace=prometheus port-forward deploy/prometheus-server 9090
    ```
 

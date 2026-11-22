@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # How Amazon EKS works with IAM
-<a name="security-iam-service-with-iam"></a>
 
 Before you use IAM to manage access to Amazon EKS, you should understand what IAM features are available to use with Amazon EKS. To get a high-level view of how Amazon EKS and other AWS services work with IAM, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
@@ -33,13 +32,13 @@ Policy actions in Amazon EKS use the following prefix before the action: `eks:`.
 
 To specify multiple actions in a single statement, separate them with commas as follows:
 
-```
+```json
 "Action": ["eks:action1", "eks:action2"]
 ```
 
 You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `Describe`, include the following action:
 
-```
+```json
 "Action": "eks:Describe*"
 ```
 
@@ -68,19 +67,19 @@ For more information about the format of ARNs, see [Amazon resource names (ARNs)
 
 For example, to specify the cluster with the name {{my-cluster}} in your statement, use the following ARN:
 
-```
+```json
 "Resource": "arn:aws:eks:region-code:111122223333:cluster/my-cluster"
 ```
 
 To specify all clusters that belong to a specific account and AWS Region, use the wildcard (\*):
 
-```
+```json
 "Resource": "arn:aws:eks:region-code:111122223333:cluster/*"
 ```
 
 Some Amazon EKS actions, such as those for creating resources, can’t be performed on a specific resource. In those cases, you must use the wildcard (\*).
 
-```
+```json
 "Resource": "*"
 ```
 
@@ -96,6 +95,8 @@ You can set condition keys when associating an OpenID Connect provider to your c
 All Amazon EC2 actions support the `aws:RequestedRegion` and `ec2:Region` condition keys. For more information, see [Example: Restricting Access to a Specific AWS Region](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExamplePolicies_EC2.html#iam-example-region).
 
 For a list of Amazon EKS condition keys, see [Conditions defined by Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelastickubernetesservice.html#amazonelastickubernetesservice-policy-keys) in the *Service Authorization Reference*. To learn which actions and resources you can use a condition key with, see [Actions defined by Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelastickubernetesservice.html#amazonelastickubernetesservice-actions-as-permissions).
+
+IAM evaluates the `eks:namespaces` value in a request as a literal string, even though Amazon EKS treats that same value as a wildcard pattern in your cluster. As a result, a `Deny` for a namespace doesn’t block a wildcard that matches it or a `cluster` access scope. To restrict namespace scope, use an allowlist instead of a denylist, and use `StringLike` so that your policy values match the namespace patterns that you intend to allow. For example policies, see [Restrict namespace scope with IAM policies](access-policies.md#access-policies-restrict-namespaces).
 
 ### Examples
 <a name="security-iam-service-with-iam-id-based-policies-examples"></a>

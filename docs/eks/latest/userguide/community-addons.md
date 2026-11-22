@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Community add-ons
-<a name="community-addons"></a>
 
 You can use AWS APIs to install community add-ons, such as the Kubernetes Metrics Server. You may choose to install community add-ons as Amazon EKS Add-ons to reduce the complexity of maintaining the software on multiple clusters.
 
@@ -29,7 +28,7 @@ You can use the AWS CLI to determine the type of an Amazon EKS Add-on.
 
 Use the following CLI command to retrieve information about an add-on. You can replace `metrics-server` with the name of any add-on.
 
-```
+```bash
 aws eks describe-addon-versions --addon-name metrics-server
 ```
 

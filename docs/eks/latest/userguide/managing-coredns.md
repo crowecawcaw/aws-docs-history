@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Manage CoreDNS for DNS in Amazon EKS clusters
-<a name="managing-coredns"></a>
 
 **Tip**  
 With Amazon EKS Auto Mode, you don’t need to install or upgrade networking add-ons. Auto Mode includes pod networking and load balancing capabilities.  
@@ -21,13 +20,13 @@ The following table lists the latest version of the Amazon EKS add-on type for e
 
 | Kubernetes version | CoreDNS version | 
 | --- | --- | 
-| 1.37 | v1.14.7-eksbuild.22 | 
-| 1.36 | v1.14.7-eksbuild.22 | 
-| 1.35 | v1.14.7-eksbuild.22 | 
-| 1.34 | v1.13.2-eksbuild.62 | 
-| 1.33 | v1.13.2-eksbuild.62 | 
-| 1.32 | v1.11.4-eksbuild.92 | 
-| 1.31 | v1.11.4-eksbuild.92 | 
+| 1.37 | v1.14.7-eksbuild.35 | 
+| 1.36 | v1.14.7-eksbuild.35 | 
+| 1.35 | v1.14.7-eksbuild.35 | 
+| 1.34 | v1.13.2-eksbuild.75 | 
+| 1.33 | v1.13.2-eksbuild.75 | 
+| 1.32 | v1.11.4-eksbuild.104 | 
+| 1.31 | v1.11.4-eksbuild.104 | 
 
 **Important**  
 If you’re self-managing this add-on, the versions in the table might not be the same as the available self-managed versions. For more information about updating the self-managed type of this add-on, see [Update the CoreDNS Amazon EKS self-managed add-on](coredns-add-on-self-managed-update.md).
@@ -43,7 +42,7 @@ If you’re self-managing this add-on, the versions in the table might not be th
   If you use a custom `Corefile`, you must add the `ready` plugin to the config, so that the `/ready` endpoint is active in CoreDNS for the probe to use.
 + In EKS add-on versions `v1.9.3-eksbuild.7` and later and `v1.10.1-eksbuild.4` and later, you can change the `PodDisruptionBudget`. You can edit the add-on and change these settings in the **Optional configuration settings** using the fields in the following example. This example shows the default `PodDisruptionBudget`.
 
-  ```
+  ```json
   {
       "podDisruptionBudget": {
           "enabled": true,
@@ -56,7 +55,7 @@ If you’re self-managing this add-on, the versions in the table might not be th
 
   Note that if you set `enabled` to `false`, the `PodDisruptionBudget` isn’t removed. After you set this field to `false`, you must delete the `PodDisruptionBudget` object. Similarly, if you edit the add-on to use an older version of the add-on (downgrade the add-on) after upgrading to a version with a `PodDisruptionBudget`, the `PodDisruptionBudget` isn’t removed. To delete the `PodDisruptionBudget`, you can run the following command:
 
-  ```
+  ```bash
   kubectl delete poddisruptionbudget coredns -n kube-system
   ```
 + In EKS add-on versions `v1.10.1-eksbuild.5` and later, change the default toleration from `node-role.kubernetes.io/master:NoSchedule` to `node-role.kubernetes.io/control-plane:NoSchedule` to comply with KEP 2067. For more information about KEP 2067, see [KEP-2067: Rename the kubeadm "master" label and taint](https://github.com/kubernetes/enhancements/tree/master/keps/sig-cluster-lifecycle/kubeadm/2067-rename-master-label-taint#renaming-the-node-rolekubernetesiomaster-node-taint) in the *Kubernetes Enhancement Proposals (KEPs)* on GitHub.
@@ -64,7 +63,7 @@ If you’re self-managing this add-on, the versions in the table might not be th
   In EKS add-on versions `v1.8.7-eksbuild.8` and later and `v1.9.3-eksbuild.9` and later, both tolerations are set to be compatible with every Kubernetes version.
 + In EKS add-on versions `v1.9.3-eksbuild.11` and `v1.10.1-eksbuild.7` and later, the CoreDNS Deployment sets a default value for `topologySpreadConstraints`. The default value ensures that the CoreDNS Pods are spread across the Availability Zones if there are nodes in multiple Availability Zones available. You can set a custom value that will be used instead of the default value. The default value follows:
 
-  ```
+  ```yaml
   topologySpreadConstraints:
     - maxSkew: 1
       topologyKey: topology.kubernetes.io/zone

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Connect hybrid nodes with Bottlerocket
-<a name="hybrid-nodes-bottlerocket"></a>
 
 This topic describes how to connect hybrid nodes running Bottlerocket to an Amazon EKS cluster. [Bottlerocket](https://aws.amazon.com/bottlerocket/) is an open source Linux distribution that is sponsored and supported by AWS. Bottlerocket is purpose-built for hosting container workloads. With Bottlerocket, you can improve the availability of containerized deployments and reduce operational costs by automating updates to your container infrastructure. Bottlerocket includes only the essential software to run containers, which improves resource usage, reduces security threats, and lowers management overhead.
 
@@ -33,7 +32,7 @@ The TOML files provided below only represent the minimum required settings for i
 
 If you are using AWS Systems Manager as your credential provider, create a `settings.toml` file with the following content:
 
-```
+```toml
 [settings.kubernetes]
 cluster-name = "<cluster-name>"
 api-server = "<api-server-endpoint>"
@@ -86,7 +85,7 @@ Replace the placeholders with the following values:
 +  `<hostname>`: The hostname of the Bottlerocket instance, which will also be configured as the node name. This can be any unique value of your choice, but must follow the [Kubernetes Object naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names). In addition, the hostname you use cannot be longer than 64 characters. NOTE: When using SSM provider, this hostname and node name will be replaced by the managed instance ID (for example, `mi-*` ID) after the instance has been registered with SSM.
 +  `<base64-encoded-admin-container-userdata>`: The base64-encoded contents of the Bottlerocket admin container configuration. Enabling the admin container allows you to connect to your Bottlerocket instance with SSH for system exploration and debugging. While this is not a required setting, we recommend enabling it for ease of troubleshooting. Refer to the [Bottlerocket admin container documentation](https://github.com/bottlerocket-os/bottlerocket-admin-container#authenticating-with-the-admin-container) for more information on authenticating with the admin container. The admin container takes SSH user and key input in JSON format, for example,
 
-```
+```json
 {
   "user": "<ssh-user>",
   "ssh": {
@@ -98,7 +97,7 @@ Replace the placeholders with the following values:
 ```
 +  `<base64-encoded-bootstrap-container-userdata>`: The base64-encoded contents of the Bottlerocket bootstrap container configuration. Refer to the [Bottlerocket bootstrap container documentation](https://github.com/bottlerocket-os/bottlerocket-bootstrap-container) for more information on its configuration. The bootstrap container is responsible for registering the instance as an AWS SSM Managed Instance and joining it as a Kubernetes node on your Amazon EKS Cluster. The user data passed into the bootstrap container takes the form of a command invocation which accepts as input the SSM hybrid activation code and ID you previously created:
 
-```
+```bash
 eks-hybrid-ssm-setup --activation-id=<activation-id> --activation-code=<activation-code> --region=<region>
 ```
 
@@ -107,7 +106,7 @@ eks-hybrid-ssm-setup --activation-id=<activation-id> --activation-code=<activati
 
 If you are using AWS IAM Roles Anywhere as your credential provider, create a `settings.toml` file with the following content:
 
-```
+```toml
 [settings.kubernetes]
 cluster-name = "<cluster-name>"
 api-server = "<api-server-endpoint>"
@@ -164,7 +163,7 @@ credential_process = aws_signing_helper credential-process --certificate /root/.
 ```
 +  `<base64-encoded-admin-container-userdata>`: The base64-encoded contents of the Bottlerocket admin container configuration. Enabling the admin container allows you to connect to your Bottlerocket instance with SSH for system exploration and debugging. While this is not a required setting, we recommend enabling it for ease of troubleshooting. Refer to the [Bottlerocket admin container documentation](https://github.com/bottlerocket-os/bottlerocket-admin-container#authenticating-with-the-admin-container) for more information on authenticating with the admin container. The admin container takes SSH user and key input in JSON format, for example,
 
-```
+```json
 {
   "user": "<ssh-user>",
   "ssh": {
@@ -176,7 +175,7 @@ credential_process = aws_signing_helper credential-process --certificate /root/.
 ```
 +  `<base64-encoded-bootstrap-container-userdata>`: The base64-encoded contents of the Bottlerocket bootstrap container configuration. Refer to the [Bottlerocket bootstrap container documentation](https://github.com/bottlerocket-os/bottlerocket-bootstrap-container) for more information on its configuration. The bootstrap container is responsible for creating the IAM Roles Anywhere host certificate and certificate private key files on the instance. These will then be consumed by the `aws_signing_helper` to obtain temporary credentials for authenticating with your Amazon EKS cluster. The user data passed into the bootstrap container takes the form of a command invocation which accepts as input the contents of the certificate and private key you previously created:
 
-```
+```bash
 eks-hybrid-iam-ra-setup --certificate=<certificate> --key=<private-key>
 ```
 
@@ -188,7 +187,7 @@ Once you have constructed the TOML file, pass it as user data during vSphere VM 
 ### Creating VM for the first time
 <a name="_creating_vm_for_the_first_time"></a>
 
-```
+```bash
 govc vm.create \
   -on=true \
   -c=2 \
@@ -204,7 +203,7 @@ govc vm.create \
 ### Updating user data for an existing VM
 <a name="_updating_user_data_for_an_existing_vm"></a>
 
-```
+```bash
 govc vm.create \
     -on=false \
     -c=2 \
@@ -229,7 +228,7 @@ In the above sections, the `-e guestinfo.userdata.encoding="base64"` option spec
 
 After the Bottlerocket instance starts, it attempts to join your Amazon EKS cluster. You can verify the connection in the Amazon EKS console by navigating to the **Compute** page for your cluster (in the left navigation pane) or by running the following command:
 
-```
+```bash
 kubectl get nodes
 ```
 

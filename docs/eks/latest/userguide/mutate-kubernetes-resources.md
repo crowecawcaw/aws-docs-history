@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Grant AWS services write access to Kubernetes APIs
-<a name="mutate-kubernetes-resources"></a>
 
 ## Required permissions
 <a name="mutate-kubernetes-resources-permissions"></a>

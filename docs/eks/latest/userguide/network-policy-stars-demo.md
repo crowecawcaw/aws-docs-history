@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Stars demo of network policy for Amazon EKS
-<a name="network-policy-stars-demo"></a>
 
 This demo creates a front-end, back-end, and client service on your Amazon EKS cluster. The demo also creates a management graphical user interface that shows the available ingress and egress paths between each service. We recommend that you complete the demo on a cluster that you don’t run production workloads on.
 
@@ -13,7 +12,7 @@ Before you create any network policies, all services can communicate bidirection
 
 1. Apply the front-end, back-end, client, and management user interface services:
 
-   ```
+   ```bash
    kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/namespace.yaml
    kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/management-ui.yaml
    kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/backend.yaml
@@ -23,7 +22,7 @@ Before you create any network policies, all services can communicate bidirection
 
 1. View all Pods on the cluster.
 
-   ```
+   ```bash
    kubectl get pods -A
    ```
 
@@ -31,7 +30,7 @@ Before you create any network policies, all services can communicate bidirection
 
    In your output, you should see pods in the namespaces shown in the following output. The {{NAMES}} of your pods and the number of pods in the `READY` column are different than those in the following output. Don’t continue until you see pods with similar names and they all have `Running` in the `STATUS` column.
 
-   ```
+   ```bash
    NAMESPACE         NAME                                       READY   STATUS    RESTARTS   AGE
    [...]
    client            client-xlffc                               1/1     Running   0          5m19s
@@ -44,7 +43,7 @@ Before you create any network policies, all services can communicate bidirection
 
 1. To connect to the management user interface, connect to the `EXTERNAL-IP` of the service running on your cluster:
 
-   ```
+   ```bash
    kubectl get service/management-ui -n management-ui
    ```
 
@@ -53,7 +52,7 @@ Before you create any network policies, all services can communicate bidirection
 
 1. Apply the following network policy in both the `stars` and `client` namespaces to isolate the services from each other:
 
-   ```
+   ```yaml
    kind: NetworkPolicy
    apiVersion: networking.k8s.io/v1
    metadata:
@@ -65,7 +64,7 @@ Before you create any network policies, all services can communicate bidirection
 
    You can use the following commands to apply the policy to both namespaces:
 
-   ```
+   ```bash
    kubectl apply -n stars -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/apply_network_policies.files/default-deny.yaml
    kubectl apply -n client -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/apply_network_policies.files/default-deny.yaml
    ```
@@ -74,7 +73,7 @@ Before you create any network policies, all services can communicate bidirection
 
 1. Apply the following different network policies to allow the management user interface to access the services. Apply this policy to allow the UI:
 
-   ```
+   ```yaml
    kind: NetworkPolicy
    apiVersion: networking.k8s.io/v1
    metadata:
@@ -92,7 +91,7 @@ Before you create any network policies, all services can communicate bidirection
 
    Apply this policy to allow the client:
 
-   ```
+   ```yaml
    kind: NetworkPolicy
    apiVersion: networking.k8s.io/v1
    metadata:
@@ -110,7 +109,7 @@ Before you create any network policies, all services can communicate bidirection
 
    You can use the following commands to apply both policies:
 
-   ```
+   ```bash
    kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/apply_network_policies.files/allow-ui.yaml
    kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/apply_network_policies.files/allow-ui-client.yaml
    ```
@@ -120,7 +119,7 @@ Before you create any network policies, all services can communicate bidirection
 
 1. Apply the following network policy to allow traffic from the front-end service to the back-end service:
 
-   ```
+   ```yaml
    kind: NetworkPolicy
    apiVersion: networking.k8s.io/v1
    metadata:
@@ -145,7 +144,7 @@ Before you create any network policies, all services can communicate bidirection
 
 1. Apply the following network policy to allow traffic from the client to the front-end service:
 
-   ```
+   ```yaml
    kind: NetworkPolicy
    apiVersion: networking.k8s.io/v1
    metadata:
@@ -170,7 +169,7 @@ Before you create any network policies, all services can communicate bidirection
 
 1. (Optional) When you are done with the demo, you can delete its resources.
 
-   ```
+   ```bash
    kubectl delete -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/client.yaml
    kubectl delete -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/frontend.yaml
    kubectl delete -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/backend.yaml

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Grant access to view Kubernetes cluster resources on an Amazon EKS console
-<a name="connector-grant-access"></a>
 
 Grant [IAM principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal) access to the Amazon EKS console to view information about Kubernetes resources running on your connected cluster.
 
@@ -20,7 +19,7 @@ The [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.ht
 
 1. Download the `eks-connector` cluster role template.
 
-   ```
+   ```bash
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/eks-connector/manifests/eks-connector-console-roles/eks-connector-clusterrole.yaml
    ```
 
@@ -28,7 +27,7 @@ The [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.ht
 
 1. Apply the Amazon EKS Connector cluster role YAML to your Kubernetes cluster.
 
-   ```
+   ```bash
    kubectl apply -f eks-connector-clusterrole.yaml
    ```
 
@@ -40,13 +39,13 @@ For an IAM principal to view Kubernetes resources in Amazon EKS console, the pri
  **View Kubernetes resources in all namespaces**   
    + The `eks-connector-console-dashboard-full-access-clusterrole` cluster role gives access to all namespaces and resources that can be visualized in the console. You can change the name of the `role`, `clusterrole` and their corresponding binding before applying it to your cluster. Use the following command to download a sample file.
 
-     ```
+     ```bash
      curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/eks-connector/manifests/eks-connector-console-roles/eks-connector-console-dashboard-full-access-group.yaml
      ```  
  **View Kubernetes resources in a specific namespace**   
    + The namespace in this file is `default`, so if you want to specify a different namespace, edit the file before applying it to your cluster. Use the following command to download a sample file.
 
-     ```
+     ```bash
      curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/eks-connector/manifests/eks-connector-console-roles/eks-connector-console-dashboard-restricted-access-group.yaml
      ```
 
@@ -54,7 +53,7 @@ For an IAM principal to view Kubernetes resources in Amazon EKS console, the pri
 
 1. Apply the full access or restricted access YAML files to your Kubernetes cluster. Replace the YAML file value with your own.
 
-   ```
+   ```bash
    kubectl apply -f eks-connector-console-dashboard-full-access-group.yaml
    ```
 

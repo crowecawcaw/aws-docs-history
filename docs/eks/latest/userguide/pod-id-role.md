@@ -5,9 +5,8 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create IAM role with trust policy required by EKS Pod Identity
-<a name="pod-id-role"></a>
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -36,7 +35,7 @@ EKS Pod Identity uses `TagSession` to include *session tags* in the requests to 
 You can use these tags in the *condition keys* in the trust policy to restrict which service accounts, namespaces, and clusters can use this role. For the list of request tags that Pod Identity adds, see [Enable or disable session tags](pod-id-abac.md#pod-id-abac-tags).  
 For example, you can restrict which pods can assume a Pod Identity IAM Role to a specific `ServiceAccount` and `Namespace` with the following Trust Policy with the added `Condition`:
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

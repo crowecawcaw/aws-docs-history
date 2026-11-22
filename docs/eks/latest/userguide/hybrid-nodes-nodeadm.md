@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Hybrid nodes `nodeadm` reference
-<a name="hybrid-nodes-nodeadm"></a>
 
 The Amazon EKS Hybrid Nodes CLI (`nodeadm`) simplifies the installation, configuration, registration, and uninstallation of the hybrid nodes components. You can include `nodeadm` in your operating system images to automate hybrid node bootstrap, see [Prepare operating system for hybrid nodes](hybrid-nodes-os.md) for more information.
 
@@ -19,7 +18,7 @@ You must run `nodeadm` with a user that has root/sudo privileges.
 **Required nodeadm version for SSM credential provider**  
 If you use AWS Systems Manager (SSM) as your credential provider for hybrid nodes, you must use `nodeadm` version `1.0.19` or later for new installations and upgrades. Earlier versions of `nodeadm` contain an outdated SSM signing key and fail during `nodeadm install` and `nodeadm upgrade` with the following signature verification error:  
 
-```
+```bash
 "msg":"Command failed","error":"failed to install ssm installer: validating ssm-setup-cli signature: Signature Verification Error: No matching signature"
 ```
 To resolve this error, download the latest version of `nodeadm` before running `nodeadm install` or `nodeadm upgrade`.
@@ -31,19 +30,19 @@ The hybrid nodes version of `nodeadm` is hosted in Amazon S3 fronted by Amazon C
 
  **For x86\_64 hosts** 
 
-```
+```bash
 curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/amd64/nodeadm'
 ```
 
  **For ARM hosts** 
 
-```
+```bash
 curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/arm64/nodeadm'
 ```
 
 Add executable file permission to the downloaded binary on each host.
 
-```
+```bash
 chmod +x nodeadm
 ```
 
@@ -54,7 +53,7 @@ The `nodeadm install` command is used to install the artifacts and dependencies 
 
  **Usage** 
 
-```
+```bash
 nodeadm install [KUBERNETES_VERSION] [flags]
 ```
 
@@ -77,19 +76,19 @@ nodeadm install [KUBERNETES_VERSION] [flags]
 
 Install Kubernetes version `1.32` with AWS Systems Manager (SSM) as the credential provider
 
-```
+```bash
 nodeadm install 1.32 --credential-provider ssm
 ```
 
 Install Kubernetes version `1.32` with AWS Systems Manager (SSM) as the credential provider, Docker as the containerd source, with a download timeout of 20 minutes.
 
-```
+```bash
 nodeadm install 1.32 --credential-provider ssm --containerd-source docker --timeout 20m
 ```
 
 Install Kubernetes version `1.32` with AWS IAM Roles Anywhere as the credential provider
 
-```
+```bash
 nodeadm install 1.32 --credential-provider iam-ra
 ```
 
@@ -100,7 +99,7 @@ The `nodeadm config check` command checks the provided node configuration for er
 
  **Usage** 
 
-```
+```bash
 nodeadm config check [flags]
 ```
 
@@ -114,7 +113,7 @@ nodeadm config check [flags]
 
  **Examples** 
 
-```
+```bash
 nodeadm config check -c file://nodeConfig.yaml
 ```
 
@@ -125,7 +124,7 @@ The `nodeadm init` command starts and connects the hybrid node with the configur
 
  **Usage** 
 
-```
+```bash
 nodeadm init [flags]
 ```
 
@@ -140,7 +139,7 @@ nodeadm init [flags]
 
  **Examples** 
 
-```
+```bash
 nodeadm init -c file://nodeConfig.yaml
 ```
 
@@ -151,7 +150,7 @@ The `nodeadm upgrade` command upgrades all the installed artifacts to the latest
 
  **Usage** 
 
-```
+```bash
 nodeadm upgrade [KUBERNETES_VERSION] [flags]
 ```
 
@@ -171,11 +170,11 @@ nodeadm upgrade [KUBERNETES_VERSION] [flags]
 
  **Examples** 
 
-```
+```bash
 nodeadm upgrade 1.32 -c file://nodeConfig.yaml
 ```
 
-```
+```bash
 nodeadm upgrade 1.32 -c file://nodeConfig.yaml --timeout 20m
 ```
 
@@ -186,7 +185,7 @@ The `nodeadm uninstall` command stops and removes the artifacts `nodeadm` instal
 
  **Usage** 
 
-```
+```bash
 nodeadm uninstall [flags]
 ```
 
@@ -201,11 +200,11 @@ nodeadm uninstall [flags]
 
  **Examples** 
 
-```
+```bash
 nodeadm uninstall
 ```
 
-```
+```bash
 nodeadm uninstall --skip node-validation,pod-validation
 ```
 
@@ -222,7 +221,7 @@ If errors are found, the command’s output suggests troubleshooting steps. Cert
 
  **Usage** 
 
-```
+```yaml
 nodeadm debug [flags]
 ```
 
@@ -237,7 +236,7 @@ nodeadm debug [flags]
 
  **Examples** 
 
-```
+```yaml
 nodeadm debug -c file://nodeConfig.yaml
 ```
 
@@ -293,7 +292,7 @@ When running `nodeadm init`, the following files and file locations are configur
 
 The following is a sample `nodeConfig.yaml` when using AWS SSM hybrid activations for hybrid nodes credentials.
 
-```
+```yaml
 apiVersion: node.eks.aws/v1alpha1
 kind: NodeConfig
 spec:
@@ -313,7 +312,7 @@ The following is a sample `nodeConfig.yaml` for AWS IAM Roles Anywhere for hybri
 
 When using AWS IAM Roles Anywhere as your on-premises credentials provider, the `nodeName` you use in your `nodeadm` configuration must align with the permissions you scoped for your Hybrid Nodes IAM role. For example, if your permissions for the Hybrid Nodes IAM role only allow AWS IAM Roles Anywhere to assume the role when the role session name is equal to the CN of the host certificate, then the `nodeName` in your `nodeadm` configuration must be the same as the CN of your certificates. The `nodeName` that you use can’t be longer than 64 characters. For more information, see [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md).
 
-```
+```yaml
 apiVersion: node.eks.aws/v1alpha1
 kind: NodeConfig
 spec:
@@ -335,7 +334,7 @@ spec:
 
 You can pass kubelet configuration and flags in your `nodeadm` configuration. See the following example for how to add an additional node label `abc.example.com/test-label` and set the kubelet config `shutdownGracePeriod` to 30 seconds. For more information about kubelet configuration options, see the [Kubelet Configuration (v1beta1) reference](https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/) in the Kubernetes documentation. For more information about kubelet command-line flags, see the [kubelet CLI reference](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) in the Kubernetes documentation.
 
-```
+```yaml
 apiVersion: node.eks.aws/v1alpha1
 kind: NodeConfig
 spec:
@@ -358,7 +357,7 @@ spec:
 
 You can pass custom containerd configuration in your `nodeadm` configuration. The containerd configuration for `nodeadm` accepts in-line TOML. See the example below for how to configure containerd to disable deletion of unpacked image layers in the containerd content store.
 
-```
+```yaml
 apiVersion: node.eks.aws/v1alpha1
 kind: NodeConfig
 spec:
@@ -383,7 +382,7 @@ You can also use the containerd configuration to enable SELinux support. With SE
 **Note**  
 Red Hat Enterprise Linux (RHEL) 8 and RHEL 9 have SELinux enabled by default and set to strict on the host. Amazon Linux 2023 has SELinux enabled by default and set to permissive mode. When SELinux is set to permissive mode on the host, enabling it on containerd will not block requests but will log it according to the SELinux configuration on the host.
 
-```
+```yaml
 apiVersion: node.eks.aws/v1alpha1
 kind: NodeConfig
 spec:

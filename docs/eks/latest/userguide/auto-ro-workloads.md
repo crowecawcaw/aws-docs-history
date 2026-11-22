@@ -1,0 +1,190 @@
+
+
+ **Help improve this page** 
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# How resource optimization works with autoscalers and workload types
+
+EKS Auto Mode resource optimization recommends CPU and memory requests for your workloads based on the usage it observes for each container, and in `Apply` mode resizes Pods to match. If you already run autoscalers, Java services, or Pods with sidecars, use this topic to learn what resource optimization changes for those workloads and what it leaves alone.
+
+This topic covers the following sections.
++  [Supported workloads](#auto-ro-workloads-supported) 
++  [Horizontal Pod Autoscaler and KEDA](#auto-ro-workloads-hpa) 
++  [Vertical Pod Autoscaler](#auto-ro-workloads-vpa) 
++  [Out-of-memory recovery](#auto-ro-workloads-oom) 
++  [Java workloads](#auto-ro-workloads-java) 
++  [How resource settings affect sizing](#auto-ro-workloads-shapes) 
+
+For each workload that a policy selects, resource optimization creates a `ResourceOptimization` object (short name `ro`) in the workload’s namespace. Its name is the workload name followed by `-deploy` for a Deployment or `-sts` for a StatefulSet. The behavior in this topic appears as conditions and status fields on that object.
+
+Run the following `kubectl` command to view the object, replacing {{web-deploy}} with the name of your workload’s `ResourceOptimization` object and {{shop}} with its namespace:
+
+```bash
+kubectl get ro {{web-deploy}} -n {{shop}} -o yaml
+```
+
+## Supported workloads
+<a name="auto-ro-workloads-supported"></a>
+
+Resource optimization manages Deployments and StatefulSets. It doesn’t manage DaemonSets, Jobs, CronJobs, ReplicaSets that you create directly, Pods without a controller, or custom workload controllers.
+
+Resource optimization never manages workloads in the `kube-system`, `kube-public`, or `kube-node-lease` namespaces, even when a policy selects them.
+
+If a workload’s Pod template sets the `isolated-sandbox` or `confidential-sandbox` RuntimeClass, resource optimization recommends for it. It never changes those Pods. A sandboxed Pod’s CPU and memory are fixed when it starts, so it can’t be resized in place. For these workloads, resource optimization doesn’t do any of the following:
++ Resize running Pods
++ Size new Pods
++ Raise memory after an out-of-memory kill
++ Hand back startup CPU
+
+The `ResourceOptimization` shows the `InPlaceResizeUnsupported` condition as `True` with the reason `SandboxRuntime`. For more information, see [How resource optimization applies changes to Pods](auto-ro-resize.md).
+
+To exclude a single workload, add the `optimization.eks.amazonaws.com/enabled: "false"` annotation to the Deployment or StatefulSet, not to its Pod template. When you opt out a workload, resource optimization deletes its `ResourceOptimization` object. It stops making recommendations and cancels any resize that the kubelet hasn’t applied yet. Resizes that the kubelet already applied stay in place, and new Pods start at the size in the Pod template. For the procedure, see [Opt out a single workload](auto-ro-enable.md#auto-ro-enable-opt-out).
+
+## Horizontal Pod Autoscaler and KEDA
+<a name="auto-ro-workloads-hpa"></a>
+
+Resource optimization doesn’t change the CPU or memory that a Horizontal Pod Autoscaler (HPA) scales on. If resource optimization lowered a request that an HPA measures utilization against, the HPA would read higher utilization and add replicas. The two would then work against each other.
+
+Resource optimization stops managing a resource only when an HPA has a `Resource` or `ContainerResource` metric for `cpu` or `memory` with a target of type `Utilization`. It keeps managing the workload’s other resources. The following table shows what resource optimization does for each type of HPA metric.
+
+
+| HPA metric | What resource optimization does | 
+| --- | --- | 
+|  `Resource` metric on `cpu` with a `Utilization` target | Leaves CPU alone for every container in the Pod. Keeps sizing memory. | 
+|  `Resource` metric on `memory` with a `Utilization` target | Leaves memory alone for every container in the Pod, including out-of-memory recovery. Keeps sizing CPU. | 
+|  `ContainerResource` metric with a `Utilization` target | Leaves that resource alone for the named container only. | 
+|  `Resource` or `ContainerResource` metric with an `AverageValue` target | Keeps sizing the resource, but keeps the container’s limit above the HPA target so that the Pods can still reach it and the HPA can scale out. | 
+|  `External`, `Object`, or `Pods` metric, such as queue depth or requests per second | Keeps sizing both CPU and memory. | 
+
+KEDA scales workloads through an HPA that it creates for each `ScaledObject`, so the same rules apply to KEDA. A `ScaledObject` that scales on an external event source, such as queue length or consumer lag, leaves CPU and memory to resource optimization. A KEDA `cpu` or `memory` trigger with the `Utilization` metric type doesn’t.
+
+When an HPA owns a resource, the `ResourceOptimization` shows the `HPAResourceConflict` condition as `True`, and `status.resourceOwnership` lists each resource, container, and HPA. The reason is `PartialOwnership` when resource optimization still manages some of the workload’s resources, and `NoEligibleObjectives` when the HPA owns all of them. The `Ready` condition stays `True`. Resource optimization still shows recommendations for the HPA-owned resource so that you can review them, but it never applies them.
+
+Run the following `kubectl` command to view which resources an HPA owns, replacing {{web-deploy}} and {{shop}} with your values:
+
+```bash
+kubectl get ro {{web-deploy}} -n {{shop}} -o jsonpath='{.status.conditions[?(@.type=="HPAResourceConflict")].message}'
+```
+
+An example output is as follows.
+
+```bash
+cpu (all containers) is scaled by HorizontalPodAutoscaler/web
+```
+
+When you delete the HPA or change it to scale on something else, resource optimization waits for a short stabilization period before it manages the resource again. If KEDA deletes and recreates its HPA, the wait prevents a resize in between.
+
+If resource optimization can’t read the HPAs for a workload, it doesn’t change that workload until it can.
+
+## Vertical Pod Autoscaler
+<a name="auto-ro-workloads-vpa"></a>
+
+Resource optimization detects Vertical Pod Autoscaler (VPA) objects automatically. You don’t need to exclude VPA-managed workloads yourself. How resource optimization responds depends on the VPA’s update mode:
++  ** `Off` **: The VPA only makes recommendations, so resource optimization manages the workload as usual.
++  ** `Initial` **: Resource optimization doesn’t apply usage-based resizes or startup boost to the workload. The `ResourceOptimization` shows the `Ready` condition as `False` with the reason `VPAConflict`. Because this VPA mode doesn’t change running Pods, resource optimization still raises memory after an out-of-memory kill.
++  **Any other mode**: Resource optimization doesn’t apply usage-based resizes or startup boost, and shows `VPAConflict` as for `Initial`. It also leaves out-of-memory kills to the VPA for the containers whose memory the VPA controls.
+
+To stop resource optimization from tracking a VPA-managed workload at all, add the `optimization.eks.amazonaws.com/enabled: "false"` annotation to the workload, or leave the workload out of your policy’s selectors. For more information, see [How resource optimization policies select and combine](auto-ro-policies.md).
+
+## Out-of-memory recovery
+<a name="auto-ro-workloads-oom"></a>
+
+When Kubernetes kills a container because it ran out of memory, the container status shows the reason `OOMKilled`, and resource optimization raises that container’s memory. In `Apply` mode, resource optimization applies the raise to the running Pods. In `Recommend` mode, it only records the raise as a recommendation.
++  **Size of the raise**: The first kill raises the memory request by 20%. A second kill within 24 hours raises it by 50%, and each further kill within 24 hours doubles it. Resource optimization counts each kill once.
++  **Limits**: When the container has a memory limit, resource optimization raises the limit by the same ratio, so the container keeps its request-to-limit ratio and its quality of service class. Resource optimization doesn’t add a limit to a container that doesn’t have one.
++  **Caps**: A raise never goes above the `Maximum` that the `Balanced` profile sets, which is twice the largest memory limit in the Pod template. It also never goes above what the largest node in your NodePools can fit. If any container in the Pod has a memory request but no limit, there’s no `Maximum`, and only the node cap applies. When memory reaches either cap, the `ResourceOptimization` shows the `OOMAtMaximum` condition with the reason `MemoryCapReached`. If a workload keeps running out of memory at the `Maximum`, raise its memory limit in the Pod template or reduce its memory use. If it’s at the node cap, allow larger instance types in a NodePool that the Pod can use, or raise that NodePool’s limits.
++  **Node memory pressure**: Sometimes the kernel kills a container that is below its own limit because the node ran low on memory. If that’s the only kill in 24 hours, resource optimization doesn’t raise the memory.
++  **Your guardrails**: If one of your own guardrails rejects the raise, the `ResourceOptimization` shows the `OOMRaiseRejected` condition with the reason `RejectedByPolicy`. A guardrail can be a `ResourceQuota`, a `LimitRange`, an admission webhook, or a `ValidatingAdmissionPolicy`. Rejections from webhooks and policies with names that end in `.amazonaws.com` or `.k8s.aws`, or that start with `eks-` or `vpc-resource-`, don’t set this condition. EKS and AWS use these names for the webhooks and policies that they install, so don’t use them for your own.
+
+Resource optimization needs a memory request or limit on the container to raise it. It doesn’t raise memory that an HPA scales on, or for Pods in a sandbox RuntimeClass. For how raises reach running Pods, see [How resource optimization applies changes to Pods](auto-ro-resize.md).
+
+### Memory decreases
+<a name="auto-ro-workloads-memory-decrease"></a>
+
+You can’t lower a container’s memory limit below the memory that the container is using. The kubelet refuses the resize. A recommendation applies to every Pod of a workload. A busy Pod can use more memory than the new limit. To avoid a resize that the kubelet would refuse, resource optimization doesn’t lower a Pod’s memory if the new limit would be less than 10% above that Pod’s recent peak usage. It still applies the CPU change, and it tries the memory decrease again on a later check. If the kubelet refuses a decrease anyway, resource optimization restores the memory that the Pod is running with.
+
+When any Pod keeps its memory this way, the `ResourceOptimization` shows the `MemoryDecreaseHeld` condition as `True`, with the reason `MemoryInUse` or `MemoryDecreaseRefused`. A held Pod can run above the recommendation until its usage drops or it’s replaced.
+
+## Java workloads
+<a name="auto-ro-workloads-java"></a>
+
+A Java application reserves heap memory that its measured usage might not show. If resource optimization sized memory from usage alone, the JVM could fail after resource optimization lowered its memory. To prevent this, resource optimization keeps each Java container’s memory request at or above a floor based on the maximum heap. The floor is the larger of 1.25 times the maximum heap, or the maximum heap plus 256 MiB. The extra memory covers metaspace, code cache, and thread stacks. The floor applies to recommendations and to out-of-memory raises.
+
+Resource optimization reads the maximum heap from the container’s spec, in the following order:
+
+1. The `JAVA_TOOL_OPTIONS` and `JDK_JAVA_OPTIONS` environment variables
+
+1. The options of a `java` command in the container’s `command` and `args` 
+
+1. The `_JAVA_OPTIONS` environment variable
+
+The last `-Xmx` or `-XX:MaxHeapSize` setting wins, and it takes precedence over `-XX:MaxRAMPercentage`.
+
+The following example Deployment manifest sets a 1 GiB maximum heap, so resource optimization never sets the memory request below 1.25 GiB. Replace {{public.ecr.aws/amazoncorretto/amazoncorretto:21}} with your application’s image, and {{/app/orders.jar}} with the path to your application’s JAR file:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders
+  namespace: shop
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: orders
+  template:
+    metadata:
+      labels:
+        app: orders
+    spec:
+      containers:
+      - name: orders
+        image: {{public.ecr.aws/amazoncorretto/amazoncorretto:21}}
+        command:
+        - java
+        - -Xmx1g
+        - -jar
+        - {{/app/orders.jar}}
+        resources:
+          requests:
+            cpu: "1"
+            memory: 2Gi
+          limits:
+            memory: 2Gi
+```
+
+In this preview, heap floors have the following limits:
++  **Java only**: Resource optimization doesn’t detect heap settings for other runtimes, such as Node.js, Go, or .NET.
++  **Literal values only**: Resource optimization reads only the values that are written in the Pod template. It can’t see a heap set in any of the following ways:
+  + A ConfigMap or Secret (`valueFrom` or `envFrom`)
+  + A `$(VAR)` reference
+  + An `@argfile` or a `-XX:VMOptionsFile` 
+  + A `java` command that a shell script starts
+
+    In those cases, resource optimization falls back to any `-Xmx` that it can see in the container’s environment variables, command, or arguments. This includes `JAVA_OPTS`, which the JVM doesn’t read but many startup scripts pass to `java`. If it finds none, it sizes the container from usage only, and the `ResourceOptimization` shows the `HeapUndetected` condition with the reason `NoUnambiguousMaximumHeap`. To get a floor, set `-Xmx` directly in the container’s environment variables or arguments.
++  **Memory limit for percentage heaps**: `-XX:MaxRAMPercentage` sets the heap as a share of the container’s memory limit. Without a limit, resource optimization can’t know the heap size and applies no floor. With a limit, resource optimization keeps the limit unchanged so that the heap size stays the same.
++  **Floors above a bound**: If the floor is above the `Maximum` (twice the largest memory limit in the Pod template), the container’s memory limit, or what the largest node can fit, the `ResourceOptimization` shows the `HeapFloorInfeasible` condition. The reason names the bound: `MaximumBelowFloor`, `MemoryLimitBelowFloor`, `NodeCapacityBelowFloor`, or `MemoryLimitAboveMaximum`. To fix it, lower the heap or raise the bound.
+
+## How resource settings affect sizing
+<a name="auto-ro-workloads-shapes"></a>
+
+How you set requests and limits in your Pod template changes what resource optimization can do. The following table shows how resource optimization handles each combination of request and limit settings for a resource.
+
+
+| Container settings | What resource optimization does | 
+| --- | --- | 
+| Request and limit | Sizes the request, and the limit by the same ratio. | 
+| Request equal to limit (Guaranteed) | Keeps the request and limit equal, so the Pod stays Guaranteed. | 
+| Limit only | Kubernetes sets the request equal to the limit when it creates the Pod. Resource optimization sizes the container the same way and keeps the request and limit equal. Your template keeps only the limit, and running Pods show both. | 
+| Request only | Sizes the request and doesn’t add a limit. The request can grow up to what the largest node in your NodePools can fit. | 
+| Neither | Recommends a size from usage but never applies it, in either mode, because a resize can’t change a Pod’s quality of service class. The recommendation’s `reason` field says that it’s a recommendation only. A container with no memory request or limit also gets no out-of-memory raise. This includes BestEffort containers, which have no requests at all. In `Apply` mode, if no container in the workload declares CPU or memory, the `ResourceOptimization` shows the `AdmissionSizing` condition as `False` with the reason `RecommendOnly`. To have resource optimization apply its recommendations, set CPU and memory requests. | 
+
+The following workload shapes also affect sizing:
++  **Multiple containers**: Resource optimization recommends a size for each container from that container’s own usage. The `Balanced` profile’s floor and ceiling are shared across the Pod, from half the smallest container request to twice the largest container limit. If any container has a request but no limit for a resource, the resource has no ceiling.
++  **Native sidecars**: Resource optimization sizes init containers with `restartPolicy: Always`, such as service mesh proxies and log shippers, the same way as regular containers, including out-of-memory recovery.
++  **Init containers**: Init containers that run once and exit can’t be resized, so resource optimization leaves them alone.
++  **Pod-level resources**: If the Pod template sets `spec.resources`, resource optimization sizes the Pod as a whole from the Pod’s total usage. An HPA that scales on a resource owns that resource for the whole Pod.
+
+For how resource optimization chooses which workloads to manage, see [How resource optimization policies select and combine](auto-ro-policies.md). For how it applies changes to running and new Pods, see [How resource optimization applies changes to Pods](auto-ro-resize.md). For conditions and what to do about them, see [Troubleshoot EKS Auto Mode resource optimization](auto-ro-troubleshoot.md).

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Kubernetes concepts
-<a name="kubernetes-concepts"></a>
 
 Amazon Elastic Kubernetes Service (Amazon EKS) is an AWS managed service based on the open source [Kubernetes](https://kubernetes.io/) project. While there are things you need to know about how the Amazon EKS service integrates with AWS Cloud (particularly when you first create an Amazon EKS cluster), once it’s up and running, you use your Amazon EKS cluster in much the same way as you would any other Kubernetes cluster. So to begin managing Kubernetes clusters and deploying workloads, you need at least a basic understanding of Kubernetes concepts.
 

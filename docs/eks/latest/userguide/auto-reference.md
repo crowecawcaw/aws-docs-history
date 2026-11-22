@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Learn how EKS Auto Mode works
-<a name="auto-reference"></a>
 
 Use this chapter to learn how the components of Amazon EKS Auto Mode clusters work.
 

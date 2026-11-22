@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Learn about IPv6 addresses to clusters, Pods, and services
-<a name="cni-ipv6"></a>
 
  **Applies to**: Pods with Amazon EC2 instances and Fargate Pods
 

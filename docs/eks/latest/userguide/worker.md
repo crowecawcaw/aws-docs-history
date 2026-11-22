@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Maintain nodes yourself with self-managed nodes
-<a name="worker"></a>
 
 A cluster contains one or more Amazon EC2 nodes that Pods are scheduled on. Amazon EKS nodes run in your AWS account and connect to the control plane of your cluster through the cluster API server endpoint. You’re billed for them based on Amazon EC2 prices. For more information, see [Amazon EC2 pricing](https://aws.amazon.com/ec2/pricing/).
 

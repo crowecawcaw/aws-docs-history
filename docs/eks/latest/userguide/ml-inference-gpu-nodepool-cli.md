@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create a GPU NodePool using CLIs
-<a name="ml-inference-gpu-nodepool-cli"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
@@ -28,14 +27,14 @@ The GPU instances this section provisions incur charges, and an On-Demand Capaci
 
 Set the cluster name and AWS Region of the cluster you are adding the NodePool to. The steps in this section use both, so set them in every terminal you run these commands from. The following values are the defaults from [Set up Amazon EKS cluster for AI/ML workloads using CLIs](ml-cluster-setup-cli.md), so replace them if you created your cluster with different ones:
 
-```
+```bash
 export CLUSTER_NAME=ai-eks-docs
 export AWS_REGION=us-east-2
 ```
 
 Confirm the variables resolve to a cluster that exists, that `kubectl` points at that same cluster, and that the cluster can provision nodes:
 
-```
+```bash
 aws eks describe-cluster --name ${CLUSTER_NAME} --region ${AWS_REGION} --query 'cluster.status' --output text
 
 kubectl config current-context
@@ -58,7 +57,7 @@ EKS Auto Mode does not support the `g7` instance family yet, which requires NVID
 
 In EKS Auto Mode, the bundled `default` NodeClass automatically selects the Bottlerocket AMI for GPU instances, which includes pre-installed NVIDIA drivers, the NVIDIA device plugin, and SOCI parallel pull. You only need to apply a NodePool that references the `default` NodeClass:
 
-```
+```yaml
 cat << 'EOF' | kubectl apply -f -
 apiVersion: karpenter.sh/v1
 kind: NodePool
@@ -110,7 +109,7 @@ Self-managed Karpenter does not include a default NodeClass. You first create an
 
 **Example**  
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: karpenter.k8s.aws/v1
 kind: EC2NodeClass
@@ -148,7 +147,7 @@ For more SOCI tuning options, such as concurrent downloads per image and chunk s
 
 Validate the EC2NodeClass:
 
-```
+```bash
 kubectl get ec2nodeclass gpu-inf
 ```
 
@@ -158,7 +157,7 @@ Expected output: `READY True`. Karpenter resolves the AMI, subnets, and security
 
 **Example**  
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: karpenter.sh/v1
 kind: NodePool
@@ -205,13 +204,13 @@ Unlike the EKS Auto Mode path, this NodePool does not cap the instance generatio
 
 Validate the NodePool was created:
 
-```
+```bash
 kubectl get nodepool gpu-inf
 ```
 
 Expected output:
 
-```
+```bash
 NAME      NODECLASS   NODES   READY   AGE
 gpu-inf   default     0       True    8s
 ```
@@ -223,7 +222,7 @@ On the self-managed Karpenter path, the NODECLASS column shows `gpu-inf` instead
 
 Test your GPU NodePool setup with an `nvidia-smi` Pod.
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
@@ -249,26 +248,26 @@ EOF
 
 Verify the Pod is scheduled and running.
 
-```
+```bash
 kubectl get pods
 ```
 
 Expected output:
 
-```
+```bash
 NAME         READY   STATUS      RESTARTS   AGE
 nvidia-smi   1/1     Running     0          67s
 ```
 
 The Pod runs `nvidia-smi` and then sleeps for 5 minutes. This keeps the Pod, and the node it runs on, available long enough for you to retrieve the logs. If the Pod completes, Karpenter can consolidate the empty node before you read the logs. Check the Pod logs to see the GPU detected by the node.
 
-```
+```bash
 kubectl logs nvidia-smi
 ```
 
 Expected output:
 
-```
+```bash
 Fri Oct  9 22:11:00 2026
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
@@ -295,13 +294,13 @@ The output shows the GPU model, driver version, CUDA version, and available memo
 
 To understand how Karpenter and the Kubernetes scheduler coordinated to provision a node and place the Pod, check the Pod’s lifecycle events:
 
-```
+```bash
 kubectl describe po nvidia-smi
 ```
 
 Expected output:
 
-```
+```bash
 Events:
   Type     Reason                  Age   From                   Message
   ----     ------                  ----  ----                   -------
@@ -323,7 +322,7 @@ The preceding output is from the EKS Auto Mode path. On the self-managed Karpent
 
 A NodeClaim is a request Karpenter creates to provision a specific node. It shows the instance type, capacity type, AZ, and whether the node is ready.
 
-```
+```bash
 kubectl get nodeclaims
 ```
 
@@ -341,7 +340,7 @@ The `FailedCreatePodSandBox` warning in `kubectl describe pod nvidia-smi` is tra
 **Tip**  
 If no node appears, check for Insufficient Capacity Errors:  
 
-```
+```bash
 kubectl get events | grep InsufficientCapacityError
 ```
 Karpenter caches unavailable offerings for 3 minutes. Widening the allowed instance types and AZs in your NodePool increases the chances of landing capacity.
@@ -359,7 +358,7 @@ The following command results in a charge for the reserved instance type until y
 
 Create the capacity reservation:
 
-```
+```bash
 CR_AZ="us-east-2a"
 INSTANCE_TYPE="g6e.4xlarge"
 
@@ -377,7 +376,7 @@ GPU capacity for reservations is often constrained, so expect to retry. If you g
 
 The command prints the reservation. Store its ID in a shell variable for the following steps, replacing {{cr-1234567890abcdef0}} with the `CapacityReservationId` from the output:
 
-```
+```bash
 CAPACITY_RESERVATION_ID=cr-1234567890abcdef0
 echo "Capacity reservation ID: ${CAPACITY_RESERVATION_ID}"
 ```
@@ -387,7 +386,7 @@ Take the ID from the `create-capacity-reservation` output rather than looking it
 
 Confirm the reservation reached the `active` state before you continue. A reservation that AWS cannot fulfill is still created, but it lands in the `failed` state and never provides capacity:
 
-```
+```bash
 aws ec2 describe-capacity-reservations \
   --capacity-reservation-ids ${CAPACITY_RESERVATION_ID} \
   --query 'CapacityReservations[0].State' \
@@ -406,7 +405,7 @@ In EKS Auto Mode, the bundled `default` NodeClass is read-only, so create a cust
 
 **Example Custom NodeClass YAML**  
 
-```
+```yaml
 NODE_ROLE=$(kubectl get nodeclass default -o jsonpath='{.spec.role}')
 
 cat << EOF | kubectl apply -f -
@@ -436,7 +435,7 @@ Update the NodePool to use the ODCR-backed NodeClass and include `reserved` as a
 
 **Example Updated NodePool YAML**  
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: karpenter.sh/v1
 kind: NodePool
@@ -484,7 +483,7 @@ For self-managed Karpenter, re-apply the `EC2NodeClass` you created in Step 1 wi
 
 **Example Updated EC2NodeClass YAML**  
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: karpenter.k8s.aws/v1
 kind: EC2NodeClass
@@ -522,7 +521,7 @@ Update the NodePool to include `reserved` as a capacity type:
 
 **Example Updated NodePool YAML**  
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: karpenter.sh/v1
 kind: NodePool
@@ -570,7 +569,7 @@ Karpenter treats `reserved` as the most cost-efficient option and launches it fi
 
 After applying the changes, validate that Karpenter prioritizes reserved capacity and falls back to Spot or On-Demand. Deploy a 2-replica Deployment that requests 1 GPU per Pod. The ODCR is for 1 instance, so the first Pod triggers Karpenter to launch a reserved node. The `nodeSelector` restricts the Pods to single-GPU instance types, so the second Pod cannot fit on the reserved node and triggers Karpenter to launch another node from Spot or On-Demand capacity.
 
-```
+```yaml
 cat << 'EOF' | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
@@ -613,7 +612,7 @@ A reserved node that no Pod occupies still holds the reservation. The ODCR keeps
 
 Verify the Pods scheduled on different nodes:
 
-```
+```bash
 kubectl get pods -l app=gpu-overflow-test -o wide
 ```
 
@@ -629,7 +628,7 @@ The two pods are running, each on a different node.
 
 Check the NodeClaims to see the capacity types:
 
-```
+```bash
 kubectl get nodeclaims
 ```
 
@@ -645,7 +644,7 @@ The reserved node launched first, followed by a Spot or On-Demand node after the
 
 Clean up the test deployment:
 
-```
+```bash
 kubectl delete deployment gpu-overflow-test
 ```
 
@@ -662,14 +661,14 @@ If you plan to continue with the next sections of this guide, skip this cleanup.
 
 If you opened a new terminal, set the cluster name and AWS Region again:
 
-```
+```bash
 export CLUSTER_NAME=ai-eks-docs
 export AWS_REGION=us-east-2
 ```
 
 Remove the test workloads created on this page:
 
-```
+```bash
 kubectl delete pod nvidia-smi --ignore-not-found
 kubectl delete deployment gpu-overflow-test --ignore-not-found
 ```
@@ -679,7 +678,7 @@ Next, delete the GPU NodePool and the NodeClass object for your path. Each path 
 ------
 #### [ EKS Auto Mode ]
 
-```
+```bash
 kubectl delete nodepool gpu-inf --ignore-not-found
 kubectl delete nodeclass gpu-inf --ignore-not-found
 ```
@@ -687,7 +686,7 @@ kubectl delete nodeclass gpu-inf --ignore-not-found
 ------
 #### [ Self-managed Karpenter ]
 
-```
+```bash
 kubectl delete nodepool gpu-inf --ignore-not-found
 kubectl delete ec2nodeclass gpu-inf --ignore-not-found
 ```
@@ -696,7 +695,7 @@ kubectl delete ec2nodeclass gpu-inf --ignore-not-found
 
 Deleting the NodePool drains and terminates its nodes, which takes a few minutes. Confirm the GPU NodeClaims are gone before you move on, so no GPU instance keeps running:
 
-```
+```bash
 kubectl get nodeclaims
 ```
 
@@ -709,7 +708,7 @@ If you created an ODCR in Step 3, cancel it after the GPU NodeClaims are gone. D
 
 List every active reservation in the Region with its instance type, so you cancel the right one even if you reserved an instance type other than the `g6e.4xlarge` default in Step 3:
 
-```
+```bash
 aws ec2 describe-capacity-reservations \
   --filters "Name=state,Values=active" \
   --query 'CapacityReservations[].[CapacityReservationId,InstanceType,AvailabilityZone,AvailableInstanceCount]' \
@@ -719,7 +718,7 @@ aws ec2 describe-capacity-reservations \
 
 Cancel the reservation, replacing {{cr-1234567890abcdef0}} with the ID from the preceding output:
 
-```
+```bash
 aws ec2 cancel-capacity-reservation \
   --capacity-reservation-id cr-1234567890abcdef0 \
   --region ${AWS_REGION}
@@ -727,7 +726,7 @@ aws ec2 cancel-capacity-reservation \
 
 Confirm no active reservation remains. An empty result means no further reservation charges apply:
 
-```
+```bash
 aws ec2 describe-capacity-reservations \
   --filters "Name=state,Values=active" \
   --query 'CapacityReservations[].CapacityReservationId' \
@@ -740,7 +739,7 @@ Cancelling a reservation does not terminate running instances. They continue at 
 
 Also cancel any reservation that reached the `failed` state while you retried Step 3. A `failed` reservation does not incur charges, but it stays in your account until you cancel it. Drop the `state` filter from the preceding `describe-capacity-reservations` command to list those as well:
 
-```
+```bash
 aws ec2 describe-capacity-reservations \
   --query 'CapacityReservations[?State!=`cancelled` && State!=`expired`].[CapacityReservationId,InstanceType,AvailabilityZone,State]' \
   --output table \

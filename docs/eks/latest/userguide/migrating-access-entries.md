@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Migrating existing `aws-auth ConfigMap` entries to access entries
-<a name="migrating-access-entries"></a>
 
 If you’ve added entries to the `aws-auth` `ConfigMap` on your cluster, we recommend that you create access entries for the existing entries in your `aws-auth` `ConfigMap`. After creating the access entries, you can remove the entries from your `ConfigMap`. You can’t associate [access policies](access-policies.md) to entries in the `aws-auth` `ConfigMap`. If you want to associate access policies to your IAM principals, create access entries.
 
@@ -26,7 +25,7 @@ Before removing existing `aws-auth` `ConfigMap` entries that were created by Ama
 
 1. View the existing entries in your `aws-auth ConfigMap`. Replace {{my-cluster}} with the name of your cluster.
 
-   ```
+   ```bash
    eksctl get iamidentitymapping --cluster my-cluster
    ```
 
@@ -46,6 +45,6 @@ Before removing existing `aws-auth` `ConfigMap` entries that were created by Ama
 
 1. Delete the entries from the `ConfigMap` for any access entries that you created. If you don’t delete the entry from the `ConfigMap`, the settings for the access entry for the IAM principal ARN override the `ConfigMap` entry. Replace {{111122223333}} with your AWS account ID and {{EKS-my-cluster-my-namespace-Viewers}} with the name of the role in the entry in your `ConfigMap`. If the entry you’re removing is for an IAM user, rather than an IAM role, replace `role` with `user` and {{EKS-my-cluster-my-namespace-Viewers}} with the user name.
 
-   ```
+   ```bash
    eksctl delete iamidentitymapping --arn arn:aws:iam::111122223333:role/EKS-my-cluster-my-namespace-Viewers --cluster my-cluster
    ```

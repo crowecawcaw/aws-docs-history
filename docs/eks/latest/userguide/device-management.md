@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Manage hardware devices on Amazon EKS
-<a name="device-management"></a>
 
 Amazon EKS supports two Kubernetes mechanisms for managing specialized hardware devices in EKS clusters: *Dynamic Resource Allocation (DRA)* and *device plugins*. Both mechanisms enable workloads to access hardware accelerators such as NVIDIA GPUs and AWS Trainium chips, and high-performance network devices such as Elastic Fabric Adapter (EFA).
 

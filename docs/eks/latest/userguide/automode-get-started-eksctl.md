@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an EKS Auto Mode Cluster with the eksctl CLI
-<a name="automode-get-started-eksctl"></a>
 
 This topic shows you how to create an Amazon EKS Auto Mode cluster using the eksctl command line interface (CLI). You can create an Auto Mode cluster either by running a single CLI command or by applying a YAML configuration file. Both methods provide the same functionality, with the YAML approach offering more granular control over cluster settings.
 
@@ -36,7 +35,7 @@ Review the EKS Auto Mode configuration options in the sample ClusterConfig resou
 
  AWS suggests not specifying any value for `nodePools`. EKS Auto Mode will create default node pools. You can use the Kubernetes API to create additional node pools.
 
-```
+```yaml
 # cluster.yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig

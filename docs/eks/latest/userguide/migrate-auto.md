@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Enable EKS Auto Mode on existing EKS clusters
-<a name="migrate-auto"></a>
 
 You can enable EKS Auto Mode on existing EKS Clusters.
 

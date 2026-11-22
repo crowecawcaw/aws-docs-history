@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Decrease latency for applications with long boot times using warm pools with managed node groups
-<a name="warm-pools-managed-node-groups"></a>
 
 When your applications have long initialization or boot times, scale-out events can cause delays—new nodes must fully boot and join the cluster before Pods can be scheduled on them. This latency can impact application availability during traffic spikes or rapid scaling events. Warm pools solve this problem by maintaining a pool of pre-initialized EC2 instances that have already completed the bootup process. During a scale-out event, instances move from the warm pool directly to your cluster, bypassing the time-consuming initialization steps and significantly reducing the time it takes for new capacity to become available. For more information, see [Decrease latency for applications that have long boot times using warm pools](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html) in the *Amazon EC2 Auto Scaling User Guide*.
 
@@ -54,7 +53,7 @@ You can configure a warm pool when creating a managed node group or add one to a
 
  **Create a node group with a warm pool** 
 
-```
+```bash
 aws eks create-nodegroup \
   --cluster-name my-cluster \
   --nodegroup-name my-nodegroup \
@@ -67,7 +66,7 @@ aws eks create-nodegroup \
 
  **Add a warm pool to an existing node group** 
 
-```
+```bash
 aws eks update-nodegroup-config \
   --cluster-name my-cluster \
   --nodegroup-name my-nodegroup \
@@ -80,7 +79,7 @@ aws eks update-nodegroup-config \
 
 Update warm pool settings at any time using `update-nodegroup-config`. Existing warm pool instances aren’t immediately affected; new settings apply to instances entering the warm pool after the update.
 
-```
+```bash
 aws eks update-nodegroup-config \
   --cluster-name my-cluster \
   --nodegroup-name my-nodegroup \
@@ -90,7 +89,7 @@ aws eks update-nodegroup-config \
 
 To disable the warm pool attached to your nodegroup, set `enabled=false`:
 
-```
+```bash
 aws eks update-nodegroup-config \
   --cluster-name my-cluster \
   --nodegroup-name my-nodegroup \

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy a sample stateful workload to EKS Auto Mode
-<a name="sample-storage-workload"></a>
 
 This tutorial will guide you through deploying a sample stateful application to your EKS Auto Mode cluster. The application writes timestamps to a persistent volume, demonstrating EKS Auto Mode’s automatic EBS volume provisioning and persistence capabilities.
 
@@ -21,14 +20,14 @@ This tutorial will guide you through deploying a sample stateful application to 
 
 1. Set your environment variables:
 
-   ```
+   ```bash
    export CLUSTER_NAME=my-auto-cluster
    export AWS_REGION="us-west-2"
    ```
 
 1. Update your kubeconfig:
 
-   ```
+   ```bash
    aws eks update-kubeconfig --name "${CLUSTER_NAME}"
    ```
 
@@ -41,7 +40,7 @@ EKS Auto Mode does not create a `StorageClass` for you. You must create a `Stora
 
 1. Create a file named `storage-class.yaml`:
 
-   ```
+   ```yaml
    apiVersion: storage.k8s.io/v1
    kind: StorageClass
    metadata:
@@ -57,7 +56,7 @@ EKS Auto Mode does not create a `StorageClass` for you. You must create a `Stora
 
 1. Apply the `StorageClass`:
 
-   ```
+   ```bash
    kubectl apply -f storage-class.yaml
    ```
 
@@ -75,7 +74,7 @@ The PVC requests storage from the `StorageClass`.
 
 1. Create a file named `pvc.yaml`:
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
@@ -91,7 +90,7 @@ The PVC requests storage from the `StorageClass`.
 
 1. Apply the PVC:
 
-   ```
+   ```bash
    kubectl apply -f pvc.yaml
    ```
 
@@ -107,7 +106,7 @@ The Deployment runs a container that writes timestamps to the persistent volume.
 
 1. Create a file named `deployment.yaml`:
 
-   ```
+   ```yaml
    apiVersion: apps/v1
    kind: Deployment
    metadata:
@@ -144,7 +143,7 @@ The Deployment runs a container that writes timestamps to the persistent volume.
 
 1. Apply the Deployment:
 
-   ```
+   ```bash
    kubectl apply -f deployment.yaml
    ```
 
@@ -159,19 +158,19 @@ The Deployment runs a container that writes timestamps to the persistent volume.
 
 1. Check that the pod is running:
 
-   ```
+   ```bash
    kubectl get pods -l app=inflate-stateful
    ```
 
 1. Verify the PVC is bound:
 
-   ```
+   ```bash
    kubectl get pvc auto-ebs-claim
    ```
 
 1. Check the EBS volume:
 
-   ```
+   ```bash
    # Get the PV name
    PV_NAME=$(kubectl get pvc auto-ebs-claim -o jsonpath='{.spec.volumeName}')
    # Describe the EBS volume
@@ -181,7 +180,7 @@ The Deployment runs a container that writes timestamps to the persistent volume.
 
 1. Verify data is being written:
 
-   ```
+   ```bash
    kubectl exec "$(kubectl get pods -l app=inflate-stateful \
      -o=jsonpath='{.items[0].metadata.name}')" -- \
      cat /data/out.txt
@@ -192,7 +191,7 @@ The Deployment runs a container that writes timestamps to the persistent volume.
 
 Run the following command to remove all resources created in this tutorial:
 
-```
+```bash
 # Delete all resources in one command
 kubectl delete deployment/inflate-stateful pvc/auto-ebs-claim storageclass/auto-ebs-sc
 ```
@@ -219,7 +218,7 @@ EKS Auto Mode is compatible with the Kubernetes CSI Snapshotter, also known as t
 
 Review the following `VolumeSnapshotClass` that references the storage capability of EKS Auto Mode.
 
-```
+```yaml
 apiVersion: snapshot.storage.k8s.io/v1
 kind: VolumeSnapshotClass
 metadata:

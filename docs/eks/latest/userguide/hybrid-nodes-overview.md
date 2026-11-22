@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS Hybrid Nodes overview
-<a name="hybrid-nodes-overview"></a>
 
 With *Amazon EKS Hybrid Nodes*, you can use your on-premises and edge infrastructure as nodes in Amazon EKS clusters. AWS manages the AWS-hosted Kubernetes control plane of the Amazon EKS cluster, and you manage the hybrid nodes that run in your on-premises or edge environments. This unifies Kubernetes management across your environments and offloads Kubernetes control plane management to AWS for your on-premises and edge applications.
 
@@ -13,7 +12,7 @@ Amazon EKS Hybrid Nodes works with any on-premises hardware or virtual machines,
 
 With Amazon EKS Hybrid Nodes, there are no upfront commitments or minimum fees, and you are charged per hour for the vCPU resources of your hybrid nodes when they are attached to your Amazon EKS clusters. For more pricing information, see [Amazon EKS Pricing](https://aws.amazon.com/eks/pricing/).
 
-[![AWS Videos](https://img.youtube.com/vi/tFn9IdlddBw?rel=0/0.jpg)](https://www.youtube.com/watch?v=tFn9IdlddBw?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/tFn9IdlddBw/0.jpg)](https://www.youtube.com/watch?v=tFn9IdlddBw)
 
 
 ## Features

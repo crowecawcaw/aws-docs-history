@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Attach multiple network interfaces to Pods with Multus
-<a name="pod-multus"></a>
 
 Multus CNI is a container network interface (CNI) plugin for Amazon EKS that enables attaching multiple network interfaces to a Pod. For more information, see the [Multus-CNI](https://github.com/k8snetworkplumbingwg/multus-cni) documentation on GitHub.
 

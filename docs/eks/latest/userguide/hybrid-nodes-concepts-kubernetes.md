@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Kubernetes concepts for hybrid nodes
-<a name="hybrid-nodes-concepts-kubernetes"></a>
 
 This page details the key Kubernetes concepts that underpin the EKS Hybrid Nodes system architecture.
 
@@ -23,7 +22,7 @@ Generally, this is how pods (regardless if running in the cloud or hybrid nodes)
 
 The `kubernetes` service IP isn’t the only way to access the EKS API server. EKS also creates a Route53 DNS name when you create your cluster. This is the `endpoint` field of your EKS cluster when calling the EKS `DescribeCluster` API action.
 
-```
+```json
 {
     "cluster": {
         "endpoint": "https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.gr7.us-west-2.eks.amazonaws.com",
@@ -54,7 +53,7 @@ With EKS cloud nodes, it’s common for the kubelet to report the private IP of 
 
 However, there is no CCM for hybrid nodes. When you register a hybrid node with the EKS Hybrid Nodes CLI (`nodeadm`), it configures the kubelet to report your machine’s IP directly in the node’s status, without the CCM.
 
-```
+```yaml
 apiVersion: v1
 kind: Node
 metadata:
@@ -90,7 +89,7 @@ When we inspect the `iptables` rules (using `iptables-save 0 grep -A10 KUBE-
 
 1. In the **KUBE-SERVICES** chain, we find a rule matching the service:
 
-   ```
+   ```text
    -A KUBE-SERVICES -d 172.16.31.14/32 -p tcp -m comment --comment "default/test-server cluster IP" -m tcp --dport 80 -j KUBE-SVC-XYZABC123456
    ```
    + This rule matches packets destined for 172.16.31.14:80
@@ -99,7 +98,7 @@ When we inspect the `iptables` rules (using `iptables-save 0 grep -A10 KUBE-
 
 1. The **KUBE-SVC-XYZABC123456** chain has probability-based load balancing rules:
 
-   ```
+   ```text
    -A KUBE-SVC-XYZABC123456 -m statistic --mode random --probability 0.33333333349 -j KUBE-SEP-POD1XYZABC
    -A KUBE-SVC-XYZABC123456 -m statistic --mode random --probability 0.50000000000 -j KUBE-SEP-POD2XYZABC
    -A KUBE-SVC-XYZABC123456 -j KUBE-SEP-POD3XYZABC
@@ -110,7 +109,7 @@ When we inspect the `iptables` rules (using `iptables-save 0 grep -A10 KUBE-
 
 1. The individual **KUBE-SEP-XXX** chains perform the DNAT (Destination NAT):
 
-   ```
+   ```text
    -A KUBE-SEP-POD1XYZABC -p tcp -m tcp -j DNAT --to-destination 10.2.0.110:80
    -A KUBE-SEP-POD2XYZABC -p tcp -m tcp -j DNAT --to-destination 10.2.1.39:80
    -A KUBE-SEP-POD3XYZABC -p tcp -m tcp -j DNAT --to-destination 10.2.2.254:80
@@ -131,7 +130,7 @@ How does `kube-proxy` communicate with the API server?
 
 The `kube-proxy` must be configured to use the actual IP/s of the Kubernetes API server or a DNS name that resolves to them. In the case of EKS, EKS configures the default `kube-proxy` to point to the Route53 DNS name that EKS creates when you create the cluster. You can see this value in the `kube-proxy` ConfigMap in the `kube-system` namespace. The content of this ConfigMap is a `kubeconfig` that gets injected into the `kube-proxy` pod, so look for the `clusters0.cluster.server` field. This value will match the `endpoint` field of your EKS cluster (when calling EKS `DescribeCluster` API).
 
-```
+```yaml
 apiVersion: v1
 data:
   kubeconfig: |-

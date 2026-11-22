@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Make your worker nodes FIPS ready with Bottlerocket FIPS AMIs
-<a name="bottlerocket-fips-amis"></a>
 
 The Federal Information Processing Standard (FIPS) Publication 140-3 is a United States and Canadian government standard that specifies the security requirements for cryptographic modules that protect sensitive information. Bottlerocket makes it easier to adhere to FIPS by offering AMIs with a FIPS kernel.
 
@@ -40,7 +39,7 @@ The Bottlerocket FIPS AMI relies on the Amazon ECR FIPS endpoint during bootstra
 
 1. Create a new configuration file with the following content or incorporate the content into your existing configuration file.
 
-```
+```bash
 [default]
 use_fips_endpoint=false
 ```
@@ -49,7 +48,7 @@ use_fips_endpoint=false
 
 1. In your launch template’s `UserData`, add the following encoded string using TOML format:
 
-```
+```bash
 [settings.aws]
 config = "<your-base64-encoded-string>"
 ```
@@ -58,7 +57,7 @@ For other settings, see Bottlerocket’s [Description of settings](https://githu
 
 Here is an example of `UserData` in a launch template:
 
-```
+```bash
 [settings]
 motd = "Hello from eksctl!"
 [settings.aws]

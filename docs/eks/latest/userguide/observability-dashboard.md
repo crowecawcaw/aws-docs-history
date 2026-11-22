@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Monitor your cluster with the observability dashboard
-<a name="observability-dashboard"></a>
 
 The Amazon EKS console includes an observability dashboard that gives visibility into the performance of your cluster. The information it provides helps you to quickly detect, troubleshoot, and remediate issues. You can open the applicable section of the observability dashboard by choosing an item in the **Health and performance summary**. This summary is included in several places, including the **Cluster monitoring** page.
 

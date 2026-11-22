@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Understand Fargate Pod configuration details
-<a name="fargate-pod-configuration"></a>
 
 This section describes some of the unique Pod configuration details for running Kubernetes Pods on AWS Fargate.
 
@@ -44,13 +43,13 @@ The additional memory reserved for the Kubernetes components can cause a Fargate
 
 There is no correlation between the size of the Pod running on Fargate and the node size reported by Kubernetes with `kubectl get nodes`. The reported node size is often larger than the Pod’s capacity. You can verify Pod capacity with the following command. Replace {{default}} with your Pod’s namespace and {{pod-name}} with the name of your Pod.
 
-```
+```bash
 kubectl describe pod --namespace default pod-name
 ```
 
 An example output is as follows.
 
-```
+```bash
 [...]
 annotations:
     CapacityProvisioned: 0.25vCPU 0.5GB

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure subnet selection for Pod IP addresses
-<a name="cni-subnet-selection"></a>
 
  **Applies to**: Linux nodes with Amazon EC2 instances
 
@@ -23,7 +22,7 @@ VPC CNI version 1.18.0 and later enables enhanced subnet discovery by default (`
 
 To verify the feature is enabled:
 
-```
+```bash
 kubectl describe ds aws-node -n kube-system | grep ENABLE_SUBNET_DISCOVERY
 ```
 
@@ -75,7 +74,7 @@ When a subnet is tagged with `kubernetes.io/role/cni=1`, the VPC CNI additionall
 
 For example, to restrict a subnet to a specific cluster:
 
-```
+```bash
 aws ec2 create-tags --resources subnet-example \
   --tags Key=kubernetes.io/role/cni,Value=1 Key=cni.networking.k8s.aws/cluster/my-cluster,Value=shared
 ```

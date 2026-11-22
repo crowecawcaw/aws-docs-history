@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure EKS Auto Mode settings
-<a name="settings-auto"></a>
 
 This chapter describes how to configure specific aspects of your Amazon Elastic Kubernetes Service (EKS) Auto Mode clusters. While EKS Auto Mode manages most infrastructure components automatically, you can customize certain features to meet your workload requirements.
 

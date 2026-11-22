@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create a storage class
-<a name="create-storage-class"></a>
 
 A `StorageClass` in Amazon EKS Auto Mode defines how Amazon EBS volumes are automatically provisioned when applications request persistent storage. This page explains how to create and configure a `StorageClass` that works with the Amazon EKS Auto Mode to provision EBS volumes.
 
@@ -15,7 +14,7 @@ EKS Auto Mode does not create a `StorageClass` for you. You must create a `Stora
 
 First, create a file named `storage-class.yaml`:
 
-```
+```yaml
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -36,7 +35,7 @@ parameters:
 
 Second, apply the storage class to your cluster.
 
-```
+```bash
 kubectl apply -f storage-class.yaml
 ```
 
@@ -71,7 +70,7 @@ Update the following values in the policy below:
 +  `<account-id>` – Your AWS account ID, such as `111122223333` 
 +  `<aws-region>` – The AWS region of your cluster, such as `us-west-2` 
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "key-auto-policy-3",
@@ -114,7 +113,7 @@ Update the following values in the policy below:
 ### Sample self-managed KMS `StorageClass`
 <a name="_sample_self_managed_kms_storageclass"></a>
 
-```
+```yaml
 parameters:
   type: gp3
   encrypted: "true"
@@ -195,7 +194,7 @@ Existing PVCs can be migrated in place by creating a VAC and setting `spec.volum
 
    Use `type`, not `volumeType`, in the VAC. Values must be strings, and a VAC only needs the parameters relevant to the desired EBS configuration. Example:
 
-   ```
+   ```yaml
    apiVersion: storage.k8s.io/v1
    kind: VolumeAttributesClass
    metadata:
@@ -209,13 +208,13 @@ Existing PVCs can be migrated in place by creating a VAC and setting `spec.volum
 
    VACs are cluster-scoped, so the manifest has no namespace. Apply it normally:
 
-   ```
+   ```bash
    kubectl apply -f vac.yaml
    ```
 
 1. Assign the VAC to the PVC
 
-   ```
+   ```bash
    VAC_NAME=ebs-auto-gp3-6000-250
    
    kubectl patch pvc <pvc-name> -n <namespace> --type=merge \
@@ -224,7 +223,7 @@ Existing PVCs can be migrated in place by creating a VAC and setting `spec.volum
 
 1. Confirm that the change completed
 
-   ```
+   ```bash
    kubectl get pvc <pvc-name> -n <namespace> \
      -o custom-columns='NAME:.metadata.name,REQUESTED:.spec.volumeAttributesClassName,CURRENT:.status.currentVolumeAttributesClassName,STATUS:.status.modifyVolumeStatus.status'
    ```
@@ -233,7 +232,7 @@ Existing PVCs can be migrated in place by creating a VAC and setting `spec.volum
 
    If it does not complete, inspect the PVC events:
 
-   ```
+   ```bash
    kubectl describe pvc <pvc-name> -n <namespace>
    ```
 
@@ -253,7 +252,7 @@ VAC parameters are immutable. To change the EBS configuration, create another VA
 
 To cancel a change that has not completed, restore the previously assigned VAC. If the PVC did not previously use one, clear the field:
 
-```
+```bash
 kubectl patch pvc <pvc-name> -n <namespace> --type=merge \
   -p '{"spec":{"volumeAttributesClassName":null}}'
 ```
@@ -285,7 +284,7 @@ For more information, see:
 
    1. Insert the following yaml to associate the snapshot controller with the `system` node pool. The snapshot controller includes a toleration for the `CriticalAddonsOnly` taint.
 
-      ```
+      ```yaml
       {
               "nodeSelector": {
                   "karpenter.sh/nodepool": "system"

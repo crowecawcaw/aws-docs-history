@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an ACK capability
-<a name="create-ack-capability"></a>
 
 This chapter explains how to create an ACK capability on your Amazon EKS cluster.
 

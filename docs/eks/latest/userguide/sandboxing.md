@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Sandboxing on Amazon EKS with isolated and confidential pods
-<a name="sandboxing"></a>
 
 In a standard Amazon EKS cluster, pods on the same node share a Linux kernel. A container escape or kernel vulnerability can expose one workload to another. Isolated and confidential pods address this by running each pod inside its own Nitro Sandbox, a dedicated hardware-isolated environment backed by the AWS Nitro System. Each sandbox runs as a first-level guest with direct hardware-assisted virtualization, not through emulation or nested virtualization. The Nitro hypervisor enforces memory and CPU isolation between sandboxes, providing a hardware trust boundary around every pod.
 
@@ -68,9 +67,9 @@ Container image layers can be encrypted following the OCI image encryption speci
 Container images can be signed with AWS Signer. The Nitro Sandbox verifies the image’s AWS Signer signature (in the Notation format) and checks revocation status before allowing a container to start. The Cedar policy controls which signing profiles are trusted.
 
  **Attestation**   
-Attestation lets you prove that a Nitro Sandbox is running exactly the code and policy you expect before releasing secrets to it. The Nitro Sandbox includes a Nitro Secure Module (NSM) whose platform configuration registers (PCRs) measure the system image and the workload policy. You write KMS key policies with `kms:RecipientAttestation:PCR<PCR_ID>` conditions that gate decryption on specific PCR values. When the sandbox calls `kms:Decrypt`, KMS validates the attestation document and releases the key only if the measurements match.  
+Attestation lets you verify that a Nitro Sandbox is running exactly the code and policy you expect before releasing secrets to it. The Nitro Sandbox includes a Nitro Secure Module (NSM) whose platform configuration registers (PCRs) measure the system image and the workload policy. You write KMS key policies with `kms:RecipientAttestation:PCR<PCR_ID>` conditions that gate decryption on specific PCR values. When the sandbox calls `kms:Decrypt`, KMS validates the attestation document and releases the key only if the measurements match.  
 **Verify attestation before releasing secrets**  
-Without a KMS key policy (or equivalent external verifier) that checks PCR values, the attestation measurement is recorded but never verified, and the confidentiality guarantees of confidential mode are incomplete. Always configure `kms:RecipientAttestation:PCR<PCR_ID>` conditions on any KMS key that protects confidential data.
+Without a KMS key policy (or equivalent external verifier) that checks PCR values, the attestation measurement is recorded but never verified, and the confidentiality protections of confidential mode are incomplete. Always configure `kms:RecipientAttestation:PCR17` (policy hash) and `kms:RecipientAttestation:PCR8:ServiceName` (system image signer) conditions on any KMS key that protects confidential data. For more information, see [Run a pod in confidential mode](sandboxing-confidential-setup.md).
 
  **Shared persistent storage**   
 Pods can mount Amazon EFS volumes through the EFS CSI driver (`efs.csi.aws.com`) for shared read-write persistent storage across pods. The Nitro Sandbox performs the NFS mount itself, terminating TLS to the mount target inside the guest. Pods can also use Amazon EBS volumes through the EBS CSI driver for single-pod block storage. For all storage options, see [Storage with Nitro Sandboxes](sandboxing-storage.md).
@@ -86,7 +85,7 @@ Pods can mount Amazon EFS volumes through the EFS CSI driver (`efs.csi.aws.com`)
 | Cedar policy | A declarative policy written in the Cedar language that controls what a pod is allowed to do. Policies are generated from the pod spec using `eks-nitro-sandbox-genpolicy` (included in the signed runtime binaries; see [Download and verify the runtime binaries](sandboxing-download-binaries.md)) and attached to the pod as an annotation. | 
 | Policy envelope | The serialized form of the Cedar policy that is stored in a pod annotation and delivered to both the shim on the parent instance and the agent in the guest. | 
 | Isolated pod | A pod with `runtimeClassName: isolated-sandbox`. The parent instance is trusted. Use this to protect the node and other pods from a compromised container. | 
-| Confidential pod | A pod with `runtimeClassName: confidential-sandbox`. The parent instance is untrusted. Use this to protect workload data from the node operator or a compromised parent instance. | 
+| Confidential pod | A pod with `runtimeClassName: confidential-sandbox`. The parent instance is untrusted. Use this to protect workload data from cluster administrators, node administrators, or a compromised parent instance. | 
 
 ## Modes
 <a name="sandboxing-modes"></a>
@@ -95,7 +94,7 @@ Pods can mount Amazon EFS volumes through the EFS CSI driver (`efs.csi.aws.com`)
 The parent instance is trusted and the guest is untrusted. The goal is to protect the node and other pods from a compromised workload. The parent instance retains full observability and control: `exec`, `stdin`, logs, stats, and process listing are all permitted. The policy does not pin container admission fields, so any valid container spec is accepted. The overlay filesystem is unencrypted to allow faster pod startup. The service account token is not replicated into the sandbox. IMDS, NTP, and Pod Identity credentials are allowed so workloads that depend on placement metadata or AWS credentials work without policy customization.
 
  **Confidential mode**   
-The parent instance is untrusted and the guest is the trust boundary. The goal is to protect the workload’s data from the node operator or a compromised parent instance. The policy pins every admission field (image digests, args, environment variables, mounts, capabilities, and security settings). `Exec`, `stdin`, and process listing are denied so the parent instance cannot introspect the guest. IMDS and the service account token are allowed because the guest needs AWS credentials and region metadata to call AWS KMS for encrypted images.
+The parent instance is untrusted and the guest is the trust boundary. The goal is to protect the workload’s data from cluster administrators, node administrators, or a compromised parent instance. The policy pins every admission field (image digests, args, environment variables, mounts, capabilities, and security settings). `Exec`, `stdin`, and process listing are denied so the parent instance cannot introspect the guest. IMDS and the service account token are allowed because the guest needs AWS credentials and region metadata to call AWS KMS for encrypted images.
 
 The runtime class is the authoritative selector: the system derives the isolation mode from `runtimeClassName` and ignores any mode annotation the pod spec sets. You can also create custom profiles that mix and match settings from these modes. For more information, see [Run a pod in confidential mode](sandboxing-confidential-setup.md).
 
@@ -110,3 +109,5 @@ To run untrusted or generated code that must not communicate over the network, s
 <a name="sandboxing-shared-responsibility"></a>
 
 With isolated and confidential pods, AWS is responsible for the Nitro hypervisor, the Nitro Sandbox boundary, and the guest system image. Customers are responsible for their container images, Cedar policies, AWS KMS key policies, and application code.
+
+Confidential mode limits what users with administrative access to your cluster or worker nodes can do to a confidential pod. It doesn’t change the AWS operator access properties of the Nitro System, which apply to all Amazon EKS worker nodes.

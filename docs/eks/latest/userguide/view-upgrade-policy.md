@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # View current cluster upgrade policy
-<a name="view-upgrade-policy"></a>
 
 The **cluster upgrade policy** determines what happens to your cluster when it leaves the standard support period. If your upgrade policy is `EXTENDED`, the cluster will not be automatically upgraded, and will enter extended support. If your upgrade policy is `STANDARD`, it will be automatically upgraded.
 
@@ -40,7 +39,7 @@ Once your cluster has entered extended support, you cannot disable it. To change
 
 1. Run the following command:
 
-   ```
+   ```bash
    aws eks describe-cluster \
    --name <cluster-name> \
    --query "cluster.upgradePolicy.supportType"

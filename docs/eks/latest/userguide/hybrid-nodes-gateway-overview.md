@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS Hybrid Nodes gateway
-<a name="hybrid-nodes-gateway-overview"></a>
 
 The Amazon EKS Hybrid Nodes gateway automates networking between your Amazon EKS cluster VPC and Kubernetes pods running on [EKS Hybrid Nodes](https://docs.aws.amazon.com/eks/latest/userguide/hybrid-nodes-overview.html). The gateway eliminates the need to make on-premises pod networks routable from the VPC or coordinate network infrastructure changes. It creates VXLAN tunnels between EC2-based gateway nodes in your VPC and Cilium-managed hybrid nodes in your on-premises environment, and it automatically maintains VPC route table entries so that traffic reaches the correct gateway instance.
 

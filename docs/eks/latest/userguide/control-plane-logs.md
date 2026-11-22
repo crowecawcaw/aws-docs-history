@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Send control plane logs to CloudWatch Logs
-<a name="control-plane-logs"></a>
 
 Amazon EKS control plane logging provides audit and diagnostic logs directly from the Amazon EKS control plane to CloudWatch Logs in your account. These logs make it easy for you to secure and run your clusters. You can select the exact log types you need, and logs are sent as log streams to a group for each Amazon EKS cluster in CloudWatch. You can use CloudWatch subscription filters to do real time analysis on the logs or to forward them to other services (the logs will be Base64 encoded and compressed with the gzip format). For more information, see [Amazon CloudWatch logging](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html).
 
@@ -62,7 +61,7 @@ You can enable or disable control plane logs with either the [AWS Management Con
 
 1. Check your AWS CLI version with the following command.
 
-   ```
+   ```bash
    aws --version
    ```
 
@@ -72,7 +71,7 @@ You can enable or disable control plane logs with either the [AWS Management Con
 **Note**  
 The following command sends all available log types to CloudWatch Logs.
 
-   ```
+   ```bash
    aws eks update-cluster-config \
        --region region-code \
        --name my-cluster \
@@ -81,7 +80,7 @@ The following command sends all available log types to CloudWatch Logs.
 
    An example output is as follows.
 
-   ```
+   ```bash
    {
        "update": {
            "id": "883405c8-65c6-4758-8cee-2a7c1340a6d9",
@@ -101,7 +100,7 @@ The following command sends all available log types to CloudWatch Logs.
 
 1. Monitor the status of your log configuration update with the following command, using the cluster name and the update ID that were returned by the previous command. Your update is complete when the status appears as `Successful`.
 
-   ```
+   ```bash
    aws eks describe-update \
        --region region-code \
        --name my-cluster \
@@ -110,7 +109,7 @@ The following command sends all available log types to CloudWatch Logs.
 
    An example output is as follows.
 
-   ```
+   ```bash
    {
        "update": {
            "id": "883405c8-65c6-4758-8cee-2a7c1340a6d9",

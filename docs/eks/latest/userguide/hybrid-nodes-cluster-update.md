@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Enable hybrid nodes on an existing Amazon EKS cluster or modify configuration
-<a name="hybrid-nodes-cluster-update"></a>
 
 This topic provides an overview of the available options and describes what to consider when you add, change, or remove the hybrid nodes configuration for an Amazon EKS cluster.
 
@@ -27,7 +26,7 @@ You can do any of the following actions to the EKS Hybrid Nodes networking confi
 + Update add-ons to versions that are compatible with hybrid nodes. For the add-ons versions that are compatible with hybrid nodes, see [Configure add-ons for hybrid nodes](hybrid-nodes-add-ons.md).
 + If you are running add-ons that are not compatible with hybrid nodes, ensure that the add-on [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) or [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) has the following affinity rule to prevent deployment to hybrid nodes. Add the following affinity rule if it is not already present.
 
-  ```
+  ```yaml
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
@@ -64,7 +63,7 @@ You can enable EKS Hybrid Nodes in an existing cluster by using:
 
 1. To enable EKS Hybrid Nodes in your cluster, add the `RemoteNodeNetwork` and (optional) `RemotePodNetwork` to your CloudFormation template and update the stack. Note that `RemoteNodeNetwork` is a list with a maximum of one `Cidrs` item and the `Cidrs` is a list of multiple IP CIDR ranges.
 
-   ```
+   ```yaml
    RemoteNetworkConfig:
      RemoteNodeNetworks:
        - Cidrs: [RemoteNodeCIDR]
@@ -87,7 +86,7 @@ You can enable EKS Hybrid Nodes in an existing cluster by using:
 
    1.  `REMOTE_POD_CIDRS` (optional): the on-premises pod CIDR for workloads running on hybrid nodes.
 
-      ```
+      ```bash
       aws eks update-cluster-config \
           --name CLUSTER_NAME \
           --region AWS_REGION \
@@ -96,7 +95,7 @@ You can enable EKS Hybrid Nodes in an existing cluster by using:
 
 1. It takes several minutes to update the cluster. You can query the status of your cluster with the following command. Replace `CLUSTER_NAME` with the name of the cluster you are modifying and `AWS_REGION` with the AWS Region where the cluster is running. Don’t proceed to the next step until the output returned is `ACTIVE`.
 
-   ```
+   ```bash
    aws eks describe-cluster \
        --name CLUSTER_NAME \
        --region AWS_REGION \
@@ -135,7 +134,7 @@ You can modify `remoteNetworkConfig` in an existing hybrid cluster by using any 
 
 1. Update your CloudFormation template with the new network CIDR values.
 
-   ```
+   ```yaml
    RemoteNetworkConfig:
      RemoteNodeNetworks:
        - Cidrs: [NEW_REMOTE_NODE_CIDRS]
@@ -152,7 +151,7 @@ When updating `RemoteNodeNetworks` or `RemotePodNetworks` CIDR lists, include al
 
 1. To modify the remote network CIDRs, run the following command. Replace the values with your settings:
 
-   ```
+   ```bash
    aws eks update-cluster-config
    --name CLUSTER_NAME
    --region AWS_REGION
@@ -191,7 +190,7 @@ You can disable EKS Hybrid Nodes in an existing cluster by using:
 
 1. To disable EKS Hybrid Nodes in your cluster, set `RemoteNodeNetworks` and `RemotePodNetworks` to empty arrays in your CloudFormation template and update the stack.
 
-   ```
+   ```yaml
    RemoteNetworkConfig:
      RemoteNodeNetworks: []
      RemotePodNetworks: []
@@ -206,7 +205,7 @@ You can disable EKS Hybrid Nodes in an existing cluster by using:
 
    1.  `AWS_REGION`: AWS Region where the EKS cluster is running.
 
-      ```
+      ```bash
       aws eks update-cluster-config \
           --name CLUSTER_NAME \
           --region AWS_REGION \
@@ -215,7 +214,7 @@ You can disable EKS Hybrid Nodes in an existing cluster by using:
 
 1. It takes several minutes to update the cluster. You can query the status of your cluster with the following command. Replace `CLUSTER_NAME` with the name of the cluster you are modifying and `AWS_REGION` with the AWS Region where the cluster is running. Don’t proceed to the next step until the output returned is `ACTIVE`.
 
-   ```
+   ```bash
    aws eks describe-cluster \
        --name CLUSTER_NAME \
        --region AWS_REGION \

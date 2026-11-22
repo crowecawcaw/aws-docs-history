@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Cedar policy schema reference
-<a name="sandboxing-cedar-schema"></a>
 
 The agent inside a Nitro Sandbox evaluates every gated operation against a Cedar policy that targets a fixed schema. `eks-nitro-sandbox-genpolicy`, which is included in the signed runtime binaries (see [Download and verify the runtime binaries](sandboxing-download-binaries.md)), and the agent both embed this schema. A policy that references an unknown entity, action, or context field is rejected at generation time and at agent load time.
 

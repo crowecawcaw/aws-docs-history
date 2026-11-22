@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Learn about VPC Networking and Load Balancing in EKS Auto Mode
-<a name="auto-networking"></a>
 
 This topic explains how to configure Virtual Private Cloud (VPC) networking and load balancing features in EKS Auto Mode. While EKS Auto Mode manages most networking components automatically, you can still customize certain aspects of your cluster’s networking configuration through `NodeClass` resources and load balancer annotations.
 

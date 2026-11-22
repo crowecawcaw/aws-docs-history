@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Manage networking add-ons for Amazon EKS clusters
-<a name="eks-networking-add-ons"></a>
 
 Several networking add-ons are available for your Amazon EKS cluster.
 

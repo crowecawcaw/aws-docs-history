@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Troubleshooting IAM
-<a name="security-iam-troubleshoot"></a>
 
 This topic covers some common errors that you may see while using Amazon EKS with IAM and how to work around them.
 
@@ -14,7 +13,7 @@ This topic covers some common errors that you may see while using Amazon EKS wit
 
 If you receive an `AccessDeniedException` when calling an AWS API operation, then the [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal) credentials that you’re using don’t have the required permissions to make that call.
 
-```
+```bash
 An error occurred (AccessDeniedException) when calling the DescribeCluster operation:
 User: arn:aws:iam::111122223333:user/user_name is not authorized to perform:
 eks:DescribeCluster on resource: arn:aws:eks:region:111122223333:cluster/my-cluster

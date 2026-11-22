@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # View Amazon EKS networking requirements for VPC and subnets
-<a name="network-reqs"></a>
 
 When you create a cluster, you specify a [VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) and at least two subnets that are in different Availability Zones. This topic provides an overview of Amazon EKS specific requirements and considerations for the VPC and subnets that you use with your cluster. If you don’t have a VPC to use with Amazon EKS, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md). If you’re creating a local or extended cluster on AWS Outposts, see [Create a VPC and subnets for Amazon EKS clusters on AWS Outposts](eks-outposts-vpc-subnet-requirements.md) instead of this topic. The content in this topic applies for Amazon EKS clusters with hybrid nodes. For additional networking requirements for hybrid nodes, see [Prepare networking for hybrid nodes](hybrid-nodes-networking.md).
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Retrieve Windows AMI version information
-<a name="eks-ami-versions-windows"></a>
 
 This topic lists versions of the Amazon EKS optimized Windows AMIs and their corresponding versions of [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/), [containerd](https://containerd.io/), and [csi-proxy](https://github.com/kubernetes-csi/csi-proxy).
 

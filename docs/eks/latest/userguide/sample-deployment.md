@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy a sample application on Linux
-<a name="sample-deployment"></a>
 
 In this topic, you deploy a sample application to your cluster on Linux nodes.
 
@@ -26,7 +25,7 @@ Though many variables are changeable in the following steps, we recommend only c
 
 A namespace allows you to group resources in Kubernetes. For more information, see [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in the Kubernetes documentation. If you plan to deploy your sample application to [Simplify compute management with AWS Fargate](fargate.md), make sure that the value for `namespace` in your [Define which Pods use AWS Fargate when launched](fargate-profile.md) is `eks-sample-app`.
 
-```
+```bash
 kubectl create namespace eks-sample-app
 ```
 
@@ -39,7 +38,7 @@ Create a Kubernetes deployment. This sample deployment pulls a container image f
    + The `amd64` or `arm64` `values` under the `kubernetes.io/arch` key mean that the application can be deployed to either hardware architecture (if you have both in your cluster). This is possible because this image is a multi-architecture image, but not all are. You can determine the hardware architecture that the image is supported on by viewing the [image details](https://gallery.ecr.aws/nginx/nginx) in the repository that you’re pulling it from. When deploying images that don’t support a hardware architecture type, or that you don’t want the image deployed to, remove that type from the manifest. For more information, see [Well-Known Labels, Annotations and Taints](https://kubernetes.io/docs/reference/labels-annotations-taints/) in the Kubernetes documentation.
    + The `kubernetes.io/os: linux` `nodeSelector` means that if you had Linux and Windows nodes (for example) in your cluster, the image would only be deployed to Linux nodes. For more information, see [Well-Known Labels, Annotations and Taints](https://kubernetes.io/docs/reference/labels-annotations-taints/) in the Kubernetes documentation.
 
-     ```
+     ```yaml
      apiVersion: apps/v1
      kind: Deployment
      metadata:
@@ -80,7 +79,7 @@ Create a Kubernetes deployment. This sample deployment pulls a container image f
 
 1. Apply the deployment manifest to your cluster.
 
-   ```
+   ```bash
    kubectl apply -f eks-sample-deployment.yaml
    ```
 
@@ -91,7 +90,7 @@ A service allows you to access all replicas through a single IP address or name.
 
 1. Save the following contents to a file named `eks-sample-service.yaml`. Kubernetes assigns the service its own IP address that is accessible only from within the cluster. To access the service from outside of your cluster, deploy the [AWS Load Balancer Controller](aws-load-balancer-controller.md) to load balance [application](alb-ingress.md) or [network](network-load-balancing.md) traffic to the service.
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: Service
    metadata:
@@ -110,7 +109,7 @@ A service allows you to access all replicas through a single IP address or name.
 
 1. Apply the service manifest to your cluster.
 
-   ```
+   ```bash
    kubectl apply -f eks-sample-service.yaml
    ```
 
@@ -119,13 +118,13 @@ A service allows you to access all replicas through a single IP address or name.
 
 1. View all resources that exist in the `eks-sample-app` namespace.
 
-   ```
+   ```bash
    kubectl get all -n eks-sample-app
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME                                               READY   STATUS    RESTARTS   AGE
    pod/eks-sample-linux-deployment-65b7669776-m6qxz   1/1     Running   0          27m
    pod/eks-sample-linux-deployment-65b7669776-mmxvd   1/1     Running   0          27m
@@ -147,13 +146,13 @@ Kubernetes maintains the number of replicas that are specified in the manifest. 
 
 1. View the details of the deployed service.
 
-   ```
+   ```bash
    kubectl -n eks-sample-app describe service eks-sample-linux-service
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    Name:              eks-sample-linux-service
    Namespace:         eks-sample-app
    Labels:            app=eks-sample-linux-app
@@ -174,13 +173,13 @@ Kubernetes maintains the number of replicas that are specified in the manifest. 
 
 1. View the details of one of the Pods listed in the output when you [viewed the namespace](#sample-app-view-namespace) in a previous step. Replace {{65b7669776-m6qxz}} with the value returned for one of your Pods.
 
-   ```
+   ```bash
    kubectl -n eks-sample-app describe pod eks-sample-linux-deployment-65b7669776-m6qxz
    ```
 
    Abbreviated example output
 
-   ```
+   ```bash
    Name:         eks-sample-linux-deployment-65b7669776-m6qxz
    Namespace:    eks-sample-app
    Priority:     0
@@ -214,19 +213,19 @@ Rather than using the command line, you can view many details about Pods, servic
 
 1. Run a shell on the Pod that you described in the previous step, replacing {{65b7669776-m6qxz}} with the ID of one of your Pods.
 
-   ```
+   ```bash
    kubectl exec -it eks-sample-linux-deployment-65b7669776-m6qxz -n eks-sample-app -- /bin/bash
    ```
 
 1. From the Pod shell, view the output from the web server that was installed with your deployment in a previous step. You only need to specify the service name. It is resolved to the service’s IP address by CoreDNS, which is deployed with an Amazon EKS cluster, by default.
 
-   ```
+   ```bash
    curl eks-sample-linux-service
    ```
 
    An example output is as follows.
 
-   ```
+   ```html
    <!DOCTYPE html>
    <html>
    <head>
@@ -236,13 +235,13 @@ Rather than using the command line, you can view many details about Pods, servic
 
 1. From the Pod shell, view the DNS server for the Pod.
 
-   ```
+   ```bash
    cat /etc/resolv.conf
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    nameserver 10.100.0.10
    search eks-sample-app.svc.cluster.local svc.cluster.local cluster.local us-west-2.compute.internal
    options ndots:5
@@ -254,7 +253,7 @@ Rather than using the command line, you can view many details about Pods, servic
 
 1. Once you’re finished with the sample application, you can remove the sample namespace, service, and deployment with the following command.
 
-   ```
+   ```bash
    kubectl delete namespace eks-sample-app
    ```
 

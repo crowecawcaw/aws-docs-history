@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # EKS Capabilities
-<a name="capabilities"></a>
 
 **Tip**  
 Get started: [Create ACK capability](create-ack-capability.md) \| [Create Argo CD capability](create-argocd-capability.md) \| [Create kro capability](create-kro-capability.md) 

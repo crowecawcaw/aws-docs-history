@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Update an Amazon EKS add-on
-<a name="updating-an-add-on"></a>
 
 Amazon EKS doesn’t automatically update an add-on when new versions are released or after you update your cluster to a new Kubernetes minor version. To update an add-on for an existing cluster, you must initiate the update. After you initiate the update, Amazon EKS updates the add-on for you. Before updating an add-on, review the current documentation for the add-on. For a list of available add-ons, see [AWS add-ons](workloads-add-ons-available-eks.md). If the add-on requires an IAM role, see the details for the specific add-on in [Available Amazon EKS add-ons from AWS](workloads-add-ons-available-eks.md) for details about creating the role.
 
@@ -26,13 +25,13 @@ You can update an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
 1. Determine the current add-ons and add-on versions installed on your cluster. Replace {{my-cluster}} with the name of your cluster.
 
-   ```
+   ```bash
    eksctl get addon --cluster my-cluster
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME        VERSION              STATUS  ISSUES  IAMROLE  UPDATE AVAILABLE
    coredns     v1.8.7-eksbuild.2    ACTIVE  0
    kube-proxy  v1.23.7-eksbuild.1   ACTIVE  0                v1.23.8-eksbuild.2
@@ -52,7 +51,7 @@ You can update an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
         If the add-on doesn’t use a Kubernetes service account and IAM role, delete the `serviceAccountRoleARN: arn:aws:iam::{{111122223333}}:role/{{role-name}} ` line.
       + The {{preserve}} option preserves existing values for the add-on. If you have set custom values for add-on settings, and you don’t use this option, Amazon EKS overwrites your values with its default values. If you use this option, then we recommend that you test any field and value changes on a non-production cluster before updating the add-on on your production cluster. If you change this value to `overwrite`, all settings are changed to Amazon EKS default values. If you’ve set custom values for any settings, they might be overwritten with Amazon EKS default values. If you change this value to `none`, Amazon EKS doesn’t change the value of any settings, but the update might fail. If the update fails, you receive an error message to help you resolve the conflict.
 
-        ```
+        ```yaml
         cat >update-addon.yaml <<EOF
         apiVersion: eksctl.io/v1alpha5
         kind: ClusterConfig
@@ -72,7 +71,7 @@ You can update an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
    1. Apply the config file to your cluster.
 
-      ```
+      ```bash
       eksctl update addon -f update-addon.yaml
       ```
 
@@ -121,13 +120,13 @@ Retaining the default role name enables EKS to pre-select the role for add-ons i
 
 1. See a list of installed add-ons. Replace {{my-cluster}} with the name of your cluster.
 
-   ```
+   ```bash
    aws eks list-addons --cluster-name my-cluster
    ```
 
    An example output is as follows.
 
-   ```
+   ```json
    {
        "addons": [
            "coredns",
@@ -139,26 +138,26 @@ Retaining the default role name enables EKS to pre-select the role for add-ons i
 
 1. View the current version of the add-on that you want to update. Replace {{my-cluster}} with your cluster name and {{vpc-cni}} with the name of the add-on that you want to update.
 
-   ```
+   ```bash
    aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni --query "addon.addonVersion" --output text
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    v1.10.4-eksbuild.1
    ```
 
 1. Determine which versions of the add-on are available for your cluster’s version. Replace {{1.37}} with your cluster’s version and {{vpc-cni}} with the name of the add-on that you want to update.
 
-   ```
+   ```bash
    aws eks describe-addon-versions --kubernetes-version 1.37 --addon-name vpc-cni \
        --query 'addons[].addonVersions[].{Version: addonVersion, Defaultversion: compatibilities[0].defaultVersion}' --output table
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    ------------------------------------------
    |          DescribeAddonVersions         |
    +-----------------+----------------------+
@@ -182,20 +181,20 @@ Retaining the default role name enables EKS to pre-select the role for add-ons i
    + The `--resolve-conflicts PRESERVE` option preserves existing values for the add-on. If you have set custom values for add-on settings, and you don’t use this option, Amazon EKS overwrites your values with its default values. If you use this option, then we recommend that you test any field and value changes on a non-production cluster before updating the add-on on your production cluster. If you change this value to `OVERWRITE`, all settings are changed to Amazon EKS default values. If you’ve set custom values for any settings, they might be overwritten with Amazon EKS default values. If you change this value to `NONE`, Amazon EKS doesn’t change the value of any settings, but the update might fail. If the update fails, you receive an error message to help you resolve the conflict.
    + If you want to remove all custom configuration then perform the update using the {{--configuration-values '{}'}} option. This sets all custom configuration back to the default values. If you don’t want to change your custom configuration, don’t provide the {{--configuration-values}} flag. If you want to adjust a custom configuration then replace {{{}}} with the new parameters.
 
-     ```
+     ```bash
      aws eks update-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version version-number \
          --service-account-role-arn arn:aws:iam::111122223333:role/role-name --configuration-values '{}' --resolve-conflicts PRESERVE
      ```
 
 1. Check the status of the update. Replace {{my-cluster}} with the name of your cluster and {{vpc-cni}} with the name of the add-on you’re updating.
 
-   ```
+   ```bash
    aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni
    ```
 
    An example output is as follows.
 
-   ```
+   ```json
    {
        "addon": {
            "addonName": "vpc-cni",

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Security considerations for Amazon Elastic Kubernetes Service
-<a name="security-eks"></a>
 
 The following are considerations for security of the cloud, as they affect Amazon EKS.
 

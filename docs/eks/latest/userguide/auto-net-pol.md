@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Use Network Policies with EKS Auto Mode
-<a name="auto-net-pol"></a>
 
 ## Overview
 <a name="_overview"></a>
@@ -59,7 +58,7 @@ To use network policies with EKS Auto Mode, you first need to enable the Network
 
 1. Create a file named `enable-network-policy.yaml` with the following content:
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: ConfigMap
    metadata:
@@ -87,7 +86,7 @@ You can optionally create a new Node Class to change the default behavior of the
 
 1. Create or edit a Node Class YAML file (e.g., `nodeclass-network-policy.yaml`) with the following content:
 
-   ```
+   ```yaml
    apiVersion: eks.amazonaws.com/v1
    kind: NodeClass
    metadata:
@@ -161,7 +160,7 @@ To resolve a naming conflict, rename either the `ApplicationNetworkPolicy` or th
 
 You have a workload in your EKS Auto Mode cluster that needs to communicate with an application on-prem which is behind a load balancer with a DNS name. You could achieve this using the following network policy:
 
-```
+```yaml
 apiVersion: networking.k8s.aws/v1alpha1
 kind: ApplicationNetworkPolicy
 metadata:
@@ -203,13 +202,13 @@ For your application to resolve DNS, it must be allowed to communicate with Core
 
    For IPv4 clusters:
 
-   ```
+   ```bash
    aws eks describe-cluster --name my-cluster --query 'cluster.kubernetesNetworkConfig.serviceIpv4Cidr' --output text
    ```
 
    For IPv6 clusters:
 
-   ```
+   ```bash
    aws eks describe-cluster --name my-cluster --query 'cluster.kubernetesNetworkConfig.serviceIpv6Cidr' --output text
    ```
 
@@ -233,7 +232,7 @@ When using a `ClusterNetworkPolicy`, the Admin tier policies are evaluated first
 
 You have an application in your cluster that you want to isolate from other tenant workloads. You can explicitly block cluster traffic from other namespaces to prevent network access to the sensitive workload namespace.
 
-```
+```yaml
 apiVersion: networking.k8s.aws/v1alpha1
 kind: ClusterNetworkPolicy
 metadata:

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Update an AWS CloudFormation node stack
-<a name="update-stack"></a>
 
 This topic describes how you can update an existing AWS CloudFormation self-managed node stack with a new AMI. You can use this procedure to update your nodes to a new version of Kubernetes following a cluster update. Otherwise, you can update to the latest Amazon EKS optimized AMI for an existing Kubernetes version.
 
@@ -19,26 +18,26 @@ This method isn’t supported for node groups that were created with `eksctl`. I
 
 1. Determine the DNS provider for your cluster.
 
-   ```
+   ```bash
    kubectl get deployments -l k8s-app=kube-dns -n kube-system
    ```
 
    An example output is as follows. This cluster is using CoreDNS for DNS resolution, but your cluster might return `kube-dns` instead. Your output might look different depending on the version of `kubectl` that you’re using.
 
-   ```
+   ```bash
    NAME      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
    coredns   1         1         1            1           31m
    ```
 
 1. If your current deployment is running fewer than two replicas, scale out the deployment to two replicas. Replace {{coredns}} with `kube-dns` if your previous command output returned that instead.
 
-   ```
+   ```bash
    kubectl scale deployments/coredns --replicas=2 -n kube-system
    ```
 
 1. (Optional) If you’re using the Kubernetes [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md), scale the deployment down to zero (0) replicas to avoid conflicting scaling actions.
 
-   ```
+   ```bash
    kubectl scale deployments/cluster-autoscaler --replicas=0 -n kube-system
    ```
 
@@ -92,13 +91,13 @@ The update of each node in the cluster takes several minutes. Wait for the updat
 
 1. If your cluster’s DNS provider is `kube-dns`, scale in the `kube-dns` deployment to one replica.
 
-   ```
+   ```bash
    kubectl scale deployments/kube-dns --replicas=1 -n kube-system
    ```
 
 1. (Optional) If you are using the Kubernetes [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md), scale the deployment back to your desired amount of replicas.
 
-   ```
+   ```bash
    kubectl scale deployments/cluster-autoscaler --replicas=1 -n kube-system
    ```
 

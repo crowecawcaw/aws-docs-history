@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Download and verify the runtime binaries
-<a name="sandboxing-download-binaries"></a>
 
 If you build your own node images instead of using the AMIs that AWS manages, you install the Nitro Sandbox runtime binaries yourself. AWS publishes them as a signed release for each supported architecture (`x86_64` and `aarch64`), under the AWS Intellectual Property License. The binaries require glibc 2.34 or later. You do not need an AWS account to download or verify a release.
 
@@ -37,7 +36,7 @@ Download the archive for your node architecture:
 
 Extract the archive:
 
-```
+```bash
 tar -xzf nitro-sandboxes-runtime.tar.gz
 ```
 
@@ -53,7 +52,7 @@ To confirm that what you downloaded is what AWS published, verify the download b
 
 1. Create the public key file. Copy the following into a text file named `nitro-sandboxes-runtime-v1.pub`:
 
-   ```
+   ```text
    -----BEGIN PUBLIC KEY-----
    MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAESqdVXO82n+Zh5+IFLh1xjmxZLkjjZWvf
    DCS927SdVYjP0AZ92XCxS+ucrs9cjuNlTaDARTHov2XVfMVgau8TEPFKGDRmVZXJ
@@ -65,7 +64,7 @@ To confirm that what you downloaded is what AWS published, verify the download b
 
 1. Verify the signature over the manifest. The digest is SHA-384 (it pairs with the P-384 key), even though the hashes listed inside the manifest are SHA-256:
 
-   ```
+   ```bash
    openssl dgst -sha384 -verify nitro-sandboxes-runtime-v1.pub \
      -signature SHA256SUM.sig SHA256SUM
    ```
@@ -74,7 +73,7 @@ To confirm that what you downloaded is what AWS published, verify the download b
 
 1. Verify the downloaded archive and the extracted binaries against the signed manifest:
 
-   ```
+   ```bash
    sha256sum -c SHA256SUM
    ```
 

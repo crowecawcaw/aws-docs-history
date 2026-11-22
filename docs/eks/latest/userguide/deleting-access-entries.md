@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Delete access entries
-<a name="deleting-access-entries"></a>
 
 If you discover that you deleted an access entry in error, you can always recreate it. If the access entry that you’re deleting is associated to any access policies, the associations are automatically deleted. You don’t have to disassociate access policies from an access entry before deleting the access entry.
 
@@ -33,6 +32,6 @@ You can delete an access entry using the AWS Management Console or the AWS CLI.
 
 1. To delete an access entry Replace {{my-cluster}} with the name of your cluster, {{111122223333}} with your AWS account ID, and {{my-role}} with the name of the IAM role that you no longer want to have access to your cluster.
 
-   ```
+   ```bash
    aws eks delete-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role
    ```

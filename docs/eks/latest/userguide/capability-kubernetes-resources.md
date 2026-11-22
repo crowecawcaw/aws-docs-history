@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Capability Kubernetes resources
-<a name="capability-kubernetes-resources"></a>
 
 After you enable a capability on your cluster, you will most often interact with it by creating and managing Kubernetes custom resources in your cluster. Each capability provides its own set of custom resource definitions (CRDs) that extend the Kubernetes API with capability-specific functionality.
 
@@ -25,7 +24,7 @@ Provides logical grouping and access control for `Application` resources. `AppPr
 
 Example `Application` resource:
 
-```
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -57,7 +56,7 @@ After creating a `ResourceGraphDefinition` resource, you can create instances of
 
 Example `ResourceGraphDefinition` resource:
 
-```
+```yaml
 apiVersion: kro.run/v1alpha1
 kind: ResourceGraphDefinition
 metadata:
@@ -84,7 +83,7 @@ spec:
 
 Example `WebApplication` instance:
 
-```
+```yaml
 apiVersion: v1alpha1
 kind: WebApplication
 metadata:
@@ -123,7 +122,7 @@ Examples of ACK resources:
 
 Example specification of a `Bucket` resource:
 
-```
+```yaml
 apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:

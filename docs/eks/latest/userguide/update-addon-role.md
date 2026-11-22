@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Use Pod Identities to assign an IAM role to an Amazon EKS add-on
-<a name="update-addon-role"></a>
 
 Certain Amazon EKS add-ons need IAM roles and permissions. Before you update an Amazon EKS add-on to use a Pod Identity association, verify the role and policy to use. For more information, see [Retrieve IAM information about an Amazon EKS add-on](retreive-iam-info.md).
 
@@ -17,7 +16,7 @@ Certain Amazon EKS add-ons need IAM roles and permissions. Before you update an 
 
 1. Update the add-on using the AWS CLI. You can also specify Pod Identity associations when creating an add-on, using the same `--pod-identity-associations` syntax. Note that when you specify pod identity associations while updating an add-on, all previous pod identity associations are overwritten.
 
-   ```
+   ```shell
    aws eks update-addon --cluster-name <cluster-name> \
    --addon-name <addon-name> \
    --pod-identity-associations '[{"serviceAccount": "<service-account-name>", "roleArn": "<role-arn>"}]'
@@ -25,7 +24,7 @@ Certain Amazon EKS add-ons need IAM roles and permissions. Before you update an 
 
    For example:
 
-   ```
+   ```shell
    aws eks update-addon --cluster-name mycluster \
    --addon-name aws-ebs-csi-driver \
    --pod-identity-associations '[{"serviceAccount": "ebs-csi-controller-sa", "roleArn": "arn:aws:iam::123456789012:role/StorageDriver"}]'
@@ -33,13 +32,13 @@ Certain Amazon EKS add-ons need IAM roles and permissions. Before you update an 
 
 1. Validate the Pod Identity association was created:
 
-   ```
+   ```shell
    aws eks list-pod-identity-associations --cluster-name <cluster-name>
    ```
 
    If successful, you should see output similar to the following. Note the OwnerARN of the EKS add-on.
 
-   ```
+   ```json
    {
        "associations": [
            {

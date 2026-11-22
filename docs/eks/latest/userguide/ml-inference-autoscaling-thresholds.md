@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Identify scaling metric thresholds for AI inference
-<a name="ml-inference-autoscaling-thresholds"></a>
 
 **Tip**  
  [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
@@ -27,14 +26,14 @@ Confirm each item below before you start, and complete the linked section first 
 
 If you opened a new terminal, set the cluster name and region you used earlier:
 
-```
+```bash
 export CLUSTER_NAME=ai-eks-docs
 export AWS_REGION=us-east-2
 ```
 
 Capture the name of the Amazon S3 model bucket that was created in the [Cluster setup](ml-cluster-setup.md) steps. The load generator passes this value to vLLM.
 
-```
+```bash
 MODEL_BUCKET=$(aws s3api list-buckets \
   --query "Buckets[?starts_with(Name, '${CLUSTER_NAME}-models-')].Name | [0]" \
   --output text)
@@ -46,13 +45,13 @@ echo "Model bucket: ${MODEL_BUCKET}"
 
 The kube-prometheus-stack from the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring) setup runs in the `monitoring` namespace.
 
-```
+```bash
 kubectl get pods -n monitoring
 ```
 
 The Prometheus and Grafana pods should be `Running`:
 
-```
+```bash
 NAME                                              READY   STATUS    RESTARTS   AGE
 kube-prometheus-stack-grafana-6f9c8b7d5c-2xk9p    3/3     Running   0          3h
 kube-prometheus-stack-operator-7b8c9d6f4-q4m7n    1/1     Running   0          3h
@@ -66,13 +65,13 @@ If these are missing, complete the [Monitoring](ml-cluster-setup-cli.md#cluster-
 
 The `vllm-inference-app` Deployment and `vllm-inference-svc` Service from [Load & Serve Models](ml-inference-load-serve-model.md) run in the `default` namespace.
 
-```
+```bash
 kubectl get deployment vllm-inference-app
 ```
 
 The Deployment should report `1/1` ready:
 
-```
+```bash
 NAME                 READY   UP-TO-DATE   AVAILABLE   AGE
 vllm-inference-app   1/1     1            1           3h
 ```
@@ -84,13 +83,13 @@ If the Deployment is missing or not ready, complete [Load & Serve Models](ml-inf
 
 You watch the load test in the pre-loaded vLLM dashboard, so make sure the Grafana load balancer you set up in the [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer) section is reachable. Print its URL:
 
-```
+```bash
 echo "http://$(kubectl get ingress kube-prometheus-stack-grafana -n monitoring -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
 ```
 
 Open the URL in your browser and log in with username `admin` and the password from the following command:
 
-```
+```bash
 kubectl --namespace monitoring get secrets kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
 ```
 
@@ -99,13 +98,13 @@ kubectl --namespace monitoring get secrets kube-prometheus-stack-grafana -o json
 
 The `vllm-inference-app` ServiceMonitor, created in the [Monitor vLLM](ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring) step, runs in the `default` namespace and tells Prometheus where to scrape vLLM metrics.
 
-```
+```bash
 kubectl get servicemonitor vllm-inference-app
 ```
 
 Expected output:
 
-```
+```bash
 NAME                 AGE
 vllm-inference-app   3h
 ```
@@ -123,7 +122,7 @@ First, create the ConfigMap that holds the warm-up script (`warmup.js`). The scr
 
 **Example k6 warm-up ConfigMap**  
 
-```
+```bash
 cat << 'EOF' | kubectl apply -f -
 apiVersion: v1
 kind: ConfigMap
@@ -151,7 +150,7 @@ Then run the warm-up Job. A single client sends 100 sequential requests:
 
 **Example Warm-up Job**  
 
-```
+```bash
 cat << EOF | kubectl apply -f -
 apiVersion: batch/v1
 kind: Job
@@ -182,7 +181,7 @@ EOF
 
 Wait for the warm-up to finish (it takes a few minutes):
 
-```
+```bash
 kubectl wait --for=condition=complete job/vllm-warmup --timeout=600s
 ```
 
@@ -195,7 +194,7 @@ Open Grafana (open the load balancer hostname; see [Access Grafana](ml-cluster-s
 
 Then delete the warm-up Job:
 
-```
+```bash
 kubectl delete job vllm-warmup
 ```
 
@@ -210,7 +209,7 @@ First, create the ConfigMap that holds the k6 load-test script (`script.js`). Th
 
 **Example k6 load test ConfigMap**  
 
-```
+```bash
 cat << 'EOF' | kubectl apply -f -
 apiVersion: v1
 kind: ConfigMap
@@ -260,7 +259,7 @@ Then run the load test at each request rate. The following loop submits a separa
 
 **Example Load test loop**  
 
-```
+```bash
 for RPS in 10 20 30 40 50 60 70; do
   echo "=== Testing at ${RPS} req/s ==="
   cat << EOF | kubectl apply -f -
@@ -307,7 +306,7 @@ done
 
 Watch the metrics in Grafana as the test runs (see Step 3). Each rate creates its own Job (`vllm-loadtest-10` through `vllm-loadtest-70`), so you can inspect any run with `kubectl get jobs`. When you are done, delete all the load-test Jobs:
 
-```
+```bash
 kubectl delete jobs -l app=vllm-loadtest
 ```
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Set actions for AWS Fargate OS patching events
-<a name="fargate-pod-patching"></a>
 
 Amazon EKS periodically patches the OS for AWS Fargate nodes to keep them secure. As part of the patching process, we recycle the nodes to install OS patches. Updates are attempted in a way that creates the least impact on your services. However, if Pods aren’t successfully evicted, there are times when they must be deleted. The following are actions that you can take to minimize potential disruptions:
 + Set appropriate Pod disruption budgets (PDBs) to control the number of Pods that are down simultaneously.
@@ -25,7 +24,7 @@ When the eviction for a Pod fails, Amazon EKS sends an event to your account wit
 
 The following is a sample event received when the Pod eviction fails. It contains details about the cluster, Pod name, Pod namespace, Fargate profile, and the scheduled termination time.
 
-```
+```json
 {
     "version": "0",
     "id": "12345678-90ab-cdef-0123-4567890abcde",
@@ -50,13 +49,13 @@ The following is a sample event received when the Pod eviction fails. It contain
 
 In addition, having multiple PDBs associated with a Pod can cause an eviction failure event. This event returns the following error message.
 
-```
+```json
 "evictErrorMessage": "This pod has multiple PodDisruptionBudget, which the eviction subresource does not support",
 ```
 
 You can create a desired action based on this event. For example, you can adjust your Pod disruption budget (PDB) to control how the Pods are evicted. More specifically, suppose that you start with a PDB that specifies the target percentage of Pods that are available. Before your Pods are force terminated during an upgrade, you can adjust the PDB to a different percentage of Pods. To receive this event, you must create an Amazon EventBridge rule in the AWS account and AWS Region that the cluster belongs to. The rule must use the following **Custom pattern**. For more information, see [Creating Amazon EventBridge rules that react to events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule.html) in the *Amazon EventBridge User Guide*.
 
-```
+```json
 {
   "source": ["aws.eks"],
   "detail-type": ["EKS Fargate Pod Scheduled Termination"]

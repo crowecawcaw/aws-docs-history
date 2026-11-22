@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Network traffic flows for hybrid nodes
-<a name="hybrid-nodes-concepts-traffic-flows"></a>
 
 This page details the network traffic flows for EKS Hybrid Nodes with diagrams showing the end-to-end network paths for the different traffic types.
 

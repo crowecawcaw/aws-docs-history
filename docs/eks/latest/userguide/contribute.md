@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Contribute to the EKS User Guide
-<a name="contribute"></a>
 
  AWS has launched an improved contribution experience for the EKS User Guide.
 

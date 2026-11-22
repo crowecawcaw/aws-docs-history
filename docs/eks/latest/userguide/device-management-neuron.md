@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Manage Neuron devices on Amazon EKS
-<a name="device-management-neuron"></a>
 
  AWS Trainium and AWS Inferentia are purpose-built machine learning chips designed by AWS. Amazon EKS supports two mechanisms for managing Neuron devices in EKS clusters: the *Neuron DRA driver* and the *Neuron Kubernetes device plugin*.
 
@@ -48,7 +47,7 @@ Do not install the Neuron DRA driver on nodes where the Neuron device plugin is 
 
 1. Install the Neuron DRA driver using Helm.
 
-   ```
+   ```bash
    helm upgrade --install neuron-helm-chart oci://public.ecr.aws/neuron/neuron-helm-chart \
        --namespace neuron-dra-driver \
        --create-namespace \
@@ -61,29 +60,29 @@ Do not install the Neuron DRA driver on nodes where the Neuron device plugin is 
 
 1. Verify that the DRA driver DaemonSet is running.
 
-   ```
+   ```bash
    kubectl get ds -n neuron-dra-driver neuron-dra-driver-kubelet-plugin
    ```
 
-   ```
+   ```bash
    NAME                              DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
    neuron-dra-driver-kubelet-plugin  1         1         1       1            1           <none>          60s
    ```
 
 1. Verify that the `DeviceClass` was created.
 
-   ```
+   ```bash
    kubectl get deviceclass neuron.aws.com
    ```
 
-   ```
+   ```bash
    NAME            AGE
    neuron.aws.com  60s
    ```
 
 1. Verify that `ResourceSlice` objects are advertised for your nodes.
 
-   ```
+   ```bash
    kubectl get resourceslice
    ```
 
@@ -96,7 +95,7 @@ To request Neuron devices using the DRA driver, create a `ResourceClaimTemplate`
 
 The following example requests all Neuron devices on a `trn2.48xlarge` instance:
 
-```
+```yaml
 apiVersion: resource.k8s.io/v1
 kind: ResourceClaimTemplate
 metadata:
@@ -136,7 +135,7 @@ The Neuron DRA driver can allocate subsets of connected Neuron devices without r
 
 The following example requests 4 connected Neuron devices:
 
-```
+```yaml
 apiVersion: resource.k8s.io/v1
 kind: ResourceClaimTemplate
 metadata:
@@ -167,7 +166,7 @@ The Neuron DRA driver allows per-workload Logical NeuronCore configuration throu
 
 The following example requests all Neuron devices with LNC set to 1:
 
-```
+```yaml
 apiVersion: resource.k8s.io/v1
 kind: ResourceClaimTemplate
 metadata:
@@ -215,29 +214,29 @@ The Neuron Kubernetes device plugin advertises Neuron devices as `aws.amazon.com
 
 1. Install the Neuron Kubernetes device plugin using Helm.
 
-   ```
+   ```bash
    helm upgrade --install neuron-helm-chart oci://public.ecr.aws/neuron/neuron-helm-chart \
        --set "npd.enabled=false"
    ```
 
 1. Verify the Neuron device plugin DaemonSet is running.
 
-   ```
+   ```bash
    kubectl get ds -n kube-system neuron-device-plugin
    ```
 
-   ```
+   ```bash
    NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
    neuron-device-plugin   1         1         1       1            1           <none>          60s
    ```
 
 1. Verify that your nodes have allocatable Neuron devices.
 
-   ```
+   ```bash
    kubectl get nodes "-o=custom-columns=NAME:.metadata.name,NeuronDevice:.status.allocatable.aws\.amazon\.com/neuron,NeuronCore:.status.allocatable.aws\.amazon\.com/neuroncore"
    ```
 
-   ```
+   ```bash
    NAME                                           NeuronDevice   NeuronCore
    ip-192-168-47-173.us-west-2.compute.internal   1              2
    ```
@@ -249,7 +248,7 @@ You can verify that Neuron devices are accessible by running the `neuron-ls` too
 
 1. Create a file named `neuron-ls.yaml` with the following contents. This manifest launches an [Neuron Monitor](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/infrastructure/monitoring.html) container that has the `neuron-ls` tool installed.
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: Pod
    metadata:
@@ -274,19 +273,19 @@ You can verify that Neuron devices are accessible by running the `neuron-ls` too
 
 1. Apply the manifest.
 
-   ```
+   ```bash
    kubectl apply -f neuron-ls.yaml
    ```
 
 1. After the Pod has finished running, view its logs.
 
-   ```
+   ```bash
    kubectl logs neuron-ls
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    instance-type: inf2.xlarge
    instance-id: i-0eb8c1f59f121359e
    +--------+--------+----------+--------+--------------+----------+------+

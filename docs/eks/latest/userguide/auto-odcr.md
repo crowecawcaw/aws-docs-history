@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Control deployment of workloads into Capacity Reservations with EKS Auto Mode
-<a name="auto-odcr"></a>
 
 You can control the deployment of workloads onto [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservation-overview.html). EKS Auto Mode supports EC2 On-Demand Capacity Reservations (ODCRs), EC2 Capacity Blocks for ML, and Interruptible Capacity Reservations (IODCRs).
 
@@ -25,7 +24,7 @@ If you configure `capacityReservationSelectorTerms` on a NodeClass in a cluster,
 ### Example NodeClass
 <a name="_example_nodeclass"></a>
 
-```
+```yaml
 apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 spec:
@@ -87,7 +86,7 @@ The following sample definitions create three resources:
 
 This NodeClass references a specific Capacity Block for ML by its reservation ID. You can obtain this ID from the EC2 console.
 
-```
+```yaml
 apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
@@ -108,7 +107,7 @@ This NodePool references the `gpu` NodeClass and specifies important configurati
 + It requests specific GPU instance families appropriate for ML workloads
 + It applies a `nvidia.com/gpu` taint to ensure only GPU workloads are scheduled on these nodes
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -154,7 +153,7 @@ This example pod demonstrates how to configure a workload to run on your Capacit
 + It includes a **toleration** for the `nvidia.com/gpu` taint applied by the NodePool
 + It explicitly **requests GPU resources** using the `nvidia.com/gpu` resource type
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:

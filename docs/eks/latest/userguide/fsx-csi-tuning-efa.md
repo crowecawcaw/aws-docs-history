@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Optimize Amazon FSx for Lustre performance on nodes (EFA)
-<a name="fsx-csi-tuning-efa"></a>
 
 This topic describes how to set up Elastic Fabric Adapter (EFA) tuning with Amazon EKS and Amazon FSx for Lustre.
 
@@ -18,14 +17,14 @@ For optimizing standard nodes without EFA, see [Optimize Amazon FSx for Lustre p
 
 Create a cluster using the provided configuration file:
 
-```
+```bash
 # Create cluster using efa-cluster.yaml
 eksctl create cluster -f efa-cluster.yaml
 ```
 
 Example `efa-cluster.yaml`:
 
-```
+```yaml
 #efa-cluster.yaml
 
 apiVersion: eksctl.io/v1alpha5
@@ -123,7 +122,7 @@ managedNodeGroups:
 
 Create an EFA-enabled node group:
 
-```
+```bash
 # Create node group using efa-ng.yaml
 eksctl create nodegroup -f efa-ng.yaml
 ```
@@ -131,7 +130,7 @@ eksctl create nodegroup -f efa-ng.yaml
 **Important**  
 Adjust these values for your environment in section `# 5. Mount FSx filesystem`.  
 
-```
+```bash
 FSX_DNS="<your-fsx-filesystem-dns>" # Needs to be adjusted.
 MOUNT_NAME="<your-mount-name>" # Needs to be adjusted.
 MOUNT_POINT="</your/mount/point>" # Needs to be adjusted.
@@ -139,7 +138,7 @@ MOUNT_POINT="</your/mount/point>" # Needs to be adjusted.
 
 Example `efa-ng.yaml`:
 
-```
+```yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -561,26 +560,26 @@ managedNodeGroups:
 
 SSH into node:
 
-```
+```bash
 # Get instance ID from EKS console or {aws} CLI
 ssh -i /path/to/your-key.pem ec2-user@<node-internal-ip>
 ```
 
 Verify EFA configuration:
 
-```
+```bash
 sudo lnetctl net show
 ```
 
 Check setup logs:
 
-```
+```bash
 sudo cat /var/log/cloud-init-output.log
 ```
 
 Here’s example expected output for `lnetctl net show`:
 
-```
+```text
 net:
     - net type: tcp
       ...
@@ -596,7 +595,7 @@ net:
 ### a. Create claim.yaml
 <a name="_a_create_claim_yaml"></a>
 
-```
+```yaml
 #claim.yaml
 
 apiVersion: v1
@@ -615,7 +614,7 @@ spec:
 
 Apply the claim:
 
-```
+```bash
 kubectl apply -f claim.yaml
 ```
 
@@ -624,7 +623,7 @@ kubectl apply -f claim.yaml
 
 Update the `<replaceable-placeholders>`:
 
-```
+```yaml
 #pv.yaml
 
 apiVersion: v1
@@ -650,14 +649,14 @@ spec:
 
 Apply the persistent volume:
 
-```
+```bash
 kubectl apply -f pv.yaml
 ```
 
 ### c. Create pod.yaml
 <a name="_c_create_pod_yaml"></a>
 
-```
+```yaml
 #pod.yaml
 
 apiVersion: v1
@@ -686,7 +685,7 @@ spec:
 
 Apply the Pod:
 
-```
+```bash
 kubectl apply -f pod.yaml
 ```
 
@@ -695,7 +694,7 @@ kubectl apply -f pod.yaml
 
 Verify Pod mounts and writes to filesystem:
 
-```
+```bash
 kubectl exec -ti fsx-efa-app -- df -h | grep data
 # Expected output:
 # <192.0.2.0>@tcp:/<abcdef01>  4.5T  1.2G  4.5T   1% /data
@@ -707,7 +706,7 @@ kubectl exec -ti fsx-efa-app -- ls /data
 
 SSH onto the node to verify traffic is going over EFA:
 
-```
+```bash
 sudo lnetctl net show -v
 ```
 

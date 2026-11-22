@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Manage EFA devices on Amazon EKS
-<a name="device-management-efa"></a>
 
  [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) (EFA) is a network device for Amazon EC2 instances that enables high-performance inter-node communication and RDMA (Remote Direct Memory Access) for artificial intelligence, machine learning, and High Performance Computing (HPC) workloads. Amazon EKS supports two mechanisms for managing EFA devices in EKS clusters: the *EFA Dynamic Resource Allocation (DRA) driver (DRANET)* and the *EFA device plugin*.
 
@@ -54,13 +53,13 @@ As you compare instance types, consider the number of EFA network cards availabl
 
 To find which EFA-enabled instance types are available in an AWS Region, and which Availability Zones offer them, run the following commands. Replace {{region-code}} with your AWS Region.
 
-```
+```bash
 aws ec2 describe-instance-types --region [.replaceable]`region-code` \
     --filters Name=network-info.efa-supported,Values=true \
     --query "InstanceTypes[*].[InstanceType]" --output text
 ```
 
-```
+```bash
 aws ec2 describe-instance-type-offerings --region [.replaceable]`region-code` \
     --location-type availability-zone \
     --filters Name=instance-type,Values=[.replaceable]`p5.48xlarge` \
@@ -69,7 +68,7 @@ aws ec2 describe-instance-type-offerings --region [.replaceable]`region-code` \
 
 An example output is as follows.
 
-```
+```bash
 us-west-2a    us-west-2c    us-west-2b
 ```
 
@@ -83,7 +82,7 @@ Note the following about this reservation:
  **It only ever increases the reservation.** If a node already has more 2 MiB hugepages reserved, for example from node user data, the EFA installer leaves that reservation in place.
 To see what a node actually reserved, check its capacity:  
 
-```
+```bash
 kubectl get nodes -o custom-columns='NAME:.metadata.name,2Mi:.status.capacity.hugepages-2Mi'
 ```
 Size your Pod requests against what your nodes report, rather than against a fixed figure. For more information about configuring hugepages on EKS nodes, see [Configure hugepages in Amazon EKS clusters](ml-hugepages.md), and for the Kubernetes resource model, see [Manage HugePages](https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/) in the Kubernetes documentation.
@@ -134,7 +133,7 @@ You don’t select DRA rather than the EFA device plugin for a `NodePool`. With 
 ### Example EKS Auto Mode NodeClass with EFA-only interfaces for P5
 <a name="eks-efa-auto-mode-example"></a>
 
-```
+```yaml
 apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
@@ -188,7 +187,7 @@ Static network interface configuration is intended for static capacity provision
 ### Example Karpenter EC2NodeClass with EFA-only interfaces for P6-B200
 <a name="eks-efa-karpenter-example"></a>
 
-```
+```yaml
 apiVersion: karpenter.k8s.aws/v1
 kind: EC2NodeClass
 metadata:
@@ -239,7 +238,7 @@ Replace ` security-group-id ` with your values. The security group must allow al
 **Important**  
 Do not specify `SubnetId` in the launch template when using EKS managed node groups. EKS requires that all subnets are specified through the `CreateNodegroup` API and rejects launch templates that include subnet configuration.
 
-```
+```json
 {
   "LaunchTemplateName": "efa-launch-template",
   "LaunchTemplateData": {
@@ -347,59 +346,59 @@ Do not install the EFA DRA driver on nodes where the EFA device plugin is runnin
 
 1. Add the EKS Helm chart repository.
 
-   ```
+   ```bash
    helm repo add eks https://aws.github.io/eks-charts
    ```
 
 1. Update your local Helm repository.
 
-   ```
+   ```bash
    helm repo update
    ```
 
 1. Install the EFA DRA driver on your cluster using Helm. The EFA DRA driver automatically detects that it is running on EC2 instances via the Instance Metadata Service (IMDS) and enables EFA device discovery. The EFA DRA driver is deployed as a DaemonSet in the `kube-system` namespace by default. See the Helm values.yaml in the [EKS Helm chart repository](https://github.com/aws/eks-charts/tree/master/stable/aws-dranet) on GitHub for the configurable parameters.
 
-   ```
+   ```bash
    helm install aws-dranet eks/aws-dranet --namespace kube-system
    ```
 
 1. Verify that the DRANET DaemonSet is running.
 
-   ```
+   ```bash
    kubectl get daemonset -n kube-system aws-dranet
    ```
 
-   ```
+   ```bash
    NAME          DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
    aws-dranet    2         2         2       2            2           <none>          60s
    ```
 
 1. Verify that the `DeviceClass` was created.
 
-   ```
+   ```bash
    kubectl get deviceclass
    ```
 
-   ```
+   ```bash
    NAME                    AGE
    efa.networking.k8s.aws  60s
    ```
 
 1. Verify that `ResourceSlice` objects are advertised for your nodes.
 
-   ```
+   ```bash
    kubectl get resourceslices --field-selector spec.driver=dra.net
    ```
 
    If you experience errors with the steps above, you can check the logs for DRANET with the following command.
 
-   ```
+   ```bash
    kubectl logs -n kube-system -l app=aws-dranet
    ```
 
 1. To request EFA devices using the DRA driver, create a `ResourceClaim` or `ResourceClaimTemplate` that references the EFA `DeviceClass` and reference it in your Pod specification. The following example requests a single EFA device.
 
-   ```
+   ```yaml
    apiVersion: resource.k8s.io/v1
    kind: ResourceClaimTemplate
    metadata:
@@ -436,7 +435,7 @@ A `DeviceClass` names a category of devices and defines the expression that sele
 
 When you install the EFA DRA driver with Helm, as described in [Install the EFA DRA driver (DRANET)](#efa-dra-driver), the chart creates this object for you and there is nothing more to do. EKS Auto Mode runs the driver from the node runtime rather than from a Helm chart, so on EKS Auto Mode you create it yourself.
 
-```
+```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: resource.k8s.io/v1
 kind: DeviceClass
@@ -455,13 +454,13 @@ The EFA DRA driver advertises every network interface on the node, not only EFA 
 
 Confirm that it exists.
 
-```
+```bash
 kubectl get deviceclass
 ```
 
 An example output is as follows.
 
-```
+```bash
 NAME                     AGE
 efa.networking.k8s.aws   5s
 ```
@@ -475,7 +474,7 @@ The EFA DRA driver supports topology-aware allocation that pairs EFA interfaces 
 
 The following example requests 1 EFA interface aligned with 1 NVIDIA GPU:
 
-```
+```yaml
 apiVersion: resource.k8s.io/v1
 kind: ResourceClaimTemplate
 metadata:
@@ -499,7 +498,7 @@ spec:
 
 The following example requests 4 EFA interfaces aligned with 4 Neuron devices:
 
-```
+```yaml
 apiVersion: resource.k8s.io/v1
 kind: ResourceClaimTemplate
 metadata:
@@ -525,7 +524,7 @@ The number in the `devicegroup` attribute name corresponds to the number of Neur
 
 You can use `allocationMode` to simplify how EFA devices are allocated to aligned GPU or Neuron accelerators. The `allocationMode` field supports two values: `ExactCount` (the default) requests a specific number of devices specified by `count`, and `All` requests all matching devices in a pool. For example, on `p5.48xlarge` instances there are four EFA devices that share the same PCIe root with one GPU. To allocate these groups of EFA devices with aligned GPUs, even if you do not know the exact EFA-GPU device mapping and count of aligned EFA devices, you can configure your `ResourceClaimTemplate` with `allocationMode: All` for the EFA devices.
 
-```
+```yaml
 apiVersion: resource.k8s.io/v1
 kind: ResourceClaimTemplate
 metadata:
@@ -555,7 +554,7 @@ A `ResourceClaimTemplate` only describes the devices to allocate. To use it, ref
 
 The following example references the `aligned-efa-nvidia` template from the first example in this section, which allocates one EFA interface aligned with one NVIDIA GPU on the same PCIe root.
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -631,40 +630,40 @@ EKS Auto Mode does not enable MOFED by default and is not affected by this issue
 
 1. Add the EKS Helm chart repository.
 
-   ```
+   ```bash
    helm repo add eks https://aws.github.io/eks-charts
    ```
 
 1. Update your local Helm repository.
 
-   ```
+   ```bash
    helm repo update
    ```
 
 1. Install the EFA device plugin.
 
-   ```
+   ```bash
    helm install efa eks/aws-efa-k8s-device-plugin -n kube-system
    ```
 
 1. Verify the EFA device plugin DaemonSet is running.
 
-   ```
+   ```bash
    kubectl get daemonset -n kube-system efa-aws-efa-k8s-device-plugin
    ```
 
-   ```
+   ```bash
    NAME                                  DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
    efa-aws-efa-k8s-device-plugin         2         2         2       2            2           <none>          60s
    ```
 
 1. Verify that your nodes have allocatable EFA resources.
 
-   ```
+   ```bash
    kubectl get nodes "-o=custom-columns=NAME:.metadata.name,EFA:.status.allocatable.vpc\.amazonaws\.com/efa"
    ```
 
-   ```
+   ```bash
    NAME                                           EFA
    ip-192-168-11-225.us-west-2.compute.internal   4
    ip-192-168-24-96.us-west-2.compute.internal    4
@@ -672,7 +671,7 @@ EKS Auto Mode does not enable MOFED by default and is not affected by this issue
 
 1. To request EFA devices using the device plugin, specify the `vpc.amazonaws.com/efa` resource in your container resource requests and limits.
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: Pod
    metadata:
@@ -721,7 +720,7 @@ With the device plugin, the worker requests `vpc.amazonaws.com/efa` and `nvidia.
 ##### MPIJob using the EFA device plugin
 <a name="eks-efa-nccl-device-plugin-yaml"></a>
 
-```
+```yaml
 apiVersion: kubeflow.org/v2beta1
 kind: MPIJob
 metadata:
@@ -828,7 +827,7 @@ With DRA, the worker references a `ResourceClaimTemplate` instead of requesting 
 ##### MPIJob using the EFA DRA driver
 <a name="eks-efa-nccl-dra-yaml"></a>
 
-```
+```yaml
 apiVersion: resource.k8s.io/v1
 kind: ResourceClaimTemplate
 metadata:
@@ -950,25 +949,25 @@ Hugepages remain an extended resource under DRA, so the worker still requests `h
 
 1. Apply the manifest. This schedules the job onto two EFA-enabled nodes.
 
-   ```
+   ```bash
    kubectl apply -f nccl-tests.yaml
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    mpijob.kubeflow.org/nccl-tests created
    ```
 
 1. Verify that the job started its Pods.
 
-   ```
+   ```bash
    kubectl get pods
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME                          READY   STATUS     RESTARTS   AGE
    nccl-tests-launcher-nbql9     0/1     Init:0/1   0          2m49s
    nccl-tests-worker-0           1/1     Running    0          2m49s
@@ -979,7 +978,7 @@ Hugepages remain an extended resource under DRA, so the worker still requests `h
 
 1. Follow the launcher log to watch the benchmark. Replace {{nbql9}} with the suffix from your output.
 
-   ```
+   ```bash
    kubectl logs -f nccl-tests-launcher-[.replaceable]`nbql9`
    ```
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Troubleshoot local Amazon EKS clusters on AWS Outposts configured with EC2 instance store
-<a name="eks-outposts-instance-store-troubleshooting"></a>
 
 This topic covers common errors that you might see while using local Amazon EKS clusters on AWS Outposts configured with EC2 instance store and how to troubleshoot them.
 
@@ -14,19 +13,19 @@ This topic covers common errors that you might see while using local Amazon EKS 
 
 If you see the following error after running `aws eks update-kubeconfig`:
 
-```
+```bash
 Either parameter --cluster-name or --cluster-id must be specified.
 ```
 
 Or:
 
-```
+```bash
 couldn't get current server API group list: getting credentials: exec: executable aws failed with exit code 1
 ```
 
 Verify that your `kubeconfig` (`~/.kube/config`) specifies `--cluster-name` in the `exec` args, not `--cluster-id`:
 
-```
+```yaml
       args:
         - --region
         - region-code
@@ -46,7 +45,7 @@ If your nodes don’t appear when you run `kubectl get nodes`:
 
 1.  **Check `kubelet` logs on the node.** Access the node with SSM or SSH and run:
 
-   ```
+   ```bash
    systemctl status kubelet -l
    ```
 
@@ -54,13 +53,13 @@ If your nodes don’t appear when you run `kubectl get nodes`:
 
 1.  **Check CSR status.** Verify that the node’s certificate signing request was approved:
 
-   ```
+   ```bash
    kubectl get csr
    ```
 
    If the CSR is in `Pending` state, approve it:
 
-   ```
+   ```bash
    kubectl certificate approve node-csr-EXAMPLE
    ```
 

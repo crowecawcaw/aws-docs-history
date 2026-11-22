@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure network access to cluster API server endpoint
-<a name="config-cluster-endpoint"></a>
 
 You can modify your cluster API server endpoint access using the AWS Management Console or AWS CLI in the following sections.
 
@@ -35,7 +34,7 @@ Complete the following steps using the AWS CLI version `1.27.160` or later. You 
 **Note**  
 The following command enables private access and public access from a single IP address for the API server endpoint. Replace {{203.0.113.5/32}} with a single CIDR block, or a comma-separated list of CIDR blocks that you want to restrict network access to.
 
-   ```
+   ```bash
    aws eks update-cluster-config \
        --region region-code \
        --name my-cluster \
@@ -44,7 +43,7 @@ The following command enables private access and public access from a single IP 
 
    An example output is as follows.
 
-   ```
+   ```json
    {
        "update": {
            "id": "e6f0905f-a5d4-4a2a-8c49-EXAMPLE00000",
@@ -72,7 +71,7 @@ The following command enables private access and public access from a single IP 
 
 1. Monitor the status of your endpoint access update with the following command, using the cluster name and update ID that was returned by the previous command. Your update is complete when the status is shown as `Successful`.
 
-   ```
+   ```bash
    aws eks describe-update \
        --region region-code \
        --name my-cluster \
@@ -81,7 +80,7 @@ The following command enables private access and public access from a single IP 
 
    An example output is as follows.
 
-   ```
+   ```json
    {
        "update": {
            "id": "e6f0905f-a5d4-4a2a-8c49-EXAMPLE00000",

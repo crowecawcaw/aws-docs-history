@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an Argo CD capability using the AWS CLI
-<a name="argocd-create-cli"></a>
 
 Create an Argo CD capability on your Amazon EKS cluster using the AWS CLI. This procedure walks you through creating an IAM role, configuring AWS Identity Center integration, and verifying the capability is active.
 
@@ -21,7 +20,7 @@ Create an Argo CD capability on your Amazon EKS cluster using the AWS CLI. This 
 
 Create a trust policy file:
 
-```
+```bash
 cat > argocd-trust-policy.json << 'EOF'
 {
   "Version": "2012-10-17",		 	 	 
@@ -43,7 +42,7 @@ EOF
 
 Create the IAM role:
 
-```
+```bash
 aws iam create-role \
   --role-name ArgoCDCapabilityRole \
   --assume-role-policy-document file://argocd-trust-policy.json
@@ -62,7 +61,7 @@ By default, the Argo CD UI and API endpoint are publicly accessible over the int
 
 Create an interface VPC endpoint for the EKS Capabilities service in your VPC. Replace {{vpc-id}}, {{subnet-id-1 subnet-id-2}}, {{sg-id}}, and {{region-code}} with your own values:
 
-```
+```bash
 aws ec2 create-vpc-endpoint \
   --vpc-endpoint-type Interface \
   --service-name com.amazonaws.{{region-code}}.eks-capabilities \
@@ -80,7 +79,7 @@ Note the VPC endpoint ID returned by this command—you’ll need it when creati
 ### Verify the VPC endpoint is available
 <a name="_verify_the_vpc_endpoint_is_available"></a>
 
-```
+```bash
 aws ec2 describe-vpc-endpoints \
   --vpc-endpoint-ids {{vpce-xxxxxxxx}} \
   --query 'VpcEndpoints[0].State' \
@@ -97,7 +96,7 @@ Create the Argo CD capability resource on your cluster. The following examples s
 
 First, set environment variables for your Identity Center configuration:
 
-```
+```bash
 # Get your Identity Center instance ARN (replace region if your IDC instance is in a different region)
 export IDC_INSTANCE_ARN=$(aws sso-admin list-instances --region {{region-code}} --query 'Instances[0].InstanceArn' --output text)
 
@@ -113,7 +112,7 @@ echo "IDC_USER_ID=$IDC_USER_ID"
 
 Create the capability with Identity Center integration. Replace {{region-code}} with the AWS Region where your cluster is located, {{my-cluster}} with your cluster name, and {{idc-region-code}} with the region code where your Identity Center instance is located:
 
-```
+```bash
 aws eks create-capability \
   --region {{region-code}} \
   --cluster-name {{my-cluster}} \
@@ -143,7 +142,7 @@ aws eks create-capability \
 
 If you configured a VPC endpoint for private access, include the `network-configuration` parameter to create the capability with a private endpoint. Replace {{vpce-xxxxxxxx}} with your VPC endpoint ID:
 
-```
+```bash
 aws eks create-capability \
   --region {{region-code}} \
   --cluster-name {{my-cluster}} \
@@ -187,7 +186,7 @@ You have the required IAM permissions
 
 Wait for the capability to become active. Replace {{region-code}} with the AWS Region where your cluster is located and {{my-cluster}} with your cluster name.
 
-```
+```bash
 aws eks describe-capability \
   --region {{region-code}} \
   --cluster-name {{my-cluster}} \
@@ -200,7 +199,7 @@ The capability is ready when the status shows `ACTIVE`. Wait until the status is
 
 You can also view the full capability details:
 
-```
+```bash
 aws eks describe-capability \
   --region {{region-code}} \
   --cluster-name {{my-cluster}} \
@@ -212,7 +211,7 @@ aws eks describe-capability \
 
 After the capability is active, verify that Argo CD custom resources are available in your cluster:
 
-```
+```bash
 kubectl api-resources | grep argoproj.io
 ```
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Rotate the EKS cluster certificate authority (CA)
-<a name="certificate-authority-rotation"></a>
 
 In public key infrastructure (PKI), a certificate authority (CA) is a trusted entity that issues and signs digital certificates. These certificates establish identity and enable encrypted communication between systems using TLS (Transport Layer Security). When a client connects to a server, the server presents a certificate signed by a CA. The client verifies the server’s certificate against the CAs it trusts before allowing the connection to proceed.
 
@@ -251,13 +250,13 @@ The following walkthrough covers the end-to-end CA rotation process using the AW
 
 View the active certificate authority on your EKS cluster.
 
-```
+```bash
 aws eks list-certificate-authorities --cluster-name my-cluster --region us-west-2
 ```
 
 Expected output:
 
-```
+```json
 {
     "certificateAuthorities": [
         {
@@ -278,13 +277,13 @@ This shows the CA that was created when your EKS cluster was created. It is curr
 #### Step 2: View CA details and expiration
 <a name="_step_2_view_ca_details_and_expiration"></a>
 
-```
+```bash
 aws eks describe-certificate-authority --cluster-name my-cluster --certificate-authority-id a1b2c3d4-5678-90ab-cdef-example11111 --region us-west-2
 ```
 
 Expected output:
 
-```
+```json
 {
     "certificateAuthority": {
         "id": "a1b2c3d4-5678-90ab-cdef-example11111",
@@ -311,7 +310,7 @@ The `scheduledEvents` block (containing `firstAutoActivation` and `finalAutoActi
 #### Step 3: Append a successor CA
 <a name="_step_3_append_a_successor_ca"></a>
 
-```
+```bash
 aws eks create-certificate-authority --cluster-name my-cluster --region us-west-2
 ```
 
@@ -320,7 +319,7 @@ This appends a successor CA to your EKS cluster. The response includes an `updat
 #### Step 4: Track the update
 <a name="_step_4_track_the_update"></a>
 
-```
+```bash
 aws eks describe-update --name my-cluster --update-id a1b2c3d4-update-id --region us-west-2
 ```
 
@@ -332,7 +331,7 @@ If the update status shows `UPDATE_FAILED` and the successor CA’s `distributio
 #### Step 5: Verify distribution status
 <a name="_step_5_verify_distribution_status"></a>
 
-```
+```bash
 aws eks list-certificate-authorities --cluster-name my-cluster --region us-west-2
 ```
 
@@ -343,7 +342,7 @@ Do not proceed until the successor CA’s distribution status is `COMPLETE`.
 #### Step 6: Update your kubeconfig
 <a name="_step_6_update_your_kubeconfig"></a>
 
-```
+```bash
 aws eks update-kubeconfig --name my-cluster --region us-west-2
 ```
 
@@ -357,7 +356,7 @@ This is covered in detail in the next section. After all the worker nodes that y
 #### Step 8: Activate the successor CA
 <a name="_step_8_activate_the_successor_ca"></a>
 
-```
+```bash
 aws eks activate-certificate-authority --cluster-name my-cluster --certificate-authority-id <successor-ca-id> --region us-west-2
 ```
 
@@ -396,7 +395,7 @@ After the successor CA has been appended and AWS has completed distribution to m
 
 The updated CA data for your EKS cluster (which now contains both the current and successor CAs) can be retrieved using:
 
-```
+```bash
 aws eks describe-cluster --name my-cluster --region us-west-2 --query 'cluster.certificateAuthority.data' --output text
 ```
 
@@ -407,7 +406,7 @@ Use this value to update the trust configuration of each client type in the foll
 
 Run the following to update your local kubeconfig:
 
-```
+```bash
 aws eks update-kubeconfig --name my-cluster --region us-west-2
 ```
 
@@ -420,7 +419,7 @@ For CI/CD pipelines and automation that generate their own kubeconfig (for examp
 
 Perform a node group version update to trigger a rolling replacement of nodes:
 
-```
+```bash
 aws eks update-nodegroup-version --cluster-name my-cluster --nodegroup-name my-nodegroup --region us-west-2
 ```
 
@@ -435,7 +434,7 @@ If your node group is deployed with a custom AMI, AWS does not merge user data. 
 
 1. Retrieve the updated CA data (the combined trust bundle containing both the outgoing and successor CAs):
 
-   ```
+   ```bash
    aws eks describe-cluster --name my-cluster --region us-west-2 --query 'cluster.certificateAuthority.data' --output text
    ```
 
@@ -443,7 +442,7 @@ If your node group is deployed with a custom AMI, AWS does not merge user data. 
 
 1. Create a new version of your launch template with the updated user data, then update the node group to that launch template version. This recycles the nodes so they bootstrap with the successor CA:
 
-   ```
+   ```bash
    aws eks update-nodegroup-version --cluster-name my-cluster --nodegroup-name my-nodegroup --launch-template id=<lt-id>,version=<new-version> --region us-west-2
    ```
 
@@ -456,13 +455,13 @@ Before proceeding to activation, confirm that all nodes in your managed node gro
 
 1. Get the launch template for the node group. If `describe-nodegroup` returns a `launchTemplate` field, use it directly:
 
-   ```
+   ```bash
    aws eks describe-nodegroup --cluster-name my-cluster --nodegroup-name my-nodegroup --region us-west-2 --query 'nodegroup.launchTemplate'
    ```
 
    If it does not return a `launchTemplate` field, AWS manages the launch template internally. Find it through the Auto Scaling group instead:
 
-   ```
+   ```bash
    ASG=$(aws eks describe-nodegroup --cluster-name my-cluster --nodegroup-name my-nodegroup --region us-west-2 --query 'nodegroup.resources.autoScalingGroups[0].name' --output text)
    aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names "$ASG" --region us-west-2 --query 'AutoScalingGroups[0].{LaunchTemplate: LaunchTemplate, MixedInstancesPolicy: MixedInstancesPolicy.LaunchTemplate.LaunchTemplateSpecification}'
    ```
@@ -471,20 +470,20 @@ The launch template might be under `LaunchTemplate` or `MixedInstancesPolicy` de
 
 1. Decode the launch template user data. Use the launch template ID and version from the previous step. Confirm that the CA data in the user data matches the combined trust bundle returned by `describe-cluster`. The field that holds the CA data depends on your operating system and bootstrap mechanism:
 
-   ```
+   ```bash
    aws ec2 describe-launch-template-versions --launch-template-id <lt-id> --versions <version> --region us-west-2 --query 'LaunchTemplateVersions[0].LaunchTemplateData.UserData' --output text | base64 --decode
    ```
 
 1. Confirm that all worker nodes are running on the latest launch template version after the upgrade. Describe the Auto Scaling group for the node group. Compare each instance’s launch template version to the group’s current launch template version. Every `InService` instance must be on the current version. The rolling replacement drains instances in a `Terminating` state. You can ignore these instances:
 
-   ```
+   ```bash
    ASG=$(aws eks describe-nodegroup --cluster-name my-cluster --nodegroup-name my-nodegroup --region us-west-2 --query 'nodegroup.resources.autoScalingGroups[0].name' --output text)
    aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names "$ASG" --region us-west-2 --query 'AutoScalingGroups[0].Instances[].{InstanceId: InstanceId, LifecycleState: LifecycleState, LaunchTemplateVersion: LaunchTemplate.Version}' --output table
    ```
 
 1. Confirm that the replacement nodes are healthy. Every node in the node group must be `Ready`, which confirms that the kubelet established a connection to the API server using the updated CA trust bundle:
 
-   ```
+   ```bash
    kubectl get nodes -l eks.amazonaws.com/nodegroup=my-nodegroup
    ```
 
@@ -495,7 +494,7 @@ If drift detection is enabled in your Karpenter NodePool, Karpenter will automat
 
 Verify drift detection is enabled in your NodePool configuration:
 
-```
+```yaml
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -519,7 +518,7 @@ If drift detection is enabled, verify that your disruption budget allows all Kar
 
 If drift detection is disabled or your disruption budgets restrict replacements to a window that exceeds your rotation timeline, you can manually trigger node replacement by cordoning and draining nodes:
 
-```
+```bash
 kubectl cordon <node-name>
 kubectl drain <node-name> --ignore-daemonsets --delete-emptydir-data
 ```
@@ -533,7 +532,7 @@ For self-managed nodes, you need to update the CA data in the launch template or
 
 1. Retrieve the updated CA data:
 
-   ```
+   ```bash
    aws eks describe-cluster --name my-cluster --region us-west-2 --query 'cluster.certificateAuthority.data' --output text
    ```
 
@@ -576,7 +575,7 @@ For each of these, replace the stored CA data with the updated value from `descr
 
 After updating a client, confirm it can still communicate with the API server:
 
-```
+```bash
 kubectl get nodes
 ```
 
@@ -605,7 +604,7 @@ Attribution fields (`createdBy`, `activatedBy`) on each CA record allow you to d
 
 CA rotation can be triggered through CloudFormation using a WriteOnly property on the `AWS::EKS::Cluster` resource. This property triggers activation but is not stored in the stack’s state, so subsequent stack updates without it do not attempt to revert or deactivate.
 
-```
+```yaml
 # Phase 1: Add to existing stack that manages your cluster
 Resources:
     NewCA:
@@ -621,7 +620,7 @@ Resources:
 
 This first stack update appends a successor CA to your cluster. Wait for the successor CA’s distribution status to reach `COMPLETE` before proceeding.
 
-```
+```yaml
 # Phase 2: After distribution completes, update your existing Cluster resource to activate
 Resources:
     NewCA:
@@ -660,11 +659,11 @@ CA rollback is available after CA activation as long as:
 
 You can check whether CA rollback is available at any time using the `rollbackAvailable` field returned by `describe-certificate-authority`:
 
-```
+```bash
 aws eks describe-certificate-authority --cluster-name my-cluster --certificate-authority-id <ca-id> --region us-west-2
 ```
 
-```
+```json
 {
     "certificateAuthority": {
         "id": "a1b2c3d4-5678-90ab-cdef-example22222",
@@ -685,7 +684,7 @@ CA rollback is not available after final auto-activation. If AWS activates the s
 
 To rollback, re-activate the previous CA:
 
-```
+```bash
 aws eks activate-certificate-authority --cluster-name my-cluster --certificate-authority-id <previous-ca-id> --region us-west-2
 ```
 
@@ -717,31 +716,31 @@ If you activate the successor CA before updating your managed node groups and th
 
 1. Identify nodes that are NotReady:
 
-   ```
+   ```bash
    kubectl get nodes
    ```
 
 1. List pods on each NotReady node:
 
-   ```
+   ```bash
    kubectl get pods --all-namespaces --field-selector spec.nodeName=<node-name>
    ```
 
 1. Force delete all pods on each NotReady node:
 
-   ```
+   ```bash
    kubectl delete pod --force --grace-period=0 -n <namespace> <pod-name>
    ```
 
 1. Retry the rolling update:
 
-   ```
+   ```bash
    aws eks update-nodegroup-version --cluster-name <cluster> --nodegroup-name <nodegroup> --region <region>
    ```
 
 1. Verify nodes recover:
 
-   ```
+   ```bash
    kubectl get nodes
    ```
 
@@ -845,7 +844,7 @@ If your worker nodes need to be replaced as part of updating them to trust the s
 
 You can check when your cluster’s CA expires using the AWS CLI, EKS APIs, or the Amazon EKS console. For example, you can run the following:
 
-```
+```bash
 aws eks describe-certificate-authority --cluster-name my-cluster --certificate-authority-id <ca-id> --region us-west-2 --query 'certificateAuthority.validity.notAfter'
 ```
 
@@ -883,7 +882,7 @@ You can accomplish this programmatically using the AWS CLI or EKS API. Use `aws 
 
 The following example script checks CA rotation status across a list of clusters:
 
-```
+```bash
 #!/bin/bash
 CLUSTERS=("cluster-1" "cluster-2" "cluster-3")
 REGION="us-west-2"

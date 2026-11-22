@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Monitor your cluster performance and view logs
-<a name="eks-observe"></a>
 
 You can observe your data in Amazon EKS using many available monitoring or logging tools. Your Amazon EKS log data can be streamed to AWS services or to partner tools for data analysis. There are many services available in the AWS Management Console that provide data for troubleshooting your Amazon EKS issues. You can also use an AWS-supported open-source solution for [monitoring Amazon EKS infrastructure](https://docs.aws.amazon.com/grafana/latest/userguide/solution-eks.html).
 
@@ -34,7 +33,7 @@ Amazon EKS control plane logging provides audit and diagnostic logs directly fro
 **Note**  
 When you check the Amazon EKS authenticator logs in Amazon CloudWatch, the entries are displayed that contain text similar to the following example text.  
 
-```
+```bash
 level=info msg="mapping IAM role" groups="[]" role="arn:aws:iam::111122223333:role/XXXXXXXXXXXXXXXXXX-NodeManagerRole-XXXXXXXX" username="eks:node-manager"
 ```
 Entries that contain this text are expected. The `username` is an Amazon EKS internal service role that performs specific operations for managed node groups and Fargate.  

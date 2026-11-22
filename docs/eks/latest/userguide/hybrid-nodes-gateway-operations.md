@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS Hybrid Nodes gateway operations
-<a name="hybrid-nodes-gateway-operations"></a>
 
 This page covers day-2 operations for the Amazon EKS Hybrid Nodes gateway, including high availability, failover behavior, monitoring, scaling, and VXLAN tunnel lifecycle. For installation instructions, see [Get started with EKS Hybrid Nodes gateway](hybrid-nodes-gateway-getting-started.md).
 
@@ -105,7 +104,7 @@ The gateway exposes health and readiness endpoints on port `8088`:
 
 You can query these endpoints manually for diagnostics by running a temporary debug container or by port-forwarding:
 
-```
+```bash
 kubectl port-forward -n eks-hybrid-nodes-gateway {{POD_NAME}} 8088:8088 &
 curl -s http://localhost:8088/healthz
 curl -s http://localhost:8088/readyz

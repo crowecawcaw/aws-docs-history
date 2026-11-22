@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Roll back a cluster to a previous Kubernetes version
-<a name="rollback-cluster"></a>
 
 With Amazon EKS version rollback, you can revert your cluster’s Kubernetes control plane to the previous minor version after performing an in-place upgrade. If you encounter issues after upgrading, such as application incompatibilities, deprecated API usage, or unexpected behavior, you can roll back to restore your cluster to a known good state.
 
@@ -94,7 +93,7 @@ Amazon EKS automatically evaluates your cluster against a set of point-in-time r
 
  ** AWS CLI:** 
 
-```
+```bash
 aws eks list-insights \
   --cluster-name my-cluster \
   --region us-west-2 \
@@ -103,7 +102,7 @@ aws eks list-insights \
 
 To get details on a specific insight:
 
-```
+```bash
 aws eks describe-insight \
   --cluster-name my-cluster \
   --region us-west-2 \
@@ -115,7 +114,7 @@ aws eks describe-insight \
 
 Amazon EKS refreshes insights every 24 hours. You can manually trigger a refresh after resolving issues by choosing the **Refresh** button in the Amazon EKS console, or by using the CLI:
 
-```
+```bash
 aws eks start-insights-refresh \
   --cluster-name my-cluster \
   --region us-west-2
@@ -149,7 +148,7 @@ Amazon EKS performs a set of checks as part of rollback readiness insights. Thes
 
 If rollback readiness insights show ERROR status and you want to proceed without resolving the issues, you can use the `--force` flag to bypass all insight checks:
 
-```
+```bash
 aws eks update-cluster-version \
   --name my-cluster \
   --kubernetes-version 1.30 \
@@ -179,7 +178,7 @@ No action required. When you initiate the rollback, Amazon EKS automatically rol
 
 You must roll back your managed node groups to the previous version before rolling back the control plane. Use the `UpdateNodegroupVersion` API:
 
-```
+```bash
 aws eks update-nodegroup-version \
   --cluster-name my-cluster \
   --nodegroup-name my-nodegroup \
@@ -234,7 +233,7 @@ The rollback takes several minutes to complete. For Auto Mode clusters, the node
 
 Use the existing `update-cluster-version` command with the previous (N-1) Kubernetes version:
 
-```
+```bash
 aws eks update-cluster-version \
   --name my-cluster \
   --kubernetes-version 1.30 \
@@ -243,7 +242,7 @@ aws eks update-cluster-version \
 
 Example response:
 
-```
+```json
 {
     "update": {
         "id": "e4091a28-ea14-48fd-a8c7-975aeb469e8a",
@@ -277,7 +276,7 @@ You can monitor the status of your cluster rollback by using the Amazon EKS cons
 
  ** AWS CLI:** 
 
-```
+```bash
 aws eks describe-update \
   --name my-cluster \
   --region us-west-2 \
@@ -359,7 +358,7 @@ Before rolling back the control plane:
 
 1. If an add-on version is incompatible with the previous Kubernetes version, downgrade it first:
 
-   ```
+   ```bash
    aws eks update-addon \
      --cluster-name my-cluster \
      --addon-name vpc-cni \

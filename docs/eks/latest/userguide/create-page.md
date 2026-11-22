@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create a new page
-<a name="create-page"></a>
 
 Learn how to create a new documentation page. This topic includes instructions for creating the initial page metadata and adding the page to the guide table of contents.
 
@@ -20,7 +19,7 @@ Learn how to create a new documentation page. This topic includes instructions f
 
 1. Insert the page metadata using this template:
 
-```
+```asciidoc
  include::../attributes.txt[]
 
  [.topic]

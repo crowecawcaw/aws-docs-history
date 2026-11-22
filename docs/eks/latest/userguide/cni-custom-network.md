@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy Pods in alternate subnets with custom networking
-<a name="cni-custom-network"></a>
 
  **Applies to**: Linux `IPv4` Fargate nodes, Linux nodes with Amazon EC2 instances
 

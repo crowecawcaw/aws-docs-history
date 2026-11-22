@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure application networking, add-ons, and webhooks for hybrid nodes
-<a name="hybrid-nodes-configure"></a>
 
 After you create an EKS cluster for hybrid nodes, configure additional capabilities for application networking (CNI, BGP, Ingress, Load Balancing, Network Policies), add-ons, webhooks, and proxy settings. For the complete list of the EKS and community add-ons that are compatible with hybrid nodes, see [Configure add-ons for hybrid nodes](hybrid-nodes-add-ons.md).
 

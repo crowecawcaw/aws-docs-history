@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Start AWS Fargate logging for your cluster
-<a name="fargate-logging"></a>
 
 Amazon EKS on Fargate offers a built-in log router based on Fluent Bit. This means that you don’t explicitly run a Fluent Bit container as a sidecar, but Amazon runs it for you. All that you have to do is configure the log router. The configuration happens through a dedicated `ConfigMap` that must meet the following criteria:
 + Named `aws-logging` 
@@ -30,7 +29,7 @@ In the following steps, replace every {{example value}} with your own values.
 
    1. Save the following contents to a file named `aws-observability-namespace.yaml` on your computer. The value for `name` must be `aws-observability` and the `aws-observability: enabled` label is required.
 
-      ```
+      ```yaml
       kind: Namespace
       apiVersion: v1
       metadata:
@@ -41,7 +40,7 @@ In the following steps, replace every {{example value}} with your own values.
 
    1. Create the namespace.
 
-      ```
+      ```bash
       kubectl apply -f aws-observability-namespace.yaml
       ```
 
@@ -54,7 +53,7 @@ If you provide any other sections, they will be rejected.
 
    The Fargate log router manages the `Service` and `Input` sections. It has the following `Input` section, which can’t be modified and isn’t needed in your `ConfigMap`. However, you can get insights from it, such as the memory buffer limit and the tag applied for logs.
 
-   ```
+   ```yaml
    [INPUT]
        Name tail
        Buffer_Max_Size 66KB
@@ -97,7 +96,7 @@ You can also use Amazon Kinesis Data Streams for your log destination. If you us
 
    1. Save the following contents to a file named `aws-logging-cloudwatch-configmap.yaml`. Replace {{region-code}} with the AWS Region that your cluster is in. The parameters under `[OUTPUT]` are required.
 
-      ```
+      ```yaml
       kind: ConfigMap
       apiVersion: v1
       metadata:
@@ -138,7 +137,7 @@ You can also use Amazon Kinesis Data Streams for your log destination. If you us
 
    1. Apply the manifest to your cluster.
 
-      ```
+      ```bash
       kubectl apply -f aws-logging-cloudwatch-configmap.yaml
       ```
 
@@ -149,7 +148,7 @@ You can also use Amazon Kinesis Data Streams for your log destination. If you us
 
    1. Save the following contents to a file named `aws-logging-opensearch-configmap.yaml`. Replace every {{example value}} with your own values.
 
-      ```
+      ```yaml
       kind: ConfigMap
       apiVersion: v1
       metadata:
@@ -171,7 +170,7 @@ You can also use Amazon Kinesis Data Streams for your log destination. If you us
 
    1. Apply the manifest to your cluster.
 
-      ```
+      ```bash
       kubectl apply -f aws-logging-opensearch-configmap.yaml
       ```
 
@@ -186,7 +185,7 @@ You can also use Amazon Kinesis Data Streams for your log destination. If you us
 
      1. Save the following contents to a file named `aws-logging-firehose-configmap.yaml`. Replace {{region-code}} with the AWS Region that your cluster is in.
 
-        ```
+        ```yaml
         kind: ConfigMap
         apiVersion: v1
         metadata:
@@ -203,7 +202,7 @@ You can also use Amazon Kinesis Data Streams for your log destination. If you us
 
      1. Apply the manifest to your cluster.
 
-        ```
+        ```bash
         kubectl apply -f aws-logging-firehose-configmap.yaml
         ```
 
@@ -219,7 +218,7 @@ You can also use Amazon Kinesis Data Streams for your log destination. If you us
 
       Download the CloudWatch IAM policy to your computer. You can also [view the policy](https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/cloudwatchlogs/permissions.json) on GitHub.
 
-      ```
+      ```bash
       curl -O https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/cloudwatchlogs/permissions.json
       ```
 
@@ -228,7 +227,7 @@ You can also use Amazon Kinesis Data Streams for your log destination. If you us
 
       Download the OpenSearch IAM policy to your computer. You can also [view the policy](https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/amazon-elasticsearch/permissions.json) on GitHub.
 
-      ```
+      ```bash
       curl -O https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/amazon-elasticsearch/permissions.json
       ```
 
@@ -239,7 +238,7 @@ You can also use Amazon Kinesis Data Streams for your log destination. If you us
 
       Download the Firehose IAM policy to your computer. You can also [view the policy](https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/kinesis-firehose/permissions.json) on GitHub.
 
-      ```
+      ```bash
       curl -O https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/kinesis-firehose/permissions.json
       ```
 
@@ -247,13 +246,13 @@ You can also use Amazon Kinesis Data Streams for your log destination. If you us
 
    1. Create an IAM policy from the policy file that you downloaded.
 
-      ```
+      ```bash
       aws iam create-policy --policy-name eks-fargate-logging-policy --policy-document file://permissions.json
       ```
 
    1. Attach the IAM policy to the pod execution role specified for your Fargate profile with the following command. Replace {{111122223333}} with your account ID. Replace {{AmazonEKSFargatePodExecutionRole}} with your Pod execution role (for more information, see [Step 2: Create a Fargate Pod execution role](fargate-getting-started.md#fargate-sg-pod-execution-role)).
 
-      ```
+      ```bash
       aws iam attach-role-policy \
         --policy-arn arn:aws:iam::{{111122223333}}:policy/eks-fargate-logging-policy \
         --role-name {{AmazonEKSFargatePodExecutionRole}}
@@ -264,7 +263,7 @@ You can also use Amazon Kinesis Data Streams for your log destination. If you us
 
 The Fluent Bit Kubernetes filter allows you to add Kubernetes metadata to your log files. For more information about the filter, see [Kubernetes](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes) in the Fluent Bit documentation. You can apply a filter using the API server endpoint.
 
-```
+```yaml
 filters.conf: |
     [FILTER]
         Name             kubernetes
@@ -283,7 +282,7 @@ filters.conf: |
 
 You can optionally ship Fluent Bit process logs to Amazon CloudWatch using the following `ConfigMap`. Shipping Fluent Bit process logs to CloudWatch requires additional log ingestion and storage costs. Replace {{region-code}} with the AWS Region that your cluster is in.
 
-```
+```yaml
 kind: ConfigMap
 apiVersion: v1
 metadata:
@@ -331,7 +330,7 @@ Shipping Fluent Bit process logs to CloudWatch requires additional log ingestion
 
    1. Save the following contents to a file named `sample-app.yaml` on your computer.
 
-      ```
+      ```yaml
       apiVersion: apps/v1
       kind: Deployment
       metadata:
@@ -357,7 +356,7 @@ Shipping Fluent Bit process logs to CloudWatch requires additional log ingestion
 
    1. Apply the manifest to the cluster.
 
-      ```
+      ```bash
       kubectl apply -f sample-app.yaml
       ```
 
@@ -373,7 +372,7 @@ We suggest that you plan for up to 50 MB of memory for the log router. If you ex
 
 To confirm whether the logging feature is enabled or disabled for some reason, such as an invalid `ConfigMap`, and why it’s invalid, check your Pod events with `kubectl describe pod {{pod-name}} `. The output might include Pod events that clarify whether logging is enabled or not, such as the following example output.
 
-```
+```bash
 [...]
 Annotations:          CapacityProvisioned: 0.25vCPU 0.5GB
                       Logging: LoggingDisabled: LOGGING_CONFIGMAP_NOT_FOUND

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create Amazon Linux nodes on AWS Outposts
-<a name="eks-outposts-self-managed-nodes"></a>
 
 **Important**  
 Amazon EKS Local Clusters on Outposts only supports nodes created from the following Amazon EKS-optimized Amazon Linux 2023 AMIs:  
@@ -50,7 +49,7 @@ Alternatively you can also enable client certificate rotation (see: https://kube
 
    Create your node group with the following command.
 
-   ```
+   ```bash
    eksctl create nodegroup --cluster my-cluster --name al-nodes --node-type instance-type \
        --nodes 3 --nodes-min 1 --nodes-max 4 --managed=false \
        --node-volume-type gp2 --subnet-ids subnet-id \
@@ -65,7 +64,7 @@ Alternatively you can also enable client certificate rotation (see: https://kube
    + If nodes fail to join the cluster, then see [Nodes fail to join cluster](troubleshooting.md#worker-node-fail) in [Troubleshoot problems with Amazon EKS clusters and nodes](troubleshooting.md) and [Can’t join nodes to a cluster](eks-outposts-troubleshooting.md#outposts-troubleshooting-unable-to-join-nodes-to-a-cluster) in [Troubleshoot local Amazon EKS clusters on AWS Outposts](eks-outposts-troubleshooting.md).
    + An example output is as follows. Several lines are output while the nodes are created. One of the last lines of output is the following example line.
 
-     ```
+     ```bash
      [✔]  created 1 nodegroup(s) in cluster "my-cluster"
      ```
 
@@ -80,13 +79,13 @@ Alternatively you can also enable client certificate rotation (see: https://kube
 
    If your Outpost is configured with Amazon EC2 instance store, download `amazon-eks-outpost-instance-store-nodegroup.yaml`.
 
-   ```
+   ```bash
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2026-10-26/amazon-eks-outpost-instance-store-nodegroup.yaml
    ```
 
    Otherwise, download `amazon-eks-outpost-nodegroup.yaml`.
 
-   ```
+   ```bash
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-24/amazon-eks-outpost-nodegroup.yaml
    ```
 
@@ -148,7 +147,7 @@ If you don’t provide a key pair here, the AWS CloudFormation stack creation fa
 
 1. Check to see if you already have an `aws-auth` `ConfigMap`.
 
-   ```
+   ```bash
    kubectl describe configmap -n kube-system aws-auth
    ```
 
@@ -156,13 +155,13 @@ If you don’t provide a key pair here, the AWS CloudFormation stack creation fa
 
    1. Open the `ConfigMap` for editing.
 
-      ```
+      ```bash
       kubectl edit -n kube-system configmap/aws-auth
       ```
 
    1. Add a new `mapRoles` entry as needed. Set the `rolearn` value to the **NodeInstanceRole** value that you recorded in the previous procedure.
 
-      ```
+      ```yaml
       [...]
       data:
         mapRoles: |
@@ -180,25 +179,25 @@ If you don’t provide a key pair here, the AWS CloudFormation stack creation fa
 
    1. Download the configuration map.
 
-      ```
+      ```bash
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm.yaml
       ```
 
    1. In the `aws-auth-cm.yaml` file, set the `rolearn` to the **NodeInstanceRole** value that you recorded in the previous procedure. You can do this with a text editor, or by replacing {{my-node-instance-role}} and running the following command:
 
-      ```
+      ```bash
       sed -i.bak -e 's|<ARN of instance role (not instance profile)>|my-node-instance-role|' aws-auth-cm.yaml
       ```
 
    1. Apply the configuration. This command may take a few minutes to finish.
 
-      ```
+      ```bash
       kubectl apply -f aws-auth-cm.yaml
       ```
 
 1. Watch the status of your nodes and wait for them to reach the `Ready` status.
 
-   ```
+   ```bash
    kubectl get nodes --watch
    ```
 
@@ -214,7 +213,7 @@ If you receive any authorization or resource type errors, see [Unauthorized or a
 
    1. Run the following command to create the `gp2-storage-class.yaml` file.
 
-      ```
+      ```yaml
       cat >gp2-storage-class.yaml <<EOF
       apiVersion: storage.k8s.io/v1
       kind: StorageClass
@@ -233,13 +232,13 @@ If you receive any authorization or resource type errors, see [Unauthorized or a
 
    1. Apply the manifest to your cluster.
 
-      ```
+      ```bash
       kubectl apply -f gp2-storage-class.yaml
       ```
 
 1. (GPU nodes only) If you chose a GPU instance type and an Amazon EKS optimized accelerated AMI, you must apply the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin) as a DaemonSet on your cluster. Replace {{vX.X.X}} with your desired [NVIDIA/k8s-device-plugin](https://github.com/NVIDIA/k8s-device-plugin/releases) version before running the following command.
 
-   ```
+   ```bash
    kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/vX.X.X/deployments/static/nvidia-device-plugin.yml
    ```
 

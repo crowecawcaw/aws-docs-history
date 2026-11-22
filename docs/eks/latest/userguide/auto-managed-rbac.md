@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Grant additional Kubernetes RBAC to EKS Auto Mode managed controllers
-<a name="auto-managed-rbac"></a>
 
 Amazon EKS Auto Mode manages the following controllers on your behalf: load balancing, networking, compute, block storage, and cluster insights. These controllers run on the EKS control plane. They authenticate to your cluster as the `AWSServiceRoleForAmazonEKS` service-linked role, and their in-cluster permissions come from AWS managed access policies attached to that access entry.
 
@@ -22,7 +21,7 @@ On Amazon EKS Auto Mode clusters, the auto-created access entry for `AWSServiceR
 
 To confirm the group is present, run:
 
-```
+```bash
 CLUSTER=<your-cluster>
 REGION=<your-region>
 ACCT=$(aws sts get-caller-identity --query Account --output text)
@@ -35,7 +34,7 @@ aws eks describe-access-entry \
 
 Expected output:
 
-```
+```json
 [
     "eks:managed"
 ]

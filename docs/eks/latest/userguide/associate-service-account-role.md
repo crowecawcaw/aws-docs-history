@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Assign IAM roles to Kubernetes service accounts
-<a name="associate-service-account-role"></a>
 
 This topic covers how to configure a Kubernetes service account to assume an AWS Identity and Access Management (IAM) role. Any Pods that are configured to use the service account can then access any AWS service that the role has permissions to access.
 
@@ -28,7 +27,7 @@ If you want to associate an existing IAM policy to your IAM role, skip to the ne
 
    You can run the following command to create an example policy file that allows read-only access to an Amazon S3 bucket. You can optionally store configuration information or a bootstrap script in this bucket, and the containers in your Pod can read the file from the bucket and load it into your application. If you want to create this example policy, copy the following contents to your device. Replace {{my-pod-secrets-bucket}} with your bucket name and run the command.
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -43,7 +42,7 @@ If you want to associate an existing IAM policy to your IAM role, skip to the ne
 
 1. Create the IAM policy.
 
-   ```
+   ```bash
    aws iam create-policy --policy-name my-policy --policy-document file://my-policy.json
    ```
 
@@ -57,7 +56,7 @@ Create an IAM role and associate it with a Kubernetes service account. You can u
 
 This `eksctl` command creates a Kubernetes service account in the specified namespace, creates an IAM role (if it doesn’t exist) with the specified name, attaches an existing IAM policy ARN to the role, and annotates the service account with the IAM role ARN. Be sure to replace the sample placeholder values in this command with your specific values. To install or update `eksctl`, see [Installation](https://eksctl.io/installation) in the `eksctl` documentation.
 
-```
+```bash
 eksctl create iamserviceaccount --name my-service-account --namespace default --cluster my-cluster --role-name my-role \
     --attach-policy-arn arn:aws:iam::111122223333:policy/my-policy --approve
 ```
@@ -72,7 +71,7 @@ If you have an existing Kubernetes service account that you want to assume an IA
 
 1. Create a Kubernetes service account. Copy the following contents to your device. Replace {{my-service-account}} with your desired name and {{default}} with a different namespace, if necessary. If you change {{default}}, the namespace must already exist.
 
-   ```
+   ```yaml
    cat >my-service-account.yaml <<EOF
    apiVersion: v1
    kind: ServiceAccount
@@ -85,26 +84,26 @@ If you have an existing Kubernetes service account that you want to assume an IA
 
 1. Set your AWS account ID to an environment variable with the following command.
 
-   ```
+   ```bash
    account_id=$(aws sts get-caller-identity --query "Account" --output text)
    ```
 
 1. Set your cluster’s OIDC identity provider to an environment variable with the following command. Replace {{my-cluster}} with the name of your cluster.
 
-   ```
+   ```bash
    oidc_provider=$(aws eks describe-cluster --name my-cluster --region $AWS_REGION --query "cluster.identity.oidc.issuer" --output text | sed -e "s/^https:\/\///")
    ```
 
 1. Set variables for the namespace and name of the service account. Replace {{my-service-account}} with the Kubernetes service account that you want to assume the role. Replace {{default}} with the namespace of the service account.
 
-   ```
+   ```bash
    export namespace=default
    export service_account=my-service-account
    ```
 
 1. Run the following command to create a trust policy file for the IAM role. If you want to allow all service accounts within a namespace to use the role, then copy the following contents to your device. Replace {{StringEquals}} with `StringLike` and replace {{$service\_account}} with `*`. You can add multiple entries in the `StringEquals` or `StringLike` conditions to allow multiple service accounts or namespaces to assume the role. To allow roles from a different AWS account than the account that your cluster is in to assume the role, see [Authenticate to another account with IRSA](cross-account-access.md) for more information.
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -127,19 +126,19 @@ If you have an existing Kubernetes service account that you want to assume an IA
 
 1. Create the role. Replace {{my-role}} with a name for your IAM role, and {{my-role-description}} with a description for your role.
 
-   ```
+   ```bash
    aws iam create-role --role-name my-role --assume-role-policy-document file://trust-relationship.json --description "my-role-description"
    ```
 
 1. Attach an IAM policy to your role. Replace {{my-role}} with the name of your IAM role and {{my-policy}} with the name of an existing policy that you created.
 
-   ```
+   ```bash
    aws iam attach-role-policy --role-name my-role --policy-arn=arn:aws:iam::$account_id:policy/my-policy
    ```
 
 1. Annotate your service account with the Amazon Resource Name (ARN) of the IAM role that you want the service account to assume. Replace {{my-role}} with the name of your existing IAM role. Suppose that you allowed a role from a different AWS account than the account that your cluster is in to assume the role in a previous step. Then, make sure to specify the AWS account and role from the other account. For more information, see [Authenticate to another account with IRSA](cross-account-access.md).
 
-   ```
+   ```bash
    kubectl annotate serviceaccount -n $namespace $service_account eks.amazonaws.com/role-arn=arn:aws:iam::$account_id:role/my-role
    ```
 
@@ -150,13 +149,13 @@ If you have an existing Kubernetes service account that you want to assume an IA
 
 1. Confirm that the IAM role’s trust policy is configured correctly.
 
-   ```
+   ```bash
    aws iam get-role --role-name my-role --query Role.AssumeRolePolicyDocument
    ```
 
    An example output is as follows.
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -179,31 +178,31 @@ If you have an existing Kubernetes service account that you want to assume an IA
 
 1. Confirm that the policy that you attached to your role in a previous step is attached to the role.
 
-   ```
+   ```bash
    aws iam list-attached-role-policies --role-name my-role --query "AttachedPolicies[].PolicyArn" --output text
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
                   arn:aws:iam::111122223333:policy/my-policy
    ```
 
 1. Set a variable to store the Amazon Resource Name (ARN) of the policy that you want to use. Replace {{my-policy}} with the name of the policy that you want to confirm permissions for.
 
-   ```
+   ```bash
    export policy_arn=arn:aws:iam::111122223333:policy/my-policy
    ```
 
 1. View the default version of the policy.
 
-   ```
+   ```bash
    aws iam get-policy --policy-arn $policy_arn
    ```
 
    An example output is as follows.
 
-   ```
+   ```json
    {
        "Policy": {
            "PolicyName": "my-policy",
@@ -218,13 +217,13 @@ If you have an existing Kubernetes service account that you want to assume an IA
 
 1. View the policy contents to make sure that the policy includes all the permissions that your Pod needs. If necessary, replace {{1}} in the following command with the version that’s returned in the previous output.
 
-   ```
+   ```bash
    aws iam get-policy-version --policy-arn $policy_arn --version-id v1
    ```
 
    An example output is as follows.
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -241,13 +240,13 @@ If you have an existing Kubernetes service account that you want to assume an IA
 
 1. Confirm that the Kubernetes service account is annotated with the role.
 
-   ```
+   ```bash
    kubectl describe serviceaccount my-service-account -n default
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    Name:                my-service-account
    Namespace:           default
    Annotations:         eks.amazonaws.com/role-arn: arn:aws:iam::111122223333:role/my-role

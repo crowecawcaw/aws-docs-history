@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Remove an Amazon EKS add-on from a cluster
-<a name="removing-an-add-on"></a>
 
 You can remove an Amazon EKS add-on from your cluster using `eksctl`, the AWS Management Console, or the AWS CLI.
 
@@ -40,13 +39,13 @@ You can remove an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
 1. Determine the current add-ons installed on your cluster. Replace {{my-cluster}} with the name of your cluster.
 
-   ```
+   ```bash
    eksctl get addon --cluster my-cluster
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME        VERSION              STATUS  ISSUES  IAMROLE  UPDATE AVAILABLE
    coredns     v1.8.7-eksbuild.2    ACTIVE  0
    kube-proxy  v1.23.7-eksbuild.1   ACTIVE  0
@@ -58,7 +57,7 @@ You can remove an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
 1. Remove the add-on. Replace {{my-cluster}} with the name of your cluster and {{name-of-add-on}} with the name of the add-on returned in the output of the previous step that you want to remove. If you remove the {{--preserve}} option, in addition to Amazon EKS no longer managing the add-on, the add-on software is deleted from your cluster.
 
-   ```
+   ```bash
    eksctl delete addon --cluster my-cluster --name name-of-addon --preserve
    ```
 
@@ -94,13 +93,13 @@ You can remove an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
 1. See a list of installed add-ons. Replace {{my-cluster}} with the name of your cluster.
 
-   ```
+   ```bash
    aws eks list-addons --cluster-name my-cluster
    ```
 
    An example output is as follows.
 
-   ```
+   ```json
    {
        "addons": [
            "coredns",
@@ -113,13 +112,13 @@ You can remove an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
 1. Remove the installed add-on. Replace {{my-cluster}} with the name of your cluster and {{name-of-add-on}} with the name of the add-on that you want to remove. Removing {{--preserve}} deletes the add-on software from your cluster.
 
-   ```
+   ```bash
    aws eks delete-addon --cluster-name my-cluster --addon-name name-of-addon --preserve
    ```
 
    The abbreviated example output is as follows.
 
-   ```
+   ```json
    {
        "addon": {
            "addonName": "name-of-add-on",
@@ -131,12 +130,12 @@ You can remove an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
 1. Check the status of the removal. Replace {{my-cluster}} with the name of your cluster and {{name-of-addon}} with the name of the add-on that you’re removing.
 
-   ```
+   ```bash
    aws eks describe-addon --cluster-name my-cluster --addon-name name-of-addon
    ```
 
    After the add-on is removed, the example output is as follows.
 
-   ```
+   ```bash
    An error occurred (ResourceNotFoundException) when calling the DescribeAddon operation: No addon: name-of-addon found in cluster: my-cluster
    ```

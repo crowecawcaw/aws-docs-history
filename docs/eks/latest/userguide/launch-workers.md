@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create self-managed Amazon Linux nodes
-<a name="launch-workers"></a>
 
 This topic describes how you can launch Auto Scaling groups of Linux nodes that register with your Amazon EKS cluster. After the nodes join the cluster, you can deploy Kubernetes applications to them. You can also launch self-managed Amazon Linux nodes with `eksctl` or the AWS Management Console. If you need to launch nodes on AWS Outposts, see [Create Amazon Linux nodes on AWS Outposts](eks-outposts-self-managed-nodes.md).
 + An existing Amazon EKS cluster. To deploy one, see [Create an Amazon EKS cluster](create-cluster.md). If you have subnets in the AWS Region where you have AWS Outposts, AWS Wavelength, or AWS Local Zones enabled, those subnets must not have been passed in when you created your cluster.
@@ -38,7 +37,7 @@ If you want to deploy a node group to AWS Outposts, Wavelength, or Local Zone su
 The subnets must not have been passed in when you created the cluster.
 You must create the node group with a config file that specifies the subnets and ` [volumeType](https://eksctl.io/usage/schema/#nodeGroups-volumeType): gp2`. For more information, see [Create a nodegroup from a config file](https://eksctl.io/usage/nodegroups/#creating-a-nodegroup-from-a-config-file) and [Config file schema](https://eksctl.io/usage/schema/) in the `eksctl` documentation.
 
-   ```
+   ```bash
    eksctl create nodegroup \
      --cluster my-cluster \
      --name al-nodes \
@@ -59,7 +58,7 @@ You must create the node group with a config file that specifies the subnets and
 
      For a complete list of all available options and defaults, enter the following command.
 
-     ```
+     ```bash
      eksctl create nodegroup --help
      ```
 
@@ -67,7 +66,7 @@ You must create the node group with a config file that specifies the subnets and
 
      An example output is as follows. Several lines are output while the nodes are created. One of the last lines of output is the following example line.
 
-     ```
+     ```bash
      [✔]  created 1 nodegroup(s) in cluster "my-cluster"
      ```
 
@@ -86,7 +85,7 @@ You must create the node group with a config file that specifies the subnets and
 
 1. Download the latest version of the AWS CloudFormation template.
 
-   ```
+   ```bash
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-26/amazon-eks-nodegroup.yaml
    ```
 
@@ -156,7 +155,7 @@ The following two steps are only needed if using the Configmap Authentication Mo
 
 1. Check to see if you already have an `aws-auth` `ConfigMap`.
 
-   ```
+   ```bash
    kubectl describe configmap -n kube-system aws-auth
    ```
 
@@ -164,13 +163,13 @@ The following two steps are only needed if using the Configmap Authentication Mo
 
    1. Open the `ConfigMap` for editing.
 
-      ```
+      ```bash
       kubectl edit -n kube-system configmap/aws-auth
       ```
 
    1. Add a new `mapRoles` entry as needed. Set the `rolearn` value to the **NodeInstanceRole** value that you recorded in the previous procedure.
 
-      ```
+      ```yaml
       [...]
       data:
         mapRoles: |
@@ -188,25 +187,25 @@ The following two steps are only needed if using the Configmap Authentication Mo
 
    1. Download the configuration map.
 
-      ```
+      ```bash
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm.yaml
       ```
 
    1. In the `aws-auth-cm.yaml` file, set the `rolearn` value to the **NodeInstanceRole** value that you recorded in the previous procedure. You can do this with a text editor, or by replacing {{my-node-instance-role}} and running the following command:
 
-      ```
+      ```bash
       sed -i.bak -e 's|<ARN of instance role (not instance profile)>|my-node-instance-role|' aws-auth-cm.yaml
       ```
 
    1. Apply the configuration. This command may take a few minutes to finish.
 
-      ```
+      ```bash
       kubectl apply -f aws-auth-cm.yaml
       ```
 
 1. Watch the status of your nodes and wait for them to reach the `Ready` status.
 
-   ```
+   ```bash
    kubectl get nodes --watch
    ```
 
@@ -218,7 +217,7 @@ If you receive any authorization or resource type errors, see [Unauthorized or a
 
 1. (GPU nodes only) If you chose a GPU instance type and the Amazon EKS optimized accelerated AMI, you must apply the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin) as a DaemonSet on your cluster. Replace {{vX.X.X}} with your desired [NVIDIA/k8s-device-plugin](https://github.com/NVIDIA/k8s-device-plugin/releases) version before running the following command.
 
-   ```
+   ```bash
    kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/vX.X.X/deployments/static/nvidia-device-plugin.yml
    ```
 

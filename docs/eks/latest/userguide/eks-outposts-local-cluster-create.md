@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy an Amazon EKS cluster on AWS Outposts
-<a name="eks-outposts-local-cluster-create"></a>
 
 This topic provides an overview of what to consider when running a local cluster on an Outpost. The topic also provides instructions for how to deploy a local cluster on an Outpost.
 
@@ -52,7 +51,7 @@ You could also use the [AWS CLI](https://docs.aws.amazon.com/cli/latest/referenc
    + Replace {{uniqueid}} with the ID of your Outpost.
    + Replace {{m5.large}} with an instance type available on your Outpost. Before choosing an instance type, see [Select instance types and placement groups for Amazon EKS clusters on AWS Outposts based on capacity considerations](eks-outposts-capacity-considerations.md). Three control plane instances are deployed. You can’t change this number.
 
-     ```
+     ```yaml
      cat >outpost-control-plane.yaml <<EOF
      apiVersion: eksctl.io/v1alpha5
      kind: ClusterConfig
@@ -81,13 +80,13 @@ You could also use the [AWS CLI](https://docs.aws.amazon.com/cli/latest/referenc
 
 1. Create the cluster using the configuration file that you created in the previous step. `eksctl` creates a VPC and one subnet on your Outpost to deploy the cluster in.
 
-   ```
+   ```bash
    eksctl create cluster -f outpost-control-plane.yaml
    ```
 
    Cluster provisioning takes several minutes. While the cluster is being created, several lines of output appear. The last line of output is similar to the following example line.
 
-   ```
+   ```bash
    [✓]  EKS cluster "my-cluster" in "region-code" region is ready
    ```
 **Tip**  
@@ -106,7 +105,7 @@ To see the most options that you can specify when creating a cluster with `eksct
 
    1. Run the following command to create an IAM trust policy JSON file.
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -123,13 +122,13 @@ To see the most options that you can specify when creating a cluster with `eksct
 
    1. Create the Amazon EKS cluster IAM role. To create an IAM role, the [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal) that is creating the role must be assigned the `iam:CreateRole` action (permission).
 
-      ```
+      ```bash
       aws iam create-role --role-name myAmazonEKSLocalClusterRole --assume-role-policy-document file://"eks-local-cluster-role-trust-policy.json"
       ```
 
    1. Attach the Amazon EKS managed policy named [AmazonEKSLocalOutpostClusterPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEKSLocalOutpostClusterPolicy.html) to the role. To attach an IAM policy to an [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal), the principal that is attaching the policy must be assigned one of the following IAM actions (permissions): `iam:AttachUserPolicy` or `iam:AttachRolePolicy`.
 
-      ```
+      ```bash
       aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSLocalOutpostClusterPolicy --role-name myAmazonEKSLocalClusterRole
       ```
 
@@ -171,13 +170,13 @@ To see the most options that you can specify when creating a cluster with `eksct
 
 1. After your cluster is created, you can view the Amazon EC2 control plane instances that were created.
 
-   ```
+   ```bash
    aws ec2 describe-instances --query 'Reservations[*].Instances[*].{Name:Tags[?Key==`Name`]|[0].Value}' | grep my-cluster-control-plane
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    "Name": "my-cluster-control-plane-id1"
    "Name": "my-cluster-control-plane-id2"
    "Name": "my-cluster-control-plane-id3"
@@ -187,13 +186,13 @@ To see the most options that you can specify when creating a cluster with `eksct
 
 1. If you created your cluster using `eksctl`, then you can skip this step. `eksctl` completes this step for you. Enable `kubectl` to communicate with your cluster by adding a new context to the `kubectl` `config` file. For instructions on how to create and update the file, see [Connect kubectl to an EKS cluster by creating a kubeconfig file](create-kubeconfig.md).
 
-   ```
+   ```bash
    aws eks update-kubeconfig --region region-code --name my-cluster
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    Added new context arn:aws:eks:region-code:111122223333:cluster/my-cluster to /home/username/.kube/config
    ```
 
@@ -201,13 +200,13 @@ To see the most options that you can specify when creating a cluster with `eksct
 
    Local clusters' Kubernetes control plane instances are configured with static elastic network interfaces with fixed private IP addresses that don’t change throughout the cluster lifecycle. Machines that interact with the Kubernetes API server might not have connectivity to Route 53 during network disconnects. If this is the case, we recommend configuring `/etc/hosts` with the static private IP addresses for continued operations. We also recommend setting up local DNS servers and connecting them to your Outpost. For more information, see the [AWS Outposts documentation](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#dns). Run the following command to confirm that communication’s established with your cluster.
 
-   ```
+   ```bash
    kubectl get svc
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
    kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   28h
    ```

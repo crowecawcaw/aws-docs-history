@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Understand how EKS Pod Identity works
-<a name="pod-id-how-it-works"></a>
 
 Amazon EKS Pod Identity associations provide the ability to manage credentials for your applications, similar to the way that Amazon EC2 instance profiles provide credentials to Amazon EC2 instances.
 
@@ -29,7 +28,7 @@ In contrast, *IAM roles for service accounts* provides a *web identity* token th
 
 1. When Amazon EKS starts a new pod that uses a service account with an EKS Pod Identity association, the cluster adds the following content to the Pod manifest:
 
-   ```
+   ```yaml
        env:
        - name: AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE
          value: "/var/run/secrets/pods.eks.amazonaws.com/serviceaccount/eks-pod-identity-token"

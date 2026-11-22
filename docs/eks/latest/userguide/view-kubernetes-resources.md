@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # View Kubernetes resources in the AWS Management Console
-<a name="view-kubernetes-resources"></a>
 
 You can view the Kubernetes resources deployed to your cluster with the AWS Management Console. You can’t view Kubernetes resources with the AWS CLI or [eksctl](https://eksctl.io/). To view Kubernetes resources using a command-line tool, use [kubectl](install-kubectl.md).
 
@@ -35,7 +34,7 @@ To view the **Resources** page and **Nodes** tab on the **Compute** page in the 
 
    The following example policy includes the necessary permissions for a principal to view Kubernetes resources for all clusters in your account. Replace {{111122223333}} with your AWS account ID.
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -79,7 +78,7 @@ To view the **Resources** page and **Nodes** tab on the **Compute** page in the 
 
      1. Create an access entry for your IAM principal using the AWS CLI. Replace {{my-cluster}} with the name of your cluster. Replace {{111122223333}} with your account ID.
 
-        ```
+        ```bash
         aws eks create-access-entry \
             --cluster-name my-cluster \
             --principal-arn arn:aws:iam::111122223333:role/my-console-viewer-role
@@ -87,7 +86,7 @@ To view the **Resources** page and **Nodes** tab on the **Compute** page in the 
 
         An example output is as follows.
 
-        ```
+        ```bash
         {
             "accessEntry": {
                 "clusterName": "my-cluster",
@@ -105,7 +104,7 @@ To view the **Resources** page and **Nodes** tab on the **Compute** page in the 
 
      1. Associate a policy with the access entry. For viewing Kubernetes resources, use the `AmazonEKSViewPolicy`:
 
-        ```
+        ```bash
         aws eks associate-access-policy \
             --cluster-name my-cluster \
             --principal-arn arn:aws:iam::111122223333:role/my-console-viewer-role \
@@ -115,7 +114,7 @@ To view the **Resources** page and **Nodes** tab on the **Compute** page in the 
 
         An example output is as follows.
 
-        ```
+        ```bash
         {
             "clusterName": "my-cluster",
             "principalArn": "arn:aws:iam::111122223333:role/my-console-viewer-role",
@@ -125,7 +124,7 @@ To view the **Resources** page and **Nodes** tab on the **Compute** page in the 
 
         For namespace-specific access, you can scope the policy to specific namespaces:
 
-        ```
+        ```bash
         aws eks associate-access-policy \
             --cluster-name my-cluster \
             --principal-arn arn:aws:iam::111122223333:role/my-console-viewer-role \
@@ -135,7 +134,7 @@ To view the **Resources** page and **Nodes** tab on the **Compute** page in the 
 
      1. Verify the access entry was created successfully:
 
-        ```
+        ```bash
         aws eks describe-access-entry \
             --cluster-name my-cluster \
             --principal-arn arn:aws:iam::111122223333:role/my-console-viewer-role
@@ -143,7 +142,7 @@ To view the **Resources** page and **Nodes** tab on the **Compute** page in the 
 
      1. List the associated policies to confirm the policy association:
 
-        ```
+        ```bash
         aws eks list-associated-access-policies \
             --cluster-name my-cluster \
             --principal-arn arn:aws:iam::111122223333:role/my-console-viewer-role
@@ -151,7 +150,7 @@ To view the **Resources** page and **Nodes** tab on the **Compute** page in the 
 
         An example output is as follows.
 
-        ```
+        ```bash
         {
             "associatedAccessPolicies": [
                 {

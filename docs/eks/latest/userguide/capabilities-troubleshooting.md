@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Troubleshooting EKS Capabilities
-<a name="capabilities-troubleshooting"></a>
 
 **Note**  
 EKS Capabilities are fully managed and run outside your cluster. You do not have direct access to controller namespaces. Troubleshooting focuses on capability health, resource status, configuration, and controller logs. You can configure controller log delivery to gain visibility into controller behavior. See [Access EKS Capabilities controller logs](capabilities-controller-logs.md).
@@ -33,7 +32,7 @@ If you have configured controller log delivery (see [Access EKS Capabilities con
 ### Query errors across all controllers
 <a name="_query_errors_across_all_controllers"></a>
 
-```
+```sql
 fields @timestamp, controller, message, error
 | filter level = "error"
 | sort @timestamp desc
@@ -45,7 +44,7 @@ fields @timestamp, controller, message, error
 
 Use the `controllerGroup` field to isolate logs from a specific ACK service controller:
 
-```
+```sql
 fields @timestamp, message, error
 | filter controllerGroup = "s3.services.k8s.aws"
 | filter level = "error"
@@ -54,7 +53,7 @@ fields @timestamp, message, error
 
 To filter further by resource kind (for example, only `SecurityGroup` logs from the EC2 controller):
 
-```
+```sql
 fields @timestamp, message, error
 | filter controllerGroup = "ec2.services.k8s.aws"
 | filter controllerKind = "SecurityGroup"
@@ -67,7 +66,7 @@ fields @timestamp, message, error
 
 Use the `application` field to isolate logs for a particular Argo CD application:
 
-```
+```sql
 fields @timestamp, message, error
 | filter application = "my-application"
 | sort @timestamp desc
@@ -79,7 +78,7 @@ fields @timestamp, message, error
 
 Use the `reconcileID` field to follow a single reconciliation cycle:
 
-```
+```sql
 fields @timestamp, level, message, error
 | filter reconcileID = "your-reconcile-id"
 | sort @timestamp asc
@@ -113,7 +112,7 @@ The Capabilities tab shows:
 
  ** AWS CLI**:
 
-```
+```bash
 aws eks describe-capability \
   --region {{region-code}} \
   --cluster-name {{my-cluster}} \
@@ -146,7 +145,7 @@ To review capability health across all of your clusters, see [View aggregated da
 
 EKS Capabilities create and manage Kubernetes Custom Resource Definitions (CRDs) in your cluster. When troubleshooting, check the status of the resources you created:
 
-```
+```bash
 # List resources of a specific type
 kubectl get {{resource-kind}} -A
 
@@ -175,7 +174,7 @@ Many capability issues stem from IAM permission problems or missing cluster acce
 
 Verify the Capability Role has the necessary permissions:
 
-```
+```bash
 # List attached managed policies
 aws iam list-attached-role-policies --role-name {{my-capability-role}}
 
@@ -191,7 +190,7 @@ aws iam get-role --role-name {{my-capability-role}} --query 'Role.AssumeRolePoli
 
 The trust policy must allow the `capabilities.eks.amazonaws.com` service principal:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -213,7 +212,7 @@ All capabilities require proper EKS Access Entries and Access Policies on the cl
 
  **Verify Access Entry exists**:
 
-```
+```bash
 aws eks list-access-entries \
   --cluster-name {{my-cluster}} \
   --region {{region-code}}
@@ -223,7 +222,7 @@ Look for the Capability Role ARN in the list. If missing, the capability cannot 
 
  **Check Access Policies attached to the entry**:
 
-```
+```bash
 aws eks list-associated-access-policies \
   --cluster-name {{my-cluster}} \
   --principal-arn {{arn:aws:iam::111122223333:role/my-capability-role}} \
@@ -239,7 +238,7 @@ All capabilities require appropriate Access Policies:
 
 If deploying to remote clusters, verify the Capability Role has an Access Entry on each target cluster:
 
-```
+```bash
 # Check Access Entry on target cluster
 aws eks describe-access-entry \
   --cluster-name {{target-cluster}} \
@@ -267,7 +266,7 @@ If a capability remains in `CREATING` state for longer than expected:
 
 1. Check the capability health for specific issues in the console (**Cluster monitoring** > **Capabilities** tab) or using the AWS CLI:
 
-   ```
+   ```bash
    aws eks describe-capability \
      --region {{region-code}} \
      --cluster-name {{my-cluster}} \

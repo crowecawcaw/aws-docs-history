@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Use Kubernetes volume storage with Amazon EBS
-<a name="ebs-csi"></a>
 
 **Note**  
  **New:** Amazon EKS Auto Mode automates routine tasks for block storage. Learn how to [Deploy a sample stateful workload to EKS Auto Mode](sample-storage-workload.md).
@@ -31,7 +30,7 @@ To use the snapshot functionality of the Amazon EBS CSI driver, you must first i
 <a name="ebs-csi-prereqs"></a>
 + An existing cluster. To see the required platform version, run the following command.
 
-  ```
+  ```bash
   aws eks describe-addon-versions --addon-name aws-ebs-csi-driver
   ```
 + The EBS CSI driver needs AWS IAM Permissions.
@@ -62,7 +61,7 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
 1. Create an IAM role and attach a policy. AWS maintains an AWS managed policy or you can create your own custom policy. You can create an IAM role and attach the AWS managed policy with the following command. Replace {{my-cluster}} with the name of your cluster. The command deploys an AWS CloudFormation stack that creates an IAM role and attaches the IAM policy to it.
 
-   ```
+   ```bash
    eksctl create iamserviceaccount \
            --name ebs-csi-controller-sa \
            --namespace kube-system \
@@ -77,7 +76,7 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
    1. Copy and paste the following code into a new `kms-key-for-encryption-on-ebs.json` file. Replace {{custom-key-arn}} with the custom [KMS key ARN](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awskeymanagementservice.html#awskeymanagementservice-key).
 
-      ```
+      ```json
       {
             "Version":"2012-10-17",		 	 	 
             "Statement": [
@@ -112,7 +111,7 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
    1. Create the policy. You can change {{KMS\_Key\_For\_Encryption\_On\_EBS\_Policy}} to a different name. However, if you do, make sure to change it in later steps, too.
 
-      ```
+      ```bash
       aws iam create-policy \
             --policy-name KMS_Key_For_Encryption_On_EBS_Policy \
             --policy-document file://kms-key-for-encryption-on-ebs.json
@@ -120,7 +119,7 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
    1. Attach the IAM policy to the role with the following command. Replace {{111122223333}} with your account ID.
 
-      ```
+      ```bash
       aws iam attach-role-policy \
             --policy-arn arn:aws:iam::111122223333:policy/KMS_Key_For_Encryption_On_EBS_Policy \
             --role-name AmazonEKS_EBS_CSI_DriverRole
@@ -167,13 +166,13 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
 1. Find the line that looks similar to the following line:
 
-   ```
+   ```json
    "oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com"
    ```
 
    Add a comma to the end of the previous line, and then add the following line after the previous line. Replace {{region-code}} with the AWS Region that your cluster is in. Replace {{EXAMPLED539D4633E53DE1B71EXAMPLE}} with your cluster’s OIDC provider ID.
 
-   ```
+   ```json
    "oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
    ```
 
@@ -189,7 +188,7 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
    1. Copy and paste the following code into the editor, replacing {{custom-key-arn}} with the custom [KMS key ARN](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awskeymanagementservice.html#awskeymanagementservice-key).
 
-      ```
+      ```json
       {
             "Version":"2012-10-17",		 	 	 
             "Statement": [
@@ -247,13 +246,13 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
 1. View your cluster’s OIDC provider URL. Replace {{my-cluster}} with your cluster name. If the output from the command is `None`, review the **Prerequisites**.
 
-   ```
+   ```bash
    aws eks describe-cluster --name my-cluster --query "cluster.identity.oidc.issuer" --output text
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
    ```
 
@@ -261,7 +260,7 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
    1. Copy the following contents to a file that’s named `aws-ebs-csi-driver-trust-policy.json`. Replace {{111122223333}} with your account ID. Replace {{EXAMPLED539D4633E53DE1B71EXAMPLE}} and {{region-code}} with the values returned in the previous step.
 
-      ```
+      ```json
       {
             "Version":"2012-10-17",		 	 	 
             "Statement": [
@@ -284,7 +283,7 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
    1. Create the role. You can change {{AmazonEKS\_EBS\_CSI\_DriverRole}} to a different name. If you change it, make sure to change it in later steps.
 
-      ```
+      ```bash
       aws iam create-role \
             --role-name AmazonEKS_EBS_CSI_DriverRole \
             --assume-role-policy-document file://"aws-ebs-csi-driver-trust-policy.json"
@@ -292,7 +291,7 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
 1. Attach a policy. AWS maintains an AWS managed policy or you can create your own custom policy. Attach the AWS managed policy to the role with the following command.
 
-   ```
+   ```bash
    aws iam attach-role-policy \
          --policy-arn arn:aws:iam::aws:policy/AmazonEBSCSIDriverPolicyV2 \
          --role-name AmazonEKS_EBS_CSI_DriverRole
@@ -302,7 +301,7 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
    1. Copy and paste the following code into a new `kms-key-for-encryption-on-ebs.json` file. Replace {{custom-key-arn}} with the custom [KMS key ARN](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awskeymanagementservice.html#awskeymanagementservice-key).
 
-      ```
+      ```json
       {
             "Version":"2012-10-17",		 	 	 
             "Statement": [
@@ -337,7 +336,7 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
    1. Create the policy. You can change {{KMS\_Key\_For\_Encryption\_On\_EBS\_Policy}} to a different name. However, if you do, make sure to change it in later steps, too.
 
-      ```
+      ```bash
       aws iam create-policy \
             --policy-name KMS_Key_For_Encryption_On_EBS_Policy \
             --policy-document file://kms-key-for-encryption-on-ebs.json
@@ -345,7 +344,7 @@ The specific steps in this procedure are written for using the driver as an Amaz
 
    1. Attach the IAM policy to the role with the following command. Replace {{111122223333}} with your account ID.
 
-      ```
+      ```bash
       aws iam attach-role-policy \
             --policy-arn arn:aws:iam::111122223333:policy/KMS_Key_For_Encryption_On_EBS_Policy \
             --role-name AmazonEKS_EBS_CSI_DriverRole

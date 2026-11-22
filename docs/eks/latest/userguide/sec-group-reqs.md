@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # View Amazon EKS security group requirements for clusters
-<a name="sec-group-reqs"></a>
 
 This topic describes the security group requirements of an Amazon EKS cluster.
 
@@ -43,7 +42,7 @@ The default rules allow all traffic to flow freely between your cluster and node
 
 You can determine the ID of your cluster security group in the AWS Management Console under the cluster’s **Networking** section. Or, you can do so by running the following AWS CLI command.
 
-```
+```bash
 aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.clusterSecurityGroupId
 ```
 

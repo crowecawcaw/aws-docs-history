@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create a managed node group for your cluster
-<a name="create-managed-node-group"></a>
 
 This topic describes how you can launch Amazon EKS managed node groups of nodes that register with your Amazon EKS cluster. After the nodes join the cluster, you can deploy Kubernetes applications to them.
 
@@ -32,7 +31,7 @@ You can create a managed node group with either of the following:
 
 This procedure requires `eksctl` version `0.215.0` or later. You can check your version with the following command:
 
-```
+```bash
 eksctl version
 ```
 
@@ -42,7 +41,7 @@ For instructions on how to install or upgrade `eksctl`, see [Installation](https
 
 1. Create a managed node group with or without using a custom launch template. Manually specifying a launch template allows for greater customization of a node group. For example, it can allow deploying a custom AMI or providing arguments to the `bootstrap.sh` script in an Amazon EKS optimized AMI. For a complete list of every available option and default, enter the following command.
 
-   ```
+   ```bash
    eksctl create nodegroup --help
    ```
 
@@ -69,7 +68,7 @@ For more information, see [Restrict access to the instance profile assigned to t
 
 If you want to block Pod access to IMDS, then add the `--disable-pod-imds` option to the following command.
 
-```
+```bash
 eksctl create nodegroup \
   --cluster my-cluster \
   --region region-code \
@@ -99,7 +98,7 @@ If you want to block Pod access to IMDS, then specify the necessary settings in 
 
 1. Copy the following contents to your device. Replace the example values and then run the modified command to create the `eks-nodegroup.yaml` file. Several settings that you specify when deploying without a launch template are moved into the launch template. If you don’t specify a `version`, the template’s default version is used.
 
-   ```
+   ```yaml
    cat >eks-nodegroup.yaml <<EOF
    apiVersion: eksctl.io/v1alpha5
    kind: ClusterConfig
@@ -122,7 +121,7 @@ If you want to block Pod access to IMDS, then specify the necessary settings in 
 
 1. Deploy the nodegroup with the following command.
 
-   ```
+   ```bash
    eksctl create nodegroup --config-file eks-nodegroup.yaml
    ```
 
@@ -201,13 +200,13 @@ For Windows, this command doesn’t enable SSH. Instead, it associates your Amaz
 
 1. Watch the status of your nodes and wait for them to reach the `Ready` status.
 
-   ```
+   ```bash
    kubectl get nodes --watch
    ```
 
 1. (GPU nodes only) If you chose a GPU instance type and an Amazon EKS optimized accelerated AMI, then you must apply the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin) as a DaemonSet on your cluster. Replace {{vX.X.X}} with your desired [NVIDIA/k8s-device-plugin](https://github.com/NVIDIA/k8s-device-plugin/releases) version before running the following command.
 
-   ```
+   ```bash
    kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/vX.X.X/deployments/static/nvidia-device-plugin.yml
    ```
 

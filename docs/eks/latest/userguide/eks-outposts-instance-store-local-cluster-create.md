@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy an Amazon EKS local cluster on AWS Outposts configured with EC2 instance store
-<a name="eks-outposts-instance-store-local-cluster-create"></a>
 
 This topic provides instructions for deploying a local Amazon EKS cluster on an AWS Outpost configured with EC2 instance store.
 
@@ -44,7 +43,7 @@ When you create a local cluster, note the following:
 ### AWS CLI
 <a name="awscli_is_create_cluster_outpost"></a>
 
-```
+```bash
 aws eks create-cluster \
   --name my-cluster \
   --role-arn arn:aws:iam::111122223333:role/myEKSClusterRole \
@@ -82,7 +81,7 @@ aws eks create-cluster \
 ### `CreateCluster` API
 <a name="api_is_create_cluster_outpost"></a>
 
-```
+```json
 {
     "name": "my-cluster",
     "roleArn": "arn:aws:iam::111122223333:role/myEKSClusterRole",
@@ -126,7 +125,7 @@ The `controlPlaneInstanceType` and `etcdInstanceType` parameters are required wh
 
 Configure `kubectl` to communicate with your cluster:
 
-```
+```bash
 aws eks update-kubeconfig --region region-code --name my-cluster
 ```
 
@@ -144,13 +143,13 @@ Deploy worker nodes to your local cluster using [self-managed node groups](launc
 
 1. Deploy the worker node AWS CloudFormation template or create individual EC2 instances on your Outpost.
 
-   ```
+   ```bash
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2026-10-26/amazon-eks-outpost-instance-store-nodegroup.yaml
    ```
 
 1. Grant the node instance role access to your cluster. Create an [access entry](access-entries.md) for the node’s IAM role:
 
-   ```
+   ```bash
    aws eks create-access-entry \
      --cluster-name my-cluster \
      --principal-arn arn:aws:iam::111122223333:role/myNodeRole \
@@ -161,7 +160,7 @@ Deploy worker nodes to your local cluster using [self-managed node groups](launc
 
 1. Verify that your nodes are in `Ready` state:
 
-   ```
+   ```bash
    kubectl get nodes
    ```
 

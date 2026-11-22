@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Comparing EKS Capability for Argo CD to self-managed Argo CD
-<a name="argocd-comparison"></a>
 
 The EKS Capability for Argo CD provides a fully managed Argo CD experience that runs in EKS. For a general comparison of EKS Capabilities vs self-managed solutions, see [EKS Capabilities considerations](capabilities-considerations.md). This topic focuses on Argo CD-specific differences, including authentication, multi-cluster management, and upstream feature support.
 

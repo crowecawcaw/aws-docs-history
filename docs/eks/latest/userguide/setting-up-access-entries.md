@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Change authentication mode to use access entries
-<a name="setting-up-access-entries"></a>
 
 To begin using access entries, you must change the authentication mode of the cluster to either the `API_AND_CONFIG_MAP` or `API` modes. This adds the API for access entries.
 
@@ -37,7 +36,7 @@ To begin using access entries, you must change the authentication mode of the cl
 
    Amazon EKS begins to update the cluster, the status of the cluster changes to UPDATING, and the change is recorded in the ** aws eks list-updates **.
 
-   ```
+   ```bash
    aws eks update-cluster-config --name my-cluster --access-config authenticationMode=API_AND_CONFIG_MAP
    ```
 

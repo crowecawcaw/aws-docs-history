@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create nodes with optimized Bottlerocket AMIs
-<a name="eks-optimized-ami-bottlerocket"></a>
 
  [Bottlerocket](https://aws.amazon.com/bottlerocket/) is an open source Linux distribution that’s sponsored and supported by AWS. Bottlerocket is purpose-built for hosting container workloads. With Bottlerocket, you can improve the availability of containerized deployments and reduce operational costs by automating updates to your container infrastructure. Bottlerocket includes only the essential software to run containers, which improves resource usage, reduces security threats, and lowers management overhead. The Bottlerocket AMI includes `containerd`, `kubelet`, and AWS IAM Authenticator. In addition to managed node groups and self-managed nodes, Bottlerocket is also supported by [Karpenter](https://karpenter.sh/).
 

@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Use AWS Inferentia instances with Amazon EKS for Machine Learning
-<a name="ml-inferentia"></a>
 
 ## Overview
 <a name="_overview"></a>
@@ -41,7 +40,7 @@ Each Inferentia2 device contains two NeuronCores. Pods request whole devices thr
 
 Create a node group backed by Inf2 instances. You can replace {{inf2.xlarge}} with any Inf2 instance type from the preceding table. Because the instance type is a Neuron type, Amazon EKS uses an EKS-optimized accelerated AMI that includes the Neuron driver. For more information about these AMIs, see [EKS-optimized Neuron AMIs](ml-eks-optimized-ami.md#eks-amis-neuron).
 
-```
+```yaml
 cat << EOF > inf2-nodegroup.yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -67,7 +66,7 @@ Set `volumeSize` large enough for the Neuron container images, which are several
 
 Verify that the node joined the cluster:
 
-```
+```bash
 kubectl get nodes
 ```
 
@@ -82,7 +81,7 @@ For a comparison of the two mechanisms, see [Manage Neuron devices on Amazon EKS
 
 The remainder of this topic uses the device plugin, which you can install with the following command:
 
-```
+```bash
 helm upgrade --install neuron-helm-chart oci://public.ecr.aws/neuron/neuron-helm-chart \
     --set "npd.enabled=false"
 ```
@@ -95,13 +94,13 @@ On `inf2.24xlarge` and `inf2.48xlarge`, which have more than one Inferentia2 dev
 
 Confirm that the device plugin is advertising Neuron resources on your node:
 
-```
+```bash
 kubectl get nodes "-o=custom-columns=NAME:.metadata.name,NeuronDevice:.status.allocatable.aws\.amazon\.com/neuron,NeuronCore:.status.allocatable.aws\.amazon\.com/neuroncore"
 ```
 
 An example output is as follows.
 
-```
+```bash
 NAME                                           NeuronDevice   NeuronCore
 ip-192-168-71-233.us-west-2.compute.internal   1              2
 ```
@@ -115,7 +114,7 @@ The following Pod uses the AWS Deep Learning Container for PyTorch Neuron, which
 
 1. Create a file named `neuron-infer-test.yaml` with the following contents. Replace {{region-code}} with your AWS Region so that the image is pulled from a regional Amazon ECR repository.
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: Pod
    metadata:
@@ -165,25 +164,25 @@ The following Pod uses the AWS Deep Learning Container for PyTorch Neuron, which
 
 1. Apply the manifest.
 
-   ```
+   ```bash
    kubectl apply -f neuron-infer-test.yaml
    ```
 
 1. Wait for the Pod to reach `Completed`. The container image is several gigabytes and model compilation takes a few minutes, so allow up to 10 minutes on the first run.
 
-   ```
+   ```bash
    kubectl get pod neuron-infer-test
    ```
 
 1. View the logs.
 
-   ```
+   ```bash
    kubectl logs neuron-infer-test
    ```
 
    An example output is as follows.
 
-   ```
+   ```bash
    instance-type: inf2.xlarge
    instance-id: i-0eb8c1f59f121359e
    +--------+--------+----------+--------+--------------+----------+------+
@@ -215,7 +214,7 @@ For more examples, see the [Neuron Kubernetes documentation](https://awsdocs-neu
 
 Delete the test Pod and the Inf2 node group so that you stop incurring charges:
 
-```
+```bash
 kubectl delete pod neuron-infer-test
 
 eksctl delete nodegroup --cluster [.replaceable]`my-cluster` --name ng-inf2 --region [.replaceable]`region-code`

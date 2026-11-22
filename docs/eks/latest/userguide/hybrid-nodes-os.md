@@ -5,7 +5,6 @@
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Prepare operating system for hybrid nodes
-<a name="hybrid-nodes-os"></a>
 
 Bottlerocket, Amazon Linux 2023 (AL2023), Ubuntu, and RHEL are validated on an ongoing basis for use as the node operating system for hybrid nodes. Bottlerocket is supported by AWSin VMware vSphere environments only. AL2023 is not covered by AWS Support Plans when run outside of Amazon EC2. AL2023 can only be used in on-premises virtualized environments, see the [Amazon Linux 2023 User Guide](https://docs.aws.amazon.com/linux/al2023/ug/outside-ec2.html) for more information. AWS supports the hybrid nodes integration with Ubuntu and RHEL operating systems but does not provide support for the operating system itself.
 
@@ -14,7 +13,7 @@ You are responsible for operating system provisioning and management. When you a
 **Required nodeadm version for SSM credential provider**  
 If you use AWS Systems Manager (SSM) as your credential provider for hybrid nodes, you must use `nodeadm` version `1.0.19` or later for new installations and upgrades. Earlier versions of `nodeadm` contain an outdated SSM signing key and fail during `nodeadm install` and `nodeadm upgrade` with the following signature verification error:  
 
-```
+```bash
 "msg":"Command failed","error":"failed to install ssm installer: validating ssm-setup-cli signature: Signature Verification Error: No matching signature"
 ```
 To resolve this error, [download the latest version](hybrid-nodes-nodeadm.md#hybrid-nodes-nodeadm-download) of `nodeadm` before running `nodeadm install` or `nodeadm upgrade`.
@@ -137,7 +136,7 @@ If you are building a VMware vSphere OVA, the following environment variables mu
 
 Before running your build, validate your template with the following command after setting your environment variables. Replace `template.pkr.hcl` if you are using a different name for your template.
 
-```
+```yaml
 packer validate template.pkr.hcl
 ```
 
@@ -153,25 +152,25 @@ If you are using RHEL with vSphere you need to convert the kickstart files to an
 
  **Ubuntu 22.04 OVA** 
 
-```
+```yaml
 packer build -only=general-build.vsphere-iso.ubuntu22 template.pkr.hcl
 ```
 
  **Ubuntu 24.04 OVA** 
 
-```
+```yaml
 packer build -only=general-build.vsphere-iso.ubuntu24 template.pkr.hcl
 ```
 
  **RHEL 8 OVA** 
 
-```
+```yaml
 packer build -only=general-build.vsphere-iso.rhel8 template.pkr.hcl
 ```
 
  **RHEL 9 OVA** 
 
-```
+```yaml
 packer build -only=general-build.vsphere-iso.rhel9 template.pkr.hcl
 ```
 
@@ -182,25 +181,25 @@ If you are building an image for a specific host CPU that does not match your bu
 
  **Ubuntu 22.04 Qcow2 / Raw** 
 
-```
+```yaml
 packer build -only=general-build.qemu.ubuntu22 template.pkr.hcl
 ```
 
  **Ubuntu 24.04 Qcow2 / Raw** 
 
-```
+```yaml
 packer build -only=general-build.qemu.ubuntu24 template.pkr.hcl
 ```
 
  **RHEL 8 Qcow2 / Raw** 
 
-```
+```yaml
 packer build -only=general-build.qemu.rhel8 template.pkr.hcl
 ```
 
  **RHEL 9 Qcow2 / Raw** 
 
-```
+```yaml
 packer build -only=general-build.qemu.rhel9 template.pkr.hcl
 ```
 
@@ -213,7 +212,7 @@ You can pass configuration for `nodeadm` in your user-data through cloud-init to
 
 1. After running the Packer build in the previous section and provisioning your template, you can clone your template to create multiple different nodes using the following. You must clone the template for each new VM you are creating that will be used for hybrid nodes. Replace the variables in the command below with the values for your environment. The `VM_NAME` in the command below is used as your `NODE_NAME` when you inject the names for your VMs via your `metadata.yaml` file.
 
-   ```
+   ```yaml
    govc vm.clone -vm "/PATH/TO/TEMPLATE" -ds="YOUR_DATASTORE" \
        -on=false -template=false -folder=/FOLDER/TO/SAVE/VM "VM_NAME"
    ```
@@ -222,7 +221,7 @@ You can pass configuration for `nodeadm` in your user-data through cloud-init to
 
     **userdata.yaml:** 
 
-   ```
+   ```yaml
    #cloud-config
    users:
      - name: # username for login. Use 'builder' for RHEL or 'ubuntu' for Ubuntu.
@@ -255,7 +254,7 @@ You can pass configuration for `nodeadm` in your user-data through cloud-init to
 
    Create a `metadata.yaml` for your environment. Keep the `"$NODE_NAME"` variable format in the file as this will be populated with values in a subsequent step.
 
-   ```
+   ```yaml
    instance-id: "$NODE_NAME"
    local-hostname: "$NODE_NAME"
    network:
@@ -269,7 +268,7 @@ You can pass configuration for `nodeadm` in your user-data through cloud-init to
 
 1. Add the `userdata.yaml` and `metadata.yaml` files as `gzip+base64` strings with the following commands. The following commands should be run for each of the VMs you are creating. Replace `VM_NAME` with the name of the VM you are updating.
 
-   ```
+   ```yaml
    export NODE_NAME="VM_NAME"
    export USER_DATA=$(gzip -c9 <userdata.yaml | base64)
    
@@ -285,6 +284,6 @@ You can pass configuration for `nodeadm` in your user-data through cloud-init to
 
 1. Power on your new VMs, which should automatically connect to the EKS cluster you configured.
 
-   ```
+   ```yaml
    govc vm.power -on "${NODE_NAME}"
    ```
