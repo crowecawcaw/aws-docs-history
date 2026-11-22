@@ -1,7 +1,6 @@
 
 
 # AWS Flow Framework for Java Packages
-<a name="awsflow.packages"></a>
 
 This section provides an overview of the packages included with the AWS Flow Framework for Java. For more information about each package, see the com.amazonaws.services.simpleworkflow.flow in the [AWS SDK for Java API Reference](https://docs.aws.amazon.com/sdk-for-java/latest/reference/).
 

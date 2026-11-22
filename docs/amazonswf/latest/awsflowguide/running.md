@@ -1,7 +1,6 @@
 
 
 # Running Programs Written with the AWS Flow Framework for Java
-<a name="running"></a>
 
 **Topics**
 + [WorkflowWorker](#running.workflowworker)

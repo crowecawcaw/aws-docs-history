@@ -1,7 +1,6 @@
 
 
 # DataConverters
-<a name="dataconverters"></a>
 
  When your workflow implementation calls a remote activity, the inputs passed to it and the result of executing the activity must be serialized so they can be sent over the wire. The framework uses the DataConverter class for this purpose. This is an abstract class that you can implement to provide your own serializer. A default Jackson serializer–based implementation, `JsonDataConverter`, is provided in the framework. For more details, see the [AWS SDK for Java documentation](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/simpleworkflow/flow/JsonDataConverter.html). Refer to the Jackson JSON Processor documentation for details about how Jackson performs serialization as well as Jackson annotations that can be used to influence it. The wire format used is considered part of the contract. Hence, you can specify a `DataConverter` on your activities and workflow interfaces by setting the `DataConverter` property of the `@Activities` and `@Workflow` annotations. 
 

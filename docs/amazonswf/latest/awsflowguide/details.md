@@ -1,7 +1,6 @@
 
 
 # Understanding a Task in AWS Flow Framework for Java
-<a name="details"></a>
 
 **Topics**
 + [Task](#details.task)

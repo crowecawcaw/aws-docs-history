@@ -1,7 +1,6 @@
 
 
 # HelloWorldWorkflowDistributed Application
-<a name="getting-started-example-helloworldworkflowdistributed"></a>
 
 With HelloWorldWorkflow and HelloWorldWorkflowAsync, Amazon SWF mediates the interaction between the workflow and activities implementations, but they run locally as a single process. `GreeterMain` is in a separate process, but it still runs on the same system.
 
@@ -19,7 +18,7 @@ With HelloWorldWorkflowAsync, a single application serves as the workflow and ac
 
 HelloWorldWorkflowDistributed implements its activities host in GreeterActivitiesWorker, as follows:
 
-```
+```java
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -50,7 +49,7 @@ public class GreeterActivitiesWorker {
 
 HelloWorldWorkflowDistributed implements its workflow host in `GreeterWorkflowWorker`, as follows:
 
-```
+```java
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;

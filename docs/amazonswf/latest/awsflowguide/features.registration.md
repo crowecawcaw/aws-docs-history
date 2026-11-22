@@ -1,7 +1,6 @@
 
 
 # Workflow and Activity Type Registration
-<a name="features.registration"></a>
 
 Amazon SWF requires activity and workflow types to be registered before they can be used. The framework automatically registers the workflows and activities in the implementations you add to the worker. The framework looks for types that implement workflows and activities and registers them with Amazon SWF. By default, the framework uses the interface definitions to infer registration options for workflow and activity types. All workflow interfaces are required to have either the `@WorkflowRegistrationOptions` annotation or the `@SkipRegistration` annotation. The workflow worker registers all workflow types it is configured with that have the `@WorkflowRegistrationOptions` annotation. Similarly, each activity method is required to be annotated with either the `@ActivityRegistrationOptions` annotation or the `@SkipRegistration` annotation or one of these annotations must be present on the `@Activities` interface. The activity worker registers all activity types that it is configured with that an `@ActivityRegistrationOptions` annotation applies to. The registration is performed automatically when you start one of the workers. Workflow and activity types that have the `@SkipRegistration` annotation are not registered. `@ActivityRegistrationOptions`, and `@SkipRegistration` annotations have override semantics and the most specific one is applied to an activity type. 
 

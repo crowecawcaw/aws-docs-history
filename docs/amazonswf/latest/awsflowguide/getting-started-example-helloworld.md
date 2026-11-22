@@ -1,7 +1,6 @@
 
 
 # HelloWorld Application
-<a name="getting-started-example-helloworld"></a>
 
 To introduce the way Amazon SWF applications are structured, we'll create a Java application that behaves like a workflow, but that runs locally in a single process. No connection to Amazon Web Services will be needed.
 
@@ -15,7 +14,7 @@ A workflow application consists of three basic components:
 
 HelloWorld is implemented as three classes and two related interfaces, which are described in the following sections. Before starting, you should set up your development environment and create a new AWS Java project as described in [Setting up the AWS Flow Framework for Java](setup.md). The packages used for the following walkthroughs are all named `helloWorld.{{XYZ}}`. To use those names, set the `within` attribute in aop.xml as follows: 
 
-```
+```xml
 ...
 <weaver options="-verbose">
    <include within="helloWorld..*"/>
@@ -36,7 +35,7 @@ The details are discussed in the following sections and include the complete cod
 
 HelloWorld breaks the overall task of printing a `"Hello World!"` greeting to the console into three tasks, each of which is performed by an *activity method*. The activity methods are defined in the `GreeterActivities` interface, as follows.
 
-```
+```java
 public interface GreeterActivities {
    public String getName();
    public String getGreeting(String name);
@@ -46,7 +45,7 @@ public interface GreeterActivities {
 
 HelloWorld has one activity implementation, `GreeterActivitiesImpl`, which provides the `GreeterActivities` methods as shown:
 
-```
+```java
 public class GreeterActivitiesImpl implements GreeterActivities {
    @Override
    public String getName() {
@@ -106,7 +105,7 @@ The `greet` method implements HelloWorld topology by creating an instance of `Gr
 
 A *workflow starter* is an application that starts a workflow execution, and might also communicate with the workflow while it is executing. The `GreeterMain` class implements the HelloWorld workflow starter, as follows:
 
-```
+```java
 public class GreeterMain {
    public static void main(String[] args) {
       GreeterWorkflow greeter = new GreeterWorkflowImpl();

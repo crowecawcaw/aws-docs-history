@@ -1,7 +1,6 @@
 
 
 # AWS Flow Framework for Java Reference
-<a name="reference"></a>
 
 **Topics**
 + [AWS Flow Framework for Java Annotations](annotations.md)

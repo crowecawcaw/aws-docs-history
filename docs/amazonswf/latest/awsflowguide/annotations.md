@@ -1,7 +1,6 @@
 
 
 # AWS Flow Framework for Java Annotations
-<a name="annotations"></a>
 
 **Topics**
 + [@Activities](#annotations-activities)

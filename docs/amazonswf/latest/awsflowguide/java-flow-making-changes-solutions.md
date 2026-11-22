@@ -1,7 +1,6 @@
 
 
 # Solutions
-<a name="java-flow-making-changes-solutions"></a>
 
 You can use the following solutions to avoid backwards-incompatible changes. For more information, see [Making Changes to Decider Code](java-flow-making-changes-decider-code.md) and [Example Scenario](java-flow-making-changes-example-scenario.md).
 
@@ -12,7 +11,7 @@ In this solution, you copy the decider to a new class, modify the decider, and t
 
 `VersionedDecider.java`
 
-```
+```java
 package sample.v2;
  
 import com.amazonaws.services.simpleworkflow.flow.DecisionContext;
@@ -51,7 +50,7 @@ In the updated Java code, the second decider worker runs both versions of the wo
 
 `RunVersionedDecider.java`
 
-```
+```java
 package sample;
  
 import com.amazonaws.services.simpleworkflow.flow.WorkflowWorker;
@@ -108,7 +107,7 @@ If you add new fields, ensure that the JSON deserialization process is backwards
 
 `FeatureFlagDecider.java`
 
-```
+```java
 package sample.v1.featureflag;
  
 import com.amazonaws.services.simpleworkflow.flow.DecisionContext;
@@ -149,7 +148,7 @@ In the updated Java code, the code for both versions of the workflow is still re
 
 `RunFeatureFlagDecider.java`
 
-```
+```java
 package sample;
  
 import com.amazonaws.services.simpleworkflow.flow.WorkflowWorker;

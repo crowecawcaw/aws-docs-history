@@ -1,7 +1,6 @@
 
 
 # AWS Flow Framework for Java Replay Behavior
-<a name="programming-replay"></a>
 
 This topic discusses examples of replay behavior, using the examples in the [What is the AWS Flow Framework for Java?](welcome.md) section. Both [synchronous](#programming-replay-synchronous) and [asynchronous](#programming-replay-asynchronous) scenarios are discussed.
 

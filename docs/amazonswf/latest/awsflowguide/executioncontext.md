@@ -1,7 +1,6 @@
 
 
 # Execution Context
-<a name="executioncontext"></a>
 
 **Topics**
 + [Decision Context](#executioncontext.decision)

@@ -1,7 +1,6 @@
 
 
 # AWS Flow Framework Basic Concepts: Distributed Execution
-<a name="awsflow-basics-distributed-execution"></a>
 
 A *workflow instance* is essentially a virtual thread of execution that can span activities and orchestration logic running on multiple remote computers. Amazon SWF and the AWS Flow Framework function as an operating system that manages workflow instances on a virtual CPU by:
 + Maintaining each instance's execution state.

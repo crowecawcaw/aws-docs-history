@@ -1,7 +1,6 @@
 
 
 # HelloWorldWorkflow Application
-<a name="getting-started-example-helloworldworkflow"></a>
 
 Although the basic [HelloWorld](getting-started-example-helloworld.md) example is structured like a workflow, it differs from an Amazon SWF workflow in several key respects:
 
@@ -45,7 +44,7 @@ This section discusses the activity methods; the other two classes are discussed
 
 HelloWorldWorkflow defines the activities interface in `GreeterActivities`, as follows:
 
-```
+```java
 import com.amazonaws.services.simpleworkflow.flow.annotations.Activities;
 import com.amazonaws.services.simpleworkflow.flow.annotations.ActivityRegistrationOptions;
 
@@ -72,7 +71,7 @@ These timeouts ensure that the activity completes its task in a reasonable amoun
 
 HelloWorldWorkflow implements the activity methods in `GreeterActivitiesImpl`, as follows:
 
-```
+```java
 public class GreeterActivitiesImpl implements GreeterActivities {
    @Override
    public String getName() {
@@ -103,7 +102,7 @@ This section discusses the workflow implementation and activities client; the `W
 
 HelloWorldWorkflow defines the workflow interface in `GreeterWorkflow`, as follows:
 
-```
+```java
 import com.amazonaws.services.simpleworkflow.flow.annotations.Execute;
 import com.amazonaws.services.simpleworkflow.flow.annotations.Workflow;
 import com.amazonaws.services.simpleworkflow.flow.annotations.WorkflowRegistrationOptions;
@@ -132,7 +131,7 @@ For information about the other methods that can be included in a workflow inter
 
 HelloWorldWorkflow implements the workflow in `GreeterWorkflowImpl`, as follows:
 
-```
+```java
 import com.amazonaws.services.simpleworkflow.flow.core.Promise;
 
 public class GreeterWorkflowImpl implements GreeterWorkflow {
@@ -200,7 +199,7 @@ To associate the activity and workflow implementations with the corresponding wo
 
 If you want to run the workflow and activities as separate processes, you must implement separate workflow and activities worker hosts. For an example, see [HelloWorldWorkflowDistributed Application](getting-started-example-helloworldworkflowdistributed.md). For simplicity, HelloWorldWorkflow implements a single worker host that runs activities and workflow workers in the same process, as follows: 
 
-```
+```java
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -273,7 +272,7 @@ However, if you choose **Workflow Executions**, you will not see any active exec
 
 The final piece of the puzzle is to implement a workflow starter, which is an application that starts the workflow execution. The execution state is stored by Amazon SWF, so that you can view its history and execution status. HelloWorldWorkflow implements a workflow starter by modifying the `GreeterMain` class, as follows:
 
-```
+```java
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;

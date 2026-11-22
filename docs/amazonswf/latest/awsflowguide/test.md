@@ -1,7 +1,6 @@
 
 
 # Testability and Dependency Injection
-<a name="test"></a>
 
 **Topics**
 + [Spring Integration](#test.spring)

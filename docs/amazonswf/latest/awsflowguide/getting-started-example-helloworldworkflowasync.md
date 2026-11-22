@@ -1,7 +1,6 @@
 
 
 # HelloWorldWorkflowAsync Application
-<a name="getting-started-example-helloworldworkflowasync"></a>
 
 Sometimes, it's preferable to have a workflow perform certain tasks locally instead of using an activity. However, workflow tasks often involve processing the values represented by `Promise<T>` objects. If you pass a `Promise<T>` object to a synchronous workflow method, the method executes immediately but it can't access the `Promise<T>` object's value until the object is ready. You could poll `Promise<T>.isReady` until it returns `true`, but that's inefficient and the method might block for a long time. A better approach is to use an *asynchronous method*.
 
@@ -24,7 +23,7 @@ The following sections describe how to modify the original HelloWorldWorkflow co
 
 HelloWorldWorkflowAsync implements its activities worker interface in `GreeterActivities`, as follows:
 
-```
+```java
 import com.amazonaws.services.simpleworkflow.flow.annotations.Activities;
 import com.amazonaws.services.simpleworkflow.flow.annotations.ActivityRegistrationOptions;
 
@@ -48,7 +47,7 @@ The remaining activity method implementations are identical to HelloWorldWorkflo
 
 HelloWorldWorkflowAsync defines the workflow interface as follows:
 
-```
+```java
 import com.amazonaws.services.simpleworkflow.flow.annotations.Execute;
 import com.amazonaws.services.simpleworkflow.flow.annotations.Workflow;
 import com.amazonaws.services.simpleworkflow.flow.annotations.WorkflowRegistrationOptions;
@@ -66,7 +65,7 @@ The interface is identical to HelloWorldWorkflow apart from a new version number
 
 HelloWorldWorkflowAsync implements the workflow as follows:
 
-```
+```java
 import com.amazonaws.services.simpleworkflow.flow.annotations.Asynchronous;
 import com.amazonaws.services.simpleworkflow.flow.core.Promise;
 
@@ -114,7 +113,7 @@ The difference is that, instead of calling the activities client to execute a `g
 
 HelloWorldWorkflowAsync implements `GreeterWorker` as the host class for the workflow and activity implementations. It is identical to the HelloWorldWorkflow implementation except for the `taskListToPoll` name, which is set to "`HelloWorldAsyncList`".
 
-```
+```java
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;

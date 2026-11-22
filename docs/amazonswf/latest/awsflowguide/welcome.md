@@ -1,7 +1,6 @@
 
 
 # What is the AWS Flow Framework for Java?
-<a name="welcome"></a>
 
 With the AWS Flow Framework, you can focus on implementing your workflow logic. Behind the scenes, the framework uses the scheduling, routing, and state management capabilities of Amazon SWF to manage your workflow's execution and make it scalable, reliable, and auditable. AWS Flow Framework-based workflows are highly concurrent. The workflows can be distributed across multiple components, which can run as separate processes on separate computers and be scaled independently. The application can continue to progress if any of its components are running, making it highly fault tolerant.
 

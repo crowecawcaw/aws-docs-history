@@ -1,7 +1,6 @@
 
 
 # AWS Flow Framework for Java Programming Guide
-<a name="features"></a>
 
 This section provides details about how to use the features of the AWS Flow Framework for Java to implement workflow applications.
 

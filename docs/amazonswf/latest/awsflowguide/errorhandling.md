@@ -1,7 +1,6 @@
 
 
 # Error Handling
-<a name="errorhandling"></a>
 
 **Topics**
 + [TryCatchFinally Semantics](#errorhandling.trycatchfinally)
@@ -83,7 +82,7 @@ The framework reports errors that happen while processing tasks as exceptions. I
 
 When an exception occurs in synchronous code, the control jumps directly to the `catch` block, skipping over any remaining code in the `try` block. For example: 
 
-```
+```java
 try {
     a();
     b();
@@ -96,7 +95,7 @@ catch (Exception e) {
 
 In this code, if `b()` throws an exception, then `c()` is never invoked. Compare that to a workflow:
 
-```
+```java
 new TryCatch() {
 
     @Override
@@ -117,7 +116,7 @@ In this case, calls to `activityA`, `activityB`, and `activityC` all return succ
 
 Unlike the synchronous example, where `c()` was never executed, `activityC` was invoked and a task was scheduled for execution; hence, the framework will make an attempt to cancel it, but there is no guarantee that it will be canceled. Cancellation can't be guaranteed because the activity may have already completed, may ignore the cancellation request, or may fail due to an error. However, the framework does provide the guarantee that `doCatch()` is called only after all tasks started from the corresponding `doTry()` have completed. It also guarantees that `doFinally()` is called only after all tasks started from the `doTry()` and `doCatch()` have completed. If, for instance, the activities in the above example depend on each other, say `activityB` depends on `activityA` and `activityC` on `activityB`, then the cancellation of `activityC` will be immediate because it isn't scheduled in Amazon SWF until `activityB` completes:
 
-```
+```java
 new TryCatch() {
 
     @Override
@@ -143,7 +142,7 @@ Reporting heartbeat allows the activity implementation to report the progress of
 
 The following example shows an activity that downloads and processes images. It heartbeats after processing each image, and if cancellation is requested, it cleans up and rethrows the exception to acknowledge cancellation.
 
-```
+```java
 @Override
 public void processImages(List<String> urls) {
     int imageCounter = 0;
@@ -175,7 +174,7 @@ It isn't a good practice to heartbeat too frequently because Amazon SWF may thro
 
 Besides error conditions, there are other cases where you may explicitly cancel a task. For example, an activity to process payments using a credit card may need to be canceled if the user cancels the order. The framework allows you to explicitly cancel tasks created in the scope of a `TryCatchFinally`. In the following example, the payment task is canceled if a signal is received while the payment was being processed.
 
-```
+```java
 public class OrderProcessorImpl implements OrderProcessor {
     private PaymentProcessorClientFactory factory
         = new PaymentProcessorClientFactoryImpl();
@@ -235,7 +234,7 @@ You may nest `TryCatchFinally`'s to suit your needs. Because each `TryCatchFinal
 ![Nested TryCatchFinally](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/nested.png)
 
 
-```
+```java
 new TryCatch() {
     @Override
     protected void doTry() throws Throwable {

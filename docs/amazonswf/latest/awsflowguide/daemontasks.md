@@ -1,7 +1,6 @@
 
 
 # Daemon Tasks
-<a name="daemontasks"></a>
 
 The AWS Flow Framework for Java allows the marking of certain tasks as `daemon`. This allows you to create tasks that do some background work that should get canceled when all other work is done. For example, a health monitoring task should be canceled when the rest of the workflow is complete. You can accomplish this by setting the `daemon` flag on an asynchronous method or an instance of `TryCatchFinally`. In the following example, the asynchronous method `monitorHealth()` is marked as `daemon`.
 

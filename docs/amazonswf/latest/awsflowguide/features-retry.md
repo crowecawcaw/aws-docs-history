@@ -1,7 +1,6 @@
 
 
 # Retry Failed Activities
-<a name="features-retry"></a>
 
 Activities sometimes fail for ephemeral reasons, such as a temporary loss of connectivity. At another time, the activity might succeed, so the appropriate way to handle activity failure is often to retry the activity, perhaps multiple times. 
 
@@ -30,7 +29,7 @@ The simplest retry strategy is to keep retrying the activity each time it fails 
 
 The following workflow implements the retry-until-success strategy. The workflow interface is implemented in `RetryActivityRecipeWorkflow` and has one method, `runUnreliableActivityTillSuccess`, which is the workflow's entry point. The workflow worker is implemented in `RetryActivityRecipeWorkflowImpl`, as follows: 
 
-```
+```java
 public class RetryActivityRecipeWorkflowImpl
     implements RetryActivityRecipeWorkflow {
 
@@ -112,7 +111,7 @@ All approaches support the following configuration options, where time values ar
 + The initial retry wait time.
 + The back-off coefficient, which is used to compute the retry intervals, as follows:
 
-  ```
+  ```java
   retryInterval = initialRetryIntervalSeconds * Math.pow(backoffCoefficient, numberOfTries - 2)
   ```
 
@@ -136,7 +135,7 @@ The simplest way to implement an exponential retry strategy for an activity is t
 
 The `ExponentialRetryAnnotationWorkflow` workflow worker implements the exponential retry strategy by using an `@ExponentialRetry` annotation. It uses an `unreliableActivity` activity whose interface definition is implemented in `ExponentialRetryAnnotationActivities`, as follows:
 
-```
+```java
 @Activities(version = "1.0")
 @ActivityRegistrationOptions(
     defaultTaskScheduleToStartTimeoutSeconds = 30,
@@ -157,7 +156,7 @@ The `@ExponentialRetry` options specify the following strategy:
 
 The workflow interface is implemented in `RetryWorkflow` and has one method, `process`, which is the workflow's entry point. The workflow worker is implemented in `ExponentialRetryAnnotationWorkflowImpl`, as follows: 
 
-```
+```java
 public class ExponentialRetryAnnotationWorkflowImpl implements RetryWorkflow {
     public void process() {
         handleUnreliableActivity();
@@ -197,7 +196,7 @@ The `@ExponentialRetry` annotation and the `RetryDecorator` class are mutually e
 
 The following workflow implementation shows how to use the `RetryDecorator` class to implement an exponential retry strategy. It uses an `unreliableActivity` activity that doesn't have an `@ExponentialRetry` annotation. The workflow interface is implemented in `RetryWorkflow` and has one method, `process`, which is the workflow's entry point. The workflow worker is implemented in `DecoratorRetryWorkflowImpl`, as follows: 
 
-```
+```java
 public class DecoratorRetryWorkflowImpl implements RetryWorkflow {
    ...
   public void process() {
@@ -255,7 +254,7 @@ The basic pattern is:
 
 The following workflow shows how to use the `AsyncRetryingExecutor` class to implement an exponential retry strategy. It uses the same `unreliableActivity` activity as the `DecoratorRetryWorkflow` workflow discussed earlier. The workflow interface is implemented in `RetryWorkflow` and has one method, `process`, which is the workflow's entry point. The workflow worker is implemented in `AsyncExecutorRetryWorkflowImpl`, as follows: 
 
-```
+```java
 public class AsyncExecutorRetryWorkflowImpl implements RetryWorkflow {
   private final RetryActivitiesClient client = new RetryActivitiesClientImpl();
   private final DecisionContextProvider contextProvider = new DecisionContextProviderImpl();
@@ -326,7 +325,7 @@ The most flexible approach to retrying failed activities is a custom strategy, w
 
 The following workflow shows how to implement a custom retry strategy. It uses the same `unreliableActivity` activity as the `DecoratorRetryWorkflow` and `AsyncExecutorRetryWorkflow` workflows. The workflow interface is implemented in `RetryWorkflow` and has one method, `process`, which is the workflow's entry point. The workflow worker is implemented in `CustomLogicRetryWorkflowImpl`, as follows: 
 
-```
+```java
 public class CustomLogicRetryWorkflowImpl implements RetryWorkflow {
   ...
   public void process() {

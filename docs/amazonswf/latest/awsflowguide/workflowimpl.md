@@ -1,7 +1,6 @@
 
 
 # Workflow Implementation
-<a name="workflowimpl"></a>
 
 In order to implement a workflow, you write a class that implements the desired `@Workflow` interface. For instance, the example workflow interface (`MyWorkflow`) can be implemented like so: 
 

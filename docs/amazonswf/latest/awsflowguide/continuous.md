@@ -1,7 +1,6 @@
 
 
 # Continuous Workflows
-<a name="continuous"></a>
 
 In some use cases, you may need a workflow that executes forever or runs for a long duration, for example, a workflow that monitors the health of a server fleet. 
 

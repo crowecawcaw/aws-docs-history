@@ -1,7 +1,6 @@
 
 
 # AWS Flow Framework Basic Concepts: Data Exchange Between Activities and Workflows
-<a name="awsflow-basics-data-exchange-activities-workflows"></a>
 
 When you call an asynchronous activity client method, it immediately returns a *Promise* (also known as a *Future*) object, which represents the activity method's return value. Initially, the Promise is in an unready state and the return value is undefined. After the activity method completes its task and returns, the framework marshals the return value across the network to the workflow worker, which assigns a value to the Promise and puts the object in a ready state.
 

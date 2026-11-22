@@ -1,7 +1,6 @@
 
 
 # Workflow and Activity Contracts
-<a name="features.workflow"></a>
 
 Java interfaces are used to declare the signatures of workflows and activities. The interface forms the contract between the implementation of the workflow (or activity) and the client of that workflow (or activity). For example, a workflow type `MyWorkflow` is defined using an interface that is annotated with the `@Workflow` annotation: 
 

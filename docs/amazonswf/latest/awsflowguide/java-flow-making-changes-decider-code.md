@@ -1,7 +1,6 @@
 
 
 # Making Changes to Decider Code: Versioning and Feature Flags
-<a name="java-flow-making-changes-decider-code"></a>
 
 This section shows how to avoid backwards-incompatible changes to a decider using two methods:
 + [Versioning](java-flow-making-changes-solutions.md#use-versioning) provides a basic solution.
