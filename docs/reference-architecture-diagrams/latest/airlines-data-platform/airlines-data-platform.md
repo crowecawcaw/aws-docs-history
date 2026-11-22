@@ -1,7 +1,6 @@
 
 
 # Airlines Data Platform
-<a name="airlines-data-platform"></a>
 
 Publication date: **August 23, 2022 ([Diagram history](#airlines-data-platform-history))**
 
