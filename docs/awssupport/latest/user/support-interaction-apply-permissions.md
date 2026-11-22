@@ -1,7 +1,6 @@
 
 
 # Applying required permissions for support interactions
-<a name="support-interaction-apply-permissions"></a>
 
 To apply permissions to your IAM users, complete the following steps:
 

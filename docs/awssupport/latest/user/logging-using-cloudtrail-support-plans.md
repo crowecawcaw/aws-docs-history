@@ -1,7 +1,6 @@
 
 
 # Logging AWS Support Plans API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail-support-plans"></a>
 
 AWS Support Plans is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls for AWS Support Plans as events. The calls captured include calls from the AWS Support Plans console and code calls to the AWS Support Plans API operations.
 
@@ -39,7 +38,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 **Example : Log entry for `GetSupportPlan`**  
 The following example shows a CloudTrail log entry for the `GetSupportPlan` operation.  
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -84,7 +83,7 @@ The following example shows a CloudTrail log entry for the `GetSupportPlan` oper
 **Example : Log entry for `GetSupportPlanUpdateStatus`**  
 The following example shows a CloudTrail log entry for the `GetSupportPlanUpdateStatus` operation.  
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -131,7 +130,7 @@ The following example shows a CloudTrail log entry for the `GetSupportPlanUpdate
 **Example : Log entry for `StartSupportPlanUpdate`**  
 The following example shows a CloudTrail log entry for the `StartSupportPlanUpdate` operation.  
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -184,7 +183,7 @@ The following example shows a CloudTrail log entry for the `StartSupportPlanUpda
 **Example : Log entry for `CreateSupportPlanSchedule`**  
 The following example shows a CloudTrail log entry for the `CreateSupportPlanSchedule` operation.  
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -244,7 +243,7 @@ The following example shows a CloudTrail log entry for the `CreateSupportPlanSch
 **Example : Log entry for `ListSupportPlanModifiers`**  
 The following example shows a CloudTrail log entry for the `ListSupportPlanModifiers` operation.  
 
-```
+```java
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -300,7 +299,7 @@ The `eventSource` field has the `support-subscription.amazonaws.com` namespace f
 **Example : Log entry for DescribeSupportLevelSummary**  
 The following example shows a CloudTrail log entry for the `DescribeSupportLevelSummary` action.  
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -341,7 +340,7 @@ The following example shows a CloudTrail log entry for the `DescribeSupportLevel
 **Example : Log entry for UpdateProbationAutoCancellation**  
 The following example shows a CloudTrail log entry for the `UpdateProbationAutoCancellation` action.  
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -373,7 +372,7 @@ The following example shows a CloudTrail log entry for the `UpdateProbationAutoC
 **Example : Log entry for UpdateSupportLevel**  
 The following example shows a CloudTrail log entry for the `UpdateSupportLevel` action to change to Developer Support.  
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {

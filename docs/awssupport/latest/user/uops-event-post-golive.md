@@ -1,7 +1,6 @@
 
 
 # Unified Operations Post Go-live or event
-<a name="uops-event-post-golive"></a>
 
 The post go-live or post event process in Unified Operations includes the following key elements:
 + Spin-down engagement and event-specific resources.

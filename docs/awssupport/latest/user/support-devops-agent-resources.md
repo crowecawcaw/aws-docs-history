@@ -1,7 +1,6 @@
 
 
 # Resources created for AWS DevOps Agent activated from AWS Support
-<a name="support-devops-agent-resources"></a>
 
 Activation from the Support Center Console creates the following resources in `us-east-1`. Replace {{ACCOUNT\_ID}} with your 12-digit AWS account ID. The role suffix is a 12-character identifier derived from the agent space.
 

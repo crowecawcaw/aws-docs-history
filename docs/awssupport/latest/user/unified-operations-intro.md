@@ -1,7 +1,6 @@
 
 
 # What is AWS Unified Operations
-<a name="unified-operations-intro"></a>
 
 AWS Unified Operations combines proven expertise with AI-powered insights to help reduce operational and security risks, resolve issues faster, and help you architect more resilient cloud solutions from the start—accelerating your most critical cloud initiatives. Designated AWS specialists act as an extension of your team through your preferred collaboration channels—conducting workload reviews, providing strategic guidance, and optimizing performance through deep contextual knowledge. With 24/7 security and performance monitoring, we detect and mitigate incidents early while reducing alert volume. A five-minute, context-aware response for critical incidents further shortens resolution time and helps maintain peak operational performance.
 

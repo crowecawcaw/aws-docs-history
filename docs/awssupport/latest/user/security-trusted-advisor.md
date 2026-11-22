@@ -1,7 +1,6 @@
 
 
 # Manage access to AWS Trusted Advisor
-<a name="security-trusted-advisor"></a>
 
 You can access AWS Trusted Advisor from the AWS Management Console. All AWS accounts have access to a select core [Trusted Advisor checks](https://aws.amazon.com/premiumsupport/faqs/#TaFree). If you have a AWS Business Support\+, AWS Enterprise Support, or AWS Unified Operations plan, you can access all checks. for more information, see [AWS Trusted Advisor check reference](trusted-advisor-check-reference.md).
 
@@ -116,7 +115,7 @@ The following policy allows users to view and take all actions on all Trusted Ad
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -141,7 +140,7 @@ The following policy allows users read-only access to the Trusted Advisor consol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -170,7 +169,7 @@ The following policy doesn't allow users to view or take actions for Trusted Adv
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -195,7 +194,7 @@ The following policy allows users to view all Trusted Advisor checks in the Trus
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -227,7 +226,7 @@ The following policy allows users access to the Support API operations for Trust
 You can use this policy to call the Trusted Advisor API operations programmatically, but you can't use this policy to view or refresh checks in the Trusted Advisor console.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

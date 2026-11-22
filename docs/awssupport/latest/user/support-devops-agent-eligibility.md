@@ -1,7 +1,6 @@
 
 
 # Plan eligibility and credits
-<a name="support-devops-agent-eligibility"></a>
 
 You can enable AWS DevOps Agent from the Support Center Console if your account is on one of the following plans:
 + AWS Business Support\+

@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Support authorization with AWS CloudTrail
-<a name="support-authorization-monitoring"></a>
 
 AWS CloudTrail logs all AWS Support authorization API calls and support operations as management events. These events are logged by default without additional configuration.
 
@@ -15,7 +14,7 @@ When AWS Support performs operations related to your support permits, AWS CloudT
 
 AWS CloudTrail logs this event when AWS Support requests access to your resources. It indicates that a support permit request was created.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -57,7 +56,7 @@ AWS CloudTrail logs this event when AWS Support requests access to your resource
 
 AWS CloudTrail logs this event when AWS Support retrieves a signed authorization to perform a support action. This indicates that your AWS KMS key was used to sign the authorization.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -92,7 +91,7 @@ AWS CloudTrail logs this event when AWS Support retrieves a signed authorization
 
 AWS CloudTrail logs this event when AWS Support performs an authorized action on your resources.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -137,7 +136,7 @@ A single signed authorization can result in multiple `StartSupportAction` events
 
 AWS CloudTrail logs this event when AWS Support cancels a support permit request.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -194,7 +193,7 @@ Events are sent to Amazon EventBridge when a support permit request is created. 
 
 The following is an example event for a new support permit request:
 
-```
+```json
 {
     "version": "0",
     "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
@@ -215,7 +214,7 @@ The following is an example event for a new support permit request:
 
 To create an Amazon EventBridge rule that matches support permit request events, use the following event pattern:
 
-```
+```json
 {
     "source": ["aws.supportauthz"],
     "detail-type": ["Support Permit Request Created"]

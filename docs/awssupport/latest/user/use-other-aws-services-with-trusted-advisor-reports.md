@@ -1,7 +1,6 @@
 
 
 # Using other AWS services to view Trusted Advisor reports
-<a name="use-other-aws-services-with-trusted-advisor-reports"></a>
 
 Follow this tutorial to upload and view your data by using other AWS services. In this topic, you create an Amazon Simple Storage Service (Amazon S3) bucket to store your report and an CloudFormation template to create resources in your account. Then, you can use Amazon Athena to analyze or run queries for your report or Quick to visualize that data in a dashboard.
 

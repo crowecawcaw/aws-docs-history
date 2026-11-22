@@ -1,7 +1,6 @@
 
 
 # Unified Operations Getting started: Plan for domain coverage
-<a name="uo-gs-domain-coverage"></a>
 
 AWS Unified Operations provides specialized expertise through a domain-based coverage approach. Each domain is supported by a team of AWS Domain Specialists who provide the following services:
 + **Specialized expertise** aligned to your specific technology areas.

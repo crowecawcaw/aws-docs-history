@@ -1,7 +1,6 @@
 
 
 # Fault tolerance
-<a name="fault-tolerance-checks"></a>
 
 You can use the following checks for the fault tolerance category.
 

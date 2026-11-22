@@ -1,7 +1,6 @@
 
 
 # View AWS Support App correspondences in the AWS Support Center Console
-<a name="view-slack-updates-in-support-center"></a>
 
 When you create, update, or resolve support cases for your account in the Slack channel, you can also sign in to the Support Center Console to view your cases. You can view the case correspondences to determine whether the case was updated in the Slack channel, view the chat history with a support agent, and find any attachments that you uploaded from Slack.
 

@@ -1,7 +1,6 @@
 
 
 # Hello Support
-<a name="example_support_Hello_section"></a>
 
 The following code examples show how to get started using Support.
 
@@ -11,7 +10,7 @@ The following code examples show how to get started using Support.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples). 
 
-```
+```csharp
 using Amazon.AWSSupport;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -45,7 +44,7 @@ public static class HelloSupport
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.support.SupportClient;
 import software.amazon.awssdk.services.support.model.Category;
@@ -130,7 +129,7 @@ public class HelloSupport {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples). 
 Invoke `main()` to run the example.  
 
-```
+```javascript
 import {
   DescribeServicesCommand,
   SupportClient,
@@ -170,7 +169,7 @@ export const main = async () => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples). 
 
-```
+```kotlin
 /**
 Before running this Kotlin code example, set up your development environment,
 including your credentials.
@@ -227,7 +226,7 @@ suspend fun displaySomeServices() {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples). 
 
-```
+```python
 import logging
 import boto3
 from botocore.exceptions import ClientError

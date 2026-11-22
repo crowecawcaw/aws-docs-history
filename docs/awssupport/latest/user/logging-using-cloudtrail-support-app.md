@@ -1,7 +1,6 @@
 
 
 # Logging AWS Support App in Slack API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail-support-app"></a>
 
 The AWS Support App in Slack is integrated with AWS CloudTrail. CloudTrail provides a record of actions taken by a user, role, or an AWS service in the AWS Support App. To create this record, CloudTrail captures all public API calls for AWS Support App as events. These captured calls include calls from the AWS Support App console, and code calls to the AWS Support App public API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket. These include events for AWS Support App. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. You can use the information that CloudTrail collects to determine that the request that was made to AWS Support App. You can also learn the IP address where the call originated, who made the request, when it was made, and additional details.
 
@@ -35,7 +34,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 **Example : Log example for `CreateSlackChannelConfiguration`**  
 The following example shows a CloudTrail log entry for the [CreateSlackChannelConfiguration](https://docs.aws.amazon.com/supportapp/latest/APIReference/API_CreateSlackChannelConfiguration.html) operation.  
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -89,7 +88,7 @@ The following example shows a CloudTrail log entry for the [CreateSlackChannelCo
 **Example : Log example for `ListSlackChannelConfigurations`**  
 The following example shows a CloudTrail log entry for the [ListSlackChannelConfigurations](https://docs.aws.amazon.com/supportapp/latest/APIReference/API_ListSlackChannelConfigurations.html) operation.  
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -134,7 +133,7 @@ The following example shows a CloudTrail log entry for the [ListSlackChannelConf
 **Example : Log example for `GetAccountAlias`**  
 The following example shows a CloudTrail log entry for the [GetAccountAlias](https://docs.aws.amazon.com/supportapp/latest/APIReference/API_GetAccountAlias.html) operation.  
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Enabling AWS DevOps Agent from your AWS Support Center Console
-<a name="support-devops-agent-enable"></a>
 
 Enabling AWS DevOps Agent from the Support Center Console creates an agent space and the AWS Identity and Access Management (IAM) resources required by the agent and its operator web app. Activation runs in the US East (N. Virginia) (`us-east-1`) Region.
 

@@ -1,7 +1,6 @@
 
 
 # Logging AWS Trusted Advisor console actions with AWS CloudTrail
-<a name="logging-using-cloudtrail-for-aws-trusted-advisor"></a>
 
 Trusted Advisor is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Trusted Advisor. CloudTrail captures actions for Trusted Advisor as events. The calls captured include calls from the Trusted Advisor console. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket, including events for Trusted Advisor. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Trusted Advisor, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
@@ -85,7 +84,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 **Example : Log entry for RefreshCheck**  
 The following example shows a CloudTrail log entry that demonstrates the `RefreshCheck` action for the Amazon S3 Bucket Versioning check (ID R365s2Qddf).   
 
-```
+```json
 {
         "eventVersion":"1.04",
         "userIdentity":{
@@ -128,7 +127,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Refres
 **Example : Log entry for UpdateNotificationPreferences**  
 The following example shows a CloudTrail log entry that demonstrates the `UpdateNotificationPreferences` action.   
 
-```
+```JSON
 {
         "eventVersion":"1.04",
         "userIdentity":{
@@ -182,7 +181,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Update
 **Example : Log entry for GenerateReport**  
 The following example shows a CloudTrail log entry that demonstrates the `GenerateReport` action. This action creates a report for your AWS organization.   
 
-```
+```JSON
 {
         "eventVersion":"1.04",
         "userIdentity":{

@@ -1,7 +1,6 @@
 
 
 # View support interactions
-<a name="view-support-interactions"></a>
 
 Past interactions with AWS Support are saved for 10 years. To view past interactions, open the Support Dashboard. In the **Support interactions** section, the **History** table shows the following information for each interaction:
 + **Interaction**: The name of the interaction. Choose the name to view the interaction.

@@ -1,7 +1,6 @@
 
 
 # Sign up for AWS Enterprise Support using self-service subscription
-<a name="enterprise-support-sign-up"></a>
 
 With [AWS Enterprise Support](https://aws.amazon.com/premiumsupport/plans/enterprise/), you get a designated Technical Account Manager (TAM), 24x7 access to Cloud Support Engineers by phone, chat, and web, and a 15-minute response time when a business-critical system is down. You also get proactive risk detection, 24x7 security monitoring with Amazon GuardDuty and AWS Security Hub CSPM, architectural reviews, cost optimization workshops, AI/ML guidance, AWS Well-Architected Agent access, monthly AWS DevOps Agent credits, AWS Countdown, and AWS Security Incident Response at no additional fee. For a full comparison, see [Compare AWS Support Plans](https://aws.amazon.com/premiumsupport/plans/).
 

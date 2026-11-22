@@ -1,7 +1,6 @@
 
 
 # Troubleshoot with AI while you wait for a support agent
-<a name="ai-troubleshooting-after-case-creation"></a>
 
 If you have an AWS Business Support\+, AWS Enterprise Support, or AWS Unified Operations plan, AI-enhanced troubleshooting continues after you create a support case. You can keep working toward a resolution while you wait for a support agent to be assigned to your case. This feature isn't available with the Basic Support plan.
 

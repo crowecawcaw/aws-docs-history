@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Support App in Slack
-<a name="support-app-managed-policies"></a>
 
 **Note**  
 To access and view support cases in the AWS Support Center Console, see [Manage access to AWS Support Center](accessing-support.md).

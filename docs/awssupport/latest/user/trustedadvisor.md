@@ -1,7 +1,6 @@
 
 
 # Using Trusted Advisor as a web service
-<a name="trustedadvisor"></a>
 
 The AWS Support service enables you to write applications that interact with [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/trustedadvisor/). This topic shows you how to get a list of Trusted Advisor checks, refresh one of them, and then get the detailed results from the check. These tasks are demonstrated in Java. For information about support for other languages, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
 
@@ -17,7 +16,7 @@ The AWS Support service enables you to write applications that interact with [AW
 
 The following Java code snippet creates an instance of an Support client that you can use to call all Trusted Advisor API operations. Next, the code gets the list of Trusted Advisor checks and their corresponding `CheckId` values by calling the [DescribeTrustedAdvisorChecks](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorChecks.html) API operation. You can use this information to build user interfaces that enable users to select the check they want to run or refresh.
 
-```
+```java
 private static AWSSupport createClient()
 {
     return AWSSupportClientBuilder.defaultClient();
@@ -40,7 +39,7 @@ public static void getTAChecks() {
 
 The following Java code snippet creates an instance of an Support client that you can use to refresh Trusted Advisor data.
 
-```
+```java
 // Refresh a Trusted Advisor Check
 // Note: Some checks are refreshed automatically, and they cannot be refreshed by using this operation.
 // Specifying the check ID of a check that is automatically refreshed causes an InvalidParameterValue error.
@@ -70,7 +69,7 @@ The following Java code snippet gets the status of the check requested in the fo
 
 **Note:** Use a single refresh request before polling for the status of the request.
 
-```
+```java
 // Retrieves TA refresh statuses. Multiple checkId's can be submitted.
 public static List<TrustedAdvisorCheckRefreshStatus> getTARefreshStatus(final String... checkIds) {
     DescribeTrustedAdvisorCheckRefreshStatusesRequest request =
@@ -130,7 +129,7 @@ The names and descriptions for Trusted Advisor checks are subject to change. We 
 
 The following Java code snippet uses the `DescribeTrustedAdvisorChecksResult` instance referenced by the variable `result`, which was obtained in the preceding code snippet. Rather than defining a check interactively through a user interface, After you submit the request to run the snippet submits a request for the first check in the list to be run by specifying an index value of 0 in each `result.getChecks().get(0)` call. Next, the code defines an instance of `DescribeTrustedAdvisorCheckResultRequest`, which it passes to an instance of `DescribeTrustedAdvisorCheckResultResult` called `checkResult`. You can use the member structures of this data type to view the results of the check.
 
-```
+```java
 // Request a Trusted Advisor Check Result
 public static TrustedAdvisorCheckResult getTACheckResult(final String checkId) {
     DescribeTrustedAdvisorCheckResultRequest request = new DescribeTrustedAdvisorCheckResultRequest()
@@ -149,7 +148,7 @@ public static TrustedAdvisorCheckResult getTACheckResult(final String checkId) {
 
 The following Java code snippet iterates over the `DescribeTrustedAdvisorCheckResultResult` instance returned in the previous section to get a list of resources flagged by the Trusted Advisor check.
 
-```
+```java
 // Show ResourceIds for flagged resources.
 for (TrustedAdvisorResourceDetail flaggedResource :
     result1.getResult().getFlaggedResources())

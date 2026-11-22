@@ -1,7 +1,6 @@
 
 
 # Deleting a Slack channel configuration from the AWS Support App
-<a name="delete-a-channel"></a>
 
 You can delete a channel configuration from the AWS Support App if you don't need it. This action only removes the channel from the AWS Support App and the AWS Support Center Console. Your channel isn't deleted from Slack. 
 

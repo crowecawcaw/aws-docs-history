@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Trusted Advisor
-<a name="using-service-linked-roles-ta"></a>
 
 AWS Trusted Advisor uses the AWS Identity and Access Management (IAM) [service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html). A service-linked role is a unique IAM role that is linked directly to AWS Trusted Advisor. Service-linked roles are predefined by Trusted Advisor, and they include all the permissions that the service requires to call other AWS services on your behalf. Trusted Advisor uses this role to check your usage across AWS and to provide recommendations to improve your AWS environment. For example, Trusted Advisor analyzes your Amazon Elastic Compute Cloud (Amazon EC2) instance use to help you reduce costs, increase performance, tolerate failures, and improve security.
 
@@ -41,7 +40,7 @@ This step is necessary only if the Trusted Advisor account is disabled, the serv
 
 You can add the following statement to the permissions policy for the IAM entity to create the service-linked role.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -57,7 +56,7 @@ You can add the following statement to the permissions policy for the IAM entity
 
 You can only edit the description for the `AWSServiceRoleForTrustedAdvisor` role. You can add the following statement to the permissions policy for the IAM entity to edit the description of a service-linked role.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -72,7 +71,7 @@ You can only edit the description for the `AWSServiceRoleForTrustedAdvisor` role
 
 You can add the following statement to the permissions policy for the IAM entity to delete a service-linked role.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [

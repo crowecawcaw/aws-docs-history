@@ -1,7 +1,6 @@
 
 
 # AWS Support App in Slack commands
-<a name="support-app-commands"></a>
 
 ## Slack channel commands
 <a name="notification-channel-commands"></a>

@@ -1,7 +1,6 @@
 
 
 # Performance
-<a name="performance-checks"></a>
 
 Improve the performance of your service by checking your service quotas (formerly referred to as limits), so that you can take advantage of provisioned throughput, monitor for overutilized instances, and detect any unused resources.
 

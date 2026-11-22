@@ -1,7 +1,6 @@
 
 
 # Reopening a support case in Slack
-<a name="reopen-a-support-case"></a>
 
 After you resolve a support case, you can reopen the case from Slack.
 

@@ -1,7 +1,6 @@
 
 
 # Managing attachments
-<a name="manage-attachments"></a>
 
 You can attach files to a support case when you create a case or when you reply to an existing case. You can attach up to 10 files, with each file up to 150 MB. Supported attachments include error logs, screenshots, configuration files, and other documents relevant to your issue.
 

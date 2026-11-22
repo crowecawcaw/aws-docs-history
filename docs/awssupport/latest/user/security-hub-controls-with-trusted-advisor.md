@@ -1,7 +1,6 @@
 
 
 # Viewing AWS Security Hub CSPM controls in AWS Trusted Advisor
-<a name="security-hub-controls-with-trusted-advisor"></a>
 
 After you enable AWS Security Hub CSPM for your AWS account, you can view your security controls and their findings in the Trusted Advisor console. You can use Security Hub CSPM controls to identify security vulnerabilities in your account in the same way that you can use Trusted Advisor checks. You can view the check's status, the list of affected resources, and then follow Security Hub CSPM recommendations to address your security issues. You can use this feature to find security recommendations from Trusted Advisor and Security Hub CSPM in one convenient location.
 

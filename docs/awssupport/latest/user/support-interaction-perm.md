@@ -1,7 +1,6 @@
 
 
 # Set up permissions to use AI-enhanced troubleshooting
-<a name="support-interaction-perm"></a>
 
 To access AI-enhanced troubleshooting capabilities in Support Center, you need specific AWS Identity and Access Management permissions. This section describes the necessary IAM permissions and explains how to configure them so that you can fully use these capabilities.
 

@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Partner-Led Support
-<a name="managed-policies-partner-led-support"></a>
 
 
 

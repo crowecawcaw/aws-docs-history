@@ -1,7 +1,6 @@
 
 
 # Unified Operations Workload incident management
-<a name="uops-workload-inc-management"></a>
 
 Workload incident management includes the following key elements:
 + AWS Support case creation.

@@ -1,7 +1,6 @@
 
 
 # AI-enhanced troubleshooting in the Support Center Console
-<a name="ai-enhanced-support"></a>
 
 AI-enhanced troubleshooting capabilities that help you resolve issues faster and more efficiently are available in supported AWS Regions. If you have an AWS Business Support\+, AWS Enterprise Support, or AWS Unified Operations plan, then you can use the capabilities in the Support Center Console to troubleshoot technical issues as well as account and billing issues. If you have a Basic Support plan, you can use the capabilities in the Support Center Console for troubleshooting general questions and for assistance with account and billing issues. Using AI-enhanced troubleshooting streamlines the support experience by using contextual awareness and automated diagnostics to provide targeted solutions for your AWS environment.
 

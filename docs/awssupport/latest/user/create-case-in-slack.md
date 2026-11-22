@@ -1,7 +1,6 @@
 
 
 # Creating support cases in a Slack channel
-<a name="create-case-in-slack"></a>
 
 After you authorize your Slack workspace and add your Slack channel, you can create a support case in your Slack channel.
 

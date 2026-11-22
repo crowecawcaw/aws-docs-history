@@ -1,7 +1,6 @@
 
 
 # Unified Operations Continuous improvement
-<a name="uops-continuous-improvement"></a>
 
 Continuous improvement includes the following key elements:
 + Update Critical Workload Reviews, proposing AWS service-specific recommendations and resilience guidance .

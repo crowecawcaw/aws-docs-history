@@ -1,7 +1,6 @@
 
 
 # Benefits of Unified Operations
-<a name="unified-operations-benefits"></a>
 
 Unified Operations offers several key benefits.
 + **Designated AWS experts:** Your AWS team includes designated Technical Account Managers (TAMs), AWS Domain Specialist Engineer, and Senior Billing and Account Specialist. Your AWS team integrates with your collaboration tools like Slack or Microsoft Teams.

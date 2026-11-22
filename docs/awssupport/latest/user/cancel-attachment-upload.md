@@ -1,7 +1,6 @@
 
 
 # Cancelling an in-progress upload
-<a name="cancel-attachment-upload"></a>
 
 You can cancel a file upload while it is in progress.
 

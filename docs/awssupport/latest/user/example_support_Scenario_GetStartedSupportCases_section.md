@@ -1,7 +1,6 @@
 
 
 # Learn the basics of Support with an AWS SDK
-<a name="example_support_Scenario_GetStartedSupportCases_section"></a>
 
 The following code examples show how to:
 + Get and display available services and severity levels for cases.
@@ -19,7 +18,7 @@ The following code examples show how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```csharp
 /// <summary>
 /// Hello AWS Support example.
 /// </summary>
@@ -395,7 +394,7 @@ public static class SupportCaseScenario
 ```
 Wrapper methods used by the scenario for Support actions.  
 
-```
+```csharp
 /// <summary>
 /// Wrapper methods to use AWS Support for working with support cases.
 /// </summary>
@@ -670,7 +669,7 @@ public class SupportWrapper
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples). 
 Run various Support operations.  
 
-```
+```java
 import software.amazon.awssdk.core.SdkBytes;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.support.SupportClient;
@@ -1093,7 +1092,7 @@ public class SupportScenario {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples). 
 Run an interactive scenario in the terminal.  
 
-```
+```javascript
 import {
   AddAttachmentsToSetCommand,
   AddCommunicationToCaseCommand,
@@ -1433,7 +1432,7 @@ const main = async () => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples). 
 
-```
+```kotlin
 /**
 Before running this Kotlin code example, set up your development environment,
 including your credentials.
@@ -1743,7 +1742,7 @@ suspend fun displayServices(): List<String> {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```python
 class SupportCasesScenario:
     """Runs an interactive scenario that shows how to get started using AWS Support."""
 
@@ -1963,7 +1962,7 @@ if __name__ == "__main__":
 ```
 Define a class that wraps support client actions.  
 
-```
+```python
 class SupportWrapper:
     """Encapsulates Support actions."""
 

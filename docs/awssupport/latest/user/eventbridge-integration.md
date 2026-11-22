@@ -1,7 +1,6 @@
 
 
 # Integrating AWS Support into event-driven applications using Amazon EventBridge
-<a name="eventbridge-integration"></a>
 
 You can incorporate AWS Support into event-driven applications (EDAs) that use events that occur in AWS Support to communicate between application components and initiate downstream processes. 
 
@@ -59,7 +58,7 @@ Each event pattern is a JSON object that contains:
 
 For example, the following event pattern would select all Support Case Update events from AWS Support:
 
-```
+```java
 {
   "source": ["aws.support"],
   "detail-type": ["Support Case Update"]
@@ -68,7 +67,7 @@ For example, the following event pattern would select all Support Case Update ev
 
 You can get more specific in your event selection by including values in the event itself. For example, the following event pattern matches Support Case Update events that represent a case being reopened:
 
-```
+```java
 {
   "source": ["aws.support"],
   "detail-type": ["Support Case Update"],

@@ -1,7 +1,6 @@
 
 
 # Resolving a support case in Slack
-<a name="resolve-support-cases"></a>
 
 If you don't need your support case anymore, or you fixed the issue, you can resolve a support case directly in Slack. This also resolves the case in the AWS Support Center Console. After you resolve a case, you can reopen the case later.
 

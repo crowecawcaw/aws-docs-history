@@ -1,7 +1,6 @@
 
 
 # Use `CreateCase` with an AWS SDK or CLI
-<a name="example_support_CreateCase_section"></a>
 
 The following code examples show how to use `CreateCase`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Create a new support case.
     /// </summary>
@@ -83,7 +82,7 @@ For more information, see [Case management](https://docs.aws.amazon.com/awssuppo
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples). 
 
-```
+```java
     public static String createSupportCase(SupportClient supportClient, List<String> sevCatList, String sevLevel) {
         try {
             String serviceCode = sevCatList.get(0);
@@ -116,7 +115,7 @@ For more information, see [Case management](https://docs.aws.amazon.com/awssuppo
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples). 
 
-```
+```javascript
 import { CreateCaseCommand } from "@aws-sdk/client-support";
 
 import { client } from "../libs/client.js";
@@ -154,7 +153,7 @@ export const main = async () => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples). 
 
-```
+```kotlin
 suspend fun createSupportCase(
     sevCatListVal: List<String>,
     sevLevelVal: String,
@@ -186,7 +185,7 @@ suspend fun createSupportCase(
 **Tools for PowerShell V4**  
 **Example 1: Creates a new case in the AWS Support Center. Values for the -ServiceCode and -CategoryCode parameters can be obtained using the Get-ASAService cmdlet. The value for the -SeverityCode parameter can be obtained using the Get-ASASeverityLevel cmdlet. The -IssueType parameter value can be either "customer-service" or "technical". If successful the AWS Support case number is output. By default the case will be handled in English, to use Japanese add the -Language "ja" parameter. The -ServiceCode, -CategoryCode, -Subject and -CommunicationBody parameters are mandatory. **  
 
-```
+```powershell
 New-ASACase -ServiceCode "amazon-cloudfront" -CategoryCode "APIs" -SeverityCode "low" -Subject "subject text" -CommunicationBody "description of the case" -CcEmailAddress @("email1@domain.com", "email2@domain.com") -IssueType "technical"
 ```
 +  For API details, see [CreateCase](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -194,7 +193,7 @@ New-ASACase -ServiceCode "amazon-cloudfront" -CategoryCode "APIs" -SeverityCode 
 **Tools for PowerShell V5**  
 **Example 1: Creates a new case in the AWS Support Center. Values for the -ServiceCode and -CategoryCode parameters can be obtained using the Get-ASAService cmdlet. The value for the -SeverityCode parameter can be obtained using the Get-ASASeverityLevel cmdlet. The -IssueType parameter value can be either "customer-service" or "technical". If successful the AWS Support case number is output. By default the case will be handled in English, to use Japanese add the -Language "ja" parameter. The -ServiceCode, -CategoryCode, -Subject and -CommunicationBody parameters are mandatory. **  
 
-```
+```powershell
 New-ASACase -ServiceCode "amazon-cloudfront" -CategoryCode "APIs" -SeverityCode "low" -Subject "subject text" -CommunicationBody "description of the case" -CcEmailAddress @("email1@domain.com", "email2@domain.com") -IssueType "technical"
 ```
 +  For API details, see [CreateCase](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -205,7 +204,7 @@ New-ASACase -ServiceCode "amazon-cloudfront" -CategoryCode "APIs" -SeverityCode 
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples). 
 
-```
+```python
 class SupportWrapper:
     """Encapsulates Support actions."""
 

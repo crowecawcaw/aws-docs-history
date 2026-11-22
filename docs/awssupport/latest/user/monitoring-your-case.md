@@ -1,7 +1,6 @@
 
 
 # Legacy experience: Updating, resolving, and reopening your case
-<a name="monitoring-your-case"></a>
 
 After you create your support case, you can monitor the status of your case in Support Center. A new case begins in the **Unassigned** state. When a support agent begins work on a case, the status changes to **Work in Progress**. The support agent might respond to your case to ask for more information (**Pending Customer Action**) or to let you know that the case is being investigated (**Pending Amazon Action**).
 

@@ -1,7 +1,6 @@
 
 
 # Required permissions for large attachments
-<a name="large-attachments-permissions"></a>
 
 To attach files larger than 5 MB or more than 3 files to a support case, your AWS Identity and Access Management (IAM) identity must have the correct permissions.
 
@@ -18,7 +17,7 @@ All listed permissions are required for each operation. For example, to upload a
 
 The following example policy grants full upload and download permissions for large attachments:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

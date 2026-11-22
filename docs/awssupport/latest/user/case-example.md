@@ -1,7 +1,6 @@
 
 
 # Example: Create a support case for account and billing
-<a name="case-example"></a>
 
 The following example is a support case for a billing and account issue.
 

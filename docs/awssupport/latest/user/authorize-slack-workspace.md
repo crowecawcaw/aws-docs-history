@@ -1,7 +1,6 @@
 
 
 # Authorize a Slack workspace
-<a name="authorize-slack-workspace"></a>
 
 After you authorize your workspace and give the AWS Support App permission to access it, you then need an AWS Identity and Access Management (IAM) role for your AWS account. The AWS Support App uses this role to call API operations from [AWS Support](https://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.html) and [Service Quotas](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/Welcome.html) for you. For example, the AWS Support App uses the role to call the `CreateCase` operation to create a support case for you in Slack.
 
@@ -54,7 +53,7 @@ If you prefer not to use AWS CloudFormation templates, you can manually authoriz
 
 **To manually authorize multiple accounts**
 
-1. In the management account (the account where you created the Slack workspace), authorize the Slack workspace. For more information, see the procedure in [Authorize a Slack workspace](#authorize-slack-workspace).
+1. In the management account (the account where you created the Slack workspace), authorize the Slack workspace. For more information, see the procedure in [Authorize a Slack workspace](authorize-slack-workspace.md).
 
 1. In each member account, call the [`RegisterSlackWorkspaceForOrganization`](https://docs.aws.amazon.com/supportapp/latest/APIReference/API_RegisterSlackWorkspaceForOrganization.html) API operation to register the Slack workspace for that account.
 

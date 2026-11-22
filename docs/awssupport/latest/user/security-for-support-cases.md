@@ -1,7 +1,6 @@
 
 
 # Security for your AWS Support cases
-<a name="security-for-support-cases"></a>
 
 When you create a support case, you own the information that you include in your support case. AWS doesn't access your AWS account data without your permission. AWS doesn't share your information with third parties. 
 

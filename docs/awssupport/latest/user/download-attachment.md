@@ -1,7 +1,6 @@
 
 
 # Downloading an attachment
-<a name="download-attachment"></a>
 
 After a case is submitted, you can download attachments from the case correspondence.
 

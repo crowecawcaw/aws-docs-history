@@ -1,7 +1,6 @@
 
 
 # Troubleshooting resources
-<a name="troubleshooting"></a>
 
 For answers to common troubleshooting questions, see the [AWS Support Knowledge Center](https://aws.amazon.com/premiumsupport/knowledge-center).
 

@@ -1,7 +1,6 @@
 
 
 # Use `DescribeTrustedAdvisorCheckSummaries` with a CLI
-<a name="example_support_DescribeTrustedAdvisorCheckSummaries_section"></a>
 
 The following code examples show how to use `DescribeTrustedAdvisorCheckSummaries`.
 
@@ -69,12 +68,12 @@ For more information, see [AWS Trusted Advisor](https://docs.aws.amazon.com/awss
 **Tools for PowerShell V4**  
 **Example 1: Returns the latest summary for the specified Trusted Advisor check.**  
 
-```
+```powershell
 Get-ASATrustedAdvisorCheckSummary -CheckId "checkid1"
 ```
 **Example 2: Returns the latest summaries for the specified Trusted Advisor checks.**  
 
-```
+```powershell
 Get-ASATrustedAdvisorCheckSummary -CheckId @("checkid1", "checkid2")
 ```
 +  For API details, see [DescribeTrustedAdvisorCheckSummaries](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -82,12 +81,12 @@ Get-ASATrustedAdvisorCheckSummary -CheckId @("checkid1", "checkid2")
 **Tools for PowerShell V5**  
 **Example 1: Returns the latest summary for the specified Trusted Advisor check.**  
 
-```
+```powershell
 Get-ASATrustedAdvisorCheckSummary -CheckId "checkid1"
 ```
 **Example 2: Returns the latest summaries for the specified Trusted Advisor checks.**  
 
-```
+```powershell
 Get-ASATrustedAdvisorCheckSummary -CheckId @("checkid1", "checkid2")
 ```
 +  For API details, see [DescribeTrustedAdvisorCheckSummaries](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # Uploading attachments
-<a name="upload-attachments"></a>
 
 You can attach files when creating a support case or when replying to an existing case. You can attach up to 10 files, with each file up to 150 MB.
 

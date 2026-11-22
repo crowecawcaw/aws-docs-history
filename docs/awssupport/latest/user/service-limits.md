@@ -1,7 +1,6 @@
 
 
 # Service limits
-<a name="service-limits"></a>
 
 See the following checks for the service limits (also known as quotas) category.
 

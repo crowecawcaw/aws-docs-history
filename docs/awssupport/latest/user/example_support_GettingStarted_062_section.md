@@ -1,7 +1,6 @@
 
 
 # Getting started with technical support
-<a name="example_support_GettingStarted_062_section"></a>
 
 The following code example shows how to:
 + Check available services and severity levels
@@ -14,7 +13,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/062-aws-support-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # AWS Support CLI Tutorial Script

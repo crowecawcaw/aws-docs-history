@@ -1,7 +1,6 @@
 
 
 # Developer, Business, and Enterprise On-Ramp end of support
-<a name="support-plans-eos"></a>
 
 For information on transitioning to a new plan, see the following information specific to your plan and the [AWS Support Frequently Asked Questions](https://aws.amazon.com/premiumsupport/faqs/).
 

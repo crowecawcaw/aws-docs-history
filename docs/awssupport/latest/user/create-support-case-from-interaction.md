@@ -1,7 +1,6 @@
 
 
 # Create a support case from a support interaction
-<a name="create-support-case-from-interaction"></a>
 
 When you select **Create case** during your support interaction, a support case is created for you with many of the case details, such as the ** Subject**, **Description**, **Case type** **Service**, **Category**, and **Severity level** populated for you. You can change this information as needed. Make sure that you review this information for accuracy. For information on how to choose a severity level for your case, see [Choosing an initial support case severity level](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity).
 

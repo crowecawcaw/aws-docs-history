@@ -1,7 +1,6 @@
 
 
 # Use `DescribeServices` with an AWS SDK or CLI
-<a name="example_support_DescribeServices_section"></a>
 
 The following code examples show how to use `DescribeServices`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get the descriptions of AWS services.
     /// </summary>
@@ -100,7 +99,7 @@ For more information, see [Case management](https://docs.aws.amazon.com/awssuppo
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples). 
 
-```
+```java
     // Return a List that contains a Service name and Category name.
     public static List<String> displayServices(SupportClient supportClient) {
         try {
@@ -154,7 +153,7 @@ For more information, see [Case management](https://docs.aws.amazon.com/awssuppo
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples). 
 
-```
+```kotlin
 // Return a List that contains a Service name and Category name.
 suspend fun displayServices(): List<String> {
     var serviceCode = ""
@@ -205,22 +204,22 @@ suspend fun displayServices(): List<String> {
 **Tools for PowerShell V4**  
 **Example 1: Returns all available service codes, names and categories.**  
 
-```
+```powershell
 Get-ASAService
 ```
 **Example 2: Returns the name and categories for the service with the specified code.**  
 
-```
+```powershell
 Get-ASAService -ServiceCodeList "amazon-cloudfront"
 ```
 **Example 3: Returns the name and categories for the specified service codes.**  
 
-```
+```powershell
 Get-ASAService -ServiceCodeList @("amazon-cloudfront", "amazon-cloudwatch")
 ```
 **Example 4: Returns the name and categories (in Japanese) for the specified service codes. Currently English ("en") and Japanese ("ja") language codes are supported.**  
 
-```
+```powershell
 Get-ASAService -ServiceCodeList @("amazon-cloudfront", "amazon-cloudwatch") -Language "ja"
 ```
 +  For API details, see [DescribeServices](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -228,22 +227,22 @@ Get-ASAService -ServiceCodeList @("amazon-cloudfront", "amazon-cloudwatch") -Lan
 **Tools for PowerShell V5**  
 **Example 1: Returns all available service codes, names and categories.**  
 
-```
+```powershell
 Get-ASAService
 ```
 **Example 2: Returns the name and categories for the service with the specified code.**  
 
-```
+```powershell
 Get-ASAService -ServiceCodeList "amazon-cloudfront"
 ```
 **Example 3: Returns the name and categories for the specified service codes.**  
 
-```
+```powershell
 Get-ASAService -ServiceCodeList @("amazon-cloudfront", "amazon-cloudwatch")
 ```
 **Example 4: Returns the name and categories (in Japanese) for the specified service codes. Currently English ("en") and Japanese ("ja") language codes are supported.**  
 
-```
+```powershell
 Get-ASAService -ServiceCodeList @("amazon-cloudfront", "amazon-cloudwatch") -Language "ja"
 ```
 +  For API details, see [DescribeServices](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -254,7 +253,7 @@ Get-ASAService -ServiceCodeList @("amazon-cloudfront", "amazon-cloudwatch") -Lan
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples). 
 
-```
+```python
 class SupportWrapper:
     """Encapsulates Support actions."""
 

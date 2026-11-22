@@ -1,7 +1,6 @@
 
 
 # Operational Excellence
-<a name="operational-excellence-checks"></a>
 
 You can use the following checks for the operational excellence category.
 

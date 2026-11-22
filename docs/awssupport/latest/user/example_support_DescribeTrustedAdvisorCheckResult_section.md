@@ -1,7 +1,6 @@
 
 
 # Use `DescribeTrustedAdvisorCheckResult` with a CLI
-<a name="example_support_DescribeTrustedAdvisorCheckResult_section"></a>
 
 The following code examples show how to use `DescribeTrustedAdvisorCheckResult`.
 
@@ -55,7 +54,7 @@ For more information, see [AWS Trusted Advisor](https://docs.aws.amazon.com/awss
 **Tools for PowerShell V4**  
 **Example 1: Returns the results of a Trusted Advisor check. The list of available Trusted Advisor checks can be obtained using Get-ASATrustedAdvisorChecks. The output is the overall status of the check, the timestamp at which the check was last run and the unique checkid for the specific check. To have the results output in Japanese, add the -Language "ja" parameter.**  
 
-```
+```powershell
 Get-ASATrustedAdvisorCheckResult -CheckId "checkid1"
 ```
 +  For API details, see [DescribeTrustedAdvisorCheckResult](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -63,7 +62,7 @@ Get-ASATrustedAdvisorCheckResult -CheckId "checkid1"
 **Tools for PowerShell V5**  
 **Example 1: Returns the results of a Trusted Advisor check. The list of available Trusted Advisor checks can be obtained using Get-ASATrustedAdvisorChecks. The output is the overall status of the check, the timestamp at which the check was last run and the unique checkid for the specific check. To have the results output in Japanese, add the -Language "ja" parameter.**  
 
-```
+```powershell
 Get-ASATrustedAdvisorCheckResult -CheckId "checkid1"
 ```
 +  For API details, see [DescribeTrustedAdvisorCheckResult](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security-checks"></a>
 
 You can use the following checks for the security category.
 

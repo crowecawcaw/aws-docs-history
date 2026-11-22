@@ -1,7 +1,6 @@
 
 
 # Removing an attachment
-<a name="remove-attachment"></a>
 
 You can remove an attachment that has been uploaded, has failed to upload, or that you no longer want to include with the case.
 

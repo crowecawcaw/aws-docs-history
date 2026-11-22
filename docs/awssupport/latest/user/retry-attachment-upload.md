@@ -1,7 +1,6 @@
 
 
 # Retrying a failed upload
-<a name="retry-attachment-upload"></a>
 
 If a file upload fails, you can retry the upload.
 

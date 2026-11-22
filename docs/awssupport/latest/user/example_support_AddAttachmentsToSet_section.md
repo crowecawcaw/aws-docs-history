@@ -1,7 +1,6 @@
 
 
 # Use `AddAttachmentsToSet` with an AWS SDK or CLI
-<a name="example_support_AddAttachmentsToSet_section"></a>
 
 The following code examples show how to use `AddAttachmentsToSet`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Add an attachment to a set, or create a new attachment set if one does not exist.
     /// </summary>
@@ -71,7 +70,7 @@ For more information, see [Case management](https://docs.aws.amazon.com/awssuppo
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples). 
 
-```
+```java
     public static String addAttachment(SupportClient supportClient, String fileAttachment) {
         try {
             File myFile = new File(fileAttachment);
@@ -105,7 +104,7 @@ For more information, see [Case management](https://docs.aws.amazon.com/awssuppo
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples). 
 
-```
+```javascript
 import { AddAttachmentsToSetCommand } from "@aws-sdk/client-support";
 
 import { client } from "../libs/client.js";
@@ -142,7 +141,7 @@ export const main = async () => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples). 
 
-```
+```kotlin
 suspend fun addAttachment(fileAttachment: String): String? {
     val myFile = File(fileAttachment)
     val sourceBytes = (File(fileAttachment).readBytes())
@@ -171,7 +170,7 @@ suspend fun addAttachment(fileAttachment: String): String? {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples). 
 
-```
+```python
 class SupportWrapper:
     """Encapsulates Support actions."""
 

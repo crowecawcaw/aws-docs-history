@@ -1,7 +1,6 @@
 
 
 # Required permissions for AWS assistant integration
-<a name="support-interaction-perm-q-required-perm"></a>
 
 To use the AWS assistant conversation import feature in Support Center, IAM identities need permissions for the following AWS assistant actions:
 + `q:StartConversation`: Start a new conversation with the AWS assistant.

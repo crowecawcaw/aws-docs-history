@@ -1,7 +1,6 @@
 
 
 # Managing access to the AWS Support App widget
-<a name="slack-authorization-permissions"></a>
 
 You can attach an AWS Identity and Access Management (IAM) policy to grant an IAM user permission to configure the AWS Support App widget in the AWS Support Center Console.
 
@@ -20,7 +19,7 @@ You can attach the following policy to an entity, such as an IAM user or group. 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

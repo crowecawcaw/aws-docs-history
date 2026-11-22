@@ -1,7 +1,6 @@
 
 
 # View AWS Trusted Advisor checks powered by AWS Config
-<a name="aws-config-integration-with-ta"></a>
 
 **Important**  
 End of Support Notice: Developer Support will be discontinued January 1, 2027. Customers with Developer Support can continue using their existing plan or choose to upgrade to Business Support\+ anytime before January 1, 2027. Business Support\+ delivers AI-powered assistance that understands the context of your operations, with 24/7 access to AWS experts at $29/month minimum per account. For more information, see [Business Support\+ plan details](https://aws.amazon.com/premiumsupport/plans/business-plus/)  

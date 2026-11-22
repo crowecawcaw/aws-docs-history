@@ -1,7 +1,6 @@
 
 
 # Logging AWS Support API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Support is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Support. CloudTrail captures API calls for AWS Support as events. The calls captured include calls from the AWS Support console and code calls to the AWS Support API operations.
 
@@ -55,7 +54,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 **Example : Log entry for CreateCase**  
 The following example shows a CloudTrail log entry for the [CreateCase](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CreateCase.html) operation.  
 
-```
+```json
 {
    "Records": [
       {
@@ -104,7 +103,7 @@ The following example shows a CloudTrail log entry for the [CreateCase](https://
 **Example : Log entry for RefreshTrustedAdvisorCheck**  
 The following example shows a CloudTrail log entry for the [RefreshTrustedAdvisorCheck](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_RefreshTrustedAdvisorCheck.html) operation.  
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

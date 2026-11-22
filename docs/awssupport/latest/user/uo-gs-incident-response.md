@@ -1,7 +1,6 @@
 
 
 # Unified Operations Getting started: How to request 5-minute incident response
-<a name="uo-gs-incident-response"></a>
 
  AWS Unified Operations offers 5-minute incident response for your critical incidents. To request a 5-minute inbound response you can [create a support case from a support interaction](create-support-case-from-interaction.md) or use the [legacy support case creation method](case-management-legacy.md#creating-a-support-case-legacy). When you create your case, make sure that you enter the following information to ensure that your case receives a response within 5 minutes:
 

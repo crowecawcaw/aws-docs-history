@@ -1,7 +1,6 @@
 
 
 # Incident response
-<a name="incident-response"></a>
 
 Incident response for Support is an AWS responsibility. AWS has a formal, documented policy and program that governs incident response. For more information, see the [AWS Security Incident Response Technical Guide](https://docs.aws.amazon.com/security-ir/latest/userguide/security-incident-response-guide.html).
 

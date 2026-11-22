@@ -1,7 +1,6 @@
 
 
 # Managing access to the AWS Support App
-<a name="support-app-permissions"></a>
 
 After you have permissions to the AWS Support App widget, you must also create an AWS Identity and Access Management (IAM) role. This role performs actions from other AWS services for you, such as the AWS Support API and Service Quotas. 
 
@@ -78,7 +77,7 @@ After you have your policy, you must create an IAM role, and then attach the pol
 
 **Important**  
 To create or update a Slack channel configuration, you must have the `iam:PassRole` permission for the role that you choose. This permission allows you to pass the role to the AWS Support App. If you don't have this permission, you receive an error similar to the following when you create or update a channel configuration:  
-An error occurred when we tried to process your request. User: {{user}} is not authorized to perform: supportapp:CreateSlackChannelConfiguration.  
+`An error occurred when we tried to process your request. User: {{user}} is not authorized to perform: supportapp:CreateSlackChannelConfiguration.`  
 For more information, see [Granting a user permissions to pass a role to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*.
 
 **To create a role for the AWS Support App**
@@ -167,7 +166,7 @@ You must have the `AWSServiceRoleForServiceQuotas` role in your account to reque
 + Use the [Service Quotas](https://console.aws.amazon.com/servicequotas) console to request a quota increase. After you make a successful request, Service Quotas creates this role for you automatically. Then, you can use the AWS Support App to request quota increases in Slack. For more information, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html).
 + Update the IAM policy attached to your role. This grants the role permission to Service Quotas. The following section in the [Example IAM policy](#example-support-app-policy) allows the AWS Support App to create the Service Quotas role for you. 
 
-  ```
+  ```json
   {
       "Effect": "Allow",
       "Action": "iam:CreateServiceLinkedRole",

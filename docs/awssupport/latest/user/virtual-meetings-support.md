@@ -1,7 +1,6 @@
 
 
 # Virtual meetings with AWS Support
-<a name="virtual-meetings-support"></a>
 
 Virtual meetings enable you to connect with AWS Support engineers through video calls with screen sharing capabilities. This feature helps you resolve complex technical issues that require visual demonstration or real-time collaboration.
 
@@ -47,7 +46,7 @@ Virtual meetings are recorded for quality assurance and training purposes. Don't
 
 To join virtual meetings, your IAM user or role must have the following permission:
 
-```
+```json
  {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{

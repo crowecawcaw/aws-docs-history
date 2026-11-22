@@ -1,7 +1,6 @@
 
 
 # Manage access to AWS Support Plans
-<a name="security-support-plans"></a>
 
 **Topics**
 + [Permissions for the Support Plans console](#using-the-trusted-advisor-console)
@@ -49,7 +48,7 @@ The following policy allows users full access to Support Plans.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -74,7 +73,7 @@ The following policy allows read-only access to Support Plans.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -104,7 +103,7 @@ The following policy doesn't allow users access to Support Plans.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -147,7 +146,7 @@ Because Support Plans is a *global* service, policies that restrict AWS Regions 
 
 To add Support Plans as an exception, enter `"supportplans:*"` to the `"NotAction"` list in the SCP.
 
-```
+```java
 "supportplans:*",
 ```
 
@@ -155,7 +154,7 @@ Your SCP might appear as the following policy snippet.
 
 **Example : SCP that allows Support Plans access in an organization**  
 
-```
+```json
 { "Version": "2012-10-17",		 	 	 
    "Statement": [
      { "Sid":  "GRREGIONDENY",

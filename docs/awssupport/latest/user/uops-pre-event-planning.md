@@ -1,7 +1,6 @@
 
 
 # Unified Operations Pre-event or migration planning
-<a name="uops-pre-event-planning"></a>
 
 Pre-event or migration planning in AWS Unified Operations includes the following key elements.
 + **Context gathering :** Workload discovery and architecture.

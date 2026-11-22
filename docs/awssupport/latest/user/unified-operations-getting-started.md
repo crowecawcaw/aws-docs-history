@@ -1,7 +1,6 @@
 
 
 # Getting started with Unified Operations
-<a name="unified-operations-getting-started"></a>
 
 This topic discusses the steps to onboard to AWS Unified Operations.
 

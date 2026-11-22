@@ -1,7 +1,6 @@
 
 
 # Searching for support cases in Slack
-<a name="search-case"></a>
 
 From your Slack channel, you can search for support cases from your AWS account and from other accounts that configured the same channel and workspace. For example, if your account (123456789012) and your coworker's account (111122223333) have configured the same workspace and channels in the AWS Support Center Console, you can use the AWS Support App to search for each other's support cases.
 

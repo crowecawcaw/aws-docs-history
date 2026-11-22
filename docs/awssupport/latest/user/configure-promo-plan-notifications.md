@@ -1,7 +1,6 @@
 
 
 # Configure promotional plan expiration notifications
-<a name="configure-promo-plan-notifications"></a>
 
 You can use [AWS User Notifications](https://docs.aws.amazon.com/notifications/latest/userguide/what-is-service.html) to configure notifications to inform you when your support plan's promotional period is ending. You can subscribe to receive notifications by email, in the AWS Console Mobile Application, or in other chat channels of your choice.
 

@@ -1,7 +1,6 @@
 
 
 # Testing Support Center Console API calls
-<a name="support-console-access-control-test"></a>
 
 To validate that your IAM policies are correctly configured for Support Center Console API operations, open the [AWS Support Center Console](https://console.aws.amazon.com/support) to generate recent API calls.
 

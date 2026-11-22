@@ -1,7 +1,6 @@
 
 
 # Cost optimization
-<a name="cost-optimization-checks"></a>
 
 You can use the following checks for the cost optimization category.
 
@@ -37,6 +36,7 @@ You can use the following checks for the cost optimization category.
 + [AWS Lambda functions with excessive timeouts](#aws-lambda-functions-excessive-timeouts)
 + [AWS Lambda functions with high error rates](#aws-lambda-functions-with-high-error-rates)
 + [AWS Lambda over-provisioned functions for memory size](#aws-lambda-over-provisioned-functions-memory-size)
++ [AWS Lambda Managed Instances migration cost optimization recommendation](#lambda-managed-instances-migration-cost-opt)
 + [AWS Savings Plans purchase recommendations for compute](#savings-plans-purchase-recommendations-compute)
 + [AWS Savings Plans purchase recommendations for Amazon SageMaker AI](#savings-plans-purchase-recommendations-sagemaker)
 + [AWS Well-Architected high risk issues for cost optimization](#well-architected-high-risk-issues-cost-optimization)
@@ -1161,6 +1161,45 @@ For more information, see [Opt in AWS Compute Optimizer for Trusted Advisor chec
 + Estimated Monthly Savings
 + Estimated Monthly Savings Currency
 + Last Updated Time
+
+## AWS Lambda Managed Instances migration cost optimization recommendation
+<a name="lambda-managed-instances-migration-cost-opt"></a>
+
+**Description**  
+Checks your Lambda usage and alerts you if migrating to Lambda Managed Instances might result in 30% or more cost savings.  
+Estimated savings are calculated by using On-Demand pricing for both Lambda and Lambda Managed Instances. Actual savings will vary if you are using Savings Plans, Reserved Instances, or other pricing agreements.  
+In the report columns, *LMI* refers to Lambda Managed Instances.  
+Results for this check are automatically refreshed several times daily, and refresh requests are not allowed. It might take a few hours for changes to appear.  
+For AWS Business Support\+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](https://docs.aws.amazon.com/trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.html) API to include or exclude one or more resources from your Trusted Advisor results.
+
+**Check ID**  
+`L4dfs2Q4C7`
+
+**Alert criteria**  
+Yellow: You can reduce your Lambda costs by 30% or more by migrating from Lambda to Lambda Managed Instances.
+
+**Recommended action**  
+Migrate your Lambda workload to Lambda Managed Instances. For more information, see [Lambda Managed Instances](https://docs.aws.amazon.com/lambda/latest/dg/lambda-managed-instances.html) in the *AWS Lambda Developer Guide*.
+
+**Additional resources**  
++ [Lambda Managed Instances](https://docs.aws.amazon.com/lambda/latest/dg/lambda-managed-instances.html)
++ [Introducing AWS Lambda Managed Instances: Serverless simplicity with EC2 flexibility](https://aws.amazon.com/blogs/aws/introducing-aws-lambda-managed-instances-serverless-simplicity-with-ec2-flexibility/)
+
+**Report columns**  
++ Status
++ Region
++ Function ARN
++ CPU Architecture
++ Runtime
++ Execution Environment Memory
++ Execution Environment VCPU
++ Instance Type
++ Expected LMI Cost
++ Lambda On-Demand Cost
++ Expected LMI to Current Cost Ratio
++ Date Range
++ Memory to VCPU Ratio
++ Last Refresh Timestamp
 
 ## AWS Savings Plans purchase recommendations for compute
 <a name="savings-plans-purchase-recommendations-compute"></a>

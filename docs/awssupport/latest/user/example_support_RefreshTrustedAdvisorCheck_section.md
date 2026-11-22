@@ -1,7 +1,6 @@
 
 
 # Use `RefreshTrustedAdvisorCheck` with a CLI
-<a name="example_support_RefreshTrustedAdvisorCheck_section"></a>
 
 The following code examples show how to use `RefreshTrustedAdvisorCheck`.
 
@@ -36,7 +35,7 @@ For more information, see [AWS Trusted Advisor](https://docs.aws.amazon.com/awss
 **Tools for PowerShell V4**  
 **Example 1: Requests a refresh for the specified Trusted Advisor check.**  
 
-```
+```powershell
 Request-ASATrustedAdvisorCheckRefresh -CheckId "checkid1"
 ```
 +  For API details, see [RefreshTrustedAdvisorCheck](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -44,7 +43,7 @@ Request-ASATrustedAdvisorCheckRefresh -CheckId "checkid1"
 **Tools for PowerShell V5**  
 **Example 1: Requests a refresh for the specified Trusted Advisor check.**  
 
-```
+```powershell
 Request-ASATrustedAdvisorCheckRefresh -CheckId "checkid1"
 ```
 +  For API details, see [RefreshTrustedAdvisorCheck](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

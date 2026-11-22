@@ -1,7 +1,6 @@
 
 
 # Unified Operations pre-onboarding
-<a name="uops-pre-onboarding"></a>
 
 During the pre-onboarding phases, AWS gathers information from you needed to start the onboarding process, including the following information:
 

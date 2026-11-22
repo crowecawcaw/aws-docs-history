@@ -1,7 +1,6 @@
 
 
 # Unified Operations Team
-<a name="unified-operations-team"></a>
 
 AWS Unified Operations brings together a designated team of specialized experts who work together to support your cloud journey. Each role is carefully designed to provide comprehensive coverage across technical, financial, operational, and security dimensions of your cloud environment. From strategic guidance to technical support, from financial optimization to rapid incident response, these experts act as an extension of your team, available 24/7 to ensure your cloud operations run efficiently and securely.
 

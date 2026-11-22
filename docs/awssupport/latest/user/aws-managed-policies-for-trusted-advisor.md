@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Trusted Advisor
-<a name="aws-managed-policies-for-trusted-advisor"></a>
 
 Trusted Advisor has the following AWS managed policies.
 

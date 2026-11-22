@@ -1,7 +1,6 @@
 
 
 # Change AWS Support Plans
-<a name="changing-support-plans"></a>
 
 You can use the AWS Support Plans console to change your support plan for your AWS account. To change your support plan, you must have AWS Identity and Access Management(IAM) permissions. For more information, see [Manage access to AWS Support Plans](security-support-plans.md) and [AWS managed policies for AWS Support Plans](managed-policies-aws-support-plans.md).
 

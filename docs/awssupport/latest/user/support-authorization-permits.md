@@ -1,7 +1,6 @@
 
 
 # Managing support permits
-<a name="support-authorization-permits"></a>
 
 Support permits define the scope and conditions under which AWS Support can access information about your services. This topic describes how to create, view, list, and delete support permits.
 
@@ -48,7 +47,7 @@ Use `CreateSupportPermit` to create a new support permit. The following paramete
 
 **Create a support permit with specific actions and resources**
 
-```
+```bash
 aws supportauthz create-support-permit \
     --name "AuroraDBPermit" \
     --description "Access to Aurora cluster diagnostic data" \
@@ -113,7 +112,7 @@ Retrieve the configuration and status of a support permit.
 
 Use `GetSupportPermit` to retrieve the configuration and status of a support permit. You can identify the support permit by name or ARN.
 
-```
+```bash
 aws supportauthz get-support-permit \
     --support-permit-identifier "AuroraDBPermit"
 ```
@@ -139,7 +138,7 @@ View all support permits in your account and Region.
 
 Use `ListSupportPermits` to list support permits in your account and Region. You can filter results by status.
 
-```
+```bash
 aws supportauthz list-support-permits \
     --support-permit-statuses '["ACTIVE"]'
 ```
@@ -172,7 +171,7 @@ Revoking access terminates active access for the selected resources. This action
 
 Use `DeleteSupportPermit` to delete a support permit.
 
-```
+```bash
 aws supportauthz delete-support-permit \
     --arn "arn:aws:supportauthz:us-east-1:111122223333:supportpermit/AuroraDBPermit"
 ```

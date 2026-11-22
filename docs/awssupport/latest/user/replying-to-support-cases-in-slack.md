@@ -1,7 +1,6 @@
 
 
 # Replying to support cases in Slack
-<a name="replying-to-support-cases-in-slack"></a>
 
 You can add updates to your case such as case details and attachments, and reply to responses from the support agent. 
 

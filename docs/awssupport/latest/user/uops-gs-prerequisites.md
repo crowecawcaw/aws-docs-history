@@ -1,7 +1,6 @@
 
 
 # Unified Operations Getting started: Prerequisites
-<a name="uops-gs-prerequisites"></a>
 
 The following items are required to onboard to AWS Unified Operations
 

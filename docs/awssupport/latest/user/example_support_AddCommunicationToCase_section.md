@@ -1,7 +1,6 @@
 
 
 # Use `AddCommunicationToCase` with an AWS SDK or CLI
-<a name="example_support_AddCommunicationToCase_section"></a>
 
 The following code examples show how to use `AddCommunicationToCase`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Support#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Add communication to a case, including optional attachment set ID and CC email addresses.
     /// </summary>
@@ -70,7 +69,7 @@ For more information, see [Case management](https://docs.aws.amazon.com/awssuppo
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/support#code-examples). 
 
-```
+```java
     public static void addAttachSupportCase(SupportClient supportClient, String caseId, String attachmentSetId) {
         try {
             AddCommunicationToCaseRequest caseRequest = AddCommunicationToCaseRequest.builder()
@@ -99,7 +98,7 @@ For more information, see [Case management](https://docs.aws.amazon.com/awssuppo
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/support#code-examples). 
 
-```
+```javascript
 import { AddCommunicationToCaseCommand } from "@aws-sdk/client-support";
 
 import { client } from "../libs/client.js";
@@ -133,7 +132,7 @@ export const main = async () => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/support#code-examples). 
 
-```
+```kotlin
 suspend fun addAttachSupportCase(
     caseIdVal: String?,
     attachmentSetIdVal: String?,
@@ -163,12 +162,12 @@ suspend fun addAttachSupportCase(
 **Tools for PowerShell V4**  
 **Example 1: Adds the body of an email communication to the specified case.**  
 
-```
+```powershell
 Add-ASACommunicationToCase -CaseId "case-12345678910-2013-c4c1d2bf33c5cf47" -CommunicationBody "Some text about the case"
 ```
 **Example 2: Adds the body of an email communication to the specified case plus one or more email addresses contained in the CC line of the email.**  
 
-```
+```powershell
 Add-ASACommunicationToCase -CaseId "case-12345678910-2013-c4c1d2bf33c5cf47" -CcEmailAddress @("email1@address.com", "email2@address.com") -CommunicationBody "Some text about the case"
 ```
 +  For API details, see [AddCommunicationToCase](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -176,12 +175,12 @@ Add-ASACommunicationToCase -CaseId "case-12345678910-2013-c4c1d2bf33c5cf47" -CcE
 **Tools for PowerShell V5**  
 **Example 1: Adds the body of an email communication to the specified case.**  
 
-```
+```powershell
 Add-ASACommunicationToCase -CaseId "case-12345678910-2013-c4c1d2bf33c5cf47" -CommunicationBody "Some text about the case"
 ```
 **Example 2: Adds the body of an email communication to the specified case plus one or more email addresses contained in the CC line of the email.**  
 
-```
+```powershell
 Add-ASACommunicationToCase -CaseId "case-12345678910-2013-c4c1d2bf33c5cf47" -CcEmailAddress @("email1@address.com", "email2@address.com") -CommunicationBody "Some text about the case"
 ```
 +  For API details, see [AddCommunicationToCase](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -192,7 +191,7 @@ Add-ASACommunicationToCase -CaseId "case-12345678910-2013-c4c1d2bf33c5cf47" -CcE
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/support#code-examples). 
 
-```
+```python
 class SupportWrapper:
     """Encapsulates Support actions."""
 

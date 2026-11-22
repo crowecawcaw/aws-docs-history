@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Support
-<a name="aws-managed-policies-aws-support"></a>
 
 AWS Support has the following managed policies.
 
