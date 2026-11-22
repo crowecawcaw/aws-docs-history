@@ -1,7 +1,6 @@
 
 
 # Customer Engagement Using AI/ML for Lodging
-<a name="customer-engagement-ai-ml-lodging"></a>
 
 Publication date: **August 25, 2022 ([Diagram history](#celodge-history))**
 
