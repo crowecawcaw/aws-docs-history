@@ -1,7 +1,6 @@
 
 
 # Managing Application Components
-<a name="AppComponent"></a>
 
 An Application Component (AppComponent) is a group of related AWS resources that work and fail as a single unit. For example, if you have a primary and replica database, both the databases belong to the same AppComponent. AWS Resilience Hub has rules that govern which AWS resources can belong to which AppComponent type. For example, a `DBInstance` can belong to `AWS::ResilienceHub::DatabaseAppComponent` and not to `AWS::ResilienceHub::ComputeAppComponent`.
 

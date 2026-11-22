@@ -1,7 +1,6 @@
 
 
 # Example: Modeling a multi-account application
-<a name="next-gen-modeling-example-multiacccount"></a>
 
 This example shows how to model a large e-commerce platform with 30 services across 10 accounts in Next generation Resilience Hub.
 

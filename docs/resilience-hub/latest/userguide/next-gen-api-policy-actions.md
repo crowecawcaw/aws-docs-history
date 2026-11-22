@@ -1,7 +1,6 @@
 
 
 # Resilience policies
-<a name="next-gen-api-policy-actions"></a>
 
 
 | Action | Method | Description | 

@@ -1,11 +1,10 @@
 
 
 # Failure mode assessment completed event
-<a name="next-gen-eventbridge-assessment-completed"></a>
 
 The following is an example event emitted when a failure mode assessment completes successfully.
 
-```
+```json
 {
   "version": "0",
   "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",

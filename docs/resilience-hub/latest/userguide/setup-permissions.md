@@ -1,7 +1,6 @@
 
 
 # Setup permissions
-<a name="setup-permissions"></a>
 
 AWS Resilience Hub allows you to configure the necessary permissions for **Primary account** and **Secondary account** to discover and assess the resources. However, you must run the procedure separately to configure permissions for each account.
 

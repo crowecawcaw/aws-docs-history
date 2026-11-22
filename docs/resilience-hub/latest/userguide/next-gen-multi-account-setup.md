@@ -1,7 +1,6 @@
 
 
 # Multi-account setup (without AWS Organizations)
-<a name="next-gen-multi-account-setup"></a>
 
 If your service's resources span multiple AWS accounts and you are not using AWS Organizations, you need cross-account roles in addition to the invoker role.
 

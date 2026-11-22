@@ -1,7 +1,6 @@
 
 
 # Dependency insights
-<a name="next-gen-dependency-insights"></a>
 
 After Dependency discovery is enabled, a single service can have hundreds of discovered dependencies, and reviewing that list manually to find resilience risks is time consuming. With Dependency insights, a generative AI-powered capability, you can highlight meaningful patterns across your discovered dependencies and address resilience risks without manually reviewing the full dependency list. Use Dependency insights when a service has accumulated more dependencies than you can practically review by hand.
 

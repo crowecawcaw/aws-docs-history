@@ -1,7 +1,6 @@
 
 
 # Setting up Next generation Resilience Hub
-<a name="next-gen-setting-up"></a>
 
 Before you can use the next generation of Resilience Hub, you must complete the setup steps described in this section.
 

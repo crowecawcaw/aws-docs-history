@@ -1,7 +1,6 @@
 
 
 # Service functions
-<a name="next-gen-api-service-functions-actions"></a>
 
 
 | Action | Method | Description | 

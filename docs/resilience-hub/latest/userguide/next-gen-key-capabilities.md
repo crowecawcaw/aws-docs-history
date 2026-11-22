@@ -1,7 +1,6 @@
 
 
 # Key capabilities at a glance
-<a name="next-gen-key-capabilities"></a>
 
 Next generation Resilience Hub provides the following key capabilities:
 + **Application modeling** – Model your applications using a hierarchy that matches how your organization thinks about them. Systems represent your business applications, user journeys describe critical end-user paths within a system, and services are the building blocks comprising AWS resources that support user journeys. You define where to find your AWS resources (AWS CloudFormation stacks, Terraform state files, resource tags, or Amazon EKS clusters), and Resilience Hub automatically discovers and maps them into a topology showing how resources connect.

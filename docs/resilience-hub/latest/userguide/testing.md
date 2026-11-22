@@ -1,7 +1,6 @@
 
 
 # Managing AWS Fault Injection Service experiments
-<a name="testing"></a>
 
 This section describes how to manage AWS Fault Injection Service (AWS FIS) experiments in AWS Resilience Hub. You run AWS FIS experiments to measure the resiliency of your AWS resources and the amount of time it takes to recover from application, infrastructure, availability zone, and AWS Region incidents.
 

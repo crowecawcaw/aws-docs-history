@@ -1,7 +1,6 @@
 
 
 # Associate service with system
-<a name="next-gen-tutorial-associate-service"></a>
 
 After creating your system and service, associate the service with the system by creating a user journey.
 

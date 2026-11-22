@@ -1,7 +1,6 @@
 
 
 # Creating an EventBridge rule for events from the next generation of Resilience Hub
-<a name="next-gen-eventbridge-create-rule"></a>
 
 With EventBridge, you can create rules that define actions to take when the next generation of Resilience Hub emits events for your services.
 

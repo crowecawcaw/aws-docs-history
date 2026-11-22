@@ -1,7 +1,6 @@
 
 
 # AWS Resilience Hub access permissions reference
-<a name="security-iam-resilience-hub-permissions"></a>
 
 You can use AWS Identity and Access Management (IAM) to manage access to the application resources and create IAM policies that apply to users, groups, or roles.
 

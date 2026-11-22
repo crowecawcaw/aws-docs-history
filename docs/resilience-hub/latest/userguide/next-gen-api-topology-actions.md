@@ -1,7 +1,6 @@
 
 
 # Topology
-<a name="next-gen-api-topology-actions"></a>
 
 
 | Action | Method | Description | 

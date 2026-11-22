@@ -1,7 +1,6 @@
 
 
 # Deleting an AWS Resilience Hub application
-<a name="applications-delete"></a>
 
 After you've reached the maximum limit of 50 applications, you must delete one or more applications before you can add more.
 

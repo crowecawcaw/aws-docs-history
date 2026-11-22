@@ -1,7 +1,6 @@
 
 
 # Known limitations during migration
-<a name="next-gen-migration-limitations"></a>
 
 The following limitations apply during the migration period from AWS Resilience Hub v1 to the next generation of Resilience Hub.
 

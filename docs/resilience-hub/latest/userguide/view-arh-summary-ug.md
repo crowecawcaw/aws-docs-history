@@ -1,7 +1,6 @@
 
 
 # AWS Resilience Hub summary
-<a name="view-arh-summary-ug"></a>
 
 AWS Resilience Hub provides a visual summary with charts and graphs that gives you an at-a-glance view of your application's resilience posture across multiple AWS services and resources. This comprehensive and concise visual summary enables you to quickly identify potential resilience gaps, prioritize actions, and track progress in enhancing your application's ability to recover from disruptions. When you choose **Export**, and if you are exporting the metrics for the first time, AWS Resilience Hub creates a new Amazon S3 bucket in the Region from which you are accessing AWS Resilience Hub. This Amazon S3 bucket is created only for the first time and will be used to save the exported metrics upon successful completion. Additional charges apply for storing exported data in Amazon S3. For more information about these charges, [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/).
 

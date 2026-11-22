@@ -1,7 +1,6 @@
 
 
 # Managing and updating policies
-<a name="next-gen-managing-policies"></a>
 
 You can list, update, and delete resilience policies from the the next generation of Resilience Hub console or AWS CLI.
 

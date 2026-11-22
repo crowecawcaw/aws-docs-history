@@ -1,7 +1,6 @@
 
 
 # Required IAM permissions and roles
-<a name="next-gen-iam-permissions"></a>
 
 **AWS managed policy**
 
@@ -23,9 +22,11 @@ There are two ways to create or configure this role:
 + **Create a new service role (recommended)** – When you create or edit a service in the Next generation Resilience Hub console, you can choose **Create new role** under **Permission model**. The console automatically creates an IAM role with the correct trust policy and attaches the `AWSResilienceHubV2AssessmentExecutionPolicy` managed policy.
 + **Use an existing service role** – If you already have a role configured, or if you prefer to create roles outside of the console, choose **Use an existing service role**. Then choose the role from the list and make sure that the role has the required trust policy and permissions described below.
 
+**Creating the role manually**
+
 To create the role manually, open the IAM console. Choose **Custom trust policy** and use a trust policy like this:
 
-```
+```json
 {
   "Version": "2012-10-17"		 	 	 ,
   "Statement": [
@@ -51,7 +52,7 @@ Next generation Resilience Hub automatically creates a Service-Linked Role with 
 
 If you are including Terraform state files into your Next generation Resilience Hub service, provide permissions to read the Terraform files from your Amazon S3 bucket with a policy like this:
 
-```
+```json
 {
   "Version": "2012-10-17"		 	 	 ,
   "Statement": [
@@ -96,7 +97,7 @@ In addition to the cluster setup, the test execution role needs `eks:DescribeClu
 
 This grants Next generation Resilience Hub read-only access to the Kubernetes resources it needs across all namespaces:
 
-```
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -191,7 +192,7 @@ Service accounts are scoped to a namespace. Create `resilience-testing-service-a
 
 The following manifest creates the service account, a role granting the permissions that AWS FIS needs to inject faults, and a role binding that ties them together. Replace {{namespace}} with your target namespace.
 
-```
+```yaml
 kind: ServiceAccount
 apiVersion: v1
 metadata:
@@ -289,7 +290,7 @@ kubectl edit -n kube-system configmap/aws-auth
 
 Add this under `mapRoles` in the data section:
 
-```
+```yaml
 - groups:
     - resilience-hub-eks-access-group
   rolearn: arn:aws:iam::{{ACCOUNT-ID}}:role/ResilienceHubRole
@@ -324,7 +325,7 @@ eksctl create iamidentitymapping \
 
 Or, if you edit the ConfigMap manually, add this under `mapRoles`:
 
-```
+```yaml
 - rolearn: arn:aws:iam::{{cluster-account-id}}:role/{{execution-role-name}}
   username: resilience-testing-user
 ```

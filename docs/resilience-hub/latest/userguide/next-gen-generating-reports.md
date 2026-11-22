@@ -1,7 +1,6 @@
 
 
 # Generating compliance and resilience posture reports
-<a name="next-gen-generating-reports"></a>
 
 **Prerequisites**
 
@@ -20,7 +19,7 @@ aws resiliencehubv2 update-service \
 
 The invoker role must have a permissions policy that grants `s3:PutObject` on the target bucket. The following example shows the minimum required policy.
 
-```
+```json
 {
   "Version": "2012-10-17"		 	 	 ,
   "Statement": [

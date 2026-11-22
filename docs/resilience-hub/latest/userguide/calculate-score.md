@@ -1,7 +1,6 @@
 
 
 # Calculating resiliency scores
-<a name="calculate-score"></a>
 
 The tables in this section explains the formulas used by AWS Resilience Hub to determine the scoring components of each recommendation type and the resiliency score of your application. All the resultant values determined by AWS Resilience Hub for scoring components of each recommendation type and the resiliency score of your application are rounded to their nearest point. For example, if two out of three alarms were implemented, the score would be 13.33 ((2/3) \* 20) points. This value will be rounded to 13 points. For more information about weights used in the formulas within the tables, see [Weights](#weight) section.
 

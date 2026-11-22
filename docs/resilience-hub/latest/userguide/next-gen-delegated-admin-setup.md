@@ -1,7 +1,6 @@
 
 
 # Setting up Organizations integration
-<a name="next-gen-delegated-admin-setup"></a>
 
 To use the next generation of Resilience Hub with AWS Organizations, you must designate a delegated administrator account that manages organization-wide policies and visibility.
 

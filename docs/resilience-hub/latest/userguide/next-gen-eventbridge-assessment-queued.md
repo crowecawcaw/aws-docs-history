@@ -1,11 +1,10 @@
 
 
 # Failure mode assessment queued event
-<a name="next-gen-eventbridge-assessment-queued"></a>
 
 The following is an example event emitted when an assessment is queued for delayed processing. The assessment is retried and completes within 24 hours.
 
-```
+```json
 {
   "version": "0",
   "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",

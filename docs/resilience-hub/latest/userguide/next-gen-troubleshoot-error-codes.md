@@ -1,7 +1,6 @@
 
 
 # Common permission error codes and resolution
-<a name="next-gen-troubleshoot-error-codes"></a>
 
 The following table lists common permission error codes and their recommended resolution.
 

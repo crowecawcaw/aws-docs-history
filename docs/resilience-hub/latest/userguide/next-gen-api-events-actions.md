@@ -1,7 +1,6 @@
 
 
 # Events
-<a name="next-gen-api-events-actions"></a>
 
 
 | Action | Method | Description | 

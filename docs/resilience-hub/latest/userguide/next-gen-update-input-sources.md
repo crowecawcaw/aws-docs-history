@@ -1,7 +1,6 @@
 
 
 # Update input sources
-<a name="next-gen-update-input-sources"></a>
 
 To change where the next generation of Resilience Hub looks for resources, add or remove input sources on the service. See [Add input sources to a service](next-gen-add-input-source.md) for instructions on adding input sources.
 

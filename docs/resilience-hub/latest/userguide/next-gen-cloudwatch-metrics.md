@@ -1,7 +1,6 @@
 
 
 # CloudWatch metrics reference
-<a name="next-gen-cloudwatch-metrics"></a>
 
 When a failure mode assessment completes successfully, Next generation Resilience Hub publishes policy achievability metrics to your account's Amazon CloudWatch (CloudWatch) under the `ResilienceHub` namespace. Metrics are emitted only upon assessment completion. If no assessment has run, or if the assessment did not produce achievability results, no metrics are reported.
 

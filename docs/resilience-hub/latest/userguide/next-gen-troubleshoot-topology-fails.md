@@ -1,7 +1,6 @@
 
 
 # Resources discovered but topology generation fails
-<a name="next-gen-troubleshoot-topology-fails"></a>
 
 **Symptom:** Resources appear in the list but topology shows no connections.
 

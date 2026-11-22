@@ -1,7 +1,6 @@
 
 
 # Creating a custom SSM document
-<a name="create-custom-ssm-doc"></a>
 
 To fully automate the recovery of your application, you may need to create a custom SSM document for your SOP in Systems Manager console. You can modify an existing SSM document as a base, or you can create a new SSM document.
 

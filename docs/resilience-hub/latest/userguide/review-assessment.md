@@ -1,7 +1,6 @@
 
 
 # Reviewing assessments reports
-<a name="review-assessment"></a>
 
 You find assessment reports in the **Assessments** view of your application.
 

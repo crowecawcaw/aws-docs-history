@@ -1,7 +1,6 @@
 
 
 # Systems, user journeys, and services
-<a name="next-gen-application-modeling"></a>
 
 Application modeling is the foundation of the next generation of Resilience Hub. You model your applications using a hierarchy of systems, user journeys, and services that matches how your organization thinks about its business applications.
 

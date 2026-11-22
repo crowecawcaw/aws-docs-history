@@ -1,7 +1,6 @@
 
 
 # Policy inheritance and multi-level evaluation
-<a name="next-gen-policy-inheritance"></a>
 
 A service is evaluated against **all policies that apply to it**:
 + Its directly assigned policy (if any).

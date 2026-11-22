@@ -1,7 +1,6 @@
 
 
 # When to create multiple systems
-<a name="next-gen-when-multiple-systems"></a>
 
 Create **separate systems** when:
 + Applications or services are independently operated by different teams.

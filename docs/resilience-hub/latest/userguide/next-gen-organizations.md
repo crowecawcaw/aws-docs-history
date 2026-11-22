@@ -1,7 +1,6 @@
 
 
 # AWS Organizations integration
-<a name="next-gen-organizations"></a>
 
 Next generation Resilience Hub integrates with AWS Organizations to enable organization-wide resilience management from a single delegated administrator (DA) account. This eliminates the need to log into individual accounts to assess resilience posture across your enterprise. You get organization-wide visibility into resilience posture and aggregated dashboards without logging into individual accounts.
 

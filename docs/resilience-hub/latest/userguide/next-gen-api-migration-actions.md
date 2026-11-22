@@ -1,7 +1,6 @@
 
 
 # Migration
-<a name="next-gen-api-migration-actions"></a>
 
 
 | Action | Method | Description | 

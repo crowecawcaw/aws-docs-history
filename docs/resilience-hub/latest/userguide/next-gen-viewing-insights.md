@@ -1,7 +1,6 @@
 
 
 # Viewing dependency insights
-<a name="next-gen-viewing-insights"></a>
 
 After insights are generated, they are stored with the service and remain available until you regenerate them. The console displays the summary in the **Dependencies** section, along with the time the summary was last generated so that you can gauge whether it is stale.
 
@@ -14,10 +13,10 @@ aws resiliencehubv2 get-dependency-insights \
 
 The response includes an overview, a list of individual insights, the generation status, and the time the summary was last created.
 
-```
+```json
 {
   "status": "COMPLETED",
-  "lastCreatedAt": "2026-09-15T10:00:00Z",
+  "createdAt": "2026-09-15T10:00:00Z",
   "overview": "...",
   "insights": [
     {
@@ -40,7 +39,9 @@ The following table describes the fields in the response.
 | status | String | The state of insights generation: IN\_PROGRESS, COMPLETED, or FAILED. | 
 | overview | String | A short narrative summary of the most significant patterns across your dependencies. Empty while status is IN\_PROGRESS or FAILED. | 
 | insights | List | A list of individual insights, each with a category and a description. Empty while status is IN\_PROGRESS or FAILED. | 
-| lastCreatedAt | Timestamp | When the summary was last successfully generated. | 
+| createdAt | Timestamp | The time Dependency insights generated the summary. The API returns this field only when status is COMPLETED. | 
+| errorCode | String | The reason insights generation failed. The API returns this field only when status is `FAILED`. Valid values:+  `INSUFFICIENT_DATA` – There isn't enough dependency data to generate insights. <br />+  `LLM_GENERATION_FAILED` – Dependency insights couldn't generate the summary. <br />+  `INTERNAL_ERROR` – An internal error occurred.  | 
+| errorMessage | String | A description of why insights generation failed. The API returns this field only when status is FAILED. | 
 
 Each insight is assigned one of the following categories.
 

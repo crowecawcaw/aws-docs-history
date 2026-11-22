@@ -1,7 +1,6 @@
 
 
 # Error codes
-<a name="next-gen-api-error-codes"></a>
 
 The following table lists error codes returned by the next generation of Resilience Hub API.
 

@@ -1,7 +1,6 @@
 
 
 # Requesting quota increases
-<a name="next-gen-requesting-quota-increases"></a>
 
 You can request an increase for adjustable quotas using the Service Quotas console or by contacting AWS Support.
 

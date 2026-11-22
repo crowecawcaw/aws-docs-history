@@ -1,7 +1,6 @@
 
 
 # Service functions
-<a name="next-gen-service-functions"></a>
 
 **Service functions** are technical subsets of the service topology that represent specific workflows within a service.
 

@@ -1,7 +1,6 @@
 
 
 # Sharing a policy across your organization
-<a name="next-gen-policy-sharing"></a>
 
 If you use AWS Organizations, you can share a resilience policy with the member accounts in your organization. Service owners in those accounts can then apply the shared policy to their own services. Your organization measures resilience against the same requirements, without each account maintaining a separate copy of the policy.
 

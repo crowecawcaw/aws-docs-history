@@ -1,7 +1,6 @@
 
 
 # Add input sources to a service
-<a name="next-gen-add-input-source"></a>
 
 **To add an input source (console)**
 

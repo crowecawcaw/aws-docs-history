@@ -1,7 +1,6 @@
 
 
 # Setup IAM roles and permissions
-<a name="setting-up-permissions"></a>
 
 AWS Resilience Hub allows you to configure the IAM roles you would like to use while running assessments for your application. There are multiple ways to configure AWS Resilience Hub to gain read-only access to your application resources. However, AWS Resilience Hub recommends the following ways:
 + **Role based access** – This role is defined and used in the current account. AWS Resilience Hub will assume this role to access the resources of your application.

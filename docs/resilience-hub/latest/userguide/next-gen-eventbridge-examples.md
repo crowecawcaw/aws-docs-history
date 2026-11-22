@@ -1,7 +1,6 @@
 
 
 # Example event patterns and events
-<a name="next-gen-eventbridge-examples"></a>
 
 Event patterns have the same structure as the events that they match. The pattern quotes the fields that you want to match and provides the values that you're looking for.
 
@@ -10,7 +9,7 @@ You can copy and paste event patterns from this section into EventBridge to crea
 **Select all failure mode assessment completion events**  
 The following pattern matches all completed assessments.
 
-```
+```json
 {
   "source": ["aws.resiliencehub"],
   "detail-type": ["Failure Mode Assessment Completed"]
@@ -20,7 +19,7 @@ The following pattern matches all completed assessments.
 **Select all failure mode assessment failure events**  
 The following pattern matches all failed assessments.
 
-```
+```json
 {
   "source": ["aws.resiliencehub"],
   "detail-type": ["Failure Mode Assessment Failed"]
@@ -30,7 +29,7 @@ The following pattern matches all failed assessments.
 **Select all new dependency discovered events**  
 The following pattern matches all new dependency events.
 
-```
+```json
 {
   "source": ["aws.resiliencehub"],
   "detail-type": ["New Dependency Discovered"]
@@ -40,7 +39,7 @@ The following pattern matches all new dependency events.
 **Select all events from the next generation of Resilience Hub**  
 The following pattern matches all events regardless of type.
 
-```
+```json
 {
   "source": ["aws.resiliencehub"]
 }
@@ -49,7 +48,7 @@ The following pattern matches all events regardless of type.
 **Select assessment events with high-severity findings**  
 The following pattern matches assessments that identified at least one high-severity finding.
 
-```
+```json
 {
   "source": ["aws.resiliencehub"],
   "detail-type": ["Failure Mode Assessment Completed"],

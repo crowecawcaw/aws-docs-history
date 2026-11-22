@@ -1,7 +1,6 @@
 
 
 # Assessment metrics
-<a name="next-gen-assessment-metrics"></a>
 
 The following metrics are emitted after each successful failure mode assessment. One data point is published per policy component that has assessment results.
 

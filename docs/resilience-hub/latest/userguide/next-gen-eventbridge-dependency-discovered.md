@@ -1,11 +1,10 @@
 
 
 # New dependency discovered event
-<a name="next-gen-eventbridge-dependency-discovered"></a>
 
 The following is an example event emitted when dependency discovery identifies a new dependency for your service. This event is emitted after a stabilization period to reduce noise during initial discovery.
 
-```
+```json
 {
   "version": "0",
   "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",

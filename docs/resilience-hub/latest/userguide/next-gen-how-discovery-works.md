@@ -1,9 +1,8 @@
 
 
 # How dependency discovery works
-<a name="next-gen-how-discovery-works"></a>
 
-Dependency discovery analyzes Route 53 DNS resolver query logs to identify every domain name that your service's compute resources resolve. This reveals the full set of external dependencies without requiring any agents, code changes, or instrumentation.
+Dependency discovery analyzes the DNS queries that your service's compute resources make to find the domain names they resolve. This reveals the full set of external dependencies without requiring any agents, code changes, or instrumentation.
 
 
 | Feature | Detail | 

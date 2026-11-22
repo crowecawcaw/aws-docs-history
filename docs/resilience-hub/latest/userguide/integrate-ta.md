@@ -1,7 +1,6 @@
 
 
 # AWS Trusted Advisor
-<a name="integrate-ta"></a>
 
 AWS Trusted Advisor is a centralized home of AWS best practice recommendations that helps you to identify, prioritize, and optimize your deployment on AWS. AWS Trusted Advisor inspects your AWS environment, and then makes recommendations through checks when opportunities exist to save money, improve system availability and performance, or help close security gaps. These checks are divided into multiple categories based on their purpose. For more information about different categories of checks in AWS Trusted Advisor, see the [AWS Support](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor-check-reference.html) User Guide.
 

@@ -1,7 +1,6 @@
 
 
 # Running and managing resiliency assessments in AWS Resilience Hub
-<a name="resil-assessments"></a>
 
 When your application changes, you should run a resiliency assessment. The assessment compares each Application Component configuration to the policy and makes alarm, SOP, and test recommendations. These configuration recommendations can improve the speed of recovery procedures. 
 

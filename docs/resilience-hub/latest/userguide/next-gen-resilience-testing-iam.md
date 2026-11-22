@@ -1,7 +1,6 @@
 
 
 # IAM execution roles for resilience testing
-<a name="next-gen-resilience-testing-iam"></a>
 
 To run a resilience test, you provide an IAM *execution role* that AWS Fault Injection Service (AWS FIS) assumes to inject faults into your resources. You set this role on the test, and Resilience Hub uses it when you start a test run.
 

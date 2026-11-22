@@ -1,7 +1,6 @@
 
 
 # Overview of multi-account governance in the next generation of Resilience Hub
-<a name="next-gen-orgs-overview"></a>
 
 Next generation Resilience Hub enables centralized resilience governance across your AWS organization. With Organizations integration, you can:
 + View resilience posture across all accounts from a single dashboard.

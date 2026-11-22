@@ -1,7 +1,6 @@
 
 
 # Data types
-<a name="next-gen-api-data-types"></a>
 
 The following table lists the key data types used by the next generation of Resilience Hub API.
 

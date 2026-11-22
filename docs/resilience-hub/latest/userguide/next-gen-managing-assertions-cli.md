@@ -1,7 +1,6 @@
 
 
 # Managing assertions (AWS CLI)
-<a name="next-gen-managing-assertions-cli"></a>
 
 The following examples use a service ARN in `us-east-1`. Replace the service ARN and assertion ID with your own values.
 
@@ -15,7 +14,7 @@ aws resiliencehubv2 create-assertion \
 
 The response returns the new assertion, including its generated `assertionId`:
 
-```
+```json
 {
     "assertion": {
         "serviceArn": "arn:aws:resiliencehub:us-east-1:123456789012:service/checkout:abc123",

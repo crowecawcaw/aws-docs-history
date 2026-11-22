@@ -1,7 +1,6 @@
 
 
 # Working with other services
-<a name="service-integrations"></a>
 
 This section describes AWS services that interact with AWS Resilience Hub.
 

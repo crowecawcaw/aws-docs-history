@@ -1,7 +1,6 @@
 
 
 # Enabling AWS Resilience Hub to publish to your Amazon Simple Notification Service topics
-<a name="enabling-sns-in-arh"></a>
 
 This section explains about how to enable AWS Resilience Hub to publish notifications about the application to your Amazon Simple Notification Service (Amazon SNS) topics. To push notifications to an Amazon SNS topic, ensure that you have the following: 
 + An active AWS Resilience Hub application.

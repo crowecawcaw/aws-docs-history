@@ -1,7 +1,6 @@
 
 
 # Create a user journey
-<a name="next-gen-create-user-journey"></a>
 
 **To create a user journey (console)**
 

@@ -1,7 +1,6 @@
 
 
 # Member account visibility gaps
-<a name="next-gen-troubleshoot-member-visibility"></a>
 
 **Symptom:** The delegated administrator cannot see services in a member account.
 

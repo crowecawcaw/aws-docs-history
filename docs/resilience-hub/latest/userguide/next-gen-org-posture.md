@@ -1,7 +1,6 @@
 
 
 # Viewing organization-wide resilience posture
-<a name="next-gen-org-posture"></a>
 
 The delegated administrator sees aggregated views across the entire organization. The organization dashboard shows:
 + Total services across all accounts with their compliance status.

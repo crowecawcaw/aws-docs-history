@@ -1,7 +1,6 @@
 
 
 # Accessing the Resiliency score of your applications
-<a name="access-score"></a>
 
 You can view the Resiliency score of your application by choosing **Dashboard** or **Applications** from the navigation menu.
 

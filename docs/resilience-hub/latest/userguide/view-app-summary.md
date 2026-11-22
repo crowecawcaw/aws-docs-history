@@ -1,7 +1,6 @@
 
 
 # Viewing an AWS Resilience Hub application summary
-<a name="view-app-summary"></a>
 
 The application summary page in the AWS Resilience Hub console provides an overview of your application information and resiliency health.
 

@@ -1,7 +1,6 @@
 
 
 # Test run stops before completing
-<a name="next-gen-troubleshoot-test-stopped"></a>
 
 **Symptom:** A test run stops on its own before it finishes.
 

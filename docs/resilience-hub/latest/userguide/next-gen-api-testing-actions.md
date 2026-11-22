@@ -1,7 +1,6 @@
 
 
 # Resilience testing
-<a name="next-gen-api-testing-actions"></a>
 
 
 | Action | Method | Description | 

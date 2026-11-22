@@ -1,7 +1,6 @@
 
 
 # Reviewing operational recommendations
-<a name="ops.reqs"></a>
 
 Operational recommendations contain recommendations to set up alarms, SOPs, and AWS FIS experiments through AWS CloudFormation templates. 
 

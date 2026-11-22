@@ -1,7 +1,6 @@
 
 
 # Assessment
-<a name="next-gen-assessment"></a>
 
 Next generation Resilience Hub provides two complementary assessment capabilities: automated dependency assessment to discover and classify your service dependencies, and failure mode assessments to identify potential resilience weaknesses using GenAI-powered analysis.
 

@@ -1,7 +1,6 @@
 
 
 # Systems
-<a name="next-gen-api-systems-actions"></a>
 
 
 | Action | Method | Description | 

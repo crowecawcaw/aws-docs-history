@@ -1,7 +1,6 @@
 
 
 # Services
-<a name="next-gen-api-services-actions"></a>
 
 
 | Action | Method | Description | 

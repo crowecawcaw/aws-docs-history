@@ -1,7 +1,6 @@
 
 
 # Update a user journey
-<a name="next-gen-update-user-journey"></a>
 
 **To update a user journey (console)**
 

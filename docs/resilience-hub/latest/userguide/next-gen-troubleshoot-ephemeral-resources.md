@@ -1,7 +1,6 @@
 
 
 # EC2 instances or ECS tasks not appearing as billable resources
-<a name="next-gen-troubleshoot-ephemeral-resources"></a>
 
 When a parent resource (such as an Auto Scaling group, ECS service, or EKS deployment) manages an EC2 instance, ECS task, EKS pod, or network interface, Next generation Resilience Hub classifies that resource as *ephemeral*. Ephemeral resources are transient. The parent resource replaces them automatically through lifecycle events. Next generation Resilience Hub assesses them through their parent, not independently.
 

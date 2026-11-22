@@ -1,7 +1,6 @@
 
 
 # Step 1: Configure a resilience policy
-<a name="next-gen-tutorial-configure-policy"></a>
 
 A resilience policy defines the resilience targets for your service, such as availability SLO targets, recovery time objectives (RTO), and recovery point objectives (RPO). In this step, you create a policy and apply it to your service.
 

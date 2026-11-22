@@ -1,7 +1,6 @@
 
 
 # Least privilege recommendations
-<a name="next-gen-least-privilege"></a>
 
 Follow these recommendations to apply least privilege principles to your Next generation Resilience Hub configuration:
 

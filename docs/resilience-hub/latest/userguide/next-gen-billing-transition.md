@@ -1,7 +1,6 @@
 
 
 # Pricing transition
-<a name="next-gen-billing-transition"></a>
 
 The following table shows how pricing components map from AWS Resilience Hub v1 to the next generation of Resilience Hub.
 

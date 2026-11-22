@@ -1,7 +1,6 @@
 
 
 # CloudFormation stack not found
-<a name="next-gen-troubleshoot-cfn-not-found"></a>
 
 **Symptom:** Resource discovery fails with "stack not found."
 

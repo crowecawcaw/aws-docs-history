@@ -1,7 +1,6 @@
 
 
 # Input sources
-<a name="next-gen-api-input-sources-actions"></a>
 
 
 | Action | Method | Description | 

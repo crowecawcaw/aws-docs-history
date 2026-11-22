@@ -1,7 +1,6 @@
 
 
 # AWS Resilience Hub personas
-<a name="arh-personas"></a>
 
 Building an enterprise application requires a collaborative effort from different cross-functional teams such as infrastructure, business continuity, application owner, and other stakeholders who are responsible for monitoring applications. The different personas from different teams contribute towards building and managing applications in AWS Resilience Hub, each having a different role and responsibilities. To learn more about granting permissions to different personas, see [AWS Resilience Hub personas and IAM permissions reference](security-iam-resilience-hub-personas.md).
 

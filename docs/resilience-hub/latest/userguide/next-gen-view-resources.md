@@ -1,7 +1,6 @@
 
 
 # View discovered resources
-<a name="next-gen-view-resources"></a>
 
 **To view resources (console)**
 

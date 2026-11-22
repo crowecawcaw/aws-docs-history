@@ -1,7 +1,6 @@
 
 
 # Assessment fails with topology not found
-<a name="next-gen-troubleshoot-topology-not-found"></a>
 
 **Symptom:** `StartFailureModeAssessment` returns an error about missing topology.
 

@@ -1,7 +1,6 @@
 
 
 # Delete a system
-<a name="next-gen-delete-system"></a>
 
 A system cannot be deleted while it has service associations. When you delete a system using the console, it automatically removes the service associations for you. When using the AWS CLI, you must remove all service associations first, then delete the system.
 

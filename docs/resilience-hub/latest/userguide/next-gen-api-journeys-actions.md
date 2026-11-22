@@ -1,7 +1,6 @@
 
 
 # User journeys
-<a name="next-gen-api-journeys-actions"></a>
 
 
 | Action | Method | Description | 

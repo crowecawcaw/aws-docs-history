@@ -1,7 +1,6 @@
 
 
 # Application configuration parameters
-<a name="app-config"></a>
 
 AWS Resilience Hub provides an input mechanism to gather additional information about the resources associated with your applications. With this information, AWS Resilience Hub will gain a deeper understanding of your resources and provide better resiliency recommendations.
 

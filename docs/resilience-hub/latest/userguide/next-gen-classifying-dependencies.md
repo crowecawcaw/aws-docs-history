@@ -1,7 +1,6 @@
 
 
 # Classifying dependencies as hard or soft
-<a name="next-gen-classifying-dependencies"></a>
 
 After reviewing discovered dependencies, classify each one to indicate its failure impact:
 

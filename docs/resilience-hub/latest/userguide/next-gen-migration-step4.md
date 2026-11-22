@@ -1,7 +1,6 @@
 
 
 # Enable new capabilities
-<a name="next-gen-migration-step4"></a>
 
 Take advantage of features not available in v1.
 

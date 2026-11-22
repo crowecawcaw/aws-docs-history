@@ -1,7 +1,6 @@
 
 
 # Viewing standard operating procedures
-<a name="view-sops"></a>
 
 **To view the implemented SOPs from applications**
 

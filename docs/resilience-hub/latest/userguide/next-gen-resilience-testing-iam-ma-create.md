@@ -1,7 +1,6 @@
 
 
 # Create the roles and attach them to your test
-<a name="next-gen-resilience-testing-iam-ma-create"></a>
 
 In the orchestrator account, create the orchestrator role.
 

@@ -1,7 +1,6 @@
 
 
 # Making API requests and authentication
-<a name="next-gen-api-authentication"></a>
 
 **Endpoint**
 

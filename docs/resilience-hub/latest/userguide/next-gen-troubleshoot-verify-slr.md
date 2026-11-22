@@ -1,7 +1,6 @@
 
 
 # Verifying the service-linked role exists in a member account
-<a name="next-gen-troubleshoot-verify-slr"></a>
 
 From the member account, run the following command to verify the service-linked role exists:
 

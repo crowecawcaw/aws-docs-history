@@ -1,7 +1,6 @@
 
 
 # Create a system
-<a name="next-gen-tutorial-create-system"></a>
 
 **Console:**
 

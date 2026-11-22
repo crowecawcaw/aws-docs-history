@@ -1,7 +1,6 @@
 
 
 # Applying policies at user journey and service levels
-<a name="next-gen-applying-policies"></a>
 
 Policies can be applied at two levels of the application hierarchy:
 

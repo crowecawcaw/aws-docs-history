@@ -1,7 +1,6 @@
 
 
 # Set RTO and RPO
-<a name="setup-resiliency-policy"></a>
 
 You can define a new resiliency policy with your own RTO/RPO targets, or you can choose an existing resiliency policy with predefined RTO/RPO targets. If you want to use one of the existing resiliency policies, select **Choose an existing policy** option and select an existing target application from the **Option item** drop-down list.
 

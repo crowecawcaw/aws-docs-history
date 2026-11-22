@@ -1,7 +1,6 @@
 
 
 # Failure mode findings not matching expected policy
-<a name="next-gen-troubleshoot-findings-mismatch"></a>
 
 **Symptom:** Assessment failure mode findings don't seem to relate to your applied policy.
 

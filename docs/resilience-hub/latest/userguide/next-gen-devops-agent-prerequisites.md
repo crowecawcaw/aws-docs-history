@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="next-gen-devops-agent-prerequisites"></a>
 
 Before you connect a service, make sure that you have the following:
 + A DevOps Agent *Agent Space*. You create and configure the Agent Space in the DevOps Agent console. Note its Amazon Resource Name (ARN), which has the form `arn:aws:aidevops:{{region}}:{{account-id}}:agentspace/{{agent-space-id}}`.

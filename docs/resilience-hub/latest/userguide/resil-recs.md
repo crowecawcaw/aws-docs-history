@@ -1,7 +1,6 @@
 
 
 # Reviewing resiliency recommendations
-<a name="resil-recs"></a>
 
 Resiliency recommendations evaluate Application Components and recommend how to optimize by estimated workload RTO and estimated workload RPO, costs, and minimal changes.
 

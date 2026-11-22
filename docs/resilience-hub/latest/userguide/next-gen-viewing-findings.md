@@ -1,7 +1,6 @@
 
 
 # Viewing failure mode findings and recommendations
-<a name="next-gen-viewing-findings"></a>
 
 After an assessment completes, review the findings and recommendations:
 

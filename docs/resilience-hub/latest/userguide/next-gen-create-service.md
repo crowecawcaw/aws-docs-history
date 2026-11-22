@@ -1,7 +1,6 @@
 
 
 # Create a service
-<a name="next-gen-create-service"></a>
 
 **To create a service (console)**
 

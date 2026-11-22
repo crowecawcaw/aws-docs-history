@@ -1,7 +1,6 @@
 
 
 # Create a system
-<a name="next-gen-create-system"></a>
 
 **To create a system (console)**
 

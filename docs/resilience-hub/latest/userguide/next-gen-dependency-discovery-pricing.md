@@ -1,7 +1,6 @@
 
 
 # Pricing
-<a name="next-gen-dependency-discovery-pricing"></a>
 
 Dependency discovery is an optional add-on:
 

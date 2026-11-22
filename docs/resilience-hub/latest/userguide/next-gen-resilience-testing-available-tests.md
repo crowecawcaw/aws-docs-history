@@ -1,7 +1,6 @@
 
 
 # Available tests
-<a name="next-gen-resilience-testing-available-tests"></a>
 
 Next generation Resilience Hub provides the following pre-configured test templates:
 + **Availability Zone: recovery** – Validate your service can detect and recover from an Availability Zone impairment.
@@ -11,9 +10,13 @@ Next generation Resilience Hub provides the following pre-configured test templa
 
 Each test template declares the parameters it accepts, including whether each parameter is required and any default values.
 
+**To list test templates (CLI)**
+
 ```
 aws resiliencehubv2 list-test-templates --region {{region}}
 ```
+
+**To view a test template (CLI)**
 
 Use `get-test-template` to view the full definition of a test template. The response includes:
 + **actions** – The operations the test performs, each targeting a specific resource type.

@@ -1,11 +1,10 @@
 
 
 # Dependency validation
-<a name="next-gen-resilience-testing-iam-ma-dependency-validation"></a>
 
 Attach the following permissions policy to the target role for the **Dependency validation** template.
 
-```
+```json
 {
   "Version": "2012-10-17"		 	 	 ,
   "Statement": [

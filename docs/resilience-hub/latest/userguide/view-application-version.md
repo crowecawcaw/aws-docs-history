@@ -1,7 +1,6 @@
 
 
 # Viewing all the AWS Resilience Hub application versions
-<a name="view-application-version"></a>
 
 To help track the application changes, AWS Resilience Hub displays the previous versions of your application from the time it was created on AWS Resilience Hub.
 

@@ -1,7 +1,6 @@
 
 
 # How failure mode assessments work
-<a name="next-gen-how-assessments-work"></a>
 
 When you run a failure mode assessment, Next generation Resilience Hub performs the following steps:
 

@@ -1,7 +1,6 @@
 
 
 # Dependency fault action fails with setup error
-<a name="next-gen-troubleshoot-test-dep-setup"></a>
 
 **Symptom:** A dependency fault action fails because the required agent or sidecar is not configured.
 

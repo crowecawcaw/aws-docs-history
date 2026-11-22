@@ -1,11 +1,10 @@
 
 
 # Multi-Region: isolation
-<a name="next-gen-resilience-testing-iam-sa-multi-region-isolation"></a>
 
 The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross-Region connectivity (route tables, transit gateways, and VPC endpoints) and pause cross-Region replication for Amazon S3, Amazon DynamoDB, and Amazon MemoryDB. Attach the following permissions policy to the execution role.
 
-```
+```json
 {
   "Version": "2012-10-17"		 	 	 ,
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Roles in different AWS account for cross-account access - optional
-<a name="security-iam-resilience-cross-account-roles"></a>
 
 When your resources are located in secondary/resource accounts, you must create roles in each of these accounts to enable AWS Resilience Hub to successfully assess your application. The role creation procedure is similar to the invoker role creation process, except for the trust policy configuration.
 

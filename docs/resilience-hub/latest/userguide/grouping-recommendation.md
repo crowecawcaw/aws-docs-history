@@ -1,7 +1,6 @@
 
 
 # AWS Resilience Hub resource grouping recommendations
-<a name="grouping-recommendation"></a>
 
 This section explains how to generate and review resource grouping recommendations in AWS Resilience Hub.
 

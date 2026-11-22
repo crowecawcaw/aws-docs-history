@@ -1,7 +1,6 @@
 
 
 # Viewing resources of AWS Resilience Hub application
-<a name="view-resources"></a>
 
 **To view resources of your application**
 

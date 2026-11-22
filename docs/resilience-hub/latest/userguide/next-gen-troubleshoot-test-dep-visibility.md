@@ -1,7 +1,6 @@
 
 
 # Not all dependencies visible in the test
-<a name="next-gen-troubleshoot-test-dep-visibility"></a>
 
 **Symptom:** Not all discovered dependencies are shown in the dropdown.
 

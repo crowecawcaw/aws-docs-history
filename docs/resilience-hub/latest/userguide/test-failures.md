@@ -1,7 +1,6 @@
 
 
 # AWS Fault Injection Service experiment failures/status check
-<a name="test-failures"></a>
 
 AWS Resilience Hub allows you to track the status of your experiment that you have started. For more information, see the [To view the recommended AWS FIS experiments from assessments](view-fis-experiment.md#view-recommended-fis-experiments) procedure.
 

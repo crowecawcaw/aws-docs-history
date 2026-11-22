@@ -1,7 +1,6 @@
 
 
 # Managing assertions (console)
-<a name="next-gen-managing-assertions-console"></a>
 
 **To manage assertions (console)**
 

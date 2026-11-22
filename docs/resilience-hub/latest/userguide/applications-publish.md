@@ -1,7 +1,6 @@
 
 
 # Publishing a new AWS Resilience Hub application version
-<a name="applications-publish"></a>
 
 After you make changes to your AWS Resilience Hub application resources as described in [Editing AWS Resilience Hub application resources](application-resources.md), you must publish a new version of your application to run an accurate resiliency assessment. Also, you might need to publish a new version of your application if you added new recommended alarms, SOPs, and tests to your application.
 

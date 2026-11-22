@@ -1,7 +1,6 @@
 
 
 # Understanding resiliency scores
-<a name="resil-score"></a>
 
 This section describes how AWS Resilience Hub quantifies application readiness from different disruption scenarios. 
 

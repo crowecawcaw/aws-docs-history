@@ -1,11 +1,10 @@
 
 
 # Multi-Region: recovery
-<a name="next-gen-resilience-testing-iam-ma-multi-region-recovery"></a>
 
 Attach the following permissions policy to the target role for the **Multi-Region: recovery** template.
 
-```
+```json
 {
   "Version": "2012-10-17"		 	 	 ,
   "Statement": [

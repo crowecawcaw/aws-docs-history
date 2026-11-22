@@ -1,11 +1,10 @@
 
 
 # Failure mode finding resolved event
-<a name="next-gen-eventbridge-finding-resolved"></a>
 
 The following is an example event emitted when a failure mode finding is marked as Resolved or Irrelevant.
 
-```
+```json
 {
   "version": "0",
   "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",

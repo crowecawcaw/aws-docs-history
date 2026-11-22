@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="next-gen-prerequisites"></a>
 
 Before you begin, ensure that you have the following:
 + An active AWS account.

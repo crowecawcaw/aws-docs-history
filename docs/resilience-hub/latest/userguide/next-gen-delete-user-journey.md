@@ -1,7 +1,6 @@
 
 
 # Delete a user journey
-<a name="next-gen-delete-user-journey"></a>
 
 **To delete a user journey (console)**
 

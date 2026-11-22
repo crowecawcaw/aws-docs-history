@@ -1,7 +1,6 @@
 
 
 # Grouping resources in an Application Component
-<a name="AppComponent.grouping"></a>
 
 When the application is imported into AWS Resilience Hub along with its resources, AWS Resilience Hub makes its best effort to group related resources into the same AppComponent when you import your application, but the grouping might not always be 100 percent accurate. Some resources are blocked for manual grouping and will be grouped automatically when applicable because these services have strict dependencies that require specific grouping configurations. For a complete list of services that are blocked for manual grouping, see [Blocked services for manual grouping](blocked-services-for-manual-grouping.md).
 

@@ -1,7 +1,6 @@
 
 
 # Assertion lifecycle
-<a name="next-gen-assertion-lifecycle"></a>
 
 The recommended workflow is to run an assessment, review the assertions it generated, refine them, and run another assessment. Assertions flow through this loop as follows:
 

@@ -1,7 +1,6 @@
 
 
 # Creating resiliency policies
-<a name="create-policy"></a>
 
 In AWS Resilience Hub, you can create a resiliency policy. A resiliency policy contains information and objectives that you use to assess whether your application can recover from a disruption type, such as software, hardware, Availability Zone, or AWS Region. These policies do not change or affect an actual application. Multiple applications can have the same resiliency policy.
 

@@ -1,7 +1,6 @@
 
 
 # Service quotas
-<a name="next-gen-quotas-service"></a>
 
 The following table lists the quotas for Next generation Resilience Hub.
 

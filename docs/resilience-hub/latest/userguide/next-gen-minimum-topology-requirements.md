@@ -1,7 +1,6 @@
 
 
 # Minimum topology requirements
-<a name="next-gen-minimum-topology-requirements"></a>
 
 To run a failure mode assessment, your service must have a topology with a data flow relationship between at least two resources.
 

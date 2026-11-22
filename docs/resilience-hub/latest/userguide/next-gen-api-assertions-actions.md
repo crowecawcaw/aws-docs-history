@@ -1,7 +1,6 @@
 
 
 # Assertions
-<a name="next-gen-api-assertions-actions"></a>
 
 
 | Action | Method | Description | 

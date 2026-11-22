@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Next generation Resilience Hub
-<a name="next-gen-troubleshooting"></a>
 
 This section provides solutions for common issues you might encounter when using the next generation of Resilience Hub.
 

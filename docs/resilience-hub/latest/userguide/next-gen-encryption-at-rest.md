@@ -1,7 +1,6 @@
 
 
 # Encryption at rest
-<a name="next-gen-encryption-at-rest"></a>
 
 All Next generation Resilience Hub data is encrypted at rest.
 

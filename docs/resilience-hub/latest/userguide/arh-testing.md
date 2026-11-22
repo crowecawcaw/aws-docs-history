@@ -1,7 +1,6 @@
 
 
 # AWS Resilience Hub – Resilience testing
-<a name="arh-testing"></a>
 
 AWS Resilience Hub supports an enhanced integration with the AWS FIS. This integration allows AWS Resilience Hub to offer tailored recommendations using AWS FIS actions and scenarios based on the specific context of the application being assessed. Running the recommended experiments or conducting your own tests using the AWS FIS service will directly contribute to improving your application's resilience score. 
 

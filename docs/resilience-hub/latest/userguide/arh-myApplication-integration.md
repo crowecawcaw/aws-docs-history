@@ -1,7 +1,6 @@
 
 
 # AWS Resilience Hub and myApplications
-<a name="arh-myApplication-integration"></a>
 
 The **Resiliency** widget in the myApplications dashboard streamlines the process of assessing and monitoring the application resilience. It enables you to quickly evaluate the resilience of your applications defined in myApplications without the need to manually recreate them in the AWS Resilience Hub console. This integrated approach combines the application management capabilities of myApplications with the resilience assessment features of AWS Resilience Hub, allowing you to leverage the strengths of both platforms. By bringing together application definitions and resilience assessment capabilities, the **Resiliency** widget simplifies the workflow, enabling you to access relevant information and take actions to enhance resilience from a centralized location. When an application is assessed from the **Resiliency** widget, AWS Resilience Hub performs the following: 
 + Creates the selected application in AWS Resilience Hub.

@@ -1,7 +1,6 @@
 
 
 # AWS FIS experiment failures while testing Kubernetes pods running in your Amazon Elastic Kubernetes Service clusters
-<a name="test-failures-eks"></a>
 
 The following are common Amazon Elastic Kubernetes Service (Amazon EKS) failures encountered while testing Kubernetes pods running in your Amazon EKS clusters:
 + Incorrect configuration of IAM roles for AWS FIS experiments or the Kubernetes service account.

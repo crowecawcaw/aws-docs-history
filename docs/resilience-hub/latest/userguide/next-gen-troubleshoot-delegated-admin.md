@@ -1,7 +1,6 @@
 
 
 # Delegated administrator setup errors
-<a name="next-gen-troubleshoot-delegated-admin"></a>
 
 
 | Error | Cause | Resolution | 

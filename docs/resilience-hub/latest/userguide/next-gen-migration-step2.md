@@ -1,7 +1,6 @@
 
 
 # Use the migration API
-<a name="next-gen-migration-step2"></a>
 
 Next generation Resilience Hub provides migration APIs that handle the transition for you. The `import-app` API creates the service automatically – you don't need to manually create a system or service first.
 

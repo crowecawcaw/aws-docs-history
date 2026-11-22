@@ -1,7 +1,6 @@
 
 
 # Running resiliency assessments in AWS Resilience Hub
-<a name="run-assessment"></a>
 
 You can run resiliency assessments from multiple locations in AWS Resilience Hub. For more information about your application, see [Describing and managing AWS Resilience Hub Applications](applications.md).
 

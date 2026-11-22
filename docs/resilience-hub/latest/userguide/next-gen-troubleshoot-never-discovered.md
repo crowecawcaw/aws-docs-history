@@ -1,7 +1,6 @@
 
 
 # Resource types never discovered
-<a name="next-gen-troubleshoot-never-discovered"></a>
 
 Next generation Resilience Hub never stores the following resource types during discovery. These resource types include auxiliary infrastructure, point-in-time backups, and operational tooling with no bearing on resilience analysis.
 

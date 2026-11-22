@@ -1,7 +1,6 @@
 
 
 # Data retention
-<a name="next-gen-data-retention"></a>
 
 The following table shows retention periods for data stored by Next generation Resilience Hub.
 

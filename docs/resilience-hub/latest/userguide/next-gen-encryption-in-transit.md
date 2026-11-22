@@ -1,7 +1,6 @@
 
 
 # Encryption in transit
-<a name="next-gen-encryption-in-transit"></a>
 
 All data in transit is encrypted using TLS 1.2 or later, including:
 + API calls to Next generation Resilience Hub endpoints

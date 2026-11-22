@@ -1,7 +1,6 @@
 
 
 # Failure mode assessments
-<a name="next-gen-api-assessment-actions"></a>
 
 
 | Action | Method | Description | 

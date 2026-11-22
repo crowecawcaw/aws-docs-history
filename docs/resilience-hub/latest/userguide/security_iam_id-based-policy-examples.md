@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS Resilience Hub
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify AWS Resilience Hub resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -48,7 +47,7 @@ The following policy grants users the permission to list and view all resources 
 
 ****  
 
-```
+```json
 {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -71,7 +70,7 @@ The following policy grants users the permission to list and view all resources 
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -116,7 +115,7 @@ The following policy grants users the permission to list the available AWS Resil
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -146,7 +145,7 @@ The following policy grants users the permission to start an assessment for a sp
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -176,7 +175,7 @@ The following policy grants users the permission to delete an assessment for a s
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -206,7 +205,7 @@ The following policy grants users the permission to create a recommendation temp
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -236,7 +235,7 @@ The following policy grants users the permission to delete a recommendation temp
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

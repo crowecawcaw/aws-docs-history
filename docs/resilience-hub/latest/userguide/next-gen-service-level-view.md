@@ -1,7 +1,6 @@
 
 
 # Service-level view
-<a name="next-gen-service-level-view"></a>
 
 Drill into any service to see detailed information about its current state. The following sections are available in the service-level view.
 

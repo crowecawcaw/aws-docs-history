@@ -1,7 +1,6 @@
 
 
 # AWS Resilience Hub supported resources
-<a name="supported-resources"></a>
 
 Resources that affect application performance in the case of disruption are fully supported by AWS Resilience Hub top-level resources such as `AWS::RDS::DBInstance` and `AWS::RDS::DBCluster`.
 

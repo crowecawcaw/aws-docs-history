@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Resilience Hub
-<a name="security-iam"></a>
 
 
 

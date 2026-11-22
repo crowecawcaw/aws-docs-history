@@ -1,7 +1,6 @@
 
 
 # Reviewing assessment summary in Resiliency widget
-<a name="review-assessment-resliency-widget"></a>
 
 The **Resiliency** widget displays a snapshot of the assessment results that will provide you with most important and actionable insights into the myApplications application's resilience, potential vulnerabilities, key performance indicators (KPIs) and recommended actions for improvement. You can learn more about the application's resiliency posture from the most recent assessment using the following:
 + **Resiliency score history** – This chart displays the trend of the application's resiliency score for up to one year.

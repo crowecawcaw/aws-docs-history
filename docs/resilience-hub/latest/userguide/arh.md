@@ -1,7 +1,6 @@
 
 
 # AWS Resilience Hub
-<a name="arh"></a>
 
 AWS Resilience Hub is a central location for you to manage and improve the resilience posture of your applications on AWS. AWS Resilience Hub enables you to define your resilience goals, assess your resilience posture against those goals, and implement recommendations for improvement.
 

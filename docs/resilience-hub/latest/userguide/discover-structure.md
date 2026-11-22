@@ -1,7 +1,6 @@
 
 
 # Add resource collections
-<a name="discover-structure"></a>
 
 This section discusses the following options that you can use to form the basis of your application structure:
 + [Add resource collections](#resource-collection)

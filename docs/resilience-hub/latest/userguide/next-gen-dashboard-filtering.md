@@ -1,7 +1,6 @@
 
 
 # Filtering by policy, account, Region, and system
-<a name="next-gen-dashboard-filtering"></a>
 
 You can filter dashboard views using the following filters.
 

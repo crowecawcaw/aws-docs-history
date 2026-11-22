@@ -1,7 +1,6 @@
 
 
 # Enabling dependency discovery for a service
-<a name="next-gen-enabling-discovery"></a>
 
 You can enable dependency discovery from the console or using the AWS CLI.
 

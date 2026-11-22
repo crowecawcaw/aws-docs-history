@@ -1,7 +1,6 @@
 
 
 # Integrating operational recommendations into your application with CloudFormation
-<a name="cfn-integration"></a>
 
 After you choose **Create CloudFormation template** in the **Operational recommendations** page, AWS Resilience Hub creates an CloudFormation template that describes the specific alarm, standard operating procedure (SOP), or AWS FIS experiment for your application. The CloudFormation template is stored in an Amazon S3 bucket, and you can check the S3 path to the template in the **Template details** tab on the **Operational recommendations** page. 
 

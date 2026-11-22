@@ -1,7 +1,6 @@
 
 
 # Enabling AWS Resilience Hub access to your Amazon Elastic Kubernetes Service cluster
-<a name="enabling-eks-in-arh"></a>
 
 AWS Resilience Hub assesses the resiliency of an Amazon Elastic Kubernetes Service (Amazon EKS) cluster by analyzing the infrastructure of your Amazon EKS cluster. AWS Resilience Hub uses Kubernetes role-based access control (RBAC) configuration to assess other Kubernetes (K8s) workload, which are deployed as a part of the Amazon EKS cluster. For AWS Resilience Hub to query your Amazon EKS cluster for analyzing and assessing the workload, you must complete the following:
 + Create or use an existing AWS Identity and Access Management (IAM) role in the same account as the Amazon EKS cluster.

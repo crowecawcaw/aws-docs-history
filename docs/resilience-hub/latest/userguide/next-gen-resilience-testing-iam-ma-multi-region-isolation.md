@@ -1,11 +1,10 @@
 
 
 # Multi-Region: isolation
-<a name="next-gen-resilience-testing-iam-ma-multi-region-isolation"></a>
 
 Attach the following permissions policy to the target role for the **Multi-Region: isolation** template.
 
-```
+```json
 {
   "Version": "2012-10-17"		 	 	 ,
   "Statement": [

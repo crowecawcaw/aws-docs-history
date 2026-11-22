@@ -1,7 +1,6 @@
 
 
 # Failure mode findings
-<a name="next-gen-api-findings-actions"></a>
 
 
 | Action | Method | Description | 

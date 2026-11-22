@@ -1,7 +1,6 @@
 
 
 # Monitoring discovery status
-<a name="next-gen-discovery-status"></a>
 
 After you enable dependency discovery, the `DependencyDiscoveryConfig` object returned by the `GetService` and `ListServices` API operations includes fields that indicate whether eligible resources have been found and whether dependency analysis is still in progress.
 
@@ -11,7 +10,7 @@ The following table describes the fields that indicate the current state of depe
 | Field | Type | Description | 
 | --- | --- | --- | 
 | status | String | The current state of dependency discovery: INITIALIZING, ENABLED, or DISABLED. | 
-| eligibleResourceCount | Integer | The number of compute resources eligible for dependency discovery. This value is null until the resource discovery process completes its first run, and is updated on each subsequent run. | 
+| eligibleResourceCount | Integer | The number of Amazon EC2 instances, Lambda functions, and VPC resources in the service that are eligible for dependency discovery. This value is null until the resource discovery process completes its first run, and is updated on each subsequent run. | 
 | message | String | A message describing the current state of discovery. This value is null when discovery is complete and dependencies are ready to view. | 
 
 The `message` field provides context about the current state of discovery based on the status and the number of eligible resources. The following table shows the possible messages.
@@ -35,7 +34,7 @@ aws resiliencehubv2 get-service \
 
 The response includes the `dependencyDiscovery` object:
 
-```
+```json
 {
   "service": {
     ...

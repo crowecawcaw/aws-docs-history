@@ -1,7 +1,6 @@
 
 
 # Configuring AWS Organizations integration (optional)
-<a name="next-gen-configuring-organizations"></a>
 
 If you use AWS Organizations, you can optionally configure the next generation of Resilience Hub to provide centralized governance across your organization. The following is a quick setup summary:
 

@@ -1,7 +1,6 @@
 
 
 # Running a failure mode assessment at the service level
-<a name="next-gen-running-service-assessment"></a>
 
 You can run a failure mode assessment from the console or using the AWS CLI. The assessment runs asynchronously. Typical completion time is 5 to 15 minutes depending on service complexity.
 

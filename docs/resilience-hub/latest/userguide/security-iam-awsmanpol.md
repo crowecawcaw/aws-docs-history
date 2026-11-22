@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Resilience Hub
-<a name="security-iam-awsmanpol"></a>
 
 
 

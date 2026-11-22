@@ -1,7 +1,6 @@
 
 
 # Common error scenarios
-<a name="next-gen-api-common-error-scenarios"></a>
 
 
 | Scenario | Error | Resolution | 

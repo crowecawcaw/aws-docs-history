@@ -1,7 +1,6 @@
 
 
 # Run an assessment of your AWS Resilience Hub application
-<a name="run-assessment-start"></a>
 
 The application that you published is listed on the **Summary** page.
 

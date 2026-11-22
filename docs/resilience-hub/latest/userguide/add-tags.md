@@ -1,7 +1,6 @@
 
 
 # Add tags
-<a name="add-tags"></a>
 
 Assign a tag or label to an AWS resource to search and filter your resources, or track your AWS costs.
 

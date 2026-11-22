@@ -1,7 +1,6 @@
 
 
 # Step 5: Enable dependency discovery (optional)
-<a name="next-gen-tutorial-enable-discovery"></a>
 
 Dependency discovery automatically identifies the AWS services, internal endpoints, and third-party endpoints that your service calls. It uses DNS query log analysis with a 35-day look-back window and continuous polling to identify dependencies you may not know about, including unexpected cross-Region calls or critical third-party dependencies.
 

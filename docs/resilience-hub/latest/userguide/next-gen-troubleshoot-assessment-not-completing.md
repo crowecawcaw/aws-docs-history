@@ -1,7 +1,6 @@
 
 
 # Assessment not completing
-<a name="next-gen-troubleshoot-assessment-not-completing"></a>
 
 **Symptom:** Assessment stays in `IN_PROGRESS` status for more than 30 minutes.
 

@@ -1,7 +1,6 @@
 
 
 # Reports
-<a name="next-gen-api-reports-actions"></a>
 
 
 | Action | Method | Description | 

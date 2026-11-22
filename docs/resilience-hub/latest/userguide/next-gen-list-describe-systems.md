@@ -1,7 +1,6 @@
 
 
 # List and describe systems
-<a name="next-gen-list-describe-systems"></a>
 
 **To view your systems (console)**
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring Next generation Resilience Hub
-<a name="next-gen-monitoring"></a>
 
 You can monitor Next generation Resilience Hub using Amazon CloudWatch, AWS CloudTrail, and Amazon EventBridge to track assessment activity, detect issues, and automate responses.
 

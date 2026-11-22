@@ -1,7 +1,6 @@
 
 
 # Overview: the systems, user journeys, and services hierarchy
-<a name="next-gen-modeling-overview"></a>
 
 The application modeling hierarchy in the next generation of Resilience Hub consists of three levels:
 + **Systems** – The top-level container representing a business application (for example, an e-commerce platform or a trading system).

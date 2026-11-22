@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="next-gen-api-resources-actions"></a>
 
 
 | Action | Method | Description | 

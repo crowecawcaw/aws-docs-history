@@ -1,7 +1,6 @@
 
 
 # Tutorial overview and prerequisites
-<a name="next-gen-tutorial-overview"></a>
 
 This tutorial walks you through the end-to-end workflow for creating your first system and service, running a failure mode assessment, and reviewing the results. By the end, you will have a working resilience assessment for one of your applications.
 

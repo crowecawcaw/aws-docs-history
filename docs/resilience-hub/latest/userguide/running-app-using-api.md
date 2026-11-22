@@ -1,7 +1,6 @@
 
 
 # Running and managing AWS Resilience Hub resiliency assessments
-<a name="running-app-using-api"></a>
 
 After you publish a new version of your application, you must run a new resiliency assessment and analyze the results to ensure that your application meets the estimated workload RTO and estimated RPO that are defined in your resiliency policy. The assessment compares each Application Component configuration to the policy and makes alarm, SOP, and test recommendations. 
 

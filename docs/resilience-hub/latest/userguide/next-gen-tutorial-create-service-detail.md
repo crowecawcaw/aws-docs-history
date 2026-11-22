@@ -1,7 +1,6 @@
 
 
 # Create a service
-<a name="next-gen-tutorial-create-service-detail"></a>
 
 A service represents a deployable component. When you create a service, you associate it with your system and specify where the next generation of Resilience Hub should look for your AWS resources (input sources).
 

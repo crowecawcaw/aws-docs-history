@@ -1,7 +1,6 @@
 
 
 # Alarm: Policy not achievable
-<a name="next-gen-alarm-policy-not-achievable"></a>
 
 The following example creates an alarm that triggers when the availability SLO policy is not achievable for a service named `my-service`.
 

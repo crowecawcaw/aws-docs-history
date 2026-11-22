@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Next generation Resilience Hub
-<a name="next-gen-security-iam-awsmanpol"></a>
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
 
@@ -95,7 +94,7 @@ This policy includes the following permissions:
 + AWS Application Recovery Controller (ARC) Region switch – Provides `List` and `Get` permissions to monitor Region switch plan executions that run as part of an experiment.
 + Amazon CloudWatch (CloudWatch) – Provides `DescribeAlarmHistory` to evaluate customer alarms as part of the post-experiment workflow during resilience testing.
 
-```
+```json
 {
   "Version": "2012-10-17"		 	 	 ,
   "Statement": [
@@ -239,7 +238,7 @@ This policy includes the following permissions:
 
 The following IAM policy provides required permissions for Next generation Resilience Hub to access AWS Organizations resources for multi-account resilience management.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

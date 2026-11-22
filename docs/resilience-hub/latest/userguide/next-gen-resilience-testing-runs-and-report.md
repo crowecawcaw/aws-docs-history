@@ -1,7 +1,8 @@
 
 
 # Test runs and report
-<a name="next-gen-resilience-testing-runs-and-report"></a>
+
+**Test runs**
 
 Each time you start a test, a test run is created. You can view test runs in multiple places:
 + **Service level**: Navigate to your service → Testing tab → test runs at the bottom. Shows all runs for that service.
@@ -11,6 +12,8 @@ Each time you start a test, a test run is created. You can view test runs in mul
 Each test run includes the test status, timing information, success alarm results, a timeline of actions, and any dependencies blocked or log events captured during the run. You can drill into a test run to see full details including the AWS FIS experiment ID and individual action outcomes.
 
 You can have multiple runs of the same test. For example, running your **Availability Zone: recovery** test monthly to track resilience improvements over time. You can also list test runs and retrieve test run details programmatically using the `ListTestRuns` and `GetTestRun` API operations. To retrieve the Amazon CloudWatch alarm state-change timeline observed during a run and the dependencies the run blocked, use the `ListTestRunSourceEvents` and `ListTestRunDependencies` API operations. See the [API reference](next-gen-api-reference.md).
+
+**Test reports**
 
 A test report is auto-generated after each test run completes, if a report destination (Amazon S3 bucket) is configured on your service. If no destination is configured, no report is generated.
 

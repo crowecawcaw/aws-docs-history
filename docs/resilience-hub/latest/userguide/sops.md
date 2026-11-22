@@ -1,7 +1,6 @@
 
 
 # Managing standard operating procedures
-<a name="sops"></a>
 
 A standard operating procedure (SOP) is a prescriptive set of steps designed to efficiently recover your application in the event of an outage or alarm. Prepare, test, and measure your SOPs in advance to ensure timely recovery in the event of an operational outage. 
 

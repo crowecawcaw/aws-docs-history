@@ -1,7 +1,6 @@
 
 
 # Resilience Checks for AWS services
-<a name="resilience-checks"></a>
 
 This chapter provides the details of various resilience checks performed by AWS Resilience Hub for supported AWS services to ensure that the resiliency postures of applications are not affected. These checks estimate the recovery time objective (RTO) and recovery point objective (RPO) against the values defined in the resilience policy for each Application Component (AppComponent). The assessments encompass different types of disruptions, that is, Application, Infrastructure failures, AZ outages, and Regional failures. However, to run these checks you must provide relevant IAM permissions to AWS Resilience Hub for allowing it to access your resources. To learn more about the required IAM permissions to allow AWS Resilience Hub to access your resources and perform the resilience checks in this chapter, see [AWS managed policies for AWS Resilience Hub](security-iam-awsmanpol.md).
 
