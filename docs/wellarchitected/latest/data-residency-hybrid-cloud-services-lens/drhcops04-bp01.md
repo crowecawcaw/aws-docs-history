@@ -1,7 +1,6 @@
 
 
 # DRHCOPS04-BP01 Verify that your Outposts facilities are meeting the requirements to operate within the laws for your regulated workloads
-<a name="drhcops04-bp01"></a>
 
  Using Outposts rack requires that you procure and manage the data center within the city, state, province, or country boundary for your applications' regulated components, as required by local regulations. 
 

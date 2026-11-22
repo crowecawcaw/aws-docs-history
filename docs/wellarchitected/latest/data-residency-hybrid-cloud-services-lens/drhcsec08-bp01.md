@@ -1,7 +1,6 @@
 
 
 # DRHCSEC08-BP01 Implement backups to enable recovery from data corruption and data deletion, as well as point-in-time views of data
-<a name="drhcsec08-bp01"></a>
 
  Configure backups to be taken automatically based on a periodic schedule informed by the Recovery Point Objective (RPO), or by changes in the dataset. Critical datasets with low data loss requirements need to be backed up automatically on a frequent basis, whereas less critical data where some loss is acceptable can be backed up less frequently. 
 

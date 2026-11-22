@@ -1,7 +1,6 @@
 
 
 # Networking and content delivery
-<a name="networking-and-content-delivery"></a>
 
 
 | DRHCPERF03: How do you engineer network traffic flow to meet workload performance requirements? | 

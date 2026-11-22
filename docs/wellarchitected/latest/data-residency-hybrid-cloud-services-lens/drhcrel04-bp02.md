@@ -1,7 +1,6 @@
 
 
 # DRHCREL04-BP02 Implement proper monitoring and observability practices to track resource utilization, capacity availability, and application health
-<a name="drhcrel04-bp02"></a>
 
  Plan and monitor AWS Outposts capacity proactively through right-sizing, forecasting, and CloudWatch metrics to ensure sufficient N\+M capacity for high availability. 
 

@@ -1,7 +1,6 @@
 
 
 # DRHCCOST02-BP01 Monitor and manage Outposts capacity and utilization effectively
-<a name="drhccost02-bp01"></a>
 
  Understand available edge capacity and its utilization. 
 

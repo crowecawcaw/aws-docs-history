@@ -1,7 +1,6 @@
 
 
 # DRHCSUS01-BP01 Choose the Local Zone anchored to the Region that best aligns with your sustainability goals if more than one meets your data-residency requirements
-<a name="drhcsus01-bp01"></a>
 
  It may be possible to evaluate and choose an AWS Local Zone that is anchored to a more sustainable AWS Region when there are several which meet your data residency requirements. 
 

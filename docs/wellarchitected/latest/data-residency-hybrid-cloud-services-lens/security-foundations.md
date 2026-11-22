@@ -1,7 +1,6 @@
 
 
 # Security foundations
-<a name="security-foundations"></a>
 
 
 | DRHCSEC01: Have you updated and validated your control objectives to address data residency compliance requirements? | 

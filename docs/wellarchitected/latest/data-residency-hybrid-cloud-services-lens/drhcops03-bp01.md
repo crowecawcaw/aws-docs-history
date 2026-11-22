@@ -1,7 +1,6 @@
 
 
 # DRHCOPS03-BP01 Understand your organization's RTO and RPO requirements, and build out your disaster recovery solution 
-<a name="drhcops03-bp01"></a>
 
  Understand your organization's RTO and RPO requirements and build a tailored disaster recovery solution to minimize disruptions, data loss, and financial impacts. When using AWS Outposts or Local Zones, consider data replication, network redundancy, failover automation, and capacity planning to meet desired RTO and RPO targets across on-premises and AWS environments. 
 

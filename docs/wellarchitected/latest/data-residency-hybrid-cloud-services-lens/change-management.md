@@ -1,7 +1,6 @@
 
 
 # Change management
-<a name="change-management"></a>
 
 
 | DRHCREL04: Have you planned your hybrid storage, compute, and network capacity ahead of time? | 

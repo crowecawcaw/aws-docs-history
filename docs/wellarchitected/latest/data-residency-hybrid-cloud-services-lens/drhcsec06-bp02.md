@@ -1,7 +1,6 @@
 
 
 # DRHCSEC06-BP02 Control access to locations where AWS Outposts are deployed using systems like keys and biometrics
-<a name="drhcsec06-bp02"></a>
 
  This practice verifies that only authorized personnel can gain physical access to AWS Outposts racks or servers. 
 

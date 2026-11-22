@@ -1,7 +1,6 @@
 
 
 # DRHCOPS04-BP03 Review the available data storage options for Local Zones and Outposts to build architectures that keep data within required geographic boundaries
-<a name="drhcops04-bp03"></a>
 
  Thoroughly understand the applicable data laws and regulations for your specific workloads (as per DRHCOPS01). 
 

@@ -1,7 +1,6 @@
 
 
 # DRHCSUS06-BP01 Monitor Local Zone hardware introductions, and choose the latest EC2 Instances to take advantage of energy efficiency improvements
-<a name="drhcsus06-bp01"></a>
 
  As new more powerful and efficient Amazon EC2 instance families are introduced into AWS Local Zones they should be adopted to reduce the number of EC2 instances used and overall energy consumption. 
 

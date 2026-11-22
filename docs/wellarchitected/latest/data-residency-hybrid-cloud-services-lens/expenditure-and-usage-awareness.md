@@ -1,7 +1,6 @@
 
 
 # Expenditure and usage awareness
-<a name="expenditure-and-usage-awareness"></a>
 
 
 | DRHCCOST02: How do you achieve the maximum value out of Outposts? | 

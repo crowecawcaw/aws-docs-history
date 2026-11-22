@@ -1,7 +1,6 @@
 
 
 # DRHCREL03-BP01 Use AWS Outposts or Local Zones for scenarios where data must reside within a country or jurisdiction without a local AWS Region
-<a name="drhcrel03-bp01"></a>
 
  To meet data residency requirements in Regions without local AWS infrastructure, leverage AWS Outposts across multiple locations or AWS Local Zones with redundancy, while utilizing services like Amazon S3 on Outposts for resilient local data management. 
 

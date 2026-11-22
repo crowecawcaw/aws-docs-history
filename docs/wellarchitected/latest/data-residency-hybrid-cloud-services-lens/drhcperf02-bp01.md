@@ -1,7 +1,6 @@
 
 
 # DRHCPERF02-BP01 Design workloads with modularity and loose coupling
-<a name="drhcperf02-bp01"></a>
 
  New capability deployment starts in the commercial regions and moves out to the edge based on feedback from customers. 
 

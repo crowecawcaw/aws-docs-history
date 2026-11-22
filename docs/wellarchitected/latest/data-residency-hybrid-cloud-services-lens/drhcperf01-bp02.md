@@ -1,7 +1,6 @@
 
 
 # DRHCPERF01-BP02 Monitor hybrid edge-specific metrics, and update resource configurations
-<a name="drhcperf01-bp02"></a>
 
  Monitor your current capacity and plan for scaling to meet demand. 
 

@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-perf"></a>
 
  **Related documentation:** 
 +  [Monitoring best practices for AWS Outposts](https://aws.amazon.com/blogs/mt/monitoring-best-practices-for-aws-outposts/) 

@@ -1,7 +1,6 @@
 
 
 # Optimize over time
-<a name="optimize-over-time"></a>
 
 
 | DRHCCOST05: How do you optimize network configuration for edge services? | 

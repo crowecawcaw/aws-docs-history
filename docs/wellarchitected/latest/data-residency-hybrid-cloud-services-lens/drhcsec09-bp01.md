@@ -1,7 +1,6 @@
 
 
 # DRHCSEC09-BP01 Train and test incident responders on policies specific to data residency
-<a name="drhcsec09-bp01"></a>
 
  Train and test incident responders on regulations on storage location based on data classification.  
 

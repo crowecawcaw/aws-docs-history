@@ -1,7 +1,6 @@
 
 
 # DRHCSUS02-BP01 When using Local Zones, monitor and scale your workloads to match demand, and use only the minimum required resources
-<a name="drhcsus02-bp01"></a>
 
  Resources and services in AWS Local Zones, like those in AWS Regions, can be scaled dynamically to match measured demand, minimizing energy consumption. 
 

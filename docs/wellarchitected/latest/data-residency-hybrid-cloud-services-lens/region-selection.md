@@ -1,7 +1,6 @@
 
 
 # Region selection
-<a name="region-selection"></a>
 
 
 | DRHCSUS01: How do you assess the sustainability of anchor AWS Regions when selecting an AWS Local Zone? | 

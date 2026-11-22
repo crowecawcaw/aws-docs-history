@@ -1,7 +1,6 @@
 
 
 # DRHCSUS04-BP02 Use elasticity and automation to optimize storage volumes usage in AWS Local Zones
-<a name="drhcsus04-bp02"></a>
 
  EBS volumes attached to EC2 instances in AWS Local Zones should be provisioned as small as possible to meet workload requirements and then grown as needed when more capacity is required. 
 

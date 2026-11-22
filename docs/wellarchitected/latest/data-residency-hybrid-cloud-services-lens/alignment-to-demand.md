@@ -1,7 +1,6 @@
 
 
 # Alignment to demand
-<a name="alignment-to-demand"></a>
 
 
 | DRHCSUS02: How are you scaling and sizing your infrastructure to match demand and minimize resource consumption? | 

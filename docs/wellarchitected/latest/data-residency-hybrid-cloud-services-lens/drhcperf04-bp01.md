@@ -1,7 +1,6 @@
 
 
 # DRHCPERF04-BP01 Establish hybrid edge workload health KPIs
-<a name="drhcperf04-bp01"></a>
 
  Demonstrate your workload is meeting your business requirements. 
 

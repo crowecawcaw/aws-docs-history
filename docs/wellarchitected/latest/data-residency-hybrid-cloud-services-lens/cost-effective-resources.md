@@ -1,7 +1,6 @@
 
 
 # Cost-effective resources
-<a name="cost-effective-resources"></a>
 
 
 | DRHCCOST03: How do you target workload placement to achieve greatest cost efficiency?  | 

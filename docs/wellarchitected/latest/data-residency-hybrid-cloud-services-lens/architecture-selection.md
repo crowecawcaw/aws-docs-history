@@ -1,7 +1,6 @@
 
 
 # Architecture selection
-<a name="architecture-selection"></a>
 
 
 | DRHCPERF01: How do you achieve performant workload configuration? | 

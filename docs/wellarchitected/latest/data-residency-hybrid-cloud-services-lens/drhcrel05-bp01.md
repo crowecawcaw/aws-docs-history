@@ -1,7 +1,6 @@
 
 
 # DRHCREL05-BP01 Provision spare compute capacity following an N\+M model
-<a name="drhcrel05-bp01"></a>
 
  Provision spare compute capacity following an N\+M availability model, where N is the required capacity and M is the spare capacity to accommodate server failures. Use features like Amazon EC2 Auto Scaling groups, shared storage services, and AWS Elastic Disaster Recovery for reliable recovery. 
 

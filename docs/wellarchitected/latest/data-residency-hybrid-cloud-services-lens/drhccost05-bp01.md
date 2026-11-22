@@ -1,7 +1,6 @@
 
 
 # DRHCCOST05-BP01 Monitor data transfer to and from your hybrid edge workload
-<a name="drhccost05-bp01"></a>
 
  Regularly track and analyze data transfer costs. 
 

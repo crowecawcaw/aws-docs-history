@@ -1,7 +1,6 @@
 
 
 # DRHCREL04-BP01 Due to the finite capacity of Outposts on-premises, plan ahead for required compute, storage, and network resources
-<a name="drhcrel04-bp01"></a>
 
  Proactively manage AWS Outposts capacity by planning compute, storage, and network resources to ensure high availability and optimal performance while following Well-Architected best practices. 
 

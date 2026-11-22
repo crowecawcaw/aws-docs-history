@@ -1,7 +1,6 @@
 
 
 # DRHCSUS01-BP02 Anchor your AWS Outposts to the Region that best aligns to both your cloud deployment patterns and sustainability goals
-<a name="drhcsus01-bp02"></a>
 
  You have the flexibility to anchor an AWS Outposts to any supported AWS Region and can consider anchoring to an AWS Region that helps you meet your sustainability objectives. 
 

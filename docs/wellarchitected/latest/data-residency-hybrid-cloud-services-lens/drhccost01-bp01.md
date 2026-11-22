@@ -1,7 +1,6 @@
 
 
 # DRHCCOST01-BP01 Implement a comprehensive tagging strategy for hybrid edge workloads
-<a name="drhccost01-bp01"></a>
 
  Implement cost attribution using resource tagging. 
 

@@ -1,7 +1,6 @@
 
 
 # DRHCREL05-BP04 Design your environment to maintain availability and recover in case of failure in a critical sub-system like networking, server, rack, or within the application itself
-<a name="drhcrel05-bp04"></a>
 
  You should consider the failure modes in this section when planning your Outposts and application deployments. The following sections review how to mitigate these failure modes to provide an increased level of high availability for your application environment. 
 

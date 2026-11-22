@@ -1,7 +1,6 @@
 
 
 # DRHCOPS08-BP01 Build feedback loops to adapt to changing data residency requirements
-<a name="drhcops08-bp01"></a>
 
  Data residency requirements can change over time. As AWS expands its Local Zones and Region footprint, new options may become available that allow you to move your data closer to AWS-managed infrastructure while still meeting your residency needs. 
 

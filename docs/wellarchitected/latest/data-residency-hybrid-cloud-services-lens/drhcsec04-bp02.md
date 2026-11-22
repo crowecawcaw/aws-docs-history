@@ -1,7 +1,6 @@
 
 
 # DRHCSEC04-BP02 Grant least privilege access with a strong focus on actions that enable the storage of data
-<a name="drhcsec04-bp02"></a>
 
  Restricting access to actions which store data should be a strong focus of least privilege access analysis. 
 

@@ -1,7 +1,6 @@
 
 
 # Failure management
-<a name="failure-management"></a>
 
 
 | DRHCREL05: How do you manage and recover from failure to maintain reliable data access and processing across on-premises, edge, and cloud environments? | 

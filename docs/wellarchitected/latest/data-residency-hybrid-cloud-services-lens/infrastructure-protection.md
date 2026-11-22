@@ -1,7 +1,6 @@
 
 
 # Infrastructure protection
-<a name="infrastructure-protection"></a>
 
 
 | DRHCSEC06: How do you physically secure your AWS Outposts? | 

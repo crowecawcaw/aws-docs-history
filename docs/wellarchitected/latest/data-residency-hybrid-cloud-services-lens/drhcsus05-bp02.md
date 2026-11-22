@@ -1,7 +1,6 @@
 
 
 # DRHCSUS05-BP02 Consider Amazon S3 for Outposts, or deploy a self-managed shared-file sharing solution
-<a name="drhcsus05-bp02"></a>
 
  Amazon S3 for Outposts or EBS-backed shared storage solutions which are self-managed or procured from the AWS Marketplace can be used to reduce data duplication and overall storage consumption. 
 

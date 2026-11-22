@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-sus"></a>
 +  [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/) 
 +  [AWS Migration Hub](https://aws.amazon.com/migration-hub/) 
 +  [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/) 

@@ -1,7 +1,6 @@
 
 
 # DRHCSEC02-BP02 Manage workloads with similar data residency requirements efficiently
-<a name="drhcsec02-bp02"></a>
 
  When there are at least some control policies applicable to more than one account, configuring those accounts to be with the same Organizational Units (OUs) then applying the Service control policies (SCPs) at the OU level is more efficient than applying to each account, and much better than duplicating the policy statements into multiple SCPs. 
 

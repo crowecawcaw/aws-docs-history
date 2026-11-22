@@ -1,7 +1,6 @@
 
 
 # DRHCSUS03-BP02 Monitor both workload resource utilization and Amazon EC2 instance consumption to maximize the use of AWS Outpost resources and improve sustainability
-<a name="drhcsus03-bp02"></a>
 
  Portable workloads can be migrated from AWS Regions onto unused or underutilized compute resources on AWS Outposts to minimize energy consumption and maximize the use of fixed AWS Outposts resources. 
 

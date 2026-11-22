@@ -1,7 +1,6 @@
 
 
 # DRHCSEC04-BP01 Restrict access by location of resource
-<a name="drhcsec04-bp01"></a>
 
  Specify IAM actions to restrict based on where the resource's storage of data would be located. 
 

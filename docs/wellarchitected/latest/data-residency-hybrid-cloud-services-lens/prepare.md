@@ -1,7 +1,6 @@
 
 
 # Prepare
-<a name="prepare"></a>
 
 
 | DRHCOPS04 Which operational considerations do you make when designing your data residency workloads for operations in hybrid edge? | 

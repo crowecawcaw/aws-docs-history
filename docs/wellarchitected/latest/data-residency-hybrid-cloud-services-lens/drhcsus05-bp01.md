@@ -1,7 +1,6 @@
 
 
 # DRHCSUS05-BP01 Consider using supported AWS-managed file services to minimize data duplication in Local Zones
-<a name="drhcsus05-bp01"></a>
 
  Shared file services can be implemented using AWS managed file services, AWS marketplace offerings, or even self-managed solutions to minimize data duplication for your data-residency workloads. 
 

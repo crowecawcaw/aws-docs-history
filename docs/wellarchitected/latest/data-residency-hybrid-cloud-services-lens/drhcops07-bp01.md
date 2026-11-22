@@ -1,7 +1,6 @@
 
 
 # DRHCOPS07-BP01 Use AWS services and tools for automation and infrastructure as code (IaC) across hybrid and edge environments
-<a name="drhcops07-bp01"></a>
 
  Automation helps you provide consistent deployment, configuration, and monitoring processes, even for applications and data that need to reside in specific locations due to data residency requirements. This approach improves operational efficiency, reduces errors, and facilitates governance and compliance across your hybrid and edge infrastructure.  
 

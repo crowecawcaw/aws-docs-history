@@ -1,7 +1,6 @@
 
 
 # DRHCSEC01-BP02 Document any differences in the treatment of log data into the control objectives
-<a name="drhcsec01-bp02"></a>
 
  As data residency requirements have the potential to apply to Log data, control objectives should explicitly state which data elements are subject to data residency requirements and if there is differences is requirements when stored in the form of logs. 
 

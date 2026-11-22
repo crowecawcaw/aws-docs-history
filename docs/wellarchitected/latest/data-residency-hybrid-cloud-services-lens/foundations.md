@@ -1,7 +1,6 @@
 
 
 # Foundations
-<a name="foundations"></a>
 
 
 | DRHCREL01: How do you manage Service Quotas for resources running in AWS Local Zones and AWS Outposts? | 

@@ -1,7 +1,6 @@
 
 
 # DRHCSEC10-BP01 Update your threat models to cover the accidental or malicious storage of data in unauthorized locations
-<a name="drhcsec10-bp01"></a>
 
  Threat models should include specific scenarios where the threat is data stored in unauthorized locations due to accidental storage as well as maliciously intent. 
 

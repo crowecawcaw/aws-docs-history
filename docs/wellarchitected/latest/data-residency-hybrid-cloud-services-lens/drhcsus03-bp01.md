@@ -1,7 +1,6 @@
 
 
 # DRHCSUS03-BP01 Monitor workload and component resource utilization to identify any that are unneeded or over-provisioned when using Local Zones
-<a name="drhcsus03-bp01"></a>
 
  Monitoring workload utilization is critical to identifying those which are overprovisioned and can be scaled down to reduce energy consumption. 
 

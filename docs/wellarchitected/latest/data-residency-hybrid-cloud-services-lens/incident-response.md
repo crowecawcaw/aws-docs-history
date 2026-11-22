@@ -1,7 +1,6 @@
 
 
 # Incident response
-<a name="incident-response"></a>
 
 
 | DRHCSEC09: Have your incident responders been trained on your data residency policies? | 

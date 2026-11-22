@@ -1,7 +1,6 @@
 
 
 # DRHCOPS04-BP02 Design your Outposts and Local Zone workloads to consider network connectivity
-<a name="drhcops04-bp02"></a>
 
  With the updated [shared responsibility model for Outposts](https://docs.aws.amazon.com/whitepapers/latest/applying-security-practices-to-network-workload-for-csps/the-shared-responsibility-model.html), you own the operations of the network connectivity and bandwidth. 
 

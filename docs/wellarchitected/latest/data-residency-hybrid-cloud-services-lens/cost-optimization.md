@@ -1,7 +1,6 @@
 
 
 # Cost optimization
-<a name="cost-optimization"></a>
 
  The cost optimization pillar includes the ability to use all resources to deliver business value at the lowest price point. This section provides you with an overview of design principles, best practices, and questions. You can find further implementation guidance in the [Cost Optimization Pillar whitepaper.](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) 
 

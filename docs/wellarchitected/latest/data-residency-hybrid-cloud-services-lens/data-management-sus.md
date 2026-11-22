@@ -1,7 +1,6 @@
 
 
 # Data management
-<a name="data-management-sus"></a>
 
 
 | DRHCSUS04: How do you optimize the use of AWS block and object storage to meet your sustainability goals? | 

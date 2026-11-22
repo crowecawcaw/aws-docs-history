@@ -1,7 +1,6 @@
 
 
 # DRHCSEC07-BP01 Implement network traffic inspection-based protection
-<a name="drhcsec07-bp01"></a>
 
  Set up traffic inspection points between your network layers to make sure data in transit matches the expected categories and patterns. Analyze traffic flows, metadata, and patterns to help identify, detect, and respond to events more effectively. Traffic Inspection can be implemented using EC2 instances, including those running on Outposts or Local Zones. 
 

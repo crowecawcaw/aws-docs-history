@@ -1,7 +1,6 @@
 
 
 # Data management
-<a name="data-management"></a>
 
 
 | DRHCPERF02: Is your workload modular in design such that components can be easily altered to embrace new technologies? | 

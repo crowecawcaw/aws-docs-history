@@ -1,7 +1,6 @@
 
 
 # Identity and access management
-<a name="identity-and-access-management"></a>
 
 
 | DRHCSEC03: Have you implemented controls designed to enhance your digital sovereignty governance posture? | 

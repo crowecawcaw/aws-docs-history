@@ -1,7 +1,6 @@
 
 
 # Conclusion
-<a name="conclusion"></a>
 
  The DRHC Lens provides comprehensive guidance for designing and operating Well-Architected hybrid cloud workloads with data residency requirements. By following the recommendations in this lens, organizations can unlock the full potential of [AWS Hybrid Cloud](https://aws.amazon.com/hybrid/) services while maintaining control over their data's geographic location. 
 

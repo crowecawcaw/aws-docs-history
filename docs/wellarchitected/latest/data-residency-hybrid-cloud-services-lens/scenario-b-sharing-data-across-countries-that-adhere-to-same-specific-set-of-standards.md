@@ -1,11 +1,12 @@
 
 
 # Scenario B: Sharing data across countries that adhere to same specific set of standards
-<a name="scenario-b-sharing-data-across-countries-that-adhere-to-same-specific-set-of-standards"></a>
 
  Transfer of in-scope data may be allowed to countries that adhere to the same specific set of standards (or higher) than the originating country with permissions or notification to the regulators. 
 
 ![Scenario diagram covering sharing data across countries that adhere to the same specific standards](https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/images/scenario-B.png)
+
+*Scenario B*
 
 
  This diagram shows the process of selecting a Region to store data based on its origin country: 

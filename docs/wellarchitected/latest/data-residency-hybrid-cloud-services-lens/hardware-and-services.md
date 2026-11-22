@@ -1,7 +1,6 @@
 
 
 # Hardware and services
-<a name="hardware-and-services"></a>
 
 
 | DRHCSUS06: How do you choose and update EC2 instances to support both data-residency workload and sustainability goals? | 

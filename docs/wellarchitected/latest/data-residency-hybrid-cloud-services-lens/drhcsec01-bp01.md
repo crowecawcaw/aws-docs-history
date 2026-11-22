@@ -1,7 +1,6 @@
 
 
 # DRHCSEC01-BP01 Update your control objectives to address your data residency compliance requirements
-<a name="drhcsec01-bp01"></a>
 
  Control objectives should be updated to clearly indicate where data is expected to be located due to data residency requirements. 
 

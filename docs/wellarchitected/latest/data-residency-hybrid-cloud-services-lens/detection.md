@@ -1,7 +1,6 @@
 
 
 # Detection
-<a name="detection"></a>
 
 
 | DRHCSEC05: How do you detect resources created in unauthorized locations? | 

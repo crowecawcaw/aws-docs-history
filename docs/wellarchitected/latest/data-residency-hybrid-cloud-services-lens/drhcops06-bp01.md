@@ -1,7 +1,6 @@
 
 
 # DRHCOPS06-BP01 Develop a process for each alert that you defined for your Outposts and Local Zone workloads
-<a name="drhcops06-bp01"></a>
 
  For Outposts, understand who owns different alerts. Instance-level alerts should likely be owned by the account owners, whereas application owners on those resources can stay informed. Loss of network or power should be owned by the team operating the infrastructure. 
 

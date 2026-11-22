@@ -1,7 +1,6 @@
 
 
 # Navigating data residency scenarios
-<a name="navigating-data-residency-scenarios"></a>
 
  The following scenarios are presented in order of increasing data residency constraints, from the least to the most stringent requirements. This structure is intended to help you easily identify the level of data residency requirements relevant to your needs. 
 

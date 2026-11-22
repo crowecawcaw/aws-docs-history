@@ -1,7 +1,6 @@
 
 
 # Sustainability
-<a name="sustainability"></a>
 
  The sustainability pillar includes the ability to deliver business value while minimizing resource usage, environmental impacts, and energy consumption. This section provides you with an overview of sustainability design principles, best practices, and questions. You can find implementation guidance in the [Sustainability Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html). 
 

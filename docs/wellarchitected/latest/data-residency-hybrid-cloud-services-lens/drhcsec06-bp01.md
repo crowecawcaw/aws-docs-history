@@ -1,7 +1,6 @@
 
 
 # DRHCSEC06-BP01 Restrict the number of people authorized to gain physical access to your AWS Outposts
-<a name="drhcsec06-bp01"></a>
 
  Physical access should only be provided to those who have a legitimate business need for it. 
 

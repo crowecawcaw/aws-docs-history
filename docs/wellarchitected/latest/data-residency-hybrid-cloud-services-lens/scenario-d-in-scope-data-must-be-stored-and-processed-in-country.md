@@ -1,13 +1,14 @@
 
 
 # Scenario D: In-scope data must be stored and processed in country
-<a name="scenario-d-in-scope-data-must-be-stored-and-processed-in-country"></a>
 
  In a scenario where the law mandates that data must be stored and processed within the borders of a specific country, organizations operating within that jurisdiction must adhere to strict data localization policies. 
 
  For your deployment needs, you have two options depending on the availability of Local Zones in your [location](https://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/) and the specific workloads you need to deploy, as outlined in the following diagrams: 
 
 ![Reference architecture that uses Local Zones to navigate storing and processing in-scope data inside a country](https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/images/scenario-D-local-zones.png)
+
+*Scenario D, option one: AWS Local Zones*
 
 
  The first option for deploying AWS services focuses on the use of AWS Local Zones and AWS Outposts: 
@@ -25,6 +26,8 @@
 1.  Deploy the regulated workload on the Local Zone and Outpost. 
 
 ![Reference architecture that uses Outposts to navigate storing and processing in-scope data inside a country](https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/images/scenario-D-outposts.png)
+
+*Scenario D, option two: AWS Outposts*
 
 
  The second option for deploying AWS services focuses on the use of AWS Outposts without AWS Local Zones. Follow steps 1 to 5 as above in Option 1: AWS Local Zones, and deploy the regulated workload on AWS Outposts. 

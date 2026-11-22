@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-ops"></a>
 
  **Documentation and blogs:** 
 +  [Architecting for data residency with AWS Outposts rack and landing zone guardrails](https://aws.amazon.com/blogs/compute/architecting-for-data-residency-with-aws-outposts-rack-and-landing-zone-guardrails/) 

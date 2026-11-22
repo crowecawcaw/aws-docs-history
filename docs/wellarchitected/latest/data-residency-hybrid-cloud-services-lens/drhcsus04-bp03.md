@@ -1,7 +1,6 @@
 
 
 # DRHCSUS04-BP03 Consider sustainable storage options for AWS Outposts
-<a name="drhcsus04-bp03"></a>
 
 Both Amazon S3 on Outposts and Amazon EBS provide tools for data lifecycle management, the functions of which should be considered in advance when sizing and ordering storage for an AWS Outposts.
 

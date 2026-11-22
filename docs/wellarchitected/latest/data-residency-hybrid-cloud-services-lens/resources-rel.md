@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-rel"></a>
 +  [Outposts disaster recovery and resiliency](https://docs.aws.amazon.com/outposts/latest/userguide/disaster-recovery-resiliency.html) 
 +  [AWS Outposts High Availability Design](https://docs.aws.amazon.com/whitepapers/latest/aws-outposts-high-availability-design/aws-outposts-high-availability-design.html) 
 +  [AWS Local Zones](https://docs.aws.amazon.com/local-zones/latest/ug/what-is-aws-local-zones.html) 

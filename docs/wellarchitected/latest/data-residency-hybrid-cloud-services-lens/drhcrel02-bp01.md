@@ -1,7 +1,6 @@
 
 
 # DRHCREL02-BP01 Provision redundant power and network to on-premises components
-<a name="drhcrel02-bp01"></a>
 
  To ensure high availability for AWS Outposts deployments, implement redundant power sources and network connectivity while considering multi-Outpost distribution across different Availability Zones. 
 

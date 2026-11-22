@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
  The security pillar provides guidance to help you apply best practices, current recommendations in the design, delivery, and maintenance of secure AWS workloads. While this lens focuses on preventing data storage in locations not aligned with data residency requirements, in all conceivable scenarios where data residency is required, each of the best practices identified in the [Well-Architected Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html) whitepaper also apply. 
 

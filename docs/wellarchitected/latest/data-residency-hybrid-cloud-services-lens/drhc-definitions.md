@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="drhc-definitions"></a>
 
  The following definitions are provided related to Data Residency and Hybrid Computing for AWS customers using the Well-Architected Framework. For additional information, see [AWS Glossary](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html)**.** 
 

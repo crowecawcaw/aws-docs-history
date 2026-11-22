@@ -1,7 +1,6 @@
 
 
 # DRHCCOST03-BP01: Optimize placement of running workloads
-<a name="drhccost03-bp01"></a>
 
  Select the most economical location by comparing costs. 
 

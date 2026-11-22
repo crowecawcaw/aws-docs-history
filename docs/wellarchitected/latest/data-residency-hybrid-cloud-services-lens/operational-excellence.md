@@ -1,7 +1,6 @@
 
 
 # Operational excellence
-<a name="operational-excellence"></a>
 
  Operational excellence includes the ability to support development and run workloads effectively, gain insight into their operations, and to continuously improve supporting processes and procedures to deliver business value. This section provides an overview of design principles, questions, best practices, and guidance on implementation. For more information, see [Operational Excellence Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.html). 
 

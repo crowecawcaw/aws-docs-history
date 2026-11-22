@@ -1,7 +1,6 @@
 
 
 # Organization
-<a name="organization"></a>
 
 
 | DRHCOPS01: What are the specific data residency regulations and organizational policies that apply to your hybrid edge workloads? | 

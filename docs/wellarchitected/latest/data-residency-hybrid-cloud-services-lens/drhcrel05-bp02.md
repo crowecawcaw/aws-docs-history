@@ -1,7 +1,6 @@
 
 
 # DRHCREL05-BP02 To mitigate the impact of Availability Zone or Region failures, deploy multiple Outposts anchored to different Availability Zones or Regions
-<a name="drhcrel05-bp02"></a>
 
  Design workloads across multiple AWS Outposts to ensure resilience against failures through load balancing and failover capabilities, similar to multi-AZ architectures in AWS Regions. 
 

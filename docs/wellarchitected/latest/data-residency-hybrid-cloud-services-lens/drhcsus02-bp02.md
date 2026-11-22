@@ -1,7 +1,6 @@
 
 
 # DRHCSUS02-BP02 Before ordering an AWS Outpost, engage with an AWS Outposts specialist to verify that the ordered capacity aligns with your workload requirements
-<a name="drhcsus02-bp02"></a>
 
  Care should be given to aligning AWS Outposts capacity to actual resource requirements before placing an order to avoid overprovisioning capacity that cannot be scaled down after deployment. 
 
