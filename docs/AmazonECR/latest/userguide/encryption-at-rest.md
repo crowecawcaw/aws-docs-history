@@ -1,7 +1,6 @@
 
 
 # Encryption at rest
-<a name="encryption-at-rest"></a>
 
 **Important**  
  Dual-layer server-side encryption with AWS KMS (DSSE-KMS) is only available in the AWS GovCloud (US) Regions.
@@ -32,7 +31,7 @@ The following provides a high-level understanding of how Amazon ECR is integrate
 
 1. The data key is used to decrypt the image layer before the image layer being pulled.
 
-1. When a repository is deleted, Amazon ECR sends two [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) requests to AWS KMS to retire the grants created for the repository.
+1. When a repository is deleted, Amazon ECR sends two [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) requests to AWS KMS to retire the grants that it created for the repository. If your registry uses or has used blob mounting, Amazon ECR sends these requests only after no other repository references image layers from the deleted repository. For more information about blob mounting, see [Blob mounting in Amazon ECR](blob-mounting.md).
 
 ## Considerations
 <a name="encryption-at-rest-considerations"></a>
@@ -41,7 +40,8 @@ The following points should be considered when using AWS KMS based encryption (S
 + If you create your Amazon ECR repository with KMS encryption and you do not specify a KMS key, Amazon ECR uses an AWS managed key with the alias `aws/ecr` by default. This KMS key is created in your account the first time that you create a repository with KMS encryption enabled.
 +  Repository Encryption Configuration can't be changed after a repository is created. 
 + When you use KMS encryption with your own KMS key, the key must exist in the same Region as your repository.
-+ The grants that Amazon ECR creates on your behalf should not be revoked. If you revoke the grant that gives Amazon ECR permission to use the AWS KMS keys in your account, Amazon ECR cannot access this data, encrypt new images pushed to the repository, or decrypt them when they are pulled. When you revoke a grant for Amazon ECR, the change occurs immediately. To revoke access rights, you should delete the repository rather than revoking the grant. When a repository is deleted, Amazon ECR retires the grants on your behalf.
++ The grants that Amazon ECR creates on your behalf should not be revoked. If you revoke the grant that gives Amazon ECR permission to use the AWS KMS keys in your account, Amazon ECR cannot access this data, encrypt new images pushed to the repository, or decrypt them when they are pulled. When you revoke a grant for Amazon ECR, the change occurs immediately. To revoke access rights, you should delete the repository rather than revoking the grant. When a repository is deleted, Amazon ECR retires the grants on your behalf. Don't retire or revoke the grants of a deleted repository yourself. Other repositories that reference image layers from the deleted repository through blob mounting need these grants to pull those layers.
++ Grants that Amazon ECR hasn't retired count toward the AWS KMS quota on grants for each customer managed key, including grants for deleted repositories. If you reach this quota, request a quota increase. Don't retire Amazon ECR grants to free up quota. For more information about this quota and how to request an increase, see [Quotas](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html) in the *AWS Key Management Service Developer Guide*.
 + There is a cost associated with using AWS KMS keys. For more information, see [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing/).
 + There is a cost associated with using dual-layer server-side encryption. For more information, see [Amazon ECR pricing](https://aws.amazon.com/ecr/pricing/)
 
@@ -62,7 +62,7 @@ The following example IAM policy can be added as an inline policy to a user to e
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "ecr-kms-permissions",
@@ -95,7 +95,7 @@ The following example key policy gives the AWS account (root user) that owns the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "ecr-key-policy",
@@ -127,7 +127,7 @@ The following example IAM policy can be added as an inline policy to a user to e
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "ecr-kms-permissions",
@@ -158,7 +158,7 @@ When using the Amazon ECR console to create a repository, you can grant permissi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -219,35 +219,3 @@ The Amazon ECR encryption context consists of two name-value pairs.
   ```
   "aws:ecr:arn": "arn:aws:ecr:{{us-west-2}}:{{111122223333}}:repository/{{repository-name}}"
   ```
-
-## Troubleshooting
-<a name="encryption-at-rest-troubleshooting"></a>
-
-When deleting an Amazon ECR repository with the console, if the repository is successfully deleted but Amazon ECR is unable to retire the grants added to your KMS key for your repository, you will receive the following error.
-
-```
-The repository {{[{repository-name}]}} has been deleted successfully but the grants created by the kmsKey {{[{kms_key}]}} failed to be retired
-```
-
-When this occurs, you can retire the AWS KMS grants for the repository yourself.
-
-**To retire AWS KMS grants for a repository manually**
-
-1. List the grants for the AWS KMS key used for the repository. The `key-id` value is included in the error you receive from the console. You can also use the `list-keys` command to list both the AWS managed keys and customer managed KMS keys in a specific Region in your account.
-
-   ```
-   aws kms list-grants \
-        --key-id {{b8d9ae76-080c-4043-9237-c815bfc21dfc}} 
-        --region {{us-west-2}}
-   ```
-
-   The output include an `EncryptionContextSubset` with the Amazon Resource Name (ARN) of your repository. This can be used to determine which grant added to the key is the one you want to retire. The `GrantId` value will be used when retiring the grant in the next step.
-
-1. Retire each grant for the AWS KMS key added for the repository. Replace the value for {{GrantId}} with the ID of the grant from the output of the previous step.
-
-   ```
-   aws kms retire-grant \
-        --key-id {{b8d9ae76-080c-4043-9237-c815bfc21dfc}} \
-        --grant-id {{GrantId}} \
-        --region {{us-west-2}}
-   ```

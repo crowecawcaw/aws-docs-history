@@ -1,7 +1,6 @@
 
 
 # Using Tag-Based Access Control
-<a name="ecr-supported-iam-actions-tagging"></a>
 
 The Amazon ECR `CreateRepository` API action enables you to specify tags when you create the repository. For more information, see [Tagging a private repository in Amazon ECR](ecr-using-tags.md).
 
@@ -16,7 +15,7 @@ The following policy would only allow a user to create or tag a repository as `k
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -59,7 +58,7 @@ The following policy would allow a user to pull images from all repositories unl
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

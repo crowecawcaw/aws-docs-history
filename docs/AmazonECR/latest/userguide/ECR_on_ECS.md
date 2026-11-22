@@ -1,7 +1,6 @@
 
 
 # Using Amazon ECR images with Amazon ECS
-<a name="ECR_on_ECS"></a>
 
 You can use your Amazon ECR private repositories to host container images and artifacts that your Amazon ECS tasks may pull from. For this to work, the Amazon ECS, or Fargate, container agent must have permissions to make the `ecr:BatchGetImage`, `ecr:GetDownloadUrlForLayer`, and `ecr:GetAuthorizationToken` APIs.
 
@@ -23,7 +22,7 @@ The AWS managed IAM policies contain additional permissions that you may not req
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -47,7 +46,7 @@ When creating an Amazon ECS task definition, you can specify a container image h
 
 The following task definition snippet shows the syntax you would use to specify a container image hosted in Amazon ECR in your Amazon ECS task definition.
 
-```
+```JSON
 {
     "family": "{{task-definition-name}}",
     ...

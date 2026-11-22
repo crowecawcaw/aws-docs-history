@@ -1,7 +1,6 @@
 
 
 # Deleting signatures and other artifacts from an Amazon ECR private repository
-<a name="image-artifact-delete"></a>
 
 You can use the ORAS client to list and delete signatures and other reference type artifacts from an Amazon ECR private repository. Deleting signatures and other reference artifacts is similar to how an image is deleted (see [Deleting an image in Amazon ECR](delete_image.md)). Here is how to list artifacts and delete signatures: 
 

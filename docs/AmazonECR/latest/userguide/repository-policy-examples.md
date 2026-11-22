@@ -1,7 +1,6 @@
 
 
 # Private repository policy examples in Amazon ECR
-<a name="repository-policy-examples"></a>
 
 **Important**  
 The repository policy examples on this page are meant to be applied to Amazon ECR private repositories. They will not work properly if used with an IAM principal directly unless modified to specify the Amazon ECR repository as the resource. For more information on setting repository policies, see [Setting a private repository policy statement in Amazon ECR](set-repository-policy.md).
@@ -23,7 +22,7 @@ The following repository policy allows one or more users to push and pull images
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -66,7 +65,7 @@ The account you are granting permissions to must have the Region you are creatin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -101,7 +100,7 @@ For more complicated repository policies that are not currently supported in the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -147,7 +146,7 @@ The following repository policy denies all users in all accounts the ability to 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -181,7 +180,7 @@ The `Condition` block uses the `NotIpAddress` conditions and the `aws:SourceIp` 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "{{ECRPolicyId1}}",
@@ -214,7 +213,7 @@ The following repository policy allows AWS CodeBuild access to the Amazon ECR AP
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

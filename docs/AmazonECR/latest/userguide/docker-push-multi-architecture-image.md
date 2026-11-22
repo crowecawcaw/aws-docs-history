@@ -1,7 +1,6 @@
 
 
 # Pushing a multi-architecture image to an Amazon ECR private repository
-<a name="docker-push-multi-architecture-image"></a>
 
 You can push multi-architecture images to an Amazon ECR repository by creating and pushing Docker manifest lists. A *manifest list* is a list of images that is created by specifying one or more image names. In most cases, the manifest list is created from images that serve the same function but are for different operating systems or architectures. The manifest list isn't required. For more information, see [docker manifest](https://docs.docker.com/engine/reference/commandline/manifest/).
 

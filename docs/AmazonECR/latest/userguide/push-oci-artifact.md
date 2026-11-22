@@ -1,7 +1,6 @@
 
 
 # Pushing a Helm chart to an Amazon ECR private repository
-<a name="push-oci-artifact"></a>
 
 You can push Open Container Initiative (OCI) artifacts to an Amazon ECR repository. To see an example of this functionality, use the following steps to push a Helm chart to Amazon ECR.
 
@@ -80,7 +79,7 @@ For information about using your Amazon ECR hosted Helm charts with Amazon EKS, 
 
    In the output, verify that the `artifactMediaType` parameter indicates the proper artifact type.
 
-   ```
+   ```JSON
    {
        "imageDetails": [
            {

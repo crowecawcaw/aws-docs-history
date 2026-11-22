@@ -1,7 +1,6 @@
 
 
 # Scan images for software vulnerabilities in Amazon ECR
-<a name="image-scanning"></a>
 
 Amazon ECR image scanning helps to identify software vulnerabilities in your container images. The following scanning types are offered.
 

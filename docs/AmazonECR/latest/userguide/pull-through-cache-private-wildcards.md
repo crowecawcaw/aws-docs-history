@@ -1,7 +1,6 @@
 
 
 # Customizing repository prefixes for ECR to ECR pull through cache
-<a name="pull-through-cache-private-wildcards"></a>
 
 Pull through cache rules support both the **ecr repository prefix** and the **upstream repository prefix**. The **ecr repository prefix** is the repository namespace prefix in Amazon ECR cache registry that's associated with the rule. All repositories using this prefix become pull through cache-enabled repositories for the upstream registry defined in the rule. For example, a prefix of `prod` applies to all repositories beginning with `prod/`. To apply a template to all repositories in your registry that don't have an associated pull through cache rule, use `ROOT` as the prefix.
 

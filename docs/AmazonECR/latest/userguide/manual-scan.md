@@ -1,7 +1,6 @@
 
 
 # Manually scanning an image for OS vulnerabilities in Amazon ECR
-<a name="manual-scan"></a>
 
 If your repositories aren't configured to **scan on push**, you can manually start image scans. An image can be scanned once per 24 hours. The 24 hours includes the initial scan on push, if configured, and any manual scans.
 

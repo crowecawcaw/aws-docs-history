@@ -1,7 +1,6 @@
 
 
 # Use `SetRepositoryPolicy` with an AWS SDK or CLI
-<a name="example_ecr_SetRepositoryPolicy_section"></a>
 
 The following code examples show how to use `SetRepositoryPolicy`.
 
@@ -57,7 +56,7 @@ For more information, see [Setting a private repository policy statement in Amaz
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
 
-```
+```java
     /**
      * Sets the repository policy for the specified ECR repository.
      *
@@ -119,7 +118,7 @@ For more information, see [Setting a private repository policy statement in Amaz
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
 
-```
+```kotlin
     /**
      * Sets the repository policy for the specified ECR repository.
      *
@@ -167,7 +166,7 @@ For more information, see [Setting a private repository policy statement in Amaz
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples). 
 
-```
+```python
 class ECRWrapper:
     def __init__(self, ecr_client: client):
         self.ecr_client = ecr_client
@@ -209,7 +208,7 @@ class ECRWrapper:
 ```
 Example that grants an IAM role download access.  
 
-```
+```python
     def grant_role_download_access(self, role_arn: str):
         """
         Grants the specified role access to download images from the ECR repository.
@@ -240,7 +239,7 @@ Example that grants an IAM role download access.
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_repository_name = 'my-repository'
         " iv_policy_text = '{"Version":"2012-10-17",		 	 	 "Statement":[...]}'

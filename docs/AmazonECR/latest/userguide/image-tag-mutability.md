@@ -1,7 +1,6 @@
 
 
 # Preventing image tags from being overwritten in Amazon ECR
-<a name="image-tag-mutability"></a>
 
 You can prevent image tags from being overwritten by turning on tag immutability in a repository. After tag immutability is turned on, the ` ImageTagAlreadyExistsException` error is returned if you push an image with a tag that is already in the repository. Tag immutability affects all tags. You cannot make some tags immutable while others aren't.
 

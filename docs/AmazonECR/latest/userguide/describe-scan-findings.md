@@ -1,7 +1,6 @@
 
 
 # Retrieving the findings for basic scans in Amazon ECR
-<a name="describe-scan-findings"></a>
 
 You can retrieve the scan findings for the last completed basic image scan. The software vulnerabilities that were discovered are listed by severity based on the Common Vulnerabilities and Exposures (CVEs) database.
 

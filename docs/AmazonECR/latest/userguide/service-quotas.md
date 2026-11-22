@@ -1,7 +1,6 @@
 
 
 # Amazon ECR service quotas
-<a name="service-quotas"></a>
 
 The following table provides the default service quotas for Amazon Elastic Container Registry (Amazon ECR).
 

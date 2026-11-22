@@ -1,7 +1,6 @@
 
 
 # Considerations for pull-time update exclusions
-<a name="pull-time-update-exclusions-considerations"></a>
 
 Consider the following when using pull-time update exclusions:
 + The default page size for listing exclusions is 100. You can use pagination with `maxResults` and `nextToken` parameters.

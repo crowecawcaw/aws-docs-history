@@ -1,12 +1,11 @@
 
 
 # Creating a lifecycle policy for a repository in Amazon ECR
-<a name="lp_creation"></a>
 
  Use a lifecycle policy to create a set of rules that expire or archive unused repository images. After creating a lifecycle policy, the affected images are expired or archived within 24 hours.
 
 **Note**  
-If you are using Amazon ECR replication to make copies of a repository across different Regions or accounts, note that a lifecycle policy can only take an action on repositories in the Region it was created in. Therefore, if you have replication turned on you may want to create a lifecycle policy in each Region and account you are replicating your repositories to.
+If you use Amazon ECR replication to make copies of a repository across different Regions or accounts, note that a lifecycle policy takes action only on repositories in the Region where you created it. If you enable replication of deletes for a replication rule, Amazon ECR replicates image deletions caused by a lifecycle policy in the source registry to the replication destinations. You don't need a matching lifecycle policy in each destination. If you don't enable replication of deletes, create a lifecycle policy in each Region and account you are replicating your repositories to. For more information, see [Replicating image deletions in Amazon ECR](replication-delete.md).
 
 ## Prerequisite
 <a name="lp-creation-prerequisite"></a>

@@ -1,7 +1,6 @@
 
 
 # IAM permissions required for enhanced scanning in Amazon ECR
-<a name="image-scanning-enhanced-iam"></a>
 
 Amazon ECR enhanced scanning requires an Amazon Inspector service-linked IAM role and that the IAM principal enabling and using enhanced scanning has permissions to call the Amazon Inspector APIs needed for scanning. The Amazon Inspector service-linked IAM role is created automatically by Amazon Inspector when enhanced scanning is turned on for your private registry. For more information, see [Using service-linked roles for Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/using-service-linked-roles.html) in the *Amazon Inspector User Guide*.
 
@@ -12,7 +11,7 @@ The following IAM policy grants the required permissions for enabling and using 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

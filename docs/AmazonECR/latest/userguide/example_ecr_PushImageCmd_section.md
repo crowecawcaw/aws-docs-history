@@ -1,7 +1,6 @@
 
 
 # Use `PushImageCmd` with an AWS SDK
-<a name="example_ecr_PushImageCmd_section"></a>
 
 The following code examples show how to use `PushImageCmd`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `PushImageCmd`.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
 
-```
+```java
     /**
      * Pushes a Docker image to an Amazon Elastic Container Registry (ECR) repository.
      *
@@ -62,7 +61,7 @@ The following code examples show how to use `PushImageCmd`.
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
 
-```
+```kotlin
     /**
      * Pushes a Docker image to an Amazon Elastic Container Registry (ECR) repository.
      *

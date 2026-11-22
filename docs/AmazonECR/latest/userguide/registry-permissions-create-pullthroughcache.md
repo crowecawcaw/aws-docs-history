@@ -1,7 +1,6 @@
 
 
 # Granting registry permissions for pull through cache in Amazon ECR
-<a name="registry-permissions-create-pullthroughcache"></a>
 
 Amazon ECR private registry permissions may be used to scope the permissions of individual IAM entities to use pull through cache. If an IAM entity has more permissions granted by an IAM policy than the registry permissions policy is granting, the IAM policy takes precedence.
 

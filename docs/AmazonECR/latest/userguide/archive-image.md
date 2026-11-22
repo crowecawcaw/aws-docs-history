@@ -1,7 +1,6 @@
 
 
 # Archiving an image
-<a name="archive-image"></a>
 
 You can archive images manually using the Amazon ECR console or AWS CLI, or automatically using lifecycle policies. When an image is archived:
 + The image is moved to the archival storage class.

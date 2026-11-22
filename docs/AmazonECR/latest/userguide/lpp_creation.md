@@ -1,12 +1,11 @@
 
 
 # Creating a lifecycle policy preview in Amazon ECR
-<a name="lpp_creation"></a>
 
 You can use a lifecycle policy preview to see the impact of a lifecycle policy on an image repository before you apply it. It is considered best practice to do a preview before applying a lifecycle policy to a repository.
 
 **Note**  
-If you are using Amazon ECR replication to make copies of a repository across different Regions or accounts, note that a lifecycle policy can only take an action on repositories in the Region it was created in. Therefore, if you have replication turned on you may want to create a lifecycle policy in each Region and account you are replicating your repositories to.
+If you use Amazon ECR replication to make copies of a repository across different Regions or accounts, note that a lifecycle policy takes action only on repositories in the Region where you created it. If you enable replication of deletes for a replication rule, Amazon ECR replicates image deletions caused by a lifecycle policy in the source registry to the replication destinations. You don't need a matching lifecycle policy in each destination. If you don't enable replication of deletes, create a lifecycle policy in each Region and account you are replicating your repositories to. For more information, see [Replicating image deletions in Amazon ECR](replication-delete.md).
 
 **To create a lifecycle policy preview (AWS Management Console)**
 

@@ -1,7 +1,6 @@
 
 
 # Automate the cleanup of images by using lifecycle policies in Amazon ECR
-<a name="LifecyclePolicies"></a>
 
 Amazon ECR lifecycle policies provide more control over the lifecycle management of images in a private repository. A lifecycle policy contains one or more rules, and each rule defines an action for Amazon ECR. Based on the expiration criteria in the lifecycle policy, images can be archived or expired based on the criteria specified in the lifecycle policy within 24 hours. When Amazon ECR performs an action based on a lifecycle policy, this action is captured as an event in AWS CloudTrail. For more information, see [Logging Amazon ECR actions with AWS CloudTrail](logging-using-cloudtrail.md).
 

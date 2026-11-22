@@ -1,7 +1,6 @@
 
 
 # Amazon ECR events and EventBridge
-<a name="ecr-eventbridge"></a>
 
 Amazon EventBridge enables you to automate your AWS services and to respond automatically to system events such as application availability issues or resource changes. Events from AWS services are delivered to EventBridge in near real time. You can write simple rules to indicate which events are of interest to you and include automated actions to take when an event matches a rule. The actions that can be automatically triggered include the following:
 + Adding events to log groups in CloudWatch Logs
@@ -22,7 +21,7 @@ The following are example events from Amazon ECR. Events are emitted on a best e
 
 The following event is sent when each image push is completed. For more information, see [Pushing a Docker image to an Amazon ECR private repository](docker-push-ecr-image.md).
 
-```
+```JSON
 {
     "version": "0",
     "id": "13cde686-328b-6117-af20-0e5566167482",
@@ -46,7 +45,7 @@ The following event is sent when each image push is completed. For more informat
 
 The following event is sent when a pull through cache action is attempted. For more information, see [Sync an upstream registry with an Amazon ECR private registry](pull-through-cache.md).
 
-```
+```JSON
 {
     "version": "0",
     "id": "85fc3613-e913-7fc4-a80c-a3753e4aa9ae",
@@ -77,7 +76,7 @@ When basic scanning is enabled for your registry, the following event is sent wh
 **Note**  
 For details about events that Amazon Inspector emits when enhanced scanning is enabled, see [EventBridge events sent for enhanced scanning in Amazon ECR](image-scanning-enhanced-events.md).
 
-```
+```JSON
 {
     "version": "0",
     "id": "85fc3613-e913-7fc4-a80c-a3753e4aa9ae",
@@ -106,7 +105,7 @@ For details about events that Amazon Inspector emits when enhanced scanning is e
 
 When enhanced scanning is enabled for your registry, the following event is sent by Amazon ECR when there is a change with a resource that has enhanced scanning enabled. This includes new repositories being created, the scan frequency for a repository being changed, or when images are created or deleted in repositories with enhanced scanning enabled. For more information, see [Scan images for software vulnerabilities in Amazon ECR](image-scanning.md).
 
-```
+```JSON
 {
 	"version": "0",
 	"id": "0c18352a-a4d4-6853-ef53-0ab8638973bf",
@@ -147,7 +146,7 @@ When enhanced scanning is enabled for your registry, the following event is sent
 
 The following event is sent when an image is deleted. For more information, see [Deleting an image in Amazon ECR](delete_image.md).
 
-```
+```JSON
 {
     "version": "0",
     "id": "dd3b46cb-2c74-f49e-393b-28286b67279d",
@@ -171,7 +170,7 @@ The following event is sent when an image is deleted. For more information, see 
 
 The following event is sent when an image is archived. The `target-storage-class` field will be set to `ARCHIVE`. The event includes the manifest and artifact media types to identify the type of content being archived.
 
-```
+```JSON
 {
     "version": "0",
     "id": "4f5ec4d5-4de4-7aad-a046-EXAMPLE",
@@ -197,7 +196,7 @@ The following event is sent when an image is archived. The `target-storage-class
 
 The following event is sent when an archived image is restored. The `target-storage-class` field will be set to `STANDARD`. The event includes a `last-activated-at` field showing when the image was last restored.
 
-```
+```JSON
 {
     "version": "0",
     "id": "7b8fc5e6-5ef5-8bbe-b157-EXAMPLE",
@@ -224,7 +223,7 @@ The following event is sent when an archived image is restored. The `target-stor
 
 The following event is sent when an archived referrer (reference artifact such as an SBOM, signature, or attestation) is restored. Note that the `detail-type` is `ECR Referrer Action` to distinguish it from regular image actions. The `manifest-media-type` and `artifact-media-type` fields identify the specific type of referrer being restored. In this example, an SBOM artifact is being restored.
 
-```
+```JSON
 {
     "version": "0",
     "id": "8c9gd6f7-6fg6-9ccf-c268-EXAMPLE",
@@ -251,7 +250,7 @@ The following event is sent when an archived referrer (reference artifact such a
 
 The following event is sent when each image replication is completed. For more information, see [Private image replication in Amazon ECR](replication.md).
 
-```
+```JSON
 {
   "version": "0",
   "id": "c8b133b1-6029-ee73-e2a1-4f466b8ba999",
@@ -275,11 +274,37 @@ The following event is sent when each image replication is completed. For more i
 }
 ```
 
+**Event for a completed replicated image deletion**
+
+The following event is sent in the destination Region when a replicated image deletion or image tag removal is completed for a replication rule that has replication of deletes enabled. For a deletion by digest, `image-tag` is an empty string. For a tag removal, `image-tag` carries the removed tag and `image-digest` carries the resolved digest. For more information, see [Private image replication in Amazon ECR](replication.md).
+
+```JSON
+{
+  "version": "0",
+  "id": "0123456a-0123-0123-0123-012345678901",
+  "detail-type": "ECR Replication Action",
+  "source": "aws.ecr",
+  "account": "{{123456789012}}",
+  "time": "2026-11-16T21:36:03Z",
+  "region": "{{us-west-2}}",
+  "resources": [],
+  "detail": {
+    "result": "SUCCESS",
+    "repository-name": "{{my-repo}}",
+    "image-digest": "{{sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}}",
+    "action-type": "REPLICATE_DELETE",
+    "source-account": "{{123456789012}}",
+    "source-region": "{{us-east-1}}",
+    "image-tag": "{{latest}}"
+  }
+}
+```
+
 **Event for a replication backfill**
 
 The following event is sent when a replication backfill enters a terminal status (`COMPLETE`, `FAILED`, or `STOPPED`). For more information, see [Replication backfill](replication-backfill.md).
 
-```
+```JSON
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",

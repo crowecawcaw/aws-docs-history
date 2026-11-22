@@ -1,7 +1,6 @@
 
 
 # How Amazon Elastic Container Registry works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Amazon ECR, you should understand what IAM features are available to use with Amazon ECR. To get a high-level view of how Amazon ECR and other AWS services work with IAM, see [AWS Services That Work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
@@ -27,7 +26,7 @@ Policy actions in Amazon ECR use the following prefix before the action: `ecr:`.
 
 To specify multiple actions in a single statement, separate them with commas as follows:
 
-```
+```JSON
 "Action": [
       "ecr:action1",
       "ecr:action2"
@@ -35,7 +34,7 @@ To specify multiple actions in a single statement, separate them with commas as 
 
 You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `Describe`, include the following action:
 
-```
+```JSON
 "Action": "ecr:Describe*"
 ```
 
@@ -58,7 +57,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 
 An Amazon ECR repository resource has the following ARN:
 
-```
+```JSON
 arn:${Partition}:ecr:${Region}:${Account}:repository/${Repository-name}
 ```
 
@@ -66,19 +65,19 @@ For more information about the format of ARNs, see [Amazon Resource Names (ARNs)
 
 For example, to specify the `my-repo` repository in the `us-east-1` Region in your statement, use the following ARN:
 
-```
+```JSON
 "Resource": "arn:aws:ecr:{{us-east-1}}:{{123456789012}}:repository/my-repo"
 ```
 
 To specify all repositories that belong to a specific account, use the wildcard (\*):
 
-```
+```JSON
 "Resource": "arn:aws:ecr:{{us-east-1}}:{{123456789012}}:repository/*"
 ```
 
 To specify multiple resources in a single statement, separate the ARNs with commas. 
 
-```
+```JSON
 "Resource": [
       "resource1",
       "resource2"

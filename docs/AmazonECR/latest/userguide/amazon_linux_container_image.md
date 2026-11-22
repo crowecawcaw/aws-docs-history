@@ -1,7 +1,6 @@
 
 
 # Pulling the Amazon Linux container image
-<a name="amazon_linux_container_image"></a>
 
 The Amazon Linux container image is built from the same software components that are included in the Amazon Linux AMI. The Amazon Linux container image is available for use in any environment as a base image for Docker workloads. If you use the Amazon Linux AMI for applications in Amazon EC2, you can containerize your applications with the Amazon Linux container image.
 

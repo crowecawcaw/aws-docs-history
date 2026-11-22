@@ -1,7 +1,6 @@
 
 
 # Use `PutLifeCyclePolicy` with an AWS SDK or CLI
-<a name="example_ecr_PutLifeCyclePolicy_section"></a>
 
 The following code examples show how to use `PutLifeCyclePolicy`.
 
@@ -56,7 +55,7 @@ For more information, see [Lifecycle Policies](https://docs.aws.amazon.com/Amazo
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples). 
 
-```
+```python
 class ECRWrapper:
     def __init__(self, ecr_client: client):
         self.ecr_client = ecr_client
@@ -95,7 +94,7 @@ class ECRWrapper:
 ```
 Example that puts an expiration date policy.  
 
-```
+```python
     def put_expiration_policy(self):
         """
         Puts an expiration policy on the ECR repository.
@@ -128,7 +127,7 @@ Example that puts an expiration date policy.
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_repository_name = 'my-repository'
         " iv_lifecycle_policy_text = '{"rules":[{"rulePriority":1,"description":"Expire images older than 14 days",...}]}'

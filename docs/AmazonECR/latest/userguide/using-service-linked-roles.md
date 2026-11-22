@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Amazon ECR
-<a name="using-service-linked-roles"></a>
 
 Amazon Elastic Container Registry (Amazon ECR) uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role) to provide the permissions necessary to use the replication and pull through cache features. A service-linked role is a unique type of IAM role that is linked directly to Amazon ECR. The service-linked role is predefined by Amazon ECR. It includes all of the permissions that the service requires to support the replication and pull through cache features for your private registry. After you configure replication or pull through cache for your registry, a service-linked role is created automatically on your behalf. For more information, see [Private registry settings in Amazon ECR](registry-settings.md).
 

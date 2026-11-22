@@ -1,7 +1,6 @@
 
 
 # Use `DescribeImages` with an AWS SDK or CLI
-<a name="example_ecr_DescribeImages_section"></a>
 
 The following code examples show how to use `DescribeImages`.
 
@@ -47,7 +46,7 @@ For more information, see [Viewing image details in Amazon ECR](https://docs.aws
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
 
-```
+```java
     /**
      * Verifies the existence of an image in an Amazon Elastic Container Registry (Amazon ECR) repository asynchronously.
      *
@@ -94,7 +93,7 @@ For more information, see [Viewing image details in Amazon ECR](https://docs.aws
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
 
-```
+```kotlin
     /**
      * Verifies the existence of an image in an Amazon Elastic Container Registry (Amazon ECR) repository asynchronously.
      *
@@ -136,7 +135,7 @@ For more information, see [Viewing image details in Amazon ECR](https://docs.aws
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples). 
 
-```
+```python
 class ECRWrapper:
     def __init__(self, ecr_client: client):
         self.ecr_client = ecr_client
@@ -189,7 +188,7 @@ class ECRWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_repository_name = 'my-repository'
         " it_image_ids = VALUE #( ( NEW /aws1/cl_ecrimageidentifier( iv_imagetag = 'latest' ) ) )

@@ -1,11 +1,10 @@
 
 
 # Granting registry permissions for cross account replication in Amazon ECR
-<a name="registry-permissions-create-replication"></a>
 
 The cross account policy type is used to grant permissions to an AWS principal, allowing the replication of the repositories from a source registry to your registry. By default, you have permission to configure cross-Region replication within your own registry. You only need to configure the registry policy if you're granting another account permission to replicate contents to your registry.
 
-A registry policy must grant permission for the `ecr:ReplicateImage` API action. This API is an internal Amazon ECR API that can replicate images between Regions or accounts. You can also grant permission for the ` ecr:CreateRepository` permission, which allows Amazon ECR to create repositories in your registry if they don't exist already. If the `ecr:CreateRepository` permission isn't provided, a repository with the same name as the source repository must be created manually in your registry. If neither is done, replication fails. Any failed `CreateRepository` or `ReplicateImage` API actions show up in CloudTrail.
+Your registry policy must grant permission for the `ecr:ReplicateImage` API action. When you enable replication of deletes for a replication rule, your registry policy must also grant permission for the `ecr:ReplicateImageDelete` API action. These are internal Amazon ECR APIs that can replicate images, image deletions, and image tag removals between Regions or accounts. You can also grant permission for the ` ecr:CreateRepository` permission, which allows Amazon ECR to create repositories in your registry if they don't exist already. If the `ecr:CreateRepository` permission isn't provided, a repository with the same name as the source repository must be created manually in your registry. If neither is done, replication fails. Any failed `CreateRepository`, `ReplicateImage`, or `ReplicateImageDelete` API actions show up in CloudTrail.
 
 ## To configure a permissions policy for replication (AWS Management Console)
 <a name="registry-permissions-create-console"></a>
@@ -38,7 +37,7 @@ A registry policy must grant permission for the `ecr:ReplicateImage` API action.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement":[

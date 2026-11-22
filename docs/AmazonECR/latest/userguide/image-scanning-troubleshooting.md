@@ -1,7 +1,6 @@
 
 
 # Troubleshooting image scanning in Amazon ECR
-<a name="image-scanning-troubleshooting"></a>
 
 The following are common image scan failures. You can view errors like this in the Amazon ECR console by displaying the image details or through the API or AWS CLI by using the ` DescribeImageScanFindings` API.
 

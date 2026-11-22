@@ -1,7 +1,6 @@
 
 
 # Validating pull through cache rules in Amazon ECR
-<a name="pull-through-cache-working-validating"></a>
 
 After you create a pull through cache rule, for upstream registries that require authentication you can validate that the rule works properly. When validating a pull through cache rule, Amazon ECR makes a network connection with the upstream registry, verifies that it can access the Secrets Manager secret containing the credentials for the upstream registry, and verifies that authentication was successful.
 

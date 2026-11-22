@@ -1,7 +1,6 @@
 
 
 # Private registry permissions in Amazon ECR
-<a name="registry-permissions"></a>
 
  Amazon ECR uses a **registry policy** to grant permissions to an AWS principal at the private registry level.
 

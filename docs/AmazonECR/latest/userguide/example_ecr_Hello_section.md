@@ -1,7 +1,6 @@
 
 
 # Hello Amazon ECR
-<a name="example_ecr_Hello_section"></a>
 
 The following code examples show how to get started using Amazon ECR.
 
@@ -11,7 +10,7 @@ The following code examples show how to get started using Amazon ECR.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.ecr.EcrClient;
 import software.amazon.awssdk.services.ecr.model.EcrException;
@@ -60,7 +59,7 @@ public class HelloECR {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
 
-```
+```kotlin
 import aws.sdk.kotlin.services.ecr.EcrClient
 import aws.sdk.kotlin.services.ecr.model.ListImagesRequest
 import kotlin.system.exitProcess
@@ -105,7 +104,7 @@ suspend fun listImageTags(repoName: String?) {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples). 
 
-```
+```python
 import boto3
 import argparse
 from boto3 import client

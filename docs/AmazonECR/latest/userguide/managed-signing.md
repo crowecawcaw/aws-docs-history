@@ -1,7 +1,6 @@
 
 
 # Managed signing
-<a name="managed-signing"></a>
 
 Amazon ECR managed signing automatically signs your container images by generating cryptographic signatures using [AWS Signer](https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html) when images are pushed to Amazon ECR. This eliminates the need to install and configure client-side tools and allows you to centrally govern signing as a registry configuration.
 
@@ -14,7 +13,7 @@ Before you can configure managed signing, you must have the following:
 + **A Signer signing profile** — Create at least one Signer [signing profile](https://docs.aws.amazon.com/signer/latest/developerguide/signing-profiles.html). A signing profile is a unique AWS Signer resource that you can use to perform signing operations in Amazon ECR. Signing profiles enable you to sign and verify code artifacts, such as container images and AWS Lambda deployment bundles. Each signing profile designates the signing platform to sign for, a platform ID, and other platform-specific information. For example, a signing profile ARN looks like this: `arn:{{partition}}:signer:{{region}}:{{account-id}}:/signing-profiles/{{profile-name}}`.
 + **IAM permissions** — The IAM principal that pushes the image must have the necessary IAM permissions to access the relevant Signer signing profile and the relevant ECR repository. You need to modify the identity-based policy for the IAM principal to include permissions for both ECR repository operations and Signer signing operations. The following example policy shows the required permissions:
 
-```
+```JSON
 {
    "Version": "2012-10-17",		 	 	 
    "Statement": [
@@ -78,7 +77,7 @@ Use the following AWS CLI commands to configure managed signing.
 
   Create a signing configuration with your signing profile ARN. Create a JSON file with the following contents:
 
-  ```
+  ```JSON
   {
       "rules": [ 
           { 

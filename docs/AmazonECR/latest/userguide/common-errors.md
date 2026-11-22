@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon ECR error messages
-<a name="common-errors"></a>
 
 In some cases, an API call that you have initiated through the Amazon ECR console or the AWS CLI exits with an error message. Some common error messages and potential solutions are explained below. 
 

@@ -1,7 +1,6 @@
 
 
 # Scan images for OS vulnerabilities in Amazon ECR
-<a name="image-scanning-basic"></a>
 
 Amazon ECR basic scanning uses AWS native technology to scan your container images for software vulnerabilities. Basic scanning provides vulnerability detection across a broad set of popular operating systems, sourcing more than 50 data feeds to generate findings for common vulnerabilities and exposures (CVEs). These sources include vendor security advisories, data feeds, threat intelligence feeds, as well as the National Vulnerability Database (NVD) and MITRE.
 

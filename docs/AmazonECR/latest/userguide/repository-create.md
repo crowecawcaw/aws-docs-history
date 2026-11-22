@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon ECR private repository to store images
-<a name="repository-create"></a>
 
 **Important**  
 Dual-layer server-side encryption with AWS KMS (DSSE-KMS) is only available in the AWS GovCloud (US) Regions. 

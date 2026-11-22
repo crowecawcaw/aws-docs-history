@@ -1,7 +1,6 @@
 
 
 # Adding tags to a private repository in Amazon ECR
-<a name="adding-tags-repositories"></a>
 
 You can add tags to a private repository.
 

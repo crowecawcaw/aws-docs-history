@@ -1,7 +1,6 @@
 
 
 # Configuring private image replication in Amazon ECR
-<a name="registry-settings-configure"></a>
 
 Configure replication per Region for your private registry. You can configure cross-Region replication or cross-account replication.
 
@@ -30,12 +29,14 @@ For cross-account replication to occur, the destination account must configure a
 
 1. (Optional) On the **Add filters** page, specify one or more filters for the replication rule and then choose **Add**. Repeat this step for each filter you want to associate with the replication action. A filter must be specified as a repository name prefix. If no filters are added, the contents of all repositories are replicated. Choose **Next** once all filters have been added.
 
+1. (Optional) For **Delete replication**, choose whether to replicate image deletions and image tag removals to the destinations for this rule. By default, Amazon ECR doesn't replicate deletions. For more information, see [Replicating image deletions in Amazon ECR](replication-delete.md).
+
 1. On the **Review and submit** page, review the replication rule configuration and then choose **Submit rule**.
 
 ## To configure registry replication settings (AWS CLI)
 <a name="registry-settings-configure-cli"></a>
 
-1. Create a JSON file containing the replication rules to define for your registry. A replication configuration may contain up to 10 rules, with up to 25 unique destinations across all rules and 100 filters per each rule. To configure cross-Region replication within your own account, you specify your own account ID. For more examples, see [Private image replication examples for Amazon ECR](registry-settings-examples.md).
+1. Create a JSON file containing the replication rules to define for your registry. A replication configuration may contain up to 10 rules, with up to 25 unique destinations across all rules and 100 filters per each rule. To configure cross-Region replication within your own account, you specify your own account ID. To enable replication of deletes for the rule, include the `deleteReplication` parameter with `enabled` set to `true`. For more examples, see [Private image replication examples for Amazon ECR](registry-settings-examples.md).
 
    ```
    {
@@ -47,7 +48,10 @@ For cross-account replication to occur, the destination account must configure a
    		"repositoryFilters": [{
    			"filter": "{{repository_prefix_name}}",
    			"filterType": "PREFIX_MATCH"
-   		}]
+   		}],
+   		"deleteReplication": {
+   			"enabled": true
+   		}
    	}]
    }
    ```

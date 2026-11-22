@@ -1,7 +1,6 @@
 
 
 # Troubleshooting pull through cache issues in Amazon ECR
-<a name="error-pullthroughcache"></a>
 
 When pulling an upstream image using a pull through cache rule, the following are the most common errors you may receive.
 

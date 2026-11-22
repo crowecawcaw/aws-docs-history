@@ -1,7 +1,6 @@
 
 
 # Creating a repository creation template in Amazon ECR
-<a name="repository-creation-templates-create"></a>
 
 You can create a repository creation template to define the settings to use for repositories created by Amazon ECR on your behalf during pull through cache, create on push, or replication actions. Once the repository creation template is created, all new repositories created will have the settings applied. This doesn't have any effect on any previously created repositories.
 
@@ -94,7 +93,7 @@ The [create-repository-creation-template](https://docs.aws.amazon.com/cli/latest
 
    The output of the command displays the full syntax of the repository creation template. 
 
-   ```
+   ```JSON
    {
    "appliedFor":[""], // string array, but valid are PULL_THROUGH_CACHE, CREATE_ON_PUSH, and REPLICATION
    "prefix": "string",
@@ -122,7 +121,7 @@ The [create-repository-creation-template](https://docs.aws.amazon.com/cli/latest
 
 1. Create a file named `repository-creation-template.json` with the output of the previous step. This template sets a KMS encryption key for any repository created under `prod/*` with a repository policy that enables pushing and pulling images to future repositories, sets a lifecycle policy that will expire images older than two weeks and sets a custom role that will let ECR access the KMS key and assign the resource tag `examplekey` to future repositories.
 
-   ```
+   ```JSON
    {
    "prefix": "prod",
        "description": "For repositories cached from my PTC rule and in my replication configuration that start with 'prod/'",

@@ -1,7 +1,6 @@
 
 
 # Private registry policy examples for Amazon ECR
-<a name="registry-permissions-examples"></a>
 
 The following examples show registry permissions policy statements that you could use to control the permissions that users have to your Amazon ECR registry.
 
@@ -22,7 +21,7 @@ Note the following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -56,7 +55,7 @@ The following registry permissions policy has two statements. Each statement all
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -104,7 +103,7 @@ The following registry permissions policy allows all IAM principals (users and r
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[

@@ -1,7 +1,6 @@
 
 
 # Viewing the contents and details of a private repository in Amazon ECR
-<a name="repository-info"></a>
 
 After you created a private repository, you can view details about the repository in the AWS Management Console:
 + Which images are stored in a repository

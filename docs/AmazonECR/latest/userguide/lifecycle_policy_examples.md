@@ -1,7 +1,6 @@
 
 
 # Examples of lifecycle policies in Amazon ECR
-<a name="lifecycle_policy_examples"></a>
 
 The following are example lifecycle policies showing the syntax.
 

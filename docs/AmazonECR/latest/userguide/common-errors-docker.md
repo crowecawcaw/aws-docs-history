@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Docker commands and issues when using Amazon ECR
-<a name="common-errors-docker"></a>
 
 In some cases, running a Docker command against Amazon ECR might result in an error message. Some common error messages and potential solutions are explained below.
 

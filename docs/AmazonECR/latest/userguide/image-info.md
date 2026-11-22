@@ -1,7 +1,6 @@
 
 
 # Viewing image details in Amazon ECR
-<a name="image-info"></a>
 
 After you push an image to your repository, you can view information about it. The details included are as follows:
 + Image URI

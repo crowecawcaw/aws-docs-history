@@ -1,7 +1,6 @@
 
 
 # Private image replication examples for Amazon ECR
-<a name="registry-settings-examples"></a>
 
 The following examples show common use cases for private image replication. If you configure replication by using the AWS CLI, you can use the JSON examples as a starting point when you create your JSON file. If you configure replication by using the AWS Management Console, you will see similar JSON when you review your replication rule on the **Review and submit** page.
 
@@ -10,7 +9,7 @@ The following examples show common use cases for private image replication. If y
 
 The following shows an example for configuring cross-Region replication within a single registry. This example assumes that your account ID is ` 111122223333` and that you're specifying this replication configuration in a Region other than `us-west-2`.
 
-```
+```JSON
 {
     "rules": [
         {
@@ -30,7 +29,7 @@ The following shows an example for configuring cross-Region replication within a
 
 The following shows an example for configuring cross-Region replication for repositories that match a prefix name value. This example assumes your account ID is ` 111122223333` and that you're specifying this replication configuration in a Region other than `us-west-1` and have repositories with a prefix of `prod`.
 
-```
+```JSON
 {
 	"rules": [{
 		"destinations": [{
@@ -50,7 +49,7 @@ The following shows an example for configuring cross-Region replication for repo
 
 The following shows an example for configuring cross-Region replication within a single registry. This example assumes your account ID is ` 111122223333` and that you're specifying this replication configuration in a Region other than `us-west-1` or `us-west-2` .
 
-```
+```JSON
 {
     "rules": [
         {
@@ -77,7 +76,7 @@ The following shows an example for configuring cross-account replication for you
 **Important**  
 For cross-account replication to occur, the destination account must configure a registry permissions policy to allow replication to occur. For more information, see [Private registry permissions in Amazon ECR](registry-permissions.md).
 
-```
+```JSON
 {
     "rules": [
         {
@@ -97,7 +96,7 @@ For cross-account replication to occur, the destination account must configure a
 
 The following shows an example for configuring multiple replication rules for your registry. This example configures replication for the {{ 111122223333}} account with one rule that replicates repositories with a prefix of `prod` to the `us-west-2` Region and repositories with a prefix of `test` to the `us-east-2` Region. A replication configuration may contain up to 25 rules, with each rule specifying up to 25 destinations.
 
-```
+```JSON
 {
 	"rules": [{
 			"destinations": [{
@@ -123,16 +122,39 @@ The following shows an example for configuring multiple replication rules for yo
 }
 ```
 
+## Example: Replication rule with replication of deletes enabled
+<a name="registry-settings-examples-delete-replication"></a>
+
+The following example shows a replication rule that replicates image deletions and image tag removals to the destination. If you don't specify `deleteReplication`, the service does not replicate image deletions or image tag removals for the replication rule. For more information, see [Replicating image deletions in Amazon ECR](replication-delete.md).
+
+```JSON
+{
+    "rules": [
+        {
+            "destinations": [
+                {
+                    "region": "{{us-west-2}}",
+                    "registryId": "{{111122223333}}"
+                }
+            ],
+            "deleteReplication": {
+                "enabled": true
+            }
+        }
+    ]
+}
+```
+
 ## Example: Removing all replication settings
 <a name="registry-settings-examples-remove"></a>
 
 The following shows an example for removing all replication settings from your registry. To remove replication settings, you must configure an empty rules array.
 
-```
+```JSON
 {
     "rules": []
 }
 ```
 
 **Important**  
-Removing replication settings does not delete any previously replicated repositories or images. You must manually delete replicated content if it is no longer needed.
+Removing replication settings does not delete any previously replicated repositories or images. You must manually delete replicated content if it is no longer needed. Removing replication settings also stops replication of deletes. Images and tags already replicated or removed aren't affected.

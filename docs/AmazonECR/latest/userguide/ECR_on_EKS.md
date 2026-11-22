@@ -1,7 +1,6 @@
 
 
 # Using Amazon ECR Images with Amazon EKS
-<a name="ECR_on_EKS"></a>
 
 You can use your Amazon ECR images with Amazon EKS.
 
@@ -18,7 +17,7 @@ If you have Amazon EKS workloads hosted on managed nodes, self-managed nodes, or
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

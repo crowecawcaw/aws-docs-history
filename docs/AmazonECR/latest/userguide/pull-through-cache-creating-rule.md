@@ -1,7 +1,6 @@
 
 
 # Creating a pull through cache rule in Amazon ECR
-<a name="pull-through-cache-creating-rule"></a>
 
 For each upstream registry containing images that you want to cache in your Amazon ECR private registry, you must create a pull through cache rule.
 
@@ -379,7 +378,7 @@ aws ecr create-pull-through-cache-rule \
 ### For Amazon ECR private registry from another AWS account
 <a name="w2aac30c27c11b7c17"></a>
 
-The following example creates a pull through cache rule for the Amazon ECR private registry for cross-Region within the same AWS account. It specifies a repository prefix of `ecr`, which results in each repository created using the pull through cache rule to have the naming scheme of `ecr/{{upstream-repository-name}}`. You must specify the full Amazon Resource Name (ARN) of the IAM role with the permissions created in [Creating a pull through cache rule in Amazon ECR](#pull-through-cache-creating-rule).
+The following example creates a pull through cache rule for the Amazon ECR private registry for cross-Region within the same AWS account. It specifies a repository prefix of `ecr`, which results in each repository created using the pull through cache rule to have the naming scheme of `ecr/{{upstream-repository-name}}`. You must specify the full Amazon Resource Name (ARN) of the IAM role with the permissions created in [Creating a pull through cache rule in Amazon ECR](pull-through-cache-creating-rule.md).
 
 ```
 aws ecr create-pull-through-cache-rule \

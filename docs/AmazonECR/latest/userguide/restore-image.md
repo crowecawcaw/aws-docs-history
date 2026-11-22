@@ -1,7 +1,6 @@
 
 
 # Restoring an image
-<a name="restore-image"></a>
 
 When you restore an archived image, it is moved from the ECR Archive storage class back to the ECR Standard storage class. Restored images are charged at the standard storage rates. The restore process performs similar actions that occur when a new image is created:
 + The image becomes available for pulling when the restore is complete. Restore typically takes up to 20 minutes, though it may complete faster.

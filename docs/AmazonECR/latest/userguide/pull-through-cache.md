@@ -1,7 +1,6 @@
 
 
 # Sync an upstream registry with an Amazon ECR private registry
-<a name="pull-through-cache"></a>
 
 Using pull through cache rules, you can sync the contents of an upstream registry with your Amazon ECR private registry.
 

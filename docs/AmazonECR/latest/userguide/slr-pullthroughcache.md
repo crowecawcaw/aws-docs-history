@@ -1,7 +1,6 @@
 
 
 # Amazon ECR service-linked role for pull through cache
-<a name="slr-pullthroughcache"></a>
 
 Amazon ECR uses a service-linked role named **AWSServiceRoleForECRPullThroughCache** which gives permission for Amazon ECR to perform actions on your behalf to complete pull through cache actions. For more information about pull through cache, see [Templates to control repositories created during a pull through cache, create on push, or replication action](repository-creation-templates.md).
 
@@ -24,7 +23,7 @@ The `AWSECRPullThroughCache_ServiceRolePolicy` policy contains the following JSO
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # IAM permissions for pushing an image to an Amazon ECR private repository
-<a name="image-push-iam"></a>
 
 Users need IAM permissions to push images to Amazon ECR private repositories. Following the best practice of granting least privilege, you can grant access to a specific repository. You can also grant access to all repositories.
 
@@ -14,7 +13,7 @@ You can also create a your own IAM policies. The following IAM policy grants the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

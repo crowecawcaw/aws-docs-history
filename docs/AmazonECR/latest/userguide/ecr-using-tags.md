@@ -1,7 +1,6 @@
 
 
 # Tagging a private repository in Amazon ECR
-<a name="ecr-using-tags"></a>
 
 To help you manage your Amazon ECR repositories, you can assign your own metadata to new or existing Amazon ECR repositories by using AWS resource *tags*. For example, you could define a set of tags for your account's Amazon ECR repositories that helps you track the owner of each repository.
 

@@ -1,7 +1,6 @@
 
 
 # Templates to control repositories created during a pull through cache, create on push, or replication action
-<a name="repository-creation-templates"></a>
 
 Use Amazon ECR repository creation templates to define the settings for repositories created by Amazon ECR on your behalf. The settings in a repository creation template are only applied during repository creation and don't have any effect on existing repositories or repositories created using any other method. Currently, repository creation templates can be used to apply settings during repository creation for these features:
 + Pull through cache

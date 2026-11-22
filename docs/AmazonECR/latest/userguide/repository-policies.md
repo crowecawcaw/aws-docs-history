@@ -1,7 +1,6 @@
 
 
 # Private repository policies in Amazon ECR
-<a name="repository-policies"></a>
 
 Amazon ECR uses resource-based permissions to control access to repositories. Resource-based permissions let you specify which users or roles have access to a repository and what actions they can perform on the repository. By default, only the AWS account that created the repository has access to the repository. You can apply a repository policy that allows additional access to your repository.
 
@@ -29,7 +28,7 @@ This example shows an Amazon ECR repository policy, which allows for a specific 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -56,7 +55,7 @@ This example shows an IAM policy that achieves the same goal as above, by scopin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

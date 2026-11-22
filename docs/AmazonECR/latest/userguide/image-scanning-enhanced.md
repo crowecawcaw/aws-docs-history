@@ -1,7 +1,6 @@
 
 
 # Scan images for OS and programming language package vulnerabilities in Amazon ECR
-<a name="image-scanning-enhanced"></a>
 
 Amazon ECR enhanced scanning is an integration with Amazon Inspector which provides vulnerability scanning for your container images. Your container images are scanned for both operating systems and programming language package vulnerabilities. You can view the scan findings with both Amazon ECR and with Amazon Inspector directly. For more information about Amazon Inspector, see [Scanning container images with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/enable-disable-scanning-ecr.html) in the *Amazon Inspector User Guide*.
 

@@ -1,9 +1,11 @@
 
 
 # Deleting an image in Amazon ECR
-<a name="delete_image"></a>
 
 If you're finished using an image, you can delete it from your repository. If you're finished with a repository, you can delete the entire repository and all of the images within it. For more information, see [Deleting a private repository in Amazon ECR](repository-delete.md).
+
+**Note**  
+If you enable replication of deletes for a replication rule that matches the repository, Amazon ECR replicates image deletions and image tag removals from the source registry to the replication destinations. For more information, see [Replicating image deletions in Amazon ECR](replication-delete.md).
 
 As an alternative to deleting images manually, you can create repository lifecycle policies which provide more control over the lifecycle management of images in your repositories. Lifecycle policies automate this process for you. For more information, see [Automate the cleanup of images by using lifecycle policies in Amazon ECR](LifecyclePolicies.md).
 

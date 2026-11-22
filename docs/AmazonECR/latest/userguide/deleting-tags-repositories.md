@@ -1,7 +1,6 @@
 
 
 # Deleting tags from a private repository in Amazon ECR
-<a name="deleting-tags-repositories"></a>
 
 You can delete tags from a private repository.
 

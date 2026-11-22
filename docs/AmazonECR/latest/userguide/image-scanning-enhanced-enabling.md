@@ -1,7 +1,6 @@
 
 
 # Configuring enhanced scanning for images in Amazon ECR
-<a name="image-scanning-enhanced-enabling"></a>
 
 Configure enhanced scanning per Region for your private registry.
 

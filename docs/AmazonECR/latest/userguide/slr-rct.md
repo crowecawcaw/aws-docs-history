@@ -1,7 +1,6 @@
 
 
 # Amazon ECR service-linked role for repository creation templates
-<a name="slr-rct"></a>
 
 Amazon ECR uses a service-linked role named **AWSServiceRoleForECRTemplate** which gives permission for Amazon ECR to perform actions on your behalf to complete repository creation template actions.
 
@@ -22,7 +21,7 @@ The `ECRTemplateServiceRolePolicy` policy contains the following JSON.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Logging Amazon ECR actions with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon ECR is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, a role, or an AWS service in Amazon ECR. CloudTrail captures the following Amazon ECR actions as events:
 + All API calls, including calls from the Amazon ECR console
@@ -64,7 +63,7 @@ The **sourceIPAddress** is the IP address that the request was made from. For ac
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateRepository` action.
 
-```
+```JSON
 {
     "eventVersion": "1.04",
     "userIdentity": {
@@ -123,7 +122,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 
 The following example shows a CloudTrail log entry that demonstrates the AWS KMS `CreateGrant` action when creating an Amazon ECR repository with KMS encryption enabled. For each repository that is created with KMS encryption is enabled, you should see two `CreateGrant` log entries in CloudTrail.
 
-```
+```JSON
 {
     "eventVersion": "1.05",
     "userIdentity": {
@@ -193,7 +192,7 @@ The following example shows a CloudTrail log entry that demonstrates an image pu
 **Note**  
 When pushing an image, you will also see `InitiateLayerUpload`, `UploadLayerPart`, and `CompleteLayerUpload` references in the CloudTrail logs.
 
-```
+```JSON
 {
     "eventVersion": "1.04",
     "userIdentity": {
@@ -252,7 +251,7 @@ The following example shows a CloudTrail log entry that demonstrates an image pu
 **Note**  
 When pulling an image, if you don't already have the image locally, you will also see `GetDownloadUrlForLayer` references in the CloudTrail logs.
 
-```
+```JSON
 {
     "eventVersion": "1.04",
     "userIdentity": {
@@ -312,7 +311,7 @@ When you test a lifecycle policy preview, Amazon ECR generates a CloudTrail log 
 **Important**  
 Due to the size limitations of individual CloudTrail events, for lifecycle policy actions where 10 or more images are expired Amazon ECR sends multiple events to CloudTrail. Additionally, Amazon ECR includes a maximum of 100 tags per image.
 
-```
+```JSON
 {
     "eventVersion": "1.05",
     "userIdentity": {
@@ -404,7 +403,7 @@ Due to the size limitations of individual CloudTrail events, for lifecycle polic
 
 The following example shows a CloudTrail log entry that demonstrates an image being archived using the `UpdateImageStorageClass` action with `targetStorageClass` set to `ARCHIVE`.
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -472,7 +471,7 @@ The following examples show CloudTrail log entries that demonstrate an image bei
 
 The following example shows the initial API call to restore an image using the `UpdateImageStorageClass` action with `targetStorageClass` set to `STANDARD`. The response shows the image status as `ACTIVATING`.
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -531,7 +530,7 @@ The following example shows the initial API call to restore an image using the `
 
 The following example shows the service event generated when the asynchronous restore operation completes. This event type can be located by filtering for `ImageActivationEvent` for the event name field. The `serviceEventDetails` section contains the restore result and final image status.
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -574,7 +573,7 @@ The following example shows the service event generated when the asynchronous re
 
 The following example shows a AWS CloudTrail log entry that demonstrates when an OCI 1.1 compliant client fetches a list of referrers, or reference artifacts, for an image using the `Referrers` API.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Lifecycle policy properties in Amazon ECR
-<a name="lifecycle_policy_parameters"></a>
 
 Lifecycle policies have the following properties. 
 

@@ -1,7 +1,6 @@
 
 
 # Use `CreateRepository` with an AWS SDK or CLI
-<a name="example_ecr_CreateRepository_section"></a>
 
 The following code examples show how to use `CreateRepository`.
 
@@ -84,7 +83,7 @@ For more information, see [Image Scanning](https://docs.aws.amazon.com/AmazonECR
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
 
-```
+```java
     /**
      * Creates an Amazon Elastic Container Registry (Amazon ECR) repository.
      *
@@ -138,7 +137,7 @@ For more information, see [Image Scanning](https://docs.aws.amazon.com/AmazonECR
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
 
-```
+```kotlin
     /**
      * Creates an Amazon Elastic Container Registry (Amazon ECR) repository.
      *
@@ -175,7 +174,7 @@ For more information, see [Image Scanning](https://docs.aws.amazon.com/AmazonECR
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples). 
 
-```
+```python
 class ECRWrapper:
     def __init__(self, ecr_client: client):
         self.ecr_client = ecr_client
@@ -224,7 +223,7 @@ class ECRWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_repository_name = 'my-repository'
         oo_result = lo_ecr->createrepository(

@@ -1,7 +1,6 @@
 
 
 # Learn the basics of Amazon ECR with an AWS SDK
-<a name="example_ecr_Scenario_RepositoryManagement_section"></a>
 
 The following code examples show how to:
 + Create an Amazon ECR repository.
@@ -21,7 +20,7 @@ The following code examples show how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
 Run an interactive scenario demonstrating Amazon ECR features.  
 
-```
+```java
 import software.amazon.awssdk.services.ecr.model.EcrException;
 import software.amazon.awssdk.services.ecr.model.RepositoryPolicyNotFoundException;
 
@@ -384,7 +383,7 @@ public class ECRScenario {
 ```
 A wrapper class for Amazon ECR SDK methods.  
 
-```
+```java
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.exception.DockerClientException;
 import com.github.dockerjava.api.model.AuthConfig;
@@ -902,7 +901,7 @@ public class ECRActions {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
 Run an interactive scenario demonstrating Amazon ECR features.  
 
-```
+```kotlin
 import java.util.Scanner
 
 /**
@@ -1196,7 +1195,7 @@ private fun waitForInputToContinue(scanner: Scanner) {
 ```
 A wrapper class for Amazon ECR SDK methods.  
 
-```
+```kotlin
 import aws.sdk.kotlin.services.ecr.EcrClient
 import aws.sdk.kotlin.services.ecr.model.CreateRepositoryRequest
 import aws.sdk.kotlin.services.ecr.model.DeleteRepositoryRequest
@@ -1576,7 +1575,7 @@ class ECRActions {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```python
 class ECRGettingStarted:
     """
     A scenario that demonstrates how to use Boto3 to perform basic operations using
@@ -1926,7 +1925,7 @@ if __name__ == "__main__":
 ```
 ECRWrapper class that wraps Amazon ECR actions.  
 
-```
+```python
 class ECRWrapper:
     def __init__(self, ecr_client: client):
         self.ecr_client = ecr_client

@@ -1,7 +1,6 @@
 
 
 # Optimizing performance for Amazon ECR
-<a name="performance"></a>
 
 You can use the following recommendations about settings and strategies to optimize performance when using Amazon ECR.
 

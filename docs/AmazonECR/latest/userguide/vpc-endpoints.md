@@ -1,7 +1,6 @@
 
 
 # Amazon ECR interface VPC endpoints (AWS PrivateLink)
-<a name="vpc-endpoints"></a>
 
 You can improve the security posture of your VPC by configuring Amazon ECR to use an interface VPC endpoint. VPC endpoints are powered by AWS PrivateLink, a technology that enables you to privately access Amazon ECR APIs through private IP addresses (both IPv4 and IPv6). AWS PrivateLink restricts all network traffic between your VPC and Amazon ECR to the Amazon network. You don't need an internet gateway, a NAT device, or a virtual private gateway.
 
@@ -127,7 +126,7 @@ The following table describes the Amazon S3 bucket policy permissions needed by 
 
 The following example illustrates how to provide access to the Amazon S3 buckets required for Amazon ECR operations.
 
-```
+```JSON
 {
   "Statement": [
     {
@@ -157,7 +156,7 @@ We recommend creating a single IAM resource policy and attaching it to both of t
 
 The following is an example of an endpoint policy for Amazon ECR. This policy enables a specific IAM role to pull images from Amazon ECR.
 
-```
+```JSON
 {
 	"Statement": [{
 		"Sid": "AllowPull",
@@ -177,7 +176,7 @@ The following is an example of an endpoint policy for Amazon ECR. This policy en
 
 The following endpoint policy example prevents a specified repository from being deleted.
 
-```
+```JSON
 {
 	"Statement": [{
 			"Sid": "AllowAll",
@@ -199,7 +198,7 @@ The following endpoint policy example prevents a specified repository from being
 
 The following endpoint policy example combines the two previous examples into a single policy.
 
-```
+```JSON
 {
 	"Statement": [{
 			"Sid": "AllowAll",

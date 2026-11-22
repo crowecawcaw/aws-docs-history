@@ -1,12 +1,14 @@
 
 
 # Deleting a private repository in Amazon ECR
-<a name="repository-delete"></a>
 
 If you're finished using a repository, you can delete it. When you delete a repository in the AWS Management Console, all of the images contained in the repository are also deleted; this cannot be undone.
 
 **Important**  
 Images in the deleted repositories are also deleted. You cannot undo this operation.
+
+**Note**  
+Amazon ECR doesn't replicate repository deletions. When you delete a repository, Amazon ECR doesn't replicate the images deleted with it to your replication destinations, even when you enable replication of deletes. To replicate deletions to your destinations, delete the images before you delete the repository. For more information, see [Replicating image deletions in Amazon ECR](replication-delete.md).
 
 **To delete a repository (AWS Management Console)**
 

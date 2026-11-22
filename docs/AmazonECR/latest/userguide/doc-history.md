@@ -1,13 +1,13 @@
 
 
 # Document history
-<a name="doc-history"></a>
 
 The following table describes the important changes to the documentation since the last release of Amazon ECR. We also update the documentation frequently to address the feedback that you send us.
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Replication of deletes for private image replication | Amazon ECR private image replication now supports replication of deletes. When a replication rule has the `deleteReplication` setting enabled, image deletes in the source registry are replicated to the destinations specified in that rule. For more information, see [Replicating image deletions in Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication-delete.html). | 16 November 2026 | 
 | Added replication backfill | Amazon ECR added documentation describing how to use replication backfill to replicate preexisting images in your private registry to your configured replication destinations. For more information, see [Replication backfill](replication-backfill.md). | 26 October 2026 | 
 | Added migration guide for third-party registries | Amazon ECR added documentation describing how to identify, copy, and verify container images from third-party registries such as Docker Hub, GitHub Container Registry, and self-hosted registries into your Amazon ECR private registry. For more information, see [Migrate container images from a third-party registry](migrate-from-third-party.md). | 15 June 2026 | 
 | Clair-based scanning deprecation completed | As of February 2, 2026, Clair-based image scanning has been deprecated and all ECR accounts have been migrated to AWS native basic scanning. Documentation has been updated to remove Clair-specific content and reflect that AWS native is now the only implementation of basic scanning. | 2 February 2026 | 
@@ -41,7 +41,7 @@ The following table describes the important changes to the documentation since t
 | Multi-architecture images | Amazon ECR added support for creating and pushing Docker manifest lists which are used for multi-architecture images.<br />For more information, see [Pushing a multi-architecture image to an Amazon ECR private repository](docker-push-multi-architecture-image.md). | 28 April 2020 | 
 | Amazon ECR Usage Metrics | Amazon ECR added CloudWatch usage metrics which provides visibility into your account's resource usage. You also have the ability to create CloudWatch alarms from both the CloudWatch and Service Quotas consoles to get alerts when your usage approaches your applied service quota.<br />For more information, see [Amazon ECR usage metrics](monitoring-usage.md). | 28 Feb 2020 | 
 | Updated Amazon ECR service quotas | Updated the Amazon ECR service quotas to include per-API quotas.<br />For more information, see [Amazon ECR service quotas](service-quotas.md). | 19 Feb 2020 | 
-| Added `get-login-password` command | Added support for **get-login-password**, which provides a simple and secure method for retrieving an authorization token.<br />For more information, see [Using an authorization token](registry_auth.md#registry-auth-token). | 4 Feb 2020 | 
+| Added `get-login-password` command | Added support for **get-login-password**, which provides a simple and secure method for retrieving an authorization token.<br />For more information, see [Using a regional token](registry_auth.md#registry-auth-token). | 4 Feb 2020 | 
 | Image Scanning | Added support for image scanning, which helps in identifying software vulnerabilities in your container images. Amazon ECR uses the Common Vulnerabilities and Exposures (CVEs) database from the open source CoreOS Clair project and provides you with a list of scan findings.<br />For more information, see [Scan images for software vulnerabilities in Amazon ECR](image-scanning.md). | 24 Oct 2019 | 
 | VPC Endpoint Policy | Added support for setting an IAM policy on the Amazon ECR interface VPC endpoints.<br />For more information, see [Create an endpoint policy for your Amazon ECR VPC endpoints](vpc-endpoints.md#ecr-vpc-endpoint-policy). | 26 Sept 2019 | 
 | Image Tag Mutability | Added support for configuring a repository to be immutable to prevent image tags from being overwritten.<br />For more information, see [Preventing image tags from being overwritten in Amazon ECR](image-tag-mutability.md). | 25 July 2019 | 

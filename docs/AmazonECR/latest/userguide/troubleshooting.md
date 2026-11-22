@@ -1,7 +1,6 @@
 
 
 # Amazon ECR troubleshooting
-<a name="troubleshooting"></a>
 
 This chapter helps you find diagnostic information for Amazon ECR, and provides troubleshooting steps for common issues and error messages.
 
