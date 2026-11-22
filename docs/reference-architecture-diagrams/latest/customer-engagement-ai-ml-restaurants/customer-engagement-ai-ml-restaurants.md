@@ -1,7 +1,6 @@
 
 
 # Customer Engagement Using AI/ML for Restaurants
-<a name="customer-engagement-ai-ml-restaurants"></a>
 
 Publication date: **2020 ([Diagram history](#cerest-history))**
 
