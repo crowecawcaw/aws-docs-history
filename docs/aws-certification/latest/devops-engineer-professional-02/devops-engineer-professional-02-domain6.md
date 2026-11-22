@@ -1,7 +1,6 @@
 
 
 # Content Domain 6: Security and Compliance
-<a name="devops-engineer-professional-02-domain6"></a>
 
 ## Task Statement 6.1: Implement techniques for identity and access management at scale.
 <a name="dop-02-task-6-1"></a>

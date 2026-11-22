@@ -1,7 +1,6 @@
 
 
 # Content Domain 4: Monitoring and Logging
-<a name="devops-engineer-professional-02-domain4"></a>
 
 ## Task Statement 4.1: Configure the collection, aggregation, and storage of logs and metrics.
 <a name="dop-02-task-4-1"></a>
