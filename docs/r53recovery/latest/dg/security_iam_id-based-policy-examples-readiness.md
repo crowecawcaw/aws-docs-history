@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for readiness check in ARC
-<a name="security_iam_id-based-policy-examples-readiness"></a>
 
 By default, users and roles don't have permission to create or modify ARC resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -44,7 +43,7 @@ To give users full access to use readiness check features through the console, a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -103,7 +102,7 @@ To work with API operations for readiness check, attach a policy like the follow
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

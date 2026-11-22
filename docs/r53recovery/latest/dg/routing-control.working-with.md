@@ -1,7 +1,6 @@
 
 
 # Working with routing control components in ARC
-<a name="routing-control.working-with"></a>
 
 **Topics**
 + [Creating routing control components in ARC](routing-control.create.md)

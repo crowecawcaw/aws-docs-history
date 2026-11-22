@@ -1,7 +1,6 @@
 
 
 # Stopping an active autoshift or practice run for a resource
-<a name="arc-zonal-autoshift.how-it-works.stop-shift"></a>
 
 To stop an in-progress autoshift for a resource you must cancel the zonal shift.
 

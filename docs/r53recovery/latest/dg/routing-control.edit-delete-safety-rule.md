@@ -1,7 +1,6 @@
 
 
 # Editing or deleting a safety rule on the console
-<a name="routing-control.edit-delete-safety-rule"></a>
 
 The steps in this section explain how to edit or delete a safety rule on the ARC console. You can make only limited edits to a safety rule, to change the name or update the wait period. To make other changes, delete and recreate the safety rule.
 

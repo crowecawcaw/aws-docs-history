@@ -1,7 +1,6 @@
 
 
 # Amazon RDS Switchover Read Replica execution block
-<a name="rds-switchover-read-replica-block"></a>
 
 **Category:** Database switchover
 

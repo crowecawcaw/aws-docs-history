@@ -1,7 +1,6 @@
 
 
 # Aurora Provisioned Scaling execution block
-<a name="aurora-provisioned-scaling-block"></a>
 
 **Category:** Database scaling
 

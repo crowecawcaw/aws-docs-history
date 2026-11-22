@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Region switch in ARC
-<a name="security_iam_id-based-policy-examples-region-switch"></a>
 
 By default, users and roles don't have permission to create or modify ARC resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -17,6 +16,7 @@ For details about actions and resource types defined by ARC, including the forma
 + [Execution block permissions](security_iam_region_switch_execution_blocks.md)
 + [CloudWatch alarms for application health permissions](security_iam_region_switch_cloudwatch.md)
 + [Automatic plan execution reports permissions](security_iam_region_switch_reports.md)
++ [Plan execution trigger permissions](security_iam_region_switch_triggers.md)
 + [Cross-account resource permissions](security_iam_region_switch_cross_account.md)
 + [Complete plan execution role permissions](security_iam_region_switch_complete_policy.md)
 

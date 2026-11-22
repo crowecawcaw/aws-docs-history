@@ -1,7 +1,6 @@
 
 
 # How zonal autoshift and practice runs work
-<a name="arc-zonal-autoshift.how-it-works"></a>
 
 The zonal autoshift capability in Amazon Application Recovery Controller (ARC) allows AWS to shift traffic for a resource away from an Availability Zone, on your behalf, when AWS determines that there's an impairment that could potentially affect customers in the Availability Zone. Zonal autoshift is designed for a resource that is pre-scaled in all Availability Zones in an AWS Region, so that an application can operate normally with the loss of one Availability Zone.
 

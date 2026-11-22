@@ -1,7 +1,6 @@
 
 
 # Logging ARC API calls using AWS CloudTrail
-<a name="cloudtrail-routing"></a>
 
 Amazon Application Recovery Controller (ARC) is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in ARC. CloudTrail captures all API calls for ARC as events. The calls captured include calls from the ARC console and code calls to the ARC API operations. 
 
@@ -43,7 +42,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateCluster` action for configuring routing control.
 
-```
+```json
 {
   "eventVersion": "1.08",
    "userIdentity": {
@@ -97,7 +96,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 
 The following example shows a CloudTrail log entry that demonstrates the `UpdateRoutingControlState` action for routing control.
 
-```
+```json
 {
   "eventVersion": "1.08",
    "userIdentity": {

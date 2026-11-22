@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager Run Command execution block
-<a name="ssm-send-command-block"></a>
 
 During failover, you might need to perform actions on self-managed databases or other application components that run on your Amazon EC2 instances—for example, to fail over a self-managed database (such as SQL Server, Oracle, or MySQL) or to run other application-specific failover or validation steps. With the AWS Systems Manager Run Command execution block, you can run an AWS Systems Manager command document on those instances as a step in your Region switch plan, and track its progress, completion, and retries within the plan.
 

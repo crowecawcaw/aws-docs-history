@@ -1,7 +1,6 @@
 
 
 # Examples of using the AWS CLI with zonal autoshift
-<a name="getting-started-cli-zonal-autoshift"></a>
 
 This section walks through simple application examples of working with zonal autoshift, using the AWS Command Line Interface to work with the zonal autoshift capability in Amazon Application Recovery Controller (ARC) using API operations. The examples are intended to help you develop a basic understanding of how to work with zonal autoshift using the CLI.
 

@@ -1,7 +1,6 @@
 
 
 # Logging zonal shift API calls using AWS CloudTrail
-<a name="cloudtrail-zonal-shift"></a>
 
 Zonal shift for ARC is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in ARC. CloudTrail captures all API calls for zonal shift as events. The calls captured include calls from the ARC console and code calls to the ARC API operations for zonal shift. 
 
@@ -43,7 +42,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `ListManagedResources` action for zonal shift.
 
-```
+```json
 {
       "eventVersion": "1.08",
       "userIdentity": {
@@ -88,7 +87,7 @@ The following example shows a CloudTrail log entry that demonstrates the `ListMa
 
 The following example shows a CloudTrail log entry that demonstrates the `StartZonalShift` action with a conflict exception for zonal shift.
 
-```
+```json
 {
       "eventVersion": "1.08",
       "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Examples of using ARC routing control API operations with the AWS CLI
-<a name="getting-started-cli-routing"></a>
 
 This section walks through simple application examples of working with routing control, using the AWS Command Line Interface to work with the routing control capability in Amazon Application Recovery Controller (ARC) using API operations. The examples are intended to help you develop a basic understanding of how to work with routing control using the CLI.
 

@@ -1,7 +1,6 @@
 
 
 # Automatic plan execution reports permissions
-<a name="security_iam_region_switch_reports"></a>
 
  The following is a sample policy to attach if you configure automatic report generation for a Region switch plan. This policy includes permissions to write reports to Amazon S3, access CloudWatch alarm data, and retrieve child plan information for parent plans. 
 
@@ -21,8 +20,8 @@
         "cloudwatch:DescribeAlarmHistory"
       ],
       "Resource": [
-        "arn:aws:cloudwatch:us-east-1:111122223333:alarm:app-health-primary",
-        "arn:aws:cloudwatch:us-west-2:111122223333:alarm:app-health-secondary"
+        "arn:aws:cloudwatch:us-east-1:111122223333:alarm:*",
+        "arn:aws:cloudwatch:us-west-2:111122223333:alarm:*"
       ]
     },
     {
@@ -32,12 +31,14 @@
         "arc-region-switch:ListPlanExecutionEvents"
       ],
       "Resource": [
-        "arn:aws:arc-region-switch::111122223333:plan/child-plan-1/abcde1",
-        "arn:aws:arc-region-switch::111122223333:plan/child-plan-2/fghij2"
+        "arn:aws:arc-region-switch::111122223333:plan/child-plan-1:abcde1",
+        "arn:aws:arc-region-switch::111122223333:plan/child-plan-2:fghij2"
       ]
     }
   ]
 }
 ```
+
+ The alarm resources must use a wildcard, even for metric alarms, because Region switch requests composite alarm information, and CloudWatch requires a wildcard resource to return it. For more information, see [Amazon CloudWatch permissions reference](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/permissions-reference-cw.html#cw-permissions-table) in the *Amazon CloudWatch User Guide*. 
 
  Note: If you configure a customer managed AWS KMS key for Amazon S3 bucket encryption, you must also add `kms:GenerateDataKey` and `kms:Encrypt` permissions for the key. 

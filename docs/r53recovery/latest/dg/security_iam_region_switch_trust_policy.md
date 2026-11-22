@@ -1,13 +1,13 @@
 
 
 # Plan execution role trust policy
-<a name="security_iam_region_switch_trust_policy"></a>
 
  Region switch assumes your plan's execution role to perform actions on your behalf. This trust policy authorizes the `arc-region-switch.amazonaws.com` service principal to assume the role. 
 
- Region switch assumes the execution role in two cases: 
+ Region switch assumes the execution role in the following cases: 
 +  Region switch assumes the execution role during plan evaluation to validate your plan configuration. For the complete list of warnings surfaced during plan evaluation, see [Plan evaluation for Region switch plans](working-with-rs-plan-evaluation.md). 
 +  Region switch assumes the execution role during plan execution when an execution block acts on resources in your account, such as database failover, Auto Scaling capacity, Amazon ECS or Amazon EKS capacity, Lambda invocations, or routing-control blocks. 
++  If your plan has triggers, Region switch assumes the execution role to read the CloudWatch alarms that the triggers use and to start the plan execution when the trigger conditions are met. For more information, see [Plan execution trigger permissions](security_iam_region_switch_triggers.md). 
 
  If the trust policy is missing, Region switch cannot assume the role. During plan evaluation, a warning is generated stating that the role cannot be assumed. During execution, any execution block that requires the execution role to act on resources in your account fails. The error states that the role could not be assumed. 
 
@@ -18,7 +18,7 @@
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # AWS Region availability for zonal autoshift
-<a name="introduction-region-zonal-autoshift"></a>
 
 Zonal shift and zonal autoshift are currently available in the commercial AWS Regions, as well as the China Regions, that is, China (Beijing) Region and China (Ningxia) Region. 
 

@@ -1,7 +1,6 @@
 
 
 # Manual approval execution block
-<a name="manual-approval-block"></a>
 
 The manual approval execution block enables you to insert an approval step that you associate with an IAM role. Users with access to the role can approve or decline the execution of a step, to pause the step until approval is granted, or, potentially, prevent the plan from progressing.
 

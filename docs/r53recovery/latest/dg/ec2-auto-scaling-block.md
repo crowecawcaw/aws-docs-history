@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 Auto Scaling group execution block
-<a name="ec2-auto-scaling-block"></a>
 
 The EC2 Auto Scaling group execution block allows you to scale EC2 instances as part of your multi-Region recovery process. You can define a percentage of capacity, relative to the Region you're leaving (source and destination).
 
@@ -54,7 +53,7 @@ The source capacity is always that of the other Region. In an active/active plan
 
 Region switch waits until the destination group's capacity is fulfilled before proceeding to the next step. When you enable **Wait for target group health**, Region switch checks target group health after the destination group reaches its desired capacity. It reads the Elastic Load Balancing target groups attached to the group and polls their health until every attached target group reports the desired capacity as `healthy`. This check runs whether or not scaling occurred, so even if the group already had the desired capacity, Region switch verifies target group health before completing the step. For ungraceful execution, it instead waits for the minimum percentage of capacity to be `healthy`.
 
-An instance counts toward the healthy total only when it is `InService` in the Auto Scaling group and its matching target group entry is `healthy`. Region switch identifies instances by EC2 instance ID and re-reads the group on each poll, so instances that are still launching, running a lifecycle hook, or held in a warm pool aren't counted until they reach `InService`. The step completes only after all required instances are healthy across every attached target group. If the group has no attached target groups, Region switch skips the check and completes the step. If the required instances don't become healthy before the timeout, the step fails.
+An instance counts toward the healthy total only when it is `InService` in the Auto Scaling group and its matching target group entry is `healthy`. Region switch identifies instances by EC2 instance ID and re-reads the group on each poll, so instances that are still launching, running a lifecycle hook, or held in a warm pool aren't counted until they reach `InService`. The step completes only after all required instances are healthy across every attached target group. If the group has no attached target groups, Region switch skips the check and completes the step. If the required instances don't become healthy before the timeout, the step fails and the execution pauses. For more information, see [Plan execution lifecycle](plan-execution-lifecycle-rs.md).
 
 **Note**  
 The **Wait for target group health** option supports only Application Load Balancer (ALB) and Network Load Balancer (NLB) target groups. It doesn't support Classic Load Balancer. If your Auto Scaling group is associated only with a Classic Load Balancer, enabling this option has no effect.

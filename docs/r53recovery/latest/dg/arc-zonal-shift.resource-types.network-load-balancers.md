@@ -1,7 +1,6 @@
 
 
 # Network Load Balancers
-<a name="arc-zonal-shift.resource-types.network-load-balancers"></a>
 
 ## Using zonal shift for Network Load Balancers
 <a name="using-nlb-zs"></a>

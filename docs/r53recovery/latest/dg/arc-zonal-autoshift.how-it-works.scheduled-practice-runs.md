@@ -1,7 +1,6 @@
 
 
 # When ARC schedules, starts, and ends practice runs
-<a name="arc-zonal-autoshift.how-it-works.scheduled-practice-runs"></a>
 
 ARC schedules a practice run for a resource weekly, for about 30 minutes. ARC schedules, starts, and manages practice runs for each resource independently. ARC does not batch together practice runs for resources in the same account. You can also start on-demand practice runs yourself, to help verify that your setup is safe for a zonal autoshift event.
 

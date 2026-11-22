@@ -1,7 +1,6 @@
 
 
 # Region switch plan execution block sample policy
-<a name="security_iam_region_switch_plan_execution"></a>
 
  The following is a sample policy to attach if you add execution blocks to a Region switch plan to run child plans. 
 
@@ -10,7 +9,7 @@
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

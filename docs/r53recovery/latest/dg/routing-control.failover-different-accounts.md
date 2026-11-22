@@ -1,7 +1,6 @@
 
 
 # Support cross-account for clusters in ARC
-<a name="routing-control.failover-different-accounts"></a>
 
 Amazon Application Recovery Controller (ARC) integrates with AWS Resource Access Manager to enable resource sharing. AWS RAM is a service that enables you to share resources with other AWS accounts or through AWS Organizations. For ARC routing control, you can share the cluster resource.
 

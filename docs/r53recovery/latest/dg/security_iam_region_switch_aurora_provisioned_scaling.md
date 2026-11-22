@@ -1,7 +1,6 @@
 
 
 # Aurora provisioned scaling execution block sample policy
-<a name="security_iam_region_switch_aurora_provisioned_scaling"></a>
 
  The following is a sample policy to attach if you add execution blocks to a Region switch plan for Aurora provisioned cluster scaling. 
 

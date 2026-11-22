@@ -1,7 +1,6 @@
 
 
 # Precedence for zonal shifts
-<a name="arc-zonal-autoshift.how-it-works.precedence"></a>
 
 There can be no more than one applied zonal shift at a given time. That is, only one practice run zonal shift, customer-initiated zonal shift, autoshift, or AWS FIS experiment for the resource. When a second zonal shift is started, ARC follows a precedence to determine which zonal shift type is in effect for a resource. 
 

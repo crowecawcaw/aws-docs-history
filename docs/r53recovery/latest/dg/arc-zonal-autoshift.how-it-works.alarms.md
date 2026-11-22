@@ -1,7 +1,6 @@
 
 
 # Alarms for practice runs
-<a name="arc-zonal-autoshift.how-it-works.alarms"></a>
 
 You can specify two types of CloudWatch alarms for practice runs in zonal autoshift: outcome alarms and blocking alarms. 
 

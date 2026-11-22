@@ -1,7 +1,6 @@
 
 
 # Zonal autoshift in ARC
-<a name="arc-zonal-autoshift"></a>
 
 With zonal autoshift, you authorize AWS to shift away resource traffic for an application from an Availability Zone (AZ) during events, on your behalf, to help reduce time to recovery. AWS starts an autoshift when internal telemetry indicates that there is an Availability Zone impairment that could potentially impact customers. When AWS starts an autoshift, application traffic to resources that you've configured for zonal autoshift starts shifting away from the Availability Zone.
 

@@ -1,7 +1,6 @@
 
 
 # Zonal shift API operations
-<a name="actions.zonalshift"></a>
 
 The following table lists ARC API operations that you can use using zonal shift, which moves traffic away from an Availability Zone for multi-AZ applications. The table also includes links to relevant documentation.
 

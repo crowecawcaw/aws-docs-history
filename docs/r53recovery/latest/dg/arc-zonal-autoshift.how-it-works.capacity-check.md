@@ -1,7 +1,6 @@
 
 
 # Capacity checks for practice runs
-<a name="arc-zonal-autoshift.how-it-works.capacity-check"></a>
 
 When a practice run starts, to temporarily move traffic away from an Availability Zone, ARC runs a check to verify that you have enough capacity in other Availability Zones to safely move traffic away from the AZ. If there isn't sufficient capacity available, the traffic shift for the practice run is not started and the practice run ends. 
 

@@ -1,7 +1,6 @@
 
 
 # Region switch API operations
-<a name="actions.region-switch"></a>
 
 The following table lists ARC operations that you can use for Region switch, with links to relevant documentation.
 

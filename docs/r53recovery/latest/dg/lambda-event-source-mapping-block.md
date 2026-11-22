@@ -1,7 +1,6 @@
 
 
 # Lambda event source mapping execution block
-<a name="lambda-event-source-mapping-block"></a>
 
 The Lambda event source mapping execution block allows you to enable or disable Lambda event source mappings as part of your recovery operations. Event source mappings are Lambda resources that read from event sources such as Amazon Kinesis, Amazon DynamoDB Streams, Amazon Simple Queue Service, and Amazon Managed Streaming for Apache Kafka (Amazon MSK), and invoke Lambda functions with batches of records.
 

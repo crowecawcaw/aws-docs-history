@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora Global Database execution block
-<a name="aurora-global-database-block"></a>
 
 The Amazon Aurora Global Database execution block allows you to perform a *failover* or *switchover* recovery workflow for a global database.
 + Failover – Use this approach to recover from an unplanned outage. With this approach, you perform a cross-Region failover to one of the secondary DB clusters in your Aurora global databases. The recovery point objective (RPO) for this approach is typically a non-zero value measured in seconds. The amount of data loss depends on the Aurora global databases replication lag across the AWS Regions at the time of the failure. For more information, see [ Recovering an Amazon Aurora global database from an unplanned outage](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-failover) in the Amazon Aurora User Guide.

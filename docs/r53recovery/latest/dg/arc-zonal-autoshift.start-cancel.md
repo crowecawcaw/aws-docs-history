@@ -1,7 +1,6 @@
 
 
 # Enabling and working with zonal autoshift
-<a name="arc-zonal-autoshift.start-cancel"></a>
 
 This section provides procedures for working with zonal autoshifts in Amazon Application Recovery Controller (ARC). After you enable zonal autoshift, you can make changes to practice run configurations, start an on-demand practice run, cancel an in-progress shift, including practice runs, or enable autoshift observer notifications.
 

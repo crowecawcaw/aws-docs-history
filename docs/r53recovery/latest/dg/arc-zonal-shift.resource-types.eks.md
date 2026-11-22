@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Kubernetes Service
-<a name="arc-zonal-shift.resource-types.eks"></a>
 
 Amazon EKS provides features that enable you to make your applications more resilient to events such as the degraded health or the impairment of an Availability Zone. When you run your workloads in an Amazon EKS cluster, you can further improve fault tolerance and application recovery by using zonal shift or zonal autoshift. For more information, see [Learn about ARC Zonal Shift in Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html) in the *Amazon Elastic Kubernetes Service User Guide*.
 

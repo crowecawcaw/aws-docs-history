@@ -1,7 +1,6 @@
 
 
 # Use `UpdateRoutingControlState` with an AWS SDK
-<a name="example_route53-recovery-cluster_UpdateRoutingControlState_section"></a>
 
 The following code examples show how to use `UpdateRoutingControlState`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `UpdateRoutingControlState`.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53recoverycluster#code-examples). 
 
-```
+```java
     public static UpdateRoutingControlStateResponse updateRoutingControlState(List<ClusterEndpoint> clusterEndpoints,
             String routingControlArn,
             String routingControlState) {
@@ -45,7 +44,7 @@ The following code examples show how to use `UpdateRoutingControlState`.
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/route53-recovery-cluster#code-examples). 
 
-```
+```python
 import boto3
 
 
@@ -100,7 +99,7 @@ def update_routing_control_state(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/r5v#code-examples). 
 
-```
+```sap-abap
     CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
     DATA lo_exception TYPE REF TO /aws1/cx_rt_generic.
     DATA lo_session TYPE REF TO /aws1/cl_rt_session_base.

@@ -1,7 +1,6 @@
 
 
 # Enabling or disabling autoshift observer notification
-<a name="arc-zonal-autoshift.enable-autoshift-observer"></a>
 
 You can configure zonal autoshift to notify you, through Amazon EventBridge, whenever AWS starts an autoshift to shift traffic away from a potentially impaired Availability Zone. You must configure this option in each AWS Region that you want to receive notifications about. You do not have to configure any specific resources with zonal autoshift to enable these separate notifications. For more information, see [Using zonal autoshift with Amazon EventBridge](eventbridge-zonal-autoshift.md).
 

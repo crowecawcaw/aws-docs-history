@@ -1,7 +1,6 @@
 
 
 # Best practices for Region switch in ARC
-<a name="best-practices.region-switch"></a>
 
 We recommend the following best practices for recovery and failover preparedness with Region switch in Amazon Application Recovery Controller (ARC).
 

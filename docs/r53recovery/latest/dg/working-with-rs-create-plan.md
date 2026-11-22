@@ -1,7 +1,6 @@
 
 
 # Create a Region switch plan
-<a name="working-with-rs-create-plan"></a>
 
 You can create two different kinds of plans in Region switch: an active/active plan or an active/passive plan. When you create a plan, specify the type that applies to how you want to manage failover.
 + An *active/passive* approach deploys two application replicas into two Regions, with traffic routed to the active Region only. You can activate the replica in the passive Region by executing the Region switch plan.

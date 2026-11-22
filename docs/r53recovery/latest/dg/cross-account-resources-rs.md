@@ -1,7 +1,6 @@
 
 
 # Cross-account support in Region switch
-<a name="cross-account-resources-rs"></a>
 
 In Region switch, you can add resources from other accounts to your plans. You can also share a Region switch plan with other accounts. For more information, see the following sections.
 

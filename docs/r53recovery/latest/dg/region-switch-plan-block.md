@@ -1,7 +1,6 @@
 
 
 # ARC Region switch plan execution block
-<a name="region-switch-plan-block"></a>
 
 The Region switch plan execution block allows you to orchestrate the order in which multiple applications switch over to the Region that you want to activate, by referencing other, child Region switch plans. Using this parent/child relationship, you can create complex, coordinated recovery processes that manage multiple resources and dependencies across your infrastructure. 
 

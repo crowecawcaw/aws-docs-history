@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager Run Command execution block sample policy
-<a name="security_iam_region_switch_ssm"></a>
 
  The following is a sample policy to attach if you add execution blocks to a Region switch plan for AWS Systems Manager Run Command. 
 

@@ -1,7 +1,6 @@
 
 
 # Examples of using the AWS CLI with zonal shift
-<a name="getting-started-cli-zonalshift"></a>
 
 This section provides application examples of using zonal shift, using the AWS Command Line Interface to work with the zonal shift capability in Amazon Application Recovery Controller (ARC) using API operations. The examples are intended to help you develop a basic understanding of how to work with zonal shift using the CLI.
 
@@ -24,7 +23,7 @@ aws arc-zonal-shift start-zonal-shift \
        --comment "Shifting traffic away from use1-az1"
 ```
 
-```
+```json
 {
     "awayFrom": "use1-az1",
     "comment": "Shifting traffic away from use1-az1",
@@ -46,7 +45,7 @@ aws arc-zonal-shift get-managed-resource \
        --resource-identifier arn:aws:elasticloadbalancing:us-east-1:111122223333:loadbalancer/app/Testing/5a19403ecd42dc05
 ```
 
-```
+```json
 {
     "appliedWeights": {
         "use1-az1": 0.0,
@@ -81,7 +80,7 @@ You can list the managed resources in your account with the CLI by using the `li
 aws arc-zonal-shift list-managed-resources 
 ```
 
-```
+```json
 {
     "items": [
         {
@@ -125,7 +124,7 @@ You can list the zonal shifts in your account with the CLI by using the `list-zo
 aws arc-zonal-shift list-zonal-shifts 
 ```
 
-```
+```json
 {
     "items": [
         {
@@ -153,7 +152,7 @@ aws arc-zonal-shift update-zonal-shift \
        --comment "Still shifting traffic away from use1-az1"
 ```
 
-```
+```json
 {
     "awayFrom": "use1-az1",
     "comment": "Still shifting traffic away from use1-az1",
@@ -175,7 +174,7 @@ aws arc-zonal-shift cancel-zonal-shift \
        --zonal-shift-id 9ac9ec1e-1df1-0755-3dc5-8cf573cd9c38
 ```
 
-```
+```json
 {
     "awayFrom": "use1-az1",
     "comment": "Still shifting traffic away from use1-az1",

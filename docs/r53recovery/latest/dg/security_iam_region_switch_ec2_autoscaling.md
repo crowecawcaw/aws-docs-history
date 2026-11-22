@@ -1,14 +1,13 @@
 
 
 # EC2 Auto Scaling execution block sample policy
-<a name="security_iam_region_switch_ec2_autoscaling"></a>
 
 **(Optional) Permission to wait for target group health**  
  When the `waitELBTargetGroupHealthy` option is enabled on your EC2 Auto Scaling execution block, add the `elasticloadbalancing:DescribeTargetHealth` permission. If this option is disabled, you can omit this permission. For more information about this option, see [Amazon EC2 Auto Scaling group execution block](ec2-auto-scaling-block.md). 
 
  The following is a sample JSON policy to attach if you add execution blocks to a Region switch plan for EC2 Auto Scaling groups: 
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

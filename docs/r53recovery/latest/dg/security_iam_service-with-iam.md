@@ -1,7 +1,6 @@
 
 
 # How Amazon Application Recovery Controller (ARC) capabilities work with IAM
-<a name="security_iam_service-with-iam"></a>
 
 For information about how each Amazon Application Recovery Controller (ARC) capability works with IAM, see the following topics:
 + [IAM for zonal shift](security-iam-zonalshift.md)

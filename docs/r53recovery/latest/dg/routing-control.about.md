@@ -1,7 +1,6 @@
 
 
 # About routing control
-<a name="routing-control.about"></a>
 
 Routing control redirects traffic by using health checks in Amazon Route 53 that are configured with DNS records associated with the top-level resource of the cells in your recovery group, such as an Elastic Load Balancing load balancer. You can redirect traffic from one cell to another, for example, by updating a routing control state to `Off` (to stop traffic flow to one cell) and updating another routing control state to `On` (to start traffic flow to another). The process that changes the traffic flow is the Route 53 health check associated with the routing control, after ARC updates it to set it as healthy or unhealthy, based on the corresponding routing control state. 
 

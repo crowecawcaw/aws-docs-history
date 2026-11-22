@@ -1,7 +1,6 @@
 
 
 # How readiness check in Amazon Application Recovery Controller (ARC) works with IAM
-<a name="security_iam_service-with-iam-readiness"></a>
 
 Before you use IAM to manage access to ARC, learn what IAM features are available to use with ARC.
 
@@ -63,7 +62,7 @@ route53-recovery-readiness
 
 To specify multiple actions in a single statement, separate them with commas. For example, the following:
 
-```
+```json
 "Action": [
       "route53-recovery-readiness:{{action1}}",
       "route53-recovery-readiness:{{action2}}"

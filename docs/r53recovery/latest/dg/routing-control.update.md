@@ -1,7 +1,6 @@
 
 
 # Viewing and updating routing control states in ARC
-<a name="routing-control.update"></a>
 
 This section describes how to view and update routing control states in Amazon Application Recovery Controller (ARC). Routing controls are simple on-off switches that manage traffic flow to cells in your recovery group. Cells are typically AWS Regions, or sometimes Availability Zones, that includes your resources. When a routing control state is `On`, traffic flows to the cell that is controlled by that routing control. 
 

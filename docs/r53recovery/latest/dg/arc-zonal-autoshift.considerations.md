@@ -1,7 +1,6 @@
 
 
 # Best practices when you configure zonal autoshift
-<a name="arc-zonal-autoshift.considerations"></a>
 
 Be aware of the following best practices and considerations when you enable zonal autoshift in Amazon Application Recovery Controller (ARC).
 

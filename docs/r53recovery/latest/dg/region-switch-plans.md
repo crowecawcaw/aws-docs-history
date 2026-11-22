@@ -1,7 +1,6 @@
 
 
 # About Region switch
-<a name="region-switch-plans"></a>
 
 With Region switch, you can orchestrate the specific steps to switch the AWS Region that your multi-Region application is running in. 
 

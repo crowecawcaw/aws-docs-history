@@ -1,7 +1,6 @@
 
 
 # Cross-account resource permissions
-<a name="security_iam_region_switch_cross_account"></a>
 
  If resources are in different accounts, you'll need a cross-account role. The following is a sample trust policy for a cross-account role. 
 
@@ -10,7 +9,7 @@
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -39,7 +38,7 @@
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

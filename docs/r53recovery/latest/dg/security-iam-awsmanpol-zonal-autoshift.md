@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for zonal autoshift in ARC
-<a name="security-iam-awsmanpol-zonal-autoshift"></a>
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
 

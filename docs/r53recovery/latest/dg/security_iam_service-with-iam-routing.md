@@ -1,7 +1,6 @@
 
 
 # How routing control in Amazon Application Recovery Controller (ARC) works with IAM
-<a name="security_iam_service-with-iam-routing"></a>
 
 Before you use IAM to manage access to routing control in Amazon Application Recovery Controller (ARC), learn what IAM features are available to use with routing control.
 
@@ -62,7 +61,7 @@ route53-recovery-cluster
 
 To specify multiple actions in a single statement, separate them with commas. For example, you could do the following:
 
-```
+```json
 "Action": [
       "route53-recovery-control-config:{{action1}}",
       "route53-recovery-control-config:{{action2}}"

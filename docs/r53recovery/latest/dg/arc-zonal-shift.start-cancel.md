@@ -1,7 +1,6 @@
 
 
 # Starting, updating, or canceling a zonal shift
-<a name="arc-zonal-shift.start-cancel"></a>
 
 This section provides procedures for working with zonal shifts, including starting a zonal shift and canceling a zonal shift.
 

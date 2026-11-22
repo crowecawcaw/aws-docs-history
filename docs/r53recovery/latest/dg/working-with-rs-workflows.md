@@ -1,7 +1,6 @@
 
 
 # Create Region switch plan workflows
-<a name="working-with-rs-workflows"></a>
 
 After you create a Region switch plan, you need to define and create workflows that specify the recovery process for your application. For each plan, you define one or more workflows that complete recovery for your application. In each workflow, you add steps that include *execution blocks* that define each action you want Region switch to perform for your application recovery.
 

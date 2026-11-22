@@ -1,7 +1,6 @@
 
 
 # What is ARC?
-<a name="what-is-route53-recovery"></a>
 
 Amazon Application Recovery Controller (ARC) helps you prepare for and complete faster recovery for applications running on the AWS Global Cloud Infrastructure.
 

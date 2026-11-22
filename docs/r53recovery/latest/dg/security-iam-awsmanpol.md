@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon Application Recovery Controller (ARC)
-<a name="security-iam-awsmanpol"></a>
 
 For information about the AWS managed policies for the ARC capabilities with managed policies, including a managed policy for a service-linked role, see the following topics:
 + [Managed polices for zonal autoshift](security-iam-awsmanpol-zonal-autoshift.md)

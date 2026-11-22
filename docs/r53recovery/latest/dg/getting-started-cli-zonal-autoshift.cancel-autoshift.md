@@ -1,7 +1,6 @@
 
 
 # Cancel an in-progress autoshift
-<a name="getting-started-cli-zonal-autoshift.cancel-autoshift"></a>
 
 You can cancel an in-progress autoshift with the CLI by canceling the zonal autoshift for the resource. To cancel a zonal autoshift, use the `cancel-zonal-shift command`.
 
@@ -9,7 +8,7 @@ You can cancel an in-progress autoshift with the CLI by canceling the zonal auto
 aws arc-zonal-shift cancel-zonal-shift --zonal-shift-id 9ac9ec1e-1df1-0755-3dc5-8cf573cd9c38
 ```
 
-```
+```json
 {
     "awayFrom": "usw2-az1",
     "comment": "Zonal autoshift started. Shifting traffic away from Availability Zone usw2-az1.",

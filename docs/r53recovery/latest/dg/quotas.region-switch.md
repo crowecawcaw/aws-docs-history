@@ -1,7 +1,6 @@
 
 
 # Quotas for Region switch
-<a name="quotas.region-switch"></a>
 
 Region switch in Amazon Application Recovery Controller (ARC) is subject to the following quotas.
 
@@ -10,6 +9,7 @@ Region switch in Amazon Application Recovery Controller (ARC) is subject to the 
 | --- | --- | 
 | Number of plans per account | 10<br />You can [ request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/arc-region-switch/quotas). | 
 | Maximum plan size | 1 MB | 
+| Maximum duration of a plan execution | 24 hours<br />Includes paused time. You can't change this quota. For more information, see [Plan execution lifecycle](plan-execution-lifecycle-rs.md). | 
 | Number of execution blocks per plan | 100 | 
 | Number of parallel execution blocks per step | 20 | 
 | Number of CloudWatch alarms per trigger condition | 10 | 

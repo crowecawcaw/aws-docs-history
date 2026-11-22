@@ -1,7 +1,6 @@
 
 
 # Best practices for routing control in ARC
-<a name="route53-arc-best-practices.regional"></a>
 
 We recommend the following best practices for recovery and failover preparedness for routing control in ARC.
 

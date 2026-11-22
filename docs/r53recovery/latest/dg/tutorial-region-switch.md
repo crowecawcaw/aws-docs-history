@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create an active/passive Region switch plan
-<a name="tutorial-region-switch"></a>
 
 This tutorial guides you through creating an active/passive Region switch plan for an application running in us-east-1 and recovering into us-west-2. The example includes Amazon EC2 instances for compute, Amazon Aurora Global Database for storage, and Amazon Route 53 for DNS.
 

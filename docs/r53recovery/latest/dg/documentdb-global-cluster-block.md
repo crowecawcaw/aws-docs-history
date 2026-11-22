@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB Global Cluster execution block
-<a name="documentdb-global-cluster-block"></a>
 
 The Amazon DocumentDB Global Cluster execution block allows you to perform a *failover* or *switchover* recovery workflow for a global cluster.
 + Failover – Use this approach to recover from an unplanned outage. With this approach, you perform a cross-Region failover to one of the secondary clusters in your Amazon DocumentDB global cluster. The recovery point objective (RPO) for this approach is typically a non-zero value measured in seconds. The amount of data loss depends on the Amazon DocumentDB global cluster replication lag across the AWS Regions at the time of the failure.

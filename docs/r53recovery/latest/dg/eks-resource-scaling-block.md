@@ -1,7 +1,6 @@
 
 
 # Amazon EKS resource scaling execution block
-<a name="eks-resource-scaling-block"></a>
 
 The EKS resource scaling execution block enables you to scale EKS resources as part of your multi-Region recovery process. When you configure the execution block, you define a percentage of capacity to scale, relative to the capacity in the Region that is being deactivated. 
 
@@ -39,7 +38,7 @@ Before you get started, change the authentication mode of the cluster to either 
 **Create the access entry**  
 The first step is to create the access entry by using an AWS CLI command similar to the following:  
 
-```
+```json
 aws eks create-access-entry --cluster-name {{my-cluster}} --principal-arn
 									arn:aws:iam::555555555555:user/{{my-user}} --type STANDARD
 ```
@@ -48,7 +47,7 @@ For more information, see [Create access entries](https://docs.aws.amazon.com/ek
 **Create the access entry association**  
 Next, create the association to the Region switch access policy by using an AWS CLI command similar to the following:  
 
-```
+```json
 aws eks associate-access-policy --cluster-name {{my-cluster}} --principal-arn arn:aws:iam::555555555555:role/{{my-role}} \
 										--access-scope type=namespace,namespaces={{my-namespace1}} --policy-arn
 										arn:aws:eks::aws:cluster-access-policy/AmazonARCRegionSwitchScalingPolicy

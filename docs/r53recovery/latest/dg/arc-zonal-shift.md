@@ -1,7 +1,6 @@
 
 
 # Zonal shift in ARC
-<a name="arc-zonal-shift"></a>
 
 Amazon Application Recovery Controller (ARC) *zonal shift* allows you to shift traffic for a supported resource away from an impaired Availability Zone (AZ) in an AWS Region to healthy AZs in the same Region. Shifting your resource's traffic away from an impaired AZ reduces the duration and severity of impact caused by power outages, or hardware or software issues in an AZ, and helps to mitigate issues and quickly recover your application. You might choose to shift traffic, for example, because a bad deployment is causing latency issues, or because the Availability Zone is impaired. 
 

@@ -1,7 +1,6 @@
 
 
 # Creating safety rules for routing control
-<a name="routing-control.safety-rules"></a>
 
 When you work with several routing controls at the same time, you might decide that you want safeguards in place to avoid unintended consequences. For example, you might want to prevent inadvertently turning off all the routing controls for an application, which would result in a fail-open scenario. Or you might want to implement a master on-off switch to disable a set of routing controls, perhaps to prevent automation from rerouting traffic. To establish safeguards like these for routing control in ARC, you create *safety rules*. 
 

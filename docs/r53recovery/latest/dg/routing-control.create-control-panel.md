@@ -1,7 +1,6 @@
 
 
 # Creating a control panel in ARC
-<a name="routing-control.create-control-panel"></a>
 
 A control panel in Amazon Application Recovery Controller (ARC) lets you group together related routing controls. A control panel can have routing controls that represent a microservice within an application, an entire application itself, or a group of applications, depending on the scope of your failover. A benefit of grouping routing controls into a control panel is that you can use safety rules with a control panel to help safeguard traffic routing changes. 
 

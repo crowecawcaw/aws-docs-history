@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in ARC
-<a name="logging-and-monitoring"></a>
 
 Monitoring is an important part of maintaining the availability and performance of ARC and your AWS solutions. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multi-point failure if one occurs. AWS provides several tools for monitoring your ARC resources and activity, and responding to potential incidents, for example, AWS CloudTrail and Amazon CloudWatch.
 

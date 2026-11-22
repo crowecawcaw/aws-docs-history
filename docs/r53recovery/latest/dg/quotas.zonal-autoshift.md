@@ -1,7 +1,6 @@
 
 
 # Quotas for zonal autoshift
-<a name="quotas.zonal-autoshift"></a>
 
 Zonal autoshift in Amazon Application Recovery Controller (ARC) is subject to the following quotas.
 

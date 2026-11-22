@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for routing control in ARC
-<a name="security_iam_id-based-policy-examples-routing"></a>
 
 By default, users and roles don't have permission to create or modify ARC resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -42,7 +41,7 @@ To give users full access to use ARC routing control features through the consol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -103,7 +102,7 @@ To work with API operations for recovery control configuration, attach a policy 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -154,7 +153,7 @@ If you want to allow an operator to use the recovery cluster data plane API but 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

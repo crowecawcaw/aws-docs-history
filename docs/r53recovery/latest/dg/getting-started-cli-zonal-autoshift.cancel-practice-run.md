@@ -1,7 +1,6 @@
 
 
 # Cancel an in-progress practice run
-<a name="getting-started-cli-zonal-autoshift.cancel-practice-run"></a>
 
 You can cancel an in-progress practice run with the CLI by using the `cancel-practice-run` command.
 
@@ -12,7 +11,7 @@ aws arc-zonal-shift cancel-practice-run \
    --zonal-shift-id="="arn:aws:testservice::111122223333:ExampleALB123456890"
 ```
 
-```
+```json
 {
     "zonalShiftId": "2222222-3333-444-1111",
     "resourceIdentifier": "arn:aws:testservice::111122223333:ExampleALB123456890",

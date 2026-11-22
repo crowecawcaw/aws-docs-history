@@ -1,7 +1,6 @@
 
 
 # Creating a routing control in ARC
-<a name="routing-control.create-control"></a>
 
 Create a routing control for each cell that you want to route traffic to. For example, when you have an application with resources that you have siloed for recoverability, you might have a cell for each AWS Region, and nested cells for each Availability Zone within each Region. In this scenario, you would create a routing control for each cell and each nested cell.
 

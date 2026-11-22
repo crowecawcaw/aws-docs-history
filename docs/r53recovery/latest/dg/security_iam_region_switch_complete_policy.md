@@ -1,7 +1,6 @@
 
 
 # Complete plan execution role permissions
-<a name="security_iam_region_switch_complete_policy"></a>
 
  Creating a comprehensive policy that includes permissions for all execution blocks would require a policy that is quite large. In practice, you should only include permissions for the execution blocks that you use in your specific plans. 
 
@@ -12,7 +11,7 @@ The following is an example policy that you can use as a starting place for a pl
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

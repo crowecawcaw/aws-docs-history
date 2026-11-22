@@ -1,7 +1,6 @@
 
 
 # Tutorial: Configure plan execution report autogeneration
-<a name="tutorial-report-generation"></a>
 
 This tutorial guides you through configuring plan execution report autogeneration for a Region switch plan. Reports provide comprehensive PDF documentation of plan executions for compliance purposes.
 

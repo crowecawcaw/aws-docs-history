@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for zonal shift in ARC
-<a name="security_iam_id-based-policy-examples-zonal"></a>
 
 By default, users and roles don't have permission to create or modify ARC resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -40,7 +39,7 @@ To give users full access to use zonal shift in the AWS Management Console, atta
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -79,7 +78,7 @@ To ensure that a user can use zonal shift API actions, attach a policy that corr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

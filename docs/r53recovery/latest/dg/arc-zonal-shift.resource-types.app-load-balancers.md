@@ -1,7 +1,6 @@
 
 
 # Application Load Balancers
-<a name="arc-zonal-shift.resource-types.app-load-balancers"></a>
 
 ## Using zonal shift for Application Load Balancers
 <a name="using-alb-zs"></a>

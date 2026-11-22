@@ -1,7 +1,6 @@
 
 
 # Working with service quota checks
-<a name="working-with-rs-service-quota-checks"></a>
 
 In a multi-Region application, your standby Region often runs at reduced capacity until you need to recover into it. As demand grows in your active Region, you might raise service quotas there to keep up, but forget to request matching increases in your standby Region. This gap can cause a healthy-looking plan to fail during execution, because the standby Region can't launch enough resources to take over. To help you catch these gaps, Region switch performs service quota checks on the compute and database resources in your plan's execution blocks.
 

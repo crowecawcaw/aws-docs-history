@@ -1,7 +1,6 @@
 
 
 # IAM and permissions for zonal shift
-<a name="security_iam_service-with-iam-zonal-shift"></a>
 
 This section provides additional information about how permissions work for the zonal shift feature in Amazon Application Recovery Controller (ARC), especially if you work with the feature from another AWS service, such as Elastic Load Balancing. To learn about how ARC features works with IAM and permissions in general, review the information in the overview topic, [Identity and Access Management for zonal shift in ARC](security-iam-zonalshift.md).
 

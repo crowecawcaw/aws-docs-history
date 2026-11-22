@@ -1,7 +1,6 @@
 
 
 # Routing control in ARC
-<a name="routing-control"></a>
 
 To fail over traffic to application replicas in multiple AWS Regions, you can use routing controls in Amazon Application Recovery Controller (ARC) that are integrated with a specific kind of health check in Amazon Route 53. *Routing controls* are simple on-off switches that enable you to switch your client traffic from one Regional replica to another. The traffic rerouting is accomplished by *routing control health checks* that are set up with Amazon Route 53 DNS records. For example, DNS failover records, associated with domain names that front your application replicas in each Region. 
 

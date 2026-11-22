@@ -1,7 +1,6 @@
 
 
 # Region switch dashboards
-<a name="region-switch.dashboarding-and-reports"></a>
 
 Region switch includes a global dashboard that you can use to observe the state of Region switch plans across your organization and Regions. Region switch also has a Regional executions dashboard that displays only plan executions in the Region where you are currently logged in to the AWS Management Console.
 

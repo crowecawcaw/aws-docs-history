@@ -1,16 +1,16 @@
 
 
 # Document history for the Amazon Application Recovery Controller (ARC) Developer Guide
-<a name="doc-history"></a>
 
 The following entries describe important changes made to the Amazon Application Recovery Controller (ARC) documentation.
 + **Version:** latest
-+ **Latest documentation update: **September 24th, 2026
++ **Latest documentation update: **November 18th, 2026
 
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Region switch plan execution lifecycle | Added a topic that describes the plan execution lifecycle: execution and step states, timeouts, and the controls that you can use during an execution, such as pause, retry, skip, and cancel. It also includes examples for setting step timeouts and making steps safe to run again.<br />For more information, see [Plan execution lifecycle](https://docs.aws.amazon.com/r53recovery/latest/dg/plan-execution-lifecycle-rs.html). | November 18, 2026 | 
 | Zonal shift support for additional Network Load Balancer target group configurations | You can now use zonal shift with cross-zone enabled Network Load Balancers that have target groups with connection termination for unhealthy targets enabled, UDP target groups, or Application Load Balancers as targets.<br />For more information, see [Network Load Balancers](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html). | September 24, 2026 | 
 | Readiness check availability change | The readiness check feature in Amazon Application Recovery Controller (ARC) is no longer open to new customers. Existing customers can continue to use the service as normal.<br />For more information, see [Amazon Application Recovery Controller (ARC) readiness check availability change](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-readiness-availability-change.html). | April 30, 2026 | 
 | Readiness check availability change | The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers starting April 30, 2026. Existing customers can continue to use the service as normal.<br />For more information, see [Amazon Application Recovery Controller (ARC) readiness check availability change](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-readiness-availability-change.html). | March 31, 2026 | 

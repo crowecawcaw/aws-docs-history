@@ -1,7 +1,6 @@
 
 
 # Read-only permissions
-<a name="security_iam_region_switch_read_only"></a>
 
  The following IAM policy grants read-only access permissions for Region switch: 
 
@@ -10,7 +9,7 @@
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

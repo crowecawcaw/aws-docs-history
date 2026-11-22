@@ -1,7 +1,6 @@
 
 
 # Execute a Region switch plan to recover an application
-<a name="plan-execution-rs"></a>
 
 To recover an application when an AWS Region is impaired, you execute a Region switch plan in Amazon Application Recovery Controller (ARC).
 + If your application is deployed with an active/active approach, the workflows in your plan deactivate the Region that is impaired so that your other active Region is appropriately scaled and begins to receive all of your application traffic. 

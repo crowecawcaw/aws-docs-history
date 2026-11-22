@@ -1,7 +1,6 @@
 
 
 # Amazon ECS service scaling execution block sample policy
-<a name="security_iam_region_switch_ecs"></a>
 
 **(Optional) Permissions to wait for target group health**  
  When the `waitELBTargetGroupHealthy` option is enabled on your Amazon ECS service scaling execution block, add the following permissions. For more information about this option, see [Amazon ECS service scaling execution block](ecs-service-scaling-block.md).   
@@ -13,7 +12,7 @@
 
  The following is a sample JSON policy to attach if you add execution blocks to a Region switch plan for Amazon ECS service scaling: 
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

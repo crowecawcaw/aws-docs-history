@@ -1,7 +1,6 @@
 
 
 # Creating a safety rule on the console
-<a name="routing-control.create-safety-rule"></a>
 
 The steps in this section explain how to create a safety rule on the ARC console. The steps are similar whether you create an assertion rule or a gating rule. The differences are noted in the procedure.
 

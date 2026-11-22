@@ -1,7 +1,6 @@
 
 
 # Support sharing plans across accounts for ARC Region switch
-<a name="resource-sharing.region-switch"></a>
 
 Amazon Application Recovery Controller (ARC) integrates with AWS Resource Access Manager to enable resource sharing. AWS RAM is a service that enables you to share resources with other AWS accounts or through AWS Organizations. For ARC Region switch, you can share the Region switch plan. (To use resources from another account in your plan, you use a crossAccount role. To learn more, see [Cross-account resources](cross-account-resources-rs.md#cross-account-resources-rs-in-plan).)
 

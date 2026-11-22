@@ -1,7 +1,6 @@
 
 
 # Custom action Lambda execution block
-<a name="custom-action-lambda-block"></a>
 
 The custom action Lambda execution block enables you to add a customized step to a plan by using a Lambda function.
 
@@ -34,7 +33,9 @@ Then, choose **Save step.**
 ## How it works
 <a name="custom-action-lambda-block-how"></a>
 
-When the plan execution reaches this step, Region switch invokes the designated Lambda function. The invocation details (ARN of the Lambda invoked and the payload) are available in the execution event log corresponding to the step. After invocation, Region switch polls the Lambda to return a successful response until the step timeout is reached. If the Lambda encounters an error within the configured timeout period, the step fails and the execution pauses, waiting for you to retry, skip, or cancel.
+When the plan execution reaches this step, Region switch invokes the designated Lambda function. The invocation details (ARN of the Lambda invoked and the payload) are available in the execution event log corresponding to the step. If the invocation returns an error, such as a function timeout, Region switch invokes the function again after the retry interval. When the step timeout is reached, the step fails and the execution pauses. If Lambda rejects the payload, the execution pauses right away.
+
+The step timeout is separate from the function timeout. Set it long enough to allow retries, and make sure that the function is safe to run more than once. For more information, see [Plan execution lifecycle](plan-execution-lifecycle-rs.md).
 
 When your payload is a JSON object (or when no payload is configured), Region switch adds the following execution metadata keys:
 + `InvokedBy`—always set to `RegionSwitch`.

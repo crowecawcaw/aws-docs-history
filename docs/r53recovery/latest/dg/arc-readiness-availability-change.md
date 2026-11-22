@@ -1,7 +1,6 @@
 
 
 # Amazon Application Recovery Controller (ARC) readiness check availability change
-<a name="arc-readiness-availability-change"></a>
 
 **Note**  
 The readiness check feature in Amazon Application Recovery Controller (ARC) is no longer open to new customers. Existing customers can continue to use the service as normal.

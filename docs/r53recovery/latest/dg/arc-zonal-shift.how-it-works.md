@@ -1,7 +1,6 @@
 
 
 # How a zonal shift works
-<a name="arc-zonal-shift.how-it-works"></a>
 
 When you start a zonal shift for a supported resource, traffic for the resource is moved away from the Availability Zone (AZ) that you've specified. ARC's supported resources provide integrations that mark the specified AZ as unhealthy, which results in a traffic shifting away from the impaired AZ. 
 

@@ -1,7 +1,6 @@
 
 
 # Using readiness check in ARC with Amazon EventBridge
-<a name="eventbridge-readiness"></a>
 
 **Note**  
 The readiness check feature in Amazon Application Recovery Controller (ARC) is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [Amazon Application Recovery Controller (ARC) readiness check availability change](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-readiness-availability-change.html).
@@ -57,7 +56,7 @@ You can copy and paste event patterns from this section into EventBridge to crea
 The following event patterns provide examples that you might use in EventBridge for the readiness check capability in ARC.
 + *Select all events from ARC readiness check*.
 
-  ```
+  ```json
   {
       "source": [
           "aws.route53-recovery-readiness"
@@ -66,7 +65,7 @@ The following event patterns provide examples that you might use in EventBridge 
   ```
 + *Select only events related to cells*.
 
-  ```
+  ```json
   {
       "source": [
           "aws.route53-recovery-readiness"
@@ -78,7 +77,7 @@ The following event patterns provide examples that you might use in EventBridge 
   ```
 + *Select only events related to a specific cell called `MyExampleCell`*.
 
-  ```
+  ```json
   {
       "source": [
           "aws.route53-recovery-readiness"
@@ -93,7 +92,7 @@ The following event patterns provide examples that you might use in EventBridge 
   ```
 + *Select only events when any recovery group, cell, or readiness check status becomes `NOT READY`*.
 
-  ```
+  ```json
   {
      "source":[
         "aws.route53-recovery-readiness"
@@ -109,7 +108,7 @@ The following event patterns provide examples that you might use in EventBridge 
   ```
 + *Select only events when any recovery group, cell, or readiness check becomes anything except `READY`*
 
-  ```
+  ```json
   {
      "source":[
         "aws.route53-recovery-readiness"
@@ -128,7 +127,7 @@ The following event patterns provide examples that you might use in EventBridge 
 
 The following is an example ARC event for a *recovery group readiness status change*:
 
-```
+```json
 {
     "version": "0",
     "account":"111122223333",
@@ -154,7 +153,7 @@ The following is an example ARC event for a *recovery group readiness status cha
 
 The following is an example ARC event for a *cell readiness status change*:
 
-```
+```json
 {
     "version": "0",
     "account":"111122223333",
@@ -180,7 +179,7 @@ The following is an example ARC event for a *cell readiness status change*:
 
 The following is an example ARC event for a *readiness check status change*:
 
-```
+```json
 {
     "version": "0",
     "account":"111122223333",
@@ -222,7 +221,7 @@ If you create or use a CloudWatch log group to use as a target using CloudWatch 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
 

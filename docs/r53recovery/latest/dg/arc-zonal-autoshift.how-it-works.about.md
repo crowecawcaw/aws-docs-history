@@ -1,7 +1,6 @@
 
 
 # About zonal autoshift
-<a name="arc-zonal-autoshift.how-it-works.about"></a>
 
 Zonal autoshift is a capability where AWS shifts application resource traffic away from an Availability Zone, on your behalf. AWS starts an autoshift when internal telemetry indicates that there is an Availability Zone impairment that could potentially impact customers. The internal telemetry incorporates metrics from several sources, including the AWS network, and the Amazon EC2 and Elastic Load Balancing services. 
 

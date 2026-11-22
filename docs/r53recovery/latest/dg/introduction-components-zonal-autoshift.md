@@ -1,7 +1,6 @@
 
 
 # Zonal autoshift components
-<a name="introduction-components-zonal-autoshift"></a>
 
 The following diagram illustrates an example of an autoshift shifting traffic away from an Availability Zone. AWS starts an autoshift when internal telemetry indicates that there is an Availability Zone impairment that could potentially impact customers. 
 

@@ -1,7 +1,6 @@
 
 
 # Custom action Lambda execution block sample policy
-<a name="security_iam_region_switch_lambda"></a>
 
  The following is a sample policy to attach if you add execution blocks to a Region switch plan for Lambda functions. 
 
@@ -10,7 +9,7 @@
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

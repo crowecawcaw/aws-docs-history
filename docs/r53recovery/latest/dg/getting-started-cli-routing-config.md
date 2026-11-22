@@ -1,7 +1,6 @@
 
 
 # Set up routing control components
-<a name="getting-started-cli-routing-config"></a>
 
 Our first step is to create a cluster. An ARC cluster is a set of five endpoints, one in each of five different AWS Regions. The ARC infrastructure supports these endpoints to work in coordination so that they guarantee high availability and sequential consistency of failover operations. 
 
@@ -14,7 +13,7 @@ Our first step is to create a cluster. An ARC cluster is a set of five endpoints
 aws route53-recovery-control-config create-cluster --cluster-name test --network-type DUALSTACK
 ```
 
-```
+```json
 "Cluster": {
     "ClusterArn": "arn:aws:route53-recovery-control::123456789123:cluster/12341234-1234-1234-1234-123412341234",
     "Name": "test",
@@ -33,7 +32,7 @@ aws route53-recovery-control-config --region us-west-2 \
 				describe-cluster --cluster-arn arn:aws:route53-recovery-control::111122223333:cluster/5678abcd-abcd-5678-abcd-5678abcdefgh
 ```
 
-```
+```json
 "Cluster": {
     "ClusterArn": "arn:aws:route53-recovery-control::123456789123:cluster/12341234-1234-1234-1234-123412341234",
     "Name": "test",
@@ -51,7 +50,7 @@ When the status is DEPLOYED, ARC has successfully created the cluster with the s
 aws route53-recovery-control-config --region us-west-2 list-clusters
 ```
 
-```
+```json
 "Cluster": {
     "ClusterArn": "arn:aws:route53-recovery-control::123456789123:cluster/12341234-1234-1234-1234-123412341234",
     "Name": "test",
@@ -69,7 +68,7 @@ aws route53-recovery-control-config update-cluster \
 --network-type DUALSTACK
 ```
 
-```
+```json
 "Cluster": {
     "ClusterArn": "arn:aws:route53-recovery-control::123456789123:cluster/12341234-1234-1234-1234-123412341234",
     "Name": "test",
@@ -93,7 +92,7 @@ aws route53-recovery-control-config --region us-west-2 \
 				list-control-panels --cluster-arn arn:aws:route53-recovery-control::111122223333:cluster/eba23304-1a51-4674-ae32-b4cf06070bdd
 ```
 
-```
+```json
 {
     "ControlPanels": [
         {
@@ -118,7 +117,7 @@ aws route53-recovery-control-config --region us-west-2 create-control-panel \
         --cluster-arn arn:aws:route53-recovery-control::111122223333:cluster/5678abcd-abcd-5678-abcd-5678abcdefgh
 ```
 
-```
+```json
 {
     "ControlPanel": {
         "ControlPanelArn": "arn:aws:route53-recovery-control::111122223333:controlpanel/0123456bbbbbbb0123456bbbbbb0123456",
@@ -140,7 +139,7 @@ aws route53-recovery-control-config --region us-west-2 describe-control-panel \
 				--control-panel-arn arn:aws:route53-recovery-control::111122223333:controlpanel/0123456bbbbbbb0123456bbbbbb0123456
 ```
 
-```
+```json
 {
     "ControlPanel": {
         "ControlPanelArn": "arn:aws:route53-recovery-control::111122223333:controlpanel/0123456bbbbbbb0123456bbbbbb0123456",
@@ -170,7 +169,7 @@ aws route53-recovery-control-config --region us-west-2 create-routing-control \
 				--cluster-arn arn:aws:route53-recovery-control::111122223333:cluster/5678abcd-abcd-5678-abcd-5678abcdefgh
 ```
 
-```
+```json
 {
     "RoutingControl": {
         "ControlPanelArn": " arn:aws:route53-recovery-control::111122223333:controlpanel/0123456bbbbbbb0123456bbbbbb0123456",
@@ -190,7 +189,7 @@ aws route53-recovery-control-config --region us-west-2 describe-routing-control 
 			    --routing-control-arn arn:aws:route53-recovery-control::111122223333:controlpanel/0123456bbbbbbb0123456bbbbbb0123456/routingcontrol/abcdefg1234567
 ```
 
-```
+```json
 {
     "RoutingControl": {
         "ControlPanelArn": "arn:aws:route53-recovery-control::111122223333:controlpanel/0123456bbbbbbb0123456bbbbbb0123456",
@@ -210,7 +209,7 @@ aws route53-recovery-control-config --region us-west-2 list-routing-controls \
         --control-panel-arn arn:aws:route53-recovery-control::111122223333:controlpanel/0123456bbbbbbb0123456bbbbbb0123456
 ```
 
-```
+```json
 {
     "RoutingControls": [
         {
@@ -373,7 +372,7 @@ aws route53 create-health-check --caller-reference RoutingControlCell1 \
         Type=RECOVERY_CONTROL,RoutingControlArn=arn:aws:route53-recovery-control::111122223333:controlpanel/0123456bbbbbbb0123456bbbbbb0123456/routingcontrol/abcdefg1234567
 ```
 
-```
+```json
 {
     "Location": "https://route53.amazonaws.com/2015-01-01/healthcheck/11111aaaa-bbbb-cccc-dddd-ffffff22222",
     "HealthCheck": {
@@ -396,7 +395,7 @@ aws route53 create-health-check --caller-reference RoutingControlCell2 \
 				Type=RECOVERY_CONTROL,RoutingControlArn=arn:aws:route53-recovery-control::111122223333:controlpanel/0123456bbbbbbb0123456bbbbbb0123456/routingcontrol/abcdefg1234567
 ```
 
-```
+```json
 {
     "Location": "https://route53.amazonaws.com/2015-01-01/healthcheck/11111aaaa-bbbb-cccc-dddd-ffffff22222",
     "HealthCheck": {
@@ -419,7 +418,7 @@ You create failover DNS records in Route 53 using the Route 53 CLI. To create 
 
 For the primary cell:
 
-```
+```json
 {
     "Name": "myapp.yourdomain.com",
     "Type": "CNAME",
@@ -437,7 +436,7 @@ For the primary cell:
 
 For the secondary cell:
 
-```
+```json
 {
     "Name": "myapp.yourdomain.com",
     "Type": "CNAME",

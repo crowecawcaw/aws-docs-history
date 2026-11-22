@@ -1,7 +1,6 @@
 
 
 # Getting and updating routing control states using the ARC API (recommended)
-<a name="routing-control.update.api"></a>
 
 We recommend that you use Amazon Application Recovery Controller (ARC) API operations to get or update routing control states, by using an AWS CLI command or by using code that you have developed to use ARC API operations with one of the AWS SDKs. We recommend using API operations, with the CLI or in code, for working with routing control states, rather than using the AWS Management Console.
 

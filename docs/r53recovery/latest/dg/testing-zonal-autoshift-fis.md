@@ -1,7 +1,6 @@
 
 
 # Testing zonal autoshift with AWS FIS
-<a name="testing-zonal-autoshift-fis"></a>
 
 You can use AWS Fault Injection Service to set up and run experiments that help you simulate real-world conditions, such as the [AZ Availability: Power Interruption scenario](https://docs.aws.amazon.com/fis/latest/userguide/az-availability-scenario.html), that will demonstrate what happens when AWS starts a zonal autoshift on your autoshift-enabled resources during a potentially widespread AZ impairment.
 

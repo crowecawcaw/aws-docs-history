@@ -1,7 +1,6 @@
 
 
 # Creating a routing control health check in ARC
-<a name="routing-control.create-health-check"></a>
 
 You associate a routing control health check with each routing control that you want to use for rerouting traffic. Then you configure each health check with a Amazon Route 53 DNS record, for example, a failover DNS record. Then you can reroute traffic in Amazon Application Recovery Controller (ARC) simply by updating the state of the associated routing control, to set it to `On` or `Off`.
 

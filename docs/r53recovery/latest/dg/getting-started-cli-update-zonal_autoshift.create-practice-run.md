@@ -1,7 +1,6 @@
 
 
 # Create a practice run configuration
-<a name="getting-started-cli-update-zonal_autoshift.create-practice-run"></a>
 
 Before you can enable zonal autoshift for a resource, you must create a practice run configuration for the resource, to choose options for the required practice runs. You create a practice run configuration for a resource with the CLI by using the `create-practice-run-configuration` command.
 
@@ -23,7 +22,7 @@ aws arc-zonal-shift create-practice-run-configuration \
       --blocked-dates 2023-12-01 --blocked-windows Mon:10:00-Mon:10:30
 ```
 
-```
+```json
 {
    "arn": "arn:aws:elasticloadbalancing:us-west-2:111122223333:ExampleALB123456890",
    "name": "zonal-shift-elb"

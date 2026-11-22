@@ -1,7 +1,6 @@
 
 
 # Getting started with multi-Region recovery in Amazon Application Recovery Controller (ARC)
-<a name="getting-started"></a>
 
 To fail over your applications by using routing control in Amazon Application Recovery Controller (ARC), you must have AWS applications that are in multiple AWS Regions. To get started, first, make sure that your applications are set up in siloed replicas in each Region, so that you can fail over from one to another during an event. Then, you can create routing controls to reroute the application traffic to fail over from a primary application to a secondary, maintaining continuity for your users.
 

@@ -1,7 +1,6 @@
 
 
 # Aurora Serverless Scaling execution block
-<a name="aurora-serverless-scaling-block"></a>
 
 **Category:** Database scaling
 

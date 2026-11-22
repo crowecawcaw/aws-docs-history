@@ -1,7 +1,6 @@
 
 
 # Zonal shift components
-<a name="introduction-components-zonal"></a>
 
 The following diagram illustrates an example of a zonal shift shifting traffic away from an Availability Zone in an AWS Region. Checks that are built into zonal shift prevent you from starting another zonal shift for a resource when it already has an active shift.
 

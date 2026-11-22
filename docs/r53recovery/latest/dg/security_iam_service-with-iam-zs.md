@@ -1,7 +1,6 @@
 
 
 # How zonal shift works with IAM
-<a name="security_iam_service-with-iam-zs"></a>
 
 Before you use IAM to manage access to zonal shift in Amazon Application Recovery Controller (ARC), learn what IAM features are available to use with zonal shift.
 
@@ -61,7 +60,7 @@ arc-zonal-shift
 
 To specify multiple actions in a single statement, separate them with commas. For example, the following:
 
-```
+```json
 "Action": [
       "arc-zonal-shift:{{action1}}",
       "arc-zonal-shift:{{action2}}"

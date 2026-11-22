@@ -1,7 +1,6 @@
 
 
 # Examples of using ARC readiness check API operations with the AWS CLI
-<a name="getting-started-cli-readiness"></a>
 
 **Note**  
 The readiness check feature in Amazon Application Recovery Controller (ARC) is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [Amazon Application Recovery Controller (ARC) readiness check availability change](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-readiness-availability-change.html).
@@ -31,7 +30,7 @@ aws route53-recovery-readiness --region us-west-2 create-cell \
 				--cell-name east-cell
 ```
 
-```
+```json
 {
     "CellArn": "arn:aws:route53-recovery-readiness::111122223333:cell/east-cell",
     "CellName": "east-cell",
@@ -48,7 +47,7 @@ aws route53-recovery-readiness --region us-west-2 create-cell \
 				--cell-name west-cell
 ```
 
-```
+```json
 {
     "CellArn": "arn:aws:route53-recovery-readiness::111122223333:cell/west-cell",
     "CellName": "west-cell",
@@ -64,7 +63,7 @@ aws route53-recovery-readiness --region us-west-2 create-cell \
 aws route53-recovery-readiness --region us-west-2 list-cells
 ```
 
-```
+```json
 {
     "Cells": [
         {
@@ -99,7 +98,7 @@ aws route53-recovery-readiness --region us-west-2 create-recovery-group \
 			    "arn:aws:route53-recovery-readiness::111122223333:cell/west-cell"
 ```
 
-```
+```json
 {
     "Cells": [],
     "RecoveryGroupArn": "arn:aws:route53-recovery-readiness::111122223333:recovery-group/simple-service-recovery-group",
@@ -114,7 +113,7 @@ aws route53-recovery-readiness --region us-west-2 create-recovery-group \
 aws route53-recovery-readiness --region us-west-2 list-recovery-groups
 ```
 
-```
+```json
 {
     "RecoveryGroups": [
         {
@@ -148,7 +147,7 @@ aws route53-recovery-readiness --region us-west-2 create-resource-set \
 				ResourceArn="arn:aws:dynamodb:us-west-2:111122223333:table/TableInUsEast1",ReadinessScopes="arn:aws:route53-recovery-readiness::111122223333:cell/east-cell"
 ```
 
-```
+```json
 {
     "ResourceSetArn": "arn:aws:route53-recovery-readiness::111122223333:resource-set/sample-resource-set",
     "ResourceSetName": "ImportantInformationTables",
@@ -176,7 +175,7 @@ aws route53-recovery-readiness --region us-west-2 create-resource-set \
 aws route53-recovery-readiness --region us-west-2 list-resource-sets
 ```
 
-```
+```json
 {
     "ResourceSets": [
         {
@@ -241,7 +240,7 @@ aws route53-recovery-readiness --region us-west-2 create-readiness-check \
 				--readiness-check-name ImportantInformationTableCheck --resource-set-name ImportantInformationTables
 ```
 
-```
+```json
 {
     "ReadinessCheckArn": "arn:aws:route53-recovery-readiness::111122223333:readiness-check/ImportantInformationTableCheck",
     "ReadinessCheckName": "ImportantInformationTableCheck",
@@ -256,7 +255,7 @@ aws route53-recovery-readiness --region us-west-2 create-readiness-check \
 aws route53-recovery-readiness --region us-west-2 list-readiness-checks
 ```
 
-```
+```json
 {
     "ReadinessChecks": [
         {
@@ -281,7 +280,7 @@ aws route53-recovery-readiness --region us-west-2 get-readiness-check-status\
 				--readiness-check-name ImportantInformationTableCheck
 ```
 
-```
+```json
 {
     "Readiness": "READY",
     "Resources": [
@@ -306,7 +305,7 @@ aws route53-recovery-readiness --region us-west-2 get-readiness-check-resource-s
 				--resource-identifier "arn:aws:dynamodb:us-west-2:111122223333:table/TableInUsWest2"
 ```
 
-```
+```json
 {"Readiness": "READY",
     "Rules": [
         {
@@ -380,7 +379,7 @@ aws route53-recovery-readiness --region us-west-2 get-cell-readiness-summary \
 				--cell-name west-cell
 ```
 
-```
+```json
 {
     "Readiness": "READY",
     "ReadinessChecks": [
@@ -399,7 +398,7 @@ aws route53-recovery-readiness --region us-west-2 get-recovery-group-readiness-s
 				--recovery-group-name simple-service-recovery-group
 ```
 
-```
+```json
 {
     "Readiness": "READY",
     "ReadinessChecks": [

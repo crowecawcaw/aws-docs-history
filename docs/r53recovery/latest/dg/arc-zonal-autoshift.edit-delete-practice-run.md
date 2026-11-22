@@ -1,7 +1,6 @@
 
 
 # Configuring, editing, or deleting a practice run configuration
-<a name="arc-zonal-autoshift.edit-delete-practice-run"></a>
 
 The steps in this section explain how to edit or delete a practice run configuration on the Amazon Application Recovery Controller (ARC) console. To work with zonal autoshift programmatically, including changes to practice run configurations, see the [Zonal Shift and Zonal Autoshift API Reference Guide](https://docs.aws.amazon.com/arc-zonal-shift/latest/api/Welcome.html).
 

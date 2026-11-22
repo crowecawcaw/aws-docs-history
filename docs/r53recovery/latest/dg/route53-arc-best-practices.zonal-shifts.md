@@ -1,7 +1,6 @@
 
 
 # Best practices for zonal shifts in ARC
-<a name="route53-arc-best-practices.zonal-shifts"></a>
 
 We recommend the following best practices for using zonal shifts for multi-AZ recovery in ARC. 
 

@@ -1,7 +1,6 @@
 
 
 # Supported resources
-<a name="arc-zonal-shift.resource-types"></a>
 
 Amazon Application Recovery Controller (ARC) currently supports enabling the following resources for zonal shift and zonal autoshift:
 + [Amazon EC2 Auto Scaling groups](arc-zonal-shift.resource-types.ec2-auto-scaling-groups.md)

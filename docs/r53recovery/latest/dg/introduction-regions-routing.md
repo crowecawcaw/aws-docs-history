@@ -1,7 +1,6 @@
 
 
 # AWS Region availability for routing control
-<a name="introduction-regions-routing"></a>
 
 For detailed information about Regional support and service endpoints for Amazon Application Recovery Controller (ARC), see [Amazon Application Recovery Controller (ARC) endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/r53arc.html) in the *Amazon Web Services General Reference*.
 

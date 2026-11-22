@@ -1,7 +1,6 @@
 
 
 # Amazon Route 53 health check execution block
-<a name="route53-health-check-block"></a>
 
 The Amazon Route 53 health check execution block enables you to specify the Regions that your application's traffic will be redirected to during failover. The execution block creates Amazon Route 53 health checks, which you then attach to Route 53 DNS records in your account. When you execute your Region switch plan, the Route 53 health check state is updated, and traffic is redirected based on your DNS configuration.
 

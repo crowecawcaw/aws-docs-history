@@ -1,7 +1,6 @@
 
 
 # Delete a practice run configuration
-<a name="getting-started-cli-zonal-autoshift.delete-practice-run-config"></a>
 
 You can delete a practice run configuration for a resource, but you must first disable zonal autoshift for the resource. A resource is required to have a practice run configuration to have zonal autoshift enabled. Regular practice runs help you to make sure that your application can run normally without one Availability Zone. 
 
@@ -15,7 +14,7 @@ aws arc-zonal-shift update-zonal-autoshift-configuration \
       --zonal-autoshift-status="DISABLED"
 ```
 
-```
+```json
 {
    "resourceIdentifier": "arn:aws:elasticloadbalancing:us-west-2:111122223333:ExampleALB123456890",
    "zonalAutoshiftStatus": "DISABLED"
@@ -29,7 +28,7 @@ aws arc-zonal-shift delete-practice-run-configuration \
       --resource-identifier="arn:aws:elasticloadbalancing:{{Region}}:{{111122223333}}:{{ExampleALB123456890}}"
 ```
 
-```
+```json
 {
    "arn": "arn:aws:elasticloadbalancing:us-west-2:111122223333:ExampleALB123456890",
    "name": "TestResource",

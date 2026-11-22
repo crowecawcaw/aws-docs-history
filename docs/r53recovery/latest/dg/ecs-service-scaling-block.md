@@ -1,7 +1,6 @@
 
 
 # Amazon ECS service scaling execution block
-<a name="ecs-service-scaling-block"></a>
 
 The ECS service scaling execution block allows you to scale your ECS service in a destination Region as part of your multi-Region recovery process. You can define a percentage of capacity, relative to the Region that Region switch fails over from or deactivates.
 
@@ -56,7 +55,7 @@ A task counts toward the healthy total only when it belongs to this service and 
 + In `awsvpc` mode, Amazon ECS registers each task by its task ENI IP address. Region switch matches each task by its IPv4 or IPv6 address, according to the target group's address type.
 + In `bridge` or `host` mode, Amazon ECS registers each task by its container instance and the host port mapped for the container. Region switch matches the container instance's EC2 instance ID together with that host port.
 
-The step completes only after all required tasks are healthy across every associated target group. If the service has no load balancers, Region switch skips the check and completes the step. If the required tasks don't become healthy before the timeout, the step fails.
+The step completes only after all required tasks are healthy across every associated target group. If the service has no load balancers, Region switch skips the check and completes the step. If the required tasks don't become healthy before the timeout, the step fails and the execution pauses. For more information, see [Plan execution lifecycle](plan-execution-lifecycle-rs.md).
 
 **Note**  
 The **Wait for target group health** option supports only Application Load Balancer (ALB) and Network Load Balancer (NLB) target groups. It doesn't support Classic Load Balancer. If your ECS service uses only a Classic Load Balancer, enabling this option has no effect.

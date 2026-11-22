@@ -1,7 +1,6 @@
 
 
 # Full access permissions
-<a name="security_iam_region_switch_full_access"></a>
 
 The following IAM policy grants full access for all Region switch APIs:
 
@@ -10,7 +9,7 @@ The following IAM policy grants full access for all Region switch APIs:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

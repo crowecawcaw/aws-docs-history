@@ -1,7 +1,6 @@
 
 
 # ARC routing controls execution block sample policy
-<a name="security_iam_region_switch_arc_routing"></a>
 
  Note: The Amazon ARC routing controls execution block requires that any service control policies (SCPs) applied to the plan's execution role allow the access to the following Regions for these services: 
 + `route53-recovery-control-config: us-west-2`
@@ -14,7 +13,7 @@ The following is a sample policy to attach if you add execution blocks to a Regi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

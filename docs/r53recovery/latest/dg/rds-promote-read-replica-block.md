@@ -1,7 +1,6 @@
 
 
 # Amazon RDS Promote Read Replica execution block
-<a name="rds-promote-read-replica-block"></a>
 
 The Amazon RDS Promote Read Replica execution block allows you to promote an Amazon RDS read replica to a standalone database instance as part of your multi-Region recovery process. This enables you to failover to a healthy Region by promoting the read replica in that Region to become the new primary database.
 

@@ -1,7 +1,6 @@
 
 
 # How Region switch in ARC works with IAM
-<a name="security_iam_service-with-iam-region-switch"></a>
 
 Before you use IAM to manage access to ARC, learn what IAM features are available to use with ARC.
 
@@ -61,7 +60,7 @@ arc-region-switch
 
 To specify multiple actions in a single statement, separate them with commas. For example, the following:
 
-```
+```json
 "Action": [
       "arc-region-switch:{{action1}}",
       "arc-region-switch:{{action2}}"

@@ -1,7 +1,6 @@
 
 
 # Amazon RDS Create Cross-Region Replica execution block
-<a name="rds-create-cross-region-replica-block"></a>
 
 The Amazon RDS Create Cross-Region Replica execution block allows you to create a cross-Region read replica for an Amazon RDS database instance as part of your post-recovery process. This execution block is typically used after promoting a read replica to re-establish cross-Region replication, ensuring your application is prepared for future regional events.
 

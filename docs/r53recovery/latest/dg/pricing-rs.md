@@ -1,7 +1,6 @@
 
 
 # Pricing for Region switch in ARC
-<a name="pricing-rs"></a>
 
 You pay a fixed monthly cost per Region switch plan that you configure.
 

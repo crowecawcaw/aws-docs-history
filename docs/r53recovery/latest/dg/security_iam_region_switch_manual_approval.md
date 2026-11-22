@@ -1,7 +1,6 @@
 
 
 # Manual approval execution block sample policy
-<a name="security_iam_region_switch_manual_approval"></a>
 
 The following is a sample policy to attach if you add execution blocks to a Region switch plan for manual approvals.
 
@@ -10,7 +9,7 @@ The following is a sample policy to attach if you add execution blocks to a Regi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

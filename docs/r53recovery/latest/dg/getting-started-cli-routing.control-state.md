@@ -1,7 +1,6 @@
 
 
 # List and update routing controls and states with the AWS CLI
-<a name="getting-started-cli-routing.control-state"></a>
 
 After you create your Amazon Application Recovery Controller (ARC) resources, such as cluster, routing controls, and control panels, you can interact with the cluster to list and update routing control states for failover.
 
@@ -32,7 +31,7 @@ aws route53-recovery-cluster list-routing-controls --control-panel-arn \
         --endpoint-url https://host-dddddd.us-west-2.example.com/v1
 ```
 
-```
+```json
 {
     "RoutingControls": [{
         "ControlPanelArn": "arn:aws:route53-recovery-control::111122223333:controlpanel/0123456bbbbbbb0123456bbbbbb0123456",
@@ -63,7 +62,7 @@ aws route53-recovery-cluster get-routing-control-state --routing-control-arn \
         --endpoint-url https://host-dddddd.us-west-2.example.com/v1
 ```
 
-```
+```json
 {"RoutingControlArn": "arn:aws:route53-recovery-control::111122223333:controlpanel/0123456bbbbbbb0123456bbbbbb0123456/routingcontrol/abcdefg1234567",
     "RoutingControlName": "RCOne",
     "RoutingControlState": "On"
@@ -86,7 +85,7 @@ aws route53-recovery-cluster update-routing-control-state \
         --endpoint-url https://host-dddddd.us-west-2.example.com/v1
 ```
 
-```
+```json
 {}
 ```
 
@@ -105,6 +104,6 @@ aws route53-recovery-cluster update-routing-control-states \
         --endpoint-url https://host-dddddd.us-west-2.example.com/v1
 ```
 
-```
+```json
 {}
 ```

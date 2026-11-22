@@ -1,7 +1,6 @@
 
 
 # Canceling a practice run zonal shift
-<a name="arc-zonal-autoshift.cancel-practice-run"></a>
 
 The steps in this section explain how to cancel a zonal shift on the ARC console. To work with zonal shift and zonal autoshift programmatically, see the [ Zonal Shift and Zonal Autoshift API Reference Guide](https://docs.aws.amazon.com/arc-zonal-shift/latest/api/Welcome.html).
 

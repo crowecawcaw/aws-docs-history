@@ -1,7 +1,6 @@
 
 
 # Reliability of Region switch as a recovery platform
-<a name="data-and-control-planes-rs"></a>
 
 A recovery mechanism is only useful if it works when you need it most, during an actual Regional impairment. Region switch is designed with reliability as a core principle, so that you can depend on it to orchestrate recovery even when parts of your infrastructure are unavailable. The following factors contribute to the reliability of Region switch as a recovery platform.
 

@@ -1,7 +1,6 @@
 
 
 # Using zonal autoshift with Amazon EventBridge
-<a name="eventbridge-zonal-autoshift"></a>
 
 Using Amazon EventBridge, you can set up event-driven rules that monitor your zonal autoshift resources and initiate target actions that use other AWS services. For example, you can set a rule for sending out email notifications by signaling an Amazon SNS topic when a practice run starts for zonal autoshift.
 
@@ -74,7 +73,7 @@ For examples, see the [Example zonal autoshift events](#ZAEventBridgeEventSample
   + If you have autoshift observer notification enabled, ARC returns all autoshift events. 
   + If you do not have autoshift observer notification enabled, ARC returns autoshift events only when a resource that you have configured for zonal autoshift is included in an autoshift.
 
-  ```
+  ```json
   {
       "source": [
           "aws.arc-zonal-shift"
@@ -86,7 +85,7 @@ For examples, see the [Example zonal autoshift events](#ZAEventBridgeEventSample
   ```
 + *Select all events from zonal autoshift where a practice run has started*.
 
-  ```
+  ```json
   {
       "source": [
           "aws.arc-zonal-shift"
@@ -98,7 +97,7 @@ For examples, see the [Example zonal autoshift events](#ZAEventBridgeEventSample
   ```
 + *Select all events from zonal autoshift where a practice run has failed*.
 
-  ```
+  ```json
   {
       "source": [
           "aws.arc-zonal-shift"
@@ -116,7 +115,7 @@ This section includes example events for *zonal autoshift* actions.
 
 The following is an example event for the `Autoshift In Progress` action, when 1) autoshift observer notification is *enabled* and 2) you have not configured a resource with zonal autoshift that is included in an autoshift:
 
-```
+```json
 {
     "version": "0",
     "id": "05d4d2d5-9c76-bfea-72d2-d4614802adb4",
@@ -141,7 +140,7 @@ The following is an example event for the `Autoshift In Progress` action, when 1
 
 The following is an example event for the `Autoshift In Progress` action, when 1) autoshift observer notification is *disabled* and 2) you have configured a resource with zonal autoshift that is included in an autoshift:
 
-```
+```json
 {
     "version": "0",
     "id": "05d4d2d5-9c76-bfea-72d2-d4614802adb4",
@@ -166,7 +165,7 @@ The following is an example event for the `Autoshift In Progress` action, when 1
 
 The following is an example event for the `Practice Run Interrupted` action:
 
-```
+```json
 {
     "version": "0",
     "id": "05d4d2d5-9c76-bfea-72d2-d4614802adb4",
@@ -258,7 +257,7 @@ If you create or use a CloudWatch log group to use as a target using CloudWatch 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
 
