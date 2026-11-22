@@ -1,7 +1,6 @@
 
 
 # Frequently Asked Questions
-<a name="faq"></a>
 
 ## Understanding static websites
 <a name="understanding-static-websites"></a>

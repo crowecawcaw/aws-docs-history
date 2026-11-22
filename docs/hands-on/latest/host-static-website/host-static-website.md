@@ -1,7 +1,6 @@
 
 
 # Host a Static Website
-<a name="host-static-website"></a>
 
 
 |  |  | 
