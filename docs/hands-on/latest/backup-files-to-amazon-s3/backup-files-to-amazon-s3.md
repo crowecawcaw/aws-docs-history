@@ -1,7 +1,6 @@
 
 
 # Store and Retrieve a File with Amazon S3
-<a name="backup-files-to-amazon-s3"></a>
 
 
 |  |  | 
