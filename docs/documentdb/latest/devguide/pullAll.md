@@ -1,7 +1,6 @@
 
 
 # $pullAll
-<a name="pullAll"></a>
 
 The `$pullAll` operator in Amazon DocumentDB is used to remove all instances of the specified values from an array field. This is particularly useful when you need to remove multiple elements from an array in a single operation.
 
@@ -63,7 +62,7 @@ To view a code example for using the `$pullAll` command, choose the tab for the 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function main() {
@@ -88,7 +87,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def main():

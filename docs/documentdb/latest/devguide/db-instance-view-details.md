@@ -1,7 +1,6 @@
 
 
 # Describing Amazon DocumentDB instances
-<a name="db-instance-view-details"></a>
 
 You can use either the Amazon DocumentDB Management Console or the AWS CLI to see details such as connection endpoints, security groups VPCs, certificate authority, and parameter groups pertaining to your Amazon DocumentDB instances.
 
@@ -74,7 +73,7 @@ For certain management features such as cluster and instance lifecycle managemen
 
    Output from this operation looks like the following.
 
-   ```
+   ```json
    {
        "DBInstances": [
            {

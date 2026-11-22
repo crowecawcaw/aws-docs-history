@@ -1,7 +1,6 @@
 
 
 # $lookup
-<a name="lookup"></a>
 
 The `$lookup` aggregation stage in Amazon DocumentDB allows you to perform a left outer join between two collections. This operation lets you combine data from multiple collections based on matching field values. It is particularly useful when you need to incorporate data from related collections into your query results.
 
@@ -243,7 +242,7 @@ To view a code example for using the `$lookup` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -274,7 +273,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():
@@ -315,7 +314,7 @@ To view a code example for using the `$lookup` stage with a correlated subquery 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -363,7 +362,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

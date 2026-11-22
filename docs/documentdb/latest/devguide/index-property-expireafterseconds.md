@@ -1,7 +1,6 @@
 
 
 # Index Property: expireAfterSeconds
-<a name="index-property-expireafterseconds"></a>
 
 ## Supported index types
 <a name="index-property-expireafterseconds-supported"></a>

@@ -1,7 +1,6 @@
 
 
 # Enabling and disabling Performance Insights
-<a name="performance-insights-enabling"></a>
 
 To use Performance Insights, enable it on your DB instance. You can disable it later if necessary. Enabling and disabling Performance Insights doesn't cause downtime, a reboot, or a failover.
 

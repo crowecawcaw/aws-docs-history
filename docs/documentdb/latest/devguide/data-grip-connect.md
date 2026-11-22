@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon DocumentDB using DataGrip
-<a name="data-grip-connect"></a>
 
 [DataGrip](https://www.jetbrains.com/help/datagrip/documentdb.html) is a powerful integrated development environment (IDE) that supports various database systems, including Amazon DocumentDB. This section walks you through the steps to connect to your Amazon DocumentDB cluster using DataGrip, allowing you to easily manage and query your data using a graphical interface.
 

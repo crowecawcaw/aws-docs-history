@@ -1,7 +1,6 @@
 
 
 # Restoring from a cluster snapshot
-<a name="backup_restore-restore_from_snapshot"></a>
 
 Amazon DocumentDB (with MongoDB compatibility) creates a cluster snapshot of your storage volume. You can create a new cluster by restoring from a cluster snapshot. When you restore the cluster, you provide the name of the cluster snapshot to restore from and a name for the new cluster that is created by the restore. You can't restore from a snapshot to an existing cluster because a new cluster is created when you restore.
 
@@ -115,7 +114,7 @@ aws docdb restore-db-cluster-from-snapshot ^
 
 Output from this operation looks something like the following.
 
-```
+```json
 {
     "DBCluster": {
         "AvailabilityZones": [
@@ -184,7 +183,7 @@ aws docdb create-db-instance ^
 
 Output from this operation looks something like the following.
 
-```
+```json
 {
     "DBInstance": {
         "DBInstanceIdentifier": "sample-cluster-restore-instance",

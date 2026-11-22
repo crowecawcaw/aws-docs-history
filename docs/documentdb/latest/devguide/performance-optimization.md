@@ -1,7 +1,6 @@
 
 
 # Performance optimization
-<a name="performance-optimization"></a>
 
 This chapter provides guidance on optimizing Amazon DocumentDB performance and troubleshooting common performance issues.
 
@@ -15,4 +14,3 @@ This chapter provides guidance on optimizing Amazon DocumentDB performance and t
 + [Best practices](best_practices.md)
 + [Managing indexes](managing-indexes.md)
 + [Managing document compression](doc-compression.md)
-+ [Managing dictionary-based compression](dict-compression.md)

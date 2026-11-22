@@ -1,7 +1,6 @@
 
 
 # Compound indexes
-<a name="indexes-compound"></a>
 
 Compound indexes store information from two or more fields in a collection of documents, allowing queries on the first field or any prefix fields. These indexes optimize performance for queries that filter on multiple fields simultaneously or combine filtering with sorting operations. They're also effective for single-condition queries on the leftmost indexed fields. The database leverages these index entries to efficiently locate matching documents without performing full collection scans.
 

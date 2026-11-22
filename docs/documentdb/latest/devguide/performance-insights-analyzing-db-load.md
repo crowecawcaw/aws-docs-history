@@ -1,7 +1,6 @@
 
 
 # Analyzing database load by wait states
-<a name="performance-insights-analyzing-db-load"></a>
 
 If the **Database load (DB load)** chart shows a bottleneck, you can find out where the load is coming from. To do so, look at the top load items table below the **Database load** chart. Choose a particular item, like a query or an application, to drill down into that item and see details about it.
 

@@ -1,7 +1,6 @@
 
 
 # $in
-<a name="in"></a>
 
 The `$in` operator in Amazon DocumentDB is a logical query operator that allows you to find documents where the value of a field equals any of the values specified in an array.
 
@@ -54,7 +53,7 @@ To view a code example for using the `$in` command, choose the tab for the langu
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findByIn() {
@@ -74,7 +73,7 @@ findByIn();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def find_by_in():

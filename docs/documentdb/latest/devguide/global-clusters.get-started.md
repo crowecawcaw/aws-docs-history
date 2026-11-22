@@ -1,7 +1,6 @@
 
 
 # Quick start guide: global clusters
-<a name="global-clusters.get-started"></a>
 
 **Topics**
 + [Configuration](#global-clusters.config)
@@ -105,7 +104,7 @@ aws docdb create-db-cluster ^
 
 Output from this operation looks something like the following (JSON format).
 
-```
+```json
 {
     "DBCluster": {
         "StorageEncrypted": false,

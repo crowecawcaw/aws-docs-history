@@ -1,7 +1,6 @@
 
 
 # $mod
-<a name="mod"></a>
 
 The `$mod` operator is an arithmetic operator that performs a modulo operation on a number. It returns the remainder of dividing one number by another. This operator is commonly used to determine if a number is odd or even, or to distribute items into a finite number of groups.
 
@@ -52,7 +51,7 @@ To view a code example for using the `$mod` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function main() {
@@ -80,7 +79,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')

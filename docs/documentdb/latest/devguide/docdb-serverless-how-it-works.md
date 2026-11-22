@@ -1,7 +1,6 @@
 
 
 # How Amazon DocumentDB serverless works
-<a name="docdb-serverless-how-it-works"></a>
 
 **Topics**
 + [Overview](#docdb-serverlerss-overviewn)

@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB high availability and replication
-<a name="replication"></a>
 
 You can achieve high availability and read scaling in Amazon DocumentDB (with MongoDB compatibility) by using replica instances. A single Amazon DocumentDB cluster supports a single primary instance and up to 15 replica instances. These instances can be distributed across Availability Zones within the cluster's Region. The primary instance accepts read and write traffic, and replica instances accept only read requests.
 

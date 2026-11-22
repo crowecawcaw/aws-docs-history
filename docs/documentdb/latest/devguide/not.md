@@ -1,7 +1,6 @@
 
 
 # $not
-<a name="not"></a>
 
 The `$not` operator is used to negate the result of a given expression. It allows you to select documents where the specified condition does not match.
 
@@ -57,7 +56,7 @@ To view a code example for using the `$not` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient, Filters } = require('mongodb');
 
 async function main() {
@@ -80,7 +79,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 from bson.son import SON
 

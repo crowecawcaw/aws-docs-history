@@ -1,7 +1,6 @@
 
 
 # $push
-<a name="push"></a>
 
 The `$push` operator in Amazon DocumentDB is used to add an item to an array field in a document. This operator is particularly useful when you need to append new data to an existing array without overwriting the entire array.
 
@@ -53,7 +52,7 @@ To view a code example for using the `$push` command, choose the tab for the lan
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function updateDocument() {
@@ -76,7 +75,7 @@ updateDocument();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def update_document():

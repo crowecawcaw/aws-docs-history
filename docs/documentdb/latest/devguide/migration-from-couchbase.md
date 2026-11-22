@@ -1,7 +1,6 @@
 
 
 # Migration from Couchbase Server
-<a name="migration-from-couchbase"></a>
 
 **Topics**
 + [Introduction](#introduction)

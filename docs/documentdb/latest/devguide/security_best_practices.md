@@ -1,7 +1,6 @@
 
 
 # Security best practices for Amazon DocumentDB
-<a name="security_best_practices"></a>
 
 Amazon DocumentDB provides security features including Amazon VPC isolation, encryption at rest using AWS KMS, encryption in transit using TLS, and fine-grained access control through IAM. Use the following best practices to secure your Amazon DocumentDB clusters, instances, and data.
 

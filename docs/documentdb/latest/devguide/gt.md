@@ -1,7 +1,6 @@
 
 
 # $gt
-<a name="gt"></a>
 
 The `$gt` operator in Amazon DocumentDB is used to select documents where the value of the specified field is greater than the specified value. This operator is useful for filtering and querying data based on numerical comparisons.
 
@@ -46,7 +45,7 @@ To view a code example for using the `$gt` command, choose the tab for the langu
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findUsersOlderThan30() {
@@ -63,7 +62,7 @@ findUsersOlderThan30();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def find_users_older_than_30():

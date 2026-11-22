@@ -1,7 +1,6 @@
 
 
 # Managing Amazon DocumentDB indexes
-<a name="managing-indexes"></a>
 
 **Topics**
 + [Amazon DocumentDB index creation](#index-creation-build)

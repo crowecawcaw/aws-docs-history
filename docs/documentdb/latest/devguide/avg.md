@@ -1,7 +1,6 @@
 
 
 # $avg
-<a name="avg"></a>
 
 The `$avg` aggregation operator in Amazon DocumentDB calculates the average value of the specified expression across the documents that are input to the stage. This operator is useful for computing the average of a numeric field or expression across a set of documents.
 
@@ -108,7 +107,7 @@ To view a code example for using the `$avg` operator, choose the tab for the lan
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function calculateAvgScore() {
@@ -165,7 +164,7 @@ calculateAvgScore();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def calculate_avg_score():

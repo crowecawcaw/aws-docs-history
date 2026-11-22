@@ -1,7 +1,6 @@
 
 
 # $dateFromString
-<a name="dateFromString"></a>
 
 The `$dateFromString` aggregation operator in Amazon DocumentDB allows you to convert a date-time string into a date object. This is useful when your data is stored as strings but you need to perform date-based operations on the data.
 
@@ -86,7 +85,7 @@ To view a code example for using the `$dateFromString` command, choose the tab f
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -117,7 +116,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

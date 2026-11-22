@@ -1,7 +1,6 @@
 
 
 # $replaceRoot
-<a name="replaceRoot"></a>
 
 The `$replaceRoot` operator is used to replace the root document with the specified embedded document. This is useful when you want to promote a nested document to the top level or restructure your data output.
 
@@ -63,7 +62,7 @@ To view a code example for using the `$replaceRoot` command, choose the tab for 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function extractShippingAddresses() {
@@ -90,7 +89,7 @@ extractShippingAddresses();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def extract_shipping_addresses():

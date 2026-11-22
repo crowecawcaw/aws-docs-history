@@ -1,7 +1,6 @@
 
 
 # $in
-<a name="in-aggregation"></a>
 
 The `$in` aggregation operator checks if a specified value exists within an array. It returns `true` if the value is found in the array, and `false` otherwise.
 
@@ -55,7 +54,7 @@ To view a code example for using the `$in` aggregation operator, choose the tab 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -82,7 +81,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

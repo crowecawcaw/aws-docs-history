@@ -1,7 +1,6 @@
 
 
 # Index management
-<a name="index-management"></a>
 
 This section covers index management topics for Amazon DocumentDB.
 

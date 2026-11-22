@@ -1,7 +1,6 @@
 
 
 # Understanding backup storage usage
-<a name="backup_restore-understanding_backup_storage_usage"></a>
 
 Amazon DocumentDB backup storage consists of continuous backups within the backup retention period and manual snapshots outside the retention period. To control your backup storage usage, you can reduce the backup retention interval, remove old manual snapshots when they are no longer needed, or both. For general information about Amazon DocumentDB backups, see [Backing up and restoring in Amazon DocumentDB](backup_restore.md). For pricing information about Amazon DocumentDB backup storage, see [Amazon DocumentDB Pricing](https://aws.amazon.com/documentdb/pricing/). 
 

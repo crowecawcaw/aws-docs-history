@@ -1,7 +1,6 @@
 
 
 # Comparing automatic and manual snapshots
-<a name="backup_restore-compare_automatic_manual_snapshots"></a>
 
 The following are key features of Amazon DocumentDB (with MongoDB compatibility) automatic and manual snapshots.
 

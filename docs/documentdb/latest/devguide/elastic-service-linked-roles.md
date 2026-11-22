@@ -1,7 +1,6 @@
 
 
 # Service-linked roles in elastic clusters
-<a name="elastic-service-linked-roles"></a>
 
 Amazon DocumentDB elastic clusters use AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Amazon DocumentDB elastic clusters. Service-linked roles are predefined by Amazon DocumentDB elastic clusters and include all the permissions that the service requires to call other AWS services on your behalf.
 
@@ -21,7 +20,7 @@ This service-linked role has a permissions policy attached to it called `AmazonD
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

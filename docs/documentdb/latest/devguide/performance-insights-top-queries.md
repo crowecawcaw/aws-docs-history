@@ -1,7 +1,6 @@
 
 
 # Overview of the Top queries tab
-<a name="performance-insights-top-queries"></a>
 
 By default, the **Top query** tab shows the queries that are contributing the most to DB load. You can analyze the query text to help tune your queries.
 

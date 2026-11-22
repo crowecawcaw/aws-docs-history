@@ -1,7 +1,6 @@
 
 
 # $last
-<a name="last"></a>
 
 The `$last` operator in Amazon DocumentDB is used to return the last element in an array that matches the query criteria. It is particularly useful for retrieving the most recent or the last element in an array that satisfies a specific condition.
 
@@ -147,7 +146,7 @@ To view a code example for using the `$last` operator, choose the tab for the la
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -241,7 +240,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

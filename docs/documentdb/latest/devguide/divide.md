@@ -1,7 +1,6 @@
 
 
 # $divide
-<a name="divide"></a>
 
 The `$divide` operator in the Amazon DocumentDB aggregation pipeline is used to divide one number by another. It is a useful operator for performing mathematical operations on numeric fields within your documents.
 
@@ -55,7 +54,7 @@ To view a code example for using the `$divide` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function calculateHourlyRate() {
@@ -82,7 +81,7 @@ calculateHourlyRate();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def calculate_hourly_rate():

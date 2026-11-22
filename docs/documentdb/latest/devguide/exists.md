@@ -1,7 +1,6 @@
 
 
 # $exists
-<a name="exists"></a>
 
 The `$exists` operator is used to check whether a field exists in a document or not. `$exists` particularly useful when working with sparse indexes in Amazon DocumentDB, where the indexed field may not be present in all documents.
 
@@ -55,7 +54,7 @@ To view a code example for using the `$exists` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function main() {
@@ -75,7 +74,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 import pymongo
 
 client = pymongo.MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')

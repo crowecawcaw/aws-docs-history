@@ -1,7 +1,6 @@
 
 
 # $and
-<a name="and-aggregation"></a>
 
 The `$and` aggregation operator evaluates multiple expressions and returns `true` only if all expressions evaluate to `true`. If any expression is `false`, it returns `false`.
 
@@ -61,7 +60,7 @@ To view a code example for using the `$and` aggregation operator, choose the tab
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -95,7 +94,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

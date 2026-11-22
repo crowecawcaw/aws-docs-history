@@ -1,7 +1,6 @@
 
 
 # $map
-<a name="map"></a>
 
 The `$map` operator in Amazon DocumentDB allows you to apply a specified expression to each element in an array and return a new array with the transformed elements. This operator is particularly useful for manipulating and transforming data within arrays, which can help simplify your application code and improve query performance by pushing the array processing to the database level.
 
@@ -53,7 +52,7 @@ To view a code example for using the `$map` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -79,7 +78,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

@@ -1,7 +1,6 @@
 
 
 # Performing CRUD operations in Amazon DocumentDB with Java
-<a name="java-crud-operations"></a>
 
 This section discusses performing CRUD (create, read, update, delete) operation in Amazon DocumentDB using MongoDB Java drivers.
 
@@ -21,7 +20,7 @@ Inserting documents into Amazon DocumentDB allows you to add new data to your co
 
 Let's begin by examining how to insert an individual document into an Amazon DocumentDBB collection. Inserting a single document is accomplished by using the `insertOne()` method. This method takes a [BsonDocument](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/bson/org/bson/BsonDocument.html) for insertion and returns an [`InsertOneResult`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/result/InsertOneResult.html) object that can be used to get the object id of the new inserted document. The example code below shows inserting one restaurant document into the collection:
 
-```
+```java
 Document article = new Document()
     .append("restaurantId", "REST-21G145")
     .append("name", "Future-proofed Intelligent Bronze Hat")
@@ -58,7 +57,7 @@ The primary methods used for inserting many document into a collection are inser
 
 The `insertMany()` method is the simplest way to insert multiple documents in a single operation. It accepts a list of documents and inserts them into the collection. This method is ideal when you're inserting a batch of new documents that are independent of each other and don't require any special processing or mixed operations. The following code shows reading JSON documents from a file and inserting them into the collection. The `insertMany()` function returns an [`InsertManyResult`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/result/InsertManyResult.html)`InsertManyResult` object that can be used to get the IDs of all the inserted documents.
 
-```
+```java
 // Read JSON file content
 String content = new String(Files.readAllBytes(Paths.get(jsonFileName)));
 JSONArray jsonArray = new JSONArray(content);
@@ -88,7 +87,7 @@ The [`BulkWriteOptions`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs
 
 For error handling, the [`MongoBulkWriteException`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/MongoBulkWriteException.html) class is crucial as it contains information about any failures during the bulk operation, while the [`BulkWriteError`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/bulk/BulkWriteError.html) class provides specific details about individual operation failures. The following code shows an example of inserting a list of documents, as well as updating and deleting a single document, all within the execution of single `bulkWrite()` method call. The code also shows how to work with [`BulkWriteOptions`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/model/BulkWriteOptions.html) and [`BulkWriteResult`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/bulk/BulkWriteResult.html), as well as proper error handling of the `bulkWrite()` operation. 
 
-```
+```java
 List < WriteModel < Document >> bulkOperations = new ArrayList < > ();
 // get list of 10 documents representing 10 restaurants
 List < Document > restaurantsToInsert = getSampleData();
@@ -159,14 +158,14 @@ In this section, several examples are presented for `find()`, `Filters` and `Fin
 
 The following code example shows how to use `find()` to retrieve a single document using its “restaurantId” field:
 
-```
+```java
 Document filter = new Document("restaurantId", "REST-21G145");
 Document result = collection.find(filter).first();
 ```
 
 Even though using `Filters` allows for better compile time error checking, the java driver also allows you to specify a `Bson` filter directly in the `find()` method. The following example code passes `Bson` document to `find()`:
 
-```
+```java
 result = collection.find(new Document("$and", Arrays.asList(
     new Document("rating.totalReviews", new Document("$gt", 1000)),
     new Document("priceRange", "$$"))))
@@ -174,7 +173,7 @@ result = collection.find(new Document("$and", Arrays.asList(
 
 The next example code shows several examples of using the `Filters` class with `find()`:
 
-```
+```java
 FindIterable < Document > results;
 
 // Exact match
@@ -219,7 +218,7 @@ results = collection.find(Filters.size("features", 4));
 
 The following example shows how to chain the operations of `sort()`, `skip()`, `limit()`, and `batchSize()` on a `FindIterable` object. The order of how these operations is provided will influence the performance of your query. As a best practice, the order of these operations should be `sort()`, `projection()`, `skip()`, `limit()` and `batchSize()`.
 
-```
+```java
 FindIterable < Document > results = collection.find(Filters.gt("rating.totalReviews", 1000))
     // Sorting
     .sort(Sorts.orderBy(
@@ -238,13 +237,13 @@ FindIterable < Document > results = collection.find(Filters.gt("rating.totalRevi
 
 The following example code shows creating an iterator on `FindIterable`. It uses Java’s `forEach` construct to traverse through the result set.
 
-```
+```java
 collection.find(Filters.eq("cuisine", "American")).forEach(doc -> System.out.println(doc.toJson()));
 ```
 
 In the last `find()` code example, it shows how to use `cursor()` for document retrieval. It creates the cursor in the try block which ensures that the cursor will get closed when the code exits the try block.
 
-```
+```java
 try (MongoCursor < Document > cursor = collection.find(Filters.eq("cuisine", "American"))
     .batchSize(25)
     .cursor()) {
@@ -271,14 +270,14 @@ The `Updates` class in the MongoDB Java driver is a utility class that provides 
 
 In DocumentDB, updating a single document can be accomplished using the updateOne() method. This method take a filter parameter, usually provided by the `Filters` class, to identify the document to be updated, an `Updat`e parameter that determines which field(s) to be updated, and an optional `UpdateOptions` parameter to set different options for the update. Using the `updateOne()` method will only update the first document that matches the selection criteria. The following example code updates a single field of one document:
 
-```
+```java
 collection.updateOne(Filters.eq("restaurantId", "REST-Y2E9H5"),
     Updates.set("name", "Amazing Japanese sushi"));
 ```
 
 To update multiple fields in one document, use `updateOne()` with `Update.combine()` as shown in the following example. This example also shows how to add an item to an array in the document.
 
-```
+```java
 List<Bson> updates = new ArrayList<>();
 // Basic field updates
 updates.add(Updates.set("name", "Shanghai Best"));
@@ -294,7 +293,7 @@ collection.updateOne(Filters.eq("restaurantId","REST-1J83NH"), combinedUpdates);
 
 The following code example demonstrates how to update a document in the database. If the specified document doesn't exist, the operation will automatically insert it as a new document instead. This code also shows how to use the metrics available via the `UpdateResult` object.
 
-```
+```java
 Bson filter = Filters.eq("restaurantId", "REST-0Y9GL0");
 Bson update = Updates.set("cuisine", "Indian");
 // Upsert operation
@@ -310,7 +309,7 @@ if (result.getUpsertedId() != null) {
 
 The following code example demonstrates how to completely replace an existing document with a new document using the `replaceOne()` method, rather than updating individual fields. The `replaceOne()` method overwrites the entire document, preserving only the `_id` field of the original. If multiple documents match the filter criteria, only the first encountered document is replaced.
 
-```
+```java
 Document newDocument = new Document()
                 .append("restaurantId", "REST-0Y9GL0")
                 .append("name", "Bhiryani Adda")
@@ -333,7 +332,7 @@ There are two ways to update multiple document in a collection simultaneously. Y
 
 The following example code demonstrates the usage of the `updateMany()` method:
 
-```
+```java
 Bson filter = Filters.and(
     Filters.in("features", Arrays.asList("Private Dining")),
     Filters.eq("cuisine", "Thai"));
@@ -342,7 +341,7 @@ UpdateResult result1 = collection.updateMany(filter, Updates.set("priceRange", "
 
 The following example code demonstrates the `bulkWrite()` method using the same update:
 
-```
+```java
 BulkWriteOptions options = new BulkWriteOptions().ordered(false);
 List < WriteModel < Document >> updates = new ArrayList < > ();
 Bson filter = Filters.and(
@@ -359,7 +358,7 @@ System.out.printf("Modified %d document%n", result.getModifiedCount());
 
 The MongoDB Java driver offers `deleteOne()` for removing a single document and `deleteMany()` for removing multiple documents that match specific criteria. Just like update, delete operation can also be used with the `bulkWrite()` method. Both `deleteOne()` and `deleteMany()` return a [`DeleteResult`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/result/DeleteResult.html) object that provides information about the operation's outcome, including the count of documents deleted. The following is an example of using `deleteMany()` to remove multiple documents:
 
-```
+```java
 Bson filter = Filters.and(
     Filters.eq("cuisine", "Thai"),
     Filters.lt("rating.totalReviews", 50));
@@ -372,7 +371,7 @@ System.out.printf("Deleted %d document%n", result.getDeletedCount());
 
 A robust error handling strategy for Amazon DocumentDB should implement categorization of errors into retryable (like network timeouts, connection issues) and non-retryable (like authentication failures, invalid queries). For operation failures due of errors that should be retried, it should implement a time delay between each retry as well as max retry attempts. The CRUD operations should be in a try-catch block that catches [`MongoException`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/MongoException.html) and its subclasses. Additionally, it should include monitoring and logging of errors for operational visibility. The following is sample code that shows how to implement retry error handling:
 
-```
+```java
 int MAX_RETRIES = 3;
 int INITIAL_DELAY_MS = 1000;
 int retryCount = 0;

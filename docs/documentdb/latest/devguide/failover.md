@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB failover
-<a name="failover"></a>
 
 In certain cases, such as certain types of planned maintenance, or in the unlikely event of a primary node or Availability Zone failure, Amazon DocumentDB (with MongoDB compatibility) detects the failure and replaces the primary node. During a failover, write down time is minimized. This is because the role of primary node fails over to one of the read replicas instead of having to create and provision a new primary node. This failure detection and replica promotion ensure that you can resume writing to the new primary as soon as promotion is complete.
 
@@ -84,7 +83,7 @@ aws docdb failover-db-cluster ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 {
     "DBCluster": {
         "HostedZoneId": "Z2SUY0A1719RZT",

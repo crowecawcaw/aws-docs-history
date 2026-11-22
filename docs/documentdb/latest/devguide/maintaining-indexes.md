@@ -1,7 +1,6 @@
 
 
 # Maintaining indexes
-<a name="maintaining-indexes"></a>
 
 ## Index bloat
 <a name="maintaining-indexes-bloat"></a>

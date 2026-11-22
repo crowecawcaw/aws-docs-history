@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon DocumentDB elastic clusters
-<a name="elastic-get-started"></a>
 
 This getting started section walks you through on how you can create and query your first elastic cluster. 
 

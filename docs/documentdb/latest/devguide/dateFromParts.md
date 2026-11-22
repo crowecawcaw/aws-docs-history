@@ -1,7 +1,6 @@
 
 
 # $dateFromParts
-<a name="dateFromParts"></a>
 
 New from version 5.0.1 and 8.0
 
@@ -59,7 +58,7 @@ To view a code example for using the `$dateFromParts` command, choose the tab fo
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -89,7 +88,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

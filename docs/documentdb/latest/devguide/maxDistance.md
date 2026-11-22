@@ -1,7 +1,6 @@
 
 
 # $maxDistance
-<a name="maxDistance"></a>
 
 The `$maxDistance` operator in Amazon DocumentDB is used to specify the maximum distance (in meters) from a GeoJSON point that documents must be within to be included in the query results. This operator is used in conjunction with the `$nearSphere` operator to perform geospatial queries.
 
@@ -57,7 +56,7 @@ To view a code example for using the `$maxDistance` command, choose the tab for 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findCapitalsNearBoston() {
@@ -86,7 +85,7 @@ findCapitalsNearBoston();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def find_capitals_near_boston():

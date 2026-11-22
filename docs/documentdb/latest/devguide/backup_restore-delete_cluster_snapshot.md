@@ -1,7 +1,6 @@
 
 
 # Deleting a cluster snapshot
-<a name="backup_restore-delete_cluster_snapshot"></a>
 
 A manual snapshot is a full backup that is deleted only when you manually delete it using the AWS Management Console or AWS CLI. You cannot manually delete an automatic snapshot because automatic snapshots are deleted only when the snapshot's retention period expires or you delete the snapshot's cluster.
 

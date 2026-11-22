@@ -1,7 +1,6 @@
 
 
 # Connecting to Amazon DocumentDB with a MongoDB Java driver
-<a name="java-pg-connect-mongo-driver"></a>
 
 This section provides a step-by-step guide for connecting to Amazon DocumentDB using Java drivers. This will get you started with integrating DocumentDB into your Java applications.
 
@@ -126,7 +125,7 @@ The following code example shows how to make a TLS connection to Amazon Document
 + It also creates the [`MongoClientSettings`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/MongoClientSettings.html) object by passing it to the [`ConnectionString`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/ConnectionString.html) object. To make TLS connection, you must use the `MongoClientSettings` object to bind the `connectionstring` and `sslcontext`.
 + Using [`MongoClients`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-sync/com/mongodb/client/MongoClients.html) gets a [`MongoClient`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-sync/com/mongodb/client/MongoClient.html) object.
 
-```
+```java
 public static MongoClient makeDbConnection(String dbName, String DbUserName, String DbPassword,
     String DbClusterEndPoint, String keyStorePass) throws Exception {
     MongoClient connectedClient;
@@ -177,7 +176,7 @@ When working with DocumentDB in Java applications, handling connection exception
 
 The following code sample creates an Amazon DocumentDB connection and prints all the databases:
 
-```
+```java
 public static void TestConnection() {
     try (MongoClient mongoClient = makeDbConnection(DATABASE_NAME, DB_USER_NAME, DB_PASSWORD, DB_CLUSTER_ENDPOINT, KEYSTORE_PASSWORD)) {
         List < String > databases = mongoClient.listDatabaseNames().into(new ArrayList < > ());

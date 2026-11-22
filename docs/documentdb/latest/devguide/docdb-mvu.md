@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB in-place major version upgrade
-<a name="docdb-mvu"></a>
 
 You can perform an in-place major version upgrade (MVU) of your Amazon DocumentDB cluster while keeping the same endpoints, storage, and tags. Your applications continue to work without modifications. This feature is available at no additional cost in all AWS Regions where Amazon DocumentDB is available.
 
@@ -44,7 +43,7 @@ In-place MVU is not supported for global clusters or elastic clusters. To upgrad
 
 **Important**  
 **Scale up burstable instances before upgrading.** If your cluster uses burstable instance types (for example, `db.t3.medium` or `db.t4g.medium`), scale up the primary instance to at least `db.r5.large` or `db.r6g.large` before initiating the upgrade. Burstable instances may not have sufficient CPU and memory to complete the upgrade process, which can result in upgrade failures and extended cluster unavailability. You can scale back down after the upgrade completes.  
-**Scale up the serverless writer instance before upgrading.** If your cluster has a serverless writer instance, the maximum DCU in the `ServerlessV2ScalingConfiguration` must be set to 10 or higher before initiating the upgrade. Clusters with a maximum DCU below 10 cannot be upgraded because they do not have sufficient CPU or memory to complete the upgrade.  
+**Scale up the serverless writer instance before upgrading.** If your cluster has a serverless writer instance, the minimum DCU in the `ServerlessV2ScalingConfiguration` must be set to 10 or higher before initiating the upgrade. Clusters with a minimum DCU below 10 cannot be upgraded because they do not have sufficient CPU or memory to complete the upgrade.  
 **Check your partial indexes before upgrading (upgrade from Amazon DocumentDB 5.0 to 8.0).** Before starting the upgrade, review your partial indexes for a `partialFilterExpression` that uses the `$type` operator to match certain BSON types: specifically the `binData`, `bool`, `date`, `double`, `decimal`, and `array` type aliases, or a numeric type code such as `{ "$type" : 1 }`. Such partial indexes cause the upgrade to fail, even though the index works normally for reads and writes. Use `db.collection.getIndexes()` to review the `partialFilterExpression` of your partial indexes. Drop the affected partial index before starting the upgrade and recreate it after the upgrade completes. If you are unsure whether an index is affected, contact AWS support before upgrading.
 + **Instance type** — Amazon DocumentDB 4.0\+ does not support db.r4 instances. Modify any `db.r4.*` instances to `db.r5.*` instances or newer before upgrading. See [Modifying an Amazon DocumentDB instance](db-instance-modify.md) and [Supported instance classes by Region](db-instance-classes.md#db-instance-classes-by-region).
 + **OS patches** — Apply any pending OS maintenance actions on all instances before upgrading. See [Amazon DocumentDB operating system updates](db-instance-maintain.md#os-system-updates).
@@ -184,7 +183,7 @@ After performing a major version upgrade to Amazon DocumentDB 8.0 (from Amazon D
 + **Collation.** Amazon DocumentDB 8.0 supports [collation](collation.md). After the upgrade, new collections and their indexes, and new indexes on existing collections, have collation enabled by default.
 + **Text index.** New text indexes are created using Text Index V2, which uses an updated text search parser for improved MongoDB compatibility. Existing text indexes are not affected.
 + **Query planner version.** If you did not have a custom parameter group, a new default parameter group is created for Amazon DocumentDB 8.0 with Planner Version 3 automatically selected. With query planner version 3, [views](views.md) are also available.
-+ **Compression.** Amazon DocumentDB 8.0 supports dictionary-based document compression using the Zstd algorithm. After the upgrade, new collections are created with Zstd compression enabled by default. Existing collections from 5.0 retain their compression settings. To take advantage of Zstd compression on existing collections, you can modify their compression settings. For more information, see [Managing dictionary-based compression in Amazon DocumentDB 8.0](dict-compression.md).
++ **Compression.** Amazon DocumentDB 8.0 supports dictionary-based document compression using the Zstd algorithm. After the upgrade, Amazon DocumentDB creates new collections with Zstd compression by default. Existing collections from 5.0 keep their compression settings. To use Zstd on an existing collection, change its compression settings. For more information, see [Managing collection-level document compression](doc-compression.md).
 + **Index rebuild.** If you are upgrading from Amazon DocumentDB 5.0 to Amazon DocumentDB 8.0, no index rebuild is needed. If you are upgrading directly from Amazon DocumentDB 3.6 or 4.0 to 8.0, rebuild your indexes as described in [Post-upgrade considerations for clusters upgraded from 3.6 or 4.0](#mvu-36-to-50-differences).
 
 **Important**  

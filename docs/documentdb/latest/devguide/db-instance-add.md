@@ -1,7 +1,6 @@
 
 
 # Adding an Amazon DocumentDB instance to a cluster
-<a name="db-instance-add"></a>
 
 ------
 #### [ Using the AWS Management Console ]
@@ -76,7 +75,7 @@ Use the `create-db-instance` AWS CLI operation with the following parameters to 
 
    Output from this operation looks something like the following.
 
-   ```
+   ```json
    [
        [
            "sample-cluster",
@@ -111,7 +110,7 @@ Use the `create-db-instance` AWS CLI operation with the following parameters to 
 
    Output from this operation looks something like the following.
 
-   ```
+   ```json
    [
        "db.r5.16xlarge",
        "db.r5.2xlarge",
@@ -152,7 +151,7 @@ Use the `create-db-instance` AWS CLI operation with the following parameters to 
 
    Output from this operation looks something like the following.
 
-   ```
+   ```json
    {
        "DBInstance": {
            "DBInstanceIdentifier": "sample-instance-2",

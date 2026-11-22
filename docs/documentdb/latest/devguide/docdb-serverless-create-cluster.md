@@ -1,7 +1,6 @@
 
 
 # Creating a cluster that uses Amazon DocumentDB serverless
-<a name="docdb-serverless-create-cluster"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # $nor
-<a name="nor"></a>
 
 The `$nor` operator is used to match documents where none of the specified query conditions are true. It is similar to the logical "NOR" operation, where the result is true if none of the operands are true.
 
@@ -53,7 +52,7 @@ To view a code example for using the `$nor` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -79,7 +78,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

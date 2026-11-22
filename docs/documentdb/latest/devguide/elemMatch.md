@@ -1,7 +1,6 @@
 
 
 # $elemMatch
-<a name="elemMatch"></a>
 
 The `$elemMatch` operator in Amazon DocumentDB is used to query an array field and return documents where at least one element in the array matches the specified criteria. This operator is particularly useful when you have complex data structures with nested arrays or embedded documents.
 
@@ -56,7 +55,7 @@ To view a code example for using the `$elemMatch` command, choose the tab for th
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -80,7 +79,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

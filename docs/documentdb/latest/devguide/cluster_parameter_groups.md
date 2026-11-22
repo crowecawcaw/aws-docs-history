@@ -1,7 +1,6 @@
 
 
 # Managing Amazon DocumentDB cluster parameter groups
-<a name="cluster_parameter_groups"></a>
 
 You can manage Amazon DocumentDB engine configuration by using parameters in a cluster parameter group. A *cluster parameter group* is a collection of Amazon DocumentDB configuration values that make it easier to manage the parameters of your Amazon DocumentDB clusters. Cluster parameter groups act as a container for engine configuration values that are applied to all instances in the cluster. 
 

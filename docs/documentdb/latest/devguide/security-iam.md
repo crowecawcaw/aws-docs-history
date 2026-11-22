@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for Amazon DocumentDB
-<a name="security-iam"></a>
 
 
 

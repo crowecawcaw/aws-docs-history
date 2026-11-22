@@ -1,7 +1,6 @@
 
 
 # Copying Amazon DocumentDB cluster snapshots
-<a name="backup_restore-copy_cluster_snapshot"></a>
 
 In Amazon DocumentDB, you can copy snapshots within the same AWS Region or to a different AWS Region. You can also copy shared snapshots to your account in the same AWS Region or in a different AWS Region. For more information on sharing snapshots, see [Sharing Amazon DocumentDB cluster snapshots](backup_restore-share_cluster_snapshots.md).
 
@@ -147,7 +146,7 @@ aws docdb copy-db-cluster-snapshot ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 {
     "DBClusterSnapshot": {
         "AvailabilityZones": [
@@ -194,7 +193,7 @@ aws docdb copy-db-cluster-snapshot ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 {
     "DBClusterSnapshot": {
         "AvailabilityZones": [
@@ -246,7 +245,7 @@ aws docdb copy-db-cluster-snapshot ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 {
     "DBClusterSnapshot": {  
         "AvailabilityZones": [],
@@ -292,7 +291,7 @@ aws docdb copy-db-cluster-snapshot ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 {
  "DBClusterSnapshots": [
  {
@@ -339,7 +338,7 @@ aws docdb copy-db-cluster-snapshot ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 {
  "DBClusterSnapshots": [
  {

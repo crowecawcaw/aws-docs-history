@@ -1,7 +1,6 @@
 
 
 # $toBool
-<a name="toBool"></a>
 
 The `$toBool` operator in Amazon DocumentDB converts an expression to a boolean value.
 
@@ -59,7 +58,7 @@ To view a code example for using the `$toBool` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function main() {
@@ -88,7 +87,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def main():

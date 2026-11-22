@@ -1,7 +1,6 @@
 
 
 # Aggregation pipeline operators
-<a name="mongo-apis-aggregation-pipeline-operators"></a>
 
 This section provides detailed information about aggregation pipeline operators supported by Amazon DocumentDB.
 

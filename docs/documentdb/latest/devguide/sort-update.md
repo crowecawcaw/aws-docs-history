@@ -1,7 +1,6 @@
 
 
 # $sort
-<a name="sort-update"></a>
 
 The `$sort` update modifier orders array elements when used with the `$push` operator. It arranges array elements in ascending or descending order based on specified field values or the elements themselves.
 
@@ -65,7 +64,7 @@ To view a code example for using the `$sort` update modifier, choose the tab for
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function updateDocument() {
@@ -97,7 +96,7 @@ updateDocument();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def update_document():

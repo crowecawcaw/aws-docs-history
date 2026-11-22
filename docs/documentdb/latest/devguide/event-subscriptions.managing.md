@@ -1,7 +1,6 @@
 
 
 # Managing Amazon DocumentDB event notification subscriptions
-<a name="event-subscriptions.managing"></a>
 
 If you choose **Event subscriptions** in the navigation pane of the Amazon DocumentDB console, you can view subscription categories and a list of your current subscriptions. You can also modify or delete a specific subscription.
 

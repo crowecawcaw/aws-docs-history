@@ -1,7 +1,6 @@
 
 
 # Anti-patterns
-<a name="performance-anti-patterns"></a>
 
 This section covers common anti-patterns that can negatively impact Amazon DocumentDB performance.
 

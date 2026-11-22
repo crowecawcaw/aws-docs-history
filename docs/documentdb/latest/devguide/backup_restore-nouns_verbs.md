@@ -1,7 +1,6 @@
 
 
 # Back up and restore: concepts
-<a name="backup_restore-nouns_verbs"></a>
 
 
 | Noun | Description | APIs (Verbs) | 

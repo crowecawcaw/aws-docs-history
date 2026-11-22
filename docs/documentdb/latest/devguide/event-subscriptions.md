@@ -1,7 +1,6 @@
 
 
 # Using Amazon DocumentDB event subscriptions
-<a name="event-subscriptions"></a>
 
 Amazon DocumentDB uses Amazon Simple Notification Service (Amazon SNS) to provide notifications when an Amazon DocumentDB event occurs. These notifications can be in any form that is supported by Amazon SNS for an AWS Region, such as an email, a text message, or a call to an HTTP endpoint.
 

@@ -1,7 +1,6 @@
 
 
 # $indexOfCP
-<a name="indexOfCP"></a>
 
 The `$indexOfCP` operator in Amazon DocumentDB is used to find the index, in code points (CP), of the first occurrence of a specified substring within a string expression. This can be useful when parsing and extracting content from string fields.
 
@@ -51,7 +50,7 @@ To view a code example for using the `$indexOfCP` command, choose the tab for th
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function main() {
@@ -74,7 +73,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')

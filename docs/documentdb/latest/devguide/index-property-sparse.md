@@ -1,7 +1,6 @@
 
 
 # Index Property: sparse
-<a name="index-property-sparse"></a>
 
 ## Supported index types
 <a name="index-property-sparse-supported"></a>

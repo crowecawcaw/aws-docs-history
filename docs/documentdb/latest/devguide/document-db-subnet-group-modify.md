@@ -1,7 +1,6 @@
 
 
 # Modifying an Amazon DocumentDB subnet group
-<a name="document-db-subnet-group-modify"></a>
 
 You can use the AWS Management Console or AWS CLI to modify a subnet group's description or to add or remove subnets from an Amazon DocumentDB subnet group. However, you cannot modify the `default` subnet group.
 
@@ -70,7 +69,7 @@ aws docdb modify-db-subnet-group ^
 ```
 Output from this operation looks something like the following (JSON format). Notice that this is the same subnet group that was created in the [Creating an Amazon DocumentDB subnet group](document-db-subnet-group-create.md) section. However, the subnets in the subnet group are replaced with those listed in the `modify-db-subnet-group` operation.  
 
-```
+```json
 {
     "DBSubnetGroup": {
         "DBSubnetGroupArn": "arn:aws:rds:us-east-1:123SAMPLE012:subgrp:sample-subnet-group",

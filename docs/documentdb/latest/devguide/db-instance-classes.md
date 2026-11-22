@@ -1,7 +1,6 @@
 
 
 # Managing instance classes
-<a name="db-instance-classes"></a>
 
 The instance class determines the computation and memory capacity of an Amazon DocumentDB (with MongoDB compatibility) instance. The instance class you need depends on your processing power and memory requirements. 
 
@@ -62,7 +61,7 @@ aws docdb describe-db-instances ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 [
     [
         "sample-instance-1",
@@ -88,7 +87,7 @@ aws docdb describe-db-instances ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 [
     [
         "sample-instance-1",

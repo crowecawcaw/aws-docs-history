@@ -1,7 +1,6 @@
 
 
 # Monitoring an Amazon DocumentDB instance's status
-<a name="monitoring_docdb-instance_status"></a>
 
 Amazon DocumentDB provides information about the current condition of each configured instance in the database.
 
@@ -86,7 +85,7 @@ aws docdb describe-db-instances ^
 
 Output from this operation looks something like the following.
 
-```
+```json
 [
           [
               "sample-cluster-instance-01",

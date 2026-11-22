@@ -1,7 +1,6 @@
 
 
 # Partial index
-<a name="partial-index"></a>
 
 A partial index indexes documents in a collection that meets a specified filter criterion. The partial index feature is supported in Amazon DocumentDB 5.0 instance-based clusters.
 

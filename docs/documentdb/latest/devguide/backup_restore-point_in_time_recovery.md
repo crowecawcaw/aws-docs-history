@@ -1,7 +1,6 @@
 
 
 # Restoring to a point in time
-<a name="backup_restore-point_in_time_recovery"></a>
 
 You can restore a cluster to any point in time that is within the cluster's backup retention period using the AWS Management Console or AWS Command Line Interface (AWS CLI).
 
@@ -150,7 +149,7 @@ aws docdb restore-db-cluster-to-point-in-time ^
 
 Output from this operation looks something like the following. 
 
-```
+```json
 {
     "DBCluster": {
         "AvailabilityZones": [

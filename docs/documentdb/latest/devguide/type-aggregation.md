@@ -1,7 +1,6 @@
 
 
 # $type
-<a name="type-aggregation"></a>
 
 The `$type` aggregation operator returns the BSON data type of a specified field. This is useful for identifying the data type of field values during aggregation operations.
 
@@ -57,7 +56,7 @@ To view a code example for using the `$type` aggregation operator, choose the ta
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -85,7 +84,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

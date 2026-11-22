@@ -1,7 +1,6 @@
 
 
 # Vector search for Amazon DocumentDB
-<a name="vector-search"></a>
 
 Vector search is a method used in machine learning to find similar data points to a given data point by comparing their vector representations using distance or similarity metrics. The closer the two vectors are in the vector space, the more similar the underlying items are considered to be. This technique helps capture the semantic meaning of the data. This approach is useful in various applications, such as recommendation systems, natural language processing, and image recognition.
 

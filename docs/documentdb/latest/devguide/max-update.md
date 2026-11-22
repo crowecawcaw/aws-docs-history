@@ -1,7 +1,6 @@
 
 
 # $max
-<a name="max-update"></a>
 
 The `$max` update operator updates a field's value only if the specified value is greater than the current field value. This operator is useful for maintaining maximum values across updates.
 
@@ -49,7 +48,7 @@ To view a code example for using the `$max` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -72,7 +71,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

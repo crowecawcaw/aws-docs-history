@@ -1,7 +1,6 @@
 
 
 # Using JSON schema validation
-<a name="json-schema-validation"></a>
 
 Using the `$jsonSchema` evaluation query operator, you can validate documents being inserted into your collections.
 

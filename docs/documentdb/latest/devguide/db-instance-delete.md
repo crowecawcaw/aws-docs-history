@@ -1,7 +1,6 @@
 
 
 # Deleting an Amazon DocumentDB instance
-<a name="db-instance-delete"></a>
 
 You can delete your Amazon DocumentDB instance using either the AWS Management Console or the AWS CLI. To delete an instance, the instance must be in the *available* state. You cannot delete an instance that is stopped. If the Amazon DocumentDB cluster that contains your instance is stopped, first start the cluster, wait for the instance to become *available*, and then delete the instance. For more information, see [Stopping and starting an Amazon DocumentDB cluster](db-cluster-stop-start.md). 
 
@@ -55,7 +54,7 @@ The following procedure deletes an Amazon DocumentDB instance using the AWS CLI.
 
    Output from this operation looks something like the following.
 
-   ```
+   ```json
    [
        [
            "sample-cluster",
@@ -78,7 +77,7 @@ The following procedure deletes an Amazon DocumentDB instance using the AWS CLI.
 
    Output from this operation looks something like the following.
 
-   ```
+   ```json
    {
        "DBInstance": {
            "DBInstanceIdentifier": "sample-instance-2",

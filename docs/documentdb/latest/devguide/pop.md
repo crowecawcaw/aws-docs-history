@@ -1,7 +1,6 @@
 
 
 # $pop
-<a name="pop"></a>
 
 The `$pop` operator in Amazon DocumentDB is used to remove the first or last element from an array field. It is particularly useful when you need to maintain a fixed-size array or implement a queue-like data structure within a document.
 
@@ -48,7 +47,7 @@ To view a code example for using the `$pop` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -74,7 +73,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

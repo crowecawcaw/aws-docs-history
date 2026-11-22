@@ -1,7 +1,6 @@
 
 
 # Finding a cluster's endpoints
-<a name="db-cluster-endpoints-find"></a>
 
 You can find a cluster's cluster endpoint and reader endpoint using the Amazon DocumentDB console or AWS CLI.
 
@@ -52,7 +51,7 @@ aws docdb describe-db-clusters ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 [
   [
      "sample-cluster",

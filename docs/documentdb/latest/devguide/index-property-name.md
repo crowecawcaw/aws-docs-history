@@ -1,7 +1,6 @@
 
 
 # Index Property: name
-<a name="index-property-name"></a>
 
 ## Supported index types
 <a name="index-property-name-supported"></a>

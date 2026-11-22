@@ -1,7 +1,6 @@
 
 
 # $covariancePop
-<a name="covariancePop"></a>
 
 New from version 8.0.2.
 
@@ -70,7 +69,7 @@ To view a code example for using the `$covariancePop` operator in the `$setWindo
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -117,7 +116,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

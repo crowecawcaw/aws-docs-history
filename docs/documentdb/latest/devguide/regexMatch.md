@@ -1,7 +1,6 @@
 
 
 # $regexMatch
-<a name="regexMatch"></a>
 
 New from version 5.0. Not supported by Elastic cluster.
 
@@ -65,7 +64,7 @@ To view a code example for using the `$regexMatch` command, choose the tab for t
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function checkNamePattern() {
@@ -99,7 +98,7 @@ checkNamePattern();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def check_name_pattern():

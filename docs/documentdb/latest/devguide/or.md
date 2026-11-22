@@ -1,7 +1,6 @@
 
 
 # $or
-<a name="or"></a>
 
 The `$or` operator is used to perform a logical OR operation on an array of two or more expressions. It returns documents that match at least one of the expressions. This operator is useful when you need to query for documents that satisfy any one of multiple conditions.
 
@@ -64,7 +63,7 @@ To view a code example for using the `$or` command, choose the tab for the langu
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findCarsByMakeModel() {
@@ -89,7 +88,7 @@ findCarsByMakeModel();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def find_cars_by_make_model():

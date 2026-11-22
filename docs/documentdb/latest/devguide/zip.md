@@ -1,7 +1,6 @@
 
 
 # $zip
-<a name="zip"></a>
 
 The `$zip` operator in Amazon DocumentDB allows you to combine multiple arrays into a single array of tuples (key-value pairs). This is useful when you need to create new documents or objects by combining data from different sources or arrays within a document.
 
@@ -88,7 +87,7 @@ To view a code example for using the `$zip` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -121,7 +120,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

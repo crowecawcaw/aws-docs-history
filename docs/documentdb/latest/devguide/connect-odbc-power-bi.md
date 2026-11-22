@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon DocumentDB from Microsoft Power BI Desktop
-<a name="connect-odbc-power-bi"></a>
 
 **Topics**
 + [Prerequisites](#odbc-power-bi-prerequisites)

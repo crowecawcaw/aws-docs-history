@@ -1,7 +1,6 @@
 
 
 # Query running slow
-<a name="performance-slow-queries"></a>
 
 ## Identification - Spot the problem
 <a name="identification-spot-problem"></a>

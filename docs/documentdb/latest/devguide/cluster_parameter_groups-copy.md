@@ -1,7 +1,6 @@
 
 
 # Copying Amazon DocumentDB cluster parameter groups
-<a name="cluster_parameter_groups-copy"></a>
 
 You can make a copy of a cluster parameter group in Amazon DocumentDB using the AWS Management Console or the AWS Command Line Interface (AWS CLI).
 
@@ -60,7 +59,7 @@ aws docdb copy-db-cluster-parameter-group ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 {
     "DBClusterParameterGroup": {
         "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:sample-parameter-group-copy",

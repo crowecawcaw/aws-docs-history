@@ -1,7 +1,6 @@
 
 
 # Managing Amazon DocumentDB events
-<a name="managing-events"></a>
 
 Amazon DocumentDB (with MongoDB compatibility) keeps a record of events that relate to your clusters, instances, snapshots, security groups, and cluster parameter groups. This information includes the date and time of the event, the source name and source type of the event, and a message that is associated with the event.
 
@@ -44,7 +43,7 @@ aws docdb describe-event-categories ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 {
     "EventCategoriesMapList": [
         {
@@ -66,7 +65,7 @@ aws docdb describe-event-categories
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 {
     "EventCategoriesMapList": [
         {
@@ -169,7 +168,7 @@ aws docdb describe-events --filters Name=engine,Values=docdb
 
 Output from this operation looks something like the following (JSON format).
 
-```
+```json
 {
     "Events": [
         {

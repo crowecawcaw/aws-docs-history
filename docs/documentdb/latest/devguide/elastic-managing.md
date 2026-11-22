@@ -1,7 +1,6 @@
 
 
 # Managing Amazon DocumentDB elastic clusters
-<a name="elastic-managing"></a>
 
 To manage an Amazon DocumentDB elastic cluster, you must have an IAM policy with the appropriate Amazon DocumentDB control plane permissions. These permissions allow you to create, modify, and delete clusters. The Amazon DocumentDBFullAccess policy provides all the required permissions for administering an Amazon DocumentDB elastic cluster.
 

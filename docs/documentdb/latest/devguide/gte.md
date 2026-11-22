@@ -1,7 +1,6 @@
 
 
 # $gte
-<a name="gte"></a>
 
 The `$gte` operator in Amazon DocumentDB is used to match values that are greater than or equal to a specified value. This operator is useful for filtering and querying data based on numerical comparisons.
 
@@ -47,7 +46,7 @@ To view a code example for using the `$gte` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findUsersAboveAge(age) {
@@ -67,7 +66,7 @@ findUsersAboveAge(25);
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def find_users_above_age(age):

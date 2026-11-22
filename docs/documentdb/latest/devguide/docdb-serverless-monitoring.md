@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon DocumentDB serverless
-<a name="docdb-serverless-monitoring"></a>
 
 To learn more about monitoring in Amazon DocumentDB, see [Monitoring and logging in Amazon DocumentDB](monitoring_docdb.md).
 

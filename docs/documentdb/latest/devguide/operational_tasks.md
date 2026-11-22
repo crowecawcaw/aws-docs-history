@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB operational tasks overview
-<a name="operational_tasks"></a>
 
 This section covers operational tasks for your Amazon DocumentDB cluster, and how to accomplish these tasks using the AWS CLI.
 
@@ -49,7 +48,7 @@ aws docdb describe-db-clusters --filter Name=engine,Values=docdb
 
 Output from this operation looks something like the following.
 
-```
+```json
 {
     "DBClusters": [
         {
@@ -105,7 +104,7 @@ aws docdb describe-db-clusters \
 
 The output looks like something like below. In this output, there are two instances. The primary instance is `sample-instance-1` (`"IsClusterWriter": true`). There is also a replica instance, `sample-instance2` (`"IsClusterWriter: false"`).
 
-```
+```json
 [
     [
         [
@@ -141,7 +140,7 @@ aws docdb describe-db-clusters \
 
 The output shows the backup window (in UTC):
 
-```
+```json
 [
     "00:18-00:48"
 ]
@@ -180,7 +179,7 @@ aws docdb describe-db-cluster-snapshots \
 
 The output looks something like the following. A manual snapshot is one that you created manually, whereas an automated snapshot is created by Amazon DocumentDB within the cluster backup window.
 
-```
+```json
 [
         "sample-cluster-snapshot", 
         "manual", 

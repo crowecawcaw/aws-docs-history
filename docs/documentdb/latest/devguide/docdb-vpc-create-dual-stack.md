@@ -1,7 +1,6 @@
 
 
 # Create a dual-stack VPC for use with a DocumentDB cluster
-<a name="docdb-vpc-create-dual-stack"></a>
 
 A common scenario includes a cluster in a virtual private cloud (VPC) based on the Amazon VPC service. This VPC shares data with a public Amazon EC2 instance that is running in the same VPC. In this topic, you create the VPC for this scenario.
 

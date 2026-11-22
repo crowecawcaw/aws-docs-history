@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB Extended Support
-<a name="extended-support"></a>
 
 Amazon DocumentDB Extended Support allows you to continue running an engine version past the end of the standard support date for an additional cost. Your clusters are enrolled into Extended Support once past the end of the standard support date. If you do not complete upgrades by the end of the engine version standard support date, your clusters are billed at the Extended Support rate.
 

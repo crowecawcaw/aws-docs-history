@@ -1,7 +1,6 @@
 
 
 # $second
-<a name="second"></a>
 
 The `$second` operator in Amazon DocumentDB extracts the seconds component from a date or timestamp. It is used to retrieve the seconds value from a date or timestamp field.
 
@@ -47,7 +46,7 @@ To view a code example for using the `$second` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -67,7 +66,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

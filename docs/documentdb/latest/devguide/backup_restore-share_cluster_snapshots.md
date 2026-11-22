@@ -1,7 +1,6 @@
 
 
 # Sharing Amazon DocumentDB cluster snapshots
-<a name="backup_restore-share_cluster_snapshots"></a>
 
 Using Amazon DocumentDB, you can share a manual cluster snapshot in the following ways:
 + Sharing a manual cluster snapshot, whether encrypted or unencrypted, enables authorized AWS accounts to copy the snapshot.
@@ -43,7 +42,7 @@ In the following key policy example, user 123451234512 is the owner of the AWS K
 
 ****  
 
-```
+```json
 {
     "Id": "key-policy-1",
     "Version":"2012-10-17",		 	 	 
@@ -97,7 +96,7 @@ The following example shows a policy that can be attached to an IAM user for AWS
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -198,7 +197,7 @@ aws docdb modify-db-cluster-snapshot-attribute ^
 
 Output from this operation looks something like the following. 
 
-```
+```json
 {
     "DBClusterSnapshotAttributesResult": {
         "DBClusterSnapshotIdentifier": "sample-cluster-snapshot",
@@ -237,7 +236,7 @@ aws docdb modify-db-cluster-snapshot-attribute ^
 
 Output from this operation looks something like the following. 
 
-```
+```json
 {
     "DBClusterSnapshotAttributesResult": {
         "DBClusterSnapshotIdentifier": "sample-cluster-snapshot",

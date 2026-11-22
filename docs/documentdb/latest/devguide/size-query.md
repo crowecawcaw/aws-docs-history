@@ -1,7 +1,6 @@
 
 
 # $size
-<a name="size-query"></a>
 
 The `$size` query operator matches documents where an array field has exactly the specified number of elements. This is useful for filtering documents based on array length.
 
@@ -46,7 +45,7 @@ To view a code example for using the `$size` query operator, choose the tab for 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -66,7 +65,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

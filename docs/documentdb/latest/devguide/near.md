@@ -1,7 +1,6 @@
 
 
 # $near
-<a name="near"></a>
 
 The `$near` operator in Amazon DocumentDB is used to find documents that are geographically near a specified point. It returns documents ordered by distance, with the closest documents first. This operator requires a 2dsphere geospatial index and is useful for proximity queries on location data.
 
@@ -93,7 +92,7 @@ To view a code example for using the `$near` command, choose the tab for the lan
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findNearbyRestaurants() {
@@ -128,7 +127,7 @@ findNearbyRestaurants();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def find_nearby_restaurants():

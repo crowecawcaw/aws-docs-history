@@ -1,7 +1,6 @@
 
 
 # Password management with Amazon DocumentDB and AWS Secrets Manager
-<a name="docdb-secrets-manager"></a>
 
 Amazon DocumentDB integrates with Secrets Manager to manage primary user passwords for your clusters.
 
@@ -45,7 +44,7 @@ You can use IAM condition keys to enforce Amazon DocumentDB management of the pr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

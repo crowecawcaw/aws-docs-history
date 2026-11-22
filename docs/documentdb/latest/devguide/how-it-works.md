@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB: how it works
-<a name="how-it-works"></a>
 
 Amazon DocumentDB (with MongoDB compatibility) is a fully managed, MongoDB-compatible database service. With Amazon DocumentDB, you can run the same application code and use the same drivers and tools that you use with MongoDB. Amazon DocumentDB is compatible with MongoDB 3.6, 4.0, 5.0, and 8.0.
 
@@ -401,7 +400,7 @@ aws docdb describe-db-cluster-snapshots ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 [
     [
         "rds:docdb-2019-01-09-23-55-38-2019-02-13-00-06",

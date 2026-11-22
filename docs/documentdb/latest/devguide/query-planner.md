@@ -1,7 +1,6 @@
 
 
 # Query planner v2
-<a name="query-planner"></a>
 
 The new query planner for Amazon DocumentDB (planner version 2.0) features advanced query optimization capabilities and improved performance. Planner version 2.0 for Amazon DocumentDB 5.0 delivers up to 10x performance improvement over the prior version when using `find` and `update` operators with indexes. Performance improvements primarily come from using more optimal index plans and enabling index scan support for operators such as negation operators (`$neq`, `$nin`) and nested `$elementMatch`. Planner version 2.0 queries run faster through better cost estimation techniques, optimized algorithms, and enhanced stability. Planner version 2.0 supports plan cache filter APIs as well, which enhances planner stability. With this feature, Amazon DocumentDB 5.0 now offers the ability to select from the different versions of query planner.
 

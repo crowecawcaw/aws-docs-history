@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB API permissions: actions, resources, and conditions reference
-<a name="UsingWithRDS.IAM.ResourcePermissions"></a>
 
 Use the following sections as a reference when you set up [Using identity-based policies (IAM policies) for Amazon DocumentDB](UsingWithRDS.IAM.AccessControl.IdentityBased.md) and write permissions policies that you can attach to an IAM identity (identity-based policies). 
 

@@ -1,7 +1,6 @@
 
 
 # $min
-<a name="min-update"></a>
 
 The `$min` update operator updates a field's value only if the specified value is less than the current field value. This operator is useful for maintaining minimum values across updates.
 
@@ -49,7 +48,7 @@ To view a code example for using the `$min` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -72,7 +71,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

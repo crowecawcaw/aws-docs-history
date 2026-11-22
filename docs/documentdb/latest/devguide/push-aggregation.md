@@ -1,7 +1,6 @@
 
 
 # $push
-<a name="push-aggregation"></a>
 
 The `$push` aggregation operator returns an array of all values from a specified expression for each group. It is typically used within the `$group` stage to accumulate values into an array.
 
@@ -112,7 +111,7 @@ To view a code example for using the `$push` operator, choose the tab for the la
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -172,7 +171,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

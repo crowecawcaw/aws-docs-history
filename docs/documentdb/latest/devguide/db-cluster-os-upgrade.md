@@ -1,7 +1,6 @@
 
 
 # Updating a cluster's operating system
-<a name="db-cluster-os-upgrade"></a>
 
 You can apply operating system (OS) updates across all instances in your cluster using the cluster-level `os-upgrade` maintenance action. Amazon DocumentDB updates instances in a rolling manner, a few at a time, and updates the primary instance last to minimize failovers. The update runs during the cluster maintenance window. After an instance receives an OS update, its buffer cache starts empty, and queries on that instance can experience higher latency until the working set is repopulated from the storage volume.
 

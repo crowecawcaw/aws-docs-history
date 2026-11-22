@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon DocumentDB with CloudWatch
-<a name="cloud_watch"></a>
 
 Amazon DocumentDB (with MongoDB compatibility) integrates with Amazon CloudWatch so that you can gather and analyze operational metrics for your clusters. You can monitor these metrics using the CloudWatch console, the Amazon DocumentDB console, the AWS Command Line Interface (AWS CLI), or the CloudWatch API.
 
@@ -314,7 +313,7 @@ aws cloudwatch get-metric-statistics ^
 ```
 Output from this operation look something like the following.  
 
-```
+```json
 {
        "Label": "CPUUtilization",
        "Datapoints": [

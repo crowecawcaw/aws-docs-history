@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB quick start using CloudFormation
-<a name="quick_start_cfn"></a>
 
 This section contains steps and other information to help you get started quickly with Amazon DocumentDB (with MongoDB compatibility) using [CloudFormation](https://docs.aws.amazon.com/en_us/AWSCloudFormation/latest/UserGuide/Welcome.html). For general information about Amazon DocumentDB, see [What is Amazon DocumentDB (with MongoDB compatibility)](what-is.md).
 
@@ -89,7 +88,7 @@ This section describes how to launch and configure an Amazon DocumentDB CloudFor
 
       JSON:
 
-      ```
+      ```json
       "Resources": {
           "DBCluster": {
               "Type": "AWS::DocDB::DBCluster",
@@ -111,7 +110,7 @@ This section describes how to launch and configure an Amazon DocumentDB CloudFor
 
       YAML:
 
-      ```
+      ```yaml
       Resources:
         DBCluster:
           Type: 'AWS::DocDB::DBCluster'

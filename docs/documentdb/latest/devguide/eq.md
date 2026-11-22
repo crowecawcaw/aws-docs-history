@@ -1,7 +1,6 @@
 
 
 # $eq
-<a name="eq"></a>
 
 The `$eq` operator in Amazon DocumentDB is used to match documents where the value of a field is equal to the specified value. This operator is commonly used in the `find()` method to retrieve documents that meet the specified criteria.
 
@@ -44,7 +43,7 @@ To view a code example for using the `$eq` command, choose the tab for the langu
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findByName(name) {
@@ -64,7 +63,7 @@ findByName("Thai Curry Palace");
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def find_by_name(name):

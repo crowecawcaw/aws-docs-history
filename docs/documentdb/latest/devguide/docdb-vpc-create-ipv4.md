@@ -1,7 +1,6 @@
 
 
 # Create an IPv4-only VPC for use with a DocumentDB cluster
-<a name="docdb-vpc-create-ipv4"></a>
 
 A common scenario includes a cluster in a virtual private cloud (VPC) based on the Amazon VPC service. For example, this VPC could share data with a service or application that is running in the same VPC. In this topic, you create the VPC for this scenario.
 

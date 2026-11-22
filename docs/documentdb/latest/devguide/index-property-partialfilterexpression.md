@@ -1,7 +1,6 @@
 
 
 # Index Property: partialFilterExpression
-<a name="index-property-partialfilterexpression"></a>
 
 ## Supported index types
 <a name="index-property-partialfilterexpression-supported"></a>

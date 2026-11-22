@@ -1,7 +1,6 @@
 
 
 # $collStats
-<a name="collStats"></a>
 
 New from version 4.0
 
@@ -81,7 +80,7 @@ To view a code example for using the `$collStats` command, choose the tab for th
 
 Here's an example of how to use the `$collStats` aggregation stage in a Node.js application using the official MongoDB Node.js driver:
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function runCollStatsExample() {
@@ -106,7 +105,7 @@ runCollStatsExample();
 
 Here's an example of how to use the `$collStats` aggregation stage in a Python application using the PyMongo driver:
 
-```
+```python
 from pymongo import MongoClient
 
 def run_coll_stats_example():

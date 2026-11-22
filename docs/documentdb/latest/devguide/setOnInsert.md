@@ -1,7 +1,6 @@
 
 
 # $setOnInsert
-<a name="setOnInsert"></a>
 
 The `$setOnInsert` operator in Amazon DocumentDB is used to set the value of a field if a document is being inserted, but it has no effect if the document is being updated.
 
@@ -82,7 +81,7 @@ To view a code example for using the `$setOnInsert` command, choose the tab for 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function updateWithSetOnInsert() {
@@ -111,7 +110,7 @@ updateWithSetOnInsert();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def update_with_set_on_insert():

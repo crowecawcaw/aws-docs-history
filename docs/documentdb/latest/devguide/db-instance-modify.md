@@ -1,7 +1,6 @@
 
 
 # Modifying an Amazon DocumentDB instance
-<a name="db-instance-modify"></a>
 
 You can modify your Amazon DocumentDB instance using either the AWS Management Console or the AWS CLI. To modify an instance, the instance must be in the *available* state. You cannot modify an instance that is stopped. If the cluster is stopped, first start the cluster, wait for the instance to become *available*, and then make the desired modifications. For more information, see [Stopping and starting an Amazon DocumentDB cluster](db-cluster-stop-start.md). 
 
@@ -66,7 +65,7 @@ aws docdb modify-db-instance ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 {
     "DBInstances": [
         {

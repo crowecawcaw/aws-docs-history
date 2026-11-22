@@ -1,7 +1,6 @@
 
 
 # Low used and redundant indexes
-<a name="anti-pattern-low-used-redundant-indexes"></a>
 
 ## Overview
 <a name="low-indexes-overview"></a>

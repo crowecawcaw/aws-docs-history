@@ -1,7 +1,6 @@
 
 
 # Developing with Amazon DocumentDB
-<a name="documentdb-development"></a>
 
 This section covers connecting to your Amazon DocumentDB cluster, querying and managing data, working with indexes, and using features like change streams, transactions, and vector search for generative AI applications.
 

@@ -1,7 +1,6 @@
 
 
 # Index-only scans (covered queries)
-<a name="performance-index-only-scans"></a>
 
 An **index-only scan** (also called a **covered query**) is an optimization in which Amazon DocumentDB answers a query entirely from the fields stored in an index, without reading the underlying documents. Because the values a query needs are already present in the index, Amazon DocumentDB can skip fetching each matching document, avoiding the random I/O and decoding cost of reading full documents. In the query plan, an index-only scan appears as the `IXONLYSCAN` stage instead of an `IXSCAN` (index scan) or `COLLSCAN` (collection scan). This reduces I/O and can significantly lower query latency for supported queries.
 

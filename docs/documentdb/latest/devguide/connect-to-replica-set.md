@@ -1,7 +1,6 @@
 
 
 # Connecting to Amazon DocumentDB as a replica set
-<a name="connect-to-replica-set"></a>
 
 When you're developing against Amazon DocumentDB, connect to your cluster as a replica set and distribute reads to replica instances using the built-in read preference capabilities of your driver. This section goes deeper into what that means and describes how you can connect to your Amazon DocumentDB cluster as a replica set using Python as an example.
 
@@ -22,7 +21,7 @@ For more information about Amazon DocumentDB endpoints, see [Amazon DocumentDB e
 
 Using the cluster endpoint, you can connect to your cluster in replica set mode. You can then use the built-in read preference driver capabilities. In the following example, specifying `/?replicaSet=rs0` signifies to the SDK that you want to connect as a replica set. If you omit `/?replicaSet=rs0'`, the client routes all requests to the cluster endpoint, that is, your primary instance.
 
-```
+```py
 ## Create a MongoDB client, open a connection to Amazon DocumentDB as a
    ## replica set and specify the read preference as secondary preferred
    client = pymongo.MongoClient('mongodb://{{<user-name>}}:{{<password>}}@mycluster.node.us-east-1.docdb.amazonaws.com:27017/?replicaSet=rs0')
@@ -32,7 +31,7 @@ The advantage of connecting as a replica set is that it enables your SDK to disc
 
 When you connect as a replica set, you can specify the `readPreference` for the connection. If you specify a read preference of `secondaryPreferred`, the client routes read queries to your replicas and write queries to your primary instance (as in the following diagram). This is a better use of your cluster resources. For more information, see [Read preference options](how-it-works.md#durability-consistency-isolation).
 
-```
+```py
 ## Create a MongoDB client, open a connection to Amazon DocumentDB as a
    ##   replica set and specify the read preference as secondary preferred
 client = pymongo.MongoClient('mongodb://{{<user-name>}}:{{<password>}}@mycluster.node.us-east-1.docdb.amazonaws.com:27017/?replicaSet=rs0&readPreference=secondaryPreferred')
@@ -73,7 +72,7 @@ Typically we don't recommend that you connect to your cluster using the read pre
 
 In some scenarios, reads in an application need to have read-after-write consistency, which can be served only from the primary instance in Amazon DocumentDB. In these scenarios, you might create two client connection pools: one for writes and one for reads that need read-after-write consistency. To do that, your code would look something like the following.
 
-```
+```py
 ## Create a MongoDB client, 
 ##    open a connection to Amazon DocumentDB as a replica set and specify the readPreference as primary
 clientPrimary = pymongo.MongoClient('mongodb://{{<user-name>}}:{{<password>}}@mycluster.node.us-east-1.docdb.amazonaws.com:27017/?replicaSet=rs0&readPreference=primary') 

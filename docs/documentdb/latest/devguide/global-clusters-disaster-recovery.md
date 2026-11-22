@@ -1,7 +1,6 @@
 
 
 # Disaster recovery and Amazon DocumentDB global clusters
-<a name="global-clusters-disaster-recovery"></a>
 
 **Topics**
 + [Performing a managed failover for an Amazon DocumentDB global cluster](#managed-failover)
@@ -238,7 +237,9 @@ aws docdb switchover-global-cluster ^
 ## Unblocking a global cluster switchover or failover
 <a name="unblocking-gc-so-fo"></a>
 
-Global cluster switchovers and failovers are blocked when not all regional clusters in the global cluster are on the same engine version. If the versions don't match, you might see this error when calling a switchover or failover: The target DB cluster specified is running an engine version with a different patch level than the source DB cluster. Routinely apply the latest engine versions to keep your global clusters in a healthy state.
+**Regions on different engine versions**
+
+Global cluster switchovers and failovers are blocked when not all regional clusters in the global cluster are on the same engine version. If the versions don't match, you might see this error when calling a switchover or failover: `The target DB cluster specified is running an engine version with a different patch level than the source DB cluster`. Routinely apply the latest engine versions to keep your global clusters in a healthy state.
 
 To resolve this error, update all secondary Regions first, and then the primary Region to the same engine version by applying any pending maintenance action items. To view pending maintenance action items, and to apply any needed changes to correct the issue, perform the instructions in one of the following tabs:
 
@@ -367,7 +368,11 @@ To unblock a global cluster switchover or failover, you must determine if there 
 
 ------
 
-Switchovers and failovers are also blocked when the target secondary cluster has a scheduled change that hasn't been applied yet, such as a modification or maintenance action you requested for the next maintenance window. In this case, you might see this error when calling a switchover or failover: You can't fail over to the cluster with ARN {{arn:aws:rds:us-east-1:001234567890:cluster:docdb-2025-03-27-19-21-15}} because it's being modified or because modifications are pending. Try again when the cluster becomes available. To unblock the operation, remove the scheduled change on the target cluster. The steps depend on the type of change. After the scheduled change is removed and the cluster status returns to `available`, retry the switchover or failover.
+**Pending changes on the target cluster**
+
+Switchovers and failovers are also blocked when the target secondary cluster has a scheduled change that hasn't been applied yet, such as a modification or maintenance action you requested for the next maintenance window. In this case, you might see this error when calling a switchover or failover: `You can't fail over to the cluster with ARN {{arn:aws:rds:us-east-1:001234567890:cluster:docdb-2025-03-27-19-21-15}} because it's being modified or because modifications are pending. Try again when the cluster becomes available`. To unblock the operation, remove the scheduled change on the target cluster. The steps depend on the type of change. After the scheduled change is removed and the cluster status returns to `available`, retry the switchover or failover.
+
+<a name="unblocking-gc-so-fo-maintenance"></a>**Cancel a scheduled maintenance action**
 
 You can't cancel a scheduled maintenance action (undo an opt-in) from the AWS Management Console, so use the AWS CLI.
 
@@ -453,6 +458,8 @@ You can't cancel a scheduled maintenance action (undo an opt-in) from the AWS Ma
    ```
 
 ------
+
+<a name="unblocking-gc-so-fo-modification"></a>**Revert a scheduled cluster modification**
 
 ------
 #### [ Using the AWS CLI ]
@@ -614,7 +621,7 @@ aws docdb describe-db-cluster-parameters ^
 
  The command returns output similar to the following. 
 
-```
+```json
 [
     {
         "ParameterName": "global_db_rpo",

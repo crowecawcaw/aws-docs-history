@@ -1,7 +1,6 @@
 
 
 # $indexOfBytes
-<a name="indexOfBytes"></a>
 
 The $indexOfBytes operator in Amazon DocumentDB is used to find the starting index of a substring within a string, based on the byte positions of the characters. This can be useful when working with text data that may contain multi-byte characters, such as those found in non-Latin scripts.
 
@@ -51,7 +50,7 @@ To view a code example for using the `$indexOfBytes` command, choose the tab for
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -72,7 +71,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

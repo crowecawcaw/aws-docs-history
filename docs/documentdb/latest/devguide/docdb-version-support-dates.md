@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB engine version support dates
-<a name="docdb-version-support-dates"></a>
 
 You can use the following dates to plan your testing and upgrade cycles.
 

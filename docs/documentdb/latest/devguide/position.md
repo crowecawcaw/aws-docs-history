@@ -1,7 +1,6 @@
 
 
 # $position
-<a name="position"></a>
 
 The `$position` modifier in Amazon DocumentDB specifies the location in the array at which the `$push` operator inserts elements. Without the `$position` modifier, the `$push` operator inserts elements to the end of the array.
 
@@ -76,7 +75,7 @@ To view a code example for using the `$position` command, choose the tab for the
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function insertTasksAtPosition() {
@@ -108,7 +107,7 @@ insertTasksAtPosition();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def insert_tasks_at_position():

@@ -1,7 +1,6 @@
 
 
 # $slice
-<a name="slice-projection"></a>
 
 The `$slice` projection operator limits the number of array elements returned in a query result. It allows you to retrieve a specific number of elements from the start or end of an array field without loading the entire array.
 
@@ -49,7 +48,7 @@ To view a code example for using the `$slice` projection operator, choose the ta
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -72,7 +71,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

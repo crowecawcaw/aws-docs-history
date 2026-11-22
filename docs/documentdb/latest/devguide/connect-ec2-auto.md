@@ -1,7 +1,6 @@
 
 
 # Connect Amazon EC2 automatically
-<a name="connect-ec2-auto"></a>
 
 **Topics**
 + [Automatically connect an EC2 instance to a new Amazon DocumentDB database](#auto-connect-ec2.process)
@@ -446,7 +445,7 @@ Amazon DocumentDB associates the valid, existing EC2 security group with the EC2
 
 You can use the AWS Management Console to view the compute resources that are connected to an Amazon DocumentDB database. The resources shown include compute resource connections that were set up automatically. You can set up connectivity with compute resources automatically in the following ways:
 + You can select the compute resource when you create the database. For more information, see [Creating an Amazon DocumentDB cluster](db-cluster-create.md) and Creating a Multi-AZ DB cluster. 
-+ You can set up connectivity between an existing database and a compute resource. For more information, see [Connect Amazon EC2 automatically](#connect-ec2-auto). 
++ You can set up connectivity between an existing database and a compute resource. For more information, see [Connect Amazon EC2 automatically](connect-ec2-auto.md). 
 
 The listed compute resources don't include ones that were connected to the database manually. For example, you can allow a compute resource to access a database manually by adding a rule to the VPC security group associated with the database.
 

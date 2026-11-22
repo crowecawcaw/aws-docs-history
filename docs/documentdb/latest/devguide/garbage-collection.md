@@ -1,7 +1,6 @@
 
 
 # Garbage collection in Amazon DocumentDB
-<a name="garbage-collection"></a>
 
 Amazon DocumentDB implements a multi-version concurrency control (MVCC) database architecture that creates new versions of document and index entries for every update operation. This architecture provides enables transaction isolation, preventing one transaction's changes from appearing in another.
 
@@ -11,6 +10,7 @@ Amazon DocumentDB implements a multi-version concurrency control (MVCC) database
 + [Storage architecture and extended storage](#storage-architecture)
 + [Monitoring garbage collection](#monitoring-garbage-collection)
 + [Example collStats output](#example-collstats-output)
++ [Managing cluster and collection size limits](#storage-size-limits)
 + [Frequently asked questions](#garbage-collection-faq)
 
 ## Understanding Garbage collection in Amazon DocumentDB
@@ -219,11 +219,101 @@ The following example shows a typical `collStats` output with garbage collection
 }
 ```
 
+## Managing cluster and collection size limits
+<a name="storage-size-limits"></a>
+
+Amazon DocumentDB limits how large a whole cluster and a single collection can grow. For more information about the current values, see [Cluster quotas](limits.md#limits-cluster).
+
+Garbage collection affects how much of that space you can actually use. You should plan to monitor for both limits before you approach them.
+
+**Topics**
++ [Understanding the cluster size limit](#storage-size-limits-cluster)
++ [Understanding the collection size limit](#storage-size-limits-collection)
++ [Monitoring storage size](#storage-size-limits-monitoring)
++ [Following best practices for storage size](#storage-size-limits-best-practices)
++ [Recovering when a cluster or collection reaches its size limit](#storage-size-limits-recovery)
+
+### Understanding the cluster size limit
+<a name="storage-size-limits-cluster"></a>
+
+The cluster limit applies to the total physical storage of the cluster volume, shown by the `VolumeBytesUsed` metric. This includes all collections and indexes, along with their unused space. If the volume reaches the limit, the cluster becomes unavailable. To recover it, you need help from Amazon Web Services Support. For more information about the recovery steps, see [Recovering a cluster that reaches its limit](#storage-size-limits-recovery-cluster).
+
+Garbage collection frees space inside a collection so that new writes can reuse it, which slows growth. Don't rely on garbage collection or deleting documents to reduce `VolumeBytesUsed`.
+
+To reclaim physical storage, drop collections that you no longer need with `drop()`, and drop indexes that you no longer need with `dropIndex()`. You can also move data to another cluster. Do this before the volume reaches the limit.
+
+### Understanding the collection size limit
+<a name="storage-size-limits-collection"></a>
+
+The 32 TiB collection size limit in [Cluster quotas](limits.md#limits-cluster) applies separately to each storage segment of a collection, base and extended. When either segment reaches 32 TiB, the collection can't add new storage to that segment. Inserts, and updates that need new space, can fail even when `collStats` reports a large `unusedStorageSize`.
+
+Each index also has a maximum size of 32 TiB. Index size doesn't count toward the collection size limit.
+
+Document size decides which storage segment holds a document. Documents that fit within the standard page size (8 KB) are stored in the base storage segment. When compression is enabled for a collection, Amazon DocumentDB uses the compressed size. Larger documents are stored in the extended storage segment, which uses a format that reduces fragmentation. For more information, see [Storage architecture and extended storage](#storage-architecture) and [Managing collection-level document compression](doc-compression.md).
+
+Unused storage in the base storage segment is spread across many pages in small pieces. You can write a new document only to a page that has enough free space for the whole document. When the free space per page is smaller than your average document, you can't use it for new writes. Your smaller documents might still succeed, so your writes can fail some of the time instead of all of the time.
+
+Check `unusedBytes` for each segment in `unusedStorageSize`. Free space in one segment can't be used by the other.
+
+Keep the following points in mind when a collection is at or near the limit:
++ Deleting documents doesn't free space right away. You can reuse the space only after garbage collection finishes on the collection. Garbage collection starts based on how many documents changed. Amazon DocumentDB measures this change relative to the size of the collection. On very large collections, it can start late and take a long time to finish.
++ Updates write a new version of the document, so they also need free space. Removing fields with `$unset` or changing compression doesn't help while the collection is full.
++ Compression settings apply only to new writes. They slow future growth of collection size but don't recover existing space.
+
+### Monitoring storage size
+<a name="storage-size-limits-monitoring"></a>
++ **Cluster** — Set a CloudWatch alarm on `VolumeBytesUsed` at 80% of your cluster limit.
++ **Collections** — Run `collStats` on your largest collections on a recurring schedule, for example daily. Track each segment in `storageSizeStats`, and alert at 80% of 32 TiB (about 25.6 TiB).
++ **Garbage collection** — Watch `unusedStorageSize` and `documentFragmentStats` in `collStats`.
++ **Events** — Amazon DocumentDB emits an event when a cluster or a collection approaches its size limit. To get notified, create an event subscription. For more information, see [Using Amazon DocumentDB event subscriptions](event-subscriptions.md). Amazon DocumentDB sends these events close to the limit, so also set up the alarms and checks in this list to get more time to act.
+
+### Following best practices for storage size
+<a name="storage-size-limits-best-practices"></a>
++ Split data that keeps growing across multiple collections, for example one collection per time period. Each collection has its own limit, and dropping an old collection frees its space without waiting for garbage collection.
++ Gradually remove data you no longer need with TTL indexes or scheduled deletes in small batches.
++ Remove unused indexes, and avoid low-cardinality indexes, so that garbage collection keeps up. For more information about index best practices, see [Working with indexes](best_practices.md#best_practices-indexes).
+
+### Recovering when a cluster or collection reaches its size limit
+<a name="storage-size-limits-recovery"></a>
+
+#### Recovering a cluster that reaches its limit
+<a name="storage-size-limits-recovery-cluster"></a>
+
+**The cluster becomes unavailable**  
+When the cluster volume reaches its size limit, the cluster becomes unavailable. All reads and writes stop, and the cluster can't recover on its own. Recovery needs help from Amazon Web Services Support.  
+After Amazon Web Services Support restores the cluster, drop data before you resume writes. If you write first, the cluster might reach the storage limit again, and then Amazon Web Services Support can't recover it.
+
+**To recover a cluster that reaches its limit**
+
+1. Contact Amazon Web Services Support immediately.
+
+1. Stop all writes, including inserts and updates, to the cluster.
+
+1. When Amazon Web Services Support makes the cluster available again, free space by dropping collections that you no longer need with `drop()`, and indexes that you no longer need with `dropIndex()`. Don't rely on deleting individual documents to reduce the size of the cluster volume.
+
+1. Resume writes only after you drop data and `VolumeBytesUsed` is well below the limit. Keep monitoring `VolumeBytesUsed` after you resume.
+
+#### Recovering a collection that reaches its limit
+<a name="storage-size-limits-recovery-collection"></a>
+
+**Writes to the collection can fail**  
+When a collection reaches its size limit, inserts and updates to that collection can fail. Expect most writes to fail until you delete documents and garbage collection frees space. This can take a long time on a large collection.
+
+**To recover a collection that reaches its limit**
+
+1. Delete documents you no longer need, in batches.
+
+1. Let garbage collection finish before you delete the next batch. Writes resume as garbage collection frees space.
+
+1. Track garbage collection progress with `LongestActiveGCRuntime` and `collStats`.
+
+1. If garbage collection doesn't start or finish after your deletes, contact Amazon Web Services Support.
+
 ## Frequently asked questions
 <a name="garbage-collection-faq"></a>
 
 ### How do I identify if garbage collection is not working efficiently?
-<a name="w2aac61c15c17b3"></a>
+<a name="w2aac61c15c19b3"></a>
 
 Monitor these warning signs that indicate inefficient garbage collection:
 + **Excessive Collection Bloat** — Steadily increasing `unusedStorageSize` metrics during heavy writes or bulk deletions, especially with large indexes.
@@ -233,7 +323,7 @@ Monitor these warning signs that indicate inefficient garbage collection:
 + **Elevated GC Processing** — High `LongestActiveGCRuntime` indicating the garbage collector cannot keep up with system demands.
 
 ### Does garbage collection affect my database performance?
-<a name="w2aac61c15c17b5"></a>
+<a name="w2aac61c15c19b5"></a>
 
 Under normal conditions, garbage collection has minimal performance impact. However, when garbage collection falls behind, you may experience:
 + Increased storage costs from accumulated dead documents.
@@ -243,12 +333,12 @@ Under normal conditions, garbage collection has minimal performance impact. Howe
 + Reduced efficiency in extended storage segment operations for large documents.
 
 ### Can I manually trigger garbage collection?
-<a name="w2aac61c15c17b7"></a>
+<a name="w2aac61c15c19b7"></a>
 
 No, garbage collection in Amazon DocumentDB cannot be manually triggered. The system manages garbage collection automatically as part of its internal maintenance operations.
 
 ### What alarms should I set as an operational best practice?
-<a name="w2aac61c15c17b9"></a>
+<a name="w2aac61c15c19b9"></a>
 
 Set up monitoring at both the cluster and collection levels to ensure optimal performance of your Amazon DocumentDB system.
 
@@ -267,7 +357,7 @@ Collections with frequent write operations need extra attention, as they generat
 Note that these monitoring recommendations serve as a starting point. As you become more familiar with your system's behavior, you may want to adjust these thresholds to better match your specific usage patterns and requirements.
 
 ### What should I do if my `AvailableMVCCIds` falls below the alarm threshold?
-<a name="w2aac61c15c17c11"></a>
+<a name="w2aac61c15c19c11"></a>
 
 If your `AvailableMVCCIds` metric drops below the alarm threshold, take immediate action to prevent your cluster from entering read-only mode. First, scale up your instance size to provide the garbage collector with more computing resources. This allows your application to continue normal operations while giving the garbage collector the additional power it needs to catch up.
 
@@ -278,12 +368,12 @@ Once you've identified these collections, you might need to temporarily reduce w
 Remember that these steps are preventive measures to help your system recover before it reaches a critical state. The sooner you take action after seeing the metric drop below the threshold, the more likely you are to avoid any impact to your write operations.
 
 ### Do batch operations affect the MVCC ID consumption rate?
-<a name="w2aac61c15c17c13"></a>
+<a name="w2aac61c15c19c13"></a>
 
 Yes. Because a batch executed within a single atomic transaction consumes only one MVCC ID, grouping writes into batches lowers the rate at which MVCC IDs are consumed. As a best practice, use `insertMany` and `updateMany` whenever possible to minimize MVCC ID consumption and reduce the load on garbage collection.
 
 ### Why doesn't `AvailableMVCCIds` recover until it reaches a certain threshold?
-<a name="w2aac61c15c17c15"></a>
+<a name="w2aac61c15c19c15"></a>
 
 A steady decline in `AvailableMVCCIds` with no recovery is expected temporarily for a write-dominant workload that has not yet consumed enough MVCC IDs to trigger the garbage collection reclamation cycle. Garbage collection triggers when any of the following conditions are met: a certain portion of the documents within a collection become obsolete, a certain portion of new documents are inserted, or `AvailableMVCCIds` drops below its reclamation threshold.
 

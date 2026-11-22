@@ -1,7 +1,6 @@
 
 
 # $setIsSubset
-<a name="setIsSubset"></a>
 
 The `$setIsSubset` operator in Amazon DocumentDB is used to determine if a set of values is a subset of another set. It is useful for performing set-based comparisons and operations on array fields.
 
@@ -53,7 +52,7 @@ To view a code example for using the `$setIsSubset` command, choose the tab for 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -76,7 +75,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

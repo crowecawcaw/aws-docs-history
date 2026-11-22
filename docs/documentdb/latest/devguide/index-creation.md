@@ -1,7 +1,6 @@
 
 
 # Index creation
-<a name="index-creation"></a>
 
 Building indexes in Amazon DocumentDB requires a number of decisions to be made:
 + How quickly does it need to be completed?

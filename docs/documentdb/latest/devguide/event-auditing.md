@@ -1,7 +1,6 @@
 
 
 # Auditing Amazon DocumentDB events
-<a name="event-auditing"></a>
 
 With Amazon DocumentDB (with MongoDB compatibility), you can audit events that were performed in your cluster. Examples of logged events include successful and failed authentication attempts, dropping a collection in a database, or creating an index. By default, auditing is disabled on Amazon DocumentDB and requires that you opt in to use this feature.
 
@@ -314,7 +313,7 @@ aws docdb modify-db-cluster ^
 ```
 Output from these operations looks something like the following (JSON format).  
 
-```
+```json
 {
     "DBCluster": {
         "HostedZoneId": "ZNKXH85TT8WVW",
@@ -413,7 +412,7 @@ aws docdb modify-db-cluster ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 {
     "DBCluster": {
         "DBClusterParameterGroup": "default.docdb4.0",

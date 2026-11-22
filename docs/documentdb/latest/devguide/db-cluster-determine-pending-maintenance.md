@@ -1,7 +1,6 @@
 
 
 # Determining pending maintenance
-<a name="db-cluster-determine-pending-maintenance"></a>
 
 Maintenance most often involves updates to the following resources in your cluster:
 + Operating system (OS) of instances in the cluster
@@ -54,7 +53,7 @@ aws docdb describe-pending-maintenance-actions ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 {
     "PendingMaintenanceActions": [
         {

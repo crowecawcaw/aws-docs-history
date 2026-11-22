@@ -1,7 +1,6 @@
 
 
 # $regexFind
-<a name="regexFind"></a>
 
 New from version 5.0.
 
@@ -65,7 +64,7 @@ To view a code example for using the `$regexFind` command, choose the tab for th
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function main() {
@@ -90,7 +89,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')

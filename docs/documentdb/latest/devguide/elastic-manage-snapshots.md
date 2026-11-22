@@ -1,7 +1,6 @@
 
 
 # Managing elastic cluster snapshots
-<a name="elastic-manage-snapshots"></a>
 
 Manual snapshots can be taken after an elastic cluster has been created. Automated backups are created the moment the elastic cluster snapshot is created.
 

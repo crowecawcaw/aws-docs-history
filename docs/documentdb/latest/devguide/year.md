@@ -1,7 +1,6 @@
 
 
 # $year
-<a name="year"></a>
 
 The `$year` operator in Amazon DocumentDB extracts the year component from a date or timestamp.
 
@@ -47,7 +46,7 @@ To view a code example for using the `$year` command, choose the tab for the lan
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -70,7 +69,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

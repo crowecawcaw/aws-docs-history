@@ -1,7 +1,6 @@
 
 
 # Backing up and restoring in Amazon DocumentDB
-<a name="backup_restore"></a>
 
 Amazon DocumentDB (with MongoDB compatibility) continuously backs up your data to Amazon Simple Storage Service (Amazon S3) for 1–35 days so that you can quickly restore to any point within the backup retention period. Amazon DocumentDB also takes automatic snapshots of your data as part of this continuous backup process.
 

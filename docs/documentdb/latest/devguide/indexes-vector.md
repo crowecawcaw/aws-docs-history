@@ -1,7 +1,6 @@
 
 
 # Vector indexes
-<a name="indexes-vector"></a>
 
 Vector indexes are a specialized type of index designed to efficiently query and manage vector data stored within a collection of documents. Amazon DocumentDB supports Hierarchical Navigable Small World (HNSW) and Inverted File with Flat Compression (IVFFlat) indexes.
 

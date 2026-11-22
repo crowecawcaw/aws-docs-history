@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon DocumentDB
-<a name="get-started-guide"></a>
 
 There are many ways to connect and get started with Amazon DocumentDB. This guide is the quickest, simplest, and easiest way for users to get started using our powerful document database. This guide uses [AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html) to connect and query your Amazon DocumentDB cluster directly from the AWS Management Console. New customers who are eligible for the AWS Free Tier can use Amazon DocumentDB and CloudShell for free. If your AWS CloudShell environment or Amazon DocumentDB cluster makes use of resources beyond the free tier, you are charged the normal AWS rates for those resources. This guide will get you started with Amazon DocumentDB in less than five minutes. 
 

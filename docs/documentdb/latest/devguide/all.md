@@ -1,7 +1,6 @@
 
 
 # $all
-<a name="all"></a>
 
 The `$all` operator in Amazon DocumentDB is used to match documents where the value of a field is an array and contains all the specified elements, regardless of the order of the elements in the array.
 
@@ -64,7 +63,7 @@ To view a code example for using the `$all` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -84,7 +83,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

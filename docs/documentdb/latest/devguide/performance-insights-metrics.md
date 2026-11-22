@@ -1,7 +1,6 @@
 
 
 # Retrieving metrics with the Performance Insights API
-<a name="performance-insights-metrics"></a>
 
 When Performance Insights is enabled, the API provides visibility into instance performance. Amazon CloudWatch Logs provides the authoritative source for vended monitoring metrics for AWS services.
 

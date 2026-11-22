@@ -1,7 +1,6 @@
 
 
 # $addFields
-<a name="addFields"></a>
 
 The `$addFields` stage in the Amazon DocumentDB aggregation pipeline allows you to add new computed fields to documents. This can be useful for adding derived or transformed data to the documents.
 
@@ -90,7 +89,7 @@ To view a code example for using the `$addFields` command, choose the tab for th
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 const client = await MongoClient.connect('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false');
@@ -113,7 +112,7 @@ await client.close();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')

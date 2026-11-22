@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB API and interface VPC endpoints (AWS PrivateLink)
-<a name="docdb-private-link"></a>
 
 **Note**  
 Amazon DocumentDB elastic clusters do not support AWS PrivateLink VPC endpoints.
@@ -84,7 +83,7 @@ For more information, see [Control access to VPC endpoints using endpoint polici
 
 The following is an example of an endpoint policy for the Amazon DocumentDB API. When attached to an endpoint, this policy grants access to the listed Amazon DocumentDB API actions for all principals on all resources.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -106,7 +105,7 @@ The following is an example of an endpoint policy for the Amazon DocumentDB API.
 
 The following VPC endpoint policy denies AWS account 123456789012 all access to resources using the endpoint. The policy allows all actions from other AWS accounts.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

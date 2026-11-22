@@ -1,7 +1,6 @@
 
 
 # $concatArrays
-<a name="concatArrays"></a>
 
 The `$concatArrays` aggregation operator in Amazon DocumentDB is used to concatenate two or more arrays into a single array. This can be useful when you need to combine multiple arrays of data into a single array for further processing or analysis.
 
@@ -81,7 +80,7 @@ To view a code example for using the `$concatArrays` command, choose the tab for
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -109,7 +108,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

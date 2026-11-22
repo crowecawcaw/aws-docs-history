@@ -1,7 +1,6 @@
 
 
 # Stopping and starting an Amazon DocumentDB cluster
-<a name="db-cluster-stop-start"></a>
 
 Stopping and starting Amazon DocumentDB clusters can help you manage costs for development and test environments. Instead of creating and deleting clusters and instances each time you use Amazon DocumentDB, you can temporarily stop all the instances in your cluster when they aren't needed. You can then start them again when you resume your testing.
 

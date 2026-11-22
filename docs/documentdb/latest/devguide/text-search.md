@@ -1,7 +1,6 @@
 
 
 # Performing text search with Amazon DocumentDB
-<a name="text-search"></a>
 
 Amazon DocumentDB's native full text search feature (Text Index v1) allows you to perform text search on large textual data sets using special purpose text indexes. This section describes the functionalities of the text index feature and provides steps on how to create and use text indexes in Amazon DocumentDB. Text search limitations are also listed.
 

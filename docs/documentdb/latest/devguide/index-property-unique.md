@@ -1,7 +1,6 @@
 
 
 # Index Property: unique
-<a name="index-property-unique"></a>
 
 ## Supported index types
 <a name="index-property-unique-supported"></a>

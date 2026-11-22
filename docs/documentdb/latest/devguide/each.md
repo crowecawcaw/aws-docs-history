@@ -1,7 +1,6 @@
 
 
 # $each
-<a name="each"></a>
 
 The `$each` operator is used in conjunction with other update operators, such as `$push` and `$addToSet`, to add multiple values to an array field. It allows adding multiple elements to an array in a single operation, rather than having to execute multiple update operations.
 
@@ -54,7 +53,7 @@ To view a code example for using the `$each` command, choose the tab for the lan
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -76,7 +75,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

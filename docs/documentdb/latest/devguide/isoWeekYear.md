@@ -1,7 +1,6 @@
 
 
 # $isoWeekYear
-<a name="isoWeekYear"></a>
 
 The `$isoWeekYear` operator in Amazon DocumentDB returns the ISO 8601 week year number for a given date. The ISO week year number differs from the Gregorian calendar year in that the week year can be different from the calendar year, especially at the start and end of the year.
 
@@ -52,7 +51,7 @@ To view a code example for using the `$isoWeekYear` command, choose the tab for 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -77,7 +76,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

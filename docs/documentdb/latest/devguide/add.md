@@ -1,7 +1,6 @@
 
 
 # $add
-<a name="add"></a>
 
 The `$add` operator in Amazon DocumentDB is used to add numbers or dates together. It can be used to perform arithmetic operations on numeric fields or to perform date arithmetic by adding a number of time units to a date field.
 
@@ -56,7 +55,7 @@ To view a code example for using the `$add` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -81,7 +80,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')

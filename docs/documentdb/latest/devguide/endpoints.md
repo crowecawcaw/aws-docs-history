@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon DocumentDB endpoints
-<a name="endpoints"></a>
 
 You can use Amazon DocumentDB (with MongoDB compatibility) endpoints to connect to a cluster or instance. Amazon DocumentDB has three different types of endpoints, each with its own purpose. 
 

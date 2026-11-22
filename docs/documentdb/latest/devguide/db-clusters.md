@@ -1,7 +1,6 @@
 
 
 # Managing Amazon DocumentDB clusters
-<a name="db-clusters"></a>
 
 To manage an Amazon DocumentDB cluster, you must have an IAM policy with the appropriate Amazon DocumentDB control plane permissions. These permissions allow you to create, modify, and delete clusters and instances. The `AmazonDocDBFullAccess` policy provides all the required permissions for administering an Amazon DocumentDB cluster. 
 

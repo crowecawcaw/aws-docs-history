@@ -1,7 +1,6 @@
 
 
 # Performance improvement tips
-<a name="performance-improvement-tips"></a>
 
 This section provides five performance optimization strategies for Amazon DocumentDB to improve application efficiency and query execution.
 
@@ -48,8 +47,9 @@ Enable document compression from cluster parameter group to lower storage costs,
 + Lower storage costs, I/O costs, and improved query performance
 
 **Note**  
-Amazon DocumentDB doesn't enable compression by default for version 5.0. You can [enable compression](doc-compression.md) at collection or cluster level for 5.0 cluster. Use Amazon DocumentDB's compression review utility to analyze compression ratios for your collections.  
-For Amazon DocumentDB 8.0, [compression is enabled by default](dict-compression.md).
+In Amazon DocumentDB 5.0, compression is off by default. You can turn it on for a collection or for a cluster. Use the Amazon DocumentDB compression review utility to analyze compression ratios for your collections.  
+In Amazon DocumentDB 8.0, new collections use compression by default.  
+For more information, see [Managing collection-level document compression](doc-compression.md).
 
 ## 4. Leverage Indexes for Optimal Query Performance
 <a name="tip-leverage-indexes"></a>

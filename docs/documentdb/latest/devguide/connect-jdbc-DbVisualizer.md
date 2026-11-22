@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon DocumentDB from DbVisualizer
-<a name="connect-jdbc-DbVisualizer"></a>
 
 **Topics**
 + [Adding the Amazon DocumentDB JDBC driver](#connect-jdbc-DbVisualizer-adddriver)

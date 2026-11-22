@@ -1,7 +1,6 @@
 
 
 # $slice
-<a name="slice-update"></a>
 
 The `$slice` update operator modifies an array by limiting its size. When used with the `$push` operator, it restricts the number of elements in an array, keeping only the specified number of most recent or oldest elements.
 
@@ -60,7 +59,7 @@ To view a code example for using the `$slice` update operator, choose the tab fo
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function updateDocument() {
@@ -92,7 +91,7 @@ updateDocument();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def update_document():

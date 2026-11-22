@@ -1,7 +1,6 @@
 
 
 # $unwind
-<a name="unwind"></a>
 
 The `$unwind` operator is used to deconstruct an array field from the input documents to output a document for each element. This can be useful when you want to perform operations on the individual elements of an array, such as filtering, sorting, or transforming the data.
 
@@ -53,7 +52,7 @@ To view a code example for using the `$unwind` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -75,7 +74,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

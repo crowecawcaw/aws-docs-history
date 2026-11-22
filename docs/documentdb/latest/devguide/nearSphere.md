@@ -1,7 +1,6 @@
 
 
 # $nearSphere
-<a name="nearSphere"></a>
 
 The `$nearSphere` operator in Amazon DocumentDB is used to find documents that are within a specified distance of a geospatial point. This operator is particularly useful for geo-spatial queries, such as finding all restaurants within a certain radius of a given location.
 
@@ -68,7 +67,7 @@ To view a code example for using the `$nearSphere` command, choose the tab for t
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findNearbyRestaurants() {
@@ -101,7 +100,7 @@ findNearbyRestaurants();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def find_nearby_restaurants():

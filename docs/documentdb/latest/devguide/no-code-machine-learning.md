@@ -1,7 +1,6 @@
 
 
 # No-code machine learning with Amazon SageMaker AI Canvas
-<a name="no-code-machine-learning"></a>
 
 [Amazon SageMaker AI Canvas](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas.html) enables you to build your own AI/ML models without having to write a single line of code. You can build ML models for common use cases such as regression and forecasting and can access and evaluate foundation models (FMs) from Amazon Bedrock. You can also access public FMs from Amazon SageMaker AI JumpStart for content generation, text extraction, and text summarization to support generative AI solutions.
 

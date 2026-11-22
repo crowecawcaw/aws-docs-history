@@ -1,7 +1,6 @@
 
 
 # Describing Amazon DocumentDB cluster parameter groups
-<a name="cluster_parameter_groups-describe"></a>
 
 A `default` cluster parameter group is created automatically when you create the first Amazon DocumentDB cluster in a new AWS Region or are using a new engine. Subsequent clusters, which are created in the same Region and have the same engine version, are created with the `default` cluster parameter group.
 
@@ -48,7 +47,7 @@ aws docdb describe-db-cluster-parameter-groups
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 {
           "DBClusterParameterGroups": [
               {
@@ -83,7 +82,7 @@ aws docdb describe-db-cluster-parameter-groups ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 {
           "DBClusterParameterGroups": [
               {
@@ -112,7 +111,7 @@ aws docdb describe-db-cluster-parameters ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 {
    "Parameters": [
          {
@@ -173,7 +172,7 @@ aws docdb describe-db-clusters \
 
 Output from this operation looks something like the following (JSON format).
 
-```
+```json
 [
        [
            "sample-cluster",
@@ -222,7 +221,7 @@ aws docdb describe-db-clusters ^
 
 Output from this operation looks something like the following (JSON format).
 
-```
+```json
 {
    "parameter_group_name": "{{sample-parameter-group}}",
    "total_clusters": 50,

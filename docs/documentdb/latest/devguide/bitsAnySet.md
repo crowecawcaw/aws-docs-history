@@ -1,7 +1,6 @@
 
 
 # $bitsAnySet
-<a name="bitsAnySet"></a>
 
 The `$bitsAnySet` operator in Amazon DocumentDB is used to query documents where at least one bit is set to 1 in the specified bits in a field. This operator allows you to perform bitwise operations on the values stored in fields, enabling efficient querying and analysis of data with bitwise characteristics.
 
@@ -51,7 +50,7 @@ To view a code example for using the `$bitsAnySet` command, choose the tab for t
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function main() {
@@ -74,7 +73,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')

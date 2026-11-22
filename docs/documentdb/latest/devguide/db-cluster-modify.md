@@ -1,7 +1,6 @@
 
 
 # Modifying an Amazon DocumentDB cluster
-<a name="db-cluster-modify"></a>
 
 To modify a cluster, the cluster must be in the *available* state. You cannot modify a cluster that is stopped. If the cluster is stopped, first start the cluster, wait for the cluster to become *available*, and then make the desired modifications. For more information, see [Stopping and starting an Amazon DocumentDB cluster](db-cluster-stop-start.md). 
 
@@ -94,7 +93,7 @@ aws docdb modify-db-cluster ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 {
     "DBCluster": {
         "BackupRetentionPeriod": 7,

@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB serverless scaling configuration
-<a name="docdb-serverless-scaling-config"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # $nin
-<a name="nin"></a>
 
 The `$nin` operator is used to match values that are not in the specified array. It is the inverse of the `$in` operator, which matches values that are in the specified array.
 
@@ -71,7 +70,7 @@ To view a code example for using the `$nin` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findBooksNotInCategories(categories) {
@@ -92,7 +91,7 @@ findBooksNotInCategories(['Fiction', 'Mystery']);
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def find_books_not_in_categories(categories):

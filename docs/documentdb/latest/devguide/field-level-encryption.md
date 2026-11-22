@@ -1,7 +1,6 @@
 
 
 # Client-side field level encryption
-<a name="field-level-encryption"></a>
 
 Amazon DocumentDB client-side field level encryption (FLE) allows you to encrypt sensitive data in your client applications before it is transferred to a Amazon DocumentDB cluster. Sensitive data remains encrypted when it is stored and processed in a cluster and is decrypted at the client application when retrieved.
 
@@ -35,7 +34,7 @@ Create an IAM policy with appropriate AWS KMS permissions. This policy allows th
 
 The policy should look similar to this:
 
-```
+```json
 { "Effect": "Allow",
 "Action": ["kms:Decrypt", "kms:Encrypt"],
 "Resource": "Customer Key ARN"
@@ -47,7 +46,7 @@ The policy should look similar to this:
 
 You have defined a customer managed key in AWS KMS and created an IAM role with the necessary permissions to access it. Import the required packages.
 
-```
+```py
 import boto3
 import json
 import base64
@@ -66,7 +65,7 @@ current_credentials = my_session.get_credentials().get_frozen_credentials()
 
 1. Specify `aws` as the AWS KMS provider type and enter the account credentials that you retrieved in the previous step.
 
-   ```
+   ```py
    provider = "aws"
    kms_providers = {
        provider: {
@@ -78,7 +77,7 @@ current_credentials = my_session.get_credentials().get_frozen_credentials()
 
 1. Specify the customer managed key to encrypt the data key:
 
-   ```
+   ```py
    customer_key = {
    “region”: “AWS region of the customer_key”,
        “key”: “customer_key ARN”
@@ -91,7 +90,7 @@ current_credentials = my_session.get_credentials().get_frozen_credentials()
 
 1. Configure the MongoClient object:
 
-   ```
+   ```py
    client = MongoClient(connection_string)
    
    coll = client.test.coll
@@ -107,7 +106,7 @@ current_credentials = my_session.get_credentials().get_frozen_credentials()
 
 1. Generate your data key:
 
-   ```
+   ```py
    data_key_id = client_encryption.create_data_key(provider,
        customer_key,
        key_alt_name = [key_alt_name])
@@ -115,7 +114,7 @@ current_credentials = my_session.get_credentials().get_frozen_credentials()
 
 1. Retrieve your existing data key:
 
-   ```
+   ```py
    data_key = DataKey("aws",
        master_key = customer_key)
    key_id = data_key["_id"]
@@ -129,7 +128,7 @@ Define the CRUD operation with encryption options.
 
 1. Define the collection to write/read/delete a single document:
 
-   ```
+   ```py
    coll = client.gameinfo.users
    ```
 
@@ -137,7 +136,7 @@ Define the CRUD operation with encryption options.
 **Note**  
 Exactly one of "key\_id" or "key\_alt\_name" must be provided.
 
-   ```
+   ```py
    encrypted_first_name = client_encryption.encrypt(
        "Jane",
        Algorithm.AEAD_AES_256_CBC_HMAC_SHA_512_Deterministic,
@@ -168,7 +167,7 @@ Exactly one of "key\_id" or "key\_alt\_name" must be provided.
 
 In the following example, replace each {{placeholder}} with your own information.
 
-```
+```py
 # import python packages:
 import boto3
 import json
@@ -266,7 +265,7 @@ Amazon DocumentDB only supports equality queries with client-side FLE encrypted 
 
 For example, to query for documents where encrypted gamerscore equals 500 the client uses an explicit encryption method to encrypt the query value:
 
-```
+```py
 encrypted_gamerscore_filter = client_encryption.encrypt(
     500,
     Algorithm.AEAD_AES_256_CBC_HMAC_SHA_512_Deterministic,

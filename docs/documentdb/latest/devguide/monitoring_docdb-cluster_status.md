@@ -1,7 +1,6 @@
 
 
 # Monitoring an Amazon DocumentDB cluster's status
-<a name="monitoring_docdb-cluster_status"></a>
 
 The status of a cluster indicates the health of the cluster. You can view the status of a cluster by using the Amazon DocumentDB console or the AWS CLI `describe-db-clusters` command.
 
@@ -73,7 +72,7 @@ aws docdb describe-db-clusters ^
 
 Output from this operation looks something like the following.
 
-```
+```json
 [
     [
         "sample-cluster",

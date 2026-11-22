@@ -1,7 +1,6 @@
 
 
 # Index property: hidden
-<a name="index-property-hidden"></a>
 
 Amazon DocumentDB supports the `hidden` index property beginning with Amazon DocumentDB 8.0.1\+ and Amazon DocumentDB 5.0.2\+.
 

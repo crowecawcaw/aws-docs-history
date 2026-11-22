@@ -1,7 +1,6 @@
 
 
 # Describing an Amazon DocumentDB subnet group
-<a name="document-db-subnet-group-describe"></a>
 
 You can use the AWS Management Console or the AWS CLI to get the details of an Amazon DocumentDB subnet group.
 
@@ -45,7 +44,7 @@ aws docdb describe-db-subnet-groups ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 {
     "DBSubnetGroup": {
         "DBSubnetGroupArn": "arn:aws:rds:us-east-1:123SAMPLE012:subgrp:sample-subnet-group",

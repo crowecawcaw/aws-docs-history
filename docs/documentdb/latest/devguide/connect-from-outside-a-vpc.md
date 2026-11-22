@@ -1,7 +1,6 @@
 
 
 # Connecting to an Amazon DocumentDB cluster from outside an Amazon VPC
-<a name="connect-from-outside-a-vpc"></a>
 
 Amazon DocumentDB (with MongoDB compatibility) clusters are deployed within an Amazon Virtual Private Cloud (Amazon VPC). They can be accessed directly by Amazon EC2 instances or other AWS services that are deployed in the same Amazon VPC. Additionally, Amazon DocumentDB can be accessed by EC2 instances or other AWS services in different VPCs in the same AWS Region or other Regions via VPC peering.
 

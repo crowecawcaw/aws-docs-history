@@ -1,7 +1,6 @@
 
 
 # $month
-<a name="month"></a>
 
 The `$month` operator in Amazon DocumentDB returns the month of a date as a number between 1 and 12. This operator is useful for extracting the month component from a date field and performing date-based aggregations and analyses.
 
@@ -57,7 +56,7 @@ To view a code example for using the `$month` command, choose the tab for the la
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function groupSalesByMonth() {
@@ -95,7 +94,7 @@ groupSalesByMonth().catch(console.error);
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def group_sales_by_month():

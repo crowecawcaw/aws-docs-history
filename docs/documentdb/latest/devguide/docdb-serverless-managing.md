@@ -1,7 +1,6 @@
 
 
 # Managing Amazon DocumentDB serverless
-<a name="docdb-serverless-managing"></a>
 
 ## Viewing and modifying a cluster’s scaling capacity range configuration
 <a name="docdb-serverless-range-config"></a>
@@ -292,7 +291,7 @@ aws docdb describe-pending-maintenance-actions \
 
 Output from this operation looks something like the following (JSON format).
 
-```
+```json
 {
     "PendingMaintenanceActions": [
         {

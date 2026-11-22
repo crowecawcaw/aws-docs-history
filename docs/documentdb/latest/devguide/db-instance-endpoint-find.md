@@ -1,7 +1,6 @@
 
 
 # Finding an instance's endpoint
-<a name="db-instance-endpoint-find"></a>
 
 You can find the endpoint for an instance using the Amazon DocumentDB console or the AWS CLI.
 
@@ -56,7 +55,7 @@ aws docdb describe-db-instances ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 [
     [
         "sample-cluster-instance",
@@ -87,7 +86,7 @@ aws docdb describe-db-instances ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 [
     [
         "sample-cluster-instance",

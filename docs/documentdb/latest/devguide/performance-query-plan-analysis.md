@@ -1,7 +1,6 @@
 
 
 # Query plan analysis
-<a name="performance-query-plan-analysis"></a>
 
 Query plan analysis through explain plan provides essential insights into Amazon DocumentDB query performance. Query plan with executionStats reveals key metrics including:
 + Documents returned per stage (nReturned)

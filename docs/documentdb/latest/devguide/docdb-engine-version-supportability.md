@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB features and configurations
-<a name="docdb-engine-version-supportability"></a>
 
 The following tables compare features, capabilities, and supported instance types across Amazon DocumentDB engine versions and elastic clusters. Use these tables to determine which engine version best fits your workload requirements.
 

@@ -1,7 +1,6 @@
 
 
 # $indexOfArray
-<a name="indexOfArray"></a>
 
 The `$indexOfArray` operator in Amazon DocumentDB is used to find the index of the first occurrence of a specified element in an array. This operator returns the zero-based index position of the first element in the array that matches the specified value. If the value is not found, it returns -1.
 
@@ -54,7 +53,7 @@ To view a code example for using the `$indexOfArray` command, choose the tab for
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -81,7 +80,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

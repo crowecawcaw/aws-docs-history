@@ -1,7 +1,6 @@
 
 
 # $tsIncrement
-<a name="tsIncrement"></a>
 
 New from version 8.0.1.
 
@@ -51,7 +50,7 @@ To view a code example for using the `$tsIncrement` operator, choose the tab for
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient, Timestamp } = require('mongodb');
 
 async function example() {
@@ -74,7 +73,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

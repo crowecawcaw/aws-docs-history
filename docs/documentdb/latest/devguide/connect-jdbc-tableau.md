@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon DocumentDB from Tableau Desktop
-<a name="connect-jdbc-tableau"></a>
 
 **Topics**
 + [Adding the Amazon DocumentDB JDBC Driver](#connect-jdbc-tableau-adddriver)

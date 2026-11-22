@@ -1,7 +1,6 @@
 
 
 # $minute
-<a name="minute"></a>
 
 The `$minute` aggregation pipeline stage in Amazon DocumentDB extracts the minute value from a date or timestamp field.
 
@@ -61,7 +60,7 @@ To view a code example for using the `$minute` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -99,7 +98,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 from datetime import datetime
 

@@ -1,7 +1,6 @@
 
 
 # $skip
-<a name="skip"></a>
 
 In Amazon DocumentDB, the `$skip` operator is used to offset the starting point of the query results, allowing you to retrieve a specific subset of the matching documents. This is particularly useful in pagination scenarios, where you want to retrieve subsequent pages of results.
 
@@ -73,7 +72,7 @@ To view a code example for using the `$skip` command, choose the tab for the lan
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function main() {
@@ -97,7 +96,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def main():

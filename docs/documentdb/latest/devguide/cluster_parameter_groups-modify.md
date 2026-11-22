@@ -1,7 +1,6 @@
 
 
 # Modifying Amazon DocumentDB cluster parameter groups
-<a name="cluster_parameter_groups-modify"></a>
 
 This section explains how to modify a *custom* Amazon DocumentDB parameter group. In Amazon DocumentDB, you cannot modify a `default` cluster parameter group which is created when you first create a cluster with new engine version in a new Region. If your Amazon DocumentDB cluster is using the default cluster parameter group and you want to modify a value in it, you must first [create a new parameter group](cluster_parameter_groups-create.md) or [copy an existing parameter group](cluster_parameter_groups-copy.md), modify it, and then apply the modified parameter group to your cluster.
 
@@ -63,7 +62,7 @@ In this example, you list the parameter values of `sample-parameter-group` and m
 
    Output from this operation looks something like the following (JSON format).
 
-   ```
+   ```json
    {
           "Parameters": [
               {
@@ -114,7 +113,7 @@ In this example, you list the parameter values of `sample-parameter-group` and m
 
    Output from this operation looks something like the following (JSON format).
 
-   ```
+   ```json
    {
           "DBClusterParameterGroupName": "sample-parameter-group"
       }
@@ -140,7 +139,7 @@ In this example, you list the parameter values of `sample-parameter-group` and m
 
    Output from this operation looks something like the following (JSON format).
 
-   ```
+   ```json
    {
           "Parameters": [
               {

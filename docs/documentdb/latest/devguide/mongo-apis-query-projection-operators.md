@@ -1,7 +1,6 @@
 
 
 # Query and projection operators
-<a name="mongo-apis-query-projection-operators"></a>
 
 This section provides detailed information about query and projection operators supported by Amazon DocumentDB.
 

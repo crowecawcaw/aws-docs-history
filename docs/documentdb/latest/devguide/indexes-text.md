@@ -1,7 +1,6 @@
 
 
 # Text indexes
-<a name="indexes-text"></a>
 
 Text indexes are useful in searching for words or phrases in text fields within documents, allowing you to perform full-text search functionality. You can create single field text indexes or compound text indexes with more than one text field. However, you can only have one text index per collection. For more information, see [Performing text search with Amazon DocumentDB](text-search.md).
 

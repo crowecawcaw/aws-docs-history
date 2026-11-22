@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB cluster lifecycle
-<a name="db-cluster-life-cycle"></a>
 
 The lifecycle of an Amazon DocumentDB cluster includes creating, describing, modifying, and deleting the cluster. This section provides information about how to complete these processes. 
 

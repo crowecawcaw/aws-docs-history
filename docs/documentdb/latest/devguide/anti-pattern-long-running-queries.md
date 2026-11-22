@@ -1,7 +1,6 @@
 
 
 # Long running queries
-<a name="anti-pattern-long-running-queries"></a>
 
 ## Overview
 <a name="long-queries-overview"></a>

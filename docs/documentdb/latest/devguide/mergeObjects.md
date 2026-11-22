@@ -1,7 +1,6 @@
 
 
 # $mergeObjects
-<a name="mergeObjects"></a>
 
 The `$mergeObjects` operator in Amazon DocumentDB is used to combine multiple documents or objects into a single document. This operator is particularly useful when you need to merge the contents of two or more documents or objects, potentially overwriting values from one object with those from another.
 
@@ -69,7 +68,7 @@ To view a code example for using the `$mergeObjects` command, choose the tab for
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -97,7 +96,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

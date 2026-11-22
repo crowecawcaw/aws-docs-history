@@ -1,7 +1,6 @@
 
 
 # Update operators
-<a name="mongo-apis-update-operators"></a>
 
 This section provides detailed information about update operators supported by Amazon DocumentDB.
 

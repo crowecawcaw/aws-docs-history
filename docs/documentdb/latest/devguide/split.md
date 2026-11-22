@@ -1,7 +1,6 @@
 
 
 # $split
-<a name="split"></a>
 
 The `$split` aggregation operator in Amazon DocumentDB is used to split a string into an array of substrings, based on a specified delimiter. This can be useful for parsing complex string fields and extracting individual components for further processing.
 
@@ -52,7 +51,7 @@ To view a code example for using the `$split` command, choose the tab for the la
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -71,7 +70,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

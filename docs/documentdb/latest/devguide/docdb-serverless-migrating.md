@@ -1,7 +1,6 @@
 
 
 # Migrating to Amazon DocumentDB serverless
-<a name="docdb-serverless-migrating"></a>
 
 **Topics**
 + [Migrating existing DocumentDB clusters to serverless](#w2aac51c19b5)

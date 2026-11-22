@@ -1,7 +1,6 @@
 
 
 # Opening the Performance Insights dashboard
-<a name="performance-insights-dashboard-opening"></a>
 
 **To view the Performance Insights dashboard in the AWS Management Console, use the following steps:**
 

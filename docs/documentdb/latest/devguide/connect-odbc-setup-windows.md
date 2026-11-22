@@ -1,7 +1,6 @@
 
 
 # Setting up the Amazon DocumentDB ODBC driver in Windows
-<a name="connect-odbc-setup-windows"></a>
 
 Use the following procedure to set up the Amazon DocumentDB ODBC driver in Windows:
 

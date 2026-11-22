@@ -1,7 +1,6 @@
 
 
 # $concat
-<a name="concat"></a>
 
 The `$concat` aggregation operator in Amazon DocumentDB concatenates (or combines) multiple strings in a document to produce a single string that can be returned to the application. This reduces the work done in the application, as the string manipulation is performed at the database level.
 
@@ -49,7 +48,7 @@ To view a code example for using the `$concat` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function concatenateNames() {
@@ -71,7 +70,7 @@ concatenateNames();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def concatenate_names():

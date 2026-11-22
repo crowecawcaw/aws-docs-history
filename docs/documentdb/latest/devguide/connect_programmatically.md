@@ -1,7 +1,6 @@
 
 
 # Connecting programmatically to Amazon DocumentDB
-<a name="connect_programmatically"></a>
 
 This section contains code examples that demonstrate how to connect to Amazon DocumentDB (with MongoDB compatibility) using several different languages. The examples are separated into two sections based on whether you are connecting to a cluster that has Transport Layer Security (TLS) enabled or disabled. By default, TLS is enabled on Amazon DocumentDB clusters. However, you can turn off TLS if you want. For more information, see [Encrypting data in transit](security.encryption.ssl.md). 
 
@@ -46,7 +45,7 @@ Determining whether your cluster has TLS enabled is a two-step process that you 
 
    Output from this operation looks something like the following:
 
-   ```
+   ```json
    [
           [
               "sample-cluster",
@@ -84,7 +83,7 @@ Determining whether your cluster has TLS enabled is a two-step process that you 
 
    Output from this operation looks something like the following: 
 
-   ```
+   ```json
    {
            "Parameters": [
                {
@@ -142,7 +141,7 @@ The following code demonstrates how to connect to Amazon DocumentDB using Python
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```python
 import pymongo
 import sys
 
@@ -178,7 +177,7 @@ There is a known limitation with Node.js drivers older than version 6.13.1, whic
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```nodejs
 var MongoClient = require('mongodb').MongoClient
 
 //Create a MongoDB client, open a connection to DocDB; as a replica set,
@@ -220,7 +219,7 @@ The following code demonstrates how to connect to Amazon DocumentDB using PHP wh
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```php
 <?php
 //Include Composer's autoloader
 require 'vendor/autoload.php';
@@ -254,7 +253,7 @@ As of version 1.2.1, the MongoDB Go Driver will only use the first CA server cer
 
 In the following examples, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```go
 package main
 
 import (
@@ -444,7 +443,7 @@ When connecting to a TLS-enabled Amazon DocumentDB cluster from a Java applicati
 
 1. Use the `keystore` in your program by setting the following system properties in your application before making a connection to the Amazon DocumentDB cluster.
 
-   ```
+   ```java
    javax.net.ssl.trustStore: {{truststore}}
    javax.net.ssl.trustStorePassword: {{truststore-password;}}
    ```
@@ -453,7 +452,7 @@ When connecting to a TLS-enabled Amazon DocumentDB cluster from a Java applicati
 
    In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-   ```
+   ```java
    package com.example.documentdb;
    
    import com.mongodb.client.*;
@@ -505,7 +504,7 @@ The following code demonstrates how to connect to Amazon DocumentDB using C\# / 
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```cs
 using System;
 using System.Text;
 using System.Linq;
@@ -614,7 +613,7 @@ The following code demonstrates how to connect to Amazon DocumentDB with R using
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```r
 #Include the mongolite library.
 library(mongolite)
 
@@ -640,7 +639,7 @@ The following code demonstrates how to connect to Amazon DocumentDB with Ruby wh
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```ruby
 require 'mongo'
 require 'neatjson'
 require 'json'
@@ -693,7 +692,7 @@ The following code demonstrates how to connect to Amazon DocumentDB using Python
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```py
 ## Create a MongoDB client, open a connection to Amazon DocumentDB as a replica set and specify the read preference as secondary preferred 
                     
 import pymongo
@@ -730,7 +729,7 @@ There is a known limitation with Node.js drivers older than version 6.13.1, whic
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```nodejs
 var MongoClient = require('mongodb').MongoClient;
                   
 //Create a MongoDB client, open a connection to Amazon DocumentDB as a replica set,
@@ -771,7 +770,7 @@ The following code demonstrates how to connect to Amazon DocumentDB using PHP wh
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```php
 <?php
 //Include Composer's autoloader
 require 'vendor/autoload.php';
@@ -800,7 +799,7 @@ The following code demonstrates how to connect to Amazon DocumentDB using Go whe
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```go
 package main
 
 import (
@@ -899,7 +898,7 @@ The following code demonstrates how to connect to Amazon DocumentDB using Java w
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```java
 package com.example.documentdb;
 
 import com.mongodb.MongoClient;
@@ -953,7 +952,7 @@ The following code demonstrates how to connect to Amazon DocumentDB using C\# / 
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```cs
 using System;
 using System.Text;
 using System.Linq;
@@ -1040,7 +1039,7 @@ The following code demonstrates how to connect to Amazon DocumentDB with R using
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```r
 #Include the mongolite library.
 library(mongolite)
                
@@ -1063,7 +1062,7 @@ The following code demonstrates how to connect to Amazon DocumentDB with Ruby wh
 
 In the following example, replace each {{user input placeholder}} with your cluster's information.
 
-```
+```ruby
 require 'mongo'
 require 'neatjson'
 require 'json'
@@ -1134,7 +1133,7 @@ If the client-side compression dependency is missing, the driver connects succes
 
 The following Python code example connects to your cluster with snappy compression enabled and uses a `try` and `except` block to handle connection errors:
 
-```
+```python
 import pymongo
 
 try:

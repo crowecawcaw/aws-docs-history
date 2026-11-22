@@ -1,7 +1,6 @@
 
 
 # Performance Insights concepts
-<a name="performance-insights-concepts"></a>
 
 **Topics**
 + [Average active sessions](#performance-insights-concepts-sessions)

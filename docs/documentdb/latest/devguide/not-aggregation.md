@@ -1,7 +1,6 @@
 
 
 # $not
-<a name="not-aggregation"></a>
 
 The `$not` aggregation operator performs a logical NOT operation on an expression. It returns `true` if the expression evaluates to `false`, and `false` if the expression evaluates to `true`.
 
@@ -55,7 +54,7 @@ To view a code example for using the `$not` aggregation operator, choose the tab
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -83,7 +82,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

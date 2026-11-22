@@ -1,7 +1,6 @@
 
 
 # Using AWS Lambda with change streams
-<a name="using-lambda"></a>
 
 Amazon DocumentDB is integrated with AWS Lambda so you can use Lambda functions to process records in a change stream. Lambda event source mapping is a resource that can be used to invoke Lambda functions to process Amazon DocumentDB events that don’t directly invoke Lambda. With Amazon DocumentDB change stream as an event source, you can build event-driven applications that respond to changes in your data. For example, you can use Lambda functions to process new documents, track updates to existing documents, or log deleted documents.
 

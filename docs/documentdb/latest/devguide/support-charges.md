@@ -1,7 +1,6 @@
 
 
 # Extended Support charges
-<a name="support-charges"></a>
 
 You will incur charges for all clusters running on Extended Support beginning July 1, 2026. For the Amazon DocumentDB version 3.6 end of standard support date, see [Amazon DocumentDB engine version support dates](docdb-version-support-dates.md).
 

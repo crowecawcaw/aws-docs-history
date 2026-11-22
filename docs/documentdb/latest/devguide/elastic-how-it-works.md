@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB elastic clusters: how it works
-<a name="elastic-how-it-works"></a>
 
 The topics in this section provide information about the mechanisms and functions that power Amazon DocumentDB elastic clusters.
 

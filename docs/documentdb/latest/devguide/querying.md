@@ -1,7 +1,6 @@
 
 
 # Querying in Amazon DocumentDB
-<a name="querying"></a>
 
 This section explains all aspects of querying with Amazon DocumentDB.
 
@@ -40,7 +39,7 @@ To retrieve all the documents in your collection, use the `find()` operation wit
 
 The following query returns all documents in the `example` collection.
 
-```
+```json
 db.example.find( {} ).pretty()
 ```
 
@@ -51,7 +50,7 @@ To retrieve all documents that match a field and value, use the `find()` operati
 
 Using the preceding documents, this query returns all documents where the "Item" field equals "Pen".
 
-```
+```json
 db.example.find( { "Item": "Pen" } ).pretty()
 ```
 
@@ -88,7 +87,7 @@ To find all documents that match an array, use the `find()` operation with the a
 
 The following query returns only the "Pen" because the "Poster Paint" has an additional color (White), and "Spray Paint" has the colors in a different order.
 
-```
+```json
 db.example.find( { "Colors": ["Red","Green","Blue","Black"] } ).pretty() 
 ```
 
@@ -97,7 +96,7 @@ db.example.find( { "Colors": ["Red","Green","Blue","Black"] } ).pretty()
 
 To find all the documents that have a particular array value, use the `find()` operation with the array name and the value that you're interested in.
 
-```
+```json
 db.example.find( { "Colors": "Red" } ).pretty() 
 ```
 
@@ -108,7 +107,7 @@ The preceding operation returns all three documents because each of them has an 
 
 The following query returns all documents where the "`Inventory.OnHand`" value is less than 50.
 
-```
+```json
 db.example.find(
         { "Inventory.OnHand": { $lt: 50 } } )
 ```
@@ -141,7 +140,7 @@ db.fish.find({}).limit(2).explain("executionStats");
 
 Output from this operation looks something like the following.
 
-```
+```json
 {
     "queryPlanner" : {
         "plannerVersion" : 1,
@@ -243,7 +242,7 @@ COLLSCAN
 
 This stage is a sequential collection scan.
 
-```
+```json
 {
     "stage" : "COLLSCAN"
 }
@@ -253,7 +252,7 @@ IXSCAN
 
 This stage scans the index keys. The optimizer may retrieve the document within this stage and this may result in a FETCH stage appended later.
 
-```
+```json
 db.foo.find({"a": 1})
 {
     "stage" : "IXSCAN",
@@ -266,7 +265,7 @@ FETCH
 
 If the optimizer retrieved documents in a stage other than IXSCAN, the result will include a FETCH stage. For example, the IXSCAN query above may result a combination of FETCH and IXSCAN stages:
 
-```
+```json
 db.foo.find({"a": 1})
 {
     "stage" : "FETCH",
@@ -312,7 +311,7 @@ IXOR
 
 Similar to index intersection, Amazon DocumentDB may include `IXOR` stage with an `inputStages` array for the `$or` operator.
 
-```
+```json
 db.foo.find({"$or": [{"a": {"$gt": 2}}, {"b": {"$lt": 2}}]})
 ```
 
@@ -342,7 +341,7 @@ For the above query, the explain output may look like this:
 
 Amazon DocumentDB can combine multiple index intersection or union stages together then fetch the result. For example:
 
-```
+```json
 {
     "stage" : "FETCH",
     "inputStage" : {
@@ -390,7 +389,7 @@ For example, the compound index of `{ a: 1, b: -1 }` can support all three queri
 
 If there is an index on the requested sort key(s), Amazon DocumentDB can use the index to obtain the order. In that case, the result will not include a `SORT` stage, but rather an `IXSCAN` stage. If the optimizer favors a plain sort, it will include a stage like this:
 
-```
+```json
 {
     "stage" : "SORT",
     "sortPattern" : {

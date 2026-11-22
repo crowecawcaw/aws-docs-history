@@ -1,7 +1,6 @@
 
 
 # Monitoring with Performance Insights
-<a name="performance-insights"></a>
 
 Performance Insights adds to the existing Amazon DocumentDB monitoring features to illustrate your cluster performance and help you analyze any issues that affect it. With the Performance Insights dashboard, you can visualize the database load and filter the load by waits, query statements, hosts, or application.
 

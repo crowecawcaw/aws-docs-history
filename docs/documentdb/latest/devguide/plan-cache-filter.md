@@ -1,7 +1,6 @@
 
 
 # Plan cache filters
-<a name="plan-cache-filter"></a>
 
 A plan cache filter, also called an index filter, restricts the set of indexes that the query planner is allowed to consider for a specific query shape. When a query matches a shape that has a filter, the planner chooses a plan only from the indexes named in that filter instead of evaluating every index on the collection.
 

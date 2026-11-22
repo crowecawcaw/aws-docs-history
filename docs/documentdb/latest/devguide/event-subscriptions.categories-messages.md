@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB event categories and messages
-<a name="event-subscriptions.categories-messages"></a>
 
 Amazon DocumentDB generates a significant number of events in categories that you can subscribe to using the console. Each category applies to a source type, which can be an instance, cluster, snapshot, or parameter group.
 

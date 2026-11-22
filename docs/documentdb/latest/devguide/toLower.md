@@ -1,7 +1,6 @@
 
 
 # $toLower
-<a name="toLower"></a>
 
 The `$toLower` operator in Amazon DocumentDB is used to convert a string to lowercase.
 
@@ -45,7 +44,7 @@ To view a code example for using the `$toLower` command, choose the tab for the 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require("mongodb");
 
 async function main() {
@@ -68,7 +67,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def main():

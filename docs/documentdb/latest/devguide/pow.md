@@ -1,7 +1,6 @@
 
 
 # $pow
-<a name="pow"></a>
 
 Introduced in 8.0
 
@@ -54,7 +53,7 @@ To view a code example for using the `$pow` command, choose the tab for the lang
 
 Here's an example of using the $pow operator in a Node.js application:
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -78,7 +77,7 @@ example();
 
 Here's an example of using the $pow operator in a Python application:
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

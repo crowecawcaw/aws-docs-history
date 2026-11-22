@@ -1,7 +1,6 @@
 
 
 # $dayOfYear
-<a name="dayOfYear"></a>
 
 The `$dayOfYear` operator in Amazon DocumentDB returns the day of the year for a date as a number between 1 and 366 (365 in non-leap years).
 
@@ -57,7 +56,7 @@ To view a code example for using the `$dayOfYear` command, choose the tab for th
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -84,7 +83,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

@@ -1,7 +1,6 @@
 
 
 # $arrayToObject
-<a name="arrayToObject"></a>
 
 The `$arrayToObject` operator in Amazon DocumentDB is the reverse of the `$objectToArray` operator. It takes an array of key-value pair documents and converts it into a single document. This is particularly useful when you need to convert an array of key-value pairs back into an object or document structure.
 
@@ -52,7 +51,7 @@ To view a code example for using the `$arrayToObject` command, choose the tab fo
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -75,7 +74,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

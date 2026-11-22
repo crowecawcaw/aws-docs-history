@@ -1,7 +1,6 @@
 
 
 # Retryable writes in Amazon DocumentDB
-<a name="retryable-writes"></a>
 
 Starting with engine version 8.0.2, Amazon DocumentDB supports retryable writes. When a write operation fails due to a transient network error or primary election, the driver can automatically retry the operation exactly once. Amazon DocumentDB deduplicates the retried write so that the operation is applied at most once, preserving idempotency.
 

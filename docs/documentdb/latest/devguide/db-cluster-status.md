@@ -1,7 +1,6 @@
 
 
 # Determining a cluster's status
-<a name="db-cluster-status"></a>
 
 You can determine a cluster's status using the AWS Management Console or AWS CLI.
 
@@ -42,7 +41,7 @@ aws docdb describe-db-clusters ^
 
 Output from this operation looks something like the following (JSON format).
 
-```
+```json
 [
     [
         "sample-cluster",

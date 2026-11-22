@@ -1,7 +1,6 @@
 
 
 # $millisecond
-<a name="millisecond"></a>
 
 The `$millisecond` operator in Amazon DocumentDB is used to extract the millisecond portion of a date value.
 
@@ -76,7 +75,7 @@ To view a code example for using the `$millisecond` command, choose the tab for 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function main() {
@@ -104,7 +103,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')

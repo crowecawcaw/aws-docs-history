@@ -1,7 +1,6 @@
 
 
 # Index management in Amazon DocumentDB with Java
-<a name="index-management-java"></a>
 
 Indexes allow efficient retrieval of data from an Amazon DocumentDB collection. Without indexes, DocumentDB must scan every document in the collection to return results that satisfy a given query. This topic provides information on how to create, drop, and list indexes using the MongoDB Java drivers. It also discusses how to determine if a particular index is being used in the query and how to give hints to Amazon DocumentDB to use a specific index.
 
@@ -24,7 +23,7 @@ There are two mechanisms for creating indexes in Amazon DocumentDB using MongoDB
 
 This example shows how to create a single index using the `createIndex(`) method in the background. To understand background and foreground index creation, refer to [Index build types](managing-indexes.md#index-build-types). The following code example uses [`IndexOptions`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/model/IndexOptions.html) to create a unique index with a name of “unique\_restaurantId\_idx” in the background. This `IndexOptions` object is then passed to the `createIndex()` method.
 
-```
+```java
 collection.createIndex(
     Indexes.ascending("restaurantId"),
     new IndexOptions()
@@ -37,7 +36,7 @@ collection.createIndex(
 
 This example creates multiple indexes using the `createIndexes()` method. It first builds the option for each index by using the [`IndexModel`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/model/IndexModel.html) object and then passes a list of `IndexModel` objects to the `createIndexes()` method. The the following code example shows how to create a composite index by using the [`Indexes`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/model/Indexes.html) utility class. This class is also used to specify if you want to create an index using ascending or descending sort order. After creating multiple indexes, it verifies index creation by calling the `listIndexes()` method.
 
-```
+```java
 // Single Field Index on cuisine
 IndexModel singleIndex = new IndexModel(
     Indexes.ascending("cuisine"),
@@ -66,7 +65,7 @@ collection.listIndexes().forEach(index - > System.out.println("Created index: " 
 
 This example shows creates a sparse and a partial index by creating an [`IndexModel`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/model/IndexModel.html) for each type of index.
 
-```
+```java
 // Sparse Index Model, this will identify only those documents that have a
 // michelin star rating
 IndexModel sparseIndex = new IndexModel(
@@ -90,7 +89,7 @@ IndexModel partialIndex = new IndexModel(
 
 This example shows how to create a text index. Only one text index is allowed on a collection but that one text index can be a compound index covering multiple fields. When using multiple fields in the text index, you can also assign weights to each of the fields in the index. Text indexes on array fields are not supported by Amazon DocumentDB and even though you can use up to 30 fields in the compound text index, only three fields can be assigned a weight.
 
-```
+```java
 IndexModel textIndex = new IndexModel(
     new Document()
     .append("name", "text")
@@ -111,7 +110,7 @@ collection.createIndex(textIndex.getKeys(), textIndex.getOptions());
 
 Amazon DocumentDB supports parallel index creation to decrease the time it takes to create indexes. Parallel indexing uses multiple concurrent workers. The default workers used for index creation is two. For more information, see [Unlock the power of parallel indexing in Amazon DocumentDB](https://aws.amazon.com/blogs/database/unlock-the-power-of-parallel-indexing-in-amazon-documentdb/) on the AWS Database Blog. Currently, MongDB Java drivers do not support specifying the worker option when you are using `createIndex()` or `createIndexes()` and therefore the only way to specify workers is through the `runCommand`. The following code example demonstrates how to use `runCommand` to create an index that increase the worker to four:
 
-```
+```java
 Document command = new Document("createIndexes", "Restaurants")
     .append("indexes", Arrays.asList(
         new Document("key", new Document("name", 1))
@@ -129,7 +128,7 @@ The MongoDB Java driver provides multiple methods to drop indexes, catering to d
 
 The following code example shows demonstrates how to drop an index by providing field name where the index is created or by deleting all the indexes: 
 
-```
+```java
 String indexName = "unique_restaurantId_idx";
 Document keys = new Document("cuisine", 1);
 // Drop index by name
@@ -144,7 +143,7 @@ collection.dropIndexes();
 
 When dropping indexes using multiple keys, make sure there is a compound index containing all the keys specified and the order of the keys is correct. The above index creation example code shows a compound key on "cuisine" and features. If you try to drop that compound key but the order is not what was used for creation, then a MongoCommnadException error occurs as follows:
 
-```
+```java
 Document keys = new Document("features", 1)
     .append("cuisine", 1);
 try {
@@ -174,7 +173,7 @@ Working with the explain functionality in Amazon DocumentDB is crucial for you t
 
 The `explain()` method can be chained with the `find()` method. The `explain()` method can take an optional [`ExplainVerbosity`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/ExplainVerbosity.html) enum that determines the level of verbosity that is returned by `explain()`. At this time, only the `EXECUTION_STATS` and `QUERY_PLANNER` enumerators are supported by DocumentDB. The following code example shows how to get query planner for a specific query:
 
-```
+```java
 // Query we want to analyze
 Document query = new Document()
     .append("cuisine", "Thai")
@@ -187,7 +186,7 @@ System.out.println("All Plans Explain:\n" + allPlansExplain.toJson());
 
 The following JSON document is returned for the query planner verbosity level:
 
-```
+```json
 {
   "queryPlanner": {
     "plannerVersion": 1,
@@ -217,7 +216,7 @@ You have several options to influence or force Amazon DocumentDB to use a specif
 
 The following code example forces the use of compound index “cuisine\_features\_idx” for the same query that was run in the above code:
 
-```
+```java
 // Query we want to analyze
 Document query = new Document()
     .append("cuisine", "Thai")

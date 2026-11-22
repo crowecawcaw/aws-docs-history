@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon DocumentDB recommendations
-<a name="view-docdb-recommendations"></a>
 
 Amazon DocumentDB provides a list of automated recommendations for database resources, such as instances and clusters. These recommendations provide best practice guidance by analyzing your cluster and instance configurations.
 

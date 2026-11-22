@@ -1,7 +1,6 @@
 
 
 # Subscribing to Amazon DocumentDB events
-<a name="event-subscriptions.subscribe"></a>
 
 You can use the Amazon DocumentDB console to subscribe to event subscriptions, as follows:
 

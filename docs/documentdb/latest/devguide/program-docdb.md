@@ -1,7 +1,6 @@
 
 
 # Program with Amazon DocumentDB
-<a name="program-docdb"></a>
 
 The service supports JSON schema validation.
 

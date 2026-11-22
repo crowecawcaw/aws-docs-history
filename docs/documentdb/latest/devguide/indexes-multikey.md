@@ -1,7 +1,6 @@
 
 
 # Multi-key indexes
-<a name="indexes-multikey"></a>
 
 For fields that have an array value, a multi-key index allows you to create an index key for each element in the array. Indexing an array creates an index entry for each element of the array.
 

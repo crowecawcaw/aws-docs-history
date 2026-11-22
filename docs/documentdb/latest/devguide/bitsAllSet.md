@@ -1,7 +1,6 @@
 
 
 # $bitsAllSet
-<a name="bitsAllSet"></a>
 
 The `$bitsAllSet` operator in Amazon DocumentDB is used to query for documents where a specific set of bits are all set to 1 in a field. This operator allows you to perform bitwise operations on field values and can be useful when you need to check the state of individual bits within a numeric value.
 
@@ -47,7 +46,7 @@ To view a code example for using the `$bitsAllSet` command, choose the tab for t
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findWithBitsAllSet() {
@@ -67,7 +66,7 @@ findWithBitsAllSet();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def find_with_bits_all_set():

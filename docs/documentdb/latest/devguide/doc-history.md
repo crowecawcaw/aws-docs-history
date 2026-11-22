@@ -1,7 +1,6 @@
 
 
 # Document history for the Amazon DocumentDB Developer Guide
-<a name="doc-history"></a>
 + **API version:** 2014-10-31
 + **Latest documentation update: **May 27, 2026
 
@@ -64,4 +63,4 @@ The following table describes the documentation for this release of the *Amazon 
 | [Engine upgrades](https://docs.aws.amazon.com/documentdb/latest/devguide/db-cluster-version-upgrade.html) | Added documentation for determining pending cluster modifications and upgrading your cluster's engine version. | February 15, 2019 | 
 | [Auditing events](https://docs.aws.amazon.com/documentdb/latest/devguide/event-auditing.html) | Added support for auditing database events with Amazon CloudWatch Logs. | February 12, 2019 | 
 | [Quick Start](https://docs.aws.amazon.com/documentdb/latest/devguide/quick_start_cfn.html) | Added a Quick Start topic to help you easily start with Amazon DocumentDB using CloudFormation. | January 11, 2019 | 
-| [Public release](#doc-history) | This is the initial public release of Amazon DocumentDB (with MongoDB compatibility). This release includes the [Developer Guide](https://docs.aws.amazon.com/documentdb/latest/devguide/what-is.html) and the integrated [Resource Management API Reference](https://docs.aws.amazon.com/documentdb/latest/APIReference/api-reference.html). | January 9, 2019 | 
+| [Public release](doc-history.md) | This is the initial public release of Amazon DocumentDB (with MongoDB compatibility). This release includes the [Developer Guide](https://docs.aws.amazon.com/documentdb/latest/devguide/what-is.html) and the integrated [Resource Management API Reference](https://docs.aws.amazon.com/documentdb/latest/APIReference/api-reference.html). | January 9, 2019 | 

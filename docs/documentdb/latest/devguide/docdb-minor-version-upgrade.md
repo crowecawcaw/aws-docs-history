@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB minor version upgrade
-<a name="docdb-minor-version-upgrade"></a>
 
 **Note**  
 This topic covers *minor* version upgrades within the same major version (for example, upgrading from 5.0.0 to 5.0.1). For information about upgrading to a different major version, see [Amazon DocumentDB in-place major version upgrade](docdb-mvu.md).

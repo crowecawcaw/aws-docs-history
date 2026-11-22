@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB cluster storage configurations
-<a name="db-cluster-storage-configs"></a>
 
 Starting from Amazon DocumentDB 5.0, instance-based clusters support two storage configuration types:
 + **Amazon DocumentDB standard storage**: Designed for customers with low to moderate I/O consumption. If you expect your I/O costs to be less than 25% of your total Amazon DocumentDB cluster, this choice might be ideal for you. With the Amazon DocumentDB standard storage configuration, you’re billed on a pay-per-request I/O basis in addition to instance and storage charges. This means your billing might vary from one cycle to another based on usage. The configuration is tailored to accommodate fluctuating I/O demands of your application.

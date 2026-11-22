@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB generative artificial intelligence
-<a name="generative-ai"></a>
 
 Amazon DocumentDB offers capabilities to enable machine learning (ML) and generative artificial intelligence (AI) models to work with data stored in Amazon DocumentDB in real time. Customers no longer have to spend time managing separate infrastructure, writing code to connect with another service, and duplicating data from their primary database.
 

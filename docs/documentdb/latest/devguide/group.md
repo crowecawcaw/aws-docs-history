@@ -1,7 +1,6 @@
 
 
 # $group
-<a name="group"></a>
 
 The `$group` aggregation stage in Amazon DocumentDB allows you to group documents by a specified expression and perform various accumulative operations on the grouped data. This can be useful for tasks such as calculating totals, averages, or other statistics based on the grouped data.
 
@@ -56,7 +55,7 @@ To view a code example for using the `$group` command, choose the tab for the la
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function groupByCity() {
@@ -90,7 +89,7 @@ groupByCity();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def group_by_city():

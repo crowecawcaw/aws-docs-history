@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon DocumentDB Amazon Resource Names (ARNs)
-<a name="documentdb-arns"></a>
 
 Resources that you create in AWS are each uniquely identified with an Amazon Resource Name (ARN). For certain Amazon DocumentDB (with MongoDB compatibility) operations, you must uniquely identify an Amazon DocumentDB resource by specifying its ARN. For example, when you add a tag to a resource, you must provide the resource's ARN. 
 
@@ -132,7 +131,7 @@ aws docdb describe-db-clusters ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 [
     "arn:aws:rds:us-east-1:123456789012:cluster:sample-cluster"
 ]
@@ -153,7 +152,7 @@ aws docdb describe-db-cluster-parameter-groups ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 [
     "arn:aws:rds:us-east-1:123456789012:cluster-pg:custom3-6-param-grp",
     "arn:aws:rds:us-east-1:123456789012:cluster-pg:default.aurora5.6",

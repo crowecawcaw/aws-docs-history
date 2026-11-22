@@ -1,7 +1,6 @@
 
 
 # $or
-<a name="or-aggregation"></a>
 
 The `$or` aggregation operator evaluates multiple expressions and returns `true` if at least one expression evaluates to `true`. It returns `false` only if all expressions are `false`.
 
@@ -61,7 +60,7 @@ To view a code example for using the `$or` aggregation operator, choose the tab 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -95,7 +94,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

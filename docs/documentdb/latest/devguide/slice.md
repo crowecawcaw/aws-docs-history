@@ -1,7 +1,6 @@
 
 
 # $slice
-<a name="slice"></a>
 
 The `$slice` aggregation operator enables you to return a subset of an array by either traversing the array from the beginning or the end of the array. This is used to display a limited number of items from an array field, such as the top or bottom N items.
 
@@ -54,7 +53,7 @@ To view a code example for using the `$slice` command, choose the tab for the la
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -76,7 +75,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

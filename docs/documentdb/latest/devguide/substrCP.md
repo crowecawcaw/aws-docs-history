@@ -1,7 +1,6 @@
 
 
 # $substrCP
-<a name="substrCP"></a>
 
 The `$substrCP` operator in Amazon DocumentDB is used to extract a substring from a string, where the substring is specified as a range of UTF-8 code points (CP). This operator is particularly useful when working with Unicode strings, as it allows you to extract substrings without having to worry about the underlying byte representation of the characters.
 
@@ -57,7 +56,7 @@ To view a code example for using the `$substrCP` command, choose the tab for the
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findStates() {
@@ -80,7 +79,7 @@ findStates();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def find_states():

@@ -1,7 +1,6 @@
 
 
 # Understanding clusters
-<a name="db-clusters-understanding"></a>
 
 Amazon DocumentDB separates compute and storage, and offloads data replication and backup to the cluster volume. A cluster volume provides a durable, reliable, and highly available storage layer that replicates data six ways across three Availability Zones. Replicas enable higher data availability and read scaling. Each cluster can scale up to 15 replicas.
 

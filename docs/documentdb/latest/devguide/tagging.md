@@ -1,7 +1,6 @@
 
 
 # Tagging Amazon DocumentDB resources
-<a name="tagging"></a>
 
 You can use Amazon DocumentDB (with MongoDB compatibility) tags to add metadata to your Amazon DocumentDB resources. These tags can be used with AWS Identity and Access Management (IAM) policies to manage access to Amazon DocumentDB resources and to control what actions can be applied to the resources. You can also use tags to track costs by grouping expenses for similarly tagged resources.
 
@@ -146,7 +145,7 @@ aws docdb list-tags-for-resource ^
 
 Output from this operation looks something like the following (JSON format).
 
-```
+```json
 {
     "TagList": [
         {

@@ -1,7 +1,6 @@
 
 
 # $dateToString
-<a name="dateToString"></a>
 
 The `$dateToString` aggregation operator in Amazon DocumentDB is used to convert a date or timestamp value to a string representation. This is useful when you need to format the date and time in a specific way for display or further processing.
 
@@ -88,7 +87,7 @@ To view a code example for using the `$dateToString` command, choose the tab for
 
 Here's an example of using the `$dateToString` operator in a Node.js application:
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -122,7 +121,7 @@ example();
 
 Here's an example of using the `$dateToString` operator in a Python application:
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

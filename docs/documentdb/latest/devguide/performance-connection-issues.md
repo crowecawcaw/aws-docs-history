@@ -1,7 +1,6 @@
 
 
 # Connection issues with Amazon DocumentDB
-<a name="performance-connection-issues"></a>
 
 ## Identification - Spot the problem
 <a name="connection-identification"></a>

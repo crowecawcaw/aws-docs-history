@@ -1,7 +1,6 @@
 
 
 # $literal
-<a name="literal"></a>
 
 The `$literal` operator in Amazon DocumentDB is used to represent a literal value within an aggregation pipeline stage. It allows you to include a specific value, such as a number, string, or boolean, without interpreting it as a field reference or expression.
 
@@ -77,7 +76,7 @@ To view a code example for using the `$literal` command, choose the tab for the 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -106,7 +105,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

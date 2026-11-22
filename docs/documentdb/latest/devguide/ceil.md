@@ -1,7 +1,6 @@
 
 
 # $ceil
-<a name="ceil"></a>
 
 New from version 4.0
 
@@ -51,7 +50,7 @@ To view a code example for using the `$ceil` command, choose the tab for the lan
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -75,7 +74,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

@@ -1,7 +1,6 @@
 
 
 # $project
-<a name="project"></a>
 
 The `$project` operator in Amazon DocumentDB allows you to selectively include or exclude fields from output documents, pass values to the next pipeline stage, and compute new fields from input document values.
 
@@ -68,7 +67,7 @@ To view a code example for using the `$project` command, choose the tab for the 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -90,7 +89,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

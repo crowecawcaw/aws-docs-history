@@ -1,7 +1,6 @@
 
 
 # $meta
-<a name="meta-aggregation"></a>
 
 The `$meta` aggregation operator accesses metadata associated with documents in an aggregation pipeline. It is commonly used to retrieve text search scores and sort results by relevance.
 
@@ -62,7 +61,7 @@ To view a code example for using the `$meta` aggregation operator, choose the ta
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -86,7 +85,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

@@ -1,7 +1,6 @@
 
 
 # $indexStats
-<a name="indexStats"></a>
 
 The `$indexStats` aggregation stage in Amazon DocumentDB provides insight into the usage of indexes within a collection. This operator allows you to monitor the access patterns of your indexes, which can help you make informed decisions about index management and optimization.
 
@@ -73,7 +72,7 @@ To view a code example for using the `$indexStats` command, choose the tab for t
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function indexStats() {
@@ -92,7 +91,7 @@ indexStats();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def index_stats():

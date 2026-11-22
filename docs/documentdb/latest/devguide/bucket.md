@@ -1,7 +1,6 @@
 
 
 # $bucket
-<a name="bucket"></a>
 
 New from version 8.0
 
@@ -71,7 +70,7 @@ To view a code example for using the `$bucket` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -106,7 +105,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

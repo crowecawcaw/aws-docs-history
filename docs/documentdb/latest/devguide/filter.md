@@ -1,7 +1,6 @@
 
 
 # $filter
-<a name="filter"></a>
 
 The `$filter` operator in Amazon DocumentDB is used to apply a filter expression to each element of an array and return an array containing only the elements that match the specified condition. This operator is useful when you need to perform complex filtering operations on array fields within your documents.
 
@@ -75,7 +74,7 @@ To view a code example for using the `$filter` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -118,7 +117,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 from pprint import pprint
 

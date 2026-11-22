@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon DocumentDB cluster fault tolerance
-<a name="db-cluster-fault-tolerance"></a>
 
 Amazon DocumentDB clusters are fault tolerant by design. Each cluster's volume spans multiple Availability Zones in a single AWS Region, and each Availability Zone contains a copy of the cluster's volume data. This functionality means that your cluster can tolerate an Availability Zone failure without any loss of data and only a brief interruption of service. 
 

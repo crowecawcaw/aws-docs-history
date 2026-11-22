@@ -1,7 +1,6 @@
 
 
 # $geoIntersects
-<a name="geoIntersects"></a>
 
 The `$geoIntersects` operator in Amazon DocumentDB is used to find documents whose geospatial data intersects with a specified GeoJSON object. This operator is useful for applications that require identifying documents based on their spatial relationship with a given geographic shape, such as a polygon or multipolygon.
 
@@ -79,7 +78,7 @@ To view a code example for using the `$geoIntersects` command, choose the tab fo
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findStateByGeoIntersects(longitude, latitude) {
@@ -118,7 +117,7 @@ async function findStateByGeoIntersects(longitude, latitude) {
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def find_state_by_geointersects(longitude, latitude):

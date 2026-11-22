@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon DocumentDB subnet group
-<a name="document-db-subnet-group-create"></a>
 
 When creating an Amazon DocumentDB cluster, you must choose a Amazon VPC and corresponding subnet group within that Amazon VPC to launch your cluster. Subnets determine the availability zone and IP range within the availability zone that you want to use to launch an instance. 
 
@@ -84,7 +83,7 @@ aws docdb describe-db-subnet-groups ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 [
     [
         "default",
@@ -145,7 +144,7 @@ aws docdb create-db-subnet-group ^
 ```
 Output from this operation looks something like the following (JSON format).  
 
-```
+```json
 {
     "DBSubnetGroup": {
         "DBSubnetGroupDescription": "A sample subnet group",

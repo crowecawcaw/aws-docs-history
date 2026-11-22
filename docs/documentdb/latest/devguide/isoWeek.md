@@ -1,7 +1,6 @@
 
 
 # $isoWeek
-<a name="isoWeek"></a>
 
 The `$isoWeek` operator in Amazon DocumentDB returns the ISO week number for a date. The ISO week date system is a way of numbering weeks in a year, in which the first week of a new year is the week that contains the first Thursday of that year. This is different from the Gregorian calendar, where the first week of a new year is the week that contains January 1.
 
@@ -55,7 +54,7 @@ To view a code example for using the `$isoWeek` command, choose the tab for the 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -82,7 +81,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

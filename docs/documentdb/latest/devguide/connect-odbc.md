@@ -1,7 +1,6 @@
 
 
 # Connect using the Amazon DocumentDB ODBC driver
-<a name="connect-odbc"></a>
 
 The ODBC driver for Amazon DocumentDB provides an SQL-relational interface for developers and enables connectivity from BI tools such as Power BI Desktop and Microsoft Excel.
 

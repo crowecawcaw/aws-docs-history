@@ -1,7 +1,6 @@
 
 
 # $sum
-<a name="sum"></a>
 
 The `$sum` operator in Amazon DocumentDB returns the sum of the specified expression for each document in a group. It is a group accumulator operator that is typically used in the $group stage of an aggregation pipeline to perform summation calculations.
 
@@ -106,7 +105,7 @@ To view a code example for using the `$sum` operator, choose the tab for the lan
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -172,7 +171,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 from pprint import pprint
 

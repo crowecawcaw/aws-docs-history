@@ -1,7 +1,6 @@
 
 
 # Zooming in on the database load chart
-<a name="performance-insights-zoom-db-load"></a>
 
 You can use other features of the Performance Insights user interface to help analyze performance data.
 

@@ -1,7 +1,6 @@
 
 
 # Migrate to Amazon DocumentDB using AWS Database Migration Service (DMS): quick start guide
-<a name="migration-quick-start"></a>
 
 **Topics**
 + [Prepare the DMS source](#migrate-qs-dma-source)
@@ -27,9 +26,11 @@ Create DMS instance, source, and target endpoints and test each endpoint.
 ## Enable DocumentDB compression
 <a name="migrate-qs-comp"></a>
 
-**Amazon DocumentDB 5.0:** Enable compression by attaching a custom parameter group to your Amazon DocumentDB cluster and setting the `default_collection_compression` parameter to `enabled`. See [Managing collection-level document compression](doc-compression.md) for more information.
+**Amazon DocumentDB 5.0:** Enable compression by attaching a custom parameter group to your Amazon DocumentDB cluster and setting the `default_collection_compression` parameter to `enabled`. This parameter sets the compression for new collections.
 
-**Amazon DocumentDB 8.0:** Zstd compression is enabled by default. See [Managing dictionary-based compression in Amazon DocumentDB 8.0](dict-compression.md) for more information.
+**Amazon DocumentDB 8.0:** New collections use Zstd compression by default. To change this, set the `default_collection_compression` parameter to `lz4` or `disabled`.
+
+For more information, see [Managing collection-level document compression](doc-compression.md).
 
 ## Create a replication task
 <a name="migrate-qs-create"></a>

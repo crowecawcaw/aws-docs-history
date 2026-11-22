@@ -1,7 +1,6 @@
 
 
 # Profiling Amazon DocumentDB operations
-<a name="profiling"></a>
 
 You can use the profiler in Amazon DocumentDB (with MongoDB compatibility) to log the execution time and details of operations that were performed on your cluster. The profiler is useful for monitoring the slowest operations on your cluster to help you improve individual query performance and overall cluster performance.
 
@@ -97,7 +96,7 @@ The following procedure enables the profiler on all supported operations for the
 
    In the following output, only `sample-parameter-group ` meets both criteria.
 
-   ```
+   ```json
    [
           [
               "default.docdb3.6",
@@ -136,7 +135,7 @@ The following procedure enables the profiler on all supported operations for the
 
    Output from this operation looks something like the following.
 
-   ```
+   ```json
    {
        "DBCluster": {
            "AvailabilityZones": [
@@ -283,7 +282,7 @@ aws docdb modify-db-cluster ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 {
     "DBCluster": {
         "AvailabilityZones": [

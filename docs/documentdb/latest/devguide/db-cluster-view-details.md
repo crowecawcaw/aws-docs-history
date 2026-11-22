@@ -1,7 +1,6 @@
 
 
 # Describing Amazon DocumentDB clusters
-<a name="db-cluster-view-details"></a>
 
 You can use either Amazon DocumentDB Management Console or the AWS CLI to see details such as connection endpoints, security groups, VPCs, and parameter groups pertaining to your Amazon DocumentDB clusters.
 
@@ -44,7 +43,7 @@ aws docdb describe-db-clusters --filter Name=engine,Values=docdb
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 {
     "DBClusters": [
         {
@@ -109,7 +108,7 @@ aws docdb describe-db-clusters ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 {
     "DBClusters": [
         {
@@ -202,7 +201,7 @@ aws docdb describe-db-clusters ^
 ```
 Output from this operation looks something like the following.  
 
-```
+```json
 [
     [
         [

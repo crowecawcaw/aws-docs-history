@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB compatibility with MongoDB
-<a name="compatibility"></a>
 
 Amazon DocumentDB supports MongoDB compatibility including MongoDB 4.0, MongoDB 5.0, and MongoDB 8.0. MongoDB compatibility means that a vast majority of the applications, drivers, and tools you already use today with your MongoDB databases can be used with Amazon DocumentDB with little or no change. This section describes everything you need to know about Amazon DocumentDB compatibility with MongoDB including new capabilities and features, getting started, migrations paths, and functional differences.
 

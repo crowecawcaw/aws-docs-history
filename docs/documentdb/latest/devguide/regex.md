@@ -1,7 +1,6 @@
 
 
 # $regex
-<a name="regex"></a>
 
 The `$regex` operator allows you to perform regular expression matching on string fields. It is a powerful tool for searching and filtering documents based on complex patterns.
 
@@ -50,7 +49,7 @@ To view a code example for using the `$regex` command, choose the tab for the la
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function main() {
@@ -70,7 +69,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def main():

@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB quotas
-<a name="limits"></a>
 
 This topic describes the resource quotas and naming constraints for Amazon DocumentDB (with MongoDB compatibility).
 
@@ -153,8 +152,9 @@ The following table describes Amazon DocumentDB instance-based cluster quotas.
 
 | Resource | Quota | 
 | --- | --- | 
-| Cluster size (sum of all collections and indexes) | 256 TiB for Engine Version 8.0 and beyond (128 TiB for earlier engine versions) | 
-| Collection size (sum of all collections cannot exceed cluster quota) – does not include the index size | 32 TiB | 
+| Cluster size (sum of all collections and indexes). For more information, see [Understanding the cluster size limit](garbage-collection.md#storage-size-limits-cluster). | 256 TiB for Engine Version 8.0 and beyond (128 TiB for earlier engine versions) | 
+| Collection size (sum of all collections cannot exceed cluster quota) – does not include the index size. For more information, see [Understanding the collection size limit](garbage-collection.md#storage-size-limits-collection). | 32 TiB | 
+| Index size (per index) | 32 TiB | 
 | Collections per cluster | 100,000 | 
 | Databases per cluster | 100,000 | 
 | Database size (sum of all databases cannot exceed cluster quota) | 256 TiB for Engine Version 8.0 and beyond (128 TiB for earlier engine versions) | 

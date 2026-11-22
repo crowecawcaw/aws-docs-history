@@ -1,7 +1,6 @@
 
 
 # Connecting to an Amazon DocumentDB cluster from Studio 3T
-<a name="studio3t"></a>
 
 [Studio 3T](https://studio3t.com/) is a popular GUI and IDE for developers and data engineers who work with MongoDB. It offers several powerful capabilities Tree, Table and JSON views of your data, easy import/export in CSV, JSON, SQL and BSON/mongodump, flexible querying option, a visual drag-and-drop UI, a built-in mongo shell with auto-completion, an aggregation pipeline editor, and SQL query support.
 

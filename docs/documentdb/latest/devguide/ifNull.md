@@ -1,7 +1,6 @@
 
 
 # $ifNull
-<a name="ifNull"></a>
 
 The `$ifNull` operator is used to return a specified value if the input expression evaluates to null or undefined. This operator can be useful in scenarios where you want to provide a default value or handle null/undefined cases.
 
@@ -55,7 +54,7 @@ To view a code example for using the `$ifNull` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -90,7 +89,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

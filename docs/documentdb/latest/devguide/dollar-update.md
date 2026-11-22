@@ -1,7 +1,6 @@
 
 
 # $
-<a name="dollar-update"></a>
 
 The `$` positional operator updates the first array element that matches the query condition. It acts as a placeholder for the matched array element's position.
 
@@ -49,7 +48,7 @@ To view a code example for using the `$` positional operator, choose the tab for
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function updateDocument() {
@@ -74,7 +73,7 @@ updateDocument();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def update_document():

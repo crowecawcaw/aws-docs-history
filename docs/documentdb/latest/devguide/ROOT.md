@@ -1,7 +1,6 @@
 
 
 # $ROOT
-<a name="ROOT"></a>
 
 The `$ROOT` operator in Amazon DocumentDB is used to reference the entire input document within an aggregation pipeline. It allows you to access and manipulate the complete document, including all its nested fields and structures.
 
@@ -109,7 +108,7 @@ To view a code example for using the `$ROOT` command, choose the tab for the lan
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function createAuditLog() {
@@ -146,7 +145,7 @@ createAuditLog();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 from datetime import datetime
 

@@ -1,7 +1,6 @@
 
 
 # $size
-<a name="size"></a>
 
 The `$size` operator is used to return the count of items within an array field. This can be used to determine the number of elements in an array stored in a document.
 
@@ -55,7 +54,7 @@ To view a code example for using the `$size` command, choose the tab for the lan
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function main() {
@@ -82,7 +81,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def main():

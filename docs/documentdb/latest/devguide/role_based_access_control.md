@@ -1,7 +1,6 @@
 
 
 # Database access using Role-Based Access Control
-<a name="role_based_access_control"></a>
 
 You can restrict access to the actions that users can perform on databases using *role-based access control* (RBAC) in Amazon DocumentDB (with MongoDB compatibility). RBAC works by granting one or more roles to a user. These roles determine the operations that a user can perform on database resources. Amazon DocumentDB currently supports both built-in roles that are scoped at the database level, such as `read`, `readWrite`, `readAnyDatabase`, `clusterAdmin`, and user-defined roles that can be scoped to specific actions and granular resources such as collections based on your requirements. 
 
@@ -57,7 +56,7 @@ db.createUser({user: "sample-user", pwd: "abc123", roles: ["readWrite"]})
 
 Output from this operation looks something like the following.
 
-```
+```json
 {
    "user":"sample-user",
    "roles":[
@@ -100,7 +99,7 @@ db.createUser({user: "user1", pwd: "abc123", roles: [{role: "readWriteAnyDatabas
 
 Output from this operation looks something like the following.
 
-```
+```json
 {
    "user":"user1",
    "roles":[
@@ -120,7 +119,7 @@ db.createUser({user: "user2", pwd: "abc123", roles: [{role: "read", db: "sample-
 
 Output from this operation looks something like the following.
 
-```
+```json
 {
    "user":"user2",
    "roles":[
@@ -140,7 +139,7 @@ db.createUser({user: "user3", pwd: "abc123", roles: [{role: "readWrite", db: "sa
 
 Output from this operation looks something like the following.
 
-```
+```json
 {
    "user":"user3",
    "roles":[
@@ -173,7 +172,7 @@ show users
 
 Output from this operation looks something like the following.
 
-```
+```json
 {
    "_id":"serviceadmin",
    "user":"serviceadmin",
@@ -235,7 +234,7 @@ db.createUser(
 
 Output from this operation looks something like the following.
 
-```
+```Json
 {
    "user":"user1",
    "roles":[
@@ -264,7 +263,7 @@ db.createRole(
 
 Output from this operation looks something like the following.
 
-```
+```Json
 {
    "role":"findRole",
    "privileges":[
@@ -323,7 +322,7 @@ db.createRole(
 
 Output from this operation looks something like the following.
 
-```
+```Json
 {
    "role":"collectionRole",
    "privileges":[
@@ -367,7 +366,7 @@ show users
 
 Output from this operation looks something like the following.
 
-```
+```Json
 {
    "_id":"serviceadmin",
    "user":"serviceadmin",
@@ -498,7 +497,7 @@ db.createUser({user: "readInFooBar", pwd: "abc123", roles: [{role: "read", db: "
 
 Output from this operation looks something like the following.
 
-```
+```json
 {
    "user":"readInFooBar",
    "roles":[
@@ -518,7 +517,7 @@ db.createUser({user: "readAllDBs", pwd: "abc123", roles: [{role: "readAnyDatabas
 
 Output from this operation looks something like the following.
 
-```
+```json
 {
    "user":"readAllDBs",
    "roles":[
@@ -556,7 +555,7 @@ db.getRole("read", {showPrivileges:true})
 
 Output from this operation looks something like the following.
 
-```
+```Json
 {
    "role":"read",
    "db":"sample-database-1",
@@ -632,7 +631,7 @@ db.createRole(
 
 Output from this operation looks something like the following.
 
-```
+```Json
 {
    "role":"collectionRole",
    "privileges":[

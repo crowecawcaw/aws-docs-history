@@ -1,7 +1,6 @@
 
 
 # $bitsAllClear
-<a name="bitsAllClear"></a>
 
 The `$bitsAllClear` operator in Amazon DocumentDB is used to match the documents where all the specified bits in a field are cleared (set to 0). This operator can be useful for performing bitwise operations on stored data.
 
@@ -48,7 +47,7 @@ To view a code example for using the `$bitsAllClear` command, choose the tab for
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -71,7 +70,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

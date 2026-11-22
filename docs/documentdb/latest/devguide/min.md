@@ -1,7 +1,6 @@
 
 
 # $min
-<a name="min"></a>
 
 The `$min` aggregation operator returns the minimum value of a specified field across a set of documents. This operator is useful for finding the lowest value in a set of documents.
 
@@ -108,7 +107,7 @@ To view a code example for using the `$min` operator, choose the tab for the lan
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -164,7 +163,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

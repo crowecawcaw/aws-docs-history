@@ -1,7 +1,6 @@
 
 
 # Best practices for Amazon DocumentDB
-<a name="best_practices"></a>
 
 Learn best practices for working with Amazon DocumentDB (with MongoDB compatibility). This section is continually updated as new best practices are identified.
 

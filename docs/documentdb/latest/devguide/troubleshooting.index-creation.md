@@ -1,7 +1,6 @@
 
 
 # Troubleshooting indexes
-<a name="troubleshooting.index-creation"></a>
 
 The following topics address what to do if your index or background index build fails.
 

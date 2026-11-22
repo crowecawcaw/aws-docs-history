@@ -1,7 +1,6 @@
 
 
 # $sigmoid
-<a name="sigmoid"></a>
 
 New from version 8.0.1.
 
@@ -51,7 +50,7 @@ To view a code example for using the `$sigmoid` operator, choose the tab for the
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -74,7 +73,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

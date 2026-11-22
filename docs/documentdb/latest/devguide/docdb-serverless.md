@@ -1,7 +1,6 @@
 
 
 # Using Amazon DocumentDB serverless
-<a name="docdb-serverless"></a>
 
 Amazon DocumentDB serverless is an on-demand, auto scaling configuration that automates the processes of dynamically adjusting the capacity of your Amazon DocumentDB database based on application demand. You're charged only for the resources that your clusters consume. Thus, DocumentDB serverless can help you to stay within budget and avoid paying for computer resources that you don't use.
 

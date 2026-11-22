@@ -1,7 +1,6 @@
 
 
 # $reduce
-<a name="reduce"></a>
 
 The `$reduce` aggregation operator in Amazon DocumentDB is used to apply a function of two arguments cumulatively to the elements of an array to reduce the array to a single value. This operator is particularly useful for performing complex calculations or transformations on array data within the aggregation pipeline.
 
@@ -67,7 +66,7 @@ To view a code example for using the `$reduce` command, choose the tab for the l
 
 Here's an example of using the `$reduce` operator in a Node.js application:
 
-```
+```nodejs
 const { MongoClient } = require("mongodb");
 
 async function main() {
@@ -101,7 +100,7 @@ main();
 
 Here's an example of using the `$reduce` operator in a python application:
 
-```
+```python
 from pymongo import MongoClient
 
 def main():

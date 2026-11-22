@@ -1,7 +1,6 @@
 
 
 # Managing access permissions to your Amazon DocumentDB resources
-<a name="UsingWithRDS.IAM.AccessControl.Overview"></a>
 
 Every AWS resource is owned by an AWS account, and permissions to create or access the resources are governed by permissions policies. An account administrator can attach permissions policies to IAM identities (that is, users, groups, and roles), and some services (such as AWS Lambda) also support attaching permissions policies to resources.
 
@@ -78,7 +77,7 @@ The following is an example policy that allows the user with the ID `12345678901
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

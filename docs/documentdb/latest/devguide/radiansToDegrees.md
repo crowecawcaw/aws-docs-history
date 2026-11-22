@@ -1,7 +1,6 @@
 
 
 # $radiansToDegrees
-<a name="radiansToDegrees"></a>
 
 New from version 8.0.1.
 
@@ -55,7 +54,7 @@ To view a code example for using the `$radiansToDegrees` operator, choose the ta
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function main() {
@@ -79,7 +78,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def main():

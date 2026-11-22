@@ -1,7 +1,6 @@
 
 
 # $rename
-<a name="rename"></a>
 
 The `$rename` operator in Amazon DocumentDB is used to rename a field in a document. This operator can be particularly useful when you need to update the structure of your documents or align them with new data models.
 
@@ -61,7 +60,7 @@ To view a code example for using the `$rename` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -86,7 +85,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

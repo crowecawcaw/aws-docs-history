@@ -1,7 +1,6 @@
 
 
 # $substr
-<a name="substr"></a>
 
 The `$substr` operator in Amazon DocumentDB is used to extract a substring from a given string. It is particularly useful when you need to define substrings based on a range of characters, rather than a range of bytes. This is especially important when dealing with Unicode strings, where the number of bytes used to represent a character can vary.
 
@@ -55,7 +54,7 @@ To view a code example for using the `$substr` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require("mongodb");
 
 async function example() {
@@ -81,7 +80,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

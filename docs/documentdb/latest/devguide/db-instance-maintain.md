@@ -1,7 +1,6 @@
 
 
 # Maintaining Amazon DocumentDB
-<a name="db-instance-maintain"></a>
 
 Amazon DocumentDB periodically performs two kinds of maintenance:
 + **Cluster maintenance** updates the database engine. Engine updates carry security fixes, bug fixes, new features, and other engine enhancements.
@@ -195,7 +194,7 @@ aws docdb describe-pending-maintenance-actions
 
 Output from this operation looks something like the following (JSON format).
 
-```
+```json
 {
     "PendingMaintenanceActions": []
 }
@@ -203,7 +202,7 @@ Output from this operation looks something like the following (JSON format).
 
 An account with a pending action returns output that looks like this:
 
-```
+```json
 {
     "PendingMaintenanceActions": [
         {
@@ -399,7 +398,7 @@ Check for a pending OS update:
 aws docdb describe-pending-maintenance-actions
 ```
 
-```
+```json
 {
     "PendingMaintenanceActions": [
         {
@@ -482,7 +481,7 @@ aws docdb describe-db-instances ^
 Output from this operation looks something like the following (JSON format).  
 In this example, `sample-cluster-instance` has a pending change to `db.r5.xlarge`; `sample-cluster-instance-2` has none.  
 
-```
+```json
 [
     [
         "sample-cluster",

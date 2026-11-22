@@ -1,7 +1,6 @@
 
 
 # Query planner v3
-<a name="query-planner-v3"></a>
 
 Planner Version 3 in Amazon DocumentDB 8.0 supports 21 aggregation stages, including 6 new stages. Planner V3 comes with inbuilt support for distinct commands. It offers upto 2x overall performance improvement over Planner v2 in Amazon DocumentDB 5.0. All new features and operators in Amazon DocumentDB 8.0 are compatible with Planner v3. New aggregation stages in Amazon DocumentDB 8.0 that are supported by Planner v3 include $replaceWith, $vectorSearch, $merge, $set, $unset, $bucket. Planner v3 also supports new features and operators in Amazon DocumentDB 8.0 including Collation, Views, $merge, $pow, $rand, $dateTrunc, $dateToParts, $dateFromParts. 
 

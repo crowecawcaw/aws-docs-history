@@ -1,7 +1,6 @@
 
 
 # Accessing an Amazon DocumentDB cluster in a VPC
-<a name="access-cluster-vpc"></a>
 
 Amazon DocumentDB supports the following scenarios for accessing a cluster in a VPC:
 

@@ -1,7 +1,6 @@
 
 
 # $inc
-<a name="inc"></a>
 
 The `$inc` operator is used to increment the value of a field by a specified amount. It is used to update a numeric field, such as a counter or a rating, without having to retrieve the current value, calculate the new value, and then update the field.
 
@@ -46,7 +45,7 @@ To view a code example for using the `$inc` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function updateWithInc() {
@@ -70,7 +69,7 @@ updateWithInc();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def update_with_inc():

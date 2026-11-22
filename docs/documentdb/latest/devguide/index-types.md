@@ -1,7 +1,6 @@
 
 
 # Index types
-<a name="index-types"></a>
 
 **Topics**
 + [Single field indexes](indexes-single-field.md)

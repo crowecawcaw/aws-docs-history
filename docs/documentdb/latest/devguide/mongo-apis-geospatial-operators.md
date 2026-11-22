@@ -1,7 +1,6 @@
 
 
 # Geospatial
-<a name="mongo-apis-geospatial-operators"></a>
 
 This section provides detailed information about geospatial operators supported by Amazon DocumentDB.
 

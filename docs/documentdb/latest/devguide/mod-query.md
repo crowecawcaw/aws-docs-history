@@ -1,7 +1,6 @@
 
 
 # $mod
-<a name="mod-query"></a>
 
 The `$mod` query operator selects documents where a field value divided by a divisor has a specified remainder. This is useful for filtering documents based on modulo arithmetic conditions.
 
@@ -50,7 +49,7 @@ To view a code example for using the `$mod` query operator, choose the tab for t
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -70,7 +69,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

@@ -1,7 +1,6 @@
 
 
 # $geoNear
-<a name="geoNear"></a>
 
 The `$geoNear` aggregation stage returns documents in order of proximity to a specified point. It calculates the distance from the point and includes the distance in the output documents.
 
@@ -64,7 +63,7 @@ To view a code example for using the `$geoNear` aggregation stage, choose the ta
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -92,7 +91,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

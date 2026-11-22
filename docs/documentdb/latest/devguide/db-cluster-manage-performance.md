@@ -1,7 +1,6 @@
 
 
 # Scaling Amazon DocumentDB clusters
-<a name="db-cluster-manage-performance"></a>
 
 Amazon DocumentDB enables you to scale the storage and compute in your clusters based on your needs. This section describes how you can use storage scaling, instance scaling, and read scaling to manage performance and scaling for your Amazon DocumentDB clusters and instances.
 

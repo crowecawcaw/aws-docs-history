@@ -1,7 +1,6 @@
 
 
 # $gt
-<a name="gt-aggregation"></a>
 
 The `$gt` aggregation operator compares two values and returns `true` if the first value is greater than the second, otherwise returns `false`.
 
@@ -56,7 +55,7 @@ To view a code example for using the `$gt` aggregation operator, choose the tab 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -84,7 +83,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

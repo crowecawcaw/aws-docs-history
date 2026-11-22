@@ -1,7 +1,6 @@
 
 
 # $match
-<a name="match"></a>
 
 The `$match` pipeline stage in Amazon DocumentDB is used to filter the input documents to only those that match the specified query criteria. It is one of the most commonly used pipeline stages in aggregation operations. The `$match` stage is applied before any other pipeline stages, allowing you to efficiently reduce the number of documents that need to be processed by the subsequent stages.
 
@@ -52,7 +51,7 @@ To view a code example for using the `$match` command, choose the tab for the la
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -76,7 +75,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

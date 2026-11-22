@@ -1,7 +1,6 @@
 
 
 # $lte
-<a name="lte-aggregation"></a>
 
 The `$lte` aggregation operator compares two values and returns `true` if the first value is less than or equal to the second, otherwise returns `false`.
 
@@ -56,7 +55,7 @@ To view a code example for using the `$lte` aggregation operator, choose the tab
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -84,7 +83,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

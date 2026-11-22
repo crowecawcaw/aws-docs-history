@@ -1,7 +1,6 @@
 
 
 # $limit
-<a name="limit"></a>
 
 The `$limit` operator in Amazon DocumentDB is used to restrict the number of documents returned by a query. It is similar to the MongoDB `$limit` operator, but there are some specific considerations when using it with Amazon DocumentDB.
 
@@ -54,7 +53,7 @@ To view a code example for using the `$limit` command, choose the tab for the la
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function limitExample() {
@@ -93,7 +92,7 @@ limitExample();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def limit_example():

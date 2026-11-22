@@ -1,7 +1,6 @@
 
 
 # $count (accumulator)
-<a name="count-accumulator"></a>
 
 New from version 8.0.1.
 
@@ -114,7 +113,7 @@ To view a code example for using the `$count` accumulator, choose the tab for th
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -178,7 +177,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 from pprint import pprint
 

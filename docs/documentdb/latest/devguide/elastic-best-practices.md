@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB elastic cluster best practices
-<a name="elastic-best-practices"></a>
 
 Learn best practices for working with Amazon DocumentDB elastic clusters. All [best practices for instance-based Amazon DocumentDB clusters](best_practices.md) also apply for elastic clusters. This section is continually updated as new best practices are identified.
 

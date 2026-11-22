@@ -1,7 +1,6 @@
 
 
 # Updating your Amazon DocumentDB TLS certificates
-<a name="ca_cert_rotation"></a>
 
 **Topics**
 + [Updating your application and Amazon DocumentDB cluster](#ca_cert_rotation-updating_application)

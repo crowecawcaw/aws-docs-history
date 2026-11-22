@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB Java programming guide
-<a name="docdb-java-pg"></a>
 
 This comprehensive guide provides a detailed walk through for working with Amazon DocumentDB using MongoDB’s Java drivers, covering essential aspects of database operations and management.
 
@@ -36,7 +35,7 @@ Before you begin, make sure you have the following:
 
 All the example code in this guide assumes a connection to a “ProgGuideData” test database that has a “Restaurants” collection. All the sample codes in this guide work on a restaurant listing system and below is an example of what a document in this system looks like:
 
-```
+```java
 {
     "_id": "ab6ad8f119b5bca3efa2c7ae",
     "restaurantId": "REST-CRT9BL",

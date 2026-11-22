@@ -1,7 +1,6 @@
 
 
 # Compound index with more than 3 attributes
-<a name="anti-pattern-compound-index"></a>
 
 ## Overview
 <a name="compound-index-overview"></a>

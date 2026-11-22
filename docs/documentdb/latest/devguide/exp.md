@@ -1,7 +1,6 @@
 
 
 # $exp
-<a name="exp"></a>
 
 New from version 4.0
 
@@ -57,7 +56,7 @@ To view a code example for using the `$exp` command, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function aggregateExp() {
@@ -81,7 +80,7 @@ aggregateExp();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def aggregate_exp():

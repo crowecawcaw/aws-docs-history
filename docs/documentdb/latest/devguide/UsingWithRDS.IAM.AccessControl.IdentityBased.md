@@ -1,7 +1,6 @@
 
 
 # Using identity-based policies (IAM policies) for Amazon DocumentDB
-<a name="UsingWithRDS.IAM.AccessControl.IdentityBased"></a>
 
 **Important**  
 For certain management features, Amazon DocumentDB uses operational technology that is shared with Amazon RDS. Amazon DocumentDB console, AWS CLI, and API calls are logged as calls made to the Amazon RDS API.  
@@ -16,7 +15,7 @@ The following is an example of an IAM policy.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -85,7 +84,7 @@ The following permissions policy grants permissions to a user to run all of the 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -111,7 +110,7 @@ The following permissions policy grants permissions to prevent a user from delet
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -137,7 +136,7 @@ The following permissions policy denies permissions to a user from creating an A
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

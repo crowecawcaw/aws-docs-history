@@ -1,7 +1,6 @@
 
 
 # Authentication using SCRAM-SHA-256
-<a name="scram-sha-256-auth"></a>
 
 Amazon DocumentDB (with MongoDB compatibility) supports the Salted Challenge Response Authentication Mechanism (SCRAM) for password-based authentication. With SCRAM, the server verifies that a client knows a user's password without transmitting the password to the server. Amazon DocumentDB supports two SCRAM mechanisms: `SCRAM-SHA-1` and `SCRAM-SHA-256`. `SCRAM-SHA-256` uses the stronger SHA-256 hash function and works with FIPS mode.
 

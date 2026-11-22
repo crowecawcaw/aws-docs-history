@@ -1,7 +1,6 @@
 
 
 # $
-<a name="dollar-projection"></a>
 
 The `$` projection operator limits the contents of an array field to return only the first element that matches the query condition. It is used to project a single matching array element.
 
@@ -50,7 +49,7 @@ To view a code example for using the `$` projection operator, choose the tab for
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -73,7 +72,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

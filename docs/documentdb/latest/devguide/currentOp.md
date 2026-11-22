@@ -1,7 +1,6 @@
 
 
 # $currentOp
-<a name="currentOp"></a>
 
 The `$currentOp` aggregation stage returns information about currently running operations in the database. This stage is useful for monitoring active queries and operations in an aggregation pipeline.
 
@@ -48,7 +47,7 @@ To view a code example for using the `$currentOp` command, choose the tab for th
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -70,7 +69,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

@@ -1,7 +1,6 @@
 
 
 # Overview of Amazon DocumentDB global clusters
-<a name="global-clusters"></a>
 
 ## What is a global cluster?
 <a name="w2aac31b9b3"></a>

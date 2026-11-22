@@ -1,7 +1,6 @@
 
 
 # Connecting to endpoints
-<a name="endpoints-connecting"></a>
 
 When you have your endpoint, either cluster or instance, you can connect to it using the `mongo` shell or a connection string.
 

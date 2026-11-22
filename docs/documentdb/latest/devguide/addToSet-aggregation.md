@@ -1,7 +1,6 @@
 
 
 # $addToSet
-<a name="addToSet-aggregation"></a>
 
 The `$addToSet` aggregation operator returns an array of unique values from a specified expression for each group. It is used within the `$group` stage to accumulate distinct values, automatically eliminating duplicates.
 
@@ -112,7 +111,7 @@ To view a code example for using the `$addToSet` operator, choose the tab for th
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -172,7 +171,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

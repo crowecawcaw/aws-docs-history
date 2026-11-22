@@ -1,7 +1,6 @@
 
 
 # $redact
-<a name="redact"></a>
 
 The `$redact` aggregation stage in Amazon DocumentDB is used to selectively include or exclude content from the output documents based on the values of specified fields. This is particularly useful in scenarios where you need to control the visibility of sensitive data based on access levels or user permissions.
 
@@ -61,7 +60,7 @@ To view a code example for using the `$redact` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -91,7 +90,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

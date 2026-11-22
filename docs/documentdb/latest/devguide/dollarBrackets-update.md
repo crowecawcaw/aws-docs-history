@@ -1,7 +1,6 @@
 
 
 # $[]
-<a name="dollarBrackets-update"></a>
 
 The `$[]` all positional operator updates all elements in an array. It is used when you need to modify every element in an array field.
 
@@ -50,7 +49,7 @@ To view a code example for using the `$[]` operator, choose the tab for the lang
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function updateDocument() {
@@ -75,7 +74,7 @@ updateDocument();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def update_document():

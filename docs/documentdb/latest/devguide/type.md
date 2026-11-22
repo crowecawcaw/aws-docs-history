@@ -1,7 +1,6 @@
 
 
 # $type
-<a name="type"></a>
 
 The `$type` operator is used to check the data type of a field in a document. It can used when type-specific operations or validations are needed. The `$type` operator returns the BSON type of the evaluated expression. The returned type is a string, which corresponds to the type of the field or expression.
 
@@ -54,7 +53,7 @@ To view a code example for using the `$type` command, choose the tab for the lan
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findByType() {
@@ -80,7 +79,7 @@ findByType();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def find_by_type():

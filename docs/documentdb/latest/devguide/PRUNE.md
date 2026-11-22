@@ -1,7 +1,6 @@
 
 
 # $$PRUNE
-<a name="PRUNE"></a>
 
 The `$$PRUNE` system variable is used with the `$redact` stage in the aggregation pipeline to exclude documents or embedded document levels from the results. When a condition evaluates to `$$PRUNE`, the current document or subdocument is removed from the output. It is typically used with `$$DESCEND` (to keep and traverse the document) or `$$KEEP` (to keep the document at all levels).
 
@@ -65,7 +64,7 @@ To view a code example for using the `$$PRUNE` command, choose the tab for the l
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 const client = new MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false');
@@ -97,7 +96,7 @@ main();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')

@@ -1,7 +1,6 @@
 
 
 # $substrBytes
-<a name="substrBytes"></a>
 
 The `$substrBytes` operator in Amazon DocumentDB is used to extract a substring from a string based on a specified byte range. This operator is useful when you need to extract a substring from a string and the number of bytes required to represent each character in the string is important.
 
@@ -61,7 +60,7 @@ To view a code example for using the `$substrBytes` command, choose the tab for 
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -87,7 +86,7 @@ example();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

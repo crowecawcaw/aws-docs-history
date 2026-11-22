@@ -1,7 +1,6 @@
 
 
 # $merge
-<a name="merge"></a>
 
 Introduced in 8.0
 
@@ -79,7 +78,7 @@ To view a code example for using the `$merge` command, choose the tab for the la
 
 Here's an example of using the $merge operator in a Node.js application:
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function example() {
@@ -111,7 +110,7 @@ example();
 
 Here's an example of using the $merge operator in a Python application:
 
-```
+```python
 from pymongo import MongoClient
 
 def example():

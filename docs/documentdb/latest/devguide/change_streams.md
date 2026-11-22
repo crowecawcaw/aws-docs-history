@@ -1,7 +1,6 @@
 
 
 # Using change streams with Amazon DocumentDB
-<a name="change_streams"></a>
 
 The change streams feature in Amazon DocumentDB (with MongoDB compatibility) provides a time-ordered sequence of change events that occur within your cluster’s collections. You can read events from a change stream to implement many different use cases, including the following:
 + Change notification
@@ -582,7 +581,7 @@ Parameters with the `ApplyType` of `static` must have an `ApplyMethod` of `pendi
 
    Output from this operation looks something like the following (JSON format).
 
-   ```
+   ```json
    {
        "DBClusterParameterGroupName": "sample-parameter-group"
    }
@@ -608,7 +607,7 @@ Parameters with the `ApplyType` of `static` must have an `ApplyMethod` of `pendi
 
    Output from this operation looks something like the following (JSON format).
 
-   ```
+   ```json
    {
        "Parameters": [
            {

@@ -1,7 +1,6 @@
 
 
 # $meta
-<a name="meta"></a>
 
 The `$meta` operator is used to access metadata associated with the current query execution. This operator is primarily used for text search operations, where the metadata can provide information about the relevance of the matched documents.
 
@@ -68,7 +67,7 @@ To view a code example for using the `$meta` command, choose the tab for the lan
 ------
 #### [ Node.js ]
 
-```
+```nodejs
 const { MongoClient } = require('mongodb');
 
 async function findWithTextScore() {
@@ -91,7 +90,7 @@ findWithTextScore();
 ------
 #### [ Python ]
 
-```
+```python
 from pymongo import MongoClient
 
 client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
