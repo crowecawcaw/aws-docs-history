@@ -1,7 +1,6 @@
 
 
 # MACsec Security in AWS Direct Connect
-<a name="encryption-macsec"></a>
 
 Publication date: **March 5, 2025 ([Diagram history](#temac-diagram-history))**
 

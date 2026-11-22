@@ -1,7 +1,6 @@
 
 
 # AWS Site-to-Site VPN to an Amazon VPC
-<a name="encryption-vpn-to-vpc"></a>
 
 Publication date: **March 5, 2025 ([Diagram history](#tevpc-diagram-history))**
 

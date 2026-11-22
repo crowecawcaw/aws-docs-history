@@ -1,7 +1,6 @@
 
 
 # AWS Site-to-Site VPN Private IP VPN to AWS Transit Gateway
-<a name="encryption-private-ip-vpn"></a>
 
 Publication date: **March 5, 2025 ([Diagram history](#tepip-diagram-history))**
 
