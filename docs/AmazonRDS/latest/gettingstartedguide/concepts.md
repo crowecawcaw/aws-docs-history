@@ -1,7 +1,6 @@
 
 
 # Key concepts and architecture of Amazon RDS
-<a name="concepts"></a>
 
 Amazon RDS is a fully managed service that simplifies the deployment and management of relational databases in the cloud. It supports multiple database engines and automates tasks like provisioning, patching, backups, and scaling so you can focus on application development.
 

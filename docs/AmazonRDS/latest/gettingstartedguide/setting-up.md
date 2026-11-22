@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon RDS
-<a name="setting-up"></a>
 
 To start using Amazon RDS, you need to set up your AWS account and create a user with administrative access. This process involves signing up for an AWS account, securing the root user, and configuring IAM Identity Center. By following these steps, you can set up your AWS environment to manage Amazon RDS instances while maintaining security best practices.
 

@@ -1,7 +1,6 @@
 
 
 # Using the AWS CLI to retrieve and validate connection information for Amazon RDS
-<a name="connecting-cli"></a>
 
 While the AWS Command Line Interface (AWS CLI) doesn't directly connect to a database for querying or interactive use, it provides tools to manage and test the connectivity of your Amazon RDS DB instance. You can retrieve connection details, validate network configurations, and generate authentication tokens if you're using IAM authentication. This section explains how to use the AWS CLI to prepare to connect to your database using a client tool.
 
@@ -50,7 +49,7 @@ Misconfigured network settings or incorrect authentication credentials are commo
      Replace `subnet-id` with the ID of the subnet for your DB instance.
 
 1. Validate configuration details. Authentication errors can occur due to incorrect credentials or improper IAM configuration.
-   + **Reset the master password**. If the master password is incorrect or you forgot it, reset it using the following [moidfy-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html) command:
+   + **Reset the master password**. If the master password is incorrect or you forgot it, reset it using the following [modify-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html) command:
 
      ```
      aws rds modify-db-instance \

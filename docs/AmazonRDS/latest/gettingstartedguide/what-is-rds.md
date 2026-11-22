@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Relational Database Service
-<a name="what-is-rds"></a>
 
 Amazon Relational Database Service (Amazon RDS) is a managed database service that simplifies the process of setting up, operating, and scaling relational databases in the cloud. It supports popular database engines such as MySQL, PostgreSQL, MariaDB, Oracle, and SQL Server. With Amazon RDS, you can focus on your applications while AWS handles time-consuming database tasks like backups, software patching, monitoring, and hardware provisioning.
 

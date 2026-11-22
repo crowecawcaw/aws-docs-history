@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon RDS DB instance
-<a name="creating"></a>
 
 Amazon RDS simplifies database creation so you can easily launch a fully-managed database. In this section, you'll learn how to set up your first DB instance and gain an understanding of key configurations such as choosing the right database engine, selecting an instance class, and configuring storage options. Whether you prefer to use the AWS Management Console or the AWS Command Line Interface (AWS CLI), this topic provides step-by-step instructions tailored to your needs.
 

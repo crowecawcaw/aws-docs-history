@@ -1,7 +1,6 @@
 
 
 # Connecting to an Amazon RDS DB instance using a database client
-<a name="connecting-client"></a>
 
 Database clients provide a user-friendly way to connect to and manage your Amazon RDS DB instance. This section outlines the process of connecting to your DB instance using two popular database clients: MySQL Workbench and pgAdmin. 
 

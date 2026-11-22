@@ -1,7 +1,6 @@
 
 
 # Mapping Amazon RDS personas to this guide
-<a name="personas"></a>
 
 This guide is structured around common Amazon RDS user roles to provide targeted, actionable guidance based on your responsibilities and objectives. The following table helps you identify the sections most relevant to your needs, whether you’re a data professional optimizing database performance, a developer connecting applications, or a security professional ensuring compliance.
 

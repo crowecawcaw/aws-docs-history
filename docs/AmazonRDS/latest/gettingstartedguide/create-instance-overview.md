@@ -1,7 +1,6 @@
 
 
 # Creating your first Amazon RDS DB instance
-<a name="create-instance-overview"></a>
 
 Amazon RDS simplifies the process of setting up and managing relational databases in the cloud. This walkthrough guides you through creating your first DB instance. By the end, you'll understand how to configure and manage your RDS DB instance.
 

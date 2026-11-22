@@ -1,7 +1,6 @@
 
 
 # Connecting to your Amazon RDS DB instance
-<a name="connecting"></a>
 
 Once your Amazon RDS DB instance is up and running, the next step is to establish a connection. This chapter starts by teaching you how to retrieve the necessary connection details directly from the AWS Management Console or using the AWS Command Line Interface (AWS CLI). From there, it walks through the process of connecting to your instance using popular database clients such as MySQL Workbench and pgAdmin. 
 

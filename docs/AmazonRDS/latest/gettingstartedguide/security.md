@@ -1,7 +1,6 @@
 
 
 # Securing your Amazon RDS DB instance
-<a name="security"></a>
 
 Security is a critical aspect of Amazon RDS database management, ensuring that sensitive data remains protected and accessible only to authorized users. This chapter provides an overview of key security features and configurations available in Amazon RDS, along with step-by-step guidance for setting up your environment securely.
 

@@ -1,7 +1,6 @@
 
 
 # Scaling and high availability in Amazon RDS
-<a name="scaling-ha"></a>
 
 Scaling and high availability are important aspects of managing your Amazon RDS DB instance to meet changing application requirements. Scaling helps your database handle increased workloads, while high availability ensures minimal disruption during unexpected failures or maintenance events. 
 

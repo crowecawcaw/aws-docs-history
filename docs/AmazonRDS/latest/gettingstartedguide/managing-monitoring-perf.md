@@ -1,7 +1,6 @@
 
 
 # Monitoring your Amazon RDS DB instance
-<a name="managing-monitoring-perf"></a>
 
 Effective monitoring is essential to maintain the health and performance of your Amazon RDS DB instance. AWS provides multiple tools and features to help you track key metrics, identify potential issues, and optimize your database performance. This section introduces the primary monitoring tools available in Amazon RDS and explains how they address different aspects of database health and performance.
 

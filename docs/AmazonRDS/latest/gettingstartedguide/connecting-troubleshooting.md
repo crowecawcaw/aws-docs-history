@@ -1,7 +1,6 @@
 
 
 # Troubleshooting connection issues to your Amazon RDS DB instance
-<a name="connecting-troubleshooting"></a>
 
 When you attempt to connect to an Amazon RDS DB instance, you might encounter common issues that prevent successful connections. This topic addresses several frequent connection problems, along with steps to identify and resolve them.
 

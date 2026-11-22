@@ -1,7 +1,6 @@
 
 
 # Backing up and restoring your Amazon RDS DB instance
-<a name="managing-backup-restore"></a>
 
 Data backups are important for recovering from accidental deletions, corruption, or unexpected failures. Amazon RDS provides both automated backups and manual snapshots, so you have flexibility in how you protect and restore your data. This section provides an overview of these options and practical guidance for using them.
 

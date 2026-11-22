@@ -1,7 +1,6 @@
 
 
 # Choosing your database engine for Amazon RDS
-<a name="choosing-engine"></a>
 
 To set up your Amazon RDS DB instance, you must first choose the appropriate database engine. Amazon RDS supports several widely-used relational database engines, each suited to specific use cases and application requirements.
 

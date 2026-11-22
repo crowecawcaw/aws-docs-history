@@ -1,7 +1,6 @@
 
 
 # Setting up public or private access in Amazon RDS
-<a name="security-public-private"></a>
 
 When you create an Amazon RDS DB instance, one of the most important decisions you make is determining how others can access it. Depending on your use case, users and applications can access your database either from the internet (public access) or from a restricted private network within your AWS environment. Choosing the right access configuration is essential to balance security and connectivity.
 
