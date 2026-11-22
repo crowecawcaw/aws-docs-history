@@ -1,7 +1,6 @@
 
 
 # Access AWS FIS using an interface VPC endpoint (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can establish a private connection between your VPC and AWS Fault Injection Service by creating an *interface VPC endpoint*. VPC endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink), a technology that enables you to privately access AWS FIS APIs without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate with AWS FIS APIs.
 
@@ -38,7 +37,7 @@ For more information, see [Control access to VPC endpoints using endpoint polici
 **Example: VPC endpoint policy for specific AWS FIS actions**  
 The following VPC endpoint policy grants access to the listed AWS FIS actions on all resources to all principals.
 
-```
+```json
 {
    "Statement":[
       {
@@ -59,7 +58,7 @@ The following VPC endpoint policy grants access to the listed AWS FIS actions on
 **Example: VPC endpoint policy that denies access from a specific AWS account**  
 The following VPC endpoint policy denies the specified AWS account access to all actions and resources, but grants all other AWS accounts access to all actions and resources.
 
-```
+```json
 {
    "Statement":[
       {

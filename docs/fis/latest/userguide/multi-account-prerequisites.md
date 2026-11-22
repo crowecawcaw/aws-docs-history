@@ -1,7 +1,6 @@
 
 
 # Prerequisites for multi-account experiments
-<a name="multi-account-prerequisites"></a>
 
 To use stop conditions for a multi-account experiment, you must first configure cross-account alarms. IAM roles are defined when you create a multi-account experiment template. You can create the necessary IAM roles before you create the template. 
 
@@ -28,7 +27,7 @@ In the following example, you will set up permissions for an orchestrator accoun
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -66,7 +65,7 @@ In the following example, you will set up permissions for an orchestrator accoun
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -98,7 +97,7 @@ In the following example, you will set up permissions for an orchestrator accoun
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -122,7 +121,7 @@ In the following example, you will set up permissions for an orchestrator accoun
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

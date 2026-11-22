@@ -1,7 +1,6 @@
 
 
 # View experiment templates
-<a name="view-template"></a>
 
 You can view the experiment templates that you created.
 

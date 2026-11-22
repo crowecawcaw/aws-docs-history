@@ -1,7 +1,6 @@
 
 
 # Disable or delete an experiment schedule
-<a name="delete-schedule"></a>
 
  To stop an experiment from executing or running on a schedule, you can delete or disable the rule. The following steps walk you through how to delete or disable an Experiment Execution using the AWS console. 
 

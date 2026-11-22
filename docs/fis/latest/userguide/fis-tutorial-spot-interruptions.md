@@ -1,7 +1,6 @@
 
 
 # Tutorial: Test Spot Instance interruptions using AWS FIS
-<a name="fis-tutorial-spot-interruptions"></a>
 
 Spot Instances use spare EC2 capacity that is available, for up to a 90% discount compared to On-Demand pricing. However, Amazon EC2 can interrupt your Spot Instances when it needs the capacity back. When using Spot Instances, you must be prepared for potential interruptions. For more information, see [Spot Instance interruptions](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html) in the *Amazon EC2 User Guide*.
 
@@ -36,7 +35,7 @@ aws ec2 run-instances \
 
 The following is an example of the `spot-options.json` file.
 
-```
+```json
 {
     "MarketType": "spot",
     "SpotOptions": { 
@@ -129,7 +128,7 @@ Create the experiment template using the AWS FIS console. In the template, you s
 **(Optional) To view the experiment template JSON**  
 Choose the **Export** tab. The following is an example of the JSON created by the preceding console procedure.
 
-```
+```json
 {
     "description": "Test Spot Instance interruptions",
     "targets": {

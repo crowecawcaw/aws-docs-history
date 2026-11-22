@@ -1,7 +1,6 @@
 
 
 # Update an experiment template
-<a name="update-template"></a>
 
 You can update an existing experiment template. When you update an experiment template, the changes do not affect any running experiments that use the template.
 

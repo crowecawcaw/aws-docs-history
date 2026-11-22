@@ -1,7 +1,6 @@
 
 
 # Create an experiment schedule
-<a name="scheduling-an-experiment"></a>
 
  Before you schedule an experiment, you need one or more [Experiment template components](experiment-templates.md) for your schedule to invoke. You can use an existing AWS resource, or create a new one. 
 

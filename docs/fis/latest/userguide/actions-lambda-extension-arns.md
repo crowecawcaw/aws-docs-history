@@ -1,7 +1,6 @@
 
 
 # Available versions of the AWS FIS extension for Lambda
-<a name="actions-lambda-extension-arns"></a>
 
 This section includes information about the AWS FIS Lambda extension versions. The extension supports Lambda functions developed for the x86-64 and ARM64 (Graviton2) platforms. Your Lambda function must be configured to use the specific Amazon Resource Name (ARN) for the AWS Region where it is currently hosted. You can view AWS Region and ARN details below.
 
@@ -60,14 +59,14 @@ The following SSM parameter names are available for different architectures:
 
 To retrieve the extension ARNs, use the following AWS CLI command format where *parameterName* is the name for the architecture and *region* is the target AWS Region:
 
-```
+```bash
 aws ssm get-parameter --name parameterName --region region
 ```
 
 #### Example Usage
 <a name="extension-arns-access-guide.cli-access.example-usage"></a>
 
-```
+```bash
 aws ssm get-parameter --name /aws/service/fis/lambda-extension/AWS-FIS-extension-x86_64/1.x.x --region ap-southeast-2
 ```
 

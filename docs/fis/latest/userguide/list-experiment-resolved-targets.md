@@ -1,7 +1,6 @@
 
 
 # List resolved targets
-<a name="list-experiment-resolved-targets"></a>
 
 You can view information for resolved targets for an experiment after target resolution has ended.
 

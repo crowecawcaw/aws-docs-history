@@ -1,7 +1,6 @@
 
 
 # Create a scheduler role
-<a name="getting-started"></a>
 
 An execution role is an IAM role that AWS FIS assumes in order to interact with EventBridge scheduler and for Event Bridge scheduler to Start FIS Experiment. You attach permission policies to this role to grant EventBridge Scheduler access to invoke FIS Experiment. The following steps describe how to create a new execution role and a policy to allow EventBridge to Start an Experiment.
 
@@ -15,7 +14,7 @@ An execution role is an IAM role that AWS FIS assumes in order to interact with 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -34,13 +33,13 @@ An execution role is an IAM role that AWS FIS assumes in order to interact with 
 
 1.  From the AWS Command Line Interface (AWS CLI), enter the following command to create a new role. Replace `FisSchedulerExecutionRole` with the name you want to give this role. 
 
-   ```
+   ```bash
    aws iam create-role --role-name FisSchedulerExecutionRole --assume-role-policy-document file://fis-execution-role.json
    ```
 
     If successful, you'll see the following output: 
 
-   ```
+   ```json
    {
        "Role": {
            "Path": "/",
@@ -71,7 +70,7 @@ An execution role is an IAM role that AWS FIS assumes in order to interact with 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -91,13 +90,13 @@ An execution role is an IAM role that AWS FIS assumes in order to interact with 
 
 1.  Run the following command to create the new permission policy. Replace ` FisSchedulerPolicy` with the name you want to give this policy. 
 
-   ```
+   ```bash
    aws iam create-policy --policy-name FisSchedulerPolicy --policy-document file://fis-start-experiment-permissions.json
    ```
 
     If successful, you'll see the following output. Note the policy ARN. You use this ARN in the next step to attach the policy to our execution role. 
 
-   ```
+   ```json
    {
        "Policy": {
            "PolicyName": "FisSchedulerPolicy",
@@ -116,7 +115,7 @@ An execution role is an IAM role that AWS FIS assumes in order to interact with 
 
 1.  Run the following command to attach the policy to your execution role. Replace `your-policy-arn` with the ARN of the policy you created in the previous step. Replace `FisSchedulerExecutionRole` with the name of your execution role.
 
-   ```
+   ```bash
    aws iam attach-role-policy --policy-arn your-policy-arn --role-name FisSchedulerExecutionRole
    ```
 
@@ -129,7 +128,7 @@ An execution role is an IAM role that AWS FIS assumes in order to interact with 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

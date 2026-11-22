@@ -1,7 +1,6 @@
 
 
 # Planning your AWS FIS experiments
-<a name="getting-started-planning"></a>
 
 Fault injection is the process of stressing an application in testing or production environments by creating disruptive events, such as server outages or API throttling. From observing how the system responds, you can then implement improvements. When you run experiments on your system, it can help you to identify systemic weaknesses in a controlled manner, before those weaknesses affect the customers who depend on your system. Then you can proactively address the issues to help prevent unpredictable outcomes.
 

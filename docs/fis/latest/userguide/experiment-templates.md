@@ -1,7 +1,6 @@
 
 
 # AWS FIS experiment template components
-<a name="experiment-templates"></a>
 
 You use the following components to construct experiment templates:
 
@@ -30,7 +29,7 @@ Your account has quotas related to AWS FIS. For example, there is a quota on the
 
 The following is the syntax for an experiment template.
 
-```
+```json
 {
             "description": "{{string}}",
             "targets": {},

@@ -1,7 +1,6 @@
 
 
 # Managing your AWS FIS experiments
-<a name="experiments"></a>
 
 AWS FIS enables you to perform fault injection experiments on your AWS workloads. To get started, create an [experiment template](experiment-templates.md). After you create an experiment template, you can use it to start an experiment.
 

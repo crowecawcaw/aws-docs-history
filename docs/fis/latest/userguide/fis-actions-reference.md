@@ -1,7 +1,6 @@
 
 
 # AWS FIS Actions reference
-<a name="fis-actions-reference"></a>
 
 An action is the fault injection activity that you run on a target using AWS Fault Injection Service (AWS FIS). AWS FIS provides preconfigured actions for specific types of targets across AWS services. You add actions to an experiment template, which you then use to run experiments.
 
@@ -178,7 +177,7 @@ Pauses Amazon DynamoDB multi-Region global table replication to any replica tabl
 **Multi-Region strongly consistent (MRSC) global tables**  
 The following statements will be dynamically appended to the policy for the target DynamoDB MRSC global table:
 
-```
+```json
 {
    "Statement":[
       {
@@ -231,7 +230,7 @@ Target Amazon DynamoDB MRSC global tables are subject to an additional quota. Th
 **Multi-Region eventually consistent (MREC) global tables**  
 The following two statements will be dynamically appended to the policy for the target DynamoDB MREC global table:
 
-```
+```json
 {
    "Statement":[
       {
@@ -287,7 +286,7 @@ The following two statements will be dynamically appended to the policy for the 
 
 The following statement will be dynamically appended to the stream policy for the target DynamoDB MREC global table:
 
-```
+```json
 {
    "Statement":[
       {

@@ -1,7 +1,6 @@
 
 
 # AZ: Application Slowdown
-<a name="az-application-slowdown-scenario"></a>
 
  You can use the AZ: Application Slowdown scenario to introduce additional latency between resources within a single Availability Zone (AZ). This latency creates many of the symptoms of an application slowdown, a partial disruption, sometimes known as a gray failure. It adds latency to network flows between target resources. Network flows represent the traffic between computing resources — the data packets carrying requests, responses, and other communications between your servers, containers, and services. The scenario can help to validate observability setups, tune alarm thresholds, discover application sensitivity to slowdowns, and practice critical operational decisions like AZ evacuation. 
 

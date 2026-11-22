@@ -1,7 +1,6 @@
 
 
 # Experiment logging for AWS FIS
-<a name="monitoring-logging"></a>
 
 You can use experiment logging to capture detailed information about your experiment as it runs.
 
@@ -19,7 +18,7 @@ You must grant AWS FIS permissions to send logs to each log destination that you
 
 The following is the schema used in experiment logging. The current schema version is 2. The fields for `details` depend on the value of `log_type`. The fields for `resolved_targets` depend on the value of `target_type`. For more information, see [Example log records](#example-log-records).
 
-```
+```json
 {
     "id": "EXP123abc456def789",
     "log_type": "experiment-start | target-resolution-start | target-resolution-detail | target-resolution-end | action-start | action-error | action-end | experiment-end",
@@ -109,7 +108,7 @@ The following are example log records for an experiment that runs the **aws:ec2:
 **experiment-start**  
 The following is an example record for the `experiment-start` event.
 
-```
+```json
 {
     "id": "EXPhjAXCGY78HV2a4A",
     "log_type": "experiment-start",
@@ -125,7 +124,7 @@ The following is an example record for the `experiment-start` event.
 **target-resolution-start**  
 The following is an example record for the `target-resolution-start` event.
 
-```
+```json
 {
     "id": "EXPhjAXCGY78HV2a4A",
     "log_type": "target-resolution-start",
@@ -141,7 +140,7 @@ The following is an example record for the `target-resolution-start` event.
 **target-resolution-detail**  
 The following is an example record for the `target-resolution-detail` event. If target resolution fails, the record also includes the `error_information` field.
 
-```
+```json
 {
     "id": "EXPhjAXCGY78HV2a4A",
     "log_type": "target-resolution-detail",
@@ -164,7 +163,7 @@ If target resolution fails, the record also includes the `error_information` fie
 
 The following is example record for the `target-resolution-end` event for an EC2 action.
 
-```
+```json
 {
     "id": "EXPhjAXCGY78HV2a4A",
     "log_type": "target-resolution-end",
@@ -187,7 +186,7 @@ The following is example record for the `target-resolution-end` event for an EC2
 
 The following is example record for the `target-resolution-end` event for an EKS action.
 
-```
+```json
 {
     "id": "EXP24YfiucfyVPJpEJn",
     "log_type": "target-resolution-end",
@@ -214,7 +213,7 @@ The following is example record for the `target-resolution-end` event for an EKS
 **action-start**  
 The following is an example record for the `action-start` event. If the experiment template specifies parameters for the action, the record also includes the `parameters` field.
 
-```
+```json
 {
     "id": "EXPhjAXCGY78HV2a4A",
     "log_type": "action-start",
@@ -232,7 +231,7 @@ The following is an example record for the `action-start` event. If the experime
 **action-error**  
 The following is an example record for the `action-error` event. This event is only returned when an action fails. It is returned for each account where the action fails. 
 
-```
+```json
 {
     "id": "EXPhjAXCGY78HV2a4A",
     "log_type": "action-error",
@@ -253,7 +252,7 @@ The following is an example record for the `action-error` event. This event is o
 **action-end**  
 The following is an example record for the `action-end` event.
 
-```
+```json
 {
     "id": "EXPhjAXCGY78HV2a4A",
     "log_type": "action-end",
@@ -274,7 +273,7 @@ The following is an example record for the `action-end` event.
 **experiment-end**  
 The following is an example record for the `experiment-end` event.
 
-```
+```json
 {
     "id": "EXPhjAXCGY78HV2a4A",
     "log_type": "experiment-end",

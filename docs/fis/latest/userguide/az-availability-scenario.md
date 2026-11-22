@@ -1,7 +1,6 @@
 
 
 # AZ Availability: Power Interruption
-<a name="az-availability-scenario"></a>
 
  You can use the AZ Availability: Power Interruption scenario to induce the expected symptoms of a complete interruption of power in an Availability Zone (AZ).
 
@@ -106,7 +105,7 @@ The following policy grants AWS FIS the necessary permissions to execute an expe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

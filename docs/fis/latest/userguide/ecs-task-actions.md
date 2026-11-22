@@ -1,7 +1,6 @@
 
 
 # Use the AWS FIS aws:ecs:task actions
-<a name="ecs-task-actions"></a>
 
  You can use the **aws:ecs:task** actions to inject faults into your Amazon ECS tasks. Amazon EC2 and Fargate capacity types are supported. 
 
@@ -55,7 +54,7 @@
 + Add the [AmazonSSMManagedInstanceCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html) managed policy to the managed instance role.
 + Add an SSM agent container to the Amazon ECS task definition. The command script registers Amazon ECS tasks as managed instances.
 
-  ```
+  ```json
   {
       "name": "amazon-ssm-agent",
       "image": "public.ecr.aws/amazon-ssm-agent/amazon-ssm-agent:latest",
@@ -93,7 +92,7 @@
   For a more readable version of the script, see [Reference version of the script](#ecs-task-reference).
 +  Enable the Amazon ECS Fault Injection APIs, by setting the `enableFaultInjection` field in the Amazon ECS task definition: 
 
-  ```
+  ```json
   "enableFaultInjection": true,
   ```
 + When using the `aws:ecs:task-network-blackhole-port`,`aws:ecs:task-network-latency`, or `aws:ecs:task-network-packet-loss` actions on Fargate tasks, the action must have the `useEcsFaultInjectionEndpoints` parameter set to `true`. 
@@ -105,7 +104,7 @@
 
 The following is a more readable version of the script in the Requirements section, for your reference.
 
-```
+```bash
 #!/usr/bin/env bash
 
 # This is the activation script used to register ECS tasks as Managed Instances in SSM
@@ -244,7 +243,7 @@ The non-root container image is also available in the [AWS ECR Public Gallery](h
 
 The following is an example experiment template for the [aws:ecs:task-cpu-stress](fis-actions-reference.md#task-cpu-stress) action.
 
-```
+```json
 {
     "description": "Run CPU stress on the target ECS tasks",
     "targets": {

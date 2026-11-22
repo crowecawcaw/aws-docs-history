@@ -1,7 +1,6 @@
 
 
 # Targets for AWS FIS
-<a name="targets"></a>
 
 A target is one or more AWS resources on which an action is performed by AWS Fault Injection Service (AWS FIS) during an experiment. Targets can be in the same AWS account as the experiment, or in a different account using a multi-account experiment. To learn more about targeting resources in a different account, see [Working with multi-account experiments for AWS FIS](multi-account.md).
 
@@ -24,7 +23,7 @@ AWS FIS identifies all targets at the start of the experiment, before starting a
 
 The following is the syntax for a target.
 
-```
+```json
 {
     "targets": {
         "{{target_name}}": {
@@ -130,7 +129,7 @@ Resource filters are queries that identify target resources according to specifi
 
 Each filter is expressed as an attribute path and possible values. A path is a sequence of elements, separated by periods, that describe the path to reach an attribute in the output of the **Describe** action for a resource. Each period stands for the expansion of an element. Each element must be expressed in Pascal case, even if the output of the **Describe** action for a resource is in camel case. For example, you should use `AvailabilityZone`, not `availablityZone` as an attribute element.
 
-```
+```json
 "filters": [
     {
         "path": "{{Component}}.{{Component}}.{{Component}}",
@@ -241,7 +240,7 @@ The following are example targets.
 **Example: Instances in the specified VPC with the specified tags**  
 The possible targets for this example are Amazon EC2 instances in the specified VPC with the tag env=prod. The selection mode specifies that AWS FIS chooses one of these targets at random.
 
-```
+```json
 {
     "targets": {
         "{{randomInstance}}": {
@@ -266,7 +265,7 @@ The possible targets for this example are Amazon EC2 instances in the specified 
 **Example: Tasks with the specified parameters**  
 The possible targets for this example are Amazon ECS tasks with the specified cluster and service. The selection mode specifies that AWS FIS choose one of these targets at random.
 
-```
+```json
 {
     "targets": {
         "{{randomTask}}": {
@@ -295,7 +294,7 @@ When you specify a filter for an action that supports the **aws:ec2:instance** r
 
 The **describe-instances** command returns JSON output where each instance is a structure under `Instances`. The following is partial output that includes fields marked with {{italics}}. We'll provide examples that use these fields to specify an attribute path from the structure of the JSON output.
 
-```
+```json
 {
     "Reservations": [
         {
@@ -360,7 +359,7 @@ The **describe-instances** command returns JSON output where each instance is a 
 
 To select instances in a specific Availability Zone using a resource filter, specify the attribute path for `AvailabilityZone` and the code for the Availability Zone as the value. For example:
 
-```
+```json
 "filters": [
     {
         "path": "Placement.AvailabilityZone",
@@ -371,7 +370,7 @@ To select instances in a specific Availability Zone using a resource filter, spe
 
 To select instances in a specific subnet using a resource filter, specify the attribute path for `SubnetId` and the ID of the subnet as the value. For example:
 
-```
+```json
 "filters": [
     {
         "path": "SubnetId",
@@ -382,7 +381,7 @@ To select instances in a specific subnet using a resource filter, specify the at
 
 To select instances that are in a specific instance state, specify the attribute path for `Name` and one of the following state names as the value: `pending` \| `running` \| `shutting-down` \| `terminated` \| `stopping` \| `stopped`. For example:
 
-```
+```json
 "filters": [
     {
         "path": "State.Name",
@@ -393,7 +392,7 @@ To select instances that are in a specific instance state, specify the attribute
 
 To select instances that have *any* of a number of security groups attached, specify a single filter with the attribute path for `GroupId` and multiple security group IDs. For example:
 
-```
+```json
 "filters": [
     {
         "path": "NetworkInterfaces.Groups.GroupId",
@@ -407,7 +406,7 @@ To select instances that have *any* of a number of security groups attached, spe
 
 To select instances that have *all* of a number of security groups attached, specify multiple filters with the attribute path for `GroupId` and a single security group ID for each filter. For example:
 
-```
+```json
 "filters": [
     {
         "path": "NetworkInterfaces.Groups.GroupId",
@@ -429,7 +428,7 @@ When you specify a filter for an action that supports the **aws:rds:cluster** re
 
 The **describe-db-clusters** command returns JSON output similar to the following for each DB cluster. The following is partial output that includes fields marked with {{italics}}. We'll provide examples that use these fields to specify an attribute path from the structure of the JSON output.
 
-```
+```json
 [
     {
         "AllocatedStorage": 1,
@@ -457,7 +456,7 @@ The **describe-db-clusters** command returns JSON output similar to the followin
 
 To apply a resource filter that returns only the DB clusters that use a specific DB engine, specify the attribute path as `Engine` and the value as `aurora-postgresql` as shown in the following example.
 
-```
+```json
 "filters": [
     {
         "path": "Engine",
@@ -468,7 +467,7 @@ To apply a resource filter that returns only the DB clusters that use a specific
 
 To apply a resource filter that returns only the DB clusters in a specific Availability Zone, specify the attribute path and value as shown in the following example.
 
-```
+```json
 "filters": [
     {
         "path": "AvailabilityZones",

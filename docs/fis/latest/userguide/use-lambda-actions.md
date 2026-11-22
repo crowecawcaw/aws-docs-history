@@ -1,7 +1,6 @@
 
 
 # Use the AWS FIS aws:lambda:function actions
-<a name="use-lambda-actions"></a>
 
 You can use the **aws:lambda:function** actions to inject faults into invocations of your AWS Lambda functions.
 
@@ -34,7 +33,7 @@ Before using AWS FIS Lambda actions, ensure that you have completed these one-ti
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -67,7 +66,7 @@ Before using AWS FIS Lambda actions, ensure that you have completed these one-ti
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

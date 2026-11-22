@@ -1,7 +1,6 @@
 
 
 # Tag experiment templates
-<a name="tag-experiment-template"></a>
 
 You can apply your own tags to experiment templates to help you organize them. You can also implement [tag-based IAM policies](security_iam_service-with-iam.md#security_iam_service-with-iam-tags) to control access to experiment templates.
 

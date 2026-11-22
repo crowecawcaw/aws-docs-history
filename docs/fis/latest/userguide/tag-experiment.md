@@ -1,7 +1,6 @@
 
 
 # Tag an experiment
-<a name="tag-experiment"></a>
 
 You can apply tags to experiments to help you organize them. You can also implement [tag-based IAM policies](security_iam_service-with-iam.md#security_iam_service-with-iam-tags) to control access to experiments.
 

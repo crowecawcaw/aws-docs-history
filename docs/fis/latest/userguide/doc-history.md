@@ -1,7 +1,6 @@
 
 
 # Document history
-<a name="doc-history"></a>
 
 The following table describes important documentation updates in the *AWS Fault Injection Service User Guide*.
 
@@ -27,30 +26,30 @@ The following table describes important documentation updates in the *AWS Fault 
 | [New actions mode experiment option](https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html#actions-mode) | You can set actions mode to `skip-all` to generate a target preview before running an experiment. | March 13, 2024 | 
 | [AWS managed policy updates](https://docs.aws.amazon.com/fis/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates) | AWS FIS updated existing managed policies. | January 25, 2024 | 
 | [New scenarios and actions](https://docs.aws.amazon.com/fis/latest/userguide/scenario-library-scenarios.html) | You can now use AWS FIS scenarios Cross-Region:Connectivity and AZ Availability: Power Interruption. | November 30, 2023 | 
-| [New action](#doc-history) | You can now use the **aws:ec2:asg-insufficient-instance-capacity-error** action. | November 30, 2023 | 
-| [New action](#doc-history) | You can now use the **aws:ec2:api-insufficient-instance-capacity-error** action. | November 30, 2023 | 
-| [New action](#doc-history) | You can now use the **aws:network:route-table-disrupt-cross-region-connectivity** action. | November 30, 2023 | 
-| [New action](#doc-history) | You can now use the **aws:network:transit-gateway-disrupt-cross-region-connectivity** action. | November 30, 2023 | 
-| [New action](#doc-history) | You can now use the **aws:dynamodb:encrypted-global-table-pause-replication** action. | November 30, 2023 | 
-| [New action](#doc-history) | You can now use the **aws:s3:bucket-pause-replication** action. | November 30, 2023 | 
-| [New action](#doc-history) | You can now use the **aws:elasticache:interrupt-cluster-az-power** action. | November 30, 2023 | 
+| [New action](doc-history.md) | You can now use the **aws:ec2:asg-insufficient-instance-capacity-error** action. | November 30, 2023 | 
+| [New action](doc-history.md) | You can now use the **aws:ec2:api-insufficient-instance-capacity-error** action. | November 30, 2023 | 
+| [New action](doc-history.md) | You can now use the **aws:network:route-table-disrupt-cross-region-connectivity** action. | November 30, 2023 | 
+| [New action](doc-history.md) | You can now use the **aws:network:transit-gateway-disrupt-cross-region-connectivity** action. | November 30, 2023 | 
+| [New action](doc-history.md) | You can now use the **aws:dynamodb:encrypted-global-table-pause-replication** action. | November 30, 2023 | 
+| [New action](doc-history.md) | You can now use the **aws:s3:bucket-pause-replication** action. | November 30, 2023 | 
+| [New action](doc-history.md) | You can now use the **aws:elasticache:interrupt-cluster-az-power** action. | November 30, 2023 | 
 | [New experiment options](https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html) | You can now use AWS FIS experiment options for account targeting and empty target resolution. | November 27, 2023 | 
-| [Name change of AWS FIS](#doc-history) | Updated service name to AWS Fault Injection Service. | November 15, 2023 | 
+| [Name change of AWS FIS](doc-history.md) | Updated service name to AWS Fault Injection Service. | November 15, 2023 | 
 | [AWS managed policy updates](https://docs.aws.amazon.com/fis/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates) | AWS FIS updated existing managed policies. | November 13, 2023 | 
 | [New scenario library](https://docs.aws.amazon.com/fis/latest/userguide/scenario-library.html) | You can now use the AWS FIS scenario library feature. | November 7, 2023 | 
 | [New experiment scheduler](https://docs.aws.amazon.com/fis/latest/userguide/experiment-scheduler.html) | You can now use the AWS FIS experiment scheduler feature. | November 7, 2023 | 
 | [AWS managed policy updates](https://docs.aws.amazon.com/fis/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates) | AWS FIS updated existing managed policies. | June 2, 2023 | 
-| [New actions](#doc-history) | You can use the new **aws:ecs:task** and **aws:eks:pod** actions. | June 1, 2023 | 
+| [New actions](doc-history.md) | You can use the new **aws:ecs:task** and **aws:eks:pod** actions. | June 1, 2023 | 
 | [AWS managed policy updates](https://docs.aws.amazon.com/fis/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates) | AWS FIS updated existing managed policies. | June 1, 2023 | 
-| [New pre-configured SSM document](#doc-history) | You can use the following pre-configured SSM document: AWSFIS-Run-Disk-Fill. | April 28, 2023 | 
-| [New action](#doc-history) | You can use the **aws:ebs:pause-volume-io** action to pause I/O between the target volumes and the instances they are attached to. | January 27, 2023 | 
-| [New action](#doc-history) | You can use the **aws:network:disrupt-connectivity** action to deny specific types of traffic to the target subnets. | October 26, 2022 | 
-| [New action](#doc-history) | You can use the **aws:eks:inject-kubernetes-custom-resource** action to run a ChaosMesh or Litmus experiment on a single target cluster. | July 7, 2022 | 
-| [Experiment logging](#doc-history) | You can configure your experiment templates to send experiment activity logs to CloudWatch Logs or to an S3 bucket. | February 28, 2022 | 
-| [New notifications](#doc-history) | When the state of an experiment changes, AWS FIS emits a notification. These notifications are made available as events through Amazon EventBridge. | February 24, 2022 | 
-| [New action](#doc-history) | You can use the **aws:ecs:stop-task** action to stop the specified task. | February 9, 2022 | 
-| [New action](#doc-history) | You can use the **aws:cloudwatch:assert-alarm-state** action to verify that the specified alarms are in one of the specified alarm states. | November 5, 2021 | 
-| [New pre-configured SSM documents](#doc-history) | You can use the following pre-configured SSM documents: AWSFIS-Run-IO-Stress, AWSFIS-Run-Network-Blackhold-Port, AWSFIS-Run-Network-Latency-Sources, AWSFIS-Run-Network-Packet-Loss, and AWSFIS-Run-Network-Packet-Loss-Sources. | November 4, 2021 | 
-| [New action](#doc-history) | You can use the **aws:ec2:send-spot-instance-interruptions** action to send a Spot Instance interruption notice to target Spot Instances and then interrupt the target Spot Instances. | October 20, 2021 | 
-| [New action](#doc-history) | You can use the **aws:ssm:start-automation-execution** action to initiate the execution of an Automation runbook. | September 17, 2021 | 
-| [Initial release](#doc-history) | The initial release of the AWS Fault Injection Service User Guide. | March 15, 2021 | 
+| [New pre-configured SSM document](doc-history.md) | You can use the following pre-configured SSM document: AWSFIS-Run-Disk-Fill. | April 28, 2023 | 
+| [New action](doc-history.md) | You can use the **aws:ebs:pause-volume-io** action to pause I/O between the target volumes and the instances they are attached to. | January 27, 2023 | 
+| [New action](doc-history.md) | You can use the **aws:network:disrupt-connectivity** action to deny specific types of traffic to the target subnets. | October 26, 2022 | 
+| [New action](doc-history.md) | You can use the **aws:eks:inject-kubernetes-custom-resource** action to run a ChaosMesh or Litmus experiment on a single target cluster. | July 7, 2022 | 
+| [Experiment logging](doc-history.md) | You can configure your experiment templates to send experiment activity logs to CloudWatch Logs or to an S3 bucket. | February 28, 2022 | 
+| [New notifications](doc-history.md) | When the state of an experiment changes, AWS FIS emits a notification. These notifications are made available as events through Amazon EventBridge. | February 24, 2022 | 
+| [New action](doc-history.md) | You can use the **aws:ecs:stop-task** action to stop the specified task. | February 9, 2022 | 
+| [New action](doc-history.md) | You can use the **aws:cloudwatch:assert-alarm-state** action to verify that the specified alarms are in one of the specified alarm states. | November 5, 2021 | 
+| [New pre-configured SSM documents](doc-history.md) | You can use the following pre-configured SSM documents: AWSFIS-Run-IO-Stress, AWSFIS-Run-Network-Blackhold-Port, AWSFIS-Run-Network-Latency-Sources, AWSFIS-Run-Network-Packet-Loss, and AWSFIS-Run-Network-Packet-Loss-Sources. | November 4, 2021 | 
+| [New action](doc-history.md) | You can use the **aws:ec2:send-spot-instance-interruptions** action to send a Spot Instance interruption notice to target Spot Instances and then interrupt the target Spot Instances. | October 20, 2021 | 
+| [New action](doc-history.md) | You can use the **aws:ssm:start-automation-execution** action to initiate the execution of an Automation runbook. | September 17, 2021 | 
+| [Initial release](doc-history.md) | The initial release of the AWS Fault Injection Service User Guide. | March 15, 2021 | 

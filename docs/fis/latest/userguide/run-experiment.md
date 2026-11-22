@@ -1,7 +1,6 @@
 
 
 # Start an experiment
-<a name="run-experiment"></a>
 
 You start an experiment from an experiment template. For more information, see [Start an experiment from a template](start-experiment-from-template.md).
 

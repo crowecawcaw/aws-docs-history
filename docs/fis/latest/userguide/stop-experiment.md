@@ -1,7 +1,6 @@
 
 
 # Stop an experiment
-<a name="stop-experiment"></a>
 
 You can stop a running experiment at any time. When you stop an experiment, any post actions that have not been completed for an action are completed before the experiment stops. You cannot resume a stopped experiment.
 

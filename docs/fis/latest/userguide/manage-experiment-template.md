@@ -1,7 +1,6 @@
 
 
 # Managing AWS FIS experiment templates
-<a name="manage-experiment-template"></a>
 
 You can create and manage experiment templates using the AWS FIS console or the command line. An experiment template contains one or more actions to run on specified targets during an experiment. It also contains the stop conditions that prevent the experiment from going out of bounds. For more information on the components of an experiment template, see [Experiment template components](experiment-templates.md). After you create an experiment template, you can use it to run an experiment.
 

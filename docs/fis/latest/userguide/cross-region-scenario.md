@@ -1,7 +1,6 @@
 
 
 # Cross-Region: Connectivity
-<a name="cross-region-scenario"></a>
 
 You can use the Cross-Region: Connectivity scenario to block application network traffic from the experiment Region to the destination Region and pause cross-Region replication for Amazon S3 and Amazon DynamoDB multi-Region global tables. Cross Region: Connectivity affects outbound application traffic from the Region in which you run the experiment (*experiment Region*). Stateless inbound traffic from the Region you wish to isolate from the *experiment region* (*destination Region*) may not be blocked. Traffic from AWS managed services may not be blocked.
 

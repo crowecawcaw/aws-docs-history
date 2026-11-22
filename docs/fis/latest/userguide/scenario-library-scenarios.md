@@ -1,7 +1,6 @@
 
 
 # Scenarios reference
-<a name="scenario-library-scenarios"></a>
 
 Scenarios included in the scenario library are designed to use [tags](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html) where possible and each scenario describes the required tags in the **Prerequisites** and **How it works** sections of the scenario description. You can tag your resources with those pre-defined tags or you can set your own tags using the shared parameter editing experience (see [Using a scenario](scenario-library.md#using-a-scenario)).
 

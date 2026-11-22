@@ -1,7 +1,6 @@
 
 
 # Delete a target account configuration
-<a name="delete"></a>
 
 If you no longer need a target account configuration, you can delete it. When you delete a target account configuration, any running experiments that use the template are not affected. The experiment continues to run until completed or stopped.
 

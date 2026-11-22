@@ -1,7 +1,6 @@
 
 
 # Stop conditions for AWS FIS
-<a name="stop-conditions"></a>
 
 AWS Fault Injection Service (AWS FIS) provides controls and guardrails for you to run experiments safely on AWS workloads. A *stop condition* is a mechanism to stop an experiment if it reaches a threshold that you define as an Amazon CloudWatch alarm. If a stop condition is triggered during an experiment, AWS FIS stops the experiment. You cannot resume a stopped experiment.
 
@@ -14,7 +13,7 @@ Your account has a quota on the number of stop conditions that you can specify i
 
 When you create an experiment template, you specify one or more stop conditions by specifying the CloudWatch alarms that you created.
 
-```
+```json
 {
     "stopConditions": [
         {
@@ -27,7 +26,7 @@ When you create an experiment template, you specify one or more stop conditions 
 
 The following example indicates that the experiment template does not specify a stop condition.
 
-```
+```json
 {
     "stopConditions": [
         {

@@ -1,7 +1,6 @@
 
 
 # Example AWS FIS experiment templates
-<a name="experiment-template-example"></a>
 
 If you're using the AWS FIS API or a command line tool to create an experiment template, you can construct the template in JavaScript Object Notation (JSON). For more information about the components of an experiment template, see [AWS FIS experiment template components](experiment-templates.md).
 
@@ -26,7 +25,7 @@ aws fis create-experiment-template --cli-input-json file://{{my-template}}.json
 
 The following example stops all running Amazon EC2 instances in the specified Region with the specified tag in the specified VPC. It restarts them after two minutes.
 
-```
+```json
 {
     "tags": {
         "Name": "StopEC2InstancesWithFilters"
@@ -82,7 +81,7 @@ The following example stops all running Amazon EC2 instances in the specified Re
 
 The following example stops three instances with the specified tag. AWS FIS selects the specific instances to stop at random. It restarts these instances after two minutes.
 
-```
+```json
 {
     "tags": {
         "Name": "StopEC2InstancesByCount"
@@ -124,7 +123,7 @@ The following example stops three instances with the specified tag. AWS FIS sele
 
 The following example runs a CPU fault injection for 60 seconds on the specified EC2 instance using a pre-configured AWS FIS SSM document, [AWSFIS-Run-CPU-Stress](actions-ssm-agent.md#awsfis-run-cpu-stress). AWS FIS monitors the experiment for two minutes.
 
-```
+```json
 {
     "tags": {
         "Name": "CPUStress"
@@ -166,7 +165,7 @@ The following example runs a CPU fault injection for 60 seconds on the specified
 
 The following example publishes a notification to Amazon SNS using a runbook provided by Systems Manager, [AWS-PublishSNSNotification](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-publishsnsnotification.html). The role must have permissions to publish notifications to the specified SNS topic.
 
-```
+```json
 {
     "description": "Publish event through SNS",
     "stopConditions": [
@@ -201,7 +200,7 @@ The following example throttles 100% of the API calls specified in the action de
 **Note**  
 If you wish to target EC2 instances that are members of an Auto Scaling group, please use the **aws:ec2:asg-insufficient-instance-capacity-error** action, and target by Auto Scaling group instead. For more information, see [aws:ec2:asg-insufficient-instance-capacity-error](fis-actions-reference.md#asg-ice).
 
-```
+```json
 {
     "tags": {
         "Name": "ThrottleEC2APIActions"
@@ -244,7 +243,7 @@ If you wish to target EC2 instances that are members of an Auto Scaling group, p
 
 The following example uses Chaos Mesh to stress test the CPU of pods in an Amazon EKS Kubernetes cluster for one minute.
 
-```
+```json
 {
     "description": "ChaosMesh StressChaos example",
     "targets": {
@@ -281,7 +280,7 @@ The following example uses Chaos Mesh to stress test the CPU of pods in an Amazo
 
 The following example uses Litmus to stress test the CPU of pods in an Amazon EKS Kubernetes cluster for one minute.
 
-```
+```json
 {
     "description": "Litmus CPU Hog",
     "targets": {
@@ -321,7 +320,7 @@ The following example uses Litmus to stress test the CPU of pods in an Amazon EK
 
 The following example throws a provisioned throughput exception for 100% of requests up to five Kinesis Data Streams with the specified tag. AWS FIS selects the streams to affect at random. After 5 minutes the fault is removed.
 
-```
+```json
 {
     "description": "Kinesis stream experiment",
     "targets": {
@@ -366,7 +365,7 @@ The following example throws a provisioned throughput exception for 100% of requ
 
 The following permission allows you to run the `aws:kinesis:stream-provisioned-throughput-exception` and `aws:kinesis:stream-expired-iterator-exception` actions on a specific stream impacting 50% of requests.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
      "Statement": [

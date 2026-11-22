@@ -1,7 +1,6 @@
 
 
 # Log API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Fault Injection Service (AWS FIS) is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, a role, or an AWS service in AWS FIS. CloudTrail captures all API calls for AWS FIS as events. The calls that are captured include calls from the AWS FIS console and code calls to the AWS FIS API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS FIS. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS FIS, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
@@ -34,7 +33,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following is an example CloudTrail log entry for a call to the AWS FIS `StopExperiment` action.
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {
@@ -143,7 +142,7 @@ The following is an example CloudTrail log entry for a call to the AWS FIS `Stop
 
 The following is an example CloudTrail log entry for an API action that AWS FIS invoked as part of an experiment that includes the `aws:ssm:send-command` AWS FIS action. The `userIdentity` element reflects a request made with temporary credentials obtained by assuming a role. The name of the assumed role appears in `userName`. The ID of the experiment, EXP21nT17WMzA6dnUgz, appears in `principalId` and as part of the ARN of the assumed role.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

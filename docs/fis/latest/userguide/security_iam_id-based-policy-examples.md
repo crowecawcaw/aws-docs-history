@@ -1,7 +1,6 @@
 
 
 # AWS Fault Injection Service policy examples
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify AWS FIS resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -47,7 +46,7 @@ The following example policy grants permission to list and view all AWS FIS reso
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -104,7 +103,7 @@ The following policy grants permission to list the available AWS FIS actions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -131,7 +130,7 @@ The following policy grants permission to create an experiment template for the 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -172,7 +171,7 @@ The following policy grants permission to start an experiment using the specifie
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -214,7 +213,7 @@ The following policy grants permission to run experiments from experiment templa
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -244,7 +243,7 @@ The following policy grants permission to delete an experiment template with tag
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -271,7 +270,7 @@ The following policy grants permission to delete an experiment template with tag
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -316,7 +315,7 @@ The following example policy uses the `ec2:FisTargetArns` condition key to scope
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -366,7 +365,7 @@ The following example policy uses the `S3:IsReplicationPauseRequest` condition k
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # How AWS Fault Injection Service works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to AWS FIS, learn what IAM features are available to use with AWS FIS.
 
@@ -66,7 +65,7 @@ fis
 
 To specify multiple actions in a single statement, separate them with commas.
 
-```
+```json
 "Action": [
     "fis:{{action1}}",
     "fis:{{action2}}"
@@ -75,7 +74,7 @@ To specify multiple actions in a single statement, separate them with commas.
 
 You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `List`, include the following action:
 
-```
+```json
 "Action": "fis:List*"
 ```
 
@@ -94,7 +93,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 
 Some AWS FIS API actions support multiple resources. To specify multiple resources in a single statement, separate the ARNs with commas.
 
-```
+```json
 "Resource": [
     "{{resource1}}",
     "{{resource2}}"

@@ -1,7 +1,6 @@
 
 
 # Start an experiment from a template
-<a name="start-experiment-from-template"></a>
 
 After you have created an experiment template, you can start experiments using that template.
 

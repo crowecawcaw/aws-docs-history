@@ -1,7 +1,6 @@
 
 
 # Generate a target preview from an experiment template
-<a name="generate-target-preview"></a>
 
  Before you start an experiment, you can generate a target preview to verify that your experiment template is configured to target the expected resources. The resources that are targeted when you begin the actual experiment may be different from those in the preview, as resources may be removed, updated, or sampled randomly. When you generate a target preview, you start an experiment that skips all actions. 
 

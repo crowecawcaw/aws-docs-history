@@ -1,7 +1,6 @@
 
 
 # Update a target account configuration
-<a name="update"></a>
 
 You can update an existing target account configuration if you want to change the role ARN or description for the the account. When you update a target account configuration, the changes do not affect any running experiments that use the template.
 

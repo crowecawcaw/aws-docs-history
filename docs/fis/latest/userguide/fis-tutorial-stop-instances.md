@@ -1,7 +1,6 @@
 
 
 # Tutorial: Test instance stop and start using AWS FIS
-<a name="fis-tutorial-stop-instances"></a>
 
 You can use AWS Fault Injection Service (AWS FIS) to test how your applications handle instance stop and start. Use this tutorial to create an experiment template that uses the AWS FIS `aws:ec2:stop-instances` action to stop one instance and then a second instance.
 
@@ -101,7 +100,7 @@ Create the experiment template using the AWS FIS console. In the template, you s
 **(Optional) To view the experiment template JSON**  
 Choose the **Export** tab. The following is an example of the JSON created by the preceding console procedure.
 
-```
+```json
 {
     "description": "Test instance stop and start",
     "targets": {
