@@ -1,7 +1,6 @@
 
 
 # Using a bucket-style alias for your S3 on Outposts bucket access point
-<a name="s3-outposts-access-points-alias"></a>
 
 With S3 on Outposts, you must use access points to access any object in an Outposts bucket. Every time you create an access point for a bucket, S3 on Outposts automatically generates an access point alias. You can use this access point alias instead of an access point ARN for any data plane operation. For example, you can use an access point alias to perform object-level operations such as PUT, GET, LIST, and more. For a list of these operations, see [Amazon S3 API operations for managing objects](S3OutpostsAPI.md#S3OutpostsAPIsObject).
 

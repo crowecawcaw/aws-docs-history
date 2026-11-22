@@ -1,7 +1,6 @@
 
 
 # Replicating objects for S3 on Outposts
-<a name="S3OutpostsReplication"></a>
 
 With S3 Replication on AWS Outposts, you can configure Amazon S3 on Outposts to automatically replicate S3 objects across different Outposts, or between buckets on the same Outpost. You can use S3 Replication on Outposts to maintain multiple replicas of your data in the same or different Outposts, or across different accounts, to help meet data-residency needs. S3 Replication on Outposts helps power your compliant storage needs and data sharing across accounts. If you need to ensure that your replicas are identical to the source data, you can use S3 Replication on Outposts to make replicas of your objects that retain all metadata, such as the original object creation time, tags, and version IDs.
 

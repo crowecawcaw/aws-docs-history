@@ -1,7 +1,6 @@
 
 
 # Performing and managing a multipart upload with the SDK for Java
-<a name="S3OutpostsMPU"></a>
 
 With Amazon S3 on Outposts, you can create S3 buckets on your AWS Outposts resources and store and retrieve objects on-premises for applications that require local data access, local data processing, and data residency. You can use S3 on Outposts through the AWS Management Console, AWS Command Line Interface (AWS CLI), AWS SDKs, or REST API. For more information, see [What is Amazon S3 on Outposts?](S3onOutposts.md) 
 
@@ -18,7 +17,7 @@ The following examples show how you can use S3 on Outposts with the AWS SDK for 
 
 The following S3 on Outposts example initiates, uploads, and finishes a multipart upload of an object to a bucket by using the SDK for Java. To use this example, replace each `{{user input placeholder}}` with your own information. For more information, see [Uploading an object using multipart upload](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpu-upload-object.html) in the *Amazon Simple Storage Service User Guide*.
 
-```
+```Java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;
@@ -108,7 +107,7 @@ public class MultipartUploadCopy {
 
 The following S3 on Outposts example uses the SDK for Java to copy an object in a bucket. To use this example, replace each `{{user input placeholder}}` with your own information. 
 
-```
+```Java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;
@@ -199,7 +198,7 @@ public class MultipartUploadCopy {
 
 The following S3 on Outposts example lists the parts of an object in a bucket by using the SDK for Java. To use this example, replace each `{{user input placeholder}}` with your own information. 
 
-```
+```Java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;
@@ -248,7 +247,7 @@ public class ListParts {
 
 The following S3 on Outposts example shows how to retrieve a list of the in-progress multipart uploads from an Outposts bucket by using the SDK for Java. To use this example, replace each `{{user input placeholder}}` with your own information.
 
-```
+```Java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;

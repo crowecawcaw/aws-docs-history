@@ -1,7 +1,6 @@
 
 
 # Bucket policy examples
-<a name="S3Outposts-example-bucket-policies"></a>
 
 With S3 on Outposts bucket policies, you can secure access to objects in your S3 on Outposts buckets, so that only users with the appropriate permissions can access them. You can even prevent authenticated users without the appropriate permissions from accessing your S3 on Outposts resources.
 
@@ -41,7 +40,7 @@ The `Condition` block uses the `NotIpAddress` condition and the `aws:SourceIp` c
 **Warning**  
 Before using this S3 on Outposts policy, replace the {{`192.0.2.0/24`}} IP address range in this example with an appropriate value for your use case. Otherwise, you'll lose the ability to access your bucket.
 
-```
+```json
  1. {
  2.     "Version": "2012-10-17",		 	 	 
  3.     "Id": "S3OutpostsPolicyId1",
@@ -82,7 +81,7 @@ Replace the IP address ranges in this example with appropriate values for your u
 
 ****  
 
-```
+```json
 {
     "Id": "S3OutpostsPolicyId2",
     "Version":"2012-10-17",		 	 	 

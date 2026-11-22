@@ -1,7 +1,6 @@
 
 
 # Viewing a list of your Amazon S3 on Outposts endpoints
-<a name="S3OutpostsListEndpoints"></a>
 
 To route requests to an Amazon S3 on Outposts access point, you must create and configure an S3 on Outposts endpoint. In order to create an endpoint, you will need an active connection with your service link to your Outposts home region. Each virtual private cloud (VPC) on your Outpost can have one associated endpoint. For more information about endpoint quotas, see [S3 on Outposts network requirements](S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions). You must create an endpoint to be able to access your Outposts buckets and perform object operations. For more information, see [Endpoints](S3OutpostsWorkingBuckets.md#S3OutpostsEP).
 
@@ -32,7 +31,7 @@ aws s3outposts list-endpoints
 
 The following SDK for Java example lists the endpoints for an Outpost. For more information, see [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html) in the *Amazon Simple Storage Service API Reference*.
 
-```
+```Java
 import com.amazonaws.services.s3outposts.AmazonS3Outposts;
 import com.amazonaws.services.s3outposts.AmazonS3OutpostsClientBuilder;
 import com.amazonaws.services.s3outposts.model.ListEndpointsRequest;

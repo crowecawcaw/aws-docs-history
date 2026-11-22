@@ -1,7 +1,6 @@
 
 
 # Creating an S3 on Outposts access point
-<a name="S3OutpostsCreateAccessPoint"></a>
 
 To access your Amazon S3 on Outposts bucket, you must create and configure an access point.
 

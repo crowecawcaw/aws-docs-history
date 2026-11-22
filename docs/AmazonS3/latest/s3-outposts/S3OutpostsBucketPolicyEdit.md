@@ -1,7 +1,6 @@
 
 
 # Adding or editing a bucket policy for an Amazon S3 on Outposts bucket
-<a name="S3OutpostsBucketPolicyEdit"></a>
 
 A bucket policy is a resource-based AWS Identity and Access Management (IAM) policy that you can use to grant access permissions to your bucket and the objects in it. Only the bucket owner can associate a policy with a bucket. The permissions attached to the bucket apply to all of the objects in the bucket that are owned by the bucket owner. Bucket policies are limited to 20 KB in size. For more information, see [Bucket policy](S3onOutposts.md#S3OutpostsBucketPolicies).
 
@@ -36,7 +35,7 @@ The following AWS CLI example puts a policy on an Outposts bucket.
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Id":"testBucketPolicy",
@@ -72,7 +71,7 @@ The following AWS CLI example puts a policy on an Outposts bucket.
 
 The following SDK for Java example puts a policy on an Outposts bucket.
 
-```
+```Java
 import com.amazonaws.services.s3control.model.*;
 
 public void putBucketPolicy(String bucketArn) {

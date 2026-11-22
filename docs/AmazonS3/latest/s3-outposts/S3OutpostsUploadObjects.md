@@ -1,7 +1,6 @@
 
 
 # Upload an object to an S3 on Outposts bucket
-<a name="S3OutpostsUploadObjects"></a>
 
 Objects are the fundamental entities stored in Amazon S3 on Outposts. Every object is contained in a bucket. You must use access points to access any object in an Outpost bucket. When you specify the bucket for object operations, you use the access point Amazon Resource Name (ARN) or the access point alias. For more information about access point aliases, see [Using a bucket-style alias for your S3 on Outposts bucket access point](s3-outposts-access-points-alias.md).
 

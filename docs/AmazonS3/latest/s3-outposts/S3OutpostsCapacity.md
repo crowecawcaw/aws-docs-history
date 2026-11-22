@@ -1,7 +1,6 @@
 
 
 # Managing S3 on Outposts capacity with Amazon CloudWatch metrics
-<a name="S3OutpostsCapacity"></a>
 
 To help manage the fixed S3 capacity on your Outpost, we recommend that you create CloudWatch alerts that tell you when your storage utilization exceeds a certain threshold. For more information about the CloudWatch metrics for S3 on Outposts, see [CloudWatch metrics](#S3OutpostsCloudWatchMetrics). If there is not enough space to store an object on your Outpost, the API returns an insufficient capacity exemption (ICE). To free up space, you can create CloudWatch alarms that trigger explicit data deletion, or use a lifecycle expiration policy to expire objects. To save data before deletion, you can use AWS DataSync to copy data from your Amazon S3 on Outposts bucket to an S3 bucket in an AWS Region. For more information about using DataSync, see [Getting Started with AWS DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/getting-started.html) in the *AWS DataSync User Guide*. 
 

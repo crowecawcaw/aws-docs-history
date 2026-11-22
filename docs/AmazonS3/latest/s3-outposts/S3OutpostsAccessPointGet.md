@@ -1,7 +1,6 @@
 
 
 # Viewing information about an access point configuration
-<a name="S3OutpostsAccessPointGet"></a>
 
 Access points simplify managing data access at scale for shared datasets in Amazon S3. Access points are named network endpoints that are attached to buckets that you can use to perform Amazon S3 object operations, such as `GetObject` and `PutObject`. With S3 on Outposts, you must use access points to access any object in an Outposts bucket. Access points support only virtual-host-style addressing.
 
@@ -32,7 +31,7 @@ aws s3control get-access-point --account-id {{123456789012}} --name arn:aws:s3-o
 
 The following SDK for Java example gets an access point for an Outposts bucket.
 
-```
+```Java
 import com.amazonaws.services.s3control.model.*;
 
 public void getAccessPoint(String accessPointArn) {

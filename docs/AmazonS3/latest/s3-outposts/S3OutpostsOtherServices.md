@@ -1,7 +1,6 @@
 
 
 # Other AWS services that use S3 on Outposts
-<a name="S3OutpostsOtherServices"></a>
 
 Other AWS services that run local to your AWS Outposts can also use your Amazon S3 on Outposts capacity. In Amazon CloudWatch the `S3Outposts` namespace shows detailed metrics for buckets within S3 on Outposts, but these metrics don't include usage for other AWS services. To manage your S3 on Outposts capacity that is consumed by other AWS services, see the information in the following table.
 

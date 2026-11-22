@@ -1,7 +1,6 @@
 
 
 # Listing the objects in an Amazon S3 on Outposts bucket
-<a name="S3OutpostsListObjects"></a>
 
 Objects are the fundamental entities stored in Amazon S3 on Outposts. Every object is contained in a bucket. You must use access points to access any object in an Outpost bucket. When you specify the bucket for object operations, you use the access point Amazon Resource Name (ARN) or the access point alias. For more information about access point aliases, see [Using a bucket-style alias for your S3 on Outposts bucket access point](s3-outposts-access-points-alias.md).
 
@@ -38,7 +37,7 @@ The following S3 on Outposts example lists objects in a bucket by using the SDK 
 **Important**  
 This example uses [ListObjectsV2](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html), which is the latest revision of the `ListObjects` API operation. We recommend that you use this revised API operation for application development. For backward compatibility, Amazon S3 continues to support the prior version of this API operation. 
 
-```
+```Java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;

@@ -1,7 +1,6 @@
 
 
 # Adding or editing an access point policy
-<a name="S3OutpostsAccessPointEditPolicy"></a>
 
 Access points have distinct permissions and network controls that Amazon S3 on Outposts applies for any request that is made through that access point. Each access point enforces a customized access point policy that works in conjunction with the bucket policy that is attached to the underlying bucket. For more information, see [Access points](S3OutpostsWorkingBuckets.md#S3OutpostsAP).
 
@@ -29,7 +28,7 @@ The following AWS CLI example puts a policy on an Outposts access point.
 
 1. Save the following access point policy to a JSON file. In this example, the file is named `appolicy1.json`. Replace the `{{user input placeholders}}` with your own information.
 
-   ```
+   ```JSON
    {
       "Version":"2012-10-17",		 	 	 
       "Id":"exampleAccessPointPolicy",
@@ -58,7 +57,7 @@ The following AWS CLI example puts a policy on an Outposts access point.
 
 The following SDK for Java example puts a policy on an Outposts access point.
 
-```
+```Java
 import com.amazonaws.services.s3control.model.*;
 
 public void putAccessPointPolicy(String accessPointArn) {

@@ -1,7 +1,6 @@
 
 
 # Copying an object in an Amazon S3 on Outposts bucket using the AWS SDK for Java
-<a name="S3OutpostsCopyObject"></a>
 
 Objects are the fundamental entities stored in Amazon S3 on Outposts. Every object is contained in a bucket. You must use access points to access any object in an Outpost bucket. When you specify the bucket for object operations, you use the access point Amazon Resource Name (ARN) or the access point alias. For more information about access point aliases, see [Using a bucket-style alias for your S3 on Outposts bucket access point](s3-outposts-access-points-alias.md).
 
@@ -22,7 +21,7 @@ The following example shows you how to copy an object in an S3 on Outposts bucke
 
 The following S3 on Outposts example copies an object into a new object in the same bucket by using the SDK for Java. To use this example, replace the `{{user input placeholders}}` with your own information.
 
-```
+```Java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;

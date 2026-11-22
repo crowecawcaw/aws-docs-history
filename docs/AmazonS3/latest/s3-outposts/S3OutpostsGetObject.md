@@ -1,7 +1,6 @@
 
 
 # Getting an object from an Amazon S3 on Outposts bucket
-<a name="S3OutpostsGetObject"></a>
 
 Objects are the fundamental entities stored in Amazon S3 on Outposts. Every object is contained in a bucket. You must use access points to access any object in an Outpost bucket. When you specify the bucket for object operations, you use the access point Amazon Resource Name (ARN) or the access point alias. For more information about access point aliases, see [Using a bucket-style alias for your S3 on Outposts bucket access point](s3-outposts-access-points-alias.md).
 
@@ -31,7 +30,7 @@ aws s3api get-object --bucket arn:aws:s3-outposts:{{region}}:{{123456789012}}:ou
 
 The following S3 on Outposts example gets an object by using the SDK for Java. To use this example, replace each `{{user input placeholder}}` with your own information. For more information, see [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) in the *Amazon Simple Storage Service API Reference*.
 
-```
+```Java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;

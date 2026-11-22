@@ -1,7 +1,6 @@
 
 
 # Setting up replication
-<a name="outposts-replication-how-setup"></a>
 
 **Note**  
 Objects that existed in your bucket before you set up a replication rule aren't replicated automatically. In other words, Amazon S3 on Outposts doesn't replicate objects retroactively. To replicate objects that were created before your replication configuration, you can use the `CopyObject` API operation to copy them to the same bucket. After the objects are copied, they appear as "new" objects in the bucket and the replication configuration will apply to them. For more information about copying an object, see [Copying an object in an Amazon S3 on Outposts bucket using the AWS SDK for Java](S3OutpostsCopyObject.md) and [CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) in the *Amazon Simple Storage Service API Reference*.

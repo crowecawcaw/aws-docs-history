@@ -1,7 +1,6 @@
 
 
 # Sharing S3 on Outposts by using AWS RAM
-<a name="outposts-sharing-with-ram"></a>
 
 Amazon S3 on Outposts supports sharing S3 capacity across multiple accounts within an organization by using AWS Resource Access Manager ([AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html)). With S3 on Outposts sharing, you can allow others to create and manage buckets, endpoints, and access points on your Outpost. 
 
@@ -92,7 +91,7 @@ aws s3api put-object --bucket arn:aws:s3-outposts:{{us-east-1}}:{{111122223333}}
 --body {{my_image.jpg}} --key {{images/my_image.jpg}}
 ```
 For more information about this command, see [put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) in the *AWS CLI Reference*.  
-If this operation results in a Resource not found error or is unresponsive, your VPC might not have a shared endpoint.   
+If this operation results in a `Resource not found` error or is unresponsive, your VPC might not have a shared endpoint.   
 To check whether there is a shared endpoint, use the [list-shared-endpoints](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3outposts/list-shared-endpoints.html) AWS CLI command. If there is no shared endpoint, work with the Outpost owner to create one. For more information, see [ListSharedEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListSharedEndpoints.html) in the *Amazon Simple Storage Service API Reference*.
 
 **Example : Create an endpoint**  

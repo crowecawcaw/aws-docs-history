@@ -1,7 +1,6 @@
 
 
 # Prerequisites for creating replication rules
-<a name="outposts-replication-prerequisites-config"></a>
 
 **Topics**
 + [Connecting your source and destination Outpost subnets](#outposts-rep-preone)
@@ -137,7 +136,7 @@ This section explains the trust policy and minimum required permissions policy. 
 
 ****  
 
-  ```
+  ```json
   {
      "Version":"2012-10-17",		 	 	 
      "Statement":[
@@ -160,7 +159,7 @@ This section explains the trust policy and minimum required permissions policy. 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -220,7 +219,7 @@ If you're creating the IAM service role manually, set the role path as `role/ser
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "PolicyForDestinationBucket",
@@ -250,7 +249,7 @@ If you're creating the IAM service role manually, set the role path as `role/ser
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "PolicyForDestinationAccessPoint",

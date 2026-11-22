@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Amazon S3 on Outposts
-<a name="S3OutpostsServiceLinkedRoles"></a>
 
 Amazon S3 on Outposts uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to S3 on Outposts. Service-linked roles are predefined by S3 on Outposts and include all the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -26,7 +25,7 @@ The role permissions policy named `AWSS3OnOutpostsServiceRolePolicy` allows S3 o
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

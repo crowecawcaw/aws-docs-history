@@ -1,7 +1,6 @@
 
 
 # Monitoring S3 on Outposts with AWS CloudTrail logs
-<a name="S3OutpostsCloudtrail"></a>
 
 Amazon S3 on Outposts is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in S3 on Outposts. You can use AWS CloudTrail to get information about S3 on Outposts bucket-level and object-level requests to audit and log your S3 on Outposts event activity.
 
@@ -86,7 +85,7 @@ Additional log fields include the requested action, the date and time of the act
 
 The following example shows a CloudTrail log entry that demonstrates a [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html) action on `s3-outposts`.
 
-```
+```json
 {
       "eventVersion": "1.08",
       "userIdentity": {

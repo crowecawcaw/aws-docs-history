@@ -1,7 +1,6 @@
 
 
 # Using S3 on Outposts dual-stack endpoints
-<a name="s3-outposts-dual-stack-endpoints"></a>
 
 S3 on Outposts dual-stack endpoints support requests to S3 on Outposts buckets over IPv6 and IPv4. This section describes how to use S3 on Outposts dual-stack endpoints.
 
@@ -154,6 +153,6 @@ public class DualStackEndpointsExample2 {
 
 If you're using the AWS SDK for Java 2.x on Windows, you might have to set the following Java virtual machine (JVM) property: 
 
-```
+```java
 java.net.preferIPv6Addresses=true
 ```

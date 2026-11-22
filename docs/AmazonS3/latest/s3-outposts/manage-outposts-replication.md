@@ -1,7 +1,6 @@
 
 
 # Managing your replication
-<a name="manage-outposts-replication"></a>
 
 This section describes additional replication configuration options that are available in S3 on Outposts, how to determine the replication status, and how to troubleshot replication. For information about core replication configuration, see [Setting up replication](outposts-replication-how-setup.md).
 
@@ -71,14 +70,14 @@ If object replicas don't appear in the destination Amazon S3 on Outposts bucket 
 
   Source bucket:
 
-  ```
+  ```json
   1. "s3-outposts:GetObjectVersionForReplication",
   2. "s3-outposts:GetObjectVersionTagging"
   ```
 
   Destination buckets:
 
-  ```
+  ```json
   1. "s3-outposts:ReplicateObject",
   2. "s3-outposts:ReplicateDelete",
   3. "s3-outposts:ReplicateTags"

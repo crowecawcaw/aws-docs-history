@@ -1,7 +1,6 @@
 
 
 # Viewing an access point policy for an S3 on Outposts access point
-<a name="S3OutpostsAccessPointGetPolicy"></a>
 
 Access points have distinct permissions and network controls that Amazon S3 on Outposts applies for any request that is made through that access point. Each access point enforces a customized access point policy that works in conjunction with the bucket policy that is attached to the underlying bucket. For more information, see [Access points](S3OutpostsWorkingBuckets.md#S3OutpostsAP).
 
@@ -36,7 +35,7 @@ aws s3control get-access-point-policy --account-id {{123456789012}} --name arn:a
 
 The following SDK for Java example gets a policy for an Outposts access point.
 
-```
+```Java
 import com.amazonaws.services.s3control.model.*;
 
 public void getAccessPointPolicy(String accessPointArn) {

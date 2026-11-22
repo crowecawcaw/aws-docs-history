@@ -1,7 +1,6 @@
 
 
 # Data encryption in S3 on Outposts
-<a name="s3-outposts-data-encryption"></a>
 
 By default, all data stored in Amazon S3 on Outposts is encrypted by using server-side encryption with Amazon S3 managed encryption keys (SSE-S3). For more information, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingServerSideEncryption.html) in the *Amazon S3 User Guide*.
 

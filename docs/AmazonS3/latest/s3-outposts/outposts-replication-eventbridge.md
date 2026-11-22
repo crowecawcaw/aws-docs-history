@@ -1,7 +1,6 @@
 
 
 # Using EventBridge for S3 Replication on Outposts
-<a name="outposts-replication-eventbridge"></a>
 
 Amazon S3 on Outposts is integrated with Amazon EventBridge and uses the `s3-outposts` namespace. EventBridge is a serverless event bus service that you can use to connect your applications with data from a variety of sources. For more information, see [What is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) in the *Amazon EventBridge User Guide*. 
 

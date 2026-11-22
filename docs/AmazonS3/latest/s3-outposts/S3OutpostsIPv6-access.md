@@ -1,7 +1,6 @@
 
 
 # Making requests to S3 on Outposts over IPv6
-<a name="S3OutpostsIPv6-access"></a>
 
 Amazon S3 on Outposts and S3 on Outposts dual-stack endpoints support requests to S3 on Outposts buckets using either the IPv6 or IPv4 protocol. With IPv6 support for S3 on Outposts, you can access and operate your buckets and control plane resources through S3 on Outposts APIs over IPv6 networks.
 
@@ -54,7 +53,7 @@ IAM policies that filter IP addresses use [IP address condition operators](https
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

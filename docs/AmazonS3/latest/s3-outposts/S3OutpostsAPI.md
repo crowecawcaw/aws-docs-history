@@ -1,7 +1,6 @@
 
 
 # Amazon S3 on Outposts API operations
-<a name="S3OutpostsAPI"></a>
 
 This topic lists the Amazon S3, Amazon S3 Control, and Amazon S3 on Outposts API operations that you can use with Amazon S3 on Outposts.
 

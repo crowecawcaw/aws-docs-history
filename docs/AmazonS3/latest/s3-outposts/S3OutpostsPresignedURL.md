@@ -1,7 +1,6 @@
 
 
 # Using presigned URLs for S3 on Outposts
-<a name="S3OutpostsPresignedURL"></a>
 
 To grant time-limited access to objects that are stored locally on an Outpost without updating your bucket policy, you can use a presigned URL. With presigned URLs, you as the bucket owner can share objects with individuals in your virtual private cloud (VPC) or grant them the ability to upload or delete objects. 
 
@@ -20,7 +19,7 @@ To enforce specific behavior when presigned URL requests are authenticated by us
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

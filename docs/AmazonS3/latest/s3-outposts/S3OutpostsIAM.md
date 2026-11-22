@@ -1,7 +1,6 @@
 
 
 # Setting up IAM with S3 on Outposts
-<a name="S3OutpostsIAM"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be authenticated (signed in) and authorized (have permissions) to use Amazon S3 on Outposts resources. IAM is an AWS service that you can use with no additional charge. By default, users don't have permissions for S3 on Outposts resources and operations. To grant access permissions for S3 on Outposts resources and API operations, you can use IAM to create [users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html), [groups](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html), or [roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html#id_iam-roles) and attach permissions.
 
