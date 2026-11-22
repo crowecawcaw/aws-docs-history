@@ -1,7 +1,6 @@
 
 
 # Personalization and Predictive Consumer Engagement for CPG
-<a name="predictive-consumer-engagement-cpg-chapter"></a>
 
 ## Overview
 <a name="pce-cpg-overview"></a>
