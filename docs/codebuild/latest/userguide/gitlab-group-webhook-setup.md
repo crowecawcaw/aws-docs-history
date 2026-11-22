@@ -1,7 +1,6 @@
 
 
 # Set up a group GitLab webhook
-<a name="gitlab-group-webhook-setup"></a>
 
 The high-level steps to set up a group GitLab webhook are as follows. For more information about group GitLab webhooks, see [GitLab group webhooks](gitlab-group-webhook.md).
 

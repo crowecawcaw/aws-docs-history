@@ -1,7 +1,6 @@
 
 
 # View a list of build IDs in AWS CodeBuild
-<a name="view-build-list"></a>
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of build IDs for builds managed by CodeBuild.
 
@@ -26,7 +25,7 @@ By default, only the 10 most recent builds are displayed. To view more builds, c
 For more information about using the AWS CLI with CodeBuild, see the [Command line reference](cmd-ref.md).
 + Run the **list-builds** command:
 
-  ```
+  ```bash
   aws codebuild list-builds --sort-order {{sort-order}} --next-token {{next-token}}
   ```
 
@@ -36,13 +35,13 @@ For more information about using the AWS CLI with CodeBuild, see the [Command li
 
   For example, if you run this command:
 
-  ```
+  ```bash
   aws codebuild list-builds --sort-order ASCENDING
   ```
 
   A result similar to the following might appear in the output:
 
-  ```
+  ```json
   {
     "nextToken": "4AEA6u7J{{...The full token has been omitted for brevity...}}MzY2OA==",
     "ids": [
@@ -56,13 +55,13 @@ For more information about using the AWS CLI with CodeBuild, see the [Command li
 
   If you run this command again:
 
-  ```
+  ```bash
   aws codebuild list-builds --sort-order ASCENDING --next-token 4AEA6u7J{{...The full token has been omitted for brevity...}}MzY2OA==
   ```
 
   A result similar to the following might appear in the output:
 
-  ```
+  ```json
   {
     "ids": [
       "codebuild-demo-project:49015049-21cf-4b50-9708-df115EXAMPLE",
@@ -79,7 +78,7 @@ For more information about using the AWS CLI with CodeBuild, see the [Command li
 For more information about using the AWS CLI with CodeBuild, see the [Command line reference](cmd-ref.md).
 + Run the **list-build-batches** command:
 
-  ```
+  ```bash
   aws codebuild list-build-batches --sort-order {{sort-order}} --next-token {{next-token}}
   ```
 
@@ -89,13 +88,13 @@ For more information about using the AWS CLI with CodeBuild, see the [Command li
 
   For example, if you run this command:
 
-  ```
+  ```bash
   aws codebuild list-build-batches --sort-order ASCENDING
   ```
 
   A result similar to the following might appear in the output:
 
-  ```
+  ```json
   {
     "nextToken": "4AEA6u7J{{...The full token has been omitted for brevity...}}MzY2OA==",
     "ids": [
@@ -109,13 +108,13 @@ For more information about using the AWS CLI with CodeBuild, see the [Command li
 
   If you run this command again:
 
-  ```
+  ```bash
   aws codebuild list-build-batches --sort-order ASCENDING --next-token 4AEA6u7J{{...The full token has been omitted for brevity...}}MzY2OA==
   ```
 
   A result similar to the following might appear in the output:
 
-  ```
+  ```json
   {
     "ids": [
       "codebuild-demo-project:49015049-21cf-4b50-9708-df115EXAMPLE",

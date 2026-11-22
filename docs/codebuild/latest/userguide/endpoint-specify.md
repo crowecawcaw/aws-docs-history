@@ -1,7 +1,6 @@
 
 
 # Specify the AWS CodeBuild endpoint
-<a name="endpoint-specify"></a>
 
  You can use the AWS Command Line Interface (AWS CLI) or one of the AWS SDKs to specify the endpoint used by AWS CodeBuild. There is an endpoint for each region in which CodeBuild is available. In addition to a regional endpoint, four regions also have a Federal Information Processing Standards (FIPS) endpoint. For more information about FIPS endpoints, see [FIPS 140-2 overview](https://aws.amazon.com/compliance/fips/). 
 
@@ -36,7 +35,7 @@ Include the `https://` at the beginning of the endpoint.
 
  Use the `withEndpointConfiguration` method when constructing the AWSCodeBuild client. Here is the format to use: 
 
-```
+```java
 AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard().
     withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("{{endpoint}}", "{{region}}")).
     withCredentials(new AWSStaticCredentialsProvider(sessionCredentials)).
@@ -66,7 +65,7 @@ The following table lists the alias for each of the four available FIPS endpoint
 
  To specify use of the FIPS endpoint in the US West (Oregon) region using an alias: 
 
-```
+```java
 AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard().
     withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("us-west-2-fips", "us-west-2")).
     withCredentials(new AWSStaticCredentialsProvider(sessionCredentials)).
@@ -75,7 +74,7 @@ AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard().
 
  To specify use of the non-FIPS endpoint in the US East (N. Virginia) region: 
 
-```
+```java
 AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard().
     withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("us-east-1", "us-east-1")).
     withCredentials(new AWSStaticCredentialsProvider(sessionCredentials)).
@@ -84,7 +83,7 @@ AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard().
 
  To specify use of the non-FIPS endpoint in the Asia Pacific (Mumbai) region: 
 
-```
+```java
 AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard().
     withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("ap-south-1", "ap-south-1")).
     withCredentials(new AWSStaticCredentialsProvider(sessionCredentials)).

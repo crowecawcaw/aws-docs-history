@@ -1,7 +1,6 @@
 
 
 # Runtime versions
-<a name="runtime-versions"></a>
 
 When you specify a runtime in the [`runtime-versions`](build-spec-ref.md#build-spec.phases.install.runtime-versions) section of your buildspec file, you can specify a specific version, a specific major version and the latest minor version, or the latest version. The following table lists the available runtimes and how to specify them. Not all runtime versions are available on all images. Runtime version selection is also not supported for the custom images. For more information, see [Available runtimes](available-runtimes.md). If you'd like to install and use a custom runtime version instead of the pre-installed runtime versions, see [Custom runtime versions](#custom-runtime).
 
@@ -95,7 +94,7 @@ Custom runtime version selection is only supported for Ubuntu and Amazon Linux i
 
 Here is an example of a buildspec that specifies custom runtime versions.
 
-```
+```yaml
 version: 0.2
 phases:
   install:

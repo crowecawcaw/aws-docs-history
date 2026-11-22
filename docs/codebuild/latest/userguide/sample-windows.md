@@ -1,7 +1,6 @@
 
 
 # Run Microsoft Windows samples for CodeBuild
-<a name="sample-windows"></a>
 
 These samples use an AWS CodeBuild build environment running Microsoft Windows Server 2019, the .NET Framework, and the .NET Core SDK to build runtime files out of code written in F\# and Visual Basic. 
 
@@ -24,7 +23,7 @@ If you are using an S3 input bucket, be sure to create a ZIP file that contains 
 
    If you use the AWS CLI to create the build project, the JSON-formatted input to the `create-project` command might look similar to this. (Replace the placeholders with your own values.)
 
-   ```
+   ```json
    {
      "name": "sample-windows-build-project",
      "source": {
@@ -103,7 +102,7 @@ These samples use the following files.
 
 `buildspec.yml` (in `{{(root directory name)}}`):
 
-```
+```yaml
 version: 0.2
 
 env:
@@ -150,7 +149,7 @@ EndGlobal
 
 `App.config` (in `{{(root directory name)}}\FSharpHelloWorld`):
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <startup> 
@@ -207,7 +206,7 @@ do
 
 `FSharpHelloWorld.fsproj` (in `{{(root directory name)}}\FSharpHelloWorld`):
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -304,7 +303,7 @@ let main argv =
 
 `buildspec.yml` (in `{{(root directory name)}}`):
 
-```
+```yaml
 version: 0.2
 
 env:
@@ -351,7 +350,7 @@ EndGlobal
 
 `App.config` (in `{{(root directory name)}}\VBHelloWorld`):
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <startup> 
@@ -374,7 +373,7 @@ End Module
 
 `VBHelloWorld.vbproj` (in `{{(root directory name)}}\VBHelloWorld`):
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -512,7 +511,7 @@ Option Explicit On
 
 `Application.myapp` (in `{{(root directory name)}}\VBHelloWorld\My Project`):
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <MyApplicationData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <MySubMain>false</MySubMain>
@@ -633,7 +632,7 @@ End Namespace
 
 `Resources.resx` (in `{{(root directory name)}}\VBHelloWorld\My Project`):
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
@@ -832,7 +831,7 @@ End Namespace
 
 `Settings.settings` (in `{{(root directory name)}}\VBHelloWorld\My Project`):
 
-```
+```xml
 <?xml version='1.0' encoding='utf-8'?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" UseMySettingsClassName="true">
   <Profiles>

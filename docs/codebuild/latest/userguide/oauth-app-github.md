@@ -1,7 +1,6 @@
 
 
 # GitHub OAuth app
-<a name="oauth-app-github"></a>
 
 ## Connect GitHub using OAuth (console)
 <a name="oauth-app-github-console"></a>

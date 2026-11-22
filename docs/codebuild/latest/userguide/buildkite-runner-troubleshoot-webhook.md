@@ -1,7 +1,6 @@
 
 
 # Troubleshoot the webhook for failed builds or a hanging job
-<a name="buildkite-runner-troubleshoot-webhook"></a>
 
  **Issue: ** 
 

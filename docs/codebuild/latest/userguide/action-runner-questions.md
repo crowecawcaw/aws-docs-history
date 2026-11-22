@@ -1,7 +1,6 @@
 
 
 # About the CodeBuild-hosted GitHub Actions runner
-<a name="action-runner-questions"></a>
 
 The following are some common questions about the CodeBuild-hosted GitHub Actions runner.
 
@@ -10,7 +9,7 @@ The following are some common questions about the CodeBuild-hosted GitHub Action
 
 You can include the image and instance overrides in the label in order to specify different build environment for each of your GitHub Actions workflow jobs. This can be done without the need to create multiple CodeBuild projects or webhooks. For example, this is useful when you need to use a [matrix for your workflow jobs](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs).
 
-```
+```yaml
 name: Hello World
 on: [push]
 jobs:
@@ -38,7 +37,7 @@ Quotation marks might be required if `runs-on` has multiple labels containing Gi
 
 Yes, you can include a filter group in your CloudFormation template that specifies a GitHub Actions workflow job event filter in your project webhook.
 
-```
+```yaml
 Triggers:
   Webhook: true
   FilterGroups:
@@ -55,7 +54,7 @@ If you need help setting up project credentials in your CloudFormation template,
 
 By default, secrets that are printed in the log is not masked. If you would like to mask your secrets, you can use the following syntax: `::add-mask::{{value}}`. The following is an example of how you can use this syntax in your YAML:
 
-```
+```yaml
 name: Secret Job
 on: [push]
 jobs:

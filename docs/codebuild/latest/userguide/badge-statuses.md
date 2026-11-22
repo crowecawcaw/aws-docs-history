@@ -1,7 +1,6 @@
 
 
 # CodeBuild badge statuses
-<a name="badge-statuses"></a>
 
 The CodeBuild build badge can have one of the following statuses.
 + **PASSING** The most recent build on the given branch passed. 

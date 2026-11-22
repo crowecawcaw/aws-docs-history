@@ -1,7 +1,6 @@
 
 
 # Configure a private registry credential for self-hosted runners
-<a name="private-registry-sample-configure-runners"></a>
 
 Use the following instructions to configure a registry credential for a self-hosted runner.
 
@@ -25,7 +24,7 @@ Note that these credentials will only be used if the images are overridden with 
 
 1. If you'd like to create a new project, run the **create-project** command.
 
-   ```
+   ```JSON
    aws codebuild create-project \
        --name {{project-name}} \
        --source type={{source-type}},location={{source-location}} \
@@ -36,7 +35,7 @@ Note that these credentials will only be used if the images are overridden with 
 
 1. If you'd like to update an existing project, run the **update-project** command.
 
-   ```
+   ```JSON
    aws codebuild update-project \
        --name {{project-name}} \
        --environment "type={{environment-type}},image={{image}},computeType={{compute-type}},registryCredential={credentialProvider=SECRETS_MANAGER,credential={{secret-name-or-arn}}}"

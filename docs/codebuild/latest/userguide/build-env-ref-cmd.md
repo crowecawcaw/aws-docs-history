@@ -1,7 +1,6 @@
 
 
 # Shells and commands in build environments
-<a name="build-env-ref-cmd"></a>
 
 You provide a set of commands for AWS CodeBuild to run in a build environment during the lifecycle of a build (for example, installing build dependencies and testing and compiling your source code). There are several ways to specify these commands:
 + Create a build specification file and include it with your source code. In this file, specify the commands you want to run in each phase of the build lifecycle. For more information, see the [Build specification reference for CodeBuild](build-spec-ref.md).

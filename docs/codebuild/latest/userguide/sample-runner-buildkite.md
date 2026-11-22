@@ -1,7 +1,6 @@
 
 
 # Tutorial: Configure a CodeBuild-hosted Buildkite runner
-<a name="sample-runner-buildkite"></a>
 
 This tutorial shows you how to configure your CodeBuild projects to run Buildkite jobs. For more information about using Buildkite with CodeBuild see [Self-managed Buildkite runner in AWS CodeBuild](buildkite-runner.md).<a name="sample-runner-buildkite-prerequisites"></a>
 

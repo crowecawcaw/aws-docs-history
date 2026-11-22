@@ -1,7 +1,6 @@
 
 
 # GetPublicProject
-<a name="API_GetPublicProject"></a>
 
 **Note**  
 This API element is not contained in the AWS CLI or AWS SDKs.

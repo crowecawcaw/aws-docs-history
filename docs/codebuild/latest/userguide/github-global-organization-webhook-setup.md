@@ -1,7 +1,6 @@
 
 
 # Set up a global or organization GitHub webhook
-<a name="github-global-organization-webhook-setup"></a>
 
 The high-level steps to set up a global or organization GitHub webhook are as follows. For more information about global and organization GitHub webhooks, see [GitHub global and organization webhooks](github-global-organization-webhook.md).
 

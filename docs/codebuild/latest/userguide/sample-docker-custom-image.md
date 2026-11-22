@@ -1,7 +1,6 @@
 
 
 # Docker in custom image sample for CodeBuild
-<a name="sample-docker-custom-image"></a>
 
 The following sample builds and runs a Docker image by using AWS CodeBuild and a custom Docker build image (`docker:dind` in Docker Hub). 
 
@@ -16,7 +15,7 @@ Running this sample might result in charges to your AWS account. These include p
 ## Run the Docker in custom image sample
 <a name="sample-docker-custom-image-running"></a>
 
-Use the following procedure to run the Docker in custom image sample. For more information about this sample, see [Docker in custom image sample for CodeBuild](#sample-docker-custom-image).
+Use the following procedure to run the Docker in custom image sample. For more information about this sample, see [Docker in custom image sample for CodeBuild](sample-docker-custom-image.md).
 
 **To run the Docker in custom image sample**
 
@@ -72,7 +71,7 @@ The base image of the operating system used in this sample is Ubuntu. The sample
 
 `buildspec.yml` (in `{{(root directory name)}}`)
 
-```
+```yaml
 version: 0.2
 
 phases:

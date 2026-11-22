@@ -1,7 +1,6 @@
 
 
 # View build project names in AWS CodeBuild
-<a name="view-project-list"></a>
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view a list of build projects in CodeBuild.
 
@@ -26,7 +25,7 @@ By default, only the 10 most recent build projects are displayed. To view more b
 
 Run the **list-projects** command:
 
-```
+```shell
 aws codebuild list-projects --sort-by {{sort-by}} --sort-order {{sort-order}} --next-token {{next-token}}
 ```
 
@@ -40,13 +39,13 @@ In the preceding command, replace the following placeholders:
 
 For example, if you run this command:
 
-```
+```shell
 aws codebuild list-projects --sort-by NAME --sort-order ASCENDING
 ```
 
 A result similar to the following might appear in the output:
 
-```
+```json
 {
   "nextToken": "Ci33ACF6{{...The full token has been omitted for brevity...}}U+AkMx8=",
   "projects": [
@@ -60,13 +59,13 @@ A result similar to the following might appear in the output:
 
 If you run this command again:
 
-```
+```shell
 aws codebuild list-projects  --sort-by NAME --sort-order ASCENDING --next-token Ci33ACF6{{...The full token has been omitted for brevity...}}U+AkMx8=
 ```
 
 A result similar to the following might appear in the output:
 
-```
+```json
 {
   "projects": [
     "codebuild-demo-project100",

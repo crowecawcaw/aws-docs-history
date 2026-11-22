@@ -1,7 +1,6 @@
 
 
 # Filter GitLab group webhook events (console)
-<a name="gitlab-group-webhook-events-console"></a>
 
 When creating a GitLab project through the console, select the following options to create a GitLab group webhook within the project. For more information about group GitLab webhooks, see [GitLab group webhooks](gitlab-group-webhook.md).
 

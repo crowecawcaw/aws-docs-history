@@ -1,7 +1,6 @@
 
 
 # Docker samples for CodeBuild
-<a name="sample-docker-section"></a>
 
 This section describes sample integrations between Docker and AWS CodeBuild.
 

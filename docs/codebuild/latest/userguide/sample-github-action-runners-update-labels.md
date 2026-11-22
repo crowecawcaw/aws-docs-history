@@ -1,7 +1,6 @@
 
 
 # Label overrides supported with the CodeBuild-hosted GitHub Actions runner
-<a name="sample-github-action-runners-update-labels"></a>
 
 In your GitHub Actions workflow YAML, you can provide a variety of label overrides that modify your self-hosted runner build. Any builds not recognized by CodeBuild will be ignored but will not fail your webhook request. The following workflow YAML defines two jobs: `job1` uses overrides for image, instance size, fleet, and the buildspec, and `job2` uses only an image override. Give each job a unique label (`job1` and `job2`) so that GitHub routes each job to the runner created for it:
 

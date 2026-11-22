@@ -1,7 +1,6 @@
 
 
 # Allow users to interact with CodeBuild
-<a name="setting-up-service-permissions-group"></a>
 
 If you follow the steps in [Getting started using the console](getting-started-overview.md#getting-started) to access AWS CodeBuild for the first time, you most likely do not need the information in this topic. However, as you continue using CodeBuild, you might want to do things such as give other users and groups in your organization the ability to interact with CodeBuild.
 
@@ -57,7 +56,7 @@ For information about AWS root accounts and administrator users, see [The AWS ac
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -136,7 +135,7 @@ This policy allows access to all CodeBuild actions and to a potentially large nu
 
    Run one of the following commands, depending on whether you want to add permissions to an IAM group or user:
 
-   ```
+   ```shell
    aws iam attach-group-policy --group-name {{group-name}} --policy-arn {{policy-arn}}
    
    aws iam attach-user-policy --user-name {{user-name}} --policy-arn {{policy-arn}}
@@ -163,7 +162,7 @@ This policy allows access to all CodeBuild actions and to a potentially large nu
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -224,13 +223,13 @@ This policy allows access to all CodeBuild actions and to a potentially large nu
 
    For an IAM group:
 
-   ```
+   ```shell
    aws iam put-group-policy --group-name {{group-name}} --policy-name CodeBuildGroupAccessPolicy --policy-document file://put-group-policy.json
    ```
 
    For a user:
 
-   ```
+   ```shell
    aws iam put-user-policy --user-name {{user-name}} --policy-name CodeBuildUserAccessPolicy --policy-document file://put-user-policy.json
    ```
 

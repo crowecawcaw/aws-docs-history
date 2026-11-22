@@ -1,7 +1,6 @@
 
 
 # S3Downloadable
-<a name="API_S3Downloadable"></a>
 
 **Note**  
 This API element is not contained in the AWS CLI or AWS SDKs.

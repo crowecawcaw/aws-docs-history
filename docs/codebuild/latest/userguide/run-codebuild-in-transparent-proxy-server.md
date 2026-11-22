@@ -1,7 +1,6 @@
 
 
 # Run CodeBuild in a transparent proxy server
-<a name="run-codebuild-in-transparent-proxy-server"></a>
 
  To run AWS CodeBuild in a transparent proxy server, you must configure the proxy server with access to the websites and domains it interacts with. 
 

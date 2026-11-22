@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic File System sample for AWS CodeBuild
-<a name="sample-efs"></a>
 
  You might want to create your AWS CodeBuild builds on Amazon Elastic File System, a scalable, shared file service for Amazon EC2 instances. The storage capacity with Amazon EFS is elastic, so it grows or shrinks as files are added and removed. It has a simple web services interface that you can use to create and configure file systems. It also manages all of the file storage infrastructure for you, so you do not need to worry about deploying, patching, or maintaining file system configurations. For more information, see [What is Amazon Elastic File System?](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html) in the *Amazon Elastic File System User Guide*. 
 
@@ -127,7 +126,7 @@ By default, Docker daemon is enabled for non-VPC builds. If you would like to us
    + For **Mount point**, enter the absolute path of the directory in your build container where the file system is mounted. If this directory does not exist, CodeBuild creates it during the build. 
    + (Optional) Enter mount options. If you leave **Mount options** blank, CodeBuild uses its default mount options:
 
-     ```
+     ```shell
      nfsvers=4.1
      rsize=1048576
      wsize=1048576

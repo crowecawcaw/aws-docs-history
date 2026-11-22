@@ -1,7 +1,6 @@
 
 
 # Add a tag to a project
-<a name="how-to-tag-project-add"></a>
 
 Adding tags to a project can help you identify and organize your AWS resources and manage access to them. First, you add one or more tags (key-value pairs) to a project. Keep in mind that there are limits on the number of tags you can have on a project. There are restrictions on the characters you can use in the key and value fields. For more information, see [Tags](limits.md#tag-limits). After you have tags, you can create IAM policies to manage access to the project based on these tags. You can use the CodeBuild console or the AWS CLI to add tags to a project. 
 

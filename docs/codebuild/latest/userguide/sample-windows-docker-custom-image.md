@@ -1,7 +1,6 @@
 
 
 # Windows Docker builds sample for CodeBuild
-<a name="sample-windows-docker-custom-image"></a>
 
 The following sample builds and runs a Windows Docker image by using CodeBuild.
 
@@ -79,7 +78,7 @@ The base image of the operating system used in this sample is `mcr.microsoft.com
 
 `buildspec.yml` (in `{{(root directory name)}}`)
 
-```
+```yaml
 version: 0.2
 
 phases:

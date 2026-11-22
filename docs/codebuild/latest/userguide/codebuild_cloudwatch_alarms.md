@@ -1,7 +1,6 @@
 
 
 # CodeBuild CloudWatch alarms
-<a name="codebuild_cloudwatch_alarms"></a>
 
  You can use the CloudWatch console to create alarms based on CodeBuild metrics so you can react if something goes wrong with your builds. The two metrics that are most useful with alarms are described in the following bullets. For more information about using CloudWatch with CodeBuild, see [Monitor CodeBuild builds with CloudWatch](monitoring-builds.md). 
 +  `FailedBuild`. You can create an alarm that is triggered when a certain number of failed builds are detected within a predetermined number of seconds. In CloudWatch, you specify the number of seconds and how many failed builds trigger an alarm. 

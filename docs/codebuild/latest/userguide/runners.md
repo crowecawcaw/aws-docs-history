@@ -1,7 +1,6 @@
 
 
 # Use runners with AWS CodeBuild
-<a name="runners"></a>
 
 AWS CodeBuild supports integration with GitHub Actions runners, self-managed GitLab runners, and the Buildkite runner. 
 

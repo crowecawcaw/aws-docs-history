@@ -1,7 +1,6 @@
 
 
 # Use webhooks with AWS CodeBuild
-<a name="webhooks"></a>
 
 AWS CodeBuild supports webhook integration with GitHub, GitHub Enterprise Server, GitLab, GitLab Self Managed, and Bitbucket. 
 

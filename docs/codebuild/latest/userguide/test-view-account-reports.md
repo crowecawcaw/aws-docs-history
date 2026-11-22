@@ -1,7 +1,6 @@
 
 
 # View test reports in your AWS account
-<a name="test-view-account-reports"></a>
 
 
 

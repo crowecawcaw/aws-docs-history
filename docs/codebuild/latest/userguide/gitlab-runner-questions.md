@@ -1,7 +1,6 @@
 
 
 # About the CodeBuild-hosted GitLab runner
-<a name="gitlab-runner-questions"></a>
 
 The following are some common questions about the CodeBuild-hosted GitLab runner.
 
@@ -20,7 +19,7 @@ You can include the image and instance overrides in the label in order to specif
 
 Yes, you can include a filter group in your CloudFormation template that specifies a GitLab workflow job event filter in your project webhook.
 
-```
+```yaml
 Triggers:
   Webhook: true
   FilterGroups:

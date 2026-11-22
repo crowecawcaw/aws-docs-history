@@ -1,7 +1,6 @@
 
 
 # Use `CreateProject` with an AWS SDK or CLI
-<a name="example_codebuild_CreateProject_section"></a>
 
 The following code examples show how to use `CreateProject`.
 
@@ -133,7 +132,7 @@ For more information, see [Create a build project in AWS CodeBuild](https://docs
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/codebuild#code-examples). 
 Create a project.  
 
-```
+```javascript
 import {
   ArtifactsType,
   CodeBuildClient,

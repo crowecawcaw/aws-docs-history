@@ -1,7 +1,6 @@
 
 
 # Buildkite manual webhooks
-<a name="buildkite-manual-webhook"></a>
 
 Currently, CodeBuild requires all Buildkite webhooks to be created manually. CodeBuild returns a payload URL as part of the call to create the webhook, which can be used to manually create the webhook within Buildkite.
 

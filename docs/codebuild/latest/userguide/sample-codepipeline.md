@@ -1,7 +1,6 @@
 
 
 # AWS CodePipeline samples for CodeBuild
-<a name="sample-codepipeline"></a>
 
 This section describes sample integrations between CodePipeline and CodeBuild.
 
@@ -23,7 +22,7 @@ You can use a JSON-formatted file that defines the structure of your pipeline, a
 
 Use the following JSON file as an example of a pipeline structure that creates a batch build with separate artifacts. To enable batch builds in CodePipeline, set the `BatchEnabled` parameter of the `configuration` object to `true`.
 
-```
+```json
 {
   "pipeline": {
     "roleArn": "arn:aws:iam::account-id:role/my-AWS-CodePipeline-service-role-name",
@@ -131,7 +130,7 @@ Use the following JSON file as an example of a pipeline structure that creates a
 
 The following is an example of a CodeBuild buildspec file that will work with this pipeline configuration.
 
-```
+```yaml
 version: 0.2
 batch:
   build-list:
@@ -170,7 +169,7 @@ After you create the JSON file, you can create your pipeline. Use the AWS CLI to
 
 Use the following JSON file as an example of a pipeline structure that creates a batch build with combined artifacts. To enable batch builds in CodePipeline, set the `BatchEnabled` parameter of the `configuration` object to `true`. To combine the build artifacts into the same location, set the `CombineArtifacts` parameter of the `configuration` object to `true`.
 
-```
+```json
 {
  "pipeline": {
   "roleArn": "arn:aws:iam::account-id:role/my-AWS-CodePipeline-service-role-name",
@@ -267,7 +266,7 @@ Use the following JSON file as an example of a pipeline structure that creates a
 
 The following is an example of a CodeBuild buildspec file that will work with this pipeline configuration.
 
-```
+```yaml
 version: 0.2
 batch:
   build-list:
@@ -299,7 +298,7 @@ An AWS CodeBuild project can take more than one input source. It can also create
 
 You can use a JSON-formatted file that defines the structure of your pipeline, and then use it with the AWS CLI to create the pipeline. Use the following JSON file as an example of a pipeline structure that creates a build with more than one input source and more than one output artifact. Later in this sample you see how this file specifies the multiple inputs and outputs. For more information, see [CodePipeline pipeline structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html) in the *AWS CodePipeline User Guide*.
 
-```
+```json
 {
  "pipeline": {
   "roleArn": "arn:aws:iam::account-id:role/my-AWS-CodePipeline-service-role-name",

@@ -1,7 +1,6 @@
 
 
 # Run the GitHub pull request and webhook filter sample for CodeBuild
-<a name="sample-github-pull-request"></a>
 
 AWS CodeBuild supports webhooks when the source repository is GitHub. This means that for a CodeBuild build project that has its source code stored in a GitHub repository, webhooks can be used to rebuild the source code every time a code change is pushed to the repository. For CodeBuild samples, see [AWS CodeBuild Samples](https://github.com/aws-samples/aws-codebuild-samples).
 

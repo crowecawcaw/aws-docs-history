@@ -1,7 +1,6 @@
 
 
 # Set artifact names at build time using semantic versioning
-<a name="sample-buildspec-artifact-naming"></a>
 
  This sample contains example buildspec files that demonstrate how to specify an artifact name that is created at build time. A name specified in a buildspec file can incorporate Shell commands and environment variables to make it unique. A name you specify in a buildspec file overrides a name you enter in the console when you create your project.
 

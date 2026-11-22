@@ -1,7 +1,6 @@
 
 
 # Enable parallel test execution in batch builds
-<a name="parallel-test-enable"></a>
 
 To run tests in parallel, update the batch build buildspec file to include the build-fanout field and the number of parallel builds to split the test suite in the `parallelism` field as shown below. The `parallelism` field specifies how many independent executors are set up to execute the test suite.
 
@@ -9,7 +8,7 @@ To run the tests in multiple parallel execution environments, set the `paralleli
 
 You can use the [codebuild-tests-run](parallel-test-tests-run.md) CLI command to split and run your tests. Your test files will be split up, and a portion of your tests run in each build. This reduces the overall time taken to run the full test suite. In the following example, tests will be split up into five and the split points are calculated based on name of the tests.
 
-```
+```yaml
 version: 0.2
 
 batch:

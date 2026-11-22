@@ -1,7 +1,6 @@
 
 
 # Use AWS CodeBuild with Amazon Virtual Private Cloud
-<a name="vpc-support"></a>
 
 Typically, AWS CodeBuild cannot access resources in a VPC. To enable access, you must provide additional VPC-specific configuration information in your CodeBuild project configuration. This includes the VPC ID, the VPC subnet IDs, and the VPC security group IDs. VPC-enabled builds can then access resources inside your VPC. For more information about setting up a VPC in Amazon VPC, see the [Amazon VPC User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Introduction.html).
 

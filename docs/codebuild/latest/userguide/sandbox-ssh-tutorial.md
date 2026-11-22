@@ -1,7 +1,6 @@
 
 
 # Tutorial: Connecting to a sandbox using SSH
-<a name="sandbox-ssh-tutorial"></a>
 
 This tutorial shows you how to connect to a CodeBuild sandbox using an SSH client.
 

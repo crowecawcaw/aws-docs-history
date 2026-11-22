@@ -1,7 +1,6 @@
 
 
 # Shared project permissions
-<a name="project-sharing-perms"></a>
 
 ## Permissions for owners
 <a name="project-perms-owner"></a>

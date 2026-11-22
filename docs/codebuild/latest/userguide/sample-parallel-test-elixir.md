@@ -1,11 +1,10 @@
 
 
 # Configure parallel tests with Elixir
-<a name="sample-parallel-test-elixir"></a>
 
 The following is sample of a `buildspec.yml` that shows parallel test execution with Elixir on an Ubuntu platform:
 
-```
+```json
 version: 0.2
 
 batch:

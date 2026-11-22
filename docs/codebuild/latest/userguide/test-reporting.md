@@ -1,7 +1,6 @@
 
 
 # Test reports in AWS CodeBuild
-<a name="test-reporting"></a>
 
 You can create reports in CodeBuild that contain details about tests that are run during builds. You can create tests such as unit tests, configuration tests, and functional tests. 
 

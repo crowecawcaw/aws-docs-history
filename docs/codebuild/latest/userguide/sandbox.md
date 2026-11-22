@@ -1,7 +1,6 @@
 
 
 # Debug builds with CodeBuild sandbox
-<a name="sandbox"></a>
 
 In AWS CodeBuild, you can debug a build by using CodeBuild sandbox to run custom commands and troubleshoot your build.
 
@@ -22,7 +21,7 @@ Before using a CodeBuild sandbox, make sure that your CodeBuild service role has
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -104,7 +103,7 @@ Use the following instructions to run commands and connect your SSH client with 
 ------
 #### [ CLI command ]
 
-```
+```bash
 aws codebuild start-sandbox --project-name $PROJECT_NAME
 ```
 + `--project-name` : CodeBuild project name
@@ -112,7 +111,7 @@ aws codebuild start-sandbox --project-name $PROJECT_NAME
 ------
 #### [ Sample request ]
 
-```
+```bash
 aws codebuild start-sandbox --project-name "project-name"
 ```
 
@@ -200,14 +199,14 @@ aws codebuild start-sandbox --project-name "project-name"
 ------
 #### [ CLI command ]
 
-```
+```bash
 aws codebuild batch-get-sandboxes --ids $SANDBOX_IDs
 ```
 
 ------
 #### [ Sample request ]
 
-```
+```bash
 aws codebuild stop-sandbox --id "arn:aws:codebuild:us-west-2:962803963624:sandbox/project-name"
 ```
 + `--ids` : Comma separated list of `sandboxIds` or `sandboxArns`.
@@ -361,7 +360,7 @@ You can either provide a sandbox ID or a sandbox ARN:
 ------
 #### [ CLI command ]
 
-```
+```bash
 aws codebuild stop-sandbox --id $SANDBOX-ID
 ```
 + `--id` : A `sandboxId` or `sandboxArn`.
@@ -369,7 +368,7 @@ aws codebuild stop-sandbox --id $SANDBOX-ID
 ------
 #### [ Sample request ]
 
-```
+```bash
 aws codebuild stop-sandbox --id "arn:aws:codebuild:us-west-2:962803963624:sandbox/project-name"
 ```
 
@@ -498,7 +497,7 @@ aws codebuild stop-sandbox --id "arn:aws:codebuild:us-west-2:962803963624:sandbo
 ------
 #### [ CLI command ]
 
-```
+```bash
 aws codebuild start-command-execution --command $COMMAND --type $TYPE --sandbox-id $SANDBOX-ID
 ```
 + `--command` : The command that needs to be executed.
@@ -508,7 +507,7 @@ aws codebuild start-command-execution --command $COMMAND --type $TYPE --sandbox-
 ------
 #### [ Sample request ]
 
-```
+```bash
 aws codebuild start-command-execution --command "echo "Hello World"" --type SHELL --sandbox-id "arn:aws:codebuild:us-west-2:962803963624:sandbox/project-name
 ```
 
@@ -552,7 +551,7 @@ aws codebuild start-command-execution --command "echo "Hello World"" --type SHEL
 ------
 #### [ CLI command ]
 
-```
+```bash
 aws codebuild batch-get-command-executions --command-execution-ids $COMMAND-IDs --sandbox-id $SANDBOX-IDs
 ```
 + `--command-execution-ids` : Comma separated list of `commandExecutionIds`.
@@ -561,7 +560,7 @@ aws codebuild batch-get-command-executions --command-execution-ids $COMMAND-IDs 
 ------
 #### [ Sample request ]
 
-```
+```bash
 aws codebuild batch-get-command-executions --command-execution-ids"c3c085ed-5a8f-4531-8e95-87d547f27ffd" --sandbox-id "arn:aws:codebuild:us-west-2:962803963624:sandbox/project-name"
 ```
 
@@ -612,7 +611,7 @@ aws codebuild batch-get-command-executions --command-execution-ids"c3c085ed-5a8f
 ------
 #### [ CLI command ]
 
-```
+```bash
 aws codebuild list-command-executions-for-sandbox --sandbox-id $SANDBOX-ID --next-token $NEXT_TOKEN --max-results $MAX_RESULTS --sort-order $SORT_ORDER
 ```
 + `--next-token` : The next token, if any, to get paginated results. You will get this value from previous execution of list sandboxes.
@@ -622,7 +621,7 @@ aws codebuild list-command-executions-for-sandbox --sandbox-id $SANDBOX-ID --nex
 ------
 #### [ Sample request ]
 
-```
+```bash
 aws codebuild list-command-executions-for-sandbox --sandbox-id "arn:aws:codebuild:us-west-2:962803963624:sandbox/project-name"
 ```
 
@@ -703,14 +702,14 @@ aws codebuild list-command-executions-for-sandbox --sandbox-id "arn:aws:codebuil
 ------
 #### [ CLI command ]
 
-```
+```bash
 aws codebuild list-sandboxes --next-token $NEXT_TOKEN --max-results $MAX_RESULTS --sort-order $SORT_ORDER
 ```
 
 ------
 #### [ Sample request ]
 
-```
+```bash
 aws codebuild list-sandboxes
 ```
 

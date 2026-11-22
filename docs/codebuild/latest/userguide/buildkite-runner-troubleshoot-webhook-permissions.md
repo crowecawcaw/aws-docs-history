@@ -1,7 +1,6 @@
 
 
 # Troubleshoot the webhook permission issues
-<a name="buildkite-runner-troubleshoot-webhook-permissions"></a>
 
  **Issue: ** 
 

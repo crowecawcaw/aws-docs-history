@@ -1,7 +1,6 @@
 
 
 # Test report permissions
-<a name="test-permissions"></a>
 
  This topic describes important information about permissions related to test reporting. 
 

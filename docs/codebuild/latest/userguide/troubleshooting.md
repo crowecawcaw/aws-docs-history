@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS CodeBuild
-<a name="troubleshooting"></a>
 
 Use the information in this topic to help you identify, diagnose, and address issues. To learn how to log and monitor CodeBuild builds to troubleshoot issues, see [Logging and monitoring](logging-monitoring.md).
 
@@ -59,7 +58,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 
 For build environments based on Ubuntu:
 
-```
+```yaml
 pre_build:
   commands:
     - export LC_ALL="en_US.UTF-8"
@@ -69,7 +68,7 @@ pre_build:
 
 For build environments based on Amazon Linux:
 
-```
+```yaml
 pre_build:
   commands:
     - export LC_ALL="en_US.utf8"
@@ -90,7 +89,7 @@ pre_build:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -111,7 +110,7 @@ pre_build:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -247,7 +246,7 @@ To run your build in privileged mode, follow these steps:
 
 You'll also need to start the Docker daemon inside your container. The `install` phase of your buildspec might look similar to this.
 
-```
+```yaml
 phases:
   install:
     commands:
@@ -330,7 +329,7 @@ We recommend that you use **Insecure SSL** for testing only. It should not be us
 
 **Recommended solution:** If you use the `aws/codebuild/standard:2.0` CodeBuild managed image, you must specify a runtime version in the `runtime-versions` section of the buildspec file. For example, you might use the following buildspec file for a project that uses PHP:
 
-```
+```yaml
 version: 0.2
 
 phases:
@@ -410,7 +409,7 @@ artifacts:
   + Node.js: 2.4.7
 + If you need to run a Docker container in a build environment and the container requires AWS credentials, you must pass through the credentials from the build environment to the container. In your buildspec file, include a Docker `run` command such as the following. This example uses the `aws s3 ls` command to list your available S3 buckets. The `-e` option passes through the environment variables required for your container to access AWS credentials.
 
-  ```
+  ```bash
   docker run -e AWS_DEFAULT_REGION -e AWS_CONTAINER_CREDENTIALS_RELATIVE_URI {{your-image-tag}} aws s3 ls
   ```
 + If you are building a Docker image and the build requires AWS credentials (for example, to download a file from Amazon S3), you must pass through the credentials from the build environment to the Docker build process as follows.
@@ -424,7 +423,7 @@ artifacts:
 
   1. In your buildspec file, include a Docker `build` command such as the following. The `--build-arg` options sets the environment variables required for your Docker build process to access the AWS credentials.
 
-     ```
+     ```bash
      docker build --build-arg AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION --build-arg AWS_CONTAINER_CREDENTIALS_RELATIVE_URI=$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI -t {{your-image-tag}} .
      ```
 
@@ -451,7 +450,7 @@ artifacts:
   1.  Confirm **Enable Private DNS Name** in your Amazon VPC is selected. For more information, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) in the *Amazon VPC User Guide*. 
 +  If you do not use `ssl-bump` for an explicit proxy server, add a proxy configuration to your buildspec file using a `proxy` element. For more information, see [Run CodeBuild in an explicit proxy server](run-codebuild-in-explicit-proxy-server.md) and [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax). 
 
-  ```
+  ```yaml
   version: 0.2
   proxy:
     upload-artifacts: yes
@@ -506,7 +505,7 @@ artifacts:
 
 **Recommended solutions:** In all cases, use the following command to obtain the Git metadata directory. This command will work no matter the format of `.git`:
 
-```
+```shell
 git rev-parse --git-dir
 ```
 

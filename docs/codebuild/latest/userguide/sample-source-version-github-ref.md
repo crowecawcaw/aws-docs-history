@@ -1,7 +1,6 @@
 
 
 # Specify a GitHub repository version with a reference and commit ID
-<a name="sample-source-version-github-ref"></a>
 
 You can specify a source version with a reference and a commit ID in this format: `{{refs}}/{{heads}}/{{branchname}}^{{{full-commit-SHA}}}` (for example, `refs/heads/main^{12345678901234567890123467890123456789}`). If you do this, CodeBuild downloads only the specified branch to find the version.
 

@@ -1,7 +1,6 @@
 
 
 # Cross-service samples for CodeBuild
-<a name="cross-service-samples"></a>
 
 You can use these cross-service samples to experiment with AWS CodeBuild:
 

@@ -1,7 +1,6 @@
 
 
 # Report groups
-<a name="test-report-group"></a>
 
 A *report group* contains test reports and specifies shared settings. You use the buildspec file to specify the test cases to run and the commands to run them when it builds. For each report group configured in a build project, a run of the build project creates a test report. Multiple runs of a build project configured with a report group create multiple test reports in that report group, each with results of the same test cases specified for that report group. 
 

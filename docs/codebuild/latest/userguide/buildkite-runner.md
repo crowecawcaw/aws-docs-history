@@ -1,7 +1,6 @@
 
 
 # Self-managed Buildkite runner in AWS CodeBuild
-<a name="buildkite-runner"></a>
 
 You can configure your project to set up self-hosted Buildkite runners in CodeBuild containers to process your Buildkite jobs. This can be done by setting up a webhook using your CodeBuild project, and updating your Buildkite pipeline YAML steps to use self-hosted runners hosted on CodeBuild machines.
 

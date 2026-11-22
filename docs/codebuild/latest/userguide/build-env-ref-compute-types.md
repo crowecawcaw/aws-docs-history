@@ -1,7 +1,6 @@
 
 
 # Build environment compute modes and types
-<a name="build-env-ref-compute-types"></a>
 
 In CodeBuild, you can specify the compute and runtime environment image that CodeBuild uses to run your builds. *Compute* refers to the computing engine (the CPU, memory, and operating system) that is managed and maintained by CodeBuild. A *runtime environment image* is a container image that runs on top of your chosen compute platform, and includes extra tools that your build might need, such as the AWS CLI.
 

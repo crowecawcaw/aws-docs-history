@@ -1,7 +1,6 @@
 
 
 # Set up components required to run CodeBuild in a proxy server
-<a name="use-proxy-server-transparent-components"></a>
 
  You need these components to run AWS CodeBuild in a transparent or explicit proxy server: 
 +  A VPC. 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS CodeBuild sandbox SSH connection issues
-<a name="sandbox-troubleshooting"></a>
 
 Use the information in this topic to help you identify, diagnose, and address CodeBuild sandbox SSH connection issues.
 
@@ -18,14 +17,14 @@ Use the information in this topic to help you identify, diagnose, and address Co
 
 **Issue:** When attempting to connect to a CodeBuild sandbox environment using the command `ssh codebuild-sandbox-ssh={{<sandbox-arn>}}`, you may encounter an `InvalidInputException` error such as:
 
-```
+```bash
 An error occurred (InvalidInputException) when calling the StartSandboxConnection 
 operation: Failed to start SSM session for {sandbox-arn}
 User: arn:aws:sts::{{<account-ID>}}:assumed-role/{{<service-role-name>}}/AWSCodeBuild-{{<UUID>}} 
 is not authorized to perform: ssm:StartSession on resource.
 ```
 
-```
+```bash
 An error occurred (InvalidInputException) when calling the StartSandboxConnection 
 operation: Failed to start SSM session for 
 sandbox {{<sandbox-arn>}}: codebuild:{{<UUID>}} is not connected.
@@ -43,7 +42,7 @@ sandbox {{<sandbox-arn>}}: codebuild:{{<UUID>}} is not connected.
 
 1. Ensure your CodeBuild project's service role has the following permissions, then restart the sandbox environment:
 
-   ```
+   ```yaml
    {
       "Effect": "Allow",
          "Action": [
@@ -71,7 +70,7 @@ sandbox {{<sandbox-arn>}}: codebuild:{{<UUID>}} is not connected.
 
 **Issue:** When attempting to connect to a CodeBuild sandbox environment using the command `ssh codebuild-sandbox-ssh={{<sandbox-arn>}}`, you may encounter the following credentials error:
 
-```
+```bash
 Unable to locate credentials. You can configure credentials by running 
 "aws configure".
 ```
@@ -85,7 +84,7 @@ Unable to locate credentials. You can configure credentials by running
 
 **Issue:** When attempting to connect to a CodeBuild sandbox environment using the command `ssh codebuild-sandbox-ssh={{<sandbox-arn>}}`, you may encounter the following permission error:
 
-```
+```bash
 An error occurred (AccessDeniedException) when calling the StartSandboxConnection 
 operation: 
 User: arn:aws:sts::{{account-id}}:assumed-role/{{role-name}}
@@ -98,7 +97,7 @@ because no identity-based policy allows the codebuild:StartSandboxConnection act
 
 **Recommended solution:** Ensure that the IAM user or role associated with your AWS CLI credentials has the following permissions:
 
-```
+```yaml
 {
     "Effect": "Allow",
     "Action": [
@@ -115,7 +114,7 @@ because no identity-based policy allows the codebuild:StartSandboxConnection act
 
 **Issue:** When attempting to connect to a CodeBuild sandbox environment using the command `ssh codebuild-sandbox-ssh={{<sandbox-arn>}}`, you encounter the following hostname resolution error:
 
-```
+```bash
 ssh: Could not resolve hostname
 ```
 
@@ -134,7 +133,7 @@ ssh: Could not resolve hostname
 
 **Issue:** When attempting to connect to a CodeBuild sandbox environment using the command `ssh codebuild-sandbox-ssh={{<sandbox-arn>}}`, the command exits immediately, before any connection attempt, with the following error:
 
-```
+```bash
 percent_expand: unknown key %n
 ```
 
@@ -153,7 +152,7 @@ percent_expand: unknown key %n
 
 **Issue:** When attempting to connect to a CodeBuild sandbox environment using the command `ssh codebuild-sandbox-ssh={{<sandbox-arn>}}`, the command prints the following error and exits, where {{<limit>}} is 104 on macOS and 108 on Linux:
 
-```
+```bash
 ControlPath too long ('{{<path>}}' >= {{<limit>}} bytes)
 ```
 
@@ -171,7 +170,7 @@ If you cannot run the setup script again, edit `~/.ssh/config` manually.
 
 1. Add a `ControlPath` line to the existing `Host codebuild-sandbox-ssh*` entry, as shown in the following example.
 
-   ```
+   ```bash
    Host codebuild-sandbox-ssh*
        ControlPath ~/.ssh/codebuild-sandbox-%C
    ```
@@ -182,6 +181,6 @@ If you cannot run the setup script again, edit `~/.ssh/config` manually.
 
 To connect once without changing `~/.ssh/config`, pass the option on the command line:
 
-```
+```bash
 ssh -o ControlPath=~/.ssh/codebuild-sandbox-%C codebuild-sandbox-ssh={{<sandbox-arn>}}
 ```

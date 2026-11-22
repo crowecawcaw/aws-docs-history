@@ -1,7 +1,6 @@
 
 
 # Cache builds to improve performance
-<a name="build-caching"></a>
 
 You can save time when your project builds by using a cache. A cache can store reusable pieces of your build environment and use them across multiple builds. Your build project can use one of two types of caching: Amazon S3 or local. If you use a local cache, you must choose one or more of three cache modes: source cache, Docker layer cache, and custom cache. 
 

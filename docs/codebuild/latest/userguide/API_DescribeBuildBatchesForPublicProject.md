@@ -1,7 +1,6 @@
 
 
 # DescribeBuildBatchesForPublicProject
-<a name="API_DescribeBuildBatchesForPublicProject"></a>
 
 **Note**  
 This API element is not contained in the AWS CLI or AWS SDKs.

@@ -1,7 +1,6 @@
 
 
 # AWS SDKs and tools reference for AWS CodeBuild
-<a name="sdk-ref"></a>
 
 To use one of the AWS SDKs or tools to automate AWS CodeBuild, see the following resources.
 

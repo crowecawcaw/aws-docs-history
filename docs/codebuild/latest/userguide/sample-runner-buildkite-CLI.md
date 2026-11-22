@@ -1,7 +1,6 @@
 
 
 # Setting up a Buildkite runner programmatically
-<a name="sample-runner-buildkite-CLI"></a>
 
 To configure a Buildkite runner project programmatically, you need to configure the following resources:
 

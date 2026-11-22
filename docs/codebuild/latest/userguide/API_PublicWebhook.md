@@ -1,7 +1,6 @@
 
 
 # PublicWebhook
-<a name="API_PublicWebhook"></a>
 
 **Note**  
 This API element is not contained in the AWS CLI or AWS SDKs.

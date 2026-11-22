@@ -1,14 +1,13 @@
 
 
 # Filter Bitbucket webhook events (CloudFormation)
-<a name="bitbucket-webhook-events-cfn"></a>
 
  To use a CloudFormation template to filter webhook events, use the AWS CodeBuild project's `FilterGroups` property. The following YAML-formatted portion of a CloudFormation template creates two filter groups. Together, they trigger a build when one or both evaluate to true: 
 +  The first filter group specifies pull requests are created or updated on branches with Git reference names that match the regular expression `^refs/heads/main$` by a Bitbucket user who does not have account ID `12345`. 
 +  The second filter group specifies push requests are created on branches with Git reference names that match the regular expression `^refs/heads/.*`. 
 + The third filter group specifies a push request with a head commit message matching the regular expression `\[CodeBuild\]`.
 
-```
+```yaml
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:

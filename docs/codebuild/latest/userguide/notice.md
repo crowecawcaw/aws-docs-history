@@ -1,7 +1,6 @@
 
 
 # Third party notices for AWS CodeBuild for Windows
-<a name="notice"></a>
 
 When you use CodeBuild for Windows builds, you have the option to use some third party packages and modules to enable your built application to run on Microsoft Windows operating systems and to interoperate with some third party products. The following list contains the applicable third-party legal terms that govern your use of the specified third-party packages and modules.
 

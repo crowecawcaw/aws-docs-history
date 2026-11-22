@@ -1,7 +1,6 @@
 
 
 # Create a build project in AWS CodeBuild
-<a name="create-project"></a>
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to create a build project.
 
@@ -294,7 +293,7 @@ Specify a value, between 5 minutes and 36 hours, after which CodeBuild stops the
 (Optional) Select **Enable this flag if you want to build Docker images or want your builds to get elevated privileges** only if you plan to use this build project to build Docker images. Otherwise, all associated builds that attempt to interact with the Docker daemon fail. You must also start the Docker daemon so that your builds can interact with it. One way to do this is to initialize the Docker daemon in the `install` phase of your buildspec by running the following build commands. Do not run these commands if you chose a build environment image provided by CodeBuild with Docker support.  
 By default, Docker daemon is enabled for non-VPC builds. If you would like to use Docker containers for VPC builds, see [Runtime Privilege and Linux Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) on the Docker Docs website and enable privileged mode. Also, Windows does not support privileged mode.
 
-```
+```yaml
 - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
 - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
 ```  
@@ -460,7 +459,7 @@ To create a CodeBuild build project using the AWS CLI, you create a JSON-formatt
 
 Create a skeleton JSON file with the [`create-project`](https://docs.aws.amazon.com/cli/latest/reference/codebuild/create-project.html) command, using the `--generate-cli-skeleton` option:
 
-```
+```bash
 aws codebuild create-project --generate-cli-skeleton > {{<json-file>}}
 ```
 
@@ -471,7 +470,7 @@ This creates a JSON file with the path and file name specified by {{<json-file>}
 
 Modify the JSON data as follows and save your results.
 
-```
+```json
 {
   "name": "{{<project-name>}}",
   "description": "{{<description>}}",
@@ -721,7 +720,7 @@ For Bitbucket sources, this parameter is used for the `url` parameter in the Bit
 For example, you can set the `targetUrl` to `https://aws.amazon.com/codebuild/{{<path to build>}}` and the commit status will link to this URL.  
 You can also include CodeBuild environment variables in the `targetUrl` to add additional information to the URL. For example, to add the build region to the URL, set the `targetUrl` to:  
 
-```
+```yaml
 "targetUrl": "https://aws.amazon.com/codebuild/{{<path to build>}}?region=$AWS_REGION"
 ```
 If the build region is `us-east-2`, this will expand to:   
@@ -872,7 +871,7 @@ environment/**privilegedMode**  <a name="cli.environment.privilegedmode"></a>
 Set to `true` only if you plan to use this build project to build Docker images. Otherwise, all associated builds that attempt to interact with the Docker daemon fail. You must also start the Docker daemon so that your builds can interact with it. One way to do this is to initialize the Docker daemon in the `install` phase of your buildspec file by running the following build commands. Do not run these commands if you specified a build environment image provided by CodeBuild with Docker support.  
 By default, Docker daemon is enabled for non-VPC builds. If you would like to use Docker containers for VPC builds, see [Runtime Privilege and Linux Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) on the Docker Docs website and enable privileged mode. Also, Windows does not support privileged mode.
 
-```
+```yaml
 - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
 - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
 ```
@@ -917,21 +916,21 @@ These properties include:
 vpcId  
 Required. The VPC ID that CodeBuild uses. Run this command to get a list of all VPC IDs in your Region:  
 
-```
+```bash
 aws ec2 describe-vpcs --region {{<region-ID>}}
 ```
 
 subnets  
 Required. An array of subnet IDs that include resources used by CodeBuild. Run this command to get these IDs:  
 
-```
+```bash
 aws ec2 describe-subnets --filters "Name=vpc-id,Values=<vpc-id>" --region {{<region-ID>}}
 ```
 
 securityGroupIds  
 Required. An array of security group IDs used by CodeBuild to allow access to resources in the VPC. Run this command to get these IDs:  
 
-```
+```bash
 aws ec2 describe-security-groups --filters "Name=vpc-id,Values={{<vpc-id>}}" --{{<region-ID>}}
 ```
 
@@ -998,7 +997,7 @@ New builds are only started if the current number of builds is less than or equa
 
 To create the project, run the **[`create-project`](https://docs.aws.amazon.com/cli/latest/reference/codebuild/create-project.html)** command again, passing your JSON file:
 
-```
+```bash
 aws codebuild create-project --cli-input-json file://{{<json-file>}}
 ```
 

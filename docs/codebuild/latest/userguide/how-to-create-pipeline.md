@@ -1,7 +1,6 @@
 
 
 # Use AWS CodeBuild with AWS CodePipeline to test code and run builds
-<a name="how-to-create-pipeline"></a>
 
 You can automate your release process by using AWS CodePipeline to test your code and run your builds with AWS CodeBuild.
 
@@ -34,13 +33,13 @@ The IAM entity that attaches the policy to the user (or to the IAM group to whic
 
    For Linux, macOS, or Unix:
 
-   ```
+   ```shell
    aws iam create-role --role-name AWS-CodePipeline-CodeBuild-Service-Role --assume-role-policy-document '{"Version": "2012-10-17",		 	 	 "Statement":{"Effect":"Allow","Principal":{"Service":"codepipeline.amazonaws.com"},"Action":"sts:AssumeRole"}}'
    ```
 
    For Windows:
 
-   ```
+   ```shell
    aws iam create-role --role-name AWS-CodePipeline-CodeBuild-Service-Role --assume-role-policy-document "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"codepipeline.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}}"
    ```
 **Note**  

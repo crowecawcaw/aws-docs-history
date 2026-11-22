@@ -1,7 +1,6 @@
 
 
 # View tags for a report group
-<a name="how-to-tag-report-group-list"></a>
 
 Tags can help you identify and organize your AWS resources and manage access to them. For more information about using tags, see the [Tagging best practices](https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) whitepaper. For examples of tag-based access policies, see [Deny or allow actions on report groups based on resource tags](auth-and-access-control-using-tags.md#report-group-tag-policy-example).
 
@@ -34,7 +33,7 @@ Follow these steps to use the AWS CLI to view the AWS tags for a report group. I
 
     This command returns JSON-formatted information similar to the following: 
 
-   ```
+   ```json
    {
        "reportGroups": [
            "arn:aws:codebuild:{{region}}:{{123456789012}}:report-group/{{report-group-1}}",
@@ -65,7 +64,7 @@ Follow these steps to use the AWS CLI to view the AWS tags for a report group. I
 
     If successful, this command returns JSON-formatted information that contains a `tags` section similar to the following: 
 
-   ```
+   ```json
    {
        ...                        
        "tags": {

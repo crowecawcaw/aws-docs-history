@@ -1,7 +1,6 @@
 
 
 # Multiple input sources and output artifacts sample
-<a name="sample-multi-in-out"></a>
 
 You can create an AWS CodeBuild build project with more than one input source and more than one set of output artifacts. This sample shows you how to set up a build project that: 
 + Uses multiple sources and repositories of varying types.

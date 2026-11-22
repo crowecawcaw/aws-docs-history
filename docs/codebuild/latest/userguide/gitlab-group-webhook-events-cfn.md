@@ -1,7 +1,6 @@
 
 
 # Filter GitLab group webhook events (CloudFormation)
-<a name="gitlab-group-webhook-events-cfn"></a>
 
  To use a CloudFormation template to filter group webhook events, use the AWS CodeBuild project's `ScopeConfiguration` property. For more information about group GitLab webhooks, see [GitLab group webhooks](gitlab-group-webhook.md).
 
@@ -11,7 +10,7 @@
 + The third filter group specifies a push request with a head commit message matching the regular expression `\[CodeBuild\]`.
 + The fourth filter group specifies a GitLab CI/CD pipeline job request with a CI/CD pipeline name matching the regular expression `\[CI-CodeBuild\]`.
 
-```
+```yaml
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:

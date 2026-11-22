@@ -1,7 +1,6 @@
 
 
 # GitLab access in CodeBuild
-<a name="access-tokens-gitlab-overview"></a>
 
 For GitLab, you use a GitLab connection to access the source provider.
 

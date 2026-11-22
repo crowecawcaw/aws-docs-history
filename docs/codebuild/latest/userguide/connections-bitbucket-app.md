@@ -1,7 +1,6 @@
 
 
 # Bitbucket App connections
-<a name="connections-bitbucket-app"></a>
 
 You can use Bitbucket to connect with CodeBuild. Bitbucket App connections are supported through [AWS CodeConnections](https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html).
 
@@ -41,7 +40,7 @@ You can grant CodeBuild project IAM role access to use the Bitbucket tokens vend
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -115,7 +114,7 @@ If you store Bitbucket OAuth credentials in Secrets Manager, add the `secretsman
 
 The following example IAM policy statement grants the required permission:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "secretsmanager:PutSecretValue",

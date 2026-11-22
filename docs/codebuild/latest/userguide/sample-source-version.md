@@ -1,7 +1,6 @@
 
 
 # Source version sample with AWS CodeBuild
-<a name="sample-source-version"></a>
 
  This sample demonstrates how to specify a version of your source using a format other than a commit ID (also known as a commit SHA). You can specify the version of your source in the following ways: 
 +  For an Amazon S3 source provider, use the version ID of the object that represents the build input ZIP file. 

@@ -1,7 +1,6 @@
 
 
 # About the CodeBuild-hosted Buildkite runner
-<a name="buildkite-runner-about"></a>
 
 The following are some common questions about the CodeBuild-hosted Buildkite runner.
 

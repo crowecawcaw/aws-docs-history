@@ -1,7 +1,6 @@
 
 
 # Add a CodeBuild build action to a pipeline (CodePipeline console)
-<a name="how-to-create-pipeline-add"></a>
 
 1. Sign in to the AWS Management Console by using:
    + Your AWS root account. This is not recommended. For more information, see [The account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in the *user Guide*.

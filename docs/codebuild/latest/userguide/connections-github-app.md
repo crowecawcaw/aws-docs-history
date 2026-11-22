@@ -1,7 +1,6 @@
 
 
 # GitHub App connections for GitHub and GitHub Enterprise Server
-<a name="connections-github-app"></a>
 
 You can use GitHub App to connect with CodeBuild. GitHub App connections are supported through [AWS CodeConnections](https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html).
 
@@ -43,7 +42,7 @@ You can grant CodeBuild project IAM role access to use the GitHub tokens vended 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

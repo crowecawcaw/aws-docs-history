@@ -1,7 +1,6 @@
 
 
 # GitLab webhook events
-<a name="gitlab-webhook"></a>
 
 You can use webhook filter groups to specify which GitLab webhook events trigger a build. For example, you can specify that a build is only triggered for changes to specific branches. 
 

@@ -1,11 +1,10 @@
 
 
 # Configure parallel tests with Go
-<a name="sample-parallel-test-go"></a>
 
 The following is sample of a `buildspec.yml` that shows parallel test execution with Go on a Linux platform:
 
-```
+```json
 version: 0.2
 
 batch:

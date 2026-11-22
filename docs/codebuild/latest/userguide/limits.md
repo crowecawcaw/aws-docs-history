@@ -1,7 +1,6 @@
 
 
 # Quotas for AWS CodeBuild
-<a name="limits"></a>
 
 The following tables list the current quotas in AWS CodeBuild. These quotas are for each supported AWS Region for each AWS account, unless otherwise specified. 
 

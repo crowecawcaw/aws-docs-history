@@ -1,7 +1,6 @@
 
 
 # View CodeBuild metrics
-<a name="monitoring-metrics"></a>
 
  AWS CodeBuild monitors functions on your behalf and reports metrics through Amazon CloudWatch. These metrics include the number of total builds, failed builds, successful builds, and the duration of builds. 
 

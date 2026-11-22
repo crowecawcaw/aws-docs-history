@@ -1,7 +1,6 @@
 
 
 # Data encryption
-<a name="security-encryption"></a>
 
 Encryption is an important part of CodeBuild security. Some encryption, such as for data in-transit, is provided by default and does not require you to do anything. Other encryption, such as for data at-rest, you can configure when you create your project or build. 
 + **Encryption of data at-rest** - Build artifacts, such as a cache, logs, exported raw test report data files, and build results, are encrypted by default using AWS managed keys. If you do not want to use these KMS keys, you must create and configure a customer managed key. For more information [Creating KMS Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) and [AWS Key Management Service concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service User Guide*. 

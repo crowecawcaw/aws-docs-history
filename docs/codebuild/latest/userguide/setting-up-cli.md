@@ -1,7 +1,6 @@
 
 
 # Interact with CodeBuild using the AWS CLI
-<a name="setting-up-cli"></a>
 
 If you follow the steps in [Getting started using the console](getting-started-overview.md#getting-started) to access AWS CodeBuild for the first time, you most likely do not need the information in this topic. However, as you continue using CodeBuild, you might want to do things such as allow users to use the AWS CLI to interact with CodeBuild instead of (or in addition to) the CodeBuild console, the CodePipeline console, or the AWS SDKs.
 
@@ -11,13 +10,13 @@ After installing the AWS CLI, complete the following tasks:
 
 1. Run the following command to confirm whether your installation of the AWS CLI supports CodeBuild:
 
-   ```
+   ```shell
    aws codebuild list-builds
    ```
 
    If successful, information similar to the following will appear in the output:
 
-   ```
+   ```json
    {
      "ids": []
    }

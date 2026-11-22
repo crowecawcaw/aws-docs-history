@@ -1,7 +1,6 @@
 
 
 # PublicBuildGroup
-<a name="API_PublicBuildGroup"></a>
 
 **Note**  
 This API element is not contained in the AWS CLI or AWS SDKs.

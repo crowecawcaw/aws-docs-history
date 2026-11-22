@@ -1,7 +1,6 @@
 
 
 # Advanced topics
-<a name="advanced-topics"></a>
 
 This section includes several advanced topics that are useful to more experienced AWS CodeBuild users.
 

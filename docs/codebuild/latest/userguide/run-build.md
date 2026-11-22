@@ -1,7 +1,6 @@
 
 
 # Run AWS CodeBuild builds manually
-<a name="run-build"></a>
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to run a build in CodeBuild.
 

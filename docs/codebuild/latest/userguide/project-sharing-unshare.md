@@ -1,7 +1,6 @@
 
 
 # Unshare a shared project
-<a name="project-sharing-unshare"></a>
 
 An unshared project, including its builds, can be accessed only by its owner. If you unshare a project, any AWS account or user you previously shared it with cannot access the project or its builds.
 

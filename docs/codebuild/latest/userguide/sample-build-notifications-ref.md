@@ -1,13 +1,12 @@
 
 
 # Build notifications input format reference
-<a name="sample-build-notifications-ref"></a>
 
 CloudWatch delivers notifications in JSON format.
 
 Build state change notifications use the following format:
 
-```
+```json
 {
   "version": "0",
   "id": "c030038d-8c4d-6141-9545-00ff7b7153EX",
@@ -137,7 +136,7 @@ Build state change notifications use the following format:
 
 Build phase change notifications use the following format:
 
-```
+```json
 {
   "version": "0",
   "id": "43ddc2bd-af76-9ca5-2dc7-b695e15adeEX",

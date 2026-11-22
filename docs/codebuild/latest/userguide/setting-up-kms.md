@@ -1,7 +1,6 @@
 
 
 # Encrypt build outputs using a customer managed key
-<a name="setting-up-kms"></a>
 
 If you follow the steps in [Getting started using the console](getting-started-overview.md#getting-started) to access AWS CodeBuild for the first time, you most likely do not need the information in this topic. However, as you continue using CodeBuild, you might want to do things such as encrypt build artifacts.
 
@@ -18,7 +17,7 @@ To configure a customer managed key for use by CodeBuild, follow the instruction
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

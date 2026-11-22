@@ -1,7 +1,6 @@
 
 
 # Remove a tag from a project
-<a name="how-to-tag-project-delete"></a>
 
 You can remove one or more tags associated with a project. Removing a tag does not delete the tag from other AWS resources that are associated with that tag.
 
@@ -30,7 +29,7 @@ You can use the CodeBuild console to remove the association between a tag and a 
 
  To delete one or more tags from a build project, see [Change a build project's settings (AWS CLI)](change-project.md#change-project-cli). Update the `tags` section in the JSON-formatted data with an updated list of tags that does not contain the ones you want to delete. If you want to delete all tags, update the `tags` section to:
 
-```
+```json
 "tags: []"
 ```
 

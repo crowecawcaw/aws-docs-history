@@ -1,11 +1,10 @@
 
 
 # Configure parallel tests with Django
-<a name="sample-parallel-test-django"></a>
 
 The following is sample of a `buildspec.yml` that shows parallel test execution with Django on an Ubuntu platform:
 
-```
+```json
 version: 0.2
 
 batch:

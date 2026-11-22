@@ -1,7 +1,6 @@
 
 
 # AWS Config sample with CodeBuild
-<a name="how-to-integrate-config"></a>
 
 AWS Config provides an inventory of your AWS resources and a history of configuration changes to these resources. AWS Config now supports AWS CodeBuild as an AWS resource, which means the service can track your CodeBuild projects. For more information about AWS Config, see [What is AWS Config?](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) in the *AWS Config Developer Guide*.
 

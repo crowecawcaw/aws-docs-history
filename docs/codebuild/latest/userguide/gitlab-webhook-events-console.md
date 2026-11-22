@@ -1,7 +1,6 @@
 
 
 # Filter GitLab webhook events (console)
-<a name="gitlab-webhook-events-console"></a>
 
 Use the following instructions to use the AWS Management Console to filter webhook events. For more information about GitLab webhook events, see [GitLab webhook events](gitlab-webhook.md).
 

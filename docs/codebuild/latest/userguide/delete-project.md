@@ -1,7 +1,6 @@
 
 
 # Delete build projects in AWS CodeBuild
-<a name="delete-project"></a>
 
 You can use the CodeBuild console, AWS CLI, or AWS SDKs to delete a build project in CodeBuild. If you delete a project, its builds are not deleted.
 

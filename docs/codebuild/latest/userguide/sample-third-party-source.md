@@ -1,7 +1,6 @@
 
 
 # Third-party source repository samples for CodeBuild
-<a name="sample-third-party-source"></a>
 
 This section describes sample integrations between third-party source repositories and CodeBuild.
 

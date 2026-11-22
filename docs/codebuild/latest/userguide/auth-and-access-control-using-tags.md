@@ -1,7 +1,6 @@
 
 
 # Using tags to control access to AWS CodeBuild resources
-<a name="auth-and-access-control-using-tags"></a>
 
 Conditions in IAM policy statements are part of the syntax that you can use to specify permissions to CodeBuild project-based actions. You can create a policy that allows or denies actions on projects based on the tags associated with those projects, and then apply those policies to the IAM groups you configure for managing users. For information about applying tags to a project using the console or AWS CLI, see [Create a build project in AWS CodeBuild](create-project.md). For information about applying tags using the CodeBuild SDK, see [CreateProject ](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_CreateProject.html#API_CreateProject_RequestSyntax) and [Tags](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_Tag.html) in the *CodeBuild API Reference*. For information about using tags to control access to AWS resources, see [Controlling Access to AWS Resources Using Resource Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the *IAM User Guide*.
 
@@ -12,7 +11,7 @@ When using the reserved capacity feature, data cached on fleet instances, includ
  The following example denies all `BatchGetProjects` actions on projects tagged with the key `Environment` with the key value of `Production`. A user's administrator must attach this IAM policy in addition to the managed user policy to unauthorized users. The `aws:ResourceTag` condition key is used to control access to resources based on their tags.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -36,7 +35,7 @@ When using the reserved capacity feature, data cached on fleet instances, includ
 The following policy denies users permission to the `CreateProject` action if the request contains a tag with the key `Environment` and the key value `Production`. In addition, the policy prevents these unauthorized users from modifying projects by using the `aws:TagKeys` condition key to not allow `UpdateProject` if the request contains a tag with the key `Environment`. An administrator must attach this IAM policy in addition to the managed user policy to users who are not authorized to perform these actions. The `aws:RequestTag` condition key is used to control which tags can be passed in an IAM request    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -73,7 +72,7 @@ You can create a policy that allows or denies actions on CodeBuild resources (pr
 The following example denies all CodeBuild actions on report groups tagged with the key `Status` and the key value of `Secret`:    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -102,7 +101,7 @@ The following example denies all CodeBuild actions on report groups tagged with 
 You can create policies that allow CodeBuild actions on all report groups and projects that are not tagged with specific tags. For example, the following policy allows the equivalent of [AWSCodeBuildDeveloperAccess](auth-and-access-control-iam-identity-based-access-control.md#developer-access-policy) permissions for all report groups and projects except those tagged with the specified tags:    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

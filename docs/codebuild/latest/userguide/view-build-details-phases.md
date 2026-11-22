@@ -1,7 +1,6 @@
 
 
 # Build phase transitions
-<a name="view-build-details-phases"></a>
 
 Builds in AWS CodeBuild proceed in phases:
 

@@ -1,7 +1,6 @@
 
 
 # PublicProjectArtifacts
-<a name="API_PublicProjectArtifacts"></a>
 
 **Note**  
 This API element is not contained in the AWS CLI or AWS SDKs.

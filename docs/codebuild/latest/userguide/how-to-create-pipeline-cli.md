@@ -1,7 +1,6 @@
 
 
 # Create a pipeline that uses CodeBuild (AWS CLI)
-<a name="how-to-create-pipeline-cli"></a>
 
 Use the following procedure to create a pipeline that uses CodeBuild to build your source code.
 
@@ -15,7 +14,7 @@ The build project must define build output artifact settings (even though CodePi
 
 1. Create a JSON-formatted file that represents the structure of the pipeline. Name the file `create-pipeline.json` or similar. For example, this JSON-formatted structure creates a pipeline with a source action that references an S3 input bucket and a build action that uses CodeBuild:
 
-   ```
+   ```json
    {
      "pipeline": {
        "roleArn": "arn:aws:iam::{{<account-id>}}:role/{{<AWS-CodePipeline-service-role-name>}}",
@@ -95,7 +94,7 @@ The build project must define build output artifact settings (even though CodePi
 
 1. Switch to the folder that contains the JSON file, and then run the CodePipeline **[create-pipeline](https://docs.aws.amazon.com/cli/latest/reference/codepipeline/create-pipeline.html)** command, specifying the file name:
 
-   ```
+   ```shell
    aws codepipeline create-pipeline --cli-input-json file://create-pipeline.json
    ```
 **Note**  
@@ -105,13 +104,13 @@ You must create the pipeline in an AWS Region where CodeBuild is supported. For 
 
 1. To get information about the pipeline's status, run the CodePipeline **[get-pipeline-state](https://docs.aws.amazon.com/cli/latest/reference/codepipeline/get-pipeline-state.html)** command, specifying the name of the pipeline:
 
-   ```
+   ```shell
    aws codepipeline get-pipeline-state --name {{<my-pipeline-name>}}
    ```
 
    In the output, look for information that confirms the build was successful. Ellipses (`...`) are used to show data that has been omitted for brevity.
 
-   ```
+   ```json
    {
      ...
      "stageStates": [
@@ -140,7 +139,7 @@ You can also get the build output artifact by choosing the **Build artifacts** l
 
 1. In the list of buckets, open the bucket used by the pipeline. The name of the bucket should follow the format `codepipeline-{{<region-ID>}}-{{<random-number>}}`. You can get the bucket name from the `create-pipeline.json` file or you can run the CodePipeline **get-pipeline** command to get the bucket's name.
 
-   ```
+   ```shell
    aws codepipeline get-pipeline --name {{<pipeline-name>}}
    ```
 

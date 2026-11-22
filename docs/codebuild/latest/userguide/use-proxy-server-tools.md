@@ -1,7 +1,6 @@
 
 
 # Run a package manager and other tools in a proxy server
-<a name="use-proxy-server-tools"></a>
 
 Use the following procedures to run a package manager and other tools in a proxy server.
 

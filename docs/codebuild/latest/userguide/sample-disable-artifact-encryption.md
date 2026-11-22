@@ -1,7 +1,6 @@
 
 
 # Create a static website with build output hosted in an S3 bucket
-<a name="sample-disable-artifact-encryption"></a>
 
 You can disable the encryption of artifacts in a build. You might want to do this so that you can publish artifacts to a location that is configured to host a website. (You cannot publish encrypted artifacts.) This sample shows how you can use webhooks to trigger a build and publish its artifacts to an S3 bucket that is configured to be a website. 
 

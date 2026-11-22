@@ -1,7 +1,6 @@
 
 
 # View build details in AWS CodeBuild
-<a name="view-build-details"></a>
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view details about builds managed by CodeBuild.
 

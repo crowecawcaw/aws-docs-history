@@ -1,11 +1,10 @@
 
 
 # Label overrides supported with the CodeBuild-hosted GitLab runner
-<a name="gitlab-runners-update-labels"></a>
 
 In your GitLab CI/CD pipeline YAML, you can provide a variety of label overrides that modify your self-managed runner build. Any builds not recognized by CodeBuild will be ignored but will not fail your webhook request. For example, the following YAML includes overrides for image, instance size, fleet, and the buildspec:
 
-```
+```yaml
 workflow:
   name: HelloWorld
 stages:

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Apple code signing with Fastlane in CodeBuild using S3 for certificate storage
-<a name="sample-fastlane"></a>
 
 [fastlane](https://docs.fastlane.tools/) is a popular open source automation tool to automate beta deployments and releases for your iOS and Android apps. It handles all tedious tasks, like generating screenshots, dealing with code signing, and releasing your application.
 
@@ -179,7 +178,7 @@ Once the project is created, ensure your CodeBuild project's service role has pe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

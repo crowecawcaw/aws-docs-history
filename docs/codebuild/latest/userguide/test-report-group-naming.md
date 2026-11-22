@@ -1,7 +1,6 @@
 
 
 # Report group naming
-<a name="test-report-group-naming"></a>
 
  When you use the AWS CLI or the AWS CodeBuild console to create a report group, you specify a name for the report group. If you use the buildspec to create a new report group, it is named using the format `{{project-name}}-{{report-group-name-specified-in-buildspec}}`. All reports created by running builds of that build project belong to the new report group that has the new name. 
 

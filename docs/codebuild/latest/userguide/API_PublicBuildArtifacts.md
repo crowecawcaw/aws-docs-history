@@ -1,7 +1,6 @@
 
 
 # PublicBuildArtifacts
-<a name="API_PublicBuildArtifacts"></a>
 
 **Note**  
 This API element is not contained in the AWS CLI or AWS SDKs.

@@ -1,7 +1,6 @@
 
 
 # Access AWS CodeBuild build badges
-<a name="access-badges"></a>
 
 You can use AWS CodeBuild console or the AWS CLI to access build badges.
 + In the CodeBuild console, in the list of build projects, in the **Name** column, choose the link that corresponds to the build project. On the **Build project: {{project-name}}** page, in **Configuration**, choose **Copy badge URL**. For more information, see [View a build project's details (console)](view-project-details.md#view-project-details-console).

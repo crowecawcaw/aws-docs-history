@@ -1,7 +1,6 @@
 
 
 # Debug builds in AWS CodeBuild
-<a name="debug-builds"></a>
 
 AWS CodeBuild provides two methods for debugging builds during development and troubleshooting. You can use the CodeBuild Sandbox environment to investigate issues and validate fixes in real-time, or you can use AWS Systems Manager Session Manager to connect to the build container and view the container state.
 

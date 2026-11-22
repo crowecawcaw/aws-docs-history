@@ -1,7 +1,6 @@
 
 
 # Build environment reference for AWS CodeBuild
-<a name="build-env-ref"></a>
 
 When you call AWS CodeBuild to run a build, you must provide information about the build environment. A *build environment* represents a combination of operating system, programming language runtime, and tools that CodeBuild uses to run a build. For information about how a build environment works, see [How CodeBuild works](concepts.md#concepts-how-it-works).
 

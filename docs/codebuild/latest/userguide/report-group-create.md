@@ -1,7 +1,6 @@
 
 
 # Create a report group
-<a name="report-group-create"></a>
 
  You can use the CodeBuild console, the AWS CLI, or a buildspec file to create a report group. Your IAM role must have the permissions required to create a report group. For more information, see [Test report permissions](test-permissions.md). 
 
@@ -109,7 +108,7 @@ Use the following procedure to create a report group using the AWS CLI.
 1. Depending on your requirements, copy one of the following JSON code snippets into `CreateReportGroup.json`: 
    + Use the following JSON to specify that your test report group exports raw test result files to an Amazon S3 bucket. 
 
-     ```
+     ```json
      {
        "name": "{{<report-name>}}",
        "type": "TEST",
@@ -138,7 +137,7 @@ Use the following procedure to create a report group using the AWS CLI.
      + Use `encryptionDisabled` to specify whether to encrypt the exported files. If you encrypt the exported files, enter your customer managed key. For more information, see [Update a report group](report-group-export-settings.md).
    + Use the following JSON to specify that your test report does not export raw test files: 
 
-     ```
+     ```json
      {
        "name": "{{<report-name>}}",
        "type": "TEST",
@@ -152,7 +151,7 @@ The CodeBuild service role specified in the project is used for permissions to u
 
 1. Run the following command: 
 
-   ```
+   ```shell
    aws codebuild create-report-group --cli-input-json file://CreateReportGroupInput.json
    ```
 
@@ -167,7 +166,7 @@ Use the following instructions to create a report group using the CloudFormation
 
  The following CloudFormation YAML template creates a report group that does not export raw test result files. 
 
-```
+```yaml
 Resources:
   CodeBuildReportGroup:
     Type: AWS::CodeBuild::ReportGroup
@@ -180,7 +179,7 @@ Resources:
 
  The following CloudFormation YAML template creates a report group that exports raw test result files to an Amazon S3 bucket. 
 
-```
+```yaml
 Resources:
   CodeBuildReportGroup:
     Type: AWS::CodeBuild::ReportGroup

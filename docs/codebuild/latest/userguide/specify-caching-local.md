@@ -1,7 +1,6 @@
 
 
 # Specify a local cache
-<a name="specify-caching-local"></a>
 
 You can use the AWS CLI, console, SDK, or CloudFormation to specify a local cache. For more information about local caching, see [Local caching](caching-local.md).
 
@@ -16,17 +15,17 @@ You can use the AWS CLI, console, SDK, or CloudFormation to specify a local cach
 You can use the `--cache` parameter in the AWS CLI to specify each of the three local cache types. 
 + To specify a source cache: 
 
-  ```
+  ```bash
   --cache type=LOCAL,mode=[LOCAL_SOURCE_CACHE]
   ```
 + To specify a Docker layer cache: 
 
-  ```
+  ```bash
   --cache type=LOCAL,mode=[LOCAL_DOCKER_LAYER_CACHE]
   ```
 + To specify a custom cache: 
 
-  ```
+  ```bash
   --cache type=LOCAL,mode=[LOCAL_CUSTOM_CACHE]
   ```
 
@@ -47,7 +46,7 @@ For more information, see [Create a build project (console)](create-project.md#c
 
 If you use CloudFormation to specify a local cache, on the `Cache` property, for `Type`, specify `LOCAL`. The following sample YAML-formatted CloudFormation code specifies all three local cache types. You can specify any combination of the types. If you use a Docker layer cache, under `Environment`, you must set `PrivilegedMode` to `true` and `Type` to `LINUX_CONTAINER`. 
 
-```
+```yaml
 CodeBuildProject:
     Type: AWS::CodeBuild::Project
     Properties:

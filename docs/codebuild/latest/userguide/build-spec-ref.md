@@ -1,7 +1,6 @@
 
 
 # Build specification reference for CodeBuild
-<a name="build-spec-ref"></a>
 
 This topic provides important reference information about build specification (buildspec) files. A *buildspec* is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build. You can include a buildspec as part of the source code or you can define a buildspec when you create a build project. For information about how a build spec works, see [How CodeBuild works](concepts.md#concepts-how-it-works).
 
@@ -41,7 +40,7 @@ If a command contains a character, or a string of characters, that is not suppor
 
 The buildspec has the following syntax:
 
-```
+```yaml
 version: 0.2
 
 run-as: {{Linux-user-name}}
@@ -233,7 +232,7 @@ Required if you want to retrieve custom environment variables stored in AWS Secr
 (Optional) Specifies the unique identifier of the version of the secret that you want to use. If you specify `version-id`, don't specify `version-stage`. If you don't specify a version stage or version ID, the default is to retrieve the version with the version stage value of `AWSCURRENT`. 
 In the following example, `TestSecret` is the name of the key-value pair stored in Secrets Manager. The key for `TestSecret` is `MY_SECRET_VAR`. You access the variable during the build using the `LOCAL_SECRET_VAR` name.  
 
-```
+```yaml
 env:
   secrets-manager:
     LOCAL_SECRET_VAR: "TestSecret:MY_SECRET_VAR"
@@ -397,7 +396,7 @@ Optional name. Specifies a name for your build artifact. This name is used when 
 You can specify a name in the buildspec file that is calculated at build time. The name specified in a buildspec file uses the Shell command language. For example, you can append a date and time to your artifact name so that it is always unique. Unique artifact names prevent artifacts from being overwritten. For more information, see [Shell command language](http://pubs.opengroup.org/onlinepubs/9699919799/).   
 + This is an example of an artifact name appended with the date the artifact is created. 
 
-  ```
+  ```yaml
   version: 0.2
   phases:
     build:
@@ -410,7 +409,7 @@ You can specify a name in the buildspec file that is calculated at build time. T
   ```
 + This is an example of an artifact name that uses a CodeBuild environment variable. For more information, see [Environment variables in build environments](build-env-ref-env-vars.md). 
 
-  ```
+  ```yaml
   version: 0.2
   phases:
     build:
@@ -423,7 +422,7 @@ You can specify a name in the buildspec file that is calculated at build time. T
   ```
 + This is an example of an artifact name that uses a CodeBuild environment variable with the artifact's creation date appended to it. 
 
-  ```
+  ```yaml
   version: 0.2
   phases:
     build:
@@ -436,7 +435,7 @@ You can specify a name in the buildspec file that is calculated at build time. T
   ```
 You can add path information to the name so that the named artifacts are placed in directories based on the path in the name. In this example, build artifacts are placed in the output under `builds/<build number>/my-artifacts`.  
 
-```
+```yaml
 version: 0.2
 phases:
   build:
@@ -469,7 +468,7 @@ You can use `files` and `discard-paths` to further restrict which files and subd
 ```
 And for the following `artifacts` sequence:  
 
-```
+```yaml
 artifacts:
   files:
     - '*/my-file-3.txt'
@@ -484,7 +483,7 @@ The following subdirectory and file would be included in the build output artifa
 ```
 While for the following `artifacts` sequence:  
 
-```
+```yaml
 artifacts:
   files:
     - '**/*'
@@ -518,7 +517,7 @@ Optional sequence. Represents one or more artifact definitions as a mapping betw
 The [`artifacts/files`](#build-spec.artifacts.files) sequence is always required, even when there are only secondary artifacts defined.
 For example, if your project has the following structure:  
 
-```
+```json
 {
   "name": "sample-project",
   "secondaryArtifacts": [
@@ -539,7 +538,7 @@ For example, if your project has the following structure:
 ```
 Then your buildspec looks like the following:  
 
-```
+```yaml
 version: 0.2
 
 phases:
@@ -569,7 +568,7 @@ cache/**key**  <a name="build-spec.cache.key"></a>
 Optional sequence. Represents the primary key used when search or restore a cache. CodeBuild does an exact match for the primary key.  
 Here is an example for the key:  
 
-```
+```yaml
 key: npm-key-$(codebuild-hash-files package-lock.json) }
 ```
 
@@ -577,7 +576,7 @@ cache/**fallback-keys**  <a name="build-spec.cache.fallback-keys"></a>
 Optional sequence. Represents a list of fallback keys used sequentially when a cache cannot be found using the primary key. Up to five fallback keys are supported, and each is matched using a prefix search. This sequence will be ignored if **key** is not provided.  
 Here is an example for the fallback-keys:  
 
-```
+```yaml
 fallback-keys:
     - npm-key-$(codebuild-hash-files package-lock.json) }
     - npm-key-
@@ -609,7 +608,7 @@ You can use the CodeBuild or CodePipeline consoles instead of a buildspec.yml fi
 
 Here is an example of a buildspec.yml file.
 
-```
+```yaml
 version: 0.2
 
 env:

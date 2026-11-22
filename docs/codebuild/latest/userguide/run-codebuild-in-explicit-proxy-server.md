@@ -1,7 +1,6 @@
 
 
 # Run CodeBuild in an explicit proxy server
-<a name="run-codebuild-in-explicit-proxy-server"></a>
 
  To run AWS CodeBuild in an explicit proxy server, you must configure the proxy server to allow or deny traffic to and from external sites, and then configure the `HTTP_PROXY` and `HTTPS_PROXY` environment variables. 
 

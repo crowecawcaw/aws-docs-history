@@ -1,7 +1,6 @@
 
 
 # Unshare a shared report group
-<a name="report-groups-sharing-unshare"></a>
 
 An unshared report group, including its reports and their test case results, can be accessed only by its owner. If you unshare a report group, any AWS account or user you previously shared it with cannot access the report group, its reports, or the results of test cases in the reports.
 

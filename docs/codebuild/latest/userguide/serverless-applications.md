@@ -1,7 +1,6 @@
 
 
 # Use AWS CodeBuild with serverless applications
-<a name="serverless-applications"></a>
 
 The AWS Serverless Application Model (AWS SAM) is an open-source framework for building serverless applications. For more information, see the [AWS serverless application model](https://github.com/awslabs/serverless-application-model) repository on GitHub.
 

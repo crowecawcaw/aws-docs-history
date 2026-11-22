@@ -1,7 +1,6 @@
 
 
 # Troubleshoot the webhook
-<a name="action-runner-troubleshoot-webhook"></a>
 
 **Issue: **The webhook you set up in [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md) isn't working or your workflow job is hanging on GitHub.
 
@@ -54,7 +53,7 @@ If the error persists, use the following instructions to debug the issue.
 
 1.  Alternatively, you can debug webhook failures using GitHub's APIs. You can view recent deliveries for a webhook using the [ List deliveries for a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2022-11-28#list-deliveries-for-a-repository-webhook) API: 
 
-   ```
+   ```yaml
    gh api \
      -H "Accept: application/vnd.github+json" \
      -H "X-GitHub-Api-Version: 2022-11-28" \
@@ -63,7 +62,7 @@ If the error persists, use the following instructions to debug the issue.
 
     After finding the webhook delivery you're looking to debug and noting the delivery ID, you can use the [ Get a delivery for a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2022-11-28#get-a-delivery-for-a-repository-webhook) API. CodeBuild's response to the webhook's delivery payload can be found in the `response` section: 
 
-   ```
+   ```yaml
    gh api \
      -H "Accept: application/vnd.github+json" \
      -H "X-GitHub-Api-Version: 2022-11-28" \

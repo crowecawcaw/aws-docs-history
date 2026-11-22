@@ -1,7 +1,6 @@
 
 
 # View test reports for a report group
-<a name="test-view-report-group-reports"></a>
 
 **To view test reports in a report group**
 

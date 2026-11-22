@@ -1,7 +1,6 @@
 
 
 # Identify a shared project
-<a name="project-sharing-identify"></a>
 
 Owners and consumers can use the AWS CLI to identify shared projects.
 

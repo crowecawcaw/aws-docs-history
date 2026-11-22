@@ -1,7 +1,6 @@
 
 
 # Share report groups
-<a name="report-groups-sharing"></a>
 
 Report group sharing allows multiple AWS accounts or users to view a report group, its unexpired reports, and the test results of its reports. In this model, the account that owns the report group (owner) shares a report group with other accounts (consumers). A consumer cannot edit a report group. A report expires 30 days after it is created.
 
@@ -55,7 +54,7 @@ Use the [put-resource-policy](https://docs.aws.amazon.com/cli/latest/reference/c
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[{
@@ -82,7 +81,7 @@ Use the [put-resource-policy](https://docs.aws.amazon.com/cli/latest/reference/c
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[{

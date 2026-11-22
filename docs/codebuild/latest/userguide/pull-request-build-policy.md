@@ -1,7 +1,6 @@
 
 
 # Pull request comment approval
-<a name="pull-request-build-policy"></a>
 
 CodeBuild supports pull request build policies that provide additional control over builds triggered by pull requests. You may not want to automatically build pull requests from unknown users until their changes can be reviewed. This feature allows you to require one of your team members to first review the code and then run the pipeline. This is commonly used as a security measure when building code submitted by unknown contributors.
 

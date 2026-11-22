@@ -1,7 +1,6 @@
 
 
 # Identify a shared report group
-<a name="report-groups-sharing-identify"></a>
 
 Owners and consumers can use the AWS CLI to identify shared report groups. 
 

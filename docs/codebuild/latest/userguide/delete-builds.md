@@ -1,7 +1,6 @@
 
 
 # Delete builds in AWS CodeBuild
-<a name="delete-builds"></a>
 
 You can use the AWS CLI or the AWS SDKs to delete builds in AWS CodeBuild.
 

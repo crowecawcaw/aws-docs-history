@@ -1,7 +1,6 @@
 
 
 # Public build data types
-<a name="public-build-types"></a>
 
 **Note**  
 The CodeBuild public build API is not contained in the AWS CLI or AWS SDKs.

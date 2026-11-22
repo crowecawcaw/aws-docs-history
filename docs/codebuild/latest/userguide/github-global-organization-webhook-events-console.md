@@ -1,7 +1,6 @@
 
 
 # Filter GitHub global or organization webhook events (console)
-<a name="github-global-organization-webhook-events-console"></a>
 
 When creating a GitHub project through the console, select the following options to create a GitHub global or organization webhook within the project. For more information about global and organization GitHub webhooks, see [GitHub global and organization webhooks](github-global-organization-webhook.md).
 

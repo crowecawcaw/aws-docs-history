@@ -1,7 +1,6 @@
 
 
 # Use CodeBuild condition keys as IAM service role variables to control build access
-<a name="permissions-conditionkeys-variables"></a>
 
 With the CodeBuild build ARN, you can restrict build resource access by using context keys to scope down resource access in your CodeBuild service role. For CodeBuild, the keys that can be used to control build access behavior are `codebuild:buildArn` and `codebuild:projectArn`. With the build project ARN, you can verify whether a call to your resource came from a specific build project. To verify this, use the `codebuild:buildArn` or `codebuild:projectArn` condition keys in an IAM identity-based policy.
 
@@ -12,7 +11,7 @@ To use the `codebuild:buildArn` or `codebuild:projectArn` condition keys in your
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

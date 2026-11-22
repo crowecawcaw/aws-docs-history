@@ -1,7 +1,6 @@
 
 
 # Run the 'Bitbucket pull request and webhook filter' sample for CodeBuild
-<a name="sample-bitbucket-pull-request"></a>
 
 AWS CodeBuild supports webhooks when the source repository is Bitbucket. This means that for a CodeBuild build project that has its source code stored in a Bitbucket repository, webhooks can be used to rebuild the source code every time a code change is pushed to the repository. For more information, see [Bitbucket webhook events](bitbucket-webhook.md). 
 

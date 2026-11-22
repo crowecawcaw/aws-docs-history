@@ -1,7 +1,6 @@
 
 
 # Filter GitHub organization webhook events (CloudFormation)
-<a name="github-organization-webhook-events-cfn"></a>
 
  To use a CloudFormation template to filter organization webhook events, use the AWS CodeBuild project's `ScopeConfiguration` property. For more information about global and organization GitHub webhooks, see [GitHub global and organization webhooks](github-global-organization-webhook.md).
 
@@ -14,7 +13,7 @@ Global webhooks and GitHub Enterprise webhooks are not supported by CloudFormati
 + The third filter group specifies a push request with a head commit message matching the regular expression `\[CodeBuild\]`.
 + The fourth filter group specifies a GitHub Actions workflow job request with a workflow name matching the regular expression `\[CI-CodeBuild\]`.
 
-```
+```yaml
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:

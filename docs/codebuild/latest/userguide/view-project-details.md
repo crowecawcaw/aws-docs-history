@@ -1,7 +1,6 @@
 
 
 # View a build project's details in AWS CodeBuild
-<a name="view-project-details"></a>
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to view the details of a build project in CodeBuild.
 
@@ -30,7 +29,7 @@ By default, only the 10 most recent build projects are displayed. To view more b
 
 Run the **batch-get-projects** command:
 
-```
+```shell
 aws codebuild batch-get-projects --names {{names}}
 ```
 
@@ -39,13 +38,13 @@ In the preceding command, replace the following placeholder:
 
 For example, if you run this command:
 
-```
+```shell
 aws codebuild batch-get-projects --names codebuild-demo-project codebuild-demo-project2 my-other-demo-project
 ```
 
 A result similar to the following might appear in the output. Ellipses (`...`) are used to represent data omitted for brevity.
 
-```
+```json
 {
   "projectsNotFound": [
     "my-other-demo-project"
@@ -69,7 +68,7 @@ In the preceding output, the `projectsNotFound` array lists any build project na
 
 The **batch-get-projects** command does not support filtering for certain property values, but you can write a script that enumerates the properties for a project. For example, the following Linux shell script enumerates the projects in the current region for the current account, and prints the image used by each project.
 
-```
+```bash
 #!/usr/bin/sh
 
 # This script enumerates all of the projects for the current account 

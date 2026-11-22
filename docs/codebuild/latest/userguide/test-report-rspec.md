@@ -1,7 +1,6 @@
 
 
 # Set up test reporting with RSpec
-<a name="test-report-rspec"></a>
 
 The following procedure demonstrates how to set up test reporting in AWS CodeBuild with the [RSpec testing framework](https://rspec.info/). 
 
@@ -11,7 +10,7 @@ The procedure requires the following prerequisites:
 
 Add/update the following in your `buildspec.yml` file. This code runs the tests in the {{<test source directory>}} directory and exports the test reports to the file specified by {{<test report directory>}}/{{<report filename>}}. The report uses the `JunitXml` format.
 
-```
+```yaml
 version: 0.2
 
 phases:

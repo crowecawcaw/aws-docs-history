@@ -1,9 +1,8 @@
 
 
 # Tutorial: Configure a CodeBuild-hosted GitHub Actions runner
-<a name="action-runner"></a>
 
-This tutorial shows you how to configure your CodeBuild projects to run GitHub Actions jobs. For more information about using GitHub Actions with CodeBuild see [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](#action-runner).<a name="sample-github-action-runners-prerequisites"></a>
+This tutorial shows you how to configure your CodeBuild projects to run GitHub Actions jobs. For more information about using GitHub Actions with CodeBuild see [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md).<a name="sample-github-action-runners-prerequisites"></a>
 
 To complete this tutorial, you must first:
 + Connect with a personal access token, a Secrets Manager secret, OAuth app, or GitHub App. If you'd like to connect with an OAuth app, you must use the CodeBuild console to do so. If you'd like to create a personal access token, you can either use the CodeBuild console or use the [ImportSourceCredentials API](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ImportSourceCredentials.html). For more instructions, see [GitHub and GitHub Enterprise Server access in CodeBuild](access-tokens-github-overview.md).
@@ -57,7 +56,7 @@ In this step, you will update your GitHub Actions workflow YAML file in [`GitHub
 Navigate to [`GitHub`](https://github.com/) and update the [`runs-on`](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners) setting in your GitHub Actions workflow YAML to configure your build environment. To do so, you can do one of the following:
 + You can specify the project name and run ID, in which case the build will use your existing project configuration for the compute, image, image version, and instance size. The project name is needed to link the AWS-related settings of your GitHub Actions job to a specific CodeBuild project. By including the project name in the YAML, CodeBuild is allowed to invoke jobs with the correct project settings. By providing the run ID, CodeBuild maps your build to specific workflow runs and stops the build when the workflow run is canceled. For more information, see [`github` context](https://docs.github.com/en/actions/learn-github-actions/contexts#github-context).
 
-  ```
+  ```yaml
   runs-on: codebuild-{{<project-name>}}-${{ github.run_id }}-${{ github.run_attempt }}
   ```
 **Note**  
@@ -65,7 +64,7 @@ Make sure that your {{<project-name>}} matches the name of the project that you 
 
   The following is an example of a GitHub Actions workflow YAML:
 
-  ```
+  ```yaml
   name: Hello World
   on: [push]
   jobs:
@@ -77,7 +76,7 @@ Make sure that your {{<project-name>}} matches the name of the project that you 
   ```
 + You can also override your image and compute type in the label. See [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.images.md) for a list of curated images. For using custom images, see [Label overrides supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-labels.md). The compute type and image in the label will override the environment settings on your project. To override your environment settings for an CodeBuild EC2 or Lambda compute build, use the following syntax:
 
-  ```
+  ```yaml
   runs-on:
     - codebuild-{{<project-name>}}-${{ github.run_id }}-${{ github.run_attempt }}
       image:{{<environment-type>}}-{{<image-identifier>}}
@@ -86,7 +85,7 @@ Make sure that your {{<project-name>}} matches the name of the project that you 
 
   The following is an example of a GitHub Actions workflow YAML:
 
-  ```
+  ```yaml
   name: Hello World
   on: [push]
   jobs:
@@ -100,7 +99,7 @@ Make sure that your {{<project-name>}} matches the name of the project that you 
   ```
 + You can override the fleet used for your build in the label. This will override the fleet settings configured on your project to use the specified fleet. For more information, see [Run builds on reserved capacity fleets](fleets.md). To override your fleet settings for an Amazon EC2 compute build, use the following syntax:
 
-  ```
+  ```yaml
   runs-on:
     - codebuild-{{<project-name>}}-${{ github.run_id }}-${{ github.run_attempt }}
       fleet:{{<fleet-name>}}
@@ -108,7 +107,7 @@ Make sure that your {{<project-name>}} matches the name of the project that you 
 
   To override both the fleet and the image used for the build, use the following syntax:
 
-  ```
+  ```yaml
   runs-on:
     - codebuild-{{<project-name>}}-${{ github.run_id }}-${{ github.run_attempt }}
       fleet:{{<fleet-name>}}
@@ -117,7 +116,7 @@ Make sure that your {{<project-name>}} matches the name of the project that you 
 
   The following is an example of a GitHub Actions workflow YAML:
 
-  ```
+  ```yaml
   name: Hello World
   on: [push]
   jobs:
@@ -236,7 +235,7 @@ jobs:
 
 The following YAML-formatted portion of a CloudFormation template creates a filter group that triggers a build when it evaluates to true. The following filter group specifies a GitHub Actions workflow job request with a workflow name matching the regular expression `\[CI-CodeBuild\]`.
 
-```
+```yaml
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:
@@ -268,7 +267,7 @@ CodeBuildProject:
 
 The following AWS CDK template creates a filter group that triggers a build when it evaluates to true. The following filter group specifies a GitHub Actions workflow job request.
 
-```
+```yaml
 import { aws_codebuild as codebuild } from 'aws-cdk-lib';
 import {EventAction, FilterGroup} from "aws-cdk-lib/aws-codebuild";
 
@@ -285,7 +284,7 @@ const source = codebuild.Source.gitHub({
 
 The following Terraform template creates a filter group that triggers a build when it evaluates to true. The following filter group specifies a GitHub Actions workflow job request.
 
-```
+```yaml
 resource "aws_codebuild_webhook" "example" {
   project_name = aws_codebuild_project.example.name
   build_type   = "BUILD"

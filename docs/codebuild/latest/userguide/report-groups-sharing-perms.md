@@ -1,7 +1,6 @@
 
 
 # Shared report group permissions
-<a name="report-groups-sharing-perms"></a>
 
 ## Permissions for owners
 <a name="report-groups-perms-owner"></a>

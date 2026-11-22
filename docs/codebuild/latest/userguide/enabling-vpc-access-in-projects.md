@@ -1,7 +1,6 @@
 
 
 # Allow Amazon VPC access in your CodeBuild projects
-<a name="enabling-vpc-access-in-projects"></a>
 
 Include these settings in your VPC configuration:
 + For **VPC ID**, choose the VPC ID that CodeBuild uses.

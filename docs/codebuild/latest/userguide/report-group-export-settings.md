@@ -1,7 +1,6 @@
 
 
 # Update a report group
-<a name="report-group-export-settings"></a>
 
  When you update a report group, you can specify information about whether to export the raw test result data to files in an Amazon S3 bucket. If you choose to export to an S3 bucket, you can specify the following for your report group: 
 + Whether the raw test results files are compressed in a ZIP file.
@@ -59,7 +58,7 @@ Use the following procedure to update a report group using the AWS CLI.
 
 1. Copy the following into `UpdateReportGroupInput.json`: 
 
-   ```
+   ```json
    {
        "arn": "",
        "exportConfig": {
@@ -87,7 +86,7 @@ Use the following procedure to update a report group using the AWS CLI.
    + If you want to update your report group to export raw test result files to an S3 bucket, update the `exportConfig` section. Replace `bucket-name` with your S3 bucket name and `path` with the path in your S3 bucket that you want to export the files to. If you want to compress the exported files, for `packaging`, specify `ZIP`. Otherwise, specify `NONE`. Use `encryptionDisabled` to specify whether to encrypt the exported files. If you encrypt the exported files, enter your customer managed key.
    + If you want to update your report group so that it does not export raw test result files to an S3 bucket, update the `exportConfig` section with the following JSON: 
 
-     ```
+     ```json
      { 
        "exportConfig": {
            "exportConfigType": "NO_EXPORT"
@@ -96,13 +95,13 @@ Use the following procedure to update a report group using the AWS CLI.
      ```
    + If you want to update the report group's tags, update the `tags` section. You can change, add, or remove tags. If you want to remove all tags, update it with the following JSON: 
 
-     ```
+     ```json
      "tags": []
      ```
 
 1.  Run the following command: 
 
-   ```
+   ```json
    aws codebuild update-report-group \
    --cli-input-json file://UpdateReportGroupInput.json
    ```

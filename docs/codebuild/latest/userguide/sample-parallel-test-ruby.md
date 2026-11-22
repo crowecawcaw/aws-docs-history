@@ -1,11 +1,10 @@
 
 
 # Configure parallel tests with Ruby (RSpec)
-<a name="sample-parallel-test-ruby"></a>
 
 The following is sample of a `buildspec.yml` that shows parallel test execution with RSpec on an Ubuntu platform:
 
-```
+```json
 version: 0.2
 
 batch:

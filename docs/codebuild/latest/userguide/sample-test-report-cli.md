@@ -1,7 +1,6 @@
 
 
 # 'Test report using the AWS CLI' sample
-<a name="sample-test-report-cli"></a>
 
 Tests that you specify in your buildspec file are run during your build. This sample shows you how to use the AWS CLI to incorporate tests into builds in CodeBuild. You can use JUnit to create unit tests, or you can use another tool to create configuration tests. You can then evaluate the test results to fix issues or optimize your application. 
 
@@ -39,7 +38,7 @@ Use the following steps to run the test report sample.
 + Create an IAM role and make a note of its ARN. You need the ARN when you create your build project. 
 + If your role does not have the following permissions, add them. 
 
-  ```
+  ```json
   {
       "Effect": "Allow",
       "Resource": [
@@ -65,7 +64,7 @@ Use the following steps to run the test report sample.
 
 1. Copy the following into `CreateReportGroupInput.json`. For `{{<bucket-name>}}`, use the name of the S3 bucket. For `{{<path-to-folder>}}`, enter the path to the folder in your S3 bucket. 
 
-   ```
+   ```json
    {
      "name": "{{<report-name>}}",
      "type": "TEST",
@@ -82,13 +81,13 @@ Use the following steps to run the test report sample.
 
 1. Run the following command in the directory that contains `CreateReportGroupInput.json`.
 
-   ```
+   ```bash
    aws codebuild create-report-group --cli-input-json file://CreateReportGroupInput.json
    ```
 
    The output looks like the following. Make a note of the ARN for the `reportGroup`. You use it when you create a project that uses this report group.
 
-   ```
+   ```json
    {
      "reportGroup": {
        "arn": "arn:aws:codebuild:us-west-2:123456789012:report-group/{{<report-name>}}",
@@ -118,7 +117,7 @@ To run a report, you first create a CodeBuild build project that is configured w
 
 1. Use the following YAML as a template for your `buildspec.yml` file. Be sure to include the commands that run your tests. In the `reports` section, specify the files that contain the results of your test cases. These files store the test results you can access with CodeBuild. They expire 30 days after they are created. These files are different from the raw test case result files you export to an S3 bucket.
 
-   ```
+   ```yaml
    version: 0.2
        phases:
        install:
@@ -143,7 +142,7 @@ Instead of the ARN of an existing report group, you can also specify a name for 
 
 1. Copy the following JSON into `project.json`. For `source`, enter the type and location of the repository that contains your source files. For `serviceRole`, specify the ARN of the role you are using. 
 
-   ```
+   ```json
    {
      "name": "test-report-project",
      "description": "sample-test-report-project",
@@ -168,7 +167,7 @@ Instead of the ARN of an existing report group, you can also specify a name for 
 
 1. Run the following command in the directory that contains `project.json`. This creates a project named `test-project`. 
 
-   ```
+   ```bash
    aws codebuild create-project --cli-input-json file://project.json
    ```
 
@@ -179,25 +178,25 @@ In this section, you run a build of the project you created earlier. During the 
 
 1. To start a build, run the following command. `test-report-project` is the name of the build project created above. Make a note of the build ID that appears in the output. 
 
-   ```
+   ```bash
    aws codebuild start-build --project-name test-report-project
    ```
 
 1. Run the following command to get information about your build, including the ARN of your report. For `{{<build-id>}}`, specify your build ID. Make a note of the report ARN in the `reportArns` property of the output. 
 
-   ```
+   ```bash
    aws codebuild batch-get-builds --ids {{<build-id>}}
    ```
 
 1. Run the following command to get details about your report. For `{{<report-arn>}}`, specify your report ARN. 
 
-   ```
+   ```bash
    aws codebuild batch-get-reports --report-arns {{<report-arn>}}
    ```
 
    The output looks like the following. This sample output shows how many of the tests were successful, failed, skipped, resulted in an error, or return an unknown status.
 
-   ```
+   ```json
    {
      "reports": [
        {
@@ -238,7 +237,7 @@ In this section, you run a build of the project you created earlier. During the 
 
 1. Run the following command to list information about test cases for your report. For `{{<report-arn>}}`, specify the ARN of your report. For the optional `--filter` parameter, you can specify one status result (`SUCCEEDED`, `FAILED`, `SKIPPED`, `ERROR`, or `UNKNOWN`). 
 
-   ```
+   ```bash
    aws codebuild describe-test-cases \
        --report-arn {{<report-arn>}} \
        --filter status=SUCCEEDED|FAILED|SKIPPED|ERROR|UNKNOWN
@@ -246,7 +245,7 @@ In this section, you run a build of the project you created earlier. During the 
 
     The output looks like the following. 
 
-   ```
+   ```json
    {
      "testCases": [
        {

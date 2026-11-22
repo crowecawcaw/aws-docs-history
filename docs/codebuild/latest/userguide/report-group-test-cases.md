@@ -1,7 +1,6 @@
 
 
 # Specify test files
-<a name="report-group-test-cases"></a>
 
  You specify the test result files and their location for each report group in the `reports` section of your build project's buildspec file. For more information, see [Reports syntax in the buildspec file](build-spec-ref.md#reports-buildspec-file). 
 

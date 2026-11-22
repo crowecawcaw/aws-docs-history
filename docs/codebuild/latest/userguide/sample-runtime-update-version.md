@@ -1,7 +1,6 @@
 
 
 # Update the runtime version in the buildspec file
-<a name="sample-runtime-update-version"></a>
 
 You can modify the runtime used by your project to a new version by updating the `runtime-versions` section of your buildspec file. The following examples show how to specify java versions 8 and 11.
 + A `runtime-versions` section that specifies version 8 of Java:
@@ -45,7 +44,7 @@ This sample demonstrates a project that starts with the Java version 8 runtime, 
 
 1. Switch to an empty directory on your local computer or instance, and then run this Maven command.
 
-   ```
+   ```shell
    mvn archetype:generate "-DgroupId=com.mycompany.app" "-DartifactId=ROOT" "-DarchetypeArtifactId=maven-archetype-webapp" "-DinteractiveMode=false"
    ```
 

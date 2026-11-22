@@ -1,7 +1,6 @@
 
 
 # Parallel test execution for various test frameworks sample
-<a name="sample-parallel-test"></a>
 
 You can use the `codebuild-tests-run` CLI command to split and run your tests across parallel execution environments. The following section provides `buildspec.yml` samples for various frameworks, illustrating the usage of the `codebuild-tests-run` command.
 + Each example below includes a `parallelism` level of five, meaning that five identical execution environments will be created to split your tests across. You can choose a `parallelism` level to suit your project by modifying the `parallelism` value in the `build-fanout` section.

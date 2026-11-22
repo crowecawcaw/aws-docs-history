@@ -1,7 +1,6 @@
 
 
 # View test reports for a build
-<a name="test-view-project-reports"></a>
 
 **To view test reports for a build**
 

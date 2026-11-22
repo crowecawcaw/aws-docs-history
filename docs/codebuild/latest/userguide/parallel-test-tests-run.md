@@ -1,11 +1,10 @@
 
 
 # Use the `codebuild-tests-run` CLI command
-<a name="parallel-test-tests-run"></a>
 
 AWS CodeBuild provides a CLI that will take a test command and test file location as input. The CLI with this input will split the tests into the number of shards as specified in the `parallelism` field based on test file names. The assignment of test files to shard is decided by the sharding strategy.
 
-```
+```json
 codebuild-tests-run \
     --files-search "codebuild-glob-search '**/__tests__/*.js'" \
     --test-command 'npx jest --runInBand --coverage' \
@@ -25,7 +24,7 @@ The `codebuild-tests-run` CLI works first to identify the list of test files usi
 
 For test frameworks that don't accept space-separated lists, the `codebuild-tests-run` CLI provides a flexible alternative through the `CODEBUILD_CURRENT_SHARD_FILES` environment variable. This variable contains a newline-separated list of test file paths designated for the current build shard. By leveraging this environment variable, you can easily adapt to various test framework requirements, accommodating those that expect input formats different from space-separated lists. Moreover, you can also format the test file names as per need of test framework. The following is an example of the use of `CODEBUILD_CURRENT_SHARD_FILES` on Linux with the Django framework. Here `CODEBUILD_CURRENT_SHARD_FILES` is used to get *dot notation* file paths supported by Django:
 
-```
+```json
 codebuild-tests-run \
     —files-search "codebuild-glob-search '/tests/test_.py'" \
     —test-command 'python3 manage.py test $(echo "$CODEBUILD_CURRENT_SHARD_FILES" | sed -E "s/\//__/g; s/\.py$//; s/__/./g")' \

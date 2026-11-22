@@ -1,7 +1,6 @@
 
 
 # Use AWS CodeBuild with Codecov
-<a name="codecov-integration"></a>
 
 Codecov is a tool that measures the test coverage of your code. Codecov identifies which methods and statements in your code are not tested. Use the results to determine where to write tests to improve the quality of your code. Codecov is available for three of the source repositories supported by CodeBuild: GitHub, GitHub Enterprise Server, and Bitbucket. If your build project uses GitHub Enterprise Server, you must use Codecov Enterprise.
 

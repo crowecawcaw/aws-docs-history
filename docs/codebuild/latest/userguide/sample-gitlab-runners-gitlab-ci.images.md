@@ -1,7 +1,6 @@
 
 
 # Compute images supported with the CodeBuild-hosted GitLab runner
-<a name="sample-gitlab-runners-gitlab-ci.images"></a>
 
 In the label you configured in [Tutorial: Configure a CodeBuild-hosted GitLab runner](sample-gitlab-runners.md), you can override your Amazon EC2 environment settings by using the values in the first three columns. CodeBuild provides the following Amazon EC2 compute images. For more information about 
 

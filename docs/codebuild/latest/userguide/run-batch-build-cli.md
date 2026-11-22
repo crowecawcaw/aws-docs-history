@@ -1,17 +1,16 @@
 
 
 # Run a batch build (AWS CLI)
-<a name="run-batch-build-cli"></a>
 
 1. Run the `start-build-batch` command in one of the following ways:
 
-   ```
+   ```bash
    aws codebuild start-build-batch --project-name {{<project-name>}}
    ```
 
    Use this if you want to run a build that uses the latest version of the build input artifact and the build project's existing settings.
 
-   ```
+   ```bash
    aws codebuild start-build-batch --generate-cli-skeleton > {{<json-file>}}
    ```
 
@@ -25,7 +24,7 @@
 
    Modify this file to add any build overrides, and save your results.
 
-   ```
+   ```json
      "buildBatchConfigOverride": {
        "combineArtifacts": {{combineArtifacts}},
        "restrictions": {

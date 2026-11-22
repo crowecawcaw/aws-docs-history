@@ -1,7 +1,6 @@
 
 
 # Run builds on reserved capacity fleets
-<a name="fleets"></a>
 
 CodeBuild offers the following compute fleets:
 + On-demand fleets
@@ -170,7 +169,7 @@ Make sure that your fleet role has the necessary permissions. For more informati
    + The AMI allows the CodeBuild service **Organization ARN**. For a list of Organization ARNs, see [Amazon Machine Images (AMI)](fleets.reserved-capacity-fleets.md#ami).
    + If the AMI is encrypted with a AWS KMS key, the AWS KMS key must also allow the CodeBuild service **Organization ID**. For a list of Organization IDs, see [Amazon Machine Images (AMI)](fleets.reserved-capacity-fleets.md#ami). For more information on AWS KMS keys, see [ Allow organizations and OUs to use a KMS key](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/share-amis-with-organizations-and-OUs.html#allow-org-ou-to-use-key) in the *Amazon EC2 User Guide*. To give CodeBuild organization permission to use a KMS key, add the following statement to the key policy:
 
-     ```
+     ```yaml
      {
          "Sid": "Allow access for organization root",
          "Effect": "Allow",
@@ -200,7 +199,7 @@ Make sure that your fleet role has the necessary permissions. For more informati
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [

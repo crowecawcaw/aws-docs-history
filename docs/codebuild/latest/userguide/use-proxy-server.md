@@ -1,7 +1,6 @@
 
 
 # Use AWS CodeBuild with a proxy server
-<a name="use-proxy-server"></a>
 
  You can use AWS CodeBuild with a proxy server to regulate HTTP and HTTPS traffic to and from the internet. To run CodeBuild with a proxy server, you install a proxy server in a public subnet and CodeBuild in a private subnet in a VPC. 
 

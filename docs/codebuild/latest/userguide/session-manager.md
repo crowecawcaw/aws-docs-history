@@ -1,7 +1,6 @@
 
 
 # Debug builds with Session Manager
-<a name="session-manager"></a>
 
 In AWS CodeBuild, you can pause a running build and then use AWS Systems Manager Session Manager to connect to the build container and view the state of the container.
 
@@ -35,7 +34,7 @@ Custom images would require most updated SSM agent for this feature to work as e
 
 ****  
 
-  ```
+  ```json
   {
      "Version":"2012-10-17",		 	 	  
      "Statement": [
@@ -61,7 +60,7 @@ CloudWatch Logs
 If using CloudWatch Logs to store your logs, add the following permission to the CodeBuild service role:    
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -85,7 +84,7 @@ Amazon S3
 If using Amazon S3 to store your logs, add the following permission to the CodeBuild service role:    
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -113,7 +112,7 @@ To pause the build, insert the **codebuild-breakpoint** command in any of the bu
 
 For example, add the following to the build phases in your buildspec file.
 
-```
+```yaml
 phases:
   pre_build:
     commands:
@@ -154,7 +153,7 @@ Your local machine must have the Session Manager plugin installed for this proce
 
 1. Call the **batch-get-builds** api with the build ID to get information about the build, including the session target identifier. The session target identifier property name varies depending on the output type of the `aws` command. This is why `--output json` is added to the command.
 
-   ```
+   ```bash
    aws codebuild batch-get-builds --ids {{<buildID>}} --region {{<region>}} --output json
    ```
 
@@ -162,7 +161,7 @@ Your local machine must have the Session Manager plugin installed for this proce
 
 1. Use the following command to connect to the build container.
 
-   ```
+   ```bash
    aws ssm start-session --target {{<sessionTarget>}} --region {{<region>}}
    ```
 
@@ -173,6 +172,6 @@ For this example, verify that the `/tmp/hello-world` file exists and contains th
 
 After you finish examining the build container, issue the **codebuild-resume** command from the container shell.
 
-```
+```bash
 $ codebuild-resume
 ```

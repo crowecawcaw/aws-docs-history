@@ -1,7 +1,6 @@
 
 
 # Stop batch builds in AWS CodeBuild
-<a name="stop-batch-build"></a>
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to stop a batch build in AWS CodeBuild.
 
@@ -30,7 +29,7 @@ By default, only the most recent 100 builds or build projects are displayed. To 
 <a name="stop-batch-build-cli"></a>
 + Run the [`stop-build-batch`](https://docs.aws.amazon.com/cli/latest/reference/codebuild/stop-build-batch.html) command:
 
-  ```
+  ```bash
   aws codebuild stop-build-batch --id {{<batch-build-id>}}
   ```
 

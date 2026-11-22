@@ -1,7 +1,6 @@
 
 
 # Overview of managing access permissions to your AWS CodeBuild resources
-<a name="auth-and-access-control-iam-access-control-identity-based"></a>
 
 Every AWS resource is owned by an AWS account, and permissions to create or access a resource are governed by permissions policies. An account administrator can attach permissions policies to IAM identities (that is, users, groups, and roles). 
 

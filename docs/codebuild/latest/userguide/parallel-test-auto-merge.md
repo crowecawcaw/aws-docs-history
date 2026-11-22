@@ -1,7 +1,6 @@
 
 
 # Automatically merge individual build reports
-<a name="parallel-test-auto-merge"></a>
 
 In fanout batch builds, AWS CodeBuild supports automatic merging of individual build reports into a consolidated batch-level report. This feature provides a comprehensive view of test results and code coverage across all builds within a batch.
 

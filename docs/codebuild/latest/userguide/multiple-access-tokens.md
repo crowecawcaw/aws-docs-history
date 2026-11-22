@@ -1,7 +1,6 @@
 
 
 # Multiple access tokens in CodeBuild
-<a name="multiple-access-tokens"></a>
 
 CodeBuild supports sourcing access tokens to third party providers from your secrets in AWS Secrets Manager or through AWS CodeConnections connections. You can set your secret or connection as the default credential for interactions with a specified third party provider such as GitHub, GitHub Enterprise, or Bitbucket.
 
@@ -48,7 +47,7 @@ To grant CodeBuild project IAM role access to Secrets Manager or AWS CodeConnect
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -74,7 +73,7 @@ To grant CodeBuild project IAM role access to Secrets Manager or AWS CodeConnect
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -102,7 +101,7 @@ To grant CodeBuild project IAM role access to Secrets Manager or AWS CodeConnect
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -272,7 +271,7 @@ aws codebuild start-build --region {{<aws-region>}} --project-name {{<project_na
 
 When using `NO_SOURCE`, a buildspec typically is provided within the source model as it is not directly configured to use an external source to fetch the [buildspec](build-spec-ref.md). Commonly, a `NO_SOURCE` source will handle cloning all relevant repositories from within the buildspec. To ensure the configured credentials are available for those operations, you can enable the `git-credential-helper` option in the buildspec.
 
-```
+```yaml
 env:
   git-credential-helper: yes
 ```
@@ -284,7 +283,7 @@ During the build, CodeBuild will then read the `AuthServer` field from the confi
 
 You can configure Secrets Manager account level credentials by using CloudFormation templates. You can use the following CloudFormation template to set an account level credential:
 
-```
+```yaml
 Parameters:
   GitHubToken:
     Type: String
@@ -320,7 +319,7 @@ If you're also creating a project in the same stack, use the CloudFormation attr
 
 You can also configure Secrets Manager multiple source level credentials by using CloudFormation templates. You can use the following CloudFormation template to use multiple tokens to pull in multiple sources:
 
-```
+```yaml
 Parameters:
   GitHubTokenOne:
     Type: String

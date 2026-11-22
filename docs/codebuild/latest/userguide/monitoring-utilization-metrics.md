@@ -1,7 +1,6 @@
 
 
 # View CodeBuild resource utilization metrics
-<a name="monitoring-utilization-metrics"></a>
 
 AWS CodeBuild monitors build resource utilization on your behalf and reports metrics through Amazon CloudWatch. These include metrics such as CPU, memory, and storage utilization.
 

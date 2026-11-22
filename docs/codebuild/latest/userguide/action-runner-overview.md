@@ -1,7 +1,6 @@
 
 
 # Self-hosted GitHub Actions runners in AWS CodeBuild
-<a name="action-runner-overview"></a>
 
 You can configure your project to set up self-hosted GitHub Actions runners in CodeBuild containers to process your GitHub Actions workflow jobs. This can be done by setting up a webhook using your CodeBuild project, and updating your GitHub Actions workflow YAML to use self-hosted runners hosted on CodeBuild machines.
 

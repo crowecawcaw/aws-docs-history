@@ -1,7 +1,6 @@
 
 
 # Lambda compute images
-<a name="lambda-compute-images"></a>
 
 AWS CodeBuild supports the following Docker images that are available for AWS Lambda compute in CodeBuild.
 

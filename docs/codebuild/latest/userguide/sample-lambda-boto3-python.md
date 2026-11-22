@@ -1,7 +1,6 @@
 
 
 # Update a Lambda function configuration with CodeBuild Lambda Python
-<a name="sample-lambda-boto3-python"></a>
 
 The following Python sample uses [Boto3](https://aws.amazon.com/sdk-for-python/) and CodeBuild Lambda Python to update a Lambda function's configuration. This sample can be extended to manage other AWS resources programmatically. For more information, see [Boto3 documentation](https://aws.amazon.com/sdk-for-python/).
 
@@ -21,7 +20,7 @@ Create a source repository to store your Boto3 python script.
 
 1. Copy the following python script to a new file called `update_lambda_environment_variables.py`.
 
-   ```
+   ```python
    import boto3
    from os import environ
    
@@ -86,7 +85,7 @@ Create a CodeBuild Lambda Python project.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -119,7 +118,7 @@ To update the Lambda function, the script reads environment variables from the b
 
 1. Delete the pre-filled build commands and paste in the following buildspec.
 
-   ```
+   ```yaml
    version: 0.2
    env:
      variables:

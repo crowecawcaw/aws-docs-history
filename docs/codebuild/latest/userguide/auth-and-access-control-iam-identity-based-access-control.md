@@ -1,7 +1,6 @@
 
 
 # Using identity-based policies for AWS CodeBuild
-<a name="auth-and-access-control-iam-identity-based-access-control"></a>
 
 This topic provides examples of identity-based policies that demonstrate how an account administrator can attach permissions policies to IAM identities (that is, users, groups, and roles) and thereby grant permissions to perform operations on AWS CodeBuild resources.
 
@@ -24,7 +23,7 @@ The following shows an example of a permissions policy that allows a user to get
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -61,7 +60,7 @@ If you create an IAM policy that is more restrictive than the minimum required p
 
 As of July 26, 2022, AWS CodeBuild has updated its default IAM policy for Amazon ECR permission. The following permissions have been removed from the default policy:
 
-```
+```json
 "ecr:PutImage",
 "ecr:InitiateLayerUpload",
 "ecr:UploadLayerPart",
@@ -70,7 +69,7 @@ As of July 26, 2022, AWS CodeBuild has updated its default IAM policy for Amazon
 
 For CodeBuild projects that were created before July 26, 2022, we recommend you update your policy with the following Amazon ECR policy:
 
-```
+```json
 "Action": [
     "ecr:BatchCheckLayerAvailability",
     "ecr:GetDownloadUrlForLayer",
@@ -293,7 +292,7 @@ The following example policy statement allows a user to get information about bu
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -318,7 +317,7 @@ The following example policy statement allows a user to get information about fl
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -343,7 +342,7 @@ The following example policy statement allows a user to get information about re
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -368,7 +367,7 @@ The following example policy statement allows a user to get information about re
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -393,7 +392,7 @@ The following example policy statement allows a user to create build projects wi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -420,7 +419,7 @@ The following example policy statement allows a user to create build projects wi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -453,7 +452,7 @@ The following example policy statement allows a user to create a fleet in the `u
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -478,7 +477,7 @@ The following example policy statement allows a user to create a report group in
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -503,7 +502,7 @@ The following example policy statement allows a user to delete a fleet in the `u
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -528,7 +527,7 @@ The following example policy statement allows a user to delete a report group in
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -553,7 +552,7 @@ The following example policy statement allows a user to delete a report in the `
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -578,7 +577,7 @@ The following example policy statement allows a user to delete build projects in
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -603,7 +602,7 @@ The following example policy statement allows a user to get a list of build proj
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -628,7 +627,7 @@ The following example policy statement allows a user to change information about
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -658,7 +657,7 @@ The following example policy statement allows a user to change a fleet in the `u
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -683,7 +682,7 @@ The following example policy statement allows a user to change a report group in
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -708,7 +707,7 @@ The following example policy statement allows a user to get information about bu
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -736,7 +735,7 @@ The following example policy statement allows a user to get a list of build IDs 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -764,7 +763,7 @@ The following example policy statement allows a user to get a list of all build 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -789,7 +788,7 @@ The following example policy statement allows a user to get a list of fleets in 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -814,7 +813,7 @@ The following example policy statement allows a user to get a list of report gro
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -839,7 +838,7 @@ The following example policy statement allows a user to get a list of reports in
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -864,7 +863,7 @@ The following example policy statement allows a user to get a list of reports fo
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -889,7 +888,7 @@ The following example policy statement allows a user to get a list of test cases
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -914,7 +913,7 @@ The following example policy statement allows a user to run builds in the `us-ea
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -939,7 +938,7 @@ The following example policy statement allows a user to attempt to stop running 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -964,7 +963,7 @@ The following example policy statement allows a user to attempt to delete builds
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -989,7 +988,7 @@ The following example policy statement allows a user to get information about al
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1014,7 +1013,7 @@ The following example resource policy statement allows a user to add a VPC permi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1072,7 +1071,7 @@ The following example resource policy statement allows a user to add a custom Am
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1094,7 +1093,7 @@ The following example trust policy statement allows a user to add a permission p
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1127,7 +1126,7 @@ The following example policy statement grants AWS CodeBuild permission to create
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1178,7 +1177,7 @@ The following example policy statement grants AWS CodeBuild permission to create
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

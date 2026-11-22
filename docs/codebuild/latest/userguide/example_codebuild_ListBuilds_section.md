@@ -1,7 +1,6 @@
 
 
 # Use `ListBuilds` with an AWS SDK or CLI
-<a name="example_codebuild_ListBuilds_section"></a>
 
 The following code examples show how to use `ListBuilds`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `ListBuilds`.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/codebuild#code-examples). 
 
-```
+```cpp
 //! List the CodeBuild builds.
 /*!
   \param sortType: 'SortOrderType' type.

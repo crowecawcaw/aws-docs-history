@@ -1,7 +1,6 @@
 
 
 # PublicBuildBatch
-<a name="API_PublicBuildBatch"></a>
 
 **Note**  
 This API element is not contained in the AWS CLI or AWS SDKs.

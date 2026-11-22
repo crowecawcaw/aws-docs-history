@@ -1,7 +1,6 @@
 
 
 # Create code coverage reports
-<a name="code-coverage-report"></a>
 
 CodeBuild allows you to generate code coverage reports for your tests. The following code coverage reports are provided:
 

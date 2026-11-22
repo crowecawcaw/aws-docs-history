@@ -1,7 +1,6 @@
 
 
 # Change build project settings in AWS CodeBuild
-<a name="change-project"></a>
 
 You can use the AWS CodeBuild console, AWS CLI, or AWS SDKs to change a build project's settings.
 
@@ -311,7 +310,7 @@ Specify a value, between 5 minutes and 36 hours, after which CodeBuild stops the
 Select **Enable this flag if you want to build Docker images or want your builds to get elevated privileges.** only if you plan to use this build project to build Docker images. Otherwise, all associated builds that attempt to interact with the Docker daemon fail. You must also start the Docker daemon so that your builds can interact with it. One way to do this is to initialize the Docker daemon in the `install` phase of your buildspec by running the following build commands. Do not run these commands if you chose a build environment image provided by CodeBuild with Docker support.  
 By default, Docker daemon is enabled for non-VPC builds. If you would like to use Docker containers for VPC builds, see [Runtime Privilege and Linux Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) on the Docker Docs website and enable privileged mode. Also, Windows does not support privileged mode.
 
-```
+```yaml
 - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
 - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
 ```  
@@ -485,7 +484,7 @@ To update a CodeBuild project with the AWS CLI, you create a JSON file with the 
 
 In the update JSON file, only the `name` property and the modified properties are required. The `name` property identifies the project to modify. For any modified structures, the required parameters for those structures must also be included. For example, to modify the environment for the project, the `environment/type` and `environment/computeType` properties are required. Here is an example that updates the environment image:
 
-```
+```json
 {
   "name": "{{<project-name>}}",
   "environment": {
@@ -498,7 +497,7 @@ In the update JSON file, only the `name` property and the modified properties ar
 
 If you need to obtain the current property values for a project, use the [**batch-get-projects**](https://docs.aws.amazon.com/cli/latest/reference/codebuild/batch-get-projects.html) command to obtain the current properties of the project you are modifying, and write the output to a file.
 
-```
+```shell
 aws codebuild batch-get-projects --names "{{<project-name>}}" > {{project-info.json}}
 ```
 
@@ -506,13 +505,13 @@ The {{project-info.json}} file contains an array of projects, so it cannot be us
 
 Modify the update JSON file as described in [Create a build project (AWS CLI)](create-project.md#create-project-cli), and save your results. When you are finished modifying the update JSON file, run the [`update-project`](https://docs.aws.amazon.com/cli/latest/reference/codebuild/update-project.html) command, passing the update JSON file.
 
-```
+```shell
 aws codebuild update-project --cli-input-json file://{{<update-project-file>}}
 ```
 
 If successful, the updated project JSON appears in the output. If any required parameters are missing, an error message is displayed in the output that identifies the missing parameters. For example, this is the error message displayed if the `environment/type` parameter is missing:
 
-```
+```shell
 aws codebuild update-project --cli-input-json file://update-project.json
 
 Parameter validation failed:

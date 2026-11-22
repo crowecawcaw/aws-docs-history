@@ -1,7 +1,6 @@
 
 
 # Run builds on AWS Lambda compute
-<a name="lambda"></a>
 
 AWS Lambda compute offers optimized start-up speeds for your builds. AWS Lambda supports faster builds due to a lower start-up latency. AWS Lambda also automatically scales, so builds aren't waiting in queue to run. However, there are some use cases that AWS Lambda does not support, and if they impact you, use the EC2 compute. For more information, see [Limitations of AWS Lambda compute](#lambda.limitations).
 
@@ -34,7 +33,7 @@ Note that you require the following Amazon ECR permissions to use custom images 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

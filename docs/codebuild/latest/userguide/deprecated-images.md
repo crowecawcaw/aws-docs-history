@@ -1,7 +1,6 @@
 
 
 # Deprecated CodeBuild images
-<a name="deprecated-images"></a>
 
 A *deprecated image* is an image that is no longer cached or updated by CodeBuild. A deprecated image no longer receives minor version updates or patch version updates, and because they are no longer updated, using them may not be secure. If your CodeBuild project is configured to use an older image version, the provisioning process will download this docker image and use it to create the containerized runtime environment, which can increase the provisioning duration and overall build duration.
 
