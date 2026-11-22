@@ -1,7 +1,6 @@
 
 
 # Step 1: Configure AWS services
-<a name="kaw-ds2s3-tutorial-step1"></a>
 
 Follow these steps to prepare your environment for streaming log data to Amazon Simple Storage Service (Amazon S3) using Amazon Kinesis Agent for Microsoft Windows. For more information and prerequisites, see [Tutorial: Stream JSON Log Files to Amazon S3 Using Kinesis Agent for Windows](directory-source-to-s3-tutorial.md).
 
@@ -26,7 +25,7 @@ Replace the example Region, {{us-east-1}} with the name of the AWS Region where 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -83,7 +82,7 @@ You can switch between the **Visual editor** and **JSON** tabs any time. However
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	   
        "Statement":

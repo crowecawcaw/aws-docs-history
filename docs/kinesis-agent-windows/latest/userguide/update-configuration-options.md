@@ -1,7 +1,6 @@
 
 
 # Configuring Automatic Updates
-<a name="update-configuration-options"></a>
 
 Use the `appsettings.json` configuration file to enable automatic updating of Amazon Kinesis Agent for Microsoft Windows and the configuration file for Kinesis Agent for Windows. To control the update behavior, specify the `Plugins` key-value pair at the same level in the configuration file as `Sources`, `Sinks`, and `Pipes`.
 
@@ -67,7 +66,7 @@ The following is an example `appsettings.json` configuration file that demonstra
 
 In addition, there is an `appsettings.json` configuration file stored in the `mycompany` Amazon S3 bucket named `config/appsettings.json`. Approximately every 30 minutes, that file is compared against the current configuration file. If they are different, the updated configuration file is downloaded from Amazon S3 and installed to the typical local location for the `appsettings.json` configuration file.
 
-```
+```json
 {
   "Sources": [
     {

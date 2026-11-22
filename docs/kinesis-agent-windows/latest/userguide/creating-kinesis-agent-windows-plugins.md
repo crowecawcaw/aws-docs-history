@@ -1,7 +1,6 @@
 
 
 # Creating Kinesis Agent for Windows Plugins
-<a name="creating-kinesis-agent-windows-plugins"></a>
 
 For most situations, creating an Amazon Kinesis Agent for Microsoft Windows plugin is not necessary. Kinesis Agent for Windows is highly configurable and contains powerful sources and sinks, such as `DirectorySource` and `KinesisStream`, which are sufficient for most scenarios. For details about the existing sources and sinks, see [Configuring Amazon Kinesis Agent for Microsoft Windows](configuring-kinesis-agent-windows.md).
 
@@ -54,7 +53,7 @@ Follow these steps to implement a Kinesis Agent for Windows plugin factory.
 
    For example, the following code creates a Kinesis Agent for Windows plugin factory that creates a source that generates random data:
 
-   ```
+   ```c#
    using System;
    using Amazon.KinesisTap.Core;
    using Microsoft.Extensions.Configuration;
@@ -117,7 +116,7 @@ Follow these steps to implement a Kinesis Agent for Windows plugin factory.
 
    To create a sink factory that creates a sink that does nothing, use a class similar to the following:
 
-   ```
+   ```c#
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -162,7 +161,7 @@ Follow these steps to implement a Kinesis Agent for Windows plugin source.
 
    For example, use the following code to define a source that generates random data:
 
-   ```
+   ```c#
    using System;
    using System.Reactive.Subjects;
    using System.Timers;
@@ -253,7 +252,7 @@ Follow these steps to implement a Kinesis Agent for Windows plugin source.
 
    For example, a container for random data could be defined as the following:
 
-   ```
+   ```C#
    namespace MyCompany.MySources
    {
        public class RandomData
@@ -290,7 +289,7 @@ Follow these steps to implement a Kinesis Agent for Windows plugin sink.
 
    For example, the following code implements a sink that does nothing other than log the arrival of records, which are then discarded.
 
-   ```
+   ```c#
    using Amazon.KinesisTap.Core;
    using Microsoft.Extensions.Logging;
    
@@ -328,7 +327,7 @@ Follow these steps to implement a Kinesis Agent for Windows plugin sink.
 
 1. Create or update an `appsettings.json` configuration file that uses the new sink, and place it in the installation directory for Kinesis Agent for Windows. For example, to use the `RandomSource` and `NullSink` custom plugins, you could use the following `appsettings.json` configuration file:
 
-   ```
+   ```json
    {
      "Sources": [
      {

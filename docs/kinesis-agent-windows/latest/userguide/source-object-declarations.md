@@ -1,7 +1,6 @@
 
 
 # Source Declarations
-<a name="source-object-declarations"></a>
 
 In Amazon Kinesis Agent for Microsoft Windows, *source declarations* describe where and what log, event, and metric data should be collected. They also optionally specify information for parsing that data so that it can be transformed. The following sections describe configurations for the built-in source types that are available in Kinesis Agent for Windows. Because Kinesis Agent for Windows is extensible, you can add custom source types. Each source type typically requires specific key-value pairs in the configuration objects that are relevant for that source type.
 
@@ -38,7 +37,7 @@ The `DirectorySource` source type gathers logs from files that are stored in the
 
 The following is an example `DirectorySource` declaration:
 
-```
+```json
 {
 	   "Id": "myLog",
 	   "SourceType": "DirectorySource",
@@ -68,7 +67,7 @@ The path to the directory containing the log files (required).
 `FileNameFilter`  
 Optionally limits the set of files in the directory where log data is collected based on a wild card file-naming pattern. If you have multiple log file name patterns, this feature allows you to use a single `DirectorySource`, as shown in the following example.  
 
-```
+```DOS
 FileNameFilter: "*.log|*.txt"
 ```
 System administrators sometimes compress log files before archiving them. If you specify `"*.*"` in `FileNameFilter`, known compressed files are now excluded. This feature prevents `.zip`, `.gz`, and `.bz2` files from being streamed accidentally. If this key-value pair is not specified, data from all files in the directory are collected by default.
@@ -124,7 +123,7 @@ When specified, controls the number of lines ignored at the start of each log fi
 Encoding  
 By default, Kinesis Agent for Windows can automatically detect the encoding from bytemark. However, the automatic encoding may not work correctly on some older unicode formats. The following example specifies the encoding required to stream a Microsoft SQL Server log.  
 
-```
+```json
 "Encoding": "utf-16"
 ```
 For a list of encoding names, see [List of encodings](https://docs.microsoft.com/en-us/dotnet/api/system.text.encoding?view=netframework-4.8#list-of-encodings) in Microsoft .NET documentation.
@@ -133,7 +132,7 @@ ExtractionRegexOptions
 You can use `ExtractionRegexOptions` to simplify regular expressions. This key-value pair is optional. The default is `"None"`.  
 The following example specifies that the `"."` expression matches any character including `\r\n`.  
 
-```
+```json
 "ExtractionRegexOptions" = "{{Multiline}}"
 ```
 For a list of the possible fields for ExtractionRegexOptions, see the [RegExOptions Enum](https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regexoptions?view=netframework-4.7.2#fields) in Microsoft .NET documentation.
@@ -145,14 +144,14 @@ For a list of the possible fields for ExtractionRegexOptions, see the [RegExOpti
 
 You can parse unstructured text logs using the `Regex` record parser along with the `TimestampFormat`, `Pattern`, and `ExtractionPattern` key-value pairs. For example, suppose that your log file looks like the following:
 
-```
+```DOS
 [FATAL][2017/05/03 21:31:00.534][0x00003ca8][0000059c][][ActivationSubSystem][GetActivationForSystemID][0] 'ActivationException.File: EQCASLicensingSubSystem.cpp'
 [FATAL][2017/05/03 21:31:00.535][0x00003ca8][0000059c][][ActivationSubSystem][GetActivationForSystemID][0] 'ActivationException.Line: 3999'
 ```
 
 You can specify the following regular expression for the `Pattern` key-value pair to help break the log file into individual log records: 
 
-```
+```DOS
 ^\[\w+\]\[(?<TimeStamp>\d{4}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}\.\d{3})\]   
 ```
 
@@ -192,7 +191,7 @@ This regular expression matches the following sequence:
 
 You can specify the following format for the `TimestampFormat` key-value pair to convert the textual timestamp into a date and time:
 
-```
+```json
 yyyy/MM/dd HH:mm:ss.fff
 ```
 
@@ -222,7 +221,7 @@ This regular expression matches the following groups in sequence:
 
 The following source declaration combines these regular expressions and the date time format to provide the complete instructions to Kinesis Agent for Windows for parsing this kind of log file.
 
-```
+```json
 {
     "Id": "PrintLog",
     "SourceType": "DirectorySource",
@@ -255,7 +254,7 @@ Suppose that you want to parse a Microsoft [NPS Database Format](https://docs.mi
 
 The following example `appsettings.json` configuration file includes a `DirectorySource` declaration that uses the `Delimited` record parser to parse this text into an object representation. It then streams JSON-formatted data to Firehose:
 
-```
+```json
 {
     "Sources": [
         {
@@ -291,7 +290,7 @@ The following example `appsettings.json` configuration file includes a `Director
 
 JSON-formatted data streamed to Firehose looks like the following:
 
-```
+```json
 {
     "ComputerName": "NPS-MASTER",
     "ServiceName": "IAS",
@@ -378,7 +377,7 @@ For the `SysLog` record parser, the parsed output from the source includes the f
 
 The following is an example of SysLog data transformed into JSON:
 
-```
+```json
 {
     "SysLogTimeStamp": "Jun 18 01:34:56",
     "Hostname": "myhost1.example.mydomain.com",
@@ -417,7 +416,7 @@ The following is a summary of the key-value pairs available for the `DirectorySo
 
  The `ExchangeLogSource` type is used to collect logs from Microsoft Exchange. Exchange produces logs in several different kinds of log formats. This source type parses all of them. Although it is possible to parse them using the `DirectorySource` type with the `Regex` record parser, it is much simpler to use the `ExchangeLogSource`. This is because you don't need to design and provide regular expressions for the log file formats. The following is an example `ExchangeLogSource` declaration: 
 
-```
+```json
 {
    "Id": "MyExchangeLog",
    "SourceType": "ExchangeLogSource",
@@ -447,7 +446,7 @@ The name of the column containing the date and time for the record. This key-val
 
 The following is an example `W3SVCLogSource` declaration: 
 
-```
+```json
 {
    "Id": "MyW3SVCLog",
    "SourceType": "W3SVCLogSource",
@@ -472,7 +471,7 @@ Optionally limits the set of files in the directory where log data is collected 
 
  The `UlsSource` type is used to collect logs from Microsoft SharePoint. The following is an example `UlsSource` declaration: 
 
-```
+```json
 {
     "Id": "UlsSource",
     "SourceType": "UlsSource",
@@ -497,7 +496,7 @@ Optionally limits the set of files in the directory where log data is collected 
 
 The `WindowsEventLogSource` type is used to collect events from the Windows Event Log service. The following is an example `WindowsEventLogSource` declaration: 
 
-```
+```json
 {
     "Id": "mySecurityLog",
     "SourceType": "WindowsEventLogSource",
@@ -539,7 +538,7 @@ The parsed output from the `WindowsEventLogSource` contains the following inform
 
 The following is an example event transformed into JSON:
 
-```
+```json
 {[ 
     "EventId": 7036, 
     "Description": "The Amazon SSM Agent service entered the stopped state.", 
@@ -563,7 +562,7 @@ The following is an example event transformed into JSON:
 
 `WindowsEventLogPollingSource` uses a polling-based mechanism to gather all new events from the event log that match the configured parameters. The polling interval is updated dynamically between 100 ms and 5000 ms depending on how many events were gathered during the last poll. The following is an example `WindowsEventLogPollingSource` declaration:
 
-```
+```json
 {
     "Id": "MySecurityLog",
     "SourceType": "WindowsEventLogPollingSource",
@@ -600,7 +599,7 @@ Excludes security events generated by Kinesis Agent for Windows itself.
 
 The following is an example `WindowsETWEventSource` declaration:
 
-```
+```json
 {
     "Id": "ClrETWEventSource",
     "SourceType": "WindowsETWEventSource",
@@ -618,7 +617,7 @@ Must be the literal string `"WindowsETWEventSource"` (required).
 `ProviderName`  
 Specifies which event provider to use to collect trace events. This must be a valid ETW provider name for an installed provider. To determine which providers are installed, execute the following in a Windows command prompt window:  
 
-```
+```DOS
 logman query providers
 ```
 
@@ -629,7 +628,7 @@ Specifies what categories of trace events should be collected. Allowed values in
 This value is a 64-bit number, in which each bit represents an individual keyword. Each keyword describes a category of events to be collected. For the supported keywords and their values and how they related to `TraceLevel`, see the documentation for that provider. For example, for information about the CLR ETW provider, see [CLR ETW Keywords and Levels](https://docs.microsoft.com/en-us/dotnet/framework/performance/clr-etw-keywords-and-levels) in the Microsoft .NET Framework documentation.   
 In the previous example, 32768 (0x00008000) represents the `ExceptionKeyword` for the CLR ETW provider that instructs the provider to collect information about exceptions thrown. Although JSON doesn't natively support hex constants, you can specify them for `MatchAnyKeyword` by placing them in a string. You can also specify several constants separated by commas. For example, use the following to specify both the `ExceptionKeyword` and `SecurityKeyword` (0x00000400):  
 
-```
+```json
 {
    "Id": "MyClrETWEventSource",
    "SourceType": "WindowsETWEventSource",
@@ -655,7 +654,7 @@ The output from the `WindowsETWEventSource` contains the following information f
 
 The following is an example event transformed into JSON:
 
-```
+```json
 { 
      "EventName": "Exception/Start", 
      "ProviderName": "Microsoft-Windows-DotNETRuntime", 
@@ -680,7 +679,7 @@ The following is an example event transformed into JSON:
 
  The `WindowsPerformanceCounterSource` type collects performance counter metrics from Windows. The following is an example `WindowsPerformanceCounterSource` declaration: 
 
-```
+```json
 {
 	"Id": "MyPerformanceCounter",
 	"SourceType": "WindowsPerformanceCounterSource",
@@ -735,7 +734,7 @@ The name of the counter to present to the sink. This key-value pair is optional.
 The meaning of the value that is associated with the counter. For a complete list of valid unit names, see the unit documentation in [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) in the *Amazon CloudWatch API Reference*.
 The following is an example of a complex counter specification:  
 
-```
+```json
 {
    "Counter": "Disk Reads/sec, 
    "Rename": "Disk Reads per second",
@@ -826,7 +825,7 @@ The following example aggregates all Firehose metrics for all Firehose sinks:
 
 The following example matches all single and multiple instance error metrics:
 
-```
+```json
 "MetricsFilter": "*Failed*;*Error*.*;*Failed*.*"
 ```
 

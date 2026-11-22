@@ -1,7 +1,6 @@
 
 
 # What Is Amazon Kinesis Agent for Microsoft Windows?
-<a name="what-is-kinesis-agent-windows"></a>
 
 Amazon Kinesis Agent for Microsoft Windows (Kinesis Agent for Windows) is a configurable and extensible agent. It runs on fleets of Windows desktop computers and servers, either on-premises or in the AWS Cloud. Kinesis Agent for Windows efficiently and reliably gathers, parses, transforms, and streams logs, events, and metrics to various AWS services, including [Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/), [Firehose](https://docs.aws.amazon.com/firehose/latest/dev/), [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/), and [CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/).
 

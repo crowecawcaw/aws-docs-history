@@ -1,7 +1,6 @@
 
 
 # Getting Started with Amazon Kinesis Agent for Microsoft Windows
-<a name="getting-started"></a>
 
 You can use Amazon Kinesis Agent for Microsoft Windows (Kinesis Agent for Windows) to collect, parse, transform, and stream logs, events, and metrics from your Windows fleet to various AWS services. The following information contains prerequisites and step-by-step instructions for installing and configuring Kinesis Agent for Windows.
 
@@ -21,7 +20,7 @@ Before installing Kinesis Agent for Windows, ensure that you have the following 
 
   To determine the latest version of the .NET Framework that is installed on a desktop or server, use the following PowerShell script:
 
-  ```
+  ```powershell
        [System.Version](
        (Get-ChildItem 'HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP' -recurse `
        | Get-ItemProperty -Name Version -ErrorAction SilentlyContinue `
@@ -59,19 +58,19 @@ Alternatively, you can use the [msiexec](https://docs.microsoft.com/en-us/window
 
 **To install Kinesis Agent for Windows silently:**
 
-```
+```DOS
 msiexec /i {{AWSKinesisTap.1.1.216.4.msi}} /q
 ```
 
 **To log installation messages for troubleshooting in a file named `{{logfile.log}}`:**
 
-```
+```DOS
 msiexec /i {{AWSKinesisTap.1.1.216.4.msi}} /q /L*V {{logfile.log}}
 ```
 
 **To uninstall Kinesis Agent for Windows using the command prompt:**
 
-```
+```DOS
 msiexec.exe /x {ADAB3982-68AA-4B45-AE09-7B9C03F3EBD3} /q
 ```
 
@@ -111,7 +110,7 @@ Leave **Version** blank to specify the latest version of the `AWSKinesisTap` pac
 
 Use a text editor to copy the following commands into a file and save it as a PowerShell script. We use `InstallKinesisAgent.ps1` in the following example.
 
-```
+```powershell
 Param(
     [ValidateSet("prod", "beta", "test")]
     [string] $environment = 'prod',
@@ -213,13 +212,13 @@ if ($null -eq $service) {
 
 Open an elevated command prompt window. In the directory where the file was downloaded, use the following command to run the script:
 
-```
+```DOS
 PowerShell.exe -File ".\InstallKinesisAgent.ps1"
 ```
 
 To install a specific version of Kinesis Agent for Windows, add the `-version` option:
 
-```
+```DOS
 PowerShell.exe -File ".\InstallKinesisAgent.ps1" -version "{{version}}"
 ```
 
@@ -242,6 +241,6 @@ After installing Kinesis Agent for Windows, you must configure and start the age
 
 1. Open an elevated PowerShell command prompt window, and start Kinesis Agent for Windows using the following PowerShell command:
 
-   ```
+   ```DOS
    Start-Service -Name AWSKinesisTap
    ```

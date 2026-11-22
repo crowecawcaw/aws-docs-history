@@ -1,7 +1,6 @@
 
 
 # Document History for Amazon Kinesis Agent for Microsoft Windows User Guide
-<a name="doc-history"></a>
 
 **API version: 2018-10-15**
 

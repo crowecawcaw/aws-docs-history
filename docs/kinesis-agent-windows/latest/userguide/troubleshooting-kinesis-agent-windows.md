@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon Kinesis Agent for Microsoft Windows
-<a name="troubleshooting-kinesis-agent-windows"></a>
 
 Use the following instructions to diagnose and correct issues when using Amazon Kinesis Agent for Microsoft Windows.
 
@@ -163,7 +162,7 @@ To resolve issues with data not streaming, perform the following steps:
 
    1. Replace the `%PROGRAMFILES%\Amazon\AWSKinesisTap\nlog.xml` configuration file with the following content:
 
-      ```
+      ```xml
       <?xml version="1.0" encoding="utf-8" ?>
       <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -254,7 +253,7 @@ To resolve issues with missing data, perform the following steps:
 
    1. After making adjustments, continue to monitor the Kinesis Agent for Windows built-in metrics to ensure that the situation has been resolved.
 
-For more information on Kinesis Data Streams limits, see [Kinesis Data Streams Limits](https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html) in the *Kinesis Data Streams Developer Guide*. For more information on Firehose limits, see [Amazon Kinesis Data Firehose Limits](https://docs.aws.amazon.com/firehose/latest/dev/limits.html).
+For more information on Kinesis Data Streams limits, see [Kinesis Data Streams Limits](https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html) in the *Kinesis Data Streams Developer Guide*. For more information on Firehose limits, see [Amazon Data Firehose Quota](https://docs.aws.amazon.com/firehose/latest/dev/limits.html).
 
 ### Applies to
 <a name="troubleshooting-missing-data-applies-to"></a>
@@ -346,7 +345,7 @@ To resolve performance issues, perform the following steps:
    If there are a large number of recoverable errors, inspect the latest Kinesis Agent for Windows logs in the `%PROGRAMDATA%\Amazon\AWSKInesisTap\logs` directory. If throttling is occurring for `KinesisStream` or `KinesisFirehose` sinks, do the following: 
    + If throttling occurs due to streaming data too quickly, consider raising the number of shards for the Kinesis data stream. For more information, see [Resharding, Scaling, and Parallel Processing](https://docs.aws.amazon.com/streams/latest/dev/kinesis-record-processor-scaling.html) in the *Kinesis Data Streams Developer Guide*.
    + Consider raising the API call limit for Kinesis Data Streams, or increasing the buffer size for the sink if the API calls are being throttled. For more information, see [Kinesis Data Streams Limits](https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html) in the *Kinesis Data Streams Developer Guide*.
-   + If data is streaming too quickly, consider requesting a rate limit increase for the Firehose delivery stream. Or if the API calls are being throttled, request an API call limit increase (see [Amazon Kinesis Data Firehose Limits](https://docs.aws.amazon.com/firehose/latest/dev/limits.html)) or increase the buffer size for the sink.
+   + If data is streaming too quickly, consider requesting a rate limit increase for the Firehose delivery stream. Or if the API calls are being throttled, request an API call limit increase (see [Amazon Data Firehose Quota](https://docs.aws.amazon.com/firehose/latest/dev/limits.html)) or increase the buffer size for the sink.
    + After increasing the number of shards for a Kinesis Data Streams stream, or increasing the rate limit for a Firehose delivery stream, revise the Kinesis Agent for Windows `appsettings.json` configuration file to increase the records per second or bytes per second for the sink. Otherwise, Kinesis Agent for Windows cannot take advantage of the increased limits.
 
 ### Applies to

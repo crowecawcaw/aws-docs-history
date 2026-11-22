@@ -1,7 +1,6 @@
 
 
 # Configuring Telemetrics
-<a name="telemetrics-configuration-option"></a>
 
 To enable better support, by default, Amazon Kinesis Agent for Microsoft Windows collects statistics about the operation of the agent and sends them to AWS. This information contains no personally identifiable information. It doesn't include any data that you gather or stream to AWS services. We collect approximately 1–2 KB of this metric data every 60 minutes. 
 
@@ -14,7 +13,7 @@ You can opt out of the collection and transmission of these statistics. To do th
 
 For example, the following configuration file configures a source, sink, and pipe, and also disables telemetrics:
 
-```
+```json
 {
   "Sources": [
     {
