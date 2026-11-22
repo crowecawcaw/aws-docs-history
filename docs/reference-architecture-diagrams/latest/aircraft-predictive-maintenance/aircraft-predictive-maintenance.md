@@ -1,7 +1,6 @@
 
 
 # Aircraft Predictive Maintenance
-<a name="aircraft-predictive-maintenance"></a>
 
 Publication date: **March 10, 2021 ([Diagram history](#predictive-maintenance-history))**
 
