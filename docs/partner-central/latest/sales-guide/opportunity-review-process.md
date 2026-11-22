@@ -1,9 +1,8 @@
 
 
 # AWS opportunity review process
-<a name="opportunity-review-process"></a>
 
-AWS conducts an initial review of submitted opportunities, and may require additional information from the AWS Partner, according to the [ACE Terms and Conditions](https://partnercentral.awspartner.com/partnercentral2/s/resources?Id=0690h0000061bwnAAA). If additional information is required for a secondary review, users with the alliance lead or opportunity contacts will receive email notifications. On the **Opportunities** page, **Action required** displays in the **Status** column for opportunities that require more information.
+We conduct an initial review of submitted opportunities, and might require additional information from you, according to the [ACE Terms and Conditions](https://partnercentral.awspartner.com/partnercentral2/s/resources?Id=0690h0000061bwnAAA). If we need more information, the Opportunity Owner and the primary account email receive an email notification. For details, see [Managing opportunity notifications](managing-notifications.md). On the **Opportunities** page, **Action required** displays in the **Status** column for opportunities that require more information.
 
 1. Sign in to [AWS Partner Central](https://partnercentral.awspartner.com/APNLogin).
 

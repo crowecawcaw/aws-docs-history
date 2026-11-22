@@ -1,7 +1,6 @@
 
 
 # Updating next steps and opportunity stage
-<a name="updating-opportunities"></a>
 
 We recommend that AWS Partners update opportunities with AWS Sales visibility with next steps at each stage change.
 

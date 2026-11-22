@@ -1,7 +1,6 @@
 
 
 # Opportunity contacts
-<a name="contact-roles"></a>
 
 You can view the AWS contacts for any validated opportunity in the AWS Partner Central Opportunity page.
 

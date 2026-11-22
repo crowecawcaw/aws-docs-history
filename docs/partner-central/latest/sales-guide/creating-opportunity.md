@@ -1,26 +1,26 @@
 
 
 # Creating an opportunity
-<a name="creating-opportunity"></a>
 
-Opportunities can be added individually, by [bulk import](https://docs.aws.amazon.com/partner-central/latest/sales-guide/bulk-actions.html) or managed through a [CRM integration](https://docs.aws.amazon.com/partner-central/latest/crm/aws-partner-crm-integration.html). We encourage AWS Partners to submit opportunities early in the sales cycle and let the agent help qualify and strengthen the opportunity as the deal progresses.
+You can create opportunities in AWS Partner Central in three ways. To create one, on the Opportunities page, choose **Create opportunity**, and then choose an option.
++ **Create using wizard** – Enter one opportunity in a multi-step form, and review every field before you submit. For steps, see [Create an opportunity using the wizard](#create-opportunity-procedure).
++ **Create using agent** – Describe the deal or upload a supporting document. The Partner Central agent asks for any missing details and creates the opportunity after you approve it. For steps, see [Create an opportunity using the agent](#partner-cosell-agent-create-opportunity).
++ **Create using a file** (formerly bulk create) – Create up to 500 opportunities at the same time from one CSV file. For steps, see [Creating and updating opportunities in bulk](bulk-actions.md).
+
+You can also create and manage opportunities through a [CRM integration](https://docs.aws.amazon.com/partner-central/latest/crm/aws-partner-crm-integration.html). We encourage you to submit opportunities early in the sales cycle. The agent helps qualify and strengthen the opportunity as the deal progresses.
 
 Opportunities can be classified as requiring AWS support or partners can choose to manage their opportunities independently. Opportunities progress through defined stages from Prospect to Launched/Closed and include data attributes such as revenue estimates, customer details and customer use case.
-
-Partners can also create opportunities through a short conversation with the AWS Partner Central agent. Describe the deal or upload a supporting document, and the agent extracts the fields, enriches customer details, and creates the opportunity after you approve. For details, see [Agents for opportunity management](https://docs.aws.amazon.com/partner-central/latest/sales-guide/partner-cosell-agent.html).
 
 Partners can share opportunities with AWS sellers, which are routed through an internal validation process. Once an opportunity has been submitted, it undergoes validation to ensure it meets AWS criteria for deal size, solution alignment, and customer engagement status.
 
 Partners can now use deal sizing when creating opportunities to receive AI-powered Monthly Recurring Revenue (MRR) forecasts and AWS product recommendations based on opportunity details. Partners can also import AWS Pricing Calculator URLs to automatically populate service selections and receive enhanced insights including Migration Acceleration Program (MAP) eligibility indicators and optimization recommendations. Partners who transact in total contract value (TCV) can submit TCV and contract duration, and deal sizing converts both to a forecasted MRR.
 
-## Create an opportunity
+## Create an opportunity using the wizard
 <a name="create-opportunity-procedure"></a>
 
 1. Navigate to **Sell**, **Opportunities** in the left-side navigation.
 
-1. Choose **Create opportunity**, then select one of the following options from the dropdown:
-   + **Create using wizard** – Continue with the multi-step form described in the steps below.
-   + **Create using agent** – Create the opportunity through a short conversation with the AWS Partner Central agent. Describe the deal or upload a supporting document, review the fields the agent extracts, and approve to submit. For details, see [Agents for opportunity management](https://docs.aws.amazon.com/partner-central/latest/sales-guide/partner-cosell-agent.html).
+1. Choose **Create opportunity**, and then choose **Create using wizard**.
 
 1. Enter customer details and choose **Next**.
    + All fields are required except for **Customer DUNS**. Information such as the customer website and zip code are necessary to align the opportunity with internal stakeholders.
@@ -130,7 +130,7 @@ AI-forecasted MRR and product recommendations are available for opportunities in
 
 1. Review the opportunity details and choose **Submit**.
 
-Partners can add up to two (2) partner contacts on a given opportunity. These designated contacts serve as the primary points of communication with AWS sellers and receive all relevant notifications about the opportunity's progression. This includes automated alerts for status changes, requests for additional information, and validation updates.
+You can add up to two partner contacts to an opportunity. These contacts are your primary points of communication with AWS sellers. For who receives notifications about the opportunity, see [Managing opportunity notifications](managing-notifications.md).
 
 Once the opportunity is accepted by AWS, partners can collaborate with assigned AWS sellers, access deal support resources, and receive guidance on technical validation and pricing assistance. See more details in the [Accepting opportunities](accepting-opportunities.md) section.
 
@@ -140,3 +140,46 @@ Once the opportunity is submitted, an Opportunity Quality score and a co-sell mo
 
 **Note**  
 See IAM guide for help with Access.
+
+## Create an opportunity using the agent
+<a name="partner-cosell-agent-create-opportunity"></a>
+
+The agent creates new opportunities through a short conversation instead of completing a multi-step form, which reduces data entry and lets partner sales teams spend more time selling.
+
+The agent also guides you to a high-quality submission. It asks for the details that the Opportunity Quality Score measures, based on the co-selling best practices. These details include the customer's business problem, dated next steps, the Partner Primary Need from AWS, and the AWS services the customer will adopt. For more information, see [Opportunity Quality score](co-sell-engagement.md#opportunity-quality-score) and [Best practices](co-sell-engagement.md#cosell-best-practices).
+
+**To create an opportunity**
+
+1. On the Opportunities listing page, choose **Create using agent** from the **Create opportunity** dropdown.
+
+1. In the conversational panel, describe the deal in natural language or upload a supporting document such as meeting notes, a proposal, or a call transcript (PDF, DOCX, XLSX, TXT).
+
+1. Answer the agent's questions about any missing details. Then review the fields the agent extracted and enriched, and confirm or correct the values.
+
+1. Approve the draft. The agent creates the opportunity, submits it for AWS review, and returns the Opportunity ID with a status of *Pending Approval*.
+
+To create an opportunity from an existing one, use agents to clone the opportunity.
+
+You can also ask the agent to create many opportunities at the same time from one file. Upload the file in the chat. The agent checks the file format and template columns, and then submits the job after you approve it. The file supports up to 500 opportunities. For the full workflow, see [Create opportunities with the agent](bulk-actions.md#bulk-create-with-agent).
+
+**Note**  
+At launch, the agent supports bulk create only. To update opportunities in bulk, see [Update opportunities in bulk](bulk-actions.md#update-opportunities-bulk).
+
+## Additional opportunity fields
+<a name="opportunity-additional-fields"></a>
+
+The following fields are available when you create an opportunity. The same rules apply in the wizard, with the agent, and in a bulk file. For every field, with its format and allowed values, see [Opportunity template field reference](bulk-actions.md#opportunity-fields).
+
+
+| Field | What it's for | Rules | 
+| --- | --- | --- | 
+| Next steps | The next steps in the engagement. | Up to 255 characters. Applies when the partner primary need is a Co-Sell option. | 
+| AWS Marketplace products | The AWS Marketplace products to associate with the opportunity. | Enter the full AWS Marketplace product ARN. In a bulk file, separate multiple ARNs with a semicolon (;). | 
+| AWS Marketplace solutions | The AWS Marketplace solutions to associate with the opportunity. | Enter the full AWS Marketplace solution ARN. In a bulk file, separate multiple ARNs with a semicolon (;). | 
+| APN programs | The APN program related to the opportunity. | Choose a program from the allowed list. Some programs need more details. | 
+| AWS Pricing Calculator estimate | Public AWS Pricing Calculator links that size the opportunity. | Use public, shareable links. In a bulk file, separate multiple links with a comma (,). | 
+| AWS partition | The AWS partition for the opportunity, for example the AWS European Sovereign Cloud. | Choose aws-eusc, or leave it blank for the standard AWS partition. | 
+| Partner account manager | The partner account manager for the opportunity, one of the two partner contacts. | First name and last name, up to 80 characters each. One valid email address. Phone number in international format, starting with \+. | 
+| Opportunity owner | The partner employee who owns the opportunity, the other partner contact. | First name and last name, up to 80 characters each. One valid email address. Phone number in international format, starting with \+. | 
+
+To set the AWS partition in the console, see [Tagging AWS partition for opportunities](esc-aws-partition.md).

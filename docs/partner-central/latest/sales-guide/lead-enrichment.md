@@ -1,7 +1,6 @@
 
 
 # Enriching leads
-<a name="lead-enrichment"></a>
 
 Lead enrichment is a capability in AWS Partner Central that enhances your leads with AWS data. Submit your leads to receive AWS propensity signals and to check account eligibility for select AWS programs, funding benefits, and sales motions.
 

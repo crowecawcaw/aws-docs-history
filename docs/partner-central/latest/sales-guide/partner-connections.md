@@ -1,7 +1,6 @@
 
 
 # Discovering and managing partner connections
-<a name="partner-connections"></a>
 
 This section provides detailed instructions for the Partner Discovery and Partner Connections features in AWS Partner Central, helping AWS Partners discover, connect, and collaborate with other AWS Partners.
 

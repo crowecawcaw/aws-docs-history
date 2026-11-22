@@ -1,7 +1,6 @@
 
 
 # Managing Opportunities
-<a name="opportunities"></a>
 
 Partners can create and share opportunities with AWS, or receive opportunities shared by AWS for co-selling. The topics below describe how to manage opportunities jointly with AWS through the sales lifecycle.
 

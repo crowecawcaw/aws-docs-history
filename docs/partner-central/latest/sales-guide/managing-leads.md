@@ -1,7 +1,6 @@
 
 
 # Managing leads
-<a name="managing-leads"></a>
 
 The Leads page in AWS Partner Central allows you to manage your lead lifecycle: accept leads shared by AWS, import your own leads, enrich leads with AWS insights, report back updates, and convert leads into opportunities. The Leads page has three tabs:
 + **Leads** – where you can enrich lead batches, manage leads, and convert leads to opportunities

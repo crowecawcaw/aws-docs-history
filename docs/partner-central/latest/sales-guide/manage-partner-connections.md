@@ -1,7 +1,6 @@
 
 
 # Partner Connections
-<a name="manage-partner-connections"></a>
 
 From Partner Connections, you can manage your existing partner connections and active incoming/outgoing connection requests.
 

@@ -1,7 +1,6 @@
 
 
 # Using agents for lead prospecting
-<a name="lead-agents"></a>
 
 AWS Partner Central agents support AI-powered capabilities that generate personalized sales assets for enriched leads. After a lead is enriched with AWS signals, the **Actions** menu on the lead detail page unlocks AI-powered creation of lead overviews, sales plays, call scripts, and outreach emails.
 

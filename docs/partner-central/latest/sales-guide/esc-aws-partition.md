@@ -1,7 +1,6 @@
 
 
 # Tagging AWS partition for opportunities
-<a name="esc-aws-partition"></a>
 
 Partners can now specify AWS partition details when creating or managing opportunities in AWS Partner Central in the console.
 

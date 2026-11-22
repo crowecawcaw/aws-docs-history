@@ -1,7 +1,6 @@
 
 
 # Agentic Co-sell engagement
-<a name="co-sell-engagement"></a>
 
 Agentic co-selling enables AWS Partners to accelerate co-selling with AWS by using AWS Partner Central agents throughout the opportunity lifecycle, so that they spend more time selling to customers and delivering customer outcomes. The agents act on the partner's behalf through conversation to enrich opportunity details, provide customer insights, recommendations, and sales plays, and assign a Co-sell motion and Opportunity Quality Score that directly influence how AWS engages.
 
@@ -13,6 +12,8 @@ The following sections explain how each opportunity is scored, how the score and
 <a name="scoring-motion-assignment"></a>
 
 Every opportunity is scored on submission, assigned a Co-sell motion, and rescored each time the AWS Partner updates it.
+
+After submission, the Partner Central agent chat explains each opportunity's Co-sell motion and why AWS assigned it, and it recommends a next step. For details, see [Co-sell motion explanation](partner-cosell-agent.md#partner-cosell-agent-cosell-motion).
 
 ## The Co-sell motions
 <a name="co-sell-motions"></a>
@@ -112,6 +113,10 @@ Treat the score as coaching and act on it. Each of the following practices names
 **How is the Co-sell motion assigned, and why can a lower-scoring opportunity reach AWS Field-engaged?**
 
 The Co-sell motion is assigned based on the Opportunity Quality Score and the strategic importance of the opportunity, which is determined based on the partner, the associated AWS customer, and the products and services involved. The Opportunity Quality Score is the input the AWS Partner controls. Strategic importance reflects context that AWS holds, so two opportunities with the same Opportunity Quality Score can land in different motions. Raising the Opportunity Quality Score is the right action in every case.
+
+**How do I find out why my opportunity received its Co-sell motion?**
+
+Ask the Partner Central agent chat. After you submit an opportunity, the agent explains its Co-sell motion and why AWS assigned it. Where you can act, it recommends a next step. For details, see [Co-sell motion explanation](partner-cosell-agent.md#partner-cosell-agent-cosell-motion).
 
 **What does the AWS sales team see?**
 
