@@ -1,7 +1,6 @@
 
 
 # View running queries or query history
-<a name="CloudWatchLogs-Insights-Query-History"></a>
 
 You can view the queries currently in progress as well as your recent query history.
 

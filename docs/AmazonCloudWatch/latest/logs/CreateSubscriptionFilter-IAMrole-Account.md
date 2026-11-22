@@ -1,7 +1,6 @@
 
 
 # Step 2: (Only if using an organization) Create an IAM role
-<a name="CreateSubscriptionFilter-IAMrole-Account"></a>
 
 In the previous section, if you created the destination by using an access policy that grants permissions to the organization that account `111111111111` is in, instead of granting permissions directly to account `111111111111`, then follow the steps in this section. Otherwise, you can skip to [Step 3: Create an account-level subscription filter policy](CreateSubscriptionFilter-Account.md).
 
@@ -25,7 +24,7 @@ Perform the steps in this section in the sender account. The role must exist in 
 
 1. Create the IAM role that uses this policy. Take note of the `Arn` value that is returned by the command, you will need it later in this procedure. In this example, we use `CWLtoSubscriptionFilterRole` for the name of the role we're creating.
 
-   ```
+   ```cmd
    aws iam create-role \ 
         --role-name CWLtoSubscriptionFilterRole \ 
         --assume-role-policy-document file://~/TrustPolicyForCWLSubscriptionFilter.json

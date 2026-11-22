@@ -1,7 +1,6 @@
 
 
 # Step 1: Create a Firehose delivery stream
-<a name="CreateFirehoseStream"></a>
 
 **Important**  
  Before you complete the following steps, you must use an access policy, so Firehose can access your Amazon S3 bucket. For more information, see [Controlling Access](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3) in the *Amazon Data Firehose Developer Guide*.   
@@ -34,7 +33,7 @@
 
    1. The output of this command will look similar to the following. Make a note of the role name and the role ARN.
 
-      ```
+      ```json
       {
           "Role": {
               "Path": "/",
@@ -64,7 +63,7 @@
 
    1. First, use a text editor to create the following permissions policy in a file named `~/PermissionsForFirehose.json`. Depending on your use case, you might need to add more permissions to this file.
 
-      ```
+      ```json
       {
           "Statement": [{
               "Effect": "Allow",
@@ -98,7 +97,7 @@
 
    The output should look similar to the following:
 
-   ```
+   ```json
    {
        "DeliveryStreamARN": "arn:aws:firehose:us-east-1:222222222222:deliverystream/my-delivery-stream"
    }

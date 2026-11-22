@@ -1,7 +1,6 @@
 
 
 # Start the CloudWatch Logs agent
-<a name="StartTheCWLAgent"></a>
 
 If the CloudWatch Logs agent on your EC2 instance did not start automatically after installation, or if you stopped the agent, you can use the following procedure to start the agent.
 

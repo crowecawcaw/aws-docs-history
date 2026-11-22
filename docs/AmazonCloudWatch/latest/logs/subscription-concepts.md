@@ -1,7 +1,6 @@
 
 
 # Concepts
-<a name="subscription-concepts"></a>
 
 Each subscription filter is made up of the following key elements:
 

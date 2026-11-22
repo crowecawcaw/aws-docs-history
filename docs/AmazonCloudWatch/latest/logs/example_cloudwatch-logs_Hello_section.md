@@ -1,7 +1,6 @@
 
 
 # Hello CloudWatch Logs
-<a name="example_cloudwatch-logs_Hello_section"></a>
 
 The following code example shows how to get started using CloudWatch Logs.
 
@@ -11,7 +10,7 @@ The following code example shows how to get started using CloudWatch Logs.
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch-logs/scenarios/syslog_ingestion#code-examples). 
 
-```
+```python
 def hello_cloudwatch_logs() -> None:
     """
     Verifies connectivity to CloudWatch Logs by calling DescribeLogGroups

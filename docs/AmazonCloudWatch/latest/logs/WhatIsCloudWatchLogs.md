@@ -1,7 +1,6 @@
 
 
 # What is Amazon CloudWatch Logs?
-<a name="WhatIsCloudWatchLogs"></a>
 
 You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon Elastic Compute Cloud (Amazon EC2) instances, AWS CloudTrail, Route 53, and other sources.
 

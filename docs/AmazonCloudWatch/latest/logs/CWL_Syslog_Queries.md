@@ -1,7 +1,6 @@
 
 
 # Sample queries for syslog data
-<a name="CWL_Syslog_Queries"></a>
 
 The following CloudWatch Logs Insights queries demonstrate common analysis patterns for syslog data. They use the structured fields that CloudWatch Logs automatically extracts from RFC 5424, RFC 3164, and Cisco FTD/ASA messages. For the complete list of extracted fields, see [Supported syslog formats](CWL_Syslog.md#CWL_Syslog_Formats).
 
@@ -15,7 +14,7 @@ These queries are also available in the CloudWatch console. In CloudWatch Logs I
 
 The following query lists recent sudo privilege-escalation activity on Linux hosts. It filters for the `sudo` application name and works with both RFC 3164 and RFC 5424 messages.
 
-```
+```sql
 filter appName="sudo"
 | fields @timestamp, hostname, message
 | sort @timestamp desc
@@ -27,7 +26,7 @@ filter appName="sudo"
 
 The following query counts failed SSH authentication attempts for each host. It matches sshd messages that contain "Failed password" or "Failed publickey". Use it to identify hosts that are targets of brute-force attacks.
 
-```
+```sql
 filter appName="sshd" and (message like /Failed password/ or message like /Failed publickey/)
 | stats count(*) as failedAttempts by hostname
 | sort failedAttempts desc
@@ -42,7 +41,7 @@ filter appName="sshd" and (message like /Failed password/ or message like /Faile
 
 The following query counts messages for each host in 5-minute intervals. Use it to measure fleet activity, identify volume spikes, or detect hosts that have stopped sending. This query works with all syslog format types.
 
-```
+```sql
 stats count(*) as messages by hostname, bin(5m)
 | sort messages desc
 ```
@@ -52,7 +51,7 @@ stats count(*) as messages by hostname, bin(5m)
 
 The following query counts messages grouped by facility and severity level. Use it to understand which subsystems generate the most log traffic and at what severity level.
 
-```
+```sql
 stats count(*) as messageCount by facility, severity
 | sort messageCount desc
 ```
@@ -62,7 +61,7 @@ stats count(*) as messageCount by facility, severity
 
 The following query filters to high-priority messages (severityCode 0–3, which corresponds to emerg, alert, crit, and err) and counts them by application. Use it to identify which applications are generating the most errors.
 
-```
+```sql
 filter severityCode<=3
 | stats count(*) as errorCount by appName
 | sort errorCount desc
@@ -73,7 +72,7 @@ filter severityCode<=3
 
 The following query counts messages at warning severity or higher (severityCode 0–4) in 5-minute intervals. Use it with the visualization feature in Logs Insights to chart error spikes over time.
 
-```
+```sql
 filter severityCode<=4
 | stats count(*) as events by bin(5m)
 | sort @timestamp
@@ -87,7 +86,7 @@ filter severityCode<=4
 
 The following query is for Cisco ASA and FTD firewalls. It counts ACL-denied connections (Cisco message ID 106023) grouped by device, which helps you identify devices with the most denied traffic.
 
-```
+```sql
 filter messageId="106023"
 | stats count(*) as denies by deviceId
 | sort denies desc
@@ -99,7 +98,7 @@ filter messageId="106023"
 
 The following query is for Cisco FTD and ASA firewalls. It counts events grouped by Cisco message ID and severity to help you identify the most frequent event types across your firewall fleet.
 
-```
+```sql
 filter ispresent(messageId)
 | stats count(*) as eventCount by messageId, severity
 | sort eventCount desc
@@ -110,7 +109,7 @@ filter ispresent(messageId)
 
 The following query parses firewall DROP messages (for example, from iptables or nftables) to count dropped packets by source IP address. Use it to identify the top sources of blocked traffic.
 
-```
+```sql
 filter message like /DROP/
 | parse message /SRC=(?<srcAddr>\S+)/
 | stats count(*) as drops by srcAddr

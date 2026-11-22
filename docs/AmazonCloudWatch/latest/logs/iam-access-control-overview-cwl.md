@@ -1,7 +1,6 @@
 
 
 # Overview of managing access permissions to your CloudWatch Logs resources
-<a name="iam-access-control-overview-cwl"></a>
 
 To provide access, add permissions to your users, groups, or roles:
 + Users and groups in AWS IAM Identity Center:
@@ -80,7 +79,7 @@ CloudWatch Logs supports resource-based policies for destinations, which you can
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [

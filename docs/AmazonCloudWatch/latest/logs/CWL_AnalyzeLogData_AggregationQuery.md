@@ -1,7 +1,6 @@
 
 
 # Tutorial: Run a query with an aggregation function
-<a name="CWL_AnalyzeLogData_AggregationQuery"></a>
 
 You can use aggregation functions with the `stats` command and as arguments for other functions. In this tutorial, you run a query command that counts the number of log events containing a specified field. The query command returns a total count that's grouped by the specified field's value or values. For more information about aggregation functions, see [Supported operations and functions](https://docs.aws.amazon.com/en_us/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html#CWL_QuerySyntax-operations-functions) in the *Amazon CloudWatch Logs User Guide*.
 

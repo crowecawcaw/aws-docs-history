@@ -1,7 +1,6 @@
 
 
 # String mutate processors
-<a name="CloudWatch-Logs-Transformation-StringMutate"></a>
 
 This section contains information about the string mutate processors that you can use with a log event transformer. 
 
@@ -26,7 +25,7 @@ The `lowerCaseString` processor converts a string to its lowercase version.
 
 Take the following example log event:
 
-```
+```json
 {
     "outer_key": {
         "inner_key": "INNER_VALUE"
@@ -36,7 +35,7 @@ Take the following example log event:
 
 The transformer configuration is this, using `lowerCaseString` with `parseJSON`:
 
-```
+```json
 [
     {
         "parseJSON": {}
@@ -51,7 +50,7 @@ The transformer configuration is this, using `lowerCaseString` with `parseJSON`:
 
 The transformed log event would be the following.
 
-```
+```json
 {
   "outer_key": {
     "inner_key": "inner_value"
@@ -73,7 +72,7 @@ The `upperCaseString` processor converts a string to its uppercase version.
 
 Take the following example log event:
 
-```
+```json
 {
     "outer_key": {
         "inner_key": "inner_value"
@@ -83,7 +82,7 @@ Take the following example log event:
 
 The transformer configuration is this, using `upperCaseString` with `parseJSON`:
 
-```
+```json
 [
     {
         "parseJSON": {}
@@ -98,7 +97,7 @@ The transformer configuration is this, using `upperCaseString` with `parseJSON`:
 
 The transformed log event would be the following.
 
-```
+```json
 {
   "outer_key": {
     "inner_key": "INNER_VALUE"
@@ -122,7 +121,7 @@ The `splitString` processor is a type of string mutate processor which splits a 
 
 Take the following example log event:
 
-```
+```json
 {
     "outer_key": {
         "inner_key": "inner_value"
@@ -132,7 +131,7 @@ Take the following example log event:
 
 The transformer configuration is this, using `splitString` with `parseJSON`:
 
-```
+```json
 [
      {
         "parseJSON": {}
@@ -152,7 +151,7 @@ The transformer configuration is this, using `splitString` with `parseJSON`:
 
 The transformed log event would be the following.
 
-```
+```json
 {
   "outer_key": {
     "inner_key": [
@@ -169,7 +168,7 @@ The delimiter to split the string on can be multiple characters long.
 
 Take the following example log event:
 
-```
+```json
 {
     "outer_key": {
         "inner_key": "item1, item2, item3"
@@ -179,7 +178,7 @@ Take the following example log event:
 
 The transformer configuration is as follows:
 
-```
+```json
 [
      {
         "parseJSON": {}
@@ -199,7 +198,7 @@ The transformer configuration is as follows:
 
 The transformed log event would be the following.
 
-```
+```json
 {
   "outer_key": {
     "inner_key": [
@@ -228,7 +227,7 @@ The `substituteString` processor is a type of string mutate processor which matc
 
 Take the following example log event:
 
-```
+```json
 {
     "outer_key": {
         "inner_key1": "[]",
@@ -240,7 +239,7 @@ Take the following example log event:
 
 The transformer configuration is this, using `substituteString` with `parseJSON`:
 
-```
+```json
 [
     {
         "parseJSON": {}
@@ -271,7 +270,7 @@ The transformer configuration is this, using `substituteString` with `parseJSON`
 
 The transformed log event would be the following.
 
-```
+```json
 {
   "outer_key": {
     "inner_key1": "value1",
@@ -285,7 +284,7 @@ The transformed log event would be the following.
 
 Take the following example log event:
 
-```
+```json
 {
     "outer_key": {
         "inner_key1": "Tom, Dick, and Harry",
@@ -296,7 +295,7 @@ Take the following example log event:
 
 The transformer configuration is this, using `substituteString` with `parseJSON`:
 
-```
+```json
 [
     {
         "parseJSON": {}
@@ -322,7 +321,7 @@ The transformer configuration is this, using `substituteString` with `parseJSON`
 
 The transformed log event would be the following.
 
-```
+```json
 {
   "outer_key": {
     "inner_key1": "Tom and Harry",
@@ -345,7 +344,7 @@ The `trimString` processor removes whitespace from the beginning and end of a ke
 
 Take the following example log event:
 
-```
+```json
 {
     "outer_key": {
         "inner_key": "   inner_value  "
@@ -355,7 +354,7 @@ Take the following example log event:
 
 The transformer configuration is this, using `trimString` with `parseJSON`:
 
-```
+```json
 [
     {
         "parseJSON": {}
@@ -370,7 +369,7 @@ The transformer configuration is this, using `trimString` with `parseJSON`:
 
 The transformed log event would be the following.
 
-```
+```json
 {
   "outer_key": {
     "inner_key": "inner_value"

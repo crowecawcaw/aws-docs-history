@@ -1,7 +1,6 @@
 
 
 # Log ingestion through HTTP endpoints
-<a name="CWL_HTTP_Endpoints"></a>
 
 Amazon CloudWatch Logs provides HTTP endpoints that allow you to send logs directly to CloudWatch Logs using simple HTTP POST requests. These endpoints support both SigV4 and bearer token authentication.
 

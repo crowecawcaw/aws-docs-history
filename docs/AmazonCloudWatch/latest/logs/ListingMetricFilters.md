@@ -1,7 +1,6 @@
 
 
 # Listing metric filters
-<a name="ListingMetricFilters"></a>
 
 You can list all metric filters in a log group.
 

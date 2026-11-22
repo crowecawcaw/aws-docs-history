@@ -1,7 +1,6 @@
 
 
 # Compare (diff) with previous time ranges
-<a name="CWL_AnalyzeLogData_Compare"></a>
 
 You can use CloudWatch Logs Insights with the Logs Insights QL to compare changes in your log events over time. You can compare the log events ingested during a recent time range with the logs from the immediately previous time period. Alternatively, you can compare with similar past time periods. This can help you find whether an error in your logs was recently introduced or was already occurring, and can help you find other trends. 
 

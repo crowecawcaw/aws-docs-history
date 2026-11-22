@@ -1,7 +1,6 @@
 
 
 # Create an account-wide data protection policy
-<a name="mask-sensitive-log-data-accountlevel"></a>
 
 You can use the CloudWatch Logs console or AWS CLI commands to create a data protection policy to mask sensitive data for all log groups in your account. Doing so affects both current log groups and log groups that you create in the future.
 
@@ -79,7 +78,7 @@ The following is an example of a data protection policy using only managed data 
 
 For information about policies that specify custom data identifiers, see [Using custom data identifiers in your data protection policy](CWL-custom-data-identifiers.md#using-custom-data-identifiers). 
 
-```
+```json
 {
     "Name": "data-protection-policy",
     "Description": "test description",

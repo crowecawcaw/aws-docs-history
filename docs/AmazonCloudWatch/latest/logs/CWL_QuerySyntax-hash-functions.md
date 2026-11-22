@@ -1,7 +1,6 @@
 
 
 # Hashing functions
-<a name="CWL_QuerySyntax-hash-functions"></a>
 
 You can use hashing functions in `fields` and `filter` commands.
 

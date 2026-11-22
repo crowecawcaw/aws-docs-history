@@ -1,7 +1,6 @@
 
 
 # subqueries
-<a name="CWL_QuerySyntax-Subqueries"></a>
 
 A subquery is a nested Logs Insights query that can be used as an input to another query. Subqueries can be used to derive intermediate result sets that are then consumed by subsequent commands.
 

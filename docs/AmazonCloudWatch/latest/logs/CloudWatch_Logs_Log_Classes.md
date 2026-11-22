@@ -1,7 +1,6 @@
 
 
 # Log classes
-<a name="CloudWatch_Logs_Log_Classes"></a>
 
 CloudWatch Logs offers two classes of log groups:
 + *CloudWatch Logs Standard* log class is a full-featured option for logs that require real-time monitoring or logs that you access frequently.

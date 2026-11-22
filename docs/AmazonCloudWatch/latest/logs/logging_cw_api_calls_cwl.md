@@ -1,7 +1,6 @@
 
 
 # Logging CloudWatch Logs API and console operations in AWS CloudTrail
-<a name="logging_cw_api_calls_cwl"></a>
 
 Amazon CloudWatch Logs is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls for CloudWatch Logs as events. The calls captured include calls from the CloudWatch Logs console and code calls to the CloudWatch Logs API operations. Using the information collected by CloudTrail, you can determine the request that was made to CloudWatch Logs, the IP address from which the request was made, when it was made, and additional details.
 
@@ -126,7 +125,7 @@ CloudTrail logging for Query generator console events is also supported. Query g
 
 The following example shows a CloudTrail log entry that demonstrates the **GenerateQuery** action in CloudWatch Logs Insights. 
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {

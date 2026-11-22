@@ -1,7 +1,6 @@
 
 
 # where
-<a name="CWL_QuerySyntax-Where"></a>
 
 Use the `where` command as an alias for the `filter` command. It accepts identical syntax and behavior.
 

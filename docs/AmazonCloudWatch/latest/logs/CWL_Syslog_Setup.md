@@ -1,7 +1,6 @@
 
 
 # Setting up syslog ingestion
-<a name="CWL_Syslog_Setup"></a>
 
 This section walks you through the steps to set up syslog ingestion into CloudWatch Logs. You will create a VPC endpoint for the syslog service, a log group to receive the messages, a resource policy to authorize the syslog service, and a syslog configuration that routes traffic from your VPC endpoint to your log group.
 
@@ -12,7 +11,7 @@ You can perform all of these steps using the AWS Management Console, the AWS CLI
 
 The IAM identity (user or role) that you use to set up syslog ingestion must have permissions to create VPC endpoints, log groups, resource policies, and syslog configurations. The following example policy shows the minimum required permissions:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -86,7 +85,7 @@ You need a VPC that is reachable from your on-premises network (via VPN or Direc
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 REGION=us-east-1
 
 # Create VPC
@@ -144,7 +143,7 @@ Create a security group for the VPC endpoint that allows inbound syslog traffic 
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 VPCE_SG_ID=$(aws ec2 create-security-group \
   --group-name syslog-vpce-sg \
   --description "Allow syslog traffic to VPC endpoint" \
@@ -204,7 +203,7 @@ You can specify multiple subnet IDs across different Availability Zones when cre
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 VPCE_ID=$(aws ec2 create-vpc-endpoint \
   --vpc-id $VPC_ID \
   --service-name com.amazonaws.${REGION}.syslog-logs \
@@ -219,7 +218,7 @@ echo "VPC Endpoint: $VPCE_ID"
 
 Wait for the endpoint to become available (approximately 60 seconds), then retrieve the DNS name:
 
-```
+```bash
 VPCE_DNS=$(aws ec2 describe-vpc-endpoints --vpc-endpoint-ids $VPCE_ID \
   --region $REGION --query 'VpcEndpoints[0].DnsEntries[0].DnsName' --output text)
 
@@ -255,7 +254,7 @@ Create the CloudWatch Logs log group where your syslog messages will be delivere
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws logs create-log-group \
   --log-group-name /syslog/my-devices \
   --region $REGION
@@ -270,7 +269,7 @@ You do not need to create a log stream. The syslog service automatically creates
 
 The CloudWatch Logs syslog service writes to your log group using the `syslog.logs.amazonaws.com` Service Principal. You must grant it permission via a resource policy on your log group. The `aws:SourceArn` condition ensures only traffic from your specific VPC endpoint can write to this log group.
 
-```
+```bash
 ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
 
 aws logs put-resource-policy \
@@ -308,7 +307,7 @@ The conditions in the resource policy provide the following protections:
 
 To allow multiple VPC endpoints to write to the same log group, use the `ArnLike` condition operator with a wildcard:
 
-```
+```json
 "ArnLike": {
     "aws:SourceArn": "arn:aws:ec2:us-east-1:123456789012:vpc-endpoint/*"
 }
@@ -341,7 +340,7 @@ This step tells the CloudWatch Logs syslog service that traffic arriving from yo
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws logs put-syslog-configuration \
   --log-group-identifier /syslog/my-devices \
   --vpc-endpoint-id $VPCE_ID \
@@ -350,7 +349,7 @@ aws logs put-syslog-configuration \
 
 Verify the configuration:
 
-```
+```bash
 aws logs list-syslog-configurations \
   --log-group-identifier /syslog/my-devices \
   --region $REGION
@@ -367,7 +366,7 @@ Send a test message from any EC2 host or device that can reach the VPC endpoint,
 
 **Send a test message (TCP plaintext):**
 
-```
+```bash
 echo "<134>1 $(date -u +%Y-%m-%dT%H:%M:%SZ) myhost myapp 1234 - - Hello from syslog" | \
   nc $VPCE_DNS 1514
 ```
@@ -400,7 +399,7 @@ echo "<134>1 $(date -u +%Y-%m-%dT%H:%M:%SZ) myhost myapp 1234 - - Hello from sys
 
 Start a Log Analytics query to verify delivery and field extraction:
 
-```
+```bash
 QUERY_ID=$(aws logs start-query \
   --log-group-name /syslog/my-devices \
   --start-time $(date -d '5 minutes ago' +%s 2>/dev/null || echo $(date -v-5M +%s)) \

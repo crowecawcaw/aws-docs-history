@@ -1,7 +1,6 @@
 
 
 # Use `PutResourcePolicy` with an AWS SDK
-<a name="example_cloudwatch-logs_PutResourcePolicy_section"></a>
 
 The following code example shows how to use `PutResourcePolicy`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch-logs/scenarios/syslog_ingestion#code-examples). 
 
-```
+```python
     def put_resource_policy(
         self,
         log_group_arn: str,

@@ -1,7 +1,6 @@
 
 
 # OpenSearch Structured Query Language (SQL)
-<a name="CWL_AnalyzeLogData_SQL"></a>
 
 This section contains a basic introduction to querying CloudWatch Logs using OpenSearch SQL. It provides a familiar option if you're used to working with relational databases. OpenSearch SQL offers a subset of SQL functionality, making it a good choice for performing ad-hoc queries and data analysis tasks. With OpenSearch SQL, you can use commands such as SELECT, FROM, WHERE, GROUP BY, HAVING, and various other SQL commands and functions. You can execute JOINs across log groups, correlate data across log groups using sub-queries, and use the rich set of JSON, mathematical, string, conditional, and other SQL functions to perform powerful analysis on log and security data.
 
@@ -60,7 +59,7 @@ In this syntax, you can specify up to 50 log groups in the `logGroupIdentifier` 
 
 Example query:
 
-```
+```sql
 SELECT LG1.Column1, LG1.Column2 from `logGroups(
     logGroupIdentifier: ['LogGroup1', 'LogGroup2']
 )` as LG1 WHERE LG1.Column1 = 'ABC'
@@ -68,7 +67,7 @@ SELECT LG1.Column1, LG1.Column2 from `logGroups(
 
 The following syntax involving multiple log groups after the `FROM` statement is NOT supported when querying CloudWatch Logs.
 
-```
+```sql
 SELECT Column1, Column2 FROM 'LogGroup1', 'LogGroup2', ...'LogGroupn'
 WHERE Column1 = 'ABC'
 ```
@@ -104,7 +103,7 @@ In the AWS CLI and API, you can specify which logs to query by using the log gro
 
 Log Group source selection can be used when customers know which exact log group(s) need to be searched
 
-```
+```sql
 SELECT * FROM `logGroups(logGroupIdentifier: ['/aws/lambda/my-function'])`;
 ```
 
@@ -127,7 +126,7 @@ Syntax:
 
 Example query:
 
-```
+```sql
 SELECT DS1.Column1, DS1.Column2 from `dataSource(
     ['DataSource1.Type1', 'DataSource2.Type2']
 )` as DS1 WHERE DS1.Column1 = 'ABC'
@@ -142,7 +141,7 @@ Customers can specify all the source selection operators within the backticks in
 
 For example, /aws/lambda/my-function-1 might contain multiple data source & types including wide variety of indexes, when the following query was ran, the results returned will only have events of source and type DataSource1.Type1 and matching the criteria of 'status' = 200.
 
-```
+```sql
 SELECT * FROM `
    logGroups(logGroupIdentifier: ['/aws/lambda/my-function'])
    filterIndex('status' = 200)
@@ -159,7 +158,7 @@ Use `filterIndex` to return indexed data only, by forcing a query to scan only l
 
 In SQL, filterIndex is used to specify which key value pairs should be treated as indexes. The syntax is as follows
 
-```
+```sql
 SELECT * FROM `filterIndex('region' = 'us-east-1')`;
 ```
 
@@ -173,7 +172,7 @@ where,
 
 Using multiple filterIndex would combine the conditions using "AND". In the example, logs matching status=200 and region in us-east-1 or us-west-2 would be queried.
 
-```
+```sql
 SELECT * FROM `filterIndex('status' = 200, 'region' IN ['us-east-1', 'us-west-2'])`;
 ```
 
@@ -189,39 +188,39 @@ The following restrictions apply when you use OpenSearch SQL to query in CloudWa
 
   For example, the following query isn't supported:
 
-  ```
+  ```sql
   Select AWSAccountId, AwsAccountId from LogGroup
   ```
 
   However, the following query is supported because the field name (`@logStream`) is identical in both log groups:
 
-  ```
+  ```sql
   Select a.`@logStream`, b.`@logStream` from Table A INNER Join Table B on a.id = b.id
   ```
 + Functions and expressions must operate on field names and be part of a SELECT statement with a log group specified in the FROM clause.
 
   For example, this query is not supported:
 
-  ```
+  ```sql
   SELECT cos(10) FROM LogGroup
   ```
 
   This query is supported:
 
-  ```
+  ```sql
   SELECT cos(field1) FROM LogGroup
   ```
 + When using SQL or PPL commands, enclose certain fields in backticks to successfully query them. Backticks are necessary for fields with special characters (non-alphabetic and non-numeric). For example, enclose `@message`, `Operation.Export`, and `Test::Field` in backticks. You don't need to enclose fields with purely alphabetic names in backticks.
 
   Example query with simple fields:
 
-  ```
+  ```sql
   SELECT SessionToken, Operation, StartTime  FROM `LogGroup-A`
   LIMIT 1000;
   ```
 
   Similar query with backticks appended:
 
-  ```
+  ```sql
   SELECT `@SessionToken`, `@Operation`, `@StartTime`  FROM `LogGroup-A` LIMIT 1000;
   ```

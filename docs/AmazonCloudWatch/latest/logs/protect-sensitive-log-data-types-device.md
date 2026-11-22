@@ -1,7 +1,6 @@
 
 
 # Device identifiers
-<a name="protect-sensitive-log-data-types-device"></a>
 
 CloudWatch Logs data protection can find the following types of device identifiers.
 

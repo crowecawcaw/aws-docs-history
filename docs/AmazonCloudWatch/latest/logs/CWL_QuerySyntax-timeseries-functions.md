@@ -1,7 +1,6 @@
 
 
 # Time-series functions
-<a name="CWL_QuerySyntax-timeseries-functions"></a>
 
 Use time-series functions with the `stats` command to analyze metrics over time windows and compute rates of change.
 

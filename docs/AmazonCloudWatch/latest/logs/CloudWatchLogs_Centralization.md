@@ -1,7 +1,6 @@
 
 
 # Cross-account cross-Region log centralization
-<a name="CloudWatchLogs_Centralization"></a>
 
 Amazon CloudWatch Logs data centralization works with AWS Organizations to collect log data from multiple member accounts into one data repository using cross-account and cross-region centralization rules. You define the rules that automatically replicate log data from multiple accounts and AWS Regions into a centralized account within your organization. This capability streamlines log consolidation for improved centralized monitoring, analysis, and compliance across your entire AWS infrastructure.
 
@@ -68,7 +67,7 @@ You must create a customer-managed IAM role in the destination account with the 
 
 The role's trust policy must allow the centralization service-linked role to assume it. The following example trust policy grants the `AWSServiceRoleForObservabilityAdmin_LogsCentralization` service-linked role permission to assume the destination role. Replace `<destination-account-id>` with your destination account ID and `<organization-id>` with your AWS Organizations ID.
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [{
@@ -91,7 +90,7 @@ The role's trust policy must allow the centralization service-linked role to ass
 
 The role's permissions policy must grant tag operations on the destination log groups. The following example grants the minimum required permissions. Replace `<destination-account-id>` with your value. You can scope the `Resource` further to specific log group ARN patterns.
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [{
@@ -114,7 +113,7 @@ You must have `iam:PassRole` permission on the destination role, scoped to the c
 **Note**  
 This statement goes on your identity policy (the principal calling `CreateCentralizationRuleForOrganization` or `UpdateCentralizationRuleForOrganization`), not on the destination role itself.
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [{

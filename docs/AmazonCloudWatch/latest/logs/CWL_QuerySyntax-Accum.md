@@ -1,7 +1,6 @@
 
 
 # accum
-<a name="CWL_QuerySyntax-Accum"></a>
 
 Use the `accum` command to compute a running cumulative sum of a numeric field.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring lookup table destinations for scheduled queries
-<a name="scheduled-queries-lookup-table-destination"></a>
 
 Configure a lookup table as a destination to automatically refresh a lookup table with your scheduled query results. On each scheduled execution, CloudWatch Logs populates the specified lookup table with the query results, keeping the table current with your latest log data. You can then reference the table with the `lookup` command in other log queries. For more information about lookup tables, see [lookup](CWL_QuerySyntax-Lookup.md).
 
@@ -16,7 +15,7 @@ The lookup table configuration includes the following settings:
 
 The destination delivery IAM role requires the following permissions, and must include a trust policy that allows the CloudWatch Logs service (`logs.amazonaws.com`) to assume the role:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

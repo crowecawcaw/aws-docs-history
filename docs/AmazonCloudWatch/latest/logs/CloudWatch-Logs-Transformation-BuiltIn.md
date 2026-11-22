@@ -1,7 +1,6 @@
 
 
 # Built-in processors for AWS vended logs
-<a name="CloudWatch-Logs-Transformation-BuiltIn"></a>
 
 This section contains information about the built-in processors that you can use with AWS services that vend logs. 
 
@@ -27,7 +26,7 @@ If you use this processor, it must be the first processor in your transformer.
 
 Take the following example log event:
 
-```
+```json
 {
   "timestamp": 1576280412771,
   "formatVersion": 1,
@@ -69,7 +68,7 @@ Take the following example log event:
 
 The processor configuration is this:
 
-```
+```json
 [
     {
         "parseWAF": {}
@@ -79,7 +78,7 @@ The processor configuration is this:
 
 The transformed log event would be the following.
 
-```
+```json
 {
   "httpRequest": {
     "headers": {
@@ -139,7 +138,7 @@ Take the following example log event:
 
 The processor configuration is this:
 
-```
+```json
 [
     {
         "parsePostgres": {}
@@ -149,7 +148,7 @@ The processor configuration is this:
 
 The transformed log event would be the following.
 
-```
+```json
 {
   "logTime": "2019-03-10 03:54:59 UTC",
   "srcIp": "10.0.0.123(52834)",
@@ -180,7 +179,7 @@ Take the following example log event:
 
 The processor configuration is this:
 
-```
+```json
 [
     {
         "parseCloudfront": {}
@@ -190,7 +189,7 @@ The processor configuration is this:
 
 The transformed log event would be the following.
 
-```
+```json
 {
   "date": "2019-12-04",
   "time": "21:02:31",
@@ -248,7 +247,7 @@ Take the following example log event:
 
 The processor configuration is this:
 
-```
+```json
 [
     {
         "parseRoute53": {}
@@ -258,7 +257,7 @@ The processor configuration is this:
 
 The transformed log event would be the following.
 
-```
+```json
 {
   "version": 1.0,
   "queryTimestamp": "2017-12-13T08:15:50.235Z",
@@ -293,7 +292,7 @@ Take the following example log event:
 
 The processor configuration is this:
 
-```
+```json
 [
     {
         "parseVPC": {}
@@ -303,7 +302,7 @@ The processor configuration is this:
 
 The transformed log event would be the following.
 
-```
+```json
 {
   "version": 2,
   "accountId": "123456789010",

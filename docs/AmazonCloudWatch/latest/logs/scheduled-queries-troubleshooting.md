@@ -1,7 +1,6 @@
 
 
 # Troubleshooting scheduled queries
-<a name="scheduled-queries-troubleshooting"></a>
 
 Use these troubleshooting topics to resolve common issues with scheduled queries.
 

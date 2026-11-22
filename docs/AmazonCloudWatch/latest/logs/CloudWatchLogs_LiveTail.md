@@ -1,7 +1,6 @@
 
 
 # Troubleshoot with CloudWatch Logs Live Tail
-<a name="CloudWatchLogs_LiveTail"></a>
 
 CloudWatch Logs Live Tail helps you quickly troubleshoot incidents by viewing a streaming list of new log events as they are ingested. You can view, filter, and highlight ingested logs in near real time, helping you to detect and resolve issues quickly. You can filter the logs based on terms you specify, and also highlight logs that contain specified terms to help you quickly find what you are looking for.
 

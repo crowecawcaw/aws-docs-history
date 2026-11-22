@@ -1,7 +1,6 @@
 
 
 # Supported logs and discovered fields
-<a name="CWL_AnalyzeLogData-discoverable-fields"></a>
 
 CloudWatch Logs Insights supports different log types. For every log that's sent to a Standard class log group in Amazon CloudWatch Logs, CloudWatch Logs Insights automatically generates five system fields: 
 + `@message` contains the raw unparsed log event. This is the equivalent to the `message` field in [InputLogevent](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_InputLogEvent.html).
@@ -13,7 +12,7 @@ CloudWatch Logs Insights supports different log types. For every log that's sent
 
   For example, this JSON can represent an entity.
 
-  ```
+  ```json
   {
     "Entity": {
       "KeyAttributes": {
@@ -67,7 +66,7 @@ With CloudWatch Logs Insights, you use dot notation to represent JSON fields. Th
 
 **Example: JSON event**
 
-```
+```JSON
 {
     "eventVersion": "1.0",
     "userIdentity": {

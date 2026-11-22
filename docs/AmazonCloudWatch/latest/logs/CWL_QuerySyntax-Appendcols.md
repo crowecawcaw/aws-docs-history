@@ -1,7 +1,6 @@
 
 
 # appendcols
-<a name="CWL_QuerySyntax-Appendcols"></a>
 
 Use the `appendcols` command to append a sub-query's columns to the current results by positional row matching.
 

@@ -1,7 +1,6 @@
 
 
 # Cross-account cross-Region subscriptions
-<a name="CrossAccountSubscriptions"></a>
 
 You can collaborate with an owner of a different AWS account and receive their log events on your AWS resources, such as an Amazon Kinesis or Amazon Data Firehose stream (this is known as cross-account data sharing). For example, this log event data can be read from a centralized Amazon Kinesis Data Streams or Firehose stream to perform custom processing and analysis. Custom processing is especially useful when you collaborate and analyze data across many accounts.
 

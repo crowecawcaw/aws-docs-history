@@ -1,7 +1,6 @@
 
 
 # Sending logs using the Structured JSON endpoint (Structured JSON Logs)
-<a name="CWL_HTTP_Endpoints_StructuredJSON"></a>
 
 The Structured JSON Logs endpoint (`/ingest/json`) accepts standard JSON – either a single JSON object or a JSON array of objects. This endpoint is designed for structured log data where each event is a JSON object.
 
@@ -70,7 +69,7 @@ The `"timestamp"` field is in epoch milliseconds, same as the NDJSON endpoint.
 ## Example request
 <a name="CWL_StructuredJSON_Example"></a>
 
-```
+```bash
 curl -X POST "https://logs.<region>.amazonaws.com/ingest/json?logGroup=MyLogGroup&logStream=MyStream" \
   -H "Authorization: Bearer ACWL<token>" \
   -H "Content-Type: application/json" \
@@ -89,7 +88,7 @@ HTTP 200 OK
 
 **Partial success (some events rejected):**
 
-```
+```JSON
 {
   "partialSuccess": {
     "rejectedLogRecords": 5,

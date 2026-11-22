@@ -1,7 +1,6 @@
 
 
 # Viewing scheduled query execution history
-<a name="scheduled-queries-execution-history"></a>
 
 Use the execution history to monitor the performance of your scheduled queries and troubleshoot any issues with query execution or result delivery.
 
@@ -50,7 +49,7 @@ The execution history shows the status of each query run, including successful e
 **To view execution history (API)**
 + Use the `GetScheduledQueryHistory` action to retrieve execution history:
 
-  ```
+  ```json
   {
       "identifier": "DailyErrorMonitoring",
       "startTime": 1743379200,

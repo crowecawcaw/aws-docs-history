@@ -1,7 +1,6 @@
 
 
 # Validating the flow of log events
-<a name="ValidateLogEventFlowFirehose"></a>
 
 After you create the subscription filter, CloudWatch Logs forwards all the incoming log events that match the filter pattern to the Firehose delivery stream. The data starts appearing in your Amazon S3 bucket based on the time buffer interval that is set on the Firehose delivery stream. Once enough time has passed, you can verify your data by checking the Amazon S3 bucket. To check the bucket, enter the following command:
 
@@ -11,7 +10,7 @@ aws s3api list-objects --bucket 'amzn-s3-demo-bucket'
 
 The output of that command will be similar to the following:
 
-```
+```json
 {
     "Contents": [
         {

@@ -1,7 +1,6 @@
 
 
 # Using CloudWatch Logs with interface VPC endpoints
-<a name="cloudwatch-logs-and-interface-VPC"></a>
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a private connection between your VPC and CloudWatch Logs. You can use this connection to send logs to CloudWatch Logs without sending them through the internet. CloudWatch Logs supports IPv4 VPC endpoints in all Regions, and supports IPv6 endpoints in all Regions.
 

@@ -1,7 +1,6 @@
 
 
 # CloudWatch Logs managed data identifiers for sensitive data types
-<a name="CWL-managed-data-identifiers"></a>
 
 This section contains information about the types of data that you can protect using managed data identifiers, and which countries and regions are relevant for each of those types of data.
 

@@ -1,7 +1,6 @@
 
 
 # Encrypt query results with AWS Key Management Service
-<a name="CloudWatchLogs-Insights-Query-Encrypt"></a>
 
 By default, CloudWatch Logs encrypts the stored results of your CloudWatch Logs Insights queries using the default CloudWatch Logs server-side encryption method. You can choose to use a AWS KMS key to encrypt these results instead. If you associate a AWS KMS key with your encryption results, then CloudWatch Logs uses that key to encrypt the stored results of all queries in the account. 
 
@@ -22,7 +21,7 @@ CloudWatch Logs supports only symmetric KMS keys. Do not use an asymmetric key t
 
 To create a KMS key use the following [create-key](https://docs.aws.amazon.com/cli/latest/reference/kms/create-key.html) command:
 
-```
+```sql
 aws kms create-key
 ```
 
@@ -58,7 +57,7 @@ As a best practice, we recommend that you restrict the use of the key to only th
 
 First, save the default policy for your KMS key as `policy.json` using the following [get-key-policy](https://docs.aws.amazon.com/cli/latest/reference/kms/get-key-policy.html) command:
 
-```
+```sql
 aws kms get-key-policy --key-id {{key-id}} --policy-name default --output text > ./policy.json
 ```
 
@@ -71,7 +70,7 @@ The `Condition` section in this example limits the use of the AWS KMS key to the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "key-default-1",
@@ -115,7 +114,7 @@ The `Condition` section in this example limits the use of the AWS KMS key to the
 
 Finally, add the updated policy using the following [put-key-policy](https://docs.aws.amazon.com/cli/latest/reference/kms/put-key-policy.html) command:
 
-```
+```sql
 aws kms put-key-policy --key-id {{key-id}} --policy-name default --policy file://policy.json
 ```
 
@@ -125,7 +124,7 @@ aws kms put-key-policy --key-id {{key-id}} --policy-name default --policy file:/
 **To associate the KMS key with the query results in the account**  
 Use the [disassociate-kms-key](https://docs.aws.amazon.com/cli/latest/reference/logs/disassociate-kms-key.html) command as follows:
 
-```
+```sql
 aws logs associate-kms-key --resource-identifier "arn:aws:logs:{{region}}:{{account-id}}:query-result:*" --kms-key-id "{{key-arn}}"
 ```
 
@@ -134,6 +133,6 @@ aws logs associate-kms-key --resource-identifier "arn:aws:logs:{{region}}:{{acco
 
 To disassociate the KMS key associated with query results, use the following [disassociate-kms-key](https://docs.aws.amazon.com/cli/latest/reference/logs/disassociate-kms-key.html) command:
 
-```
+```sql
 aws logs disassociate-kms-key --resource-identifier "arn:aws:logs:{{region}}:{{account-id}}:query-result:*"
 ```

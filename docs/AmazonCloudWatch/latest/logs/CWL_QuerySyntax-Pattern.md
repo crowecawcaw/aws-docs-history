@@ -1,7 +1,6 @@
 
 
 # pattern
-<a name="CWL_QuerySyntax-Pattern"></a>
 
  Use `pattern` to automatically cluster your log data into patterns. 
 

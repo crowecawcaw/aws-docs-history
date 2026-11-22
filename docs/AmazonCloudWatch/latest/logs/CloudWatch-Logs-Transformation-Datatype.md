@@ -1,7 +1,6 @@
 
 
 # Datatype converter processors
-<a name="CloudWatch-Logs-Transformation-Datatype"></a>
 
 This section contains information about the datatype converter processors that you can use with a log event transformer. 
 
@@ -25,7 +24,7 @@ Use the `typeConverter` processor to convert a value type associated with the sp
 
 Take the following example log event:
 
-```
+```json
 {
     "name": "value",
     "status": "200"
@@ -34,7 +33,7 @@ Take the following example log event:
 
 The transformer configuration is this, using `typeConverter` with `parseJSON`:
 
-```
+```json
 [
     {
         "parseJSON": {}
@@ -54,7 +53,7 @@ The transformer configuration is this, using `typeConverter` with `parseJSON`:
 
 The transformed log event would be the following.
 
-```
+```json
 {
     "name": "value",
     "status": 200
@@ -81,13 +80,13 @@ Use the `datetimeConverter` processor to convert a datetime string into a format
 
 Take the following example log event:
 
-```
+```json
 {"german_datetime": "Samstag 05. Dezember 1998 11:00:00"}
 ```
 
 The transformer configuration is this, using `dateTimeConverter` with `parseJSON`:
 
-```
+```json
 [
     {
         "parseJSON": {}
@@ -108,7 +107,7 @@ The transformer configuration is this, using `dateTimeConverter` with `parseJSON
 
 The transformed log event would be the following.
 
-```
+```json
 {
     "german_datetime": "Samstag 05. Dezember 1998 11:00:00",
     "target_1": "1998-12-05T17:00:00 MEZ"

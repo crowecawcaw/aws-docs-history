@@ -1,7 +1,6 @@
 
 
 # Sending logs using the HLC endpoint (HLC Logs)
-<a name="CWL_HLC_Endpoint"></a>
 
 The HLC Logs endpoint (`/services/collector/event`) is based on the HTTP Log Collector (HLC) format.
 
@@ -116,7 +115,7 @@ Send logs using HTTP POST with the following headers and body:
 
 The request body should be in JSON format with an array of events:
 
-```
+```JSON
 {
     "event": [
         {
@@ -148,7 +147,7 @@ Additional custom fields can be included as needed.
 ## Example request
 <a name="CWL_HLC_Example_Request"></a>
 
-```
+```bash
 curl -X POST "https://logs.<region>.amazonaws.com/services/collector/event?logGroup=MyLogGroup&logStream=MyStream" \
   -H "Authorization: Bearer ACWL<token>" \
   -H "Content-Type: application/json" \

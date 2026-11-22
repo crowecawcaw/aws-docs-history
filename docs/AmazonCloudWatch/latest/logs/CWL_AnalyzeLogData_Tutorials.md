@@ -1,7 +1,6 @@
 
 
 # Get started with Logs Insights QL: Query tutorials
-<a name="CWL_AnalyzeLogData_Tutorials"></a>
 
 The following sections include sample query tutorials to help you get started with Logs Insights QL.
 

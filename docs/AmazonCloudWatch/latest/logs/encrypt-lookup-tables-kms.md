@@ -1,7 +1,6 @@
 
 
 # Encrypt lookup tables in CloudWatch Logs using AWS Key Management Service
-<a name="encrypt-lookup-tables-kms"></a>
 
 Lookup table data is always encrypted in CloudWatch Logs. By default, CloudWatch Logs uses server-side encryption with 256-bit Advanced Encryption Standard Galois/Counter Mode (AES-GCM) to encrypt lookup table data at rest. As an alternative, you can use AWS Key Management Service for this encryption. If you do, the encryption is done using an AWS KMS key. Encryption using AWS KMS is enabled at the lookup table level, by associating a KMS key with a lookup table, either when you create the lookup table or when you update it.
 

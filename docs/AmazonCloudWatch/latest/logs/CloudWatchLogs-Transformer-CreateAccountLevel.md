@@ -1,7 +1,6 @@
 
 
 # Create an account-level transformer policy
-<a name="CloudWatchLogs-Transformer-CreateAccountLevel"></a>
 
 Use the steps in this section to create a transformer policy that applies to all log groups in the account, or to multiple log groups that have log group names that start with the same string (prefix). You can have as many as 20 account-level transformer policies in a Region.
 

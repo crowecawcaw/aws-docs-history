@@ -1,7 +1,6 @@
 
 
 # Step 3: Add/validate IAM permissions for the cross-account destination
-<a name="Subscription-Filter-CrossAccount-Permissions"></a>
 
 According to AWS cross-account policy evaluation logic, in order to access any cross-account resource (such as an Kinesis or Firehose stream used as a destination for a subscription filter) you must have an identity-based policy in the sending account which provides explicit access to the cross-account destination resource. For more information about policy evaluation logic, see [ Cross-account policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic-cross-account.html).
 
@@ -20,7 +19,7 @@ The `logs:PutSubscriptionFilter` permission described in this section applies to
 
    The command returns output similar to the following:
 
-   ```
+   ```json
    {
    "UserId": "{{User ID}}",
    "Account": "{{sending account id}}",
@@ -36,7 +35,7 @@ The `logs:PutSubscriptionFilter` permission described in this section applies to
 
    The following policy provides permissions to create a subscription filter on any destination resource only in a single AWS account, account `999999999999`:
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [
@@ -55,7 +54,7 @@ The `logs:PutSubscriptionFilter` permission described in this section applies to
 
    The following policy provides permissions to create a subscription filter only on a specific destination resource named `sampleDestination` in single AWS account, account `999999999999`:
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [

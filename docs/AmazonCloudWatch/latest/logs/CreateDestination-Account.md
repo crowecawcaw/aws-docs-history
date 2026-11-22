@@ -1,7 +1,6 @@
 
 
 # Step 1: Create a destination
-<a name="CreateDestination-Account"></a>
 
 **Important**  
 All steps in this procedure are to be done in the log data recipient account.
@@ -160,7 +159,7 @@ When the destination is created, CloudWatch Logs sends a test message to the des
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -194,7 +193,7 @@ When the destination is created, CloudWatch Logs sends a test message to the des
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -231,7 +230,7 @@ When the destination is created, CloudWatch Logs sends a test message to the des
 **Example: AWS CloudFormation template**  <a name="CreateDestination-Account-cfn-example"></a>
 The following AWS CloudFormation template performs the same setup as the preceding AWS CLI steps. Deploy it in the log data recipient account. It creates the Amazon Kinesis Data Streams data stream, the IAM role that lets CloudWatch Logs write to the stream, and the CloudWatch Logs destination with an access policy that grants the sender account permission to call **PutSubscriptionFilter**. Provide the sender account ID in the `SenderAccountId` parameter. After the stack is created, use the `DestinationArn` output value when you create the subscription filter in the sender account.  
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: >-
   Cross-account CloudWatch Logs destination (Kinesis stream, IAM role, and

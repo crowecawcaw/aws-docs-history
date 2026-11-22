@@ -1,7 +1,6 @@
 
 
 # Logs sent to Firehose
-<a name="AWS-logs-infrastructure-Firehose"></a>
 
 This section applies when the types of logs listed in the table in the preceding section are sent to Firehose:
 
@@ -23,7 +22,7 @@ Because Firehose does not use resource policies, AWS uses IAM roles when setting
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -56,7 +55,7 @@ This service-linked role also has a trust policy that allows the `delivery.logs.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

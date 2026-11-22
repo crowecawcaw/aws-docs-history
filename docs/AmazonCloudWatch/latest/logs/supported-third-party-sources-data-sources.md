@@ -1,7 +1,6 @@
 
 
 # Supported third-party sources for data sources
-<a name="supported-third-party-sources-data-sources"></a>
 
 The following table lists the third-party sources that are automatically categorized by CloudWatch Logs as data sources when ingested through pipelines:
 

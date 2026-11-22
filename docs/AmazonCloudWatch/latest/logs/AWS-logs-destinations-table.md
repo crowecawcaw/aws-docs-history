@@ -1,7 +1,6 @@
 
 
 # Supported log destinations and permissions
-<a name="AWS-logs-destinations-table"></a>
 
 The following table shows which destinations each AWS service supports for sending logs, and which permissions version is required.
 
@@ -49,6 +48,7 @@ The following table shows which destinations each AWS service supports for sendi
 | [AWS Fargate logs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) | Custom logs | Supported |  |  |  | 
 | [AWS Fault Injection Service experiment logs](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) | Vended logs |  | [Supported (V1 permissions)](AWS-vended-logs-permissions.md) |  |  | 
 | [Amazon FinSpace](https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html) | Vended logs | [Supported (V1 permissions)](AWS-vended-logs-permissions.md) | [Supported (V1 permissions)](AWS-vended-logs-permissions.md) | [Supported (V1 permissions)](AWS-vended-logs-permissions.md) |  | 
+| [Amazon GameLift Servers queue placement logs](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/queues-placement-insights.html) | Vended logs | [Supported (V2 permissions)](AWS-vended-logs-permissions-V2.md) | [Supported (V2 permissions)](AWS-vended-logs-permissions-V2.md) | [Supported (V2 permissions)](AWS-vended-logs-permissions-V2.md) |  | 
 | [AWS Global Accelerator flow logs](https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html) | Vended logs |  | [Supported (V1 permissions)](AWS-vended-logs-permissions.md) |  |  | 
 | [AWS Glue job logs](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuous-logging.html) | Custom logs | Supported |  |  |  | 
 | [IAM Identity Center error logs](https://docs.aws.amazon.com/singlesignon/latest/userguide/logging-ad-sync-errors.html) | Vended logs | [Supported (V2 permissions)](AWS-vended-logs-permissions-V2.md) | [Supported (V2 permissions)](AWS-vended-logs-permissions-V2.md) | [Supported (V2 permissions)](AWS-vended-logs-permissions-V2.md) |  | 

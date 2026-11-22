@@ -1,7 +1,6 @@
 
 
 # Logs sent to CloudWatch Logs
-<a name="AWS-logs-infrastructure-CWL"></a>
 
 **Important**  
 When you set up the log types in the following list to be sent to CloudWatch Logs, AWS creates or changes the resource policies associated with the log group receiving the logs, if needed. Continue reading this section to see the details.
@@ -29,7 +28,7 @@ The log group where the logs are being sent must have a resource policy that inc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -74,7 +73,7 @@ The log group's resource policy limit is 51,200 bytes. Once this limit is reache
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

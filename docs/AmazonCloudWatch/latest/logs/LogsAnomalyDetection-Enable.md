@@ -1,7 +1,6 @@
 
 
 # Enable anomaly detection on a log group
-<a name="LogsAnomalyDetection-Enable"></a>
 
 Use the following steps to use the CloudWatch console to create a log anomaly detector that scans a log group for anomalies.
 

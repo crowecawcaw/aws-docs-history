@@ -1,7 +1,6 @@
 
 
 # Step 2: Update the existing destination access policy
-<a name="Cross-Account-Log_Subscription-Update-policy"></a>
 
 After you have updated the subscription filters in all of the sender accounts, you can update the destination access policy in the recipient account.
 
@@ -18,7 +17,7 @@ The update enables all accounts that are part of the organization with ID `o-123
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

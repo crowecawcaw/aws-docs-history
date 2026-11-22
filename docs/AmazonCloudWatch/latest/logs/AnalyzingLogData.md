@@ -1,7 +1,6 @@
 
 
 # Analyzing log data with CloudWatch Logs Insights
-<a name="AnalyzingLogData"></a>
 
 With CloudWatch Logs Insights, you can interactively search and analyze your log data in Amazon CloudWatch Logs. You can perform queries to help you more efficiently and effectively respond to operational issues. In addition to querying using log groups, you can query using facets, data source, and data type. If an issue occurs, you can use CloudWatch Logs Insights to identify potential causes and validate deployed fixes. You are limited to 100 concurrent CloudWatch Logs Insights QL per account, including queries added to dashboards. Additionally, you can run 15 concurrent queries for either OpenSearch Service PPL or OpenSearch Service SQL. 
 

@@ -1,7 +1,6 @@
 
 
 # Sample queries
-<a name="CWL_QuerySyntax-examples"></a>
 
 This section contains a list of general and useful query commands that you can run in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/). For information about how to run a query command, see [Tutorial: Run and modify a sample query](https://docs.aws.amazon.com/en_us/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_RunSampleQuery.html) in the *Amazon CloudWatch Logs User Guide*.
 

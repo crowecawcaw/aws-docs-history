@@ -1,7 +1,6 @@
 
 
 # dedup
-<a name="CWL_QuerySyntax-Dedup"></a>
 
  Use `dedup` to remove duplicate results based on specific values in fields that you specify. You can use `dedup` with one or more fields. If you specify one field with `dedup`, only one log event is returned for each unique value of that field. If you specify multiple fields, then one log event is returned for each unique combination of values for those fields.
 

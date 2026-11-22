@@ -1,7 +1,6 @@
 
 
 # Creating a scheduled query
-<a name="create-scheduled-query"></a>
 
 Create a scheduled query that automatically runs CloudWatch Logs Insights queries and delivers results to your chosen destinations.
 
@@ -100,7 +99,7 @@ If role manager is enabled in your account, CloudWatch attaches the role for you
 **To create a scheduled query (API)**
 + Use the `CreateScheduledQuery` action to create a new scheduled query. The following example creates a scheduled query that runs every hour:
 
-  ```
+  ```json
   {
       "name": "ErrorAnalysisQuery",
       "queryLanguage": "CWLI",

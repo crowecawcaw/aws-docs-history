@@ -1,7 +1,6 @@
 
 
 # CloudWatch Logs Insights query language (Logs Insights QL)
-<a name="CWL_AnalyzeLogData_LogsInsights"></a>
 
 This section includes full documentation of Logs Insights QL commands and functions. It also includes sample queries for this language.
 

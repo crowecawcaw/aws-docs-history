@@ -1,7 +1,6 @@
 
 
 # Quick Start: Install and configure the CloudWatch Logs agent on an EC2 Linux instance at launch
-<a name="EC2NewInstanceCWL"></a>
 
 **Tip**  
 The older CloudWatch Logs agent discussed in this section is on the path to deprecation. We strongly recommend that you instead use the new unified CloudWatch agent that can collect both logs and metrics. Additionally, the older CloudWatch Logs agent requires Python 3.3 or earlier, and these versions are not installed on new EC2 instances by default. For more information about the unified CloudWatch agent, see [Installing the CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html).   
@@ -60,7 +59,7 @@ datetime_format = %b %d %H:%M:%S
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

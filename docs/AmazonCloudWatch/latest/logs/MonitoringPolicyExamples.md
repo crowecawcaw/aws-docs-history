@@ -1,7 +1,6 @@
 
 
 # Creating metric filters
-<a name="MonitoringPolicyExamples"></a>
 
 The following procedure and examples show how to create metric filters.
 

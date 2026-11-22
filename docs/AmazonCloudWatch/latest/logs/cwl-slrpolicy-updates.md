@@ -1,7 +1,6 @@
 
 
 # CloudWatch Logs updates to AWS service linked roles
-<a name="cwl-slrpolicy-updates"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # Use `PutSubscriptionFilter` with an AWS SDK
-<a name="example_cloudwatch-logs_PutSubscriptionFilter_section"></a>
 
 The following code examples show how to use `PutSubscriptionFilter`.
 
@@ -12,7 +11,7 @@ The following code examples show how to use `PutSubscriptionFilter`.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch-logs#code-examples). 
 Include the required files.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/logs/CloudWatchLogsClient.h>
 #include <aws/logs/model/PutSubscriptionFilterRequest.h>
@@ -21,7 +20,7 @@ Include the required files.
 ```
 Create the subscription filter.  
 
-```
+```cpp
         Aws::CloudWatchLogs::CloudWatchLogsClient cwl;
         Aws::CloudWatchLogs::Model::PutSubscriptionFilterRequest request;
         request.SetFilterName(filter_name);
@@ -49,7 +48,7 @@ Create the subscription filter.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch-logs#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.cloudwatchlogs.CloudWatchLogsClient;
 import software.amazon.awssdk.services.cloudwatchlogs.model.CloudWatchLogsException;
@@ -146,7 +145,7 @@ public class PutSubscriptionFilter {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples). 
 
-```
+```javascript
 import { PutSubscriptionFilterCommand } from "@aws-sdk/client-cloudwatch-logs";
 import { client } from "../libs/client.js";
 
@@ -183,7 +182,7 @@ export default run();
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch-logs#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region

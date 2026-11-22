@@ -1,7 +1,6 @@
 
 
 # Use CloudWatch Logs to run a large query
-<a name="example_cloudwatch-logs_Scenario_BigQuery_section"></a>
 
 The following code examples show how to use CloudWatch Logs to query more than 10,000 records.
 
@@ -12,7 +11,7 @@ The following code examples show how to use CloudWatch Logs to query more than 1
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatchLogs/LargeQuery#code-examples). 
 This is the main workflow that demonstrates the large query scenario.  
 
-```
+```csharp
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using Amazon.CloudFormation;
@@ -869,7 +868,7 @@ public class LargeQueryWorkflow
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs/scenarios/large-query#code-examples). 
 This is the entry point.  
 
-```
+```javascript
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 import { CloudWatchLogsClient } from "@aws-sdk/client-cloudwatch-logs";
@@ -899,7 +898,7 @@ console.log(
 ```
 This is a class that splits queries into multiple steps if necessary.  
 
-```
+```javascript
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 import {
@@ -1112,7 +1111,7 @@ export class CloudWatchQuery {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch-logs/scenarios/large-query#code-examples). 
 This file invokes an example module for managing CloudWatch queries exceeding 10,000 results.  
 
-```
+```python
 import logging
 import os
 import sys
@@ -1253,7 +1252,7 @@ if __name__ == "__main__":
 ```
 This module processes CloudWatch queries exceeding 10,000 results.  
 
-```
+```python
 import logging
 import time
 from datetime import datetime

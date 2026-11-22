@@ -1,7 +1,6 @@
 
 
 # Create and manage log transformers
-<a name="CloudWatch-Logs-Transformation-Create"></a>
 
 A log transformer includes one or more *processors* that are in a logical pipeline together. Each processor is applied to a log event, one after the other in the order that they are listed in the transformer configuration.
 

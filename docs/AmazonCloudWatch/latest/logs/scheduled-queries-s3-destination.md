@@ -1,7 +1,6 @@
 
 
 # Configuring S3 destinations for scheduled queries
-<a name="scheduled-queries-s3-destination"></a>
 
 Configure Amazon S3 as a destination to store your scheduled query results as JSON files for long-term retention and analysis.
 
@@ -26,7 +25,7 @@ When the destination Amazon S3 bucket is in the same AWS account as the schedule
 
 The destination delivery IAM role requires the following permissions:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -61,7 +60,7 @@ You can deliver scheduled query results to an Amazon S3 bucket in a different AW
 
 Cross-account delivery requires permissions on both sides. The destination delivery IAM role in the source account requires the following permissions:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -81,7 +80,7 @@ Cross-account delivery requires permissions on both sides. The destination deliv
 
 The Amazon S3 bucket policy in the destination account must grant the source account's IAM role permission to write objects:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -107,7 +106,7 @@ When you specify a AWS KMS key, the scheduled query uses that key to encrypt res
 
 The destination delivery IAM role requires `kms:GenerateDataKey` permission on the AWS KMS key. The following example shows the required permissions for an Amazon S3 destination with a customer managed AWS KMS key:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -140,7 +139,7 @@ The destination delivery IAM role requires `kms:GenerateDataKey` permission on t
 
 When the AWS KMS key is in a different account than the destination delivery IAM role, the AWS KMS key policy in the key-owning account must explicitly grant the role access:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting syslog ingestion
-<a name="CWL_Syslog_Troubleshooting"></a>
 
 This section describes common issues with syslog ingestion and how to resolve them.
 
@@ -14,7 +13,7 @@ If you have sent syslog messages but they are not appearing in your log group, c
 
    Run `list-syslog-configurations` to confirm that your VPC endpoint is registered with the log group:
 
-   ```
+   ```bash
    aws logs list-syslog-configurations \
      --log-group-identifier /syslog/my-devices \
      --region $REGION
@@ -26,7 +25,7 @@ If you have sent syslog messages but they are not appearing in your log group, c
 
    Ensure the resource policy on the log group grants `logs:PutLogEvents` and `logs:CreateLogStream` to `syslog.logs.amazonaws.com`, and that the `aws:SourceArn` condition matches your VPC endpoint ARN exactly:
 
-   ```
+   ```bash
    aws logs describe-resource-policies --region $REGION
    ```
 
@@ -36,7 +35,7 @@ If you have sent syslog messages but they are not appearing in your log group, c
 
    Ensure the security group attached to the VPC endpoint allows inbound traffic on the port you are using (6514, 1514, or 514) from the source CIDR:
 
-   ```
+   ```bash
    aws ec2 describe-security-groups \
      --group-ids $VPCE_SG_ID \
      --region $REGION \
@@ -47,7 +46,7 @@ If you have sent syslog messages but they are not appearing in your log group, c
 
    From the device or a host on the same network, test TCP connectivity to the endpoint:
 
-   ```
+   ```bash
    # TCP connectivity test
    nc -zv $VPCE_DNS 6514
    nc -zv $VPCE_DNS 1514
@@ -69,7 +68,7 @@ If your syslog client fails to establish a TLS connection on port 6514:
 
 Test the TLS connection manually with OpenSSL:
 
-```
+```bash
 openssl s_client -connect $VPCE_DNS:6514 -brief
 ```
 
@@ -91,7 +90,7 @@ If reliable delivery is required, use TCP (port 1514 or 6514) instead. TCP provi
 If your device reports "connection refused" when connecting to the VPC endpoint:
 + Verify the VPC endpoint is in the `available` state:
 
-  ```
+  ```bash
   aws ec2 describe-vpc-endpoints --vpc-endpoint-ids $VPCE_ID \
     --region $REGION --query 'VpcEndpoints[0].State'
   ```

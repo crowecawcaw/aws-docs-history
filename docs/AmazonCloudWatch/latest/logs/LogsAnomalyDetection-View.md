@@ -1,7 +1,6 @@
 
 
 # View anomalies that have been found
-<a name="LogsAnomalyDetection-View"></a>
 
 After you create one or more log anomaly detectors, you can use the CloudWatch console to view the anomalies that they have found. 
 

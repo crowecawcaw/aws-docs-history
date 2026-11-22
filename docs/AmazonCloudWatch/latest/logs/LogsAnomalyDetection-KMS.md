@@ -1,7 +1,6 @@
 
 
 # Encrypt an anomaly detector and its results with AWS KMS
-<a name="LogsAnomalyDetection-KMS"></a>
 
 Anomaly detector data is always encrypted in CloudWatch Logs. By default, CloudWatch Logs uses server-side encryption for the data at rest. As an alternative, you can use AWS Key Management Service for this encryption. If you do, the encryption is done using an AWS KMS key. Encryption using AWS KMS is enabled at the anomaly detector level, by associating a KMS key with an anomaly detector. 
 
@@ -68,7 +67,7 @@ The `Condition` section in this example limits the use of the AWS KMS key to the
 
 ****  
 
-```
+```json
     {
     "Version":"2012-10-17",		 	 	 
     "Id": "key-default-1",

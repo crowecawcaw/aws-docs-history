@@ -1,7 +1,6 @@
 
 
 # Step 4: Create a subscription filter
-<a name="CreateSubscriptionFilter"></a>
 
 After you create a destination, the log data recipient account can share the destination ARN (arn:aws:logs:us-east-1:999999999999:destination:testDestination) with other AWS accounts so that they can send log events to the same destination. These other sending accounts users then create a subscription filter on their respective log groups against this destination. The subscription filter immediately starts the flow of real-time log data from the chosen log group to the specified destination.
 

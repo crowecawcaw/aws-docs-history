@@ -1,7 +1,6 @@
 
 
 # unnest
-<a name="CWL_QuerySyntax-Unnest"></a>
 
  Use `unnest` to flatten a list taken as input to produce multiple records with a single record for each element in the list. Based on the number of items a field contains, this command discards the current record and generates new records. Each record includes the `unnested_field`, which represents an item. All other fields come from the original record. 
 
@@ -25,7 +24,7 @@ fields jsonParse(@message) as json_message
 
 The log event for this example query could be a JSON string as follows:
 
-```
+```json
 {
    "events": [
         {

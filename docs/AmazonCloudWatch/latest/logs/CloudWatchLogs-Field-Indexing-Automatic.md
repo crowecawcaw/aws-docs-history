@@ -1,7 +1,6 @@
 
 
 # Automatically indexed fields
-<a name="CloudWatchLogs-Field-Indexing-Automatic"></a>
 
 CloudWatch Logs automatically indexes fields based on their recent use in CloudWatch Logs Insights equality filters that use the `=` or `IN` operators. These indexes are in addition to default field indexes and the field indexes that you configure in policies. You do not need to configure a policy for automatically indexed fields.
 

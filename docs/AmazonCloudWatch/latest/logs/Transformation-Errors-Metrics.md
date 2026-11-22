@@ -1,7 +1,6 @@
 
 
 # Transformation metrics and errors
-<a name="Transformation-Errors-Metrics"></a>
 
 CloudWatch Logs publishes transformation metrics to CloudWatch. These metrics include `TransformedLogEvents`, `TransformedBytes`, and `TransformationErrors`. For more information, see [Log transformer metrics and dimensions](CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Transformer-Metrics).
 

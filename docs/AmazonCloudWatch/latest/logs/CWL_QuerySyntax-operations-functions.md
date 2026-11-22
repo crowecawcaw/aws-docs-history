@@ -1,7 +1,6 @@
 
 
 # Boolean, comparison, numeric, datetime, and other functions
-<a name="CWL_QuerySyntax-operations-functions"></a>
 
  CloudWatch Logs Insights supports many other operations and functions in queries, as explained in the following sections. 
 

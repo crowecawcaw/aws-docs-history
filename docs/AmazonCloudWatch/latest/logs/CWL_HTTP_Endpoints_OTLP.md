@@ -1,7 +1,6 @@
 
 
 # Sending logs using the OTLP endpoint (OpenTelemetry Logs)
-<a name="CWL_HTTP_Endpoints_OTLP"></a>
 
 The OpenTelemetry Logs endpoint (`/v1/logs`) accepts OpenTelemetry Protocol (OTLP) log data in either JSON or Protobuf encoding. For detailed information about the OTLP endpoint, including configuration and usage, see [Send metrics and traces to CloudWatch with OpenTelemetry](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLPEndpoint.html).
 
@@ -17,7 +16,7 @@ If you are using bearer token authentication, complete the setup steps in [Setti
 ## Example request
 <a name="CWL_OTLP_Example"></a>
 
-```
+```bash
 curl -X POST "https://logs.<region>.amazonaws.com/v1/logs" \
   -H "Authorization: Bearer ACWL<token>" \
   -H "Content-Type: application/json" \
@@ -75,7 +74,7 @@ HTTP 200 OK
 
 **Partial success (some events rejected):**
 
-```
+```JSON
 {
   "partialSuccess": {
     "rejectedLogRecords": 5,

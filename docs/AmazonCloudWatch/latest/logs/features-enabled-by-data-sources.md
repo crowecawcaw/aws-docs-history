@@ -1,7 +1,6 @@
 
 
 # Features enabled by data sources
-<a name="features-enabled-by-data-sources"></a>
 
 Data sources enable advanced log processing and analytics capabilities through field discovery and consistent data structures.
 + **Facets**: Facets are indexed log fields that provide interactive filtering and analysis without writing queries. CloudWatch Logs automatically creates facets for data source name and type, and you can create facet policies on discovered fields to accelerate troubleshooting. Facets display value distributions and counts in CloudWatch Logs Insights, making it easy to identify patterns through point-and-choose exploration.

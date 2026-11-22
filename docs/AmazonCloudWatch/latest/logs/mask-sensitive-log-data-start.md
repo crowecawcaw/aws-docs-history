@@ -1,7 +1,6 @@
 
 
 # Create a data protection policy for a single log group
-<a name="mask-sensitive-log-data-start"></a>
 
 You can use the CloudWatch Logs console or AWS CLI commands to create a data protection policy to mask sensitive data.
 
@@ -64,7 +63,7 @@ When you create a JSON data protection policy to use in an AWS CLI command or AP
 
 The following is an example of a data protection policy that masks email addresses and United States driver's licenses.
 
-```
+```json
 {
     "Name": "data-protection-policy",
     "Description": "test description",

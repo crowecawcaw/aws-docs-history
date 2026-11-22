@@ -1,7 +1,6 @@
 
 
 # Field index syntax and quotas
-<a name="CloudWatchLogs-Field-Indexing-Syntax"></a>
 
 You create field indexes by creating *field index policies*. You can create account-level index policies that apply to your whole account, and you can also create policies that apply to only a single log group. For account-wide index policies, you can have one that applies to all log groups in the account. You can also create account-level index policies that apply to a subset of log groups in the account, selected by the prefixes of their log group names. If you have multiple account-level policies in the same account, the log group name prefixes for these policies can't overlap. Similarly, you can create account-level index policies that apply to a specific data source name and type combination. Only one account policy can be created per data source name and type combination. 
 
@@ -61,7 +60,7 @@ CloudWatch Logs provides default field indexes for certain data source name and 
 | `aws_waf.access` | `action`<br />`httpRequest.country` | 
 | `aws_cloudtrail.data`<br />` aws_cloudtrail.management` | `eventSource`<br />`eventName`<br />`awsRegion`<br />`userAgent`<br />`errorCode`<br />`eventType`<br />`managementEvent`<br />`readOnly`<br />`eventCategory`<br />`requestId` | 
 
-Default field indexes are in addition to any custom field indexes you define within your policy. Default field indexes are not counted towards your [field index quota](#CloudWatchLogs-Field-Indexing-Syntax). 
+Default field indexes are in addition to any custom field indexes you define within your policy. Default field indexes are not counted towards your [field index quota](CloudWatchLogs-Field-Indexing-Syntax.md). 
 
 **Child fields and array fields in JSON logs**
 
@@ -69,7 +68,7 @@ You can index fields that are nested child fields or array fields in JSON logs.
 
 For example, you can create an index of the `accessKeyId` child field within the `userIdentity` field within this log:
 
-```
+```json
 {
     "eventVersion": "1.0",
     "userIdentity": {

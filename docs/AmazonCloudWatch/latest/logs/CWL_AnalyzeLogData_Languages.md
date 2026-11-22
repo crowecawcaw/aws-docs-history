@@ -1,7 +1,6 @@
 
 
 # Supported query languages
-<a name="CWL_AnalyzeLogData_Languages"></a>
 
 The following sections list the commands supported in each query language. They also describe the syntax format and provide sample queries.
 

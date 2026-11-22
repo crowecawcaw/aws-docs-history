@@ -1,7 +1,6 @@
 
 
 # Create a log-group level field index policy
-<a name="CloudWatchLogs-Field-Indexing-CreateLogGroupLevel"></a>
 
 Use the steps in this section to create a field index policy that applies to a single log group.
 

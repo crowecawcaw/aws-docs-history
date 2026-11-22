@@ -1,7 +1,6 @@
 
 
 # Cancel an export task (CLI)
-<a name="CancelExportTask"></a>
 
 You can cancel an export task if it's in a `PENDING` or `RUNNING` state.
 

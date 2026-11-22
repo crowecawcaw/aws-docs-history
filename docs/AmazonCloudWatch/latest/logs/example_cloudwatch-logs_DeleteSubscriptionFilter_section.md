@@ -1,7 +1,6 @@
 
 
 # Use `DeleteSubscriptionFilter` with an AWS SDK
-<a name="example_cloudwatch-logs_DeleteSubscriptionFilter_section"></a>
 
 The following code examples show how to use `DeleteSubscriptionFilter`.
 
@@ -12,7 +11,7 @@ The following code examples show how to use `DeleteSubscriptionFilter`.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch-logs#code-examples). 
 Include the required files.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/core/utils/Outcome.h>
 #include <aws/logs/CloudWatchLogsClient.h>
@@ -21,7 +20,7 @@ Include the required files.
 ```
 Delete the subscription filter.  
 
-```
+```cpp
         Aws::CloudWatchLogs::CloudWatchLogsClient cwl;
         Aws::CloudWatchLogs::Model::DeleteSubscriptionFilterRequest request;
         request.SetFilterName(filter_name);
@@ -45,7 +44,7 @@ Delete the subscription filter.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch-logs#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.services.cloudwatch.model.CloudWatchException;
 import software.amazon.awssdk.services.cloudwatchlogs.CloudWatchLogsClient;
 import software.amazon.awssdk.services.cloudwatchlogs.model.DeleteSubscriptionFilterRequest;
@@ -109,7 +108,7 @@ public class DeleteSubscriptionFilter {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples). 
 
-```
+```javascript
 import { DeleteSubscriptionFilterCommand } from "@aws-sdk/client-cloudwatch-logs";
 import { client } from "../libs/client.js";
 
@@ -135,7 +134,7 @@ export default run();
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch-logs#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -166,7 +165,7 @@ cwl.deleteSubscriptionFilter(params, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
-```
+```kotlin
 suspend fun deleteSubFilter(
     filter: String?,
     logGroup: String?,

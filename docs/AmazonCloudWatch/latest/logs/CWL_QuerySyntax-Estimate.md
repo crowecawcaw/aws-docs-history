@@ -1,7 +1,6 @@
 
 
 # estimate
-<a name="CWL_QuerySyntax-Estimate"></a>
 
 Use the `estimate` command to return the estimated bytes that the query would scan over the selected log groups and time range, without running the query. Using the estimated bytes returned by this command, you can refine your log group selection, time range and filters before you run the query. The `estimate` command incurs no CloudWatch Logs Insights query charges.
 

@@ -1,7 +1,6 @@
 
 
 # Create a log-group-level log transformer from scratch
-<a name="CloudWatch-Logs-Transformation-CreateNew"></a>
 
 Use these steps to create a log-group-level transformer from scratch.
 

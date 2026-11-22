@@ -1,7 +1,6 @@
 
 
 # Save and re-run CloudWatch Logs Insights queries
-<a name="CWL_Insights-Saving-Queries"></a>
 
 After you create a query, you can save it, and run it again later. Queries are saved in a folder structure, so you can organize them. You can save as many as 1000 queries per region and per account.
 

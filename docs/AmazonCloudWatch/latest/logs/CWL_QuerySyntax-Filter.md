@@ -1,7 +1,6 @@
 
 
 # filter
-<a name="CWL_QuerySyntax-Filter"></a>
 
  Use `filter` to get log events that match one or more conditions. 
 

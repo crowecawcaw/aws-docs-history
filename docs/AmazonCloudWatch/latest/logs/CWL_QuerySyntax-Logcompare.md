@@ -1,7 +1,6 @@
 
 
 # logcompare
-<a name="CWL_QuerySyntax-Logcompare"></a>
 
 Use the `logcompare` command to compare the current time window against a baseline window shifted back by a specified duration.
 

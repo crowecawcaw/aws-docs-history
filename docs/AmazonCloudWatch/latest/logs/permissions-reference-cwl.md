@@ -1,7 +1,6 @@
 
 
 # CloudWatch Logs permissions reference
-<a name="permissions-reference-cwl"></a>
 
 When you are setting up [Access control](auth-and-access-control-cwl.md#access-control-cwl) and writing permissions policies that you can attach to an IAM identity (identity-based policies), you can use the following table as a reference. The table lists each CloudWatch Logs API operation and the corresponding actions for which you can grant permissions to perform the action. You specify the actions in the policy's `Action` field. For the `Resource` field, you can specify the ARN of a log group or log stream, or specify `*` to represent all CloudWatch Logs resources.
 

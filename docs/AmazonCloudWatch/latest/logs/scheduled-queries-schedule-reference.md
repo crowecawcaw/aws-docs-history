@@ -1,7 +1,6 @@
 
 
 # Schedule expression reference
-<a name="scheduled-queries-schedule-reference"></a>
 
 Use these reference tables to construct schedule expressions for your scheduled queries. All times are in UTC.
 

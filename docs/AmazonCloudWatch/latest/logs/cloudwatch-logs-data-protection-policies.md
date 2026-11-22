@@ -1,7 +1,6 @@
 
 
 # Understanding data protection policies
-<a name="cloudwatch-logs-data-protection-policies"></a>
 
 **Topics**
 + [What are data protection policies?](#what-are-data-protection-policies)
@@ -30,7 +29,7 @@ A data protection policy requires the following basic policy information for ide
 + **Version** – The policy language version. The current version is 2021-06-01.
 + **Statement** – A list of statements that specifies data protection policy actions.
 
-```
+```json
 {
   "Name": "CloudWatchLogs-PersonalInformation-Protection",
   "Description": "Protect basic types of sensitive data",
@@ -49,7 +48,7 @@ A policy statement sets the detection context for the data protection operation.
 + **DataIdentifier** – The sensitive data for which CloudWatch Logs should scan. For example, name, address, or phone number.
 + **Operation** – The follow-on actions, either **Audit** or **De-identify**. CloudWatch Logs performs these actions when it finds sensitive data.
 
-```
+```json
 {
   ...
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Step 2: Create a destination
-<a name="CreateFirehoseStreamDestination"></a>
 
 **Important**  
 All steps in this procedure are to be done in the log data recipient account.
@@ -181,7 +180,7 @@ When the destination is created, CloudWatch Logs sends a test message to the des
 
       This first example policy allows all accounts in the organization that have an ID of `o-1234567890` to send logs to the recipient account. The `aws:PrincipalOrgID` condition restricts the wildcard principal (`"*"`) to your organization. Do not use the wildcard principal without this condition, because doing so would allow open access.
 
-      ```
+      ```json
       { 
           "Version" : "2012-10-17", 		 	 	  
           "Statement" : [ 
@@ -208,7 +207,7 @@ When the destination is created, CloudWatch Logs sends a test message to the des
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # addtotals
-<a name="CWL_QuerySyntax-Addtotals"></a>
 
  Use `addtotals` to compute row totals and column totals for numeric fields. Row totals are computed per-chunk. Column totals (`col=true`) are computed post-merge for correctness across distributed chunks. You can use custom field selection, a custom fieldname, and `row=false` to disable row totals.
 

@@ -1,7 +1,6 @@
 
 
 # Logging that requires additional permissions [V2]
-<a name="AWS-vended-logs-permissions-V2"></a>
 
 Some AWS services use a new method to send their logs. This is a flexible method that enables you to set up log delivery from these services to one or more of the following destinations: CloudWatch Logs, Amazon S3, or Firehose and X-Ray for trace delivery.
 

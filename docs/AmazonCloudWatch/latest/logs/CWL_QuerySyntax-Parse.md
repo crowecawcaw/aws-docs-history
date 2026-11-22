@@ -1,7 +1,6 @@
 
 
 # parse
-<a name="CWL_QuerySyntax-Parse"></a>
 
 Use `parse` to extract data from a log field and create extracted fields that you can process in your query. The `parse` command supports four modes: glob expressions, regular expressions, logfmt, and CSV.
 

@@ -1,7 +1,6 @@
 
 
 # Use the previous CloudWatch agent to get started with CloudWatch Logs
-<a name="UsePreviousCloudWatchLogsAgent"></a>
 
 **Important**  
 CloudWatch includes a unified CloudWatch agent that can collect both logs and metrics from EC2 instances and on-premises servers. The older logs-only agent is deprecated and is no longer supported.  

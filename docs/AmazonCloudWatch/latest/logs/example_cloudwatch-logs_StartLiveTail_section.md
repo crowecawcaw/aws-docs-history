@@ -1,7 +1,6 @@
 
 
 # Use `StartLiveTail` with an AWS SDK or CLI
-<a name="example_cloudwatch-logs_StartLiveTail_section"></a>
 
 The following code examples show how to use `StartLiveTail`.
 
@@ -11,14 +10,14 @@ The following code examples show how to use `StartLiveTail`.
 **SDK for .NET**  
 Include the required files.  
 
-```
+```csharp
 using Amazon;
 using Amazon.CloudWatchLogs;
 using Amazon.CloudWatchLogs.Model;
 ```
 Start the Live Tail session.  
 
-```
+```csharp
             var client = new AmazonCloudWatchLogsClient();
             var request = new StartLiveTailRequest
             {
@@ -38,7 +37,7 @@ Start the Live Tail session.
 ```
 You can handle the events from the Live Tail session in two ways:  
 
-```
+```csharp
             /* Method 1
             * 1). Asynchronously loop through the event stream
             * 2). Set a timer to dispose the stream and stop the Live Tail session at the end.
@@ -73,7 +72,7 @@ You can handle the events from the Live Tail session in two ways:
             }
 ```
 
-```
+```csharp
             /* Method 2
             * 1). Add event handlers to each event variable
             * 2). Start processing the stream and wait for a timeout using AutoResetEvent
@@ -141,7 +140,7 @@ For more information, see [Troubleshoot with CloudWatch Logs Live Tail](https://
 **SDK for Go V2**  
 Include the required files.  
 
-```
+```go
 import (
 	"context"
 	"log"
@@ -154,7 +153,7 @@ import (
 ```
 Handle the events from the Live Tail session.  
 
-```
+```go
 func handleEventStreamAsync(stream *cloudwatchlogs.StartLiveTailEventStream) {
 	eventsChan := stream.Events()
 	for {
@@ -182,7 +181,7 @@ func handleEventStreamAsync(stream *cloudwatchlogs.StartLiveTailEventStream) {
 ```
 Start the Live Tail session.  
 
-```
+```go
 	cfg, err := config.LoadDefaultConfig(context.TODO())
 	if err != nil {
 		panic("configuration error, " + err.Error())
@@ -207,7 +206,7 @@ Start the Live Tail session.
 ```
 Stop the Live Tail session after a period of time has elapsed.  
 
-```
+```go
 	// Close the stream (which ends the session) after a timeout
 	time.Sleep(10 * time.Second)
 	stream.Close()
@@ -221,7 +220,7 @@ Stop the Live Tail session after a period of time has elapsed.
 **SDK for Java 2.x**  
 Include the required files.  
 
-```
+```java
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.annotations.NonNull;
 import org.reactivestreams.Subscription;
@@ -241,7 +240,7 @@ import java.util.concurrent.atomic.AtomicReference;
 ```
 Handle the events from the Live Tail session.  
 
-```
+```java
     private static StartLiveTailResponseHandler getStartLiveTailResponseStreamHandler(
             AtomicReference<Subscription> subscriptionAtomicReference) {
         return StartLiveTailResponseHandler.builder()
@@ -292,7 +291,7 @@ Handle the events from the Live Tail session.
 ```
 Start the Live Tail session.  
 
-```
+```java
         CloudWatchLogsAsyncClient cloudWatchLogsAsyncClient =
                 CloudWatchLogsAsyncClient.builder()
                     .credentialsProvider(ProfileCredentialsProvider.create())
@@ -312,7 +311,7 @@ Start the Live Tail session.
 ```
 Stop the Live Tail session after a period of time has elapsed.  
 
-```
+```java
         /* Set a timeout for the session and cancel the subscription. This will:
          * 1). Close the stream
          * 2). Stop the Live Tail session
@@ -335,12 +334,12 @@ Stop the Live Tail session after a period of time has elapsed.
 **SDK for JavaScript (v3)**  
 Include the required files.  
 
-```
+```javascript
 import { CloudWatchLogsClient, StartLiveTailCommand } from "@aws-sdk/client-cloudwatch-logs";
 ```
 Handle the events from the Live Tail session.  
 
-```
+```javascript
 async function handleResponseAsync(response) {
     try {
       for await (const event of response.responseStream) {
@@ -364,7 +363,7 @@ async function handleResponseAsync(response) {
 ```
 Start the Live Tail session.  
 
-```
+```javascript
     const client = new CloudWatchLogsClient();
 
     const command = new StartLiveTailCommand({
@@ -382,7 +381,7 @@ Start the Live Tail session.
 ```
 Stop the Live Tail session after a period of time has elapsed.  
 
-```
+```javascript
     /* Set a timeout to close the client. This will stop the Live Tail session. */
     setTimeout(function() {
         console.log("Client timeout");
@@ -397,7 +396,7 @@ Stop the Live Tail session after a period of time has elapsed.
 **SDK for Kotlin**  
 Include the required files.  
 
-```
+```kotlin
 import aws.sdk.kotlin.services.cloudwatchlogs.CloudWatchLogsClient
 import aws.sdk.kotlin.services.cloudwatchlogs.model.StartLiveTailRequest
 import aws.sdk.kotlin.services.cloudwatchlogs.model.StartLiveTailResponseStream
@@ -405,7 +404,7 @@ import kotlinx.coroutines.flow.takeWhile
 ```
 Start the Live Tail session.  
 
-```
+```kotlin
     val client = CloudWatchLogsClient.fromEnvironment()
 
     val request = StartLiveTailRequest {
@@ -452,14 +451,14 @@ Start the Live Tail session.
 **SDK for Python (Boto3)**  
 Include the required files.  
 
-```
+```python
 import boto3 
 import time
 from datetime import datetime
 ```
 Start the Live Tail session.  
 
-```
+```python
     # Initialize the client
     client = boto3.client('logs')
 

@@ -1,7 +1,6 @@
 
 
 # anomaly
-<a name="CWL_QuerySyntax-Anomaly"></a>
 
  Use `anomaly` to automatically identify unusual patterns and potential issues within your log data using machine learning. 
 

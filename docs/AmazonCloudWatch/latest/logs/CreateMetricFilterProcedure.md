@@ -1,7 +1,6 @@
 
 
 # Create a metric filter for a log group
-<a name="CreateMetricFilterProcedure"></a>
 
 To create a metric filter for a log group, follow these steps. The metric won't be visible until there are some data points for it.
 

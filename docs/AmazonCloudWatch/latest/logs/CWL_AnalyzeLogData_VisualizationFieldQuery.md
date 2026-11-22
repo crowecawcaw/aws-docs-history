@@ -1,7 +1,6 @@
 
 
 # Tutorial: Run a query that produces a visualization grouped by log fields
-<a name="CWL_AnalyzeLogData_VisualizationFieldQuery"></a>
 
 When you run a query that uses the `stats` function to group the returned results by the values of one or more fields in the log entries, you can view the results as a bar chart, pie chart, line graph or stacked area graph. This helps you more efficiently visualize trends in your logs.
 

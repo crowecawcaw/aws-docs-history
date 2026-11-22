@@ -1,7 +1,6 @@
 
 
 # **display**
-<a name="CWL_QuerySyntax-Display"></a>
 
  Use `display` to show a specific field or fields in query results. 
 

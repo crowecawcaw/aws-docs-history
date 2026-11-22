@@ -1,7 +1,6 @@
 
 
 # Configuring syslog devices
-<a name="CWL_Syslog_DeviceConfig"></a>
 
 After setting up syslog ingestion, configure your syslog sources to send messages to the VPC endpoint DNS name. Your devices reach the endpoint via your VPN or Direct Connect connection to the VPC.
 
@@ -61,7 +60,7 @@ action(type="omfwd"
 
 After adding the configuration, restart rsyslog:
 
-```
+```bash
 sudo systemctl restart rsyslog
 ```
 
@@ -143,7 +142,7 @@ log {
 
 After adding the configuration, restart syslog-ng:
 
-```
+```bash
 sudo systemctl restart syslog-ng
 ```
 
@@ -154,28 +153,28 @@ Use the following commands from any host that can reach the VPC endpoint to veri
 
 **TCP plaintext (port 1514):**
 
-```
+```bash
 echo "<134>1 $(date -u +%Y-%m-%dT%H:%M:%SZ) myhost myapp 1234 - - Hello from syslog" | \
   nc {{VPCE_DNS}} 1514
 ```
 
 **TCP \+ TLS (port 6514):**
 
-```
+```bash
 echo "<134>1 $(date -u +%Y-%m-%dT%H:%M:%SZ) myhost myapp 1234 - - Hello TLS syslog" | \
   openssl s_client -connect {{VPCE_DNS}}:6514 -quiet -no_ign_eof
 ```
 
 **UDP (port 514):**
 
-```
+```bash
 echo "<134>1 $(date -u +%Y-%m-%dT%H:%M:%SZ) myhost myapp 1234 - - Hello UDP syslog" | \
   nc -u -w1 {{VPCE_DNS}} 514
 ```
 
 After sending test messages, verify delivery in CloudWatch Logs (usually within 10–20 seconds):
 
-```
+```bash
 aws logs filter-log-events \
   --log-group-name /syslog/my-devices \
   --start-time $(date -d '5 minutes ago' +%s000 2>/dev/null || echo $(($(date -v-5M +%s) * 1000))) \

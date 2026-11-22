@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for CloudWatch Logs
-<a name="using-service-linked-roles-cwl"></a>
 
 Amazon CloudWatch Logs uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html). A service-linked role is a unique type of IAM role that is linked directly to CloudWatch Logs. Service-linked roles are predefined by CloudWatch Logs and include all the permissions that the service requires to call other AWS services on your behalf. 
 

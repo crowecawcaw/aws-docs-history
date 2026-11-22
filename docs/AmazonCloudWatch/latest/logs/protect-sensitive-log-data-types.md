@@ -1,7 +1,6 @@
 
 
 # Types of data that you can protect
-<a name="protect-sensitive-log-data-types"></a>
 
 This section contains information about the types of data that you can protect in a CloudWatch Logs data protection policy. CloudWatch Logs managed data identifiers offer preconfigured data types for protecting financial data, personal health information (PHI), and personally identifiable information (PII). You can also use custom data identifiers to create data identifiers tailored to your specific use case.
 

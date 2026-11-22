@@ -1,7 +1,6 @@
 
 
 # sessionize
-<a name="CWL_QuerySyntax-Sessionize"></a>
 
 Use the `sessionize` command to group events into sessions by identity fields and an inactivity gap. The command emits a session identifier field.
 

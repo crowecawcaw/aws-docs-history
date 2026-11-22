@@ -1,7 +1,6 @@
 
 
 # Pattern analysis
-<a name="CWL_AnalyzeLogData_Patterns"></a>
 
 CloudWatch Logs Insights uses machine learning algorithms to find *patterns* when you query your logs. A pattern is a shared text structure that recurs among your log fields. When you view the results of a query, you can choose the **Patterns** tab to see the patterns that CloudWatch Logs found based on a sample of your results. Alternatively, you can append the `pattern` command to your query to analyze the patterns in the entire set of matching log events. 
 
@@ -17,7 +16,7 @@ Consider the following sample of three log events.
 
 In the previous sample, all three log events follow one pattern:
 
-```
+```sql
 <Time-1> [INFO] Calling DynamoDB to store for resource id <ID-2>
 ```
 

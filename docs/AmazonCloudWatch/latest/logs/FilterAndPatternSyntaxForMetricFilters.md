@@ -1,7 +1,6 @@
 
 
 # Filter pattern syntax for metric filters
-<a name="FilterAndPatternSyntaxForMetricFilters"></a>
 
 **Note**  
 **How metric filters differ from CloudWatch Logs Insights queries**  
@@ -189,7 +188,7 @@ You can create metric filters that publish numeric values found in your log even
 
 The example metric filter matches the term `"latency"` in the example JSON log event and publishes a numeric value of 50 to the metric **myMetric**.
 
-```
+```json
 {
 "latency": 50,
 "requestType": "GET"

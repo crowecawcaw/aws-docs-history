@@ -1,7 +1,6 @@
 
 
 # Log group selection options when creating a query
-<a name="Field-Indexing-Selection"></a>
 
 This section explains the various ways that you can select log groups to include in a query.
 

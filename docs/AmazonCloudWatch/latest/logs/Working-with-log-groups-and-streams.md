@@ -1,7 +1,6 @@
 
 
 # Working with log groups and log streams
-<a name="Working-with-log-groups-and-streams"></a>
 
  A log stream is a sequence of log events that share the same source. Each separate source of logs in CloudWatch Logs makes up a separate log stream. 
 

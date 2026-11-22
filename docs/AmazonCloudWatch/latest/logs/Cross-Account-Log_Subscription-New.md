@@ -1,7 +1,6 @@
 
 
 # Setting up a new cross-account subscription
-<a name="Cross-Account-Log_Subscription-New"></a>
 
 Follow the steps in these sections to set up a new cross-account log subscription.
 

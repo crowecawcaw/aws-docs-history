@@ -1,7 +1,6 @@
 
 
 # Effects of deleting a field index policy
-<a name="CloudWatchLogs-Field-Indexing-Deletion"></a>
 
 If you delete a field index policy that has been in effect for a time, the following happens:
 + For up to 30 days after the policy is deleted, queries can still benefit from the indexed log events.

@@ -1,7 +1,6 @@
 
 
 # Use `GetLogEvents` with an AWS SDK or CLI
-<a name="example_cloudwatch-logs_GetLogEvents_section"></a>
 
 The following code examples show how to use `GetLogEvents`.
 
@@ -54,7 +53,7 @@ For more information, see [Working with log groups and log streams](https://docs
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.cloudwatch.model.CloudWatchException;
 import software.amazon.awssdk.services.cloudwatchlogs.CloudWatchLogsClient;

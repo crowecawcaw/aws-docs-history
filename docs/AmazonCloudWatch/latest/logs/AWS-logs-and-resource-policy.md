@@ -1,7 +1,6 @@
 
 
 # Enable logging from AWS services
-<a name="AWS-logs-and-resource-policy"></a>
 
 Use the searchable catalog to find an AWS service and open its logging setup guide. For more information about the destinations and permissions models for each service, see [Supported log destinations and permissions](AWS-logs-destinations-table.md).
 
@@ -54,6 +53,7 @@ Some services require additional permissions before they can deliver logs. Witho
 | AWS Fargate | [Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) |
 | AWS Fault Injection Service | [Guide](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) |
 | Amazon FinSpace | [Guide](https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html) |
+| Amazon GameLift Servers | [Guide](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/queues-placement-insights.html) |
 | AWS Global Accelerator | [Guide](https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html) |
 | AWS Glue | [Guide](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuous-logging.html) |
 | IAM Identity Center | [Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/logging-ad-sync-errors.html) |

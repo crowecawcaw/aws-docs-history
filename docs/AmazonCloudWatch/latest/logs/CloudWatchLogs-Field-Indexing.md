@@ -1,7 +1,6 @@
 
 
 # Create field indexes to improve query performance and reduce scan volume
-<a name="CloudWatchLogs-Field-Indexing"></a>
 
 You can create *field indexes* of fields in your log events for efficient equality-based searches. When you then use a field index in a CloudWatch Logs Insights query, the query attempts to skip processing log events that are known to not include the indexed field. This reduces the scan volume of your queries that use field indexes, making it possible to return results faster. This can help you quickly search petabytes of total logs across thousands of log groups, and hone in on relevant logs faster. Good fields to index are fields that you often need to query for. Fields that have high cardinality of values are also good candidates for field indexes because a query using these field indexes will complete faster because it limits the log events that are being matched to the target value.
 

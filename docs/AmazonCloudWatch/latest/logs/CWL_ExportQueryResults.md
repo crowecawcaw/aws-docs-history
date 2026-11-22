@@ -1,7 +1,6 @@
 
 
 # Add query to dashboard or export query results
-<a name="CWL_ExportQueryResults"></a>
 
 After you run a query, you can add the query to a CloudWatch dashboard or copy the results to the clipboard.
 

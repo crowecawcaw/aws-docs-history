@@ -1,7 +1,6 @@
 
 
 # Edit or delete an account-level transformer policy
-<a name="CloudWatchLogs-Transformer-EditAccountLevel"></a>
 
 Use the steps in this section to edit or delete an account-level transformer policy.
 

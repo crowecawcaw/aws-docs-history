@@ -1,7 +1,6 @@
 
 
 # fields
-<a name="CWL_QuerySyntax-Fields"></a>
 
  Use `fields` to show specific fields in query results. 
 

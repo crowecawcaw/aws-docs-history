@@ -1,7 +1,6 @@
 
 
 # Setting up bearer token authentication
-<a name="CWL_HTTP_Endpoints_BearerTokenAuth"></a>
 
 **Note**  
 This page covers bearer token authentication for CloudWatch Logs. For CloudWatch Metrics bearer token authentication, see [Setting up bearer token authentication for Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLP-MetricsBearerTokenAuth.html) in the *CloudWatch User Guide*. For traces bearer token authentication, see [Setting up bearer token authentication for traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-opentelemetry-bearer-token.html) in the *X-Ray Developer Guide*. Each service requires its own API key.
@@ -48,7 +47,7 @@ Save the API Key Secret immediately. It cannot be retrieved later. If you lose i
 
 1. Create the log group and log stream where your logs will be stored:
 
-   ```
+   ```bash
    # Create the log group
    aws logs create-log-group \
        --log-group-name /aws/hlc-logs/my-application \
@@ -63,7 +62,7 @@ Save the API Key Secret immediately. It cannot be retrieved later. If you lose i
 
 1. Enable bearer token authentication on the log group:
 
-   ```
+   ```bash
    aws logs put-bearer-token-authentication \
        --log-group-identifier /aws/hlc-logs/my-application \
        --bearer-token-authentication-enabled \
@@ -72,7 +71,7 @@ Save the API Key Secret immediately. It cannot be retrieved later. If you lose i
 
    Verify the configuration:
 
-   ```
+   ```bash
    aws logs describe-log-groups \
        --log-group-name-prefix /aws/hlc-logs/my-application \
        --region us-east-1
@@ -113,7 +112,7 @@ Create an IAM user that will be used for log ingestion:
 
    Create and attach the following IAM policy:
 
-   ```
+   ```JSON
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": [
@@ -159,7 +158,7 @@ Generate the CloudWatch Logs API key using the [CreateServiceSpecificCredential]
 
 To generate an API key with an expiration of 30 days:
 
-```
+```bash
 aws iam create-service-specific-credential \
     --user-name cloudwatch-logs-hlc-user \
     --service-name logs.amazonaws.com \
@@ -176,7 +175,7 @@ Store the `ServiceCredentialSecret` value securely, as you cannot retrieve it la
 
 Create the log group and log stream where your logs will be stored:
 
-```
+```bash
 # Create the log group
 aws logs create-log-group \
     --log-group-name /aws/hlc-logs/my-application \
@@ -194,7 +193,7 @@ aws logs create-log-stream \
 
 Enable bearer token authentication on the log group:
 
-```
+```bash
 aws logs put-bearer-token-authentication \
     --log-group-identifier /aws/hlc-logs/my-application \
     --bearer-token-authentication-enabled \
@@ -203,7 +202,7 @@ aws logs put-bearer-token-authentication \
 
 Verify the configuration:
 
-```
+```bash
 aws logs describe-log-groups \
     --log-group-name-prefix /aws/hlc-logs/my-application \
     --region us-east-1
@@ -234,7 +233,7 @@ The `logs:CallWithBearerToken` action controls the use of a CloudWatch Logs API 
 #### Prevent an identity from generating and using CloudWatch Logs API keys
 <a name="CWL_HTTP_Endpoints_Deny_Generation_And_Use"></a>
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -257,7 +256,7 @@ This policy will prevent the creation of credentials for all AWS services that s
 #### Prevent an identity from using CloudWatch Logs API keys
 <a name="CWL_HTTP_Endpoints_Deny_Use"></a>
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -273,7 +272,7 @@ This policy will prevent the creation of credentials for all AWS services that s
 #### Allow the creation of CloudWatch Logs keys only if they expire within 90 days
 <a name="CWL_HTTP_Endpoints_Allow_Expire_90"></a>
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -306,7 +305,7 @@ To rotate an API key without interrupting log delivery, follow this procedure:
 
 1. Create a new (secondary) credential for the IAM user:
 
-   ```
+   ```bash
    aws iam create-service-specific-credential \
        --user-name cloudwatch-logs-hlc-user \
        --service-name logs.amazonaws.com \
@@ -319,7 +318,7 @@ To rotate an API key without interrupting log delivery, follow this procedure:
 
 1. Set the original credential to inactive:
 
-   ```
+   ```bash
    aws iam update-service-specific-credential \
        --user-name cloudwatch-logs-hlc-user \
        --service-specific-credential-id ACCA1234EXAMPLE1234 \
@@ -330,7 +329,7 @@ To rotate an API key without interrupting log delivery, follow this procedure:
 
 1. After confirming successful delivery with the new key, delete the previous credential:
 
-   ```
+   ```bash
    aws iam delete-service-specific-credential \
        --service-specific-credential-id ACCA1234EXAMPLE1234
    ```
@@ -340,7 +339,7 @@ To rotate an API key without interrupting log delivery, follow this procedure:
 
 To check the creation date and status of your existing API keys, use the [list-service-specific-credentials](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-service-specific-credentials.html) command:
 
-```
+```bash
 aws iam list-service-specific-credentials \
     --user-name cloudwatch-logs-hlc-user \
     --service-name logs.amazonaws.com
@@ -355,7 +354,7 @@ If you suspect that an API key has been compromised, take the following steps im
 
 1. **Deactivate the key immediately** to prevent further unauthorized use:
 
-   ```
+   ```bash
    aws iam update-service-specific-credential \
        --user-name cloudwatch-logs-hlc-user \
        --service-specific-credential-id ACCA1234EXAMPLE1234 \
@@ -368,14 +367,14 @@ If you suspect that an API key has been compromised, take the following steps im
 
 1. **Delete the compromised key** after the replacement is in place:
 
-   ```
+   ```bash
    aws iam delete-service-specific-credential \
        --service-specific-credential-id ACCA1234EXAMPLE1234
    ```
 
 1. **Attach a deny policy** if you need to immediately block all bearer token access for the IAM user while you investigate:
 
-   ```
+   ```JSON
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": {
@@ -416,7 +415,7 @@ The S3 bucket that you specify for the trail must have a bucket policy that allo
 
 1. Create a trail:
 
-   ```
+   ```bash
    aws cloudtrail create-trail \
        --name cloudwatch-logs-api-key-audit \
        --s3-bucket-name my-cloudtrail-bucket \
@@ -425,7 +424,7 @@ The S3 bucket that you specify for the trail must have a bucket policy that allo
 
 1. Configure advanced event selectors to capture CloudWatch Logs log group authorization events:
 
-   ```
+   ```bash
    aws cloudtrail put-event-selectors \
        --region us-east-1 \
        --trail-name cloudwatch-logs-api-key-audit \
@@ -440,7 +439,7 @@ The S3 bucket that you specify for the trail must have a bucket policy that allo
 
 1. Start trail logging:
 
-   ```
+   ```bash
    aws cloudtrail start-logging \
        --name cloudwatch-logs-api-key-audit \
        --region us-east-1

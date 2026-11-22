@@ -1,7 +1,6 @@
 
 
 # Personally identifiable information (PII)
-<a name="protect-sensitive-log-data-types-pii"></a>
 
 CloudWatch Logs data protection can find the following types of personally identifiable information (PII).
 

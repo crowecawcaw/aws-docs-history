@@ -1,7 +1,6 @@
 
 
 # filterIndex
-<a name="CWL_QuerySyntax-FilterIndex"></a>
 
  Use `filterIndex` to return indexed data only, by forcing a query to scan only log groups that are indexed on a field that you specify in the query. For these log groups that are indexed on this field, it further optimizes the query by skipping the log groups that do not have any log events containing the field specified in the query for the indexed field. It further reduces scanned volume by attempting to scan only log events from these log groups that match the value specified in the query for this field index. For more information about field indexes and how to create them, see [Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md).
 

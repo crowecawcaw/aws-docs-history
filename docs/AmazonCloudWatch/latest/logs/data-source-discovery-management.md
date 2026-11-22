@@ -1,7 +1,6 @@
 
 
 # Data source discovery and management
-<a name="data-source-discovery-management"></a>
 
 CloudWatch Logs automatically discovers and categorizes your log data by data source and type, making it easier to understand and manage your logs at scale. This feature provides schema discovery for AWS vended sources such as Amazon VPC Flow Logs, CloudTrail, and Route 53, as well as third-party security tools.
 

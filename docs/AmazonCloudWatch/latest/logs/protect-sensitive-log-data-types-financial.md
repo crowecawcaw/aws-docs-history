@@ -1,7 +1,6 @@
 
 
 # Financial information
-<a name="protect-sensitive-log-data-types-financial"></a>
 
 CloudWatch Logs data protection can find the following types of financial information.
 

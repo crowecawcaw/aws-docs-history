@@ -1,7 +1,6 @@
 
 
 # (Only if using an organization) Create an IAM role
-<a name="CreateSubscriptionFilterFirehose-IAMrole"></a>
 
 If you created the destination by using an access policy that grants permissions to an organization instead of directly to account `111111111111`, follow the steps in this section. Otherwise, skip to [Step 4: Create a subscription filter](CreateSubscriptionFilterFirehose.md).
 
@@ -13,7 +12,7 @@ Perform these steps in the sender account. The role must exist in the sender acc
 
 1. Create the following trust policy in a file `/TrustPolicyForCWLSubscriptionFilter.json`. Use a text editor to create this policy file; do not use the IAM console.
 
-   ```
+   ```json
    {
      "Statement": {
        "Effect": "Allow",
@@ -25,7 +24,7 @@ Perform these steps in the sender account. The role must exist in the sender acc
 
 1. Create the IAM role that uses this policy. Take note of the `Arn` value that is returned by the command, you will need it later in this procedure. In this example, we use `CWLtoSubscriptionFilterRole` for the name of the role we're creating.
 
-   ```
+   ```cmd
    aws iam create-role \ 
         --role-name CWLtoSubscriptionFilterRole \ 
         --assume-role-policy-document file://~/TrustPolicyForCWLSubscriptionFilter.json
@@ -35,7 +34,7 @@ Perform these steps in the sender account. The role must exist in the sender acc
 
    1. First, use a text editor to create the following permissions policy in a file named `~/PermissionsForCWLSubscriptionFilter.json`. Replace {{region}} with your AWS Region, and {{LogGroupOnWhichSubscriptionFilterIsCreated}} with the name of your log group.
 
-      ```
+      ```json
       { 
           "Statement": [ 
               { 
@@ -49,7 +48,7 @@ Perform these steps in the sender account. The role must exist in the sender acc
 
    1. Enter the following command to associate the permissions policy you just created with the role that you created in step 2.
 
-      ```
+      ```cmd
       aws iam put-role-policy \
           --role-name CWLtoSubscriptionFilterRole \
           --policy-name Permissions-Policy-For-CWL-Subscription-filter \

@@ -1,7 +1,6 @@
 
 
 # Modifying destination membership at runtime
-<a name="ModifyDestinationMembershipFirehose"></a>
 
 You might encounter situations where you have to add or remove log senders from a destination that you own. You can use the **PutDestinationPolicy** action on your destination with new access policy. In the following example, a previously added account **111111111111** is stopped from sending any more log data, and account **333333333333** is enabled.
 
@@ -32,7 +31,7 @@ You might encounter situations where you have to add or remove log senders from 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement" : [

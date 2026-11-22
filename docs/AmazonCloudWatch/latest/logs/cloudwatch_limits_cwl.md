@@ -1,7 +1,6 @@
 
 
 # CloudWatch Logs quotas
-<a name="cloudwatch_limits_cwl"></a>
 
  You can use the table in this section to review the default service quotas, also referred to as limits, for an AWS account in Amazon CloudWatch Logs. Most of the service quotas, but not all, are listed under the Amazon CloudWatch Logs namespace in the Service Quotas console. 
 

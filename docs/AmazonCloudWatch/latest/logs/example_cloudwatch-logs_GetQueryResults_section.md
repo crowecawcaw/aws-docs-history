@@ -1,7 +1,6 @@
 
 
 # Use `GetQueryResults` with an AWS SDK
-<a name="example_cloudwatch-logs_GetQueryResults_section"></a>
 
 The following code examples show how to use `GetQueryResults`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatchLogs/LargeQuery#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Gets the results of a CloudWatch Logs Insights query.
     /// </summary>
@@ -52,7 +51,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch-logs#code-examples). 
 
-```
+```javascript
   /**
    * Simple wrapper for the GetQueryResultsCommand.
    * @param {string} queryId
@@ -69,7 +68,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch-logs#code-examples). 
 
-```
+```python
     def _wait_for_query_results(self, client, query_id):
         """
         Waits for the query to complete and retrieves the results.
@@ -99,7 +98,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwl#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_cwl->getqueryresults(
           iv_queryid = iv_query_id ).

@@ -1,7 +1,6 @@
 
 
 # Automate log enablement with telemetry enablement rules
-<a name="telemetry-enablement-rules"></a>
 
 You can use telemetry enablement rules to automatically configure log collection for your AWS resources. Rules help you standardize log collection across your organization or accounts and ensure consistent monitoring coverage.
 

@@ -1,7 +1,6 @@
 
 
 # Create alarms on log anomaly detectors
-<a name="LogsAnomalyDetection-Alarms"></a>
 
 You can create an alarm for a log anomaly detector in a log group. You can specify for the alarm to go into `ALARM` state when a specified number of anomalies are found in the log group during a specified period of time. You can also use filters so that only anomalies of specified priorities are counted by the alarm.
 

@@ -1,7 +1,6 @@
 
 
 # Encrypt log data in CloudWatch Logs using AWS Key Management Service
-<a name="encrypt-log-data-kms"></a>
 
 Log group data is always encrypted in CloudWatch Logs. By default, CloudWatch Logs uses server-side encryption with 256-bit Advanced Encryption Standard Galois/Counter Mode (AES-GCM) to encrypt log data at rest. As an alternative, you can use AWS Key Management Service for this encryption. If you do, the encryption is done using an AWS KMS key. Encryption using AWS KMS is enabled at the log group level, by associating a KMS key with a log group, either when you create the log group or after it exists.
 
@@ -79,7 +78,7 @@ The `Condition` section in this example restricts the key to a single log group 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "key-default-1",
@@ -125,7 +124,7 @@ The `Condition` section in this example limits the use of the AWS KMS key to the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "key-default-1",
@@ -234,7 +233,7 @@ Alternatively, to grant the full set of permissions for both associating a key a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -348,7 +347,7 @@ If you have a log group that you encrypted previously and now want to change the
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Id": "key-default-1",
@@ -414,7 +413,7 @@ If you have a log group that you encrypted previously and now want to change the
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Id": "key-default-1",

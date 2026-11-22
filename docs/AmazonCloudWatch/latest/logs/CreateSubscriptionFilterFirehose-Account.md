@@ -1,7 +1,6 @@
 
 
 # Step 3: Create an account-level subscription filter policy
-<a name="CreateSubscriptionFilterFirehose-Account"></a>
 
 Switch to the sending account, which is 111111111111 in this example. You will now create the account-level subscription filter policy in the sending account. In this example, the filter causes every log event containing the string `ERROR` in all but two log groups to be delivered to the destination you previously created. 
 

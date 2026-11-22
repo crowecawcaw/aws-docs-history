@@ -1,7 +1,6 @@
 
 
 # Help protect sensitive log data with masking
-<a name="mask-sensitive-log-data"></a>
 
 You can help safeguard sensitive data that's ingested by CloudWatch Logs by using log group *data protection policies*. These policies let you audit and mask sensitive data that appears in log events ingested by the log groups in your account. 
 

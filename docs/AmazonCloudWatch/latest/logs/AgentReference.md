@@ -1,7 +1,6 @@
 
 
 # CloudWatch Logs agent reference
-<a name="AgentReference"></a>
 
 **Important**  
  This section is a reference for those using the deprecated CloudWatch Logs agent. If you're using Instance Metadata Service Version 2 (IMDSv2), you must use the new unified CloudWatch agent. However, even if you're not using IMDSv2, we strongly recommend using the newer unified CloudWatch agent instead of the deprecated CloudWatch Logs agent. For information about the newer unified CloudWatch agent, see [Collecting metrics and logs from Amazon EC2 instance and on-premises servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html). For information about migrating from the deprecated CloudWatch Logs agent to the unified agent, [Create the CloudWatch agent configuration file with the wizard](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html). 
@@ -278,7 +277,7 @@ Configuring multiple log sources to send data to a single log stream is not supp
 The CloudWatch Logs agent requires permission to perform `CreateLogGroup`, `CreateLogStream`, `DescribeLogStreams`, `DescribeLogGroups`, `PutLogEvents` and `PutRetentionPolicy` actions. If you're using the latest agent, `DescribeLogStreams` is not needed. See the sample IAM policy below.    
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [

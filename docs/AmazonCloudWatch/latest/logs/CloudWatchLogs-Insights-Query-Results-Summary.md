@@ -1,7 +1,6 @@
 
 
 # Generate a natural language summary from CloudWatch Logs Insights query results
-<a name="CloudWatchLogs-Insights-Query-Results-Summary"></a>
 
 Analyzing log data is crucial for understanding your applications' behavior, but interpreting large volumes of log entries can be time-consuming. CloudWatch Logs Insights now offers a natural language summarization capability that transforms complex query results into clear, concise summaries. This capability helps you quickly identify issues and gain actionable insights from your log data. 
 

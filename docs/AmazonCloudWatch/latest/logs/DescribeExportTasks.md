@@ -1,7 +1,6 @@
 
 
 # Describe export tasks (CLI)
-<a name="DescribeExportTasks"></a>
 
 After you create an export task, you can get the current status of the task.
 

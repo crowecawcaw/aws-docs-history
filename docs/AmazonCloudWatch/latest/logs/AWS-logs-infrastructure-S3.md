@@ -1,7 +1,6 @@
 
 
 # Logs sent to Amazon S3
-<a name="AWS-logs-infrastructure-S3"></a>
 
 When you set logs to be sent to Amazon S3, AWS creates or changes the resource policies associated with the S3 bucket that is receiving the logs, if needed.
 
@@ -37,7 +36,7 @@ The S3 bucket where the logs are being sent must have a resource policy that inc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "AWSLogDeliveryWrite20150319",
@@ -112,7 +111,7 @@ When you use a customer managed AWS KMS key, you can specify the Amazon Resource
 
 If you choose SSE-KMS, you must use a customer managed key, because using an AWS managed key is not supported for this scenario. When you use a customer managed AWS KMS key, you can specify the Amazon Resource Name (ARN) of the customer managed key when you enable bucket encryption. You must add the following to the key policy for your customer managed key (not to the bucket policy for your S3 bucket), so that the log delivery account can write to your S3 bucket.
 
-```
+```json
 {
     "Sid": "Allow Logs Delivery to use the key", 
     "Effect": "Allow", 

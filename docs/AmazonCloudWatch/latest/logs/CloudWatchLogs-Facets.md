@@ -1,7 +1,6 @@
 
 
 # Use facets to group and explore logs
-<a name="CloudWatchLogs-Facets"></a>
 
 Facets are useful for analyzing logs as they allow you to interactively filter and group your data without running queries. A facet is a field in your logs (such as `ServiceName` or `StatusCode`) that enables filtering, aggregation and analysis across log groups. You can view the list of faceted fields in the CloudWatch Logs Insights console, along with the count of log events for each facet value based on your selected time range. As you select different facets and values, the facet values and counts are updated in real-time, enabling you to interactively explore your logs.
 

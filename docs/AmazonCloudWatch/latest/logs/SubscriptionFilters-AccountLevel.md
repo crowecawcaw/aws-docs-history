@@ -1,7 +1,6 @@
 
 
 # Account-level subscription filters
-<a name="SubscriptionFilters-AccountLevel"></a>
 
 **Important**  
 There is a risk of causing an infinite recursive loop with subscription filters that can lead to a large increase in ingestion billing if not addressed. To mitigate this risk, we recommend that you use selection criteria in your account-level subscription filters to exclude log groups that ingest log data from resources that are part of the subscription delivery workflow. For more information on this problem and determining which log groups to exclude, see [Log recursion prevention](Subscriptions-recursion-prevention.md).
@@ -46,7 +45,7 @@ The following example uses an account-level subscription policy to forward all l
 
    The following is example output:
 
-   ```
+   ```json
    {
        "StreamDescription": {
            "StreamStatus": "ACTIVE",
@@ -244,7 +243,7 @@ Before you create the Lambda function, calculate the volume of log data that wil
 
 1. Open a text editor and create a file named `helloWorld.js` with the following contents:
 
-   ```
+   ```javascript
    var zlib = require('zlib');
    exports.handler = function(input, context) {
        var payload = Buffer.from(input.awslogs.data, 'base64');
@@ -316,7 +315,7 @@ Before you create the Lambda function, calculate the volume of log data that wil
 
    The base64 decoded and decompressed data is formatted as JSON with the following structure:
 
-   ```
+   ```json
    { 
        "messageType": "DATA_MESSAGE",
        "owner": "123456789012",
@@ -435,7 +434,7 @@ Before you create the Firehose stream, calculate the volume of log data that wil
 
 1. Create a permissions policy to define what actions Firehose can do on your account. First, use a text editor to create a permissions policy in a file `~/PermissionsForFirehose.json`:
 
-   ```
+   ```json
    {
      "Statement": [
        {
@@ -509,7 +508,7 @@ Before you create the Firehose stream, calculate the volume of log data that wil
 
    This policy includes a `aws:SourceArn` global condition context key to help prevent the confused deputy security problem. For more information, see [Confused deputy prevention](Subscriptions-confused-deputy.md).
 
-   ```
+   ```json
    {
      "Statement": {
        "Effect": "Allow",

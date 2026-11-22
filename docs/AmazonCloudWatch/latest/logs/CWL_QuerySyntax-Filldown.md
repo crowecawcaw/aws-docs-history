@@ -1,7 +1,6 @@
 
 
 # filldown
-<a name="CWL_QuerySyntax-Filldown"></a>
 
 Use the `filldown` command to carry the last non-null value forward to fill gaps. You can specify field names or use wildcards. If you do not specify fields, all fields are filled.
 

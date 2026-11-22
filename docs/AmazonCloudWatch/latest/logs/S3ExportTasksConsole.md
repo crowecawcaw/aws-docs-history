@@ -1,7 +1,6 @@
 
 
 # Export log data to Amazon S3 using the console
-<a name="S3ExportTasksConsole"></a>
 
 In the following examples, you use the Amazon CloudWatch console to export all data from an Amazon CloudWatch Logs log group named `my-log-group` to an Amazon S3 bucket named `amzn-s3-demo-bucket`.
 
@@ -93,7 +92,7 @@ We recommend that you also include the account ID of the account where the S3 bu
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -190,7 +189,7 @@ This step is necessary only if you are exporting to an Amazon S3 bucket that use
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -339,7 +338,7 @@ Change `amzn-s3-demo-bucket` to the name of your destination S3 bucket in the fo
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -361,7 +360,7 @@ Change `amzn-s3-demo-bucket` to the name of your destination S3 bucket in the fo
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -391,7 +390,7 @@ Change `amzn-s3-demo-bucket` to the name of your destination S3 bucket in the fo
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -458,7 +457,7 @@ We recommend that you also include the account ID of the account where the S3 bu
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -566,7 +565,7 @@ This procedure is necessary only if you are exporting to an S3 bucket that uses 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

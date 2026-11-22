@@ -1,7 +1,6 @@
 
 
 # Syslog ingestion
-<a name="CWL_Syslog"></a>
 
 Amazon CloudWatch Logs managed syslog ingestion lets you send syslog messages (RFC 5424, RFC 3164, and Cisco FTD/ASA) from firewalls, routers, switches, and Linux servers directly into CloudWatch Logs – without installing or managing any agents. Your syslog sources send messages over TCP, TCP\+TLS, or UDP to a VPC endpoint in your account. The traffic is tunneled via AWS PrivateLink to the CloudWatch Logs syslog service, which automatically parses incoming messages and extracts structured fields such as facility, severity, hostname, and application name – eliminating the need for custom parsing pipelines. You can then query these fields using CloudWatch Logs Analytics to investigate security events or troubleshoot connectivity issues. This helps you centralize infrastructure log visibility, simplify operational workflows, and reduce the overhead of deploying and maintaining log collection agents across distributed environments.
 

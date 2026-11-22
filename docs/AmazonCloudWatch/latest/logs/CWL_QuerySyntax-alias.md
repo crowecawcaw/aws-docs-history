@@ -1,7 +1,6 @@
 
 
 # Use aliases and comments in queries
-<a name="CWL_QuerySyntax-alias"></a>
 
  Create queries that contain aliases. Use aliases to rename log fields or when extracting values into fields. Use the keyword `as` to give a log field or result an alias. You can use more than one alias in a query. You can use aliases in the following commands: 
 +  `fields` 

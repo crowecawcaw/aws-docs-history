@@ -1,7 +1,6 @@
 
 
 # Example: Count log events
-<a name="CountingLogEventsExample"></a>
 
 The simplest type of log event monitoring is to count the number of log events that occur. You might want to do this to keep a count of all events, to create a "heartbeat" style monitor or just to practice creating metric filters.
 

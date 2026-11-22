@@ -1,7 +1,6 @@
 
 
 # Exporting log data to Amazon S3
-<a name="S3Export"></a>
 
  This chapter provides you with information, so you can export log data from your log groups to an Amazon S3 bucket for custom processing and analysis, or to load onto other systems. You can export to an S3 bucket in the same account or a different account. 
 

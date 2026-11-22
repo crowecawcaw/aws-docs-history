@@ -1,7 +1,6 @@
 
 
 # Data protection in Amazon CloudWatch Logs
-<a name="data-protection"></a>
 
 **Note**  
 In addition to the following information about general data protection in AWS, CloudWatch Logs also enables you to protect sensitive data in log events by masking it. For more information, see [Help protect sensitive log data with masking](mask-sensitive-log-data.md).

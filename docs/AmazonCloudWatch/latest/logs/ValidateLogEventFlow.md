@@ -1,7 +1,6 @@
 
 
 # Validate the flow of log events
-<a name="ValidateLogEventFlow"></a>
 
 After you create the subscription filter, CloudWatch Logs forwards all the incoming log events that match the filter pattern to the stream that is encapsulated within the destination stream called "**RecipientStream**". The destination owner can verify that this is happening by using the **aws kinesis get-shard-iterator** command to grab a Amazon Kinesis Data Streams shard, and using the **aws kinesis get-records** command to fetch some Amazon Kinesis Data Streams records:
 

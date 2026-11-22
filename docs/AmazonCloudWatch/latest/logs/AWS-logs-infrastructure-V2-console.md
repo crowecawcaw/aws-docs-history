@@ -1,7 +1,6 @@
 
 
 # Console-specific permissions
-<a name="AWS-logs-infrastructure-V2-console"></a>
 
 In addition to the permissions listed in the previous sections, if you are setting up log delivery using the console instead of the APIs, you also need the following additional permissions:
 
@@ -10,7 +9,7 @@ In addition to the permissions listed in the previous sections, if you are setti
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

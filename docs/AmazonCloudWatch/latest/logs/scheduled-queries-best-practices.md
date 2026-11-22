@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="scheduled-queries-best-practices"></a>
 
 Follow these best practices to ensure reliable and efficient scheduled query operations:
 

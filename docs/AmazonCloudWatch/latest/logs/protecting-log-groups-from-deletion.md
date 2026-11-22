@@ -1,7 +1,6 @@
 
 
 # Protecting log groups from deletion
-<a name="protecting-log-groups-from-deletion"></a>
 
 ## Enabling deletion protection
 <a name="enabling-deletion-protection"></a>
