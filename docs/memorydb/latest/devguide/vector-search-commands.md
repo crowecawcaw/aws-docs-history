@@ -1,7 +1,6 @@
 
 
 # Vector search commands
-<a name="vector-search-commands"></a>
 
 Following are a list of supported commands for vector search. 
 

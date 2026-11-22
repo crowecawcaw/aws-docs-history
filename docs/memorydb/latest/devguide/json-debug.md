@@ -1,7 +1,6 @@
 
 
 # JSON.DEBUG
-<a name="json-debug"></a>
 
 Report information. Supported subcommands are:
 + MEMORY <key> [path] – report memory usage in bytes of a JSON value. Path defaults to the root if not provided.
@@ -13,7 +12,7 @@ This subcommand is only available using Valkey 7.2 or later, or Redis OSS engine
 
 Syntax
 
-```
+```json
 JSON.DEBUG <subcommand & arguments>
 ```
 
@@ -45,7 +44,7 @@ HELP – returns an array of help messages.
 
 Enhanced path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '[1, 2.3, "foo", true, null, {}, [], {"a":1, "b":2}, [1,2,3]]'
 OK
 127.0.0.1:6379> JSON.DEBUG MEMORY k1 $[*]
@@ -72,7 +71,7 @@ OK
 
 Restricted path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '{"firstName":"John","lastName":"Smith","age":27,"weight":135.25,"isAlive":true,"address":{"street":"21 2nd Street","city":"New York","state":"NY","zipcode":"10021-3100"},"phoneNumbers":[{"type":"home","number":"212 555-1234"},{"type":"office","number":"646 555-4567"}],"children":[],"spouse":null}'
 OK
 127.0.0.1:6379> JSON.DEBUG MEMORY k1

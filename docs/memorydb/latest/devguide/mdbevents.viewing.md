@@ -1,7 +1,6 @@
 
 
 # Viewing MemoryDB events
-<a name="mdbevents.viewing"></a>
 
 MemoryDB logs events that relate to your clusters, security groups, and parameter groups. This information includes the date and time of the event, the source name and source type of the event, and a description of the event. You can easily retrieve events from the log using the MemoryDB console, the AWS CLI `describe-events` command, or the MemoryDB API action `DescribeEvents`. 
 
@@ -41,7 +40,7 @@ aws memorydb describe-events --duration {{1440}}
 
 The output from the `describe-events` command looks something like this.
 
-```
+```json
 {
     "Events": [        
         {

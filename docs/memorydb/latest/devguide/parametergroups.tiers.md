@@ -1,7 +1,6 @@
 
 
 # Parameter group tiers
-<a name="parametergroups.tiers"></a>
 
 *MemoryDB parameter group tiers*
 

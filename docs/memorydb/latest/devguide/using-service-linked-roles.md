@@ -1,7 +1,6 @@
 
 
 # Using Service-Linked Roles for MemoryDB
-<a name="using-service-linked-roles"></a>
 
 MemoryDB uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to an AWS service, such as MemoryDB. MemoryDB service-linked roles are predefined by MemoryDB. They include all the permissions that the service requires to call AWS services on behalf of your clusters. 
 
@@ -37,7 +36,7 @@ The AWSServiceRoleForMemoryDB service-linked role permissions policy allows Memo
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -271,7 +270,7 @@ You can use the IAM API to edit a service-linked role description.
 1. (Optional) To view the current description for a role, use the IAM API operation [GetRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html).  
 **Example**  
 
-   ```
+   ```http
    https://iam.amazonaws.com/
       ?Action=[GetRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html)
       &RoleName={{AWSServiceRoleForMemoryDB}}
@@ -282,7 +281,7 @@ You can use the IAM API to edit a service-linked role description.
 1. To update a role's description, use the IAM API operation [UpdateRoleDescription](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateRoleDescription.html).  
 **Example**  
 
-   ```
+   ```http
    https://iam.amazonaws.com/
       ?Action=[UpdateRoleDescription](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateRoleDescription.html)
       &RoleName={{AWSServiceRoleForMemoryDB}}

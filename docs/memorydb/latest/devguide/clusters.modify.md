@@ -1,7 +1,6 @@
 
 
 # Modifying a MemoryDB cluster
-<a name="clusters.modify"></a>
 
 In addition to adding or removing nodes from a cluster, there can be times where you need to make other changes to an existing cluster, such as adding a security group, changing the maintenance window or a parameter group.
 

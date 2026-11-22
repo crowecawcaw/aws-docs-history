@@ -1,7 +1,6 @@
 
 
 # Exporting a snapshot
-<a name="snapshots-exporting"></a>
 
 MemoryDB supports exporting your MemoryDB snapshot to an Amazon Simple Storage Service (Amazon S3) bucket, which gives you access to it from outside MemoryDB. Exported MemoryDB snapshots are fully-compliant with Valkey and open-source Redis OSS and can be loaded with the appropriate version or tooling. You can export a snapshot using the MemoryDB console, the AWS CLI, or the MemoryDB API.
 
@@ -82,7 +81,7 @@ To create the proper permissions on an Amazon S3 bucket in an AWS Region, take t
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Id": "Policy15397346",
@@ -122,7 +121,7 @@ Now you've created your S3 bucket and granted MemoryDB permissions to access it.
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [{

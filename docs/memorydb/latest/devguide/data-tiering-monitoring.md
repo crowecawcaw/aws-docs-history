@@ -1,7 +1,6 @@
 
 
 # Data tiering monitoring
-<a name="data-tiering-monitoring"></a>
 
 MemoryDB offers metrics designed specifically to monitor the performance clusters that use data tiering. To monitor the ratio of items in DRAM compared to SSD, you can use the `CurrItems` metric at [Metrics for MemoryDB](metrics.memorydb.md). You can calculate the percentage as: `(CurrItems with Dimension: Tier = Memory * 100) / (CurrItems with no dimension filter)`. 
 

@@ -1,13 +1,12 @@
 
 
 # JSON.ARRPOP
-<a name="json-arrpop"></a>
 
 Remove and return element at the index from the array. Popping an empty array returns null.
 
 Syntax
 
-```
+```json
 JSON.ARRPOP <key> [path [index]]
 ```
 + key (required) – key of JSON document type
@@ -33,7 +32,7 @@ If the path is restricted syntax:
 
  Enhanced path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '[[], ["a"], ["a", "b"]]'
 OK
 127.0.0.1:6379> JSON.ARRPOP k1 $[*]
@@ -46,7 +45,7 @@ OK
 
  Restricted path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '[[], ["a"], ["a", "b"]]'
 OK
 127.0.0.1:6379> JSON.ARRPOP k1

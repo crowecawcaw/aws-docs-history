@@ -1,7 +1,6 @@
 
 
 # Vector search
-<a name="vector-search"></a>
 
 Vector search for MemoryDB extends the functionality of MemoryDB. Vector search can be used in conjunction with existing MemoryDB functionality. Applications that do not use vector search are unaffected by its presence. Vector search is available in all Regions that MemoryDB is available.
 

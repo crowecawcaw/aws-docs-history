@@ -1,7 +1,6 @@
 
 
 # Supported node types
-<a name="nodes.supportedtypes"></a>
 
 MemoryDB supports the following node types. 
 

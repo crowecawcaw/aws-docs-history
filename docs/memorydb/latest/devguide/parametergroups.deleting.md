@@ -1,7 +1,6 @@
 
 
 # Deleting a parameter group
-<a name="parametergroups.deleting"></a>
 
 You can delete a custom parameter group using the MemoryDB console, the AWS CLI, or the MemoryDB API.
 

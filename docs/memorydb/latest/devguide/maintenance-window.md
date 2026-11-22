@@ -1,7 +1,6 @@
 
 
 # Managing maintenance
-<a name="maintenance-window"></a>
 
 Every cluster has a weekly maintenance window during which any system changes are applied. If you don't specify a preferred maintenance window when you create or modify a cluster, MemoryDB assigns a 60-minute maintenance window within your region's maintenance window on a randomly chosen day of the week.
 

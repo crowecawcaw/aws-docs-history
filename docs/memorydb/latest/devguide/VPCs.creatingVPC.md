@@ -1,7 +1,6 @@
 
 
 # Creating a Virtual Private Cloud (VPC)
-<a name="VPCs.creatingVPC"></a>
 
 In this example, you create a virtual private cloud (VPC) based on the Amazon VPC service with a private subnet for each Availability Zone.
 

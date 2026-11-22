@@ -1,7 +1,6 @@
 
 
 # Using MemoryDB Multi-Region with the CLI
-<a name="multi-Region.cli"></a>
 
 Below are ways to use MemoryDB Multi-Region with the CLI
 

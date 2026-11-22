@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="bestpractices"></a>
 
 Following, you can find recommended best practices for MemoryDB. Following these improves your cluster's performance and reliability. 
 

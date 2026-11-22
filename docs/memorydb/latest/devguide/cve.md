@@ -1,7 +1,6 @@
 
 
 # Common Vulnerabilities and Exposures (CVE): Security vulnerabilities addressed in MemoryDB
-<a name="cve"></a>
 
 Common Vulnerabilities and Exposures (CVE) is a list of entries for publicly known cybersecurity vulnerabilities. Each entry is a link that contains an identification number, a description, and at least one public reference. You can find on this page a list of security vulnerabilities that have been addressed in MemoryDB, as well as CVEs that do not affect MemoryDB. 
 

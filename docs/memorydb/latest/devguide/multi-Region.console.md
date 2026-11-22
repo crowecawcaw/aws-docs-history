@@ -1,7 +1,6 @@
 
 
 # Using MemoryDB Multi-Region with the console
-<a name="multi-Region.console"></a>
 
 Here are ways to use MemoryDB Multi-Region with the console.
 

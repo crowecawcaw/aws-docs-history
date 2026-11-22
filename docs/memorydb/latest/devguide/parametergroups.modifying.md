@@ -1,7 +1,6 @@
 
 
 # Modifying a parameter group
-<a name="parametergroups.modifying"></a>
 
 **Important**  
 You cannot modify any default parameter group.

@@ -1,7 +1,6 @@
 
 
 # Identity and access management in MemoryDB
-<a name="iam"></a>
 
 
 

@@ -1,11 +1,10 @@
 
 
 # FT.INFO
-<a name="vector-search-commands-ft.info"></a>
 
 **Syntax**
 
-```
+```text
 FT.INFO <index-name>
 ```
 

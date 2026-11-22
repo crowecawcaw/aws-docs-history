@@ -1,7 +1,6 @@
 
 
 # FT.SEARCH
-<a name="vector-search-commands-ft.search"></a>
 
 Uses the provided query expression to locate keys within an index. Once located, the count and/or content of indexed fields within those keys can be returned. For more information, see [Vector search query expression](https://docs.aws.amazon.com/memorydb/latest/devguide/vector-search-overview.html#vector-search-query-expression).
 
@@ -9,7 +8,7 @@ To create data for use in these examples, see the [FT.CREATE](https://docs.aws.a
 
 **Syntax**
 
-```
+```text
 FT.SEARCH <index-name> <query>
 [RETURN <token_count> (<field-identifier> [AS <alias>])+]
 [TIMEOUT timeout] 
@@ -36,7 +35,7 @@ The following example uses arguments native to [valkey-cli](https://valkey.io/to
 
 **A hash search**
 
-```
+```text
 FT.SEARCH hash_idx1 "*=>[KNN 2 @VEC $query_vec]" PARAMS 2 query_vec "\x00\x00\x00\x00\x00\x00\x00\x00" DIALECT 2
 1) (integer) 2
 2) "hash:0"
@@ -55,7 +54,7 @@ This produces two results, sorted by their score, which is the distance from the
 
 **JSON searches**
 
-```
+```text
 FT.SEARCH json_idx1 "*=>[KNN 2 @VEC $query_vec]" PARAMS 2 query_vec "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00" DIALECT 2
 1) (integer) 2
 2) "json:2"
@@ -72,7 +71,7 @@ FT.SEARCH json_idx1 "*=>[KNN 2 @VEC $query_vec]" PARAMS 2 query_vec "\x00\x00\x0
 
 This produces the two closest results, sorted by their score, and note that the JSON vector values are converted to floats and the query vector is still vector data. Note also that because the `KNN` parameter is 2, there are only two results. A larger value will return more results:
 
-```
+```text
 FT.SEARCH json_idx1 "*=>[KNN 100 @VEC $query_vec]" PARAMS 2 query_vec "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00" DIALECT 2
 1) (integer) 3
 2) "json:2"

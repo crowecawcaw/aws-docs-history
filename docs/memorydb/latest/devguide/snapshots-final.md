@@ -1,7 +1,6 @@
 
 
 # Creating a final snapshot
-<a name="snapshots-final"></a>
 
 You can create a final snapshot using the MemoryDB console, the AWS CLI, or the MemoryDB API.
 

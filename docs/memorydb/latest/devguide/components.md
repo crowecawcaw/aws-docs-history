@@ -1,7 +1,6 @@
 
 
 # MemoryDB core components
-<a name="components"></a>
 
 Following, you can find an overview of the major components of a MemoryDB deployment.
 

@@ -1,13 +1,12 @@
 
 
 # JSON.OBJKEYS
-<a name="json-objkeys"></a>
 
 Get key names in the object values at the path.
 
 Syntax
 
-```
+```json
 JSON.OBJKEYS <key> [path]
 ```
 + key (required) – key of JSON document type
@@ -31,7 +30,7 @@ If the path is restricted syntax:
 
  Enhanced path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 $ '{"a":{}, "b":{"a":"a"}, "c":{"a":"a", "b":"bb"}, "d":{"a":1, "b":"b", "c":{"a":3,"b":4}}, "e":1}'
 OK
 127.0.0.1:6379> JSON.OBJKEYS k1 $.*
@@ -51,7 +50,7 @@ OK
 
  Restricted path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 $ '{"a":{}, "b":{"a":"a"}, "c":{"a":"a", "b":"bb"}, "d":{"a":1, "b":"b", "c":{"a":3,"b":4}}, "e":1}'
 OK
 127.0.0.1:6379> JSON.OBJKEYS k1 .*

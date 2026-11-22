@@ -1,7 +1,6 @@
 
 
 # Choosing Regions and Availability Zones
-<a name="regionsandazs"></a>
 
 AWS Cloud computing resources are housed in highly available data center facilities. To provide additional scalability and reliability, these data center facilities are located in different physical locations. These locations are categorized by *regions* and *Availability Zones*.
 
@@ -30,7 +29,7 @@ MemoryDB is available in multiple AWS Regions. This means that you can launch Me
 
 By default, the AWS SDKs, AWS CLI, MemoryDB API, and MemoryDB console reference the US-East (N. Virginia) Region. As MemoryDB expands availability to new regions, new endpoints for these regions are also available to use in your HTTP requests, the AWS SDKs, AWS CLI, and the console.
 
-Each Region is designed to be completely isolated from the other Regions. Within each region are multiple Availability Zones (AZ). By launching your nodes in different AZs you achieve the greatest possible fault tolerance. For more information on regions and Availability Zones, see [Choosing Regions and Availability Zones](#regionsandazs) at the beginning of this topic.
+Each Region is designed to be completely isolated from the other Regions. Within each region are multiple Availability Zones (AZ). By launching your nodes in different AZs you achieve the greatest possible fault tolerance. For more information on regions and Availability Zones, see [Choosing Regions and Availability Zones](regionsandazs.md) at the beginning of this topic.
 
 
 **Regions where MemoryDB is supported**  

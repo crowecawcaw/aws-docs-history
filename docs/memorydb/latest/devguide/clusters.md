@@ -1,7 +1,6 @@
 
 
 # Managing clusters
-<a name="clusters"></a>
 
 Most MemoryDB operations are performed at the cluster level. You can set up a cluster with a specific number of nodes and a parameter group that controls the properties for each node. All nodes within a cluster are designed to be of the same node type and have the same parameter and security group settings. 
 

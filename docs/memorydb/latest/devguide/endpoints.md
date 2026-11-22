@@ -1,7 +1,6 @@
 
 
 # Finding connection endpoints
-<a name="endpoints"></a>
 
 Your application connects to your cluster using the endpoint. An endpoint is a cluster's unique address. Use the cluster's *Cluster Endpoint* for all operations. 
 
@@ -43,7 +42,7 @@ aws memorydb describe-clusters ^
    --cluster-name {{mycluster}}
 ```
 
-```
+```json
 {
     "Clusters": [
         {

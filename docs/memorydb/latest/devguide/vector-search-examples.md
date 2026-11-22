@@ -1,7 +1,6 @@
 
 
 # Use cases
-<a name="vector-search-examples"></a>
 
 Following are use cases of vector search.
 

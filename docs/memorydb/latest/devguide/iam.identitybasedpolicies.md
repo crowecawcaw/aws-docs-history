@@ -1,7 +1,6 @@
 
 
 # Using identity-based policies (IAM policies) for MemoryDB
-<a name="iam.identitybasedpolicies"></a>
 
 This topic provides examples of identity-based policies in which an account administrator can attach permissions policies to IAM identities (that is, users, groups, and roles). 
 
@@ -20,7 +19,7 @@ The following shows an example of a permissions policy.
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [{
@@ -64,7 +63,7 @@ The permissions reference table lists the MemoryDB API operations and shows the 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -124,7 +123,7 @@ The following policy grants permissions for MemoryDB actions that allow a user t
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[{
@@ -151,7 +150,7 @@ Common system administrator tasks include modifying clusters, parameters, and pa
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -185,7 +184,7 @@ The following policy allows a user to access all MemoryDB actions. We recommend 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[{
@@ -211,7 +210,7 @@ The following policy allows user to call the IAM `CreateServiceLinkedRole` API. 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[

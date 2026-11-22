@@ -1,7 +1,6 @@
 
 
 # How it works
-<a name="multi-region.how"></a>
 
 Here's how MemoryDB Multi-Region works.
 + **Concepts**

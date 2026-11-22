@@ -1,7 +1,6 @@
 
 
 # Getting started with MemoryDB
-<a name="getting-started"></a>
 
 This exercise leads you through the steps to create, grant access to, connect to, and finally delete a MemoryDB cluster using the MemoryDB Management Console.
 
@@ -293,7 +292,7 @@ To create a cluster using the AWS CLI, see [`create-cluster`](https://docs.aws.a
 
 For Linux, macOS, or Unix:
 
-```
+```json
 aws memorydb create-cluster \
     --cluster-name my-cluster \
     --node-type db.r6g.large \
@@ -304,7 +303,7 @@ aws memorydb create-cluster \
 
 For Windows:
 
-```
+```json
 aws memorydb create-cluster ^
    --cluster-name my-cluster ^
    --node-type db.r6g.large ^
@@ -315,7 +314,7 @@ aws memorydb create-cluster ^
 
 You should get the following JSON response:
 
-```
+```json
 {
     "Cluster": {
         "Name": "my-cluster",

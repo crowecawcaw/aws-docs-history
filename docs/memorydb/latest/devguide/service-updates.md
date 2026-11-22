@@ -1,11 +1,10 @@
 
 
 # Service updates in MemoryDB
-<a name="service-updates"></a>
 
 MemoryDB automatically monitors your fleet of clusters and nodes to apply service updates as they become available. Typically, you set up a predefined maintenance window so that MemoryDB can apply these updates. However, in some cases you might find this approach too rigid and likely to constrain your business flows. 
 
-With [Service updates in MemoryDB](#service-updates), you control when and which updates are applied. You can also monitor the progress of these updates to your selected MemoryDB cluster in real time. 
+With [Service updates in MemoryDB](service-updates.md), you control when and which updates are applied. You can also monitor the progress of these updates to your selected MemoryDB cluster in real time. 
 
 ## Applying the service updates using the AWS CLI
 <a name="applying-updates-cli-redis"></a>

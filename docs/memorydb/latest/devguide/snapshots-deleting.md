@@ -1,7 +1,6 @@
 
 
 # Deleting a snapshot
-<a name="snapshots-deleting"></a>
 
 An automatic snapshot is automatically deleted when its retention limit expires. If you delete a cluster, all of its automatic snapshots are also deleted.
 

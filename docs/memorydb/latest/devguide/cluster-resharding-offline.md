@@ -1,7 +1,6 @@
 
 
 # Offline resharding for MemoryDB
-<a name="cluster-resharding-offline"></a>
 
 The main advantage you get from offline shard reconfiguration is that you can do more than merely add or remove shards from your cluster. When you reshard offline, in addition to changing the number of shards in your cluster, you can do the following:
 + Change the node type of your cluster.

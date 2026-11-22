@@ -1,7 +1,6 @@
 
 
 # Prerequisites and limitations
-<a name="multi-region.prereq"></a>
 
 Before getting started with MemoryDB Multi-Region, be aware of the following:
 + **MemoryDB Multi-Region replicates data between Regions of your choice** - By creating a Multi-Region cluster, you understand and agree that data will be moved between your selected Regions.

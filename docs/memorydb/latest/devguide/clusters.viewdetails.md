@@ -1,7 +1,6 @@
 
 
 # Viewing a cluster's details
-<a name="clusters.viewdetails"></a>
 
 You can view detail information about one or more clusters using the MemoryDB console, AWS CLI, or MemoryDB API.
 

@@ -1,7 +1,6 @@
 
 
 # In-transit encryption (TLS) in MemoryDB
-<a name="in-transit-encryption"></a>
 
 To help keep your data secure, MemoryDB and Amazon EC2 provide mechanisms to guard against unauthorized access of your data on the server. By providing in-transit encryption capability, MemoryDB gives you a tool you can use to help protect your data when it is moving from one location to another. For example, you might move data from a primary node to a read replica node within a cluster, or between your cluster and your application.
 

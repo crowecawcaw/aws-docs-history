@@ -1,7 +1,6 @@
 
 
 # MemoryDB API permissions: Actions, resources, and conditions reference
-<a name="iam.APIReference"></a>
 
 When you set up [access control](iam.md#iam.accesscontrol) and write permissions policies to attach to an IAM policy (either identity-based or resource-based), use the following table as a reference. The table lists each MemoryDB API operation and the corresponding actions for which you can grant permissions to perform the action. You specify the actions in the policy's `Action` field, and you specify a resource value in the policy's `Resource` field. Unless indicated otherwise, the resource is required. Some fields include both a required resource and optional resources. When there is no resource ARN, the resource in the policy is a wildcard (\*).
 

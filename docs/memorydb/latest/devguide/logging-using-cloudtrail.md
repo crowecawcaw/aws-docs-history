@@ -1,7 +1,6 @@
 
 
 # Logging MemoryDB API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 MemoryDB is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in MemoryDB. CloudTrail captures all API calls for MemoryDB as events, including calls from the MemoryDB console and from code calls to the MemoryDB API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for MemoryDB. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to MemoryDB, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
@@ -34,7 +33,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateCluster` action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -94,7 +93,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 
 The following example shows a CloudTrail log entry that demonstrates the `DescribeClusters` action. Note that for all MemoryDB Describe and List calls (`Describe*` and `List*`), the `responseElements` section is removed and appears as `null`. 
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -128,7 +127,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Descri
 
 The following example shows a CloudTrail log entry that records an `UpdateCluster` action. 
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -189,7 +188,7 @@ The following example shows a CloudTrail log entry that records an `UpdateCluste
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateUser` action. Note that for MemoryDB calls that contain sensitive data, that data will be redacted in the corresponding CloudTrail event as shown in the `requestParameters` section below.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

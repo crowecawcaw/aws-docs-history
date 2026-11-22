@@ -1,7 +1,6 @@
 
 
 # Data tiering limitations
-<a name="data-tiering-prerequisites"></a>
 
 Data tiering has the following limitations:
 + The node type you use must be from the r6gd family, which is available in the following regions: `us-east-2`, `us-east-1`, `us-west-2`, `us-west-1`, `eu-west-1`, `eu-west-3`, `eu-central-1`, `ap-northeast-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-south-1`, `ca-central-1` and `sa-east-1`.

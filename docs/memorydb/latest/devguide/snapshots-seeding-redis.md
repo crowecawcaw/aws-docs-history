@@ -1,7 +1,6 @@
 
 
 # Seeding a new cluster with an externally created snapshot
-<a name="snapshots-seeding-redis"></a>
 
 When you create a new MemoryDB cluster, you can seed it with data from a Valkey or Redis OSS .rdb snapshot file. 
 
@@ -132,7 +131,7 @@ AWS Regions introduced before March 20, 2019, are enabled by default. You can be
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Id": "Policy15397346",

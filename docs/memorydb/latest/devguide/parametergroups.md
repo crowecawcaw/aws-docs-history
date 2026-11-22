@@ -1,7 +1,6 @@
 
 
 # Configuring engine parameters using parameter groups
-<a name="parametergroups"></a>
 
 MemoryDB uses parameters to control the runtime properties of your nodes and clusters. Generally, newer engine versions include additional parameters to support the newer functionality. For tables of parameters, see [Engine specific parameters](parametergroups.redis.md).
 

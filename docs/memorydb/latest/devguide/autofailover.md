@@ -1,7 +1,6 @@
 
 
 # Minimizing downtime in MemoryDB with Multi-AZ
-<a name="autofailover"></a>
 
 There are a number of instances where MemoryDB may need to replace a primary node; these include certain types of planned maintenance and the unlikely event of a primary node or Availability Zone failure. 
 
@@ -183,7 +182,7 @@ To track the progress of your failover, use the AWS CLI `describe-events` operat
 
 It will return the following JSON response:
 
-```
+```json
 {
     "Events": [
         {

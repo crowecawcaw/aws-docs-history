@@ -1,7 +1,6 @@
 
 
 # Metrics for MemoryDB
-<a name="metrics.memorydb"></a>
 
 The `AWS/MemoryDB` namespace includes the following metrics.
 

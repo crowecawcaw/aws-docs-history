@@ -1,7 +1,6 @@
 
 
 # Authenticating with IAM
-<a name="auth-iam"></a>
 
 **Topics**
 + [Overview](#auth-iam-overview)
@@ -51,7 +50,7 @@ To setup IAM authentication:
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -71,7 +70,7 @@ To setup IAM authentication:
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -143,7 +142,7 @@ To setup IAM authentication:
 
 You first need to generate the short-lived IAM authentication token using an [AWS SigV4 pre-signed request](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html). After that you provide the IAM authentication token as a password when connecting to a MemoryDB cluster, as shown in the example below. 
 
-```
+```java
 String userName = "insert user name"
 String clusterName = "insert cluster name"
 String region = "insert region"
@@ -172,7 +171,7 @@ client.connect();
 
 Below is the definition for `IAMAuthTokenRequest`.
 
-```
+```java
 public class IAMAuthTokenRequest {
     private static final HttpMethodName REQUEST_METHOD = HttpMethodName.GET;
     private static final String REQUEST_PROTOCOL = "http://";
@@ -238,7 +237,7 @@ public class IAMAuthTokenRequest {
 
 The code below shows how to authenticate with MemoryDB using the IAM authentication credentials provider.
 
-```
+```java
 String userName = "insert user name"
 String clusterName = "insert cluster name"
 String region = "insert region"
@@ -270,7 +269,7 @@ client.connect();
 
 Below is an example of a Lettuce cluster client that wraps the IAMAuthTokenRequest in a credentials provider to auto-generate temporary credentials when needed.
 
-```
+```java
 public class RedisIAMAuthCredentialsProvider implements RedisCredentialsProvider {
     private static final long TOKEN_EXPIRY_SECONDS = 900;
 

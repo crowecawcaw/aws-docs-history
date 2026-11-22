@@ -1,7 +1,6 @@
 
 
 # Engine versions
-<a name="engine-versions"></a>
 
 This section covers the supported Valkey and Redis OSS engine versions. 
 

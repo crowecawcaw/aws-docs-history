@@ -1,7 +1,6 @@
 
 
 # Vector search features and limits
-<a name="vector-search-limits"></a>
 
 ## Vector search availability
 <a name="vector-search-availability"></a>

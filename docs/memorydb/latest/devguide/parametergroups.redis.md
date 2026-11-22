@@ -1,7 +1,6 @@
 
 
 # Engine specific parameters
-<a name="parametergroups.redis"></a>
 
 If you do not specify a parameter group for your Valkey or Redis OSS cluster, then a default parameter group appropriate to your engine version will be used. You can't change the values of any parameters in the default parameter group. However, you can create a custom parameter group and assign it to your cluster at any time as long as the values of conditionally modifiable parameters are the same in both parameter groups. For more information, see [Creating a parameter group](parametergroups.creating.md).
 

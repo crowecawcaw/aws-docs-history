@@ -1,7 +1,6 @@
 
 
 # Tutorial: Configuring a Lambda function to access MemoryDB in an Amazon VPC
-<a name="LambdaMemoryDB"></a>
 
 In this tutorial you can learn how to:
 + Create a MemoryDB cluster in your default Amazon Virtual Private Cloud (Amazon VPC) in the us-east-1 region.
@@ -57,7 +56,7 @@ Copy the Cluster Endpoint Address shown in the output. You'll need this address 
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
        "Statement": [{
@@ -84,7 +83,7 @@ Copy the Cluster Endpoint Address shown in the output. You'll need this address 
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
      "Statement": [

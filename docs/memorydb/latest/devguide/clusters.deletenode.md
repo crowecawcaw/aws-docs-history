@@ -1,7 +1,6 @@
 
 
 # Adding / Removing nodes from a cluster
-<a name="clusters.deletenode"></a>
 
 You can add or remove nodes from a cluster using the AWS Management Console, the AWS CLI, or the MemoryDB API.
 

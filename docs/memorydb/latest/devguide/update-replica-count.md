@@ -1,7 +1,6 @@
 
 
 # Changing the number of replicas
-<a name="update-replica-count"></a>
 
 You can dynamically increase or decrease the number of read replicas in your MemoryDB cluster using the AWS Management Console, the AWS CLI, or the MemoryDB API. All shards must have the same number of replicas.
 
@@ -48,7 +47,7 @@ aws memorydb update-cluster ^
 
 It returns the following JSON response:
 
-```
+```json
 {
     "Cluster": {
         "Name": "my-cluster",

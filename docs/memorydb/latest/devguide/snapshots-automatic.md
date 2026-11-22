@@ -1,7 +1,6 @@
 
 
 # Scheduling automatic snapshots
-<a name="snapshots-automatic"></a>
 
 For any MemoryDB cluster, you can enable automatic snapshots. When automatic snapshots are enabled, MemoryDB creates a snapshot of the cluster on a daily basis. There is no impact on the cluster and the change is immediate. For more information, see [Restoring from a snapshot](snapshots-restoring.md).
 

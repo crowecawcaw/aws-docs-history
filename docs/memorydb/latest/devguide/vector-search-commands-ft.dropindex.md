@@ -1,13 +1,12 @@
 
 
 # FT.DROPINDEX
-<a name="vector-search-commands-ft.dropindex"></a>
 
 Drop an index. The index definition and associated content are deleted. Keys are unaffected.
 
 **Syntax**
 
-```
+```text
 FT.DROPINDEX <index-name>
 ```
 

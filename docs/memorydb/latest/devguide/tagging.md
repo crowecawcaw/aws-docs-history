@@ -1,7 +1,6 @@
 
 
 # Monitoring costs with cost allocation tags
-<a name="tagging"></a>
 
 When you add cost allocation tags to your resources in MemoryDB, you can track costs by grouping expenses on your invoices by resource tag values.
 

@@ -1,7 +1,6 @@
 
 
 # MemoryDB security
-<a name="memorydb-security"></a>
 
 Security for MemoryDB is managed at three levels:
 + To control who can perform management actions on MemoryDB clusters and nodes, you use AWS Identity and Access Management (IAM). When you connect to AWS using IAM credentials, your AWS account must have IAM policies that grant the permissions required to perform operations. For more information, see [Identity and access management in MemoryDB](iam.md)

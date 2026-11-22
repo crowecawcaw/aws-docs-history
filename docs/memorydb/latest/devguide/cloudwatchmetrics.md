@@ -1,7 +1,6 @@
 
 
 # Monitoring CloudWatch metrics
-<a name="cloudwatchmetrics"></a>
 
 MemoryDB and CloudWatch are integrated so you can gather a variety of metrics. You can monitor these metrics using CloudWatch. 
 

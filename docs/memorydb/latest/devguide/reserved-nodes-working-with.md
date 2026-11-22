@@ -1,7 +1,6 @@
 
 
 # Working with reserved nodes
-<a name="reserved-nodes-working-with"></a>
 
 You can use the AWS Management Console, the AWS Command Line Interface, and MemoryDB API to work with reserved nodes.
 
@@ -74,7 +73,7 @@ aws memorydb describe-reserved-nodes-offerings
 
 This produces output similar to the following:
 
-```
+```json
 {
     "ReservedNodesOfferings": [
         {
@@ -128,7 +127,7 @@ The Reservation ID is a unique customer-specified identifier to track this reser
 
 This produces output similar to the following:
 
-```
+```json
 {
     "ReservedNode": {
         "ReservationId": "reservation",
@@ -161,7 +160,7 @@ aws memorydb describe-reserved-nodes
 
 This produces output similar to the following:
 
-```
+```json
 {
     "ReservedNodes": [
         {

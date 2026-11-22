@@ -1,7 +1,6 @@
 
 
 # Listing parameter groups by name
-<a name="parametergroups.listingGroups"></a>
 
 You can list the parameter groups using the MemoryDB console, the AWS CLI, or the MemoryDB API.
 
@@ -37,7 +36,7 @@ aws memorydb describe-parameter-groups ^
 ```
 The output of this command will look something like this, listing the name, family, and description for the parameter group.  
 
-```
+```json
 {
     "ParameterGroups": [
 	    {
@@ -66,7 +65,7 @@ aws memorydb describe-parameter-groups ^
 ```
 The output of this command will look something like this, listing the name, family and description for the parameter group.  
 
-```
+```json
 {
     "ParameterGroups": [
 	    {
@@ -87,7 +86,7 @@ aws memorydb describe-parameter-groups --max-results {{20}}
 ```
 The JSON output of this command will look something like this, listing the name, family and description for each parameter group.  
 
-```
+```json
 {
     "ParameterGroups": [
         {

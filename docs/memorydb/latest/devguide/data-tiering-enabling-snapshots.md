@@ -1,7 +1,6 @@
 
 
 # Restoring data from a snapshot into clusters
-<a name="data-tiering-enabling-snapshots"></a>
 
 You can restore a snapshot to a new cluster with data tiering enabled using the (Console), (AWS CLI) or (MemoryDB API). When you create a cluster using node types in the r6gd family, data tiering is enabled. 
 
@@ -21,7 +20,7 @@ You cannot opt out of data tiering when selecting a node type from the r6gd fami
 
 For Linux, macOS, or Unix:
 
-```
+```json
 aws memorydb create-cluster \
    --cluster-name my-cluster \
    --node-type db.r6gd.xlarge \
@@ -34,7 +33,7 @@ aws memorydb create-cluster \
 
 For Windows:
 
-```
+```json
 aws memorydb create-cluster ^
    --cluster-name my-cluster ^
    --node-type db.r6gd.xlarge ^
@@ -47,7 +46,7 @@ aws memorydb create-cluster ^
 
 After running this operation, you will see a response similar to the following:
 
-```
+```json
 {
     "Cluster": {
         "Name": "my-cluster",

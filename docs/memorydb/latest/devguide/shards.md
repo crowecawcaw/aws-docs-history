@@ -1,7 +1,6 @@
 
 
 # Working with shards
-<a name="shards"></a>
 
 A shard is a collection of one to 6 nodes. You can create a cluster with higher number of shards and lower number of replicas totaling up to 500 nodes per cluster. This cluster configuration can range from 500 shards and 0 replicas to 100 shards and 4 replicas, which is the maximum number of replicas allowed. The cluster's data is partitioned across the cluster's shards. If there is more than one node in a shard, the shard implements replication with one node being the read/write primary node and the other nodes read-only replica nodes.
 
@@ -58,7 +57,7 @@ It returns the following JSON response:
 
 Line breaks are added for ease of reading.
 
-```
+```json
 {
     "Clusters": [
         {

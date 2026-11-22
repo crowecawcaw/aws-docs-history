@@ -1,7 +1,6 @@
 
 
 # MemoryDB and Amazon VPC
-<a name="vpcs"></a>
 
 The Amazon Virtual Private Cloud (Amazon VPC) service defines a virtual network that closely resembles a traditional data center. When you configure a virtual private cloud (VPC) with Amazon VPC, you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings. You can also add a cluster to the virtual network, and control access to the cluster by using Amazon VPC security groups. 
 

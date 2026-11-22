@@ -1,7 +1,6 @@
 
 
 # Managing your MemoryDB implementation
-<a name="managing-memorydb"></a>
 
 In this section, you can find details about how to manage the various components of your MemoryDB implementation. 
 

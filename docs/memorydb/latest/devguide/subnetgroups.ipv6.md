@@ -1,7 +1,6 @@
 
 
 # MemoryDB and IPV6
-<a name="subnetgroups.ipv6"></a>
 
 You can create new dual stack and ipv6-only clusters with both Valkey and Redis OSS engines, by providing subnet groups with dual stack and ipv6-only subnets. You cannot change the network type for an existing cluster.
 

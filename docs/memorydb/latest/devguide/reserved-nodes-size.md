@@ -1,7 +1,6 @@
 
 
 # Size flexible reserved nodes
-<a name="reserved-nodes-size"></a>
 
 When you purchase a reserved node, one thing that you specify is the node type, for example db.r6g.xlarge. For more information, about node types, see [MemoryDB Pricing](https://aws.amazon.com/memorydb/pricing/ ).
 

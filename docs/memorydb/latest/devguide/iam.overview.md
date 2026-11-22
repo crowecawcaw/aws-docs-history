@@ -1,7 +1,6 @@
 
 
 # Overview of managing access permissions to your MemoryDB resources
-<a name="iam.overview"></a>
 
 Every AWS resource is owned by an AWS account, and permissions to create or access a resource are governed by permissions policies. An account administrator can attach permissions policies to IAM identities (that is, users, groups, and roles). In addition, MemoryDB also supports attaching permissions policies to resources. 
 

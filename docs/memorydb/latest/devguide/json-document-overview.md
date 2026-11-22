@@ -1,7 +1,6 @@
 
 
 # JSON Datatype overview
-<a name="json-document-overview"></a>
 
 MemoryDB supports a number of Valkey and Redis OSS commands for working with the JSON datatype. Following is an overview of the JSON datatype and a detailed list of commands that are supported.
 
@@ -122,7 +121,7 @@ Results of some commands are sensitive which type of path syntax is used.
 
 The below examples are built on [Goessner's](https://goessner.net/articles/JsonPath/) example XML data, which we have modified by adding additional fields.
 
-```
+```json
 { "store": {
     "book": [ 
       { "category": "reference",
@@ -197,7 +196,7 @@ The below examples are built on [Goessner's](https://goessner.net/articles/JsonP
 
 More filter expression examples:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '{"books": [{"price":5,"sold":true,"in-stock":true,"title":"foo"}, {"price":15,"sold":false,"title":"abc"}]}'
 OK
 127.0.0.1:6379> JSON.GET k1 $.books[?(@.price>1&&@.price<20&&@.in-stock)]
@@ -281,7 +280,7 @@ The following JSON info metrics are provided:
 
 To query core metrics, run the command:
 
-```
+```json
 info json_core_metrics
 ```
 

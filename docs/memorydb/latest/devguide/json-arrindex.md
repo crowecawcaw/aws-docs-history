@@ -1,7 +1,6 @@
 
 
 # JSON.ARRINDEX
-<a name="json-arrindex"></a>
 
 Search for the first occurrence of a scalar JSON value in the arrays at the path.
 + Out of range errors are treated by rounding the index to the array's start and end.
@@ -9,7 +8,7 @@ Search for the first occurrence of a scalar JSON value in the arrays at the path
 
 Syntax
 
-```
+```json
 JSON.ARRINDEX <key> <path> <json-scalar> [start [end]]
 ```
 + key (required) – key of JSON document type
@@ -32,7 +31,7 @@ If the path is restricted syntax:
 
  Enhanced path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '[[], ["a"], ["a", "b"], ["a", "b", "c"]]'
 OK
 127.0.0.1:6379> JSON.ARRINDEX k1 $[*] '"b"'
@@ -44,7 +43,7 @@ OK
 
  Restricted path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '{"children": ["John", "Jack", "Tom", "Bob", "Mike"]}'
 OK
 127.0.0.1:6379> JSON.ARRINDEX k1 .children '"Tom"'

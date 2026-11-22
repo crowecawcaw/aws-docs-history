@@ -1,13 +1,12 @@
 
 
 # JSON.TOGGLE
-<a name="json-toggle"></a>
 
 Toggle boolean values between true and false at the path.
 
 Syntax
 
-```
+```json
 JSON.TOGGLE <key> [path] 
 ```
 + key (required) – key of JSON document type
@@ -29,7 +28,7 @@ If the path is restricted syntax:
 
  Enhanced path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '{"a":true, "b":false, "c":1, "d":null, "e":"foo", "f":[], "g":{}}'
 OK
 127.0.0.1:6379> JSON.TOGGLE k1 $.*
@@ -52,7 +51,7 @@ OK
 
  Restricted path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . true
 OK
 127.0.0.1:6379> JSON.TOGGLE k1

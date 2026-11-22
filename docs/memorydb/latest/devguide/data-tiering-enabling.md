@@ -1,7 +1,6 @@
 
 
 # Using data tiering
-<a name="data-tiering-enabling"></a>
 
 ## Using data tiering using the AWS Management Console
 <a name="data-tiering-enabling-console"></a>
@@ -19,7 +18,7 @@ You cannot opt out of data tiering when selecting a node type from the r6gd fami
 
 For Linux, macOS, or Unix:
 
-```
+```json
 aws memorydb create-cluster \
    --cluster-name my-cluster \
    --node-type db.r6gd.xlarge \
@@ -31,7 +30,7 @@ aws memorydb create-cluster \
 
 For Windows:
 
-```
+```json
 aws memorydb create-cluster ^
    --cluster-name my-cluster ^
    --node-type db.r6gd.xlarge ^
@@ -43,7 +42,7 @@ aws memorydb create-cluster ^
 
 After running this operation, you will see a response similar to the following:
 
-```
+```json
 {
     "Cluster": {
         "Name": "my-cluster",

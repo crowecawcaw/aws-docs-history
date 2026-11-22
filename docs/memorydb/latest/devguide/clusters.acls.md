@@ -1,7 +1,6 @@
 
 
 # Authenticating users with Access Control Lists (ACLs)
-<a name="clusters.acls"></a>
 
 You can authenticate users with Access control lists (ACLs). 
 
@@ -244,7 +243,7 @@ In particular, be aware of these user password constraints when using ACLs for M
 
 Use the [describe-users](https://docs.aws.amazon.com/cli/latest/reference/memorydb/describe-users.html) command to view details of a user. 
 
-```
+```json
 aws memorydb describe-users \
   --user-name {{my-user-name}}
 ```
@@ -426,7 +425,7 @@ Any open connections belonging to a user removed from an ACL are ended by this c
 
 Use the [describe-acls](https://docs.aws.amazon.com/cli/latest/reference/memorydb/describe-acls.html) command to view details of an ACL. 
 
-```
+```json
 aws memorydb describe-acls \
   --acl-name test-group
 ```

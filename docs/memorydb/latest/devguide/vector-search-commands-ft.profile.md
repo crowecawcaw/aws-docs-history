@@ -1,13 +1,12 @@
 
 
 # FT.PROFILE
-<a name="vector-search-commands-ft.profile"></a>
 
 Run a query and return profile information about that query.
 
 **Syntax**
 
-```
+```text
 FT.PROFILE 
 
 <index>

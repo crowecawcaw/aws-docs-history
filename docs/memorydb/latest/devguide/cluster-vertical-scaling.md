@@ -1,7 +1,6 @@
 
 
 # Online vertical scaling by modifying node type
-<a name="cluster-vertical-scaling"></a>
 
 By using online vertical scaling with MemoryDB, you can scale your cluster dynamically with minimal downtime. This allows your cluster to serve requests even while scaling.
 

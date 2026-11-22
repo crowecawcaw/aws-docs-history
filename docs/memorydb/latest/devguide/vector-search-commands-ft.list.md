@@ -1,13 +1,12 @@
 
 
 # FT.\_LIST
-<a name="vector-search-commands-ft.list"></a>
 
 List all indexes.
 
 **Syntax**
 
-```
+```text
 FT._LIST 
 ```
 

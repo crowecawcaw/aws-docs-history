@@ -1,7 +1,6 @@
 
 
 # Supported commands
-<a name="json-list-commands"></a>
 
 The following JSON commands are supported:
 

@@ -1,7 +1,6 @@
 
 
 # Understanding MemoryDB replication
-<a name="replication"></a>
 
 MemoryDB implements replication with data partitioned across up to 500 shards.
 

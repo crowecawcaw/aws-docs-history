@@ -1,7 +1,6 @@
 
 
 # Access Patterns for Accessing a MemoryDB Cluster in an Amazon VPC
-<a name="memorydb-vpc-accessing"></a>
 
 MemoryDB supports the following scenarios for accessing a cluster in an Amazon VPC:
 

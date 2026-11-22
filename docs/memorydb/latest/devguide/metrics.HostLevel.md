@@ -1,7 +1,6 @@
 
 
 # Host-Level Metrics
-<a name="metrics.HostLevel"></a>
 
 The `AWS/MemoryDB` namespace includes the following host-level metrics for individual nodes.
 

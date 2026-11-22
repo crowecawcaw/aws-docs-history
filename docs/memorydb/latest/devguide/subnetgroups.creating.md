@@ -1,7 +1,6 @@
 
 
 # Creating a subnet group
-<a name="subnetgroups.creating"></a>
 
 When you create a new subnet group, note the number of available IP addresses. If the subnet has very few free IP addresses, you might be constrained as to how many more nodes you can add to the cluster. To resolve this issue, you can assign one or more subnets to a subnet group so that you have a sufficient number of IP addresses in your cluster's Availability Zone. After that, you can add more nodes to your cluster.
 
@@ -69,7 +68,7 @@ aws memorydb create-subnet-group ^
 
 This command should produce output similar to the following:
 
-```
+```json
     {
         "SubnetGroup": {
             "Subnets": [

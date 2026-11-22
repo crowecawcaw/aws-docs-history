@@ -1,7 +1,6 @@
 
 
 # Supported and unsupported commands
-<a name="multi-Region.SupportedCommands"></a>
 
 **Supported commands**
 

@@ -1,7 +1,6 @@
 
 
 # Viewing subnet group details
-<a name="subnetgroups.Viewing"></a>
 
 The following procedures show you how to view details a subnet group.
 
@@ -45,7 +44,7 @@ aws memorydb describe-subnet-groups ^
 
 This command should produce output similar to the following:
 
-```
+```json
 {
   "subnetgroups": [
     {

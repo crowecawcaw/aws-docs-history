@@ -1,7 +1,6 @@
 
 
 # How MemoryDB works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to MemoryDB, learn what IAM features are available to use with MemoryDB.
 
@@ -146,7 +145,7 @@ To apply a condition, you add the condition information to the IAM policy statem
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -186,7 +185,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -228,7 +227,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -259,7 +258,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

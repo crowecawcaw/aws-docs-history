@@ -1,7 +1,6 @@
 
 
 # Replacing nodes
-<a name="nodes.nodereplacement"></a>
 
 MemoryDB frequently upgrades its fleet with patches and upgrades, usually seamlessly. However, from time to time we need to relaunch your MemoryDB nodes to apply mandatory OS updates to the underlying host. These replacements are required to apply upgrades that strengthen security, reliability, and operational performance.
 

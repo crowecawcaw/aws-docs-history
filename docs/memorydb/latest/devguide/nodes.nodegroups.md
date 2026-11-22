@@ -1,7 +1,6 @@
 
 
 # MemoryDB nodes and shards
-<a name="nodes.nodegroups"></a>
 
 A shard is a hierarchical arrangement of nodes, each wrapped in a cluster. Shards support replication. Within a shard, one node functions as the read/write primary node. All the other nodes in a shard function as read-only replicas of the primary node. MemoryDB supports multiple shards within a cluster. This support enables partitioning of your data in a MemoryDB cluster. 
 

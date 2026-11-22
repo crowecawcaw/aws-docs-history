@@ -1,13 +1,12 @@
 
 
 # FT.\_ALIASLIST
-<a name="vector-search-commands-ft.aliaslist"></a>
 
 List the index aliases.
 
 **Syntax**
 
-```
+```text
 FT._ALIASLIST
 ```
 
