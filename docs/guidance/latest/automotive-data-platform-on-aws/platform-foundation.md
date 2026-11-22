@@ -1,7 +1,6 @@
 
 
 # Platform foundation
-<a name="platform-foundation"></a>
 
 **Note**  
  **Cost estimate**: Foundation-only (staging or prod stage) runs approximately **$300–400/month** in `us-east-1` at development-workload query volumes. The Vehicle Knowledge Base (Amazon S3 Vectors) is now usage-priced at single-digit dollars per month (previously \~$345/month per stage with AOSS 2-OCU minimum). Adding the optional CMS→ADP ingest module raises the estimate to \~$450–700/month. See `docs/DEPLOYMENT.md` § *Vehicle Knowledge Base (Bedrock KB \+ S3 Vectors) deploy* for deployment instructions.

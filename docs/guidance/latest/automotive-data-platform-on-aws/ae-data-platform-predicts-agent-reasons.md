@@ -1,7 +1,6 @@
 
 
 # ADP’s role: the data platform predicts, the agent reasons
-<a name="ae-data-platform-predicts-agent-reasons"></a>
 
 The patterns described above — grounding a customer-facing agent, enabling business-user queries, and delivering proactive briefings — all share a common architectural seam. ADP’s role in the agent-plus-data-platform system is to **predict and emit statistical inferences**. The consuming agent’s role is to **reason about what those inferences mean** and decide what to do.
 

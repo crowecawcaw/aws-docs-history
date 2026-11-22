@@ -1,7 +1,6 @@
 
 
 # Predictive Maintenance
-<a name="predictive-maintenance"></a>
 
 ## Overview
 <a name="overview"></a>

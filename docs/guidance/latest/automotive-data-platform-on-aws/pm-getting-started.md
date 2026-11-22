@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="pm-getting-started"></a>
 
 This section provides an overview of how to implement the Predictive Maintenance pattern, including model training, inference pipeline setup, and alert configuration.
 
@@ -100,7 +99,7 @@ The reference implementation uses AWS CDK (Python) to deploy the infrastructure.
 
 Key configuration parameters for this pattern:
 
-```
+```bash
 # AWS Configuration
 AWS_ACCOUNT_ID=<account-id>
 AWS_REGION=us-east-1
@@ -135,7 +134,7 @@ For customers using the [CMS](https://docs.aws.amazon.com/guidance/latest/connec
 
 The solution includes a synthetic data generator that creates realistic tire telemetry with injected anomalies:
 
-```
+```bash
 cd guidance-for-predictive-maintenance
 python3 scripts/generate_training_data.py
 ```
@@ -154,7 +153,7 @@ Output: `data/training/tire_telemetry_full.parquet` (17.5 MB)
 
  **Option A: Command line** 
 
-```
+```bash
 python3 scripts/train_model.py \
   --region us-east-2 \
   --role-arn arn:aws:iam::<account-id>:role/cms-sagemaker-execution-role \
@@ -179,7 +178,7 @@ Both options train a SageMaker Random Cut Forest model (\~3 minutes), deploy a r
 
 Deploy the CDK stack to create the prediction Lambdas and EventBridge schedule:
 
-```
+```bash
 cd source/infrastructure
 DEPLOYMENT_STAGE=prod cdk deploy tire-predictive-maintenance-stack
 ```

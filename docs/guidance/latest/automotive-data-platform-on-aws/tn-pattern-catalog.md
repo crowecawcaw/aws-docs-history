@@ -1,7 +1,6 @@
 
 
 # Customer pattern catalog
-<a name="tn-pattern-catalog"></a>
 
 This catalog grows over time. Each entry documents one recurring customer question and the AWS architectural answer. The structure is intentionally stable — new entries append at the end without changing earlier ones.
 

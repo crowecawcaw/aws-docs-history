@@ -1,7 +1,6 @@
 
 
 # Bedrock AI Agent
-<a name="customer-360-bedrock-agent"></a>
 
 The Bedrock AI Agent provides conversational analytics with natural language queries and AI-powered recommendations.
 
@@ -17,7 +16,7 @@ The knowledge base stores remediation playbooks as vector embeddings for semanti
 
  **Vector table schema**:
 
-```
+```sql
 CREATE EXTENSION vector;
 CREATE SCHEMA bedrock_integration;
 CREATE TABLE bedrock_integration.bedrock_kb (
@@ -44,7 +43,7 @@ USING hnsw (embedding vector_cosine_ops);
 
 Documents stored as markdown for rich context:
 
-```
+```markdown
 ## Supplier Batch Defect Issues
 
 ### Early Battery Health Degradation
@@ -77,7 +76,7 @@ Supplier defect in thermal management affecting 12,000 vehicles
 
 To populate the knowledge base, documents are uploaded to S3 and an ingestion job is started:
 
-```
+```bash
 # Upload playbook documents
 aws s3 sync source/knowledge-base/ \
   s3://cx360-knowledge-base-<ACCOUNT-ID>/docs/
@@ -107,7 +106,7 @@ Action groups enable the agent to query real-time customer data.
 
  **Lambda function**:
 
-```
+```python
 def query_customer_health(params):
     min_score = params.get('min_score', '0')
     max_score = params.get('max_score', '100')
@@ -129,7 +128,7 @@ def query_customer_health(params):
 
  **Purpose**: Calculate revenue at risk by segment
 
-```
+```python
 def query_at_risk_customers(params):
     segment = params.get('segment', 'all')
 
@@ -149,7 +148,7 @@ def query_at_risk_customers(params):
 
  **Purpose**: Analyze sentiment and NPS trends
 
-```
+```python
 def query_customer_trends(params):
     months = params.get('months', '12')
 
@@ -197,7 +196,7 @@ Guidelines:
 ### Adding knowledge base
 <a name="adding-knowledge-base"></a>
 
-```
+```bash
 aws bedrock-agent associate-agent-knowledge-base \
   --agent-id <AGENT_ID> \
   --knowledge-base-id <KB_ID> \
@@ -207,7 +206,7 @@ aws bedrock-agent associate-agent-knowledge-base \
 ### Adding action groups
 <a name="adding-action-groups"></a>
 
-```
+```bash
 aws bedrock-agent create-agent-action-group \
   --agent-id <AGENT_ID> \
   --action-group-name query-customer-health \
@@ -219,7 +218,7 @@ aws bedrock-agent create-agent-action-group \
 
  **PII filtering**:
 
-```
+```bash
 aws bedrock create-guardrail \
   --name customer-360-guardrail \
   --sensitive-information-policy-config '{

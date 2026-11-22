@@ -1,7 +1,6 @@
 
 
 # Data mesh principles
-<a name="data-mesh-principles-section"></a>
 
 ## 1. Domain-Oriented Decentralized Data Ownership
 <a name="1-domain-oriented-decentralized-data-ownership"></a>

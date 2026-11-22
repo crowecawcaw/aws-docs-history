@@ -1,7 +1,6 @@
 
 
 # Architecture overview
-<a name="customer-360-architecture-overview"></a>
 
 The solution combines Quick Suite analytics with Bedrock AI agents in a three-tier architecture.
 

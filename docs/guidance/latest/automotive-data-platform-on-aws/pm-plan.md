@@ -1,7 +1,6 @@
 
 
 # Plan your deployment
-<a name="pm-plan"></a>
 
 This section provides deployment options, cost estimates, and resource requirements for implementing Predictive Maintenance in your AWS environment.
 

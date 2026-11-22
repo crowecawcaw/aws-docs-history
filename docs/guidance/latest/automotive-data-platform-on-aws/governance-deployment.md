@@ -1,7 +1,6 @@
 
 
 # Plan your deployment
-<a name="governance-deployment"></a>
 
 ## GDPR Supportive Capabilities
 <a name="gdpr-supportive-capabilities"></a>

@@ -1,7 +1,6 @@
 
 
 # Customer 360 Analytics
-<a name="customer-360"></a>
 
 The Customer 360 Analytics solution provides a comprehensive view of customer interactions, health metrics, and behavioral patterns across the entire customer lifecycle. By combining [Amazon Quick Suite](https://docs.aws.amazon.com/quicksuite/latest/userguide/) dashboards with Bedrock AI agents, this use case enables automotive companies to deliver personalized experiences, predict customer needs, and proactively address issues.
 

@@ -1,7 +1,6 @@
 
 
 # Developer guide
-<a name="developer-guide"></a>
 
 This chapter explains how to work in this repository as a developer or contributor. It covers the canonical directory layout (v0.2\+), local environment setup, the Makefile-driven workflow, how to add or extend a data product, and the one-time cost-allocation tag activation procedure.
 
@@ -110,13 +109,13 @@ All tools must be on `PATH` and pass the verify commands listed in `docs/DEPLOYM
 
 All Python work — CDK synthesis, generators, tests — runs inside the project venv. Run from `platform-foundation/`:
 
-```
+```bash
 make venv
 ```
 
 This is equivalent to:
 
-```
+```bash
 cd platform-foundation
 python3 -m venv .venv
 source .venv/bin/activate
@@ -126,7 +125,7 @@ pip install -r requirements.txt
 
 Verify the venv is functional:
 
-```
+```bash
 .venv/bin/python -c "import aws_cdk, constructs, cdk_nag; print('OK')"
 ```
 
@@ -135,7 +134,7 @@ Verify the venv is functional:
 
 If `make venv` did not install everything, or after pulling changes:
 
-```
+```bash
 make install
 ```
 
@@ -152,21 +151,21 @@ The standard contributor workflow proceeds through six steps.
 ### Step 1 — Create the virtual environment
 <a name="step-1-create-the-virtual-environment"></a>
 
-```
+```bash
 make venv
 ```
 
 ### Step 2 — Install dependencies
 <a name="step-2-install-dependencies"></a>
 
-```
+```bash
 make install
 ```
 
 ### Step 3 — Bootstrap (one-time per account)
 <a name="step-3-bootstrap-one-time-per-account"></a>
 
-```
+```bash
 make bootstrap
 ```
 
@@ -175,7 +174,7 @@ Deploys `adp-shared-bootstrap` (the Macie session stack). Safe to re-run; CloudF
 ### Step 4 — Deploy a stage
 <a name="step-4-deploy-a-stage"></a>
 
-```
+```bash
 make deploy STAGE=staging
 ```
 
@@ -184,7 +183,7 @@ make deploy STAGE=staging
 ### Step 5 — Seed data
 <a name="step-5-seed-data"></a>
 
-```
+```bash
 make seed STAGE=staging
 ```
 
@@ -193,7 +192,7 @@ Runs the master seed pipeline: dimensions first, then all 9 product generators i
 ### Step 6 — Smoke test
 <a name="step-6-smoke-test"></a>
 
-```
+```bash
 make smoke-test STAGE=staging
 ```
 
@@ -229,7 +228,7 @@ Each data product in `platform-foundation/source/data-products/` follows a consi
 ### 1. Create the product directory
 <a name="1-create-the-product-directory"></a>
 
-```
+```bash
 mkdir -p platform-foundation/source/data-products/<product_name>
 ```
 
@@ -267,7 +266,7 @@ Grant the DataZone producer project and any consumer roles the appropriate Lake 
 
 Register the new generator in the `make seed` pipeline so it runs after the dimension catalogs are generated. Update the `Makefile’s `seed` target to include:
 
-```
+```bash
 python source/data-products/<product_name>/generator.py --stage $(STAGE)
 ```
 
@@ -303,7 +302,7 @@ To extend an existing generator (e.g., add a column, change a distribution, incr
 
 The foundation tags every per-stage stack resource with `adp:stage = <stage>`. Per-stage cost reporting in AWS Cost Explorer and Budgets requires a **one-time activation** of this tag:
 
-```
+```bash
 aws ce update-cost-allocation-tags-status \
     --region us-east-1 \
     --cost-allocation-tags-status TagKey=adp:stage,Status=Active
@@ -321,7 +320,7 @@ The `adp-shared-bootstrap` stack intentionally does **not** carry the `adp:stage
 
 The test suite lives in `platform-foundation/tests/`.
 
-```
+```bash
 cd platform-foundation
 source .venv/bin/activate
 pytest tests/ -v

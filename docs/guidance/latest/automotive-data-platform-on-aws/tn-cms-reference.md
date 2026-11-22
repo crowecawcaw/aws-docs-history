@@ -1,7 +1,6 @@
 
 
 # Demonstrated in production: CMS’s telemetry pipeline
-<a name="tn-cms-reference"></a>
 
 The [connected-mobility-guidance-on-aws](https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws) repository contains a production implementation of this exact pattern shape: the `modules/flink/` directory holds Managed Service for Apache Flink processors that perform keyed windowing, deduplication, pattern detection, and multi-destination routing, with an Amazon ElastiCache (Redis) sink for low-latency state access and an Apache Iceberg sink for durable analytics.
 

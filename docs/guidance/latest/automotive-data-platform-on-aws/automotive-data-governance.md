@@ -1,7 +1,6 @@
 
 
 # Automotive Data Governance
-<a name="automotive-data-governance"></a>
 
 The Automotive Data Governance solution demonstrates how to build a multi-region data governance framework that supports EU Data Act and GDPR compliance requirements while enabling global R&D collaboration. This reference implementation shows how to separate PII data processing in EU regions from anonymized analytics in global regions using AWS Lake Formation, AWS Glue, and Amazon Macie.
 

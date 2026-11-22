@@ -1,7 +1,6 @@
 
 
 # Document revisions
-<a name="revisions"></a>
 
 The following table describes important changes to this documentation.
 

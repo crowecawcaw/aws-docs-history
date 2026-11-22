@@ -1,7 +1,6 @@
 
 
 # Architecture overview
-<a name="architecture-overview"></a>
 
 This chapter provides a high-level overview of the Automotive Data Platform v0.2 architecture — its foundation topology, data product catalog, governance layer, and two-stage rollout model. For deploy topology detail, see [Platform foundation](platform-foundation.md). For the full data product catalog, see [Data products](data-products.md).
 

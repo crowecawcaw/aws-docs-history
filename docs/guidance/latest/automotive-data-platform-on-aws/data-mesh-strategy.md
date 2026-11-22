@@ -1,7 +1,6 @@
 
 
 # Strategy and challenges
-<a name="data-mesh-strategy"></a>
 
 ## Modernizing Your Automotive Data Strategy
 <a name="modernizing-your-automotive-data-strategy"></a>

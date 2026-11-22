@@ -1,7 +1,6 @@
 
 
 # The enabling thesis
-<a name="ae-enabling-thesis"></a>
 
 Every automotive organization collects data — vehicle signals, customer interactions, service visits, OTA campaign outcomes, charging events. The problem is that this data almost always lives in separate systems owned by different teams. A customer-service representative cannot easily answer "has this customer had an OTA failure AND an unresolved service record?" because the OTA data lives in one system and the service records live in another. A data scientist trying to train a predictive maintenance model cannot get clean, joined training data because no single system owns all the relevant signals.
 

@@ -1,7 +1,6 @@
 
 
 # Architecture details
-<a name="data-mesh-architecture-details"></a>
 
 ## DataZone V2 Domain
 <a name="datazone-v2-domain"></a>
@@ -83,7 +82,7 @@ The foundation deploy automatically registers 12 DataZone projects covering 10 c
 
  **Query Example**:
 
-```
+```sql
 SELECT
   c.customer_id,
   c.health_score,

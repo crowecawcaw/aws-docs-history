@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="data-mesh-getting-started"></a>
 
 ## Foundation Deployment
 <a name="foundation-deployment"></a>
@@ -18,7 +17,7 @@ Deploy the complete Automotive Data Platform foundation — DataZone V2 domain a
 ## Deploy the Foundation
 <a name="deploy-the-foundation"></a>
 
-```
+```bash
 # Bootstrap account-level resources (once per account)
 make bootstrap
 
@@ -55,7 +54,7 @@ After deployment, consumers discover and subscribe to data products through the 
 ## Query Subscribed Data
 <a name="query-subscribed-data"></a>
 
-```
+```sql
 -- Query combining customer_360 and service_records data products
 -- (after subscription approval)
 SELECT

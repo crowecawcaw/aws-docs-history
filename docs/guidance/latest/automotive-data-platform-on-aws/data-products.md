@@ -1,7 +1,6 @@
 
 
 # Data products
-<a name="data-products"></a>
 
 The Automotive Data Platform is organized as a data mesh: one Amazon DataZone V2 domain carrying 12 projects — 9 core producer projects (one per core data product except `tire_health`), 1 smoke-test consumer project, and 2 domain projects (`dealer_domain`, `parts_domain`). Producers publish their Glue databases as DataZone asset catalog entries; consumers discover, subscribe to, and query products through the DataZone self-service portal or API — governed at every step by AWS Lake Formation tag-based access control.
 

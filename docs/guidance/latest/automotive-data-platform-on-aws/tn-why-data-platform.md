@@ -1,7 +1,6 @@
 
 
 # Why this belongs to the data platform
-<a name="tn-why-data-platform"></a>
 
 In the v0.1.0 release, the Automotive Data Platform shipped a Flink-based real-time normalization pipeline directly as part of the ADP deployment. The v0.2 foundation does not re-run that pipeline — `vehicle_telemetry_aggregated` publishes analytical rollups (per-VIN, per-window aggregates), not raw 1 Hz signal replay.
 

@@ -1,7 +1,6 @@
 
 
 # Plan your deployment
-<a name="data-mesh-plan"></a>
 
 ## Platform Foundation Cost Breakdown
 <a name="platform-foundation-cost-breakdown"></a>

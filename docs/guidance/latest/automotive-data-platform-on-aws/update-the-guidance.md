@@ -1,7 +1,6 @@
 
 
 # Update the guidance
-<a name="update-the-guidance"></a>
 
 This chapter describes how to update the Automotive Data Platform foundation and migrate from previous releases.
 
@@ -20,7 +19,7 @@ The foundation follows a pull-review-deploy-verify cycle for all updates. The `M
 ### Standard foundation update flow
 <a name="standard-foundation-update-flow"></a>
 
-```
+```bash
 # 1. Pull the latest code
 cd automotive-data-platform-on-aws
 git pull
@@ -78,7 +77,7 @@ For identifier conventions, VSS signal vocabulary subset, and explicit non-depen
 ### Applying a schema change
 <a name="applying-a-schema-change"></a>
 
-```
+```bash
 # 1. Update the Glue catalog table definition (Iceberg ALTER TABLE via Athena)
 aws athena start-query-execution \
   --query-string "ALTER TABLE adp_staging_vehicle_telemetry_aggregated.vehicle_telemetry_aggregated ADD COLUMNS (new_column STRING COMMENT 'added in v0.2.1')" \
@@ -124,7 +123,7 @@ To onboard a new data product into the foundation, follow the pattern establishe
 
 1.  **Re-run the full seed and smoke-test**:
 
-   ```
+   ```bash
    make seed STAGE=staging
    make smoke-test STAGE=staging
    ```
@@ -140,7 +139,7 @@ All new data products **must** join on the canonical dimension keys defined in `
 ### Rollback a CDK stack update
 <a name="rollback-a-cdk-stack-update"></a>
 
-```
+```bash
 # Cancel an in-progress update
 aws cloudformation cancel-update-stack \
   --stack-name adp-staging-foundation-lake
@@ -157,7 +156,7 @@ make smoke-test STAGE=staging
 
 The seed is fully reversible per `docs/DEPLOYMENT.md`:
 
-```
+```bash
 ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
 BUCKET="adp-staging-foundation-lake-${ACCOUNT}-us-east-1"
 

@@ -1,7 +1,6 @@
 
 
 # Quick Suite Analytics
-<a name="customer-360-quick-suite"></a>
 
 Quick Suite is AWS’s unified business intelligence platform that combines interactive dashboards, AI-powered analytics agents, and automated workflows to help organizations move from insight to action in a single integrated experience.
 
@@ -153,7 +152,7 @@ Business users can customize the report format, add new workflows, or change app
 
  **Example report sections**:
 
-```
+```html
 Critical Issues Detected:
 - Battery degradation affecting 847 vehicles
 - Revenue at risk: $2.3M

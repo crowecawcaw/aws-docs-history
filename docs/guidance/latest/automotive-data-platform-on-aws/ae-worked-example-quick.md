@@ -1,7 +1,6 @@
 
 
 # Example 2: Natural-language queries for business executives
-<a name="ae-worked-example-quick"></a>
 
 The same nine ADP governed data products that ground the AVX agent can also power a self-service natural-language query experience for business users who need answers without writing SQL.
 

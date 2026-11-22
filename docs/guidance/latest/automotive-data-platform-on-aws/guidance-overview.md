@@ -1,7 +1,6 @@
 
 
 # Analytical data platform for automotive OEMs on AWS
-<a name="guidance-overview"></a>
 
 Publication date: *January 2026 ([last update](revisions.md): July 2026)* 
 

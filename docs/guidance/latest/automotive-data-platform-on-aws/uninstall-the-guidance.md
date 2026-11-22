@@ -1,7 +1,6 @@
 
 
 # Uninstall the guidance
-<a name="uninstall-the-guidance"></a>
 
 This chapter describes how to completely remove the Automotive Data Platform foundation from your AWS account.
 
@@ -23,7 +22,7 @@ The `adp-shared-bootstrap` stack (which enables the Macie session) is intentiona
 
 If the optional Vehicle Knowledge Base stack (`adp-<stage>-foundation-vehicle-knowledge-base`) is deployed, you must stop any in-flight Bedrock ingestion jobs **before** running teardown. Deleting the Knowledge Base while an ingestion job is running will cause deletion conflicts.
 
-```
+```bash
 # List all ingestion jobs for the Knowledge Base.
 # Replace <kb-id> with your Knowledge Base ID (from the stack's KnowledgeBaseId output).
 DS_ID=$(aws bedrock-agent list-data-sources \
@@ -51,7 +50,7 @@ For the full Vehicle Knowledge Base teardown procedure, see `docs/DEPLOYMENT.md`
 
 All teardown commands run from the `platform-foundation/` directory.
 
-```
+```bash
 cd platform-foundation
 
 # Dry-run — prints what WOULD be deleted (default, safe).
@@ -130,7 +129,7 @@ Per-stage teardown does **not** touch the `adp-shared-bootstrap` stack. The Maci
 
 After `make teardown STAGE=<stage> YES=1` completes, run the following verification commands to confirm the stage is fully removed and the bootstrap is intact.
 
-```
+```bash
 STAGE=staging   # or prod
 
 # All stage stacks should be absent or DELETE_COMPLETE.
@@ -163,7 +162,7 @@ Replace `<account>` with your 12-digit AWS account ID (obtain it via `aws sts ge
 
 To re-deploy after teardown, follow the standard deployment procedure from the Deploy the Solution chapters. The bootstrap step can be skipped if `adp-shared-bootstrap` is still present.
 
-```
+```bash
 cd platform-foundation
 
 # Bootstrap is a no-op if adp-shared-bootstrap already exists.

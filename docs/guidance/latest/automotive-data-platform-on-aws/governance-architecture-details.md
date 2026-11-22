@@ -1,7 +1,6 @@
 
 
 # Architecture details
-<a name="governance-architecture-details"></a>
 
 The Governance Framework implements detailed technical components for multi-region data governance with centralized control and distributed processing.
 

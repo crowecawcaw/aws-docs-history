@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 This chapter provides solutions to common issues encountered when deploying and operating the Automotive Data Platform foundation (`platform-foundation/`). All commands assume `STAGE=staging` unless noted; substitute `prod` where applicable.
 
@@ -20,7 +19,7 @@ The `Makefile` is the only sanctioned entry point for all deploy, seed, and smok
 
  **Fix**: Always use the Makefile entry point:
 
-```
+```bash
 cd platform-foundation
 make synth STAGE=staging
 # OR
@@ -29,7 +28,7 @@ make deploy STAGE=staging
 
 If you must invoke CDK directly for debugging, prefix with the stage context flag:
 
-```
+```bash
 .venv/bin/cdk synth -c stage=staging adp-staging-foundation-lake
 ```
 
@@ -42,7 +41,7 @@ If you must invoke CDK directly for debugging, prefix with the stage context fla
 
  **Fix**: Run synth first to inspect the nag report, then locate the suppression in the stack source:
 
-```
+```bash
 cd platform-foundation
 make synth STAGE=staging
 # Inspect per-stack nag CSV reports:
@@ -58,7 +57,7 @@ Existing suppressions live alongside their constructs — search for `NagSuppres
 
  **Fix**:
 
-```
+```bash
 # Verify venv and install dependencies
 cd platform-foundation
 make venv
@@ -83,7 +82,7 @@ Re-run `make venv` if the venv is incomplete or was built against a different Py
 
 1. Confirm IDC is in `us-east-1`:
 
-   ```
+   ```bash
    aws sso-admin list-instances --region us-east-1 \
        --query 'Instances[0].IdentityStoreId' --output text
    ```
@@ -92,7 +91,7 @@ Re-run `make venv` if the venv is incomplete or was built against a different Py
 
 1. Confirm no name collision:
 
-   ```
+   ```bash
    aws datazone list-domains --region us-east-1 \
        --query 'items[?name==`adp-staging-foundation-domain`].id' --output text
    ```
@@ -108,7 +107,7 @@ Re-run `make venv` if the venv is incomplete or was built against a different Py
 
  **Fix**:
 
-```
+```bash
 # Resolve the canonical store ID for this account
 aws sso-admin list-instances --region us-east-1 \
     --query 'Instances[0].IdentityStoreId' --output text
@@ -116,7 +115,7 @@ aws sso-admin list-instances --region us-east-1 \
 
 Supply the resolved value at deploy time:
 
-```
+```bash
 make deploy STAGE=staging   # Makefile reads IDC_STORE_ID from environment or prompts
 # If passing manually:
 .venv/bin/cdk deploy -c stage=staging -c identity_store_id=d-<idc-store-id> ...
@@ -137,12 +136,12 @@ IDC group creation is idempotent — re-running deploy after a partial failure w
  **Fix** — choose one:
 +  **Import existing session** (preferred — preserves continuity):
 
-  ```
+  ```bash
   .venv/bin/cdk import adp-shared-bootstrap -c stage=staging
   ```
 +  **Disable and re-enable** (lossy — 30-day cool-down applies):
 
-  ```
+  ```bash
   aws macie2 disable-macie --region us-east-1
   # Wait for disable to complete, then re-run:
   make bootstrap
@@ -163,7 +162,7 @@ IDC group creation is idempotent — re-running deploy after a partial failure w
 
  **Fix**: Verify whether the bucket belongs to your account:
 
-```
+```bash
 ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
 aws s3 ls s3://adp-staging-foundation-lake-${ACCOUNT}-us-east-1/ 2>&1 | head -3
 ```
@@ -182,7 +181,7 @@ If the bucket is owned by your account (e.g., from a partial prior deploy), the 
 
  **Fix**: Run the full seed and re-test:
 
-```
+```bash
 cd platform-foundation
 make seed STAGE=staging
 make smoke-test STAGE=staging
@@ -211,7 +210,7 @@ Deploy the Bedrock KB in the same account as the ADP lake. The KB data-source ro
 
 1. ADP must update the lake KMS key policy (`alias/adp-{stage}-foundation-lake`) to allow that role `kms:Decrypt` and `kms:DescribeKey`.
 
-```
+```bash
 # Verify the lake KMS key alias resolves and is enabled
 aws kms describe-key --key-id "alias/adp-staging-foundation-lake" \
     --region us-east-1 --no-cli-pager \
@@ -241,7 +240,7 @@ Pattern (b) requires an explicit ADP-side IaC change (bucket policy \+ KMS key p
 
 1. Deploy the VKB stack explicitly. Follow `docs/DEPLOYMENT.md` § Vehicle Knowledge Base (Bedrock KB \+ S3 Vectors) deploy — the full operator runbook is there. Key commands:
 
-   ```
+   ```bash
    cd platform-foundation
    
    # Step 0: resolve your deploy-role ARN
@@ -263,7 +262,7 @@ Pattern (b) requires an explicit ADP-side IaC change (bucket policy \+ KMS key p
 
 1. Smoke-test retrieval:
 
-   ```
+   ```bash
    aws bedrock-agent-runtime retrieve \
        --knowledge-base-id <KB_ID> \
        --retrieval-query '{"text":"P0301 misfire cylinder"}' \
@@ -287,7 +286,7 @@ Pattern (b) requires an explicit ADP-side IaC change (bucket policy \+ KMS key p
 
 1. If the error persists after updating, run the generator via the AWS Glue 5.1 managed-compute path instead of the local venv (Glue pins Python 3.11 \+ Spark 3.5.6, sidestepping any local-Python drift):
 
-```
+```bash
 cd platform-foundation
 source .venv/bin/activate
 
@@ -310,7 +309,7 @@ The remaining 8 pandas-tier data products (including `tire_health`) generate cle
 
  **Fix**: Check CloudWatch for the root cause, then re-apply LF grants and re-run:
 
-```
+```bash
 # Check Glue job logs for Iceberg writeTo failure
 aws logs filter-log-events \
     --log-group-name "/aws-glue/jobs/output" \
@@ -331,7 +330,7 @@ Re-apply Lake Formation grants if missing (see `docs/DEPLOYMENT.md` § Lake Form
 
  **Fix**: Ensure workers and type are set to the recommended values:
 
-```
+```bash
 python3 scripts/run-pyspark-products.py \
     --stage staging --product both \
     --action stage-and-run \
@@ -359,7 +358,7 @@ Both bugs were fixed in the 2026-06-03 patch. If tests fail, the local clone pre
 
  **Fix**:
 
-```
+```bash
 # Pull the latest code
 cd ~/automotive-data-platform-on-aws
 git pull
@@ -389,7 +388,7 @@ pytest tests/test_referential_integrity.py -v
 
  **Fix**: Verify the cms-ingest stack was last updated on or after 2026-05-30:
 
-```
+```bash
 aws cloudformation describe-stacks \
     --stack-name "adp-staging-foundation-cms-ingest" \
     --region us-east-1 --no-cli-pager \
@@ -399,7 +398,7 @@ aws cloudformation describe-stacks \
 
 If older, redeploy the cms-ingest stack:
 
-```
+```bash
 cd platform-foundation
 make deploy-cms-ingest STAGE=staging \
     CMS_TABLE_ARN=arn:aws:dynamodb:us-east-1:<account>:table/cms-prod-vehicle-state
@@ -414,7 +413,7 @@ make deploy-cms-ingest STAGE=staging \
 
  **Fix**: Re-run the enable-streams helper (coordinate with the CMS operator before toggling, as this resets the shard iterator):
 
-```
+```bash
 cd platform-foundation
 source .venv/bin/activate
 
@@ -436,7 +435,7 @@ source .venv/bin/activate
 
  **Fix**:
 
-```
+```bash
 ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
 STAGE=staging
 
@@ -464,7 +463,7 @@ aws s3 ls s3://adp-${STAGE}-foundation-lake-${ACCOUNT}-us-east-1/cms-ingest/_err
 
 Use this pattern after any deploy or enable operation to surface errors before they reach users:
 
-```
+```bash
 STAGE=staging
 REGION=us-east-1
 START_MS=$(python3 -c "import time; print(int((time.time()-300)*1000))")

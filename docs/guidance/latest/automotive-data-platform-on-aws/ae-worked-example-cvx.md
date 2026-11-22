@@ -1,7 +1,6 @@
 
 
 # Example 1: Grounding a customer-facing agent
-<a name="ae-worked-example-cvx"></a>
 
 The Agentic Vehicle Experience (AVX) accelerator contains a production implementation of a customer-facing vehicle service agent grounded on ADP’s `vehicle_knowledge_base` data product. This section describes the integration pattern demonstrated there. It is a reference implementation, not a prescriptive architecture — it is not the only way to build an agent on ADP, and deploying this ADP foundation does not require deploying AVX.
 

@@ -1,7 +1,6 @@
 
 
 # AWS implementation options
-<a name="data-mesh-aws-options-section"></a>
 
 AWS provides multiple approaches for implementing data mesh architectures. Use the capabilities of [analytics on AWS](https://aws.amazon.com/big-data/datalakes-and-analytics/) to build data mesh–based solutions for your organization. The analytics on AWS resource recommends several AWS services to build data mesh at low cost without compromising on performance.
 
