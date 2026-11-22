@@ -1,7 +1,6 @@
 
 
 # LSCOST04-BP01 Implement tiered storage strategies aligned with data access patterns and retention requirements
-<a name="lscost04-bp01"></a>
 
  Design and implement a tiered storage architecture that matches storage costs to data value and access patterns while verifying adherence to retention requirements. Classify research data based on access frequency, regulatory requirements, and business value to determine appropriate storage tiers. Move infrequently accessed data to lower-cost storage while maintaining required accessibility and integrity controls. 
 

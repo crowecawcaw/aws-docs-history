@@ -1,7 +1,6 @@
 
 
 # LSOPS03-BP01 Perform supplier and vendor assessment of each vendor
-<a name="lsops03-bp01"></a>
 
  Establish criteria for the selection and evaluation of suppliers, and create a plan for the monitoring and re-evaluation of those suppliers. Assess vendor controls while considering the intended use of the services and possible risks involved to the system. 
 

@@ -1,7 +1,6 @@
 
 
 # LSPERF02-BP01 Data-aware storage tiering
-<a name="lsperf02-bp01"></a>
 
  Implement intelligent storage tiering strategies that align storage performance characteristics with data access patterns. Place frequently accessed reference data on high-performance tiers, move aging research data to cost-optimized tiers, and archive completed study data to deep storage, while maintaining appropriate encryption and access controls based on data sensitivity classification. 
 

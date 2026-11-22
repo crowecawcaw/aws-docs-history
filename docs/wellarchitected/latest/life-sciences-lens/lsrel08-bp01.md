@@ -1,7 +1,6 @@
 
 
 # LSREL08-BP01 Incorporate validated redundancy into architecture design
-<a name="lsrel08-bp01"></a>
 
  During the design phase, plan for redundancy across fault-isolated zones and validate that each component meets regulatory requirements. Qualification of secondary systems should not be an afterthought but part of the original architecture plan. Document design decisions to show how redundancy supports both technical reliability and regulatory obligations. 
 

@@ -1,7 +1,6 @@
 
 
 # Sustainability in clinical trials
-<a name="sustainability-in-clinical-trials"></a>
 
 
 |  LSSUS05: How do you implement sustainable practices in clinical trials?  | 

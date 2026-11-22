@@ -1,7 +1,6 @@
 
 
 # LSREL05-BP01 Design edge buffering and queuing for laboratory instruments during network disruptions
-<a name="lsrel05-bp01"></a>
 
  Implement local data buffering, intelligent queuing, and automatic retry mechanisms at the edge to verify that data from laboratory instruments and clinical devices is never lost during network connectivity issues. Edge infrastructure should provide sufficient storage capacity, prioritize critical data streams, and automatically resume transmission with integrity verification when connectivity is restored. 
 

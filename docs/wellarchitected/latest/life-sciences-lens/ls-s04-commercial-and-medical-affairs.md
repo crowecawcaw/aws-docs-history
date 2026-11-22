@@ -1,7 +1,6 @@
 
 
 # LS-S04 Commercial and medical affairs
-<a name="ls-s04-commercial-and-medical-affairs"></a>
 
  Medical affairs and commercial teams serve distinct yet complementary roles in life sciences companies. The commercial team drives success through sales, marketing, and business development. Medical affairs maintains scientific integrity through clinical support, regulatory adherence, and scientific communications. Medical affairs also serves as a critical bridge between clinical development and commercialization, maintaining scientific integrity and regulatory adherence in commercial activities. By sharing their perspectives and knowledge, these teams can develop a more nuanced view of the landscape, enabling them to make informed decisions about product development, marketing strategies, and customer engagement. 
 

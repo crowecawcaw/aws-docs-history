@@ -1,7 +1,6 @@
 
 
 # LSPERF19-BP03 Schedule regular performance tests with production-representative data loads
-<a name="lsperf19-bp03"></a>
 
  Institute a cadence of regular performance tests using simulated research and clinical data that accurately represents production workloads in terms of volume, variety, and velocity. These scheduled tests should be integrated into your development pipeline to identify performance bottlenecks early, before they impact production operations. Vary test scenarios to account for both typical daily operations and peak usage patterns, such as end-of-month processing or seasonal research activities. Complement scheduled tests with on-demand testing triggered by significant system changes. This proactive approach to performance validation verifies that scientific and clinical users consistently experience responsive systems that meet their demanding computational requirements. 
 

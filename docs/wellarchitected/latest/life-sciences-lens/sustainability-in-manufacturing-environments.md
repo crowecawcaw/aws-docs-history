@@ -1,7 +1,6 @@
 
 
 # Sustainability in manufacturing environments
-<a name="sustainability-in-manufacturing-environments"></a>
 
 
 |  LSSUS04: How do you track resource usage in manufacturing environments?  | 

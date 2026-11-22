@@ -1,7 +1,6 @@
 
 
 # LSPERF01-BP01 Design and benchmark computing architecture for genomic workloads to optimize cost-performance ratio
-<a name="lsperf01-bp01"></a>
 
  Focus on designing architectures that can dynamically scale to accommodate the highly variable workload patterns inherent in genomic sequencing and molecular modeling. Implement auto scaling capabilities, containerized workflows, and serverless processing pipelines that can efficiently handle both massive batch processing jobs and intermittent analysis requests without over-provisioning resources. 
 

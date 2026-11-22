@@ -1,7 +1,6 @@
 
 
 # LSPERF15-BP01 Implement application-aware network path optimization and traffic prioritization methods
-<a name="lsperf15-bp01"></a>
 
  Analyze network paths to find optimal routes for clinical data and implement dynamic routing for time-sensitive medical information. Use deep packet inspection to identify and prioritize clinical traffic, which verifies that critical systems like patient monitors get priority bandwidth through quality of service (QoS) controls. Set up network segmentation using VLANs to separate clinical from administrative traffic, maintaining guaranteed bandwidth and latency limits for clinical applications. 
 

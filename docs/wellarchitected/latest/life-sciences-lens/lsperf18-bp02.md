@@ -1,7 +1,6 @@
 
 
 # LSPERF18-BP02 Document performance standards aligned with validation requirements
-<a name="lsperf18-bp02"></a>
 
  Metrics establish clear standards to assess regulatory adherence. Our approach balances system performance with validation requirements. Analytics-driven monitoring provides visibility into status and system performance, enabling teams to make decisions based on measurements rather than assumptions. This monitoring approach assits organizations to maintain regulatory adherence while improving efficiency, creating a framework where performance and validation work together. 
 

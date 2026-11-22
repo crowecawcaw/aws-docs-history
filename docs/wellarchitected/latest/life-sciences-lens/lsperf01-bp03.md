@@ -1,7 +1,6 @@
 
 
 # LSPERF01-BP03 Performance optimizations should validate data integrity
-<a name="lsperf01-bp03"></a>
 
  Maintain rigorous data integrity controls while pursuing performance optimizations. Implement checksums, audit trails, and validation steps within high-performance workflows, which assists to avoid compromising scientific accuracy and reproducibility by performance-focused architectural decisions, particularly for regulated or clinically-relevant research. 
 

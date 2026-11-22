@@ -1,7 +1,6 @@
 
 
 # LSPERF08-BP01 Implement holistic system performance monitoring beyond traditional latency metrics
-<a name="lsperf08-bp01"></a>
 
  Implement a multi-layered latency monitoring system tracking the entire clinical workflow times, not just system metrics. Capture 95th and 99th percentiles. Set medical SLAs (stroke imaging <3min, labs <30sec). Use distributed tracing across HL7/DICOM/FHIR interfaces to identify bottlenecks. 
 

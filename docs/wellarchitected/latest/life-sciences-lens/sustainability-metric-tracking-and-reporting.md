@@ -1,7 +1,6 @@
 
 
 # Sustainability metric tracking and reporting
-<a name="sustainability-metric-tracking-and-reporting"></a>
 
 
 |  LSSUS02: How do you monitor and report the sustainability metrics for your research workloads?  | 

@@ -1,7 +1,6 @@
 
 
 # LSPERF11-BP01 Optimize large dataset storage based on project phases and collaboration needs
-<a name="lsperf11-bp01"></a>
 
  Design tiering strategies for large data files that consider different project stages and team access requirements. Store active project data in high-performance storage during periods of heavy use and analysis. Move completed project data to intermediate storage tiers when active work finishes but data may still be needed for reference. Archive older datasets to cost-effective deep storage while maintaining the ability to retrieve them when needed for future projects or comparisons. 
 

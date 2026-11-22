@@ -1,7 +1,6 @@
 
 
 # LSOPS04-BP02 Enforce controls in IT tooling and automation
-<a name="lsops04-bp02"></a>
 
  Implement quality controls and automation in the standard IT tooling used by the development teams whenever possible to enable continuous validation. 
 

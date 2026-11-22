@@ -1,7 +1,6 @@
 
 
 # Practice Cloud Financial Management
-<a name="practice-cloud-financial-management"></a>
 
 
 |  LSCOST01: How does your life sciences team balance cloud costs, regulatory adherence, and research needs through financial controls?  | 

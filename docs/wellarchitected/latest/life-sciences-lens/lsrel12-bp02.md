@@ -1,7 +1,6 @@
 
 
 # LSREL12-BP02 Define recovery time objectives based on scientific and business impact
-<a name="lsrel12-bp02"></a>
 
  Recovery time objectives (RTOs) should be established through analysis of the scientific and business impact of downtime. For clinical trial systems, delays may affect patient safety or data collection. For manufacturing or analytical systems, downtime may disrupt schedules, supply chains, or data reproducibility. RTOs must be documented and justified in continuity planning. 
 

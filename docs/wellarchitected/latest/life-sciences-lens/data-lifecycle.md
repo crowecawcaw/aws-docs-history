@@ -1,7 +1,6 @@
 
 
 # Data lifecycle
-<a name="data-lifecycle"></a>
 
  Life sciences organizations must carefully orchestrate data management across complex project lifecycles that span years or even decades, from initial research design through clinical trials to post-market surveillance. This section provides guidance for managing life sciences data through each critical phase—design, active data collection and analysis, reuse preparation, and compliant archival. The approach emphasizes regulatory adherence, data integrity, secure collaboration, and cost-effective storage strategies while keeping valuable research data accessible and reusable for future scientific endeavors. By following these lifecycle management practices, organizations can maintain audit readiness, enable cross-organizational collaboration, and meet stringent regulatory requirements throughout the entire data journey. 
 

@@ -1,7 +1,6 @@
 
 
 # LSOPS11-BP01 Identify clear dataset owners and access history
-<a name="lsops11-bp01"></a>
 
  If you are receiving a dataset, identify who is responsible for data accuracy and governance and who manages the data lineage during collection. Depending on the storage method, who is responsible for securing the data in its different stages? 
 

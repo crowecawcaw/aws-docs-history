@@ -1,7 +1,6 @@
 
 
 # LSREL10-BP01 Implement comprehensive reliability testing
-<a name="lsrel10-bp01"></a>
 
  Develop structured protocols that test reliability aspects including load performance, failover, recovery, and long-term stability. For regulated systems, include reliability tests in the validation package with traceability to user and regulatory requirements. Use controlled chaos engineering experiments to validate resilience by safely injecting faults and failures into your applications while preserving data integrity and adherence. 
 

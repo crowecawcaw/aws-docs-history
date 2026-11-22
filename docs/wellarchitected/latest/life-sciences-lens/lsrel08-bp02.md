@@ -1,7 +1,6 @@
 
 
 # LSREL08-BP02 Design compliance-aware failover workflows
-<a name="lsrel08-bp02"></a>
 
  Architect failover mechanisms that explicitly maintain critical functions such as authentication, audit logging, and data validation. During the planning phase, map how these functions transition across components and zones, and include them in system qualification protocols. 
 

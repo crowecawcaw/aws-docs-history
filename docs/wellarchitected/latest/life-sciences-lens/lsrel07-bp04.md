@@ -1,7 +1,6 @@
 
 
 # LSREL07-BP04 Track data lineage with lifecycle metadata
-<a name="lsrel07-bp04"></a>
 
  Assign metadata tags (for example, raw, filtered, processed, and analyzed) at each lifecycle stage, so data state is visible. This enables reproducibility, auditing, and debugging when results need to be traced back to raw inputs. Use catalogs and governance tools to track lineage across storage and processing layers. 
 

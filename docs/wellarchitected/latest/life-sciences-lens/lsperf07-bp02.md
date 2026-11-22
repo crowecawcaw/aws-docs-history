@@ -1,7 +1,6 @@
 
 
 # LSPERF07-BP02 Design a compliant-by-design infrastructure
-<a name="lsperf07-bp02"></a>
 
  Design a computing architecture that addresses both performance and regulatory requirements through technical controls built directly into the infrastructure. Implement segregated computing environments with appropriate data controls between GxP and non-GxP workloads, deploy immutable infrastructure techniques that enhance both security and compliance, and use containerization with validated base images to accelerate deployment while maintaining regulatory integrity. Establish infrastructure templates with pre-validated components, automated audit trail generation, and built-in data integrity mechanisms that minimize the performance overhead typically associated with compliance retrofitting, while verifying that computational workloads execute in appropriately validated environments based on their regulatory classification. 
 

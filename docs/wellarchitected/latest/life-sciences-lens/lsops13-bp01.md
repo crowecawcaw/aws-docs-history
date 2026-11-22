@@ -1,7 +1,6 @@
 
 
 # LSOPS13-BP01 Store data in an AI/ML-ready formats
-<a name="lsops13-bp01"></a>
 
  Expectations of what can be done with data are rapidly expanding. Life sciences projects produce rich data. Work to maximize data storage to allow for new technologies such as AI/ML. 
 

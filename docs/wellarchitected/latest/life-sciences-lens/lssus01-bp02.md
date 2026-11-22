@@ -1,7 +1,6 @@
 
 
 # LSSUS01-BP02 Use energy efficient hardware and services
-<a name="lssus01-bp02"></a>
 
  Select energy-efficient hardware architectures and managed services that optimize power consumption while maintaining research computing performance. Prioritize modern processor architectures and cloud services that incorporate built-in sustainability optimizations to reduce the environmental impact of computational workloads. Implement hardware and service selection strategies that balance performance requirements with energy efficiency goals. 
 

@@ -1,7 +1,6 @@
 
 
 # LS-S01 Research and discovery
-<a name="ls-s01-research-and-discovery"></a>
 
  Research and discovery (R&D) represents the crucial first phase in life sciences innovation, where organizations work to identify and develop potential drug candidates. This phase involves complex data analysis across multiple domains including drug discovery, bioinformatics, genomics, and laboratory operations. Organizations face challenges in managing and analyzing vast amounts of complex scientific data, implementing efficient computational workflows, and maintaining regulatory adherence while accelerating the pace of discovery. Modern approaches use advanced technologies like AI/ML, high-performance computing, and cloud storage solutions to process and analyze data at scale, while adhering to Good Laboratory Practices (GLP) and Findable, Accessible, Interoperable, and Reusable (FAIR) data principles. 
 

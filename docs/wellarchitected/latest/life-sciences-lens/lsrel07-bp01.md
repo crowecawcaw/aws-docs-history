@@ -1,7 +1,6 @@
 
 
 # LSREL07-BP01 Implement system-wide data checksums and transfer validation
-<a name="lsrel07-bp01"></a>
 
  Incorporate integrity verification at every transfer and transformation stage. Use cryptographic checksums (like SHA-256 or MD5) or ETags to validate files when moved into or across the cloud. Use managed services like AWS DataSync or Amazon S3 replication that perform integrity checks automatically. For domain-specific use cases (like genomics and imaging), add plausibility checks to detect biologically inconsistent results that may indicate processing corruption. 
 

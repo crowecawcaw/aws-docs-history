@@ -1,7 +1,6 @@
 
 
 # LSSEC01-BP02 Maintain a history of IAM configurations and changes over time
-<a name="lssec01-bp02"></a>
 
  By logging the IAM policy that was assigned to an IAM user, group, or role, you can determine the permissions that belonged to a user at a specific time. For example, you can view whether a user had permission to modify settings on a specific date in the past. 
 

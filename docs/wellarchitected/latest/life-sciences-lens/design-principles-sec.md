@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-sec"></a>
 
  The security pillar of the AWS Well-Architected Framework sets out principles that can assist to strengthen the security of your workload: 
 +  **Implement a strong identity foundation:** Implementing the principle of least privilege is foundational to the security of life sciences workloads. Centralize identity management, and aim to avoid reliance on long-term static credentials. 

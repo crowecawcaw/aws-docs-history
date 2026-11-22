@@ -1,7 +1,6 @@
 
 
 # Process and culture
-<a name="process-and-culture"></a>
 
 
 |  LSPERF18: How do you foster a culture that values performance efficiency without compromising scientific rigor or patient safety?  | 

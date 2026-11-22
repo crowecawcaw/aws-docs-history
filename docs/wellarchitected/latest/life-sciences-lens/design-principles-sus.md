@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-sus"></a>
 
  When it comes to sustainability, there are a number of design principles, many shared with other pillars, that support impactful change: 
 +  **Optimize research computing resources:** Research computing in life sciences often requires significant computational power for tasks like molecular modeling and genomic analysis. Organizations should implement practices that balance research throughput with resource efficiency. This involves designing workloads that maximize the use of computing resources during active research while scaling down during quiet periods. When implementing research pipelines, consider scheduling mechanisms that batch similar computations together and optimize the use of specialized hardware accelerators. The goal is to maintain or improve scientific output while reducing the overall resource footprint. 

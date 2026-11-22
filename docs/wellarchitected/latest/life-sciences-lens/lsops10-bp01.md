@@ -1,7 +1,6 @@
 
 
 # LSOPS10-BP01 Reproducibility
-<a name="lsops10-bp01"></a>
 
  Build technology products with infrastructure as code so you can rebuild them if needed. In archive documents, store the structure of your products. Store data in a format that is simple to archive, such as Iceberg. 
 

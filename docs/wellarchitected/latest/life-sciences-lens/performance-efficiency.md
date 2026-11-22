@@ -1,7 +1,6 @@
 
 
 # Performance efficiency
-<a name="performance-efficiency"></a>
 
  The performance efficiency pillar focuses on using computing resources efficiently to meet system requirements and maintaining that efficiency as demand changes and technologies evolve. In life sciences, this includes optimizing for both high-performance computing workloads and time-sensitive clinical applications while maintaining regulatory adherence. 
 

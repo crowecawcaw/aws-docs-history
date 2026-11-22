@@ -1,7 +1,6 @@
 
 
 # Organization
-<a name="organization"></a>
 
 
 |  LSOPS01: How do you identify applicable regulatory frameworks for your workload?  | 

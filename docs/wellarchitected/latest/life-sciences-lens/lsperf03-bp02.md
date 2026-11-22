@@ -1,7 +1,6 @@
 
 
 # LSPERF03-BP02 Environment isolation by workload type
-<a name="lsperf03-bp02"></a>
 
  Implement clear separation between research and clinical environments based on their fundamentally different requirements. Establish a dedicated infrastructure for computationally-intensive research pipelines with burst capacity for parallel processing, while maintaining separate, highly-available environments for clinical applications where consistency and reliability are paramount. 
 

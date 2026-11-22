@@ -1,7 +1,6 @@
 
 
 # LSPERF12-BP02 Deploy accelerated encryption technologies with hardware offloading
-<a name="lsperf12-bp02"></a>
 
  Implement high-performance encryption solutions that don't compromise throughput when securing large datasets in transit. Use hardware-accelerated encryption (specialized NICs, encryption accelerator cards) and efficient protocols like TLS 1.3 with optimized cipher suites. Consider authenticated encryption with associated data (AEAD) ciphers for simultaneous confidentiality and integrity validation. For extremely large datasets, evaluate selective encryption approaches that prioritize sensitive components while optimizing overall transfer speeds. 
 

@@ -1,7 +1,6 @@
 
 
 # LSREL12-BP03 Maintain data consistency in distributed research systems
-<a name="lsrel12-bp03"></a>
 
  Distributed life sciences workloads (for example, spanning multiple sites, cloud Regions, or CRO integrations) require mechanisms to maintain data consistency during partial failures and recovery. This includes distributed transactions, compensating actions, and reconciliation processes to improve accuracy and completeness across system components. 
 

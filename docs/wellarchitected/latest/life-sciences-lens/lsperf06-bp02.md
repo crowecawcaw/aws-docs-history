@@ -1,7 +1,6 @@
 
 
 # LSPERF06-BP02 Perform a total cost of ownership analysis
-<a name="lsperf06-bp02"></a>
 
  Calculate complete TCO incorporating hardware acquisition costs, software licensing, power consumption, cooling requirements, physical footprint, specialized expertise needs, and expected hardware lifespan, while quantifying research productivity improvements to determine true value beyond initial purchase price. 
 

@@ -1,7 +1,6 @@
 
 
 # LSPERF05-BP01 Specialized hardware matching
-<a name="lsperf05-bp01"></a>
 
  Deploy purpose-built compute configurations optimized for specific workload types. Use GPUs for molecular dynamics and AI drug discovery, high-memory systems (4-8GB RAM per core) for genomics assembly, and high-IOPS storage architectures for sequencing data processing. 
 

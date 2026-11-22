@@ -1,7 +1,6 @@
 
 
 # Data management efficiency in data analytics and data lifecycle
-<a name="data-management-efficiency-in-data-analytics-and-data-lifecycle"></a>
 
 
 |  LSSUS03: How do you maximize efficiency in processing large-scale life sciences data?  | 

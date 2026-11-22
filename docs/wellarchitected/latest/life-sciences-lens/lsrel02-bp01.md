@@ -1,7 +1,6 @@
 
 
 # LSREL02-BP01 Build resilient and highly available research solutions
-<a name="lsrel02-bp01"></a>
 
  Design research systems using fault-isolated, redundant deployment patterns that allow continuous access during maintenance or localized outages. Use highly available configurations where near-zero downtime is required (for example, ELNs) and active-passive designs with automated failover for systems with less stringent latency or availability needs (for example, LIMS). 
 

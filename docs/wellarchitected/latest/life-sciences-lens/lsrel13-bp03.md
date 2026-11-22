@@ -1,7 +1,6 @@
 
 
 # LSREL13-BP03 Track reliability metrics aligned to regulatory needs
-<a name="lsrel13-bp03"></a>
 
  Define and monitor reliability metrics that align with both operational resilience and regulatory requirements. For GxP-regulated systems, include system availability, backup/restore success, recovery test completion, and data integrity checks. Retain metric history for audit evidence. 
 

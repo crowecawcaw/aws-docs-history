@@ -1,7 +1,6 @@
 
 
 # LSREL04-BP02 Implement risk-based reliability testing for regulated systems
-<a name="lsrel04-bp02"></a>
 
  Develop a risk-based approach to reliability testing that prioritizes critical system components based on patient safety, data integrity, and regulatory impact. For high-risk components in GxP systems, implement more rigorous testing including fault injection, recovery testing, and performance under stress. Document test results as part of your evidence package. 
 

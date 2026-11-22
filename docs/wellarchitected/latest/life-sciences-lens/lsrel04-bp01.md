@@ -1,7 +1,6 @@
 
 
 # LSREL04-BP01 Map regulatory requirements to reliability controls
-<a name="lsrel04-bp01"></a>
 
  Create a comprehensive mapping between applicable regulatory requirements (like GxP, 21 CFR Part 11, and GDPR) and your reliability controls. Document how each control satisfies specific regulatory requirements and maintain this mapping as regulations evolve. For example, if regulations require system availability of 99.9% for critical applications, implement and document the architecture decisions, monitoring systems, and recovery procedures that support this requirement. 
 

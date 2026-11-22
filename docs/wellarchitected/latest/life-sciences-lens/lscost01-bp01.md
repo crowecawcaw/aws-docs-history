@@ -1,7 +1,6 @@
 
 
 # LSCOST01-BP01 Establish and implement a comprehensive financial governance framework
-<a name="lscost01-bp01"></a>
 
  A financial governance framework in life sciences cloud management establishes the structure, policies, and processes for making financial decisions related to cloud usage. It verifies that cloud spending aligns with research priorities, regulatory requirements, and overall business objectives. 
 

@@ -1,7 +1,6 @@
 
 
 # LSREL09-BP04 Maintain auditable rollback and recovery records
-<a name="lsrel09-bp04"></a>
 
  Capture and retain immutable, timestamped records of every rollback and recovery action, including approvals, deviations, timing, and outcomes. Audit and governance artifacts are required evidence for GxP adherence and should be integrated into change control and incident reporting. 
 

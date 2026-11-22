@@ -1,7 +1,6 @@
 
 
 # Foundations
-<a name="foundations"></a>
 
 
 |  LSREL01: How do you reliably anonymize, pseudo-anonymize, and re-identify sensitive life sciences data in a compliance-aligned manner?  | 

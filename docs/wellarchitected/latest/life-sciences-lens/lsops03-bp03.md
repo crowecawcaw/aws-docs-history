@@ -1,7 +1,6 @@
 
 
 # LSOPS03-BP03 Establish clear definitions of responsibilities between you, vendors, and users
-<a name="lsops03-bp03"></a>
 
  A shared responsibility model to clearly delineate responsibilities between involved parties makes it straightforward to work together. 
 

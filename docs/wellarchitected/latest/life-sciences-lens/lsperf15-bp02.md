@@ -1,7 +1,6 @@
 
 
 # LSPERF15-BP02 Deploy synthetic transaction monitoring and real user monitoring with automated performance optimization
-<a name="lsperf15-bp02"></a>
 
  Implement synthetic monitoring methods that continuously simulate critical clinical workflows such as record retrieval, patient monitoring data transmission, and medication order processing to measure end-to-end latency and automatically trigger optimization actions when thresholds are exceeded. Use real user monitoring (RUM) techniques to capture actual network performance experienced by clinicians and implement adaptive optimization that adjusts network configurations based on real-time performance data, such as switching to alternate network paths or increasing bandwidth allocation for degraded connections. 
 

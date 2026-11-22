@@ -1,7 +1,6 @@
 
 
 # LSREL04-BP03 Establish reliability qualification procedures
-<a name="lsrel04-bp03"></a>
 
  Create formal verification procedures for reliability aspects of your system that align with regulatory expectations. Include installation qualification (IQ), operational qualification (OQ), and performance qualification (PQ) elements that verify reliability features like high availability, disaster recovery, and data backup and restore capabilities. Maintain these qualification records as part of your regulatory documentation. 
 

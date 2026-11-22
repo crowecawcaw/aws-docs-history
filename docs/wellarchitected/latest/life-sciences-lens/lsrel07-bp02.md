@@ -1,7 +1,6 @@
 
 
 # LSREL07-BP02 Build idempotent and reproducible processing pipelines
-<a name="lsrel07-bp02"></a>
 
  Design processing systems that produce consistent results regardless of retries or partial failures. Incorporate unique identifiers, transaction logs, and state tracking to verify that retries don't duplicate or corrupt data. In research and clinical analysis, reproducibility of results under repeated execution is a cornerstone of scientific and regulatory assurance. 
 

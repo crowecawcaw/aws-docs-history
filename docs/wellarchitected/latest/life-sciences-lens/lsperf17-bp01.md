@@ -1,7 +1,6 @@
 
 
 # LSPERF17-BP01 Measure baseline data transfer performance and evaluate how data sovereignty requirements affect latency
-<a name="lsperf17-bp01"></a>
 
  Establish performance baselines by measuring transfer metrics for data routes and compare against direct paths to understand impact. Set up ongoing monitoring of transfers to track performance and find optimization opportunities within regulatory limits. Conduct regular testing using synthetic data to verify that routes meet both performance needs and regulatory requirements. 
 

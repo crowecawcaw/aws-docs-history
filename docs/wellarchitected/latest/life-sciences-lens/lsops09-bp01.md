@@ -1,7 +1,6 @@
 
 
 # LSOPS09-BP01 Track data ownership and lineage over the life of the project
-<a name="lsops09-bp01"></a>
 
  Data lineage in life sciences projects involves tracking the origin, movement, and transformation of data throughout its lifecycle. This process is important because it provides a clear history of how data has been collected, processed, and used. Maintaining accurate data lineage improves data integrity, aids in troubleshooting errors, and supports regulatory adherence. It also allows researchers and regulators to understand and trust the data's journey from its source to final analysis, which is critical for validating research findings and meeting stringent industry standards. 
 

@@ -1,7 +1,6 @@
 
 
 # LSSUS01-BP01 Design high-performance computing workloads to minimize energy usage
-<a name="lssus01-bp01"></a>
 
  Design research computing workloads to optimize resource utilization and minimize energy consumption through strategic workload separation and queue management. Implement compute environments that align with specific computational demands to maximize hardware efficiency and reduce idle time. Use multi-queue strategies that match workload characteristics to appropriate compute resources, enabling concurrent processing of diverse research tasks while minimizing environmental impact. 
 

@@ -1,7 +1,6 @@
 
 
 # LSPERF12-BP01 Implement network segmentation with defense-in-depth controls
-<a name="lsperf12-bp01"></a>
 
  Design the network with clearly defined security zones separated by firewalls, with sensitive data repositories isolated from general network traffic. Employ a layered security approach (defense in depth) with multiple security controls at each boundary. Use VLANs, subnets, and micro-segmentation to isolate data flows based on security levels and functional requirements. This architecture limits potential attack surface and contains breaches should they occur while maintaining efficient routing paths for authorized large data transfers. 
 

@@ -1,7 +1,6 @@
 
 
 # LSPERF08-BP03 Implement clinical system monitoring with workflow validation and impact analysis
-<a name="lsperf08-bp03"></a>
 
  Implement synthetic transactions simulating clinical workflows while monitoring data integrity throughout your infrastructure. Regularly test recovery capabilities against clinical RTOs. Develop dashboards that translate technical metrics into patient impact metrics with proper prioritization and regulatory adherence. Document historical performance data to demonstrate system reliability and support continuous improvement efforts. 
 

@@ -1,7 +1,6 @@
 
 
 # LSPERF08-BP02 Track resource utilization with clinical context
-<a name="lsperf08-bp02"></a>
 
  Track compute metrics tied to clinical workflows and patient volumes for predictive capacity planning. Monitor specialized clinical accelerators like GPUs for imaging. Analyze resource usage patterns by department and procedure to optimize allocation while providing emergency capacity. Implement context-aware anomaly detection that distinguishes normal clinical activity spikes from true issues, with alerts weighted by clinical importance. 
 

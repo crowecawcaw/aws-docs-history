@@ -1,7 +1,6 @@
 
 
 # Architecture selection
-<a name="architecture-selection"></a>
 
 
 |  LSPERF01: How do you select architectural patterns that accommodate the computing needs of genomic sequencing and molecular modeling?  | 

@@ -1,7 +1,6 @@
 
 
 # LSCOST01-BP03 Build the right skills and fostering a cost-aware culture
-<a name="lscost01-bp03"></a>
 
  Building the right skills and fostering a cost-aware culture is crucial for effective cloud financial management in the life sciences industry. This involves educating teams about the financial implications of their cloud usage and empowering them to make cost-effective decisions. 
 

@@ -1,7 +1,6 @@
 
 
 # LSREL03-BP01 Digitize and modernize archival of research data
-<a name="lsrel03-bp01"></a>
 
  Replace legacy storage formats such as tapes, optical disks, or local hard drives with digital storage strategies that provide redundancy, immutability, and verifiable integrity. Centralized digital archives keep data accessible, protected from degradation, and adhere to long-term retention requirements. 
 

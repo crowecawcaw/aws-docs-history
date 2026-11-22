@@ -1,7 +1,6 @@
 
 
 # LSREL11-BP01 Implement monitoring of equipment telemetry to detect anomalies
-<a name="lsrel11-bp01"></a>
 
  Capture equipment telemetry such as temperature, vibration, cycle counts, and error codes in real time to identify anomalies early. A consistent telemetry pipeline enables proactive monitoring, alerts, and traceability of equipment performance across research facilities. 
 

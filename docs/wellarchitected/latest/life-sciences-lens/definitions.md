@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 +  **21 CFR Part 11:** Regulations by the US Food and Drug Administration (FDA) that specify requirements for GxP systems. 
 +  **ALCOA\+:** Framework to verify data integrity based on the following principles: 
   +  Attributable 

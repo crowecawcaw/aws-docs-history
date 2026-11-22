@@ -1,7 +1,6 @@
 
 
 # LSSUS03-BP02 Process data closer to source
-<a name="lssus03-bp02"></a>
 
  Optimize data processing locations to minimize network usage and reduce energy consumption associated with data movement. Implement edge computing and hybrid architectures that process large datasets near their generation points, particularly for bandwidth-intensive applications like genomic sequencing and imaging workflows. Use managed services that provide optimized resource utilization and automatic scaling to reduce infrastructure overhead. 
 

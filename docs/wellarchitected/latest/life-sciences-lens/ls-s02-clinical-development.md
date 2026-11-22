@@ -1,7 +1,6 @@
 
 
 # LS-S02 Clinical development
-<a name="ls-s02-clinical-development"></a>
 
  Clinical trials stand as the bridge between scientific discovery and patient care. The landscape of clinical trials has evolved dramatically, moving beyond simple surveys to encompass vast, diverse datasets from multiple sources and decentralized participants. Decentralized clinical trials (DCTs) enable patient-centric data collection through remote monitoring via mobile devices, wearables, and telemedicine, allowing participants to contribute from home while maintaining data quality and regulatory adherence. This aims to address critical needs, providing a blueprint for a comprehensive data strategy that accelerates research, enhances collaboration, and ultimately leads to more informed, impactful results in patient healthcare. 
 

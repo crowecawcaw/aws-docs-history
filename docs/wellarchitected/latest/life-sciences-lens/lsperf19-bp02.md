@@ -1,7 +1,6 @@
 
 
 # LSPERF19-BP02 Establish comprehensive performance metrics and evidence collection
-<a name="lsperf19-bp02"></a>
 
  Establish measurable performance metrics specific to scientific workflows before load testing. Capture traditional indicators alongside domain-specific measurements for research and clinical data processing. Implement automated evidence collection to create audit trails, inform optimization decisions, and verify system reliability. Centralize test results to enable trend analysis and detect regressions across cycles. 
 

@@ -1,7 +1,6 @@
 
 
 # LSPERF02-BP03 Elastic data processing pipelines
-<a name="lsperf02-bp03"></a>
 
  Design data processing architectures that automatically scale to accommodate both predictable and unexpected processing demands. Implement event-driven pipelines that efficiently handle high-velocity instrument data streams while maintaining strict controls over clinical data flows, providing consistent performance during peak research periods without compromising security or regulatory requirements. 
 

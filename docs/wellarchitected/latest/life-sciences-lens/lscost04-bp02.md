@@ -1,7 +1,6 @@
 
 
 # LSCOST04-BP02 Implement data retention and deletion policies aligned with regulatory requirements
-<a name="lscost04-bp02"></a>
 
  Develop and enforce comprehensive data retention and deletion policies that comply with industry regulations while minimizing unnecessary storage costs. These policies should clearly define how long different types of research data must be retained, how it should be stored, and when it can be safely deleted or archived. 
 

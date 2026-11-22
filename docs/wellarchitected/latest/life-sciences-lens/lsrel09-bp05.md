@@ -1,7 +1,6 @@
 
 
 # LSREL09-BP05 Implement risk-based change control for validated systems
-<a name="lsrel09-bp05"></a>
 
  Establish a structured, risk-based change control process that categorizes changes according to their potential impact on product quality, patient safety, and data integrity. Apply proportional testing and validation depending on the change classification. High-risk changes to GxP systems should undergo rigorous verification and dual review, while low-risk changes may be handled with streamlined procedures. Track, approve, and document changes, and update validation evidence to confirm the system remains in a validated state after the change. 
 

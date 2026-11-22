@@ -1,7 +1,6 @@
 
 
 # Manage demand and supply resources
-<a name="manage-demand-and-supply-resources"></a>
 
 
 |  LSCOST03: How do you optimize R&D infrastructure costs based on the stage of product development and scale of operations?  | 

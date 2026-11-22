@@ -1,7 +1,6 @@
 
 
 # LSREL12-BP04 Implement cyber resilience for GxP-regulated backup data
-<a name="lsrel12-bp04"></a>
 
  Implement cyber resilience strategies for your backup data to protect against ransomware and other cyber threats, with specific considerations for GxP-regulated systems. Cyber resilience goes beyond traditional backup approaches by keeping backups immutable, isolated, and recoverable even during sophisticated cyber attacks while maintaining data integrity in accordance with ALCOA\+ principles. 
 

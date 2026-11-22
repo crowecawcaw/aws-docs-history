@@ -1,7 +1,6 @@
 
 
 # Data privacy
-<a name="data-privacy"></a>
 
 
 |  LSSEC02: How do you determine and enforce data privacy requirements?  | 

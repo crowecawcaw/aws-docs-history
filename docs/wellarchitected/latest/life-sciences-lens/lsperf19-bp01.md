@@ -1,7 +1,6 @@
 
 
 # LSPERF19-BP01 Implement infrastructure as code for consistent test environments
-<a name="lsperf19-bp01"></a>
 
  Use infrastructure as code (IaC) to deploy consistent, repeatable test environments that accurately mirror production. By codifying your infrastructure, you reduce configuration drift between test and production environments, This approach enables teams to rapidly provision test environments on demand, run comprehensive load tests against scientific workflows, and tear down resources when testing concludes. 
 

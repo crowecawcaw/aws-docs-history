@@ -1,7 +1,6 @@
 
 
 # LSREL01-BP01 Identify and protect sensitive data elements with auditable classification.
-<a name="lsrel01-bp01."></a>
 
  Conduct a systematic analysis to identify sensitive data elements (like PHI, identifiers, and lab results), establish classification standards, and map business processes that generate or consume them. Define which data should be anonymized, irreversibly de-identified, or remain re-identifiable to support authorized patient re-linking after research. 
 

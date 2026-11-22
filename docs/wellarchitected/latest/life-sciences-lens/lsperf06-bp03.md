@@ -1,7 +1,6 @@
 
 
 # LSPERF06-BP03 Perform an environment compatibility validation
-<a name="lsperf06-bp03"></a>
 
  Evaluate hardware accelerators within your existing computational infrastructure, verifying integration with workload managers, container technologies, data transfer mechanisms, and storage systems while assessing software support maturity, driver stability, and vendor commitment to the scientific computing community. 
 

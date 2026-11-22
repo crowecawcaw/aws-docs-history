@@ -1,7 +1,6 @@
 
 
 # LSREL01-BP02 Decouple anonymization logic from core workflows using orchestration and versioning.
-<a name="lsrel01-bp02."></a>
 
  Implement data anonymization as a modular, orchestrated workflow with support for AI-based or rule-based anonymization. Store intermediate data in secure, versioned storage to enable rollback, reproducibility, and auditability, verifying that sensitive data handling aligns with life sciences regulatory and research requirements. 
 

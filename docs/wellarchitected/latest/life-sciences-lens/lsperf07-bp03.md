@@ -1,7 +1,6 @@
 
 
 # LSPERF07-BP03 Develop an agile change management process
-<a name="lsperf07-bp03"></a>
 
  Develop a specialized change management process that enables rapid iteration for scientific computing while maintaining GxP adherence through a combination of procedural and technical safeguards. Implement digital solutions for documentation-as-code that creates machine-readable artifacts alongside software development, establish predefined patterns for common computational workflows, and deploy automated monitoring tools that provide real-time verification without manual intervention. Create cross-functional teams combining computational scientists, IT specialists and experts who collaboratively define fit-for-purpose validation approaches that protect data integrity and regulatory requirements while enabling the performance optimization and innovation velocity required by modern life sciences research. 
 

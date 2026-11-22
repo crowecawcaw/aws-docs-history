@@ -1,7 +1,6 @@
 
 
 # LSPERF14-BP01 Conduct performance benchmarking across geographic research hubs
-<a name="lsperf14-bp01"></a>
 
  Develop comprehensive performance testing across research hubs to establish baselines and find regional bottlenecks. Monitor key metrics like latency, throughput, packet loss, and jitter under simulated research workloads. Create geographic heat maps showing areas needing improved delivery capabilities. Test using actual research data types including genomic files, high resolution images, and complex models. Set up ongoing performance monitoring to track improvements and detect new issues as global research collaboration patterns change. 
 

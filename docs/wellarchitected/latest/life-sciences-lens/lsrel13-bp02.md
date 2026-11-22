@@ -1,7 +1,6 @@
 
 
 # LSREL13-BP02 Monitor data integrity across scientific processing pipelines
-<a name="lsrel13-bp02"></a>
 
  Implement monitoring specifically for data integrity across research pipelines. Track errors such as checksum mismatches, validation failures, or audit trail gaps. For scientific domains like genomics or clinical processing, add plausibility checks to detect biologically impossible or outlier results that may signal workflow errors. 
 

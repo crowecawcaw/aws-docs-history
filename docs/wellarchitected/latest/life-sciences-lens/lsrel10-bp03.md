@@ -1,7 +1,6 @@
 
 
 # LSREL10-BP03 Test data integrity under failure conditions
-<a name="lsrel10-bp03"></a>
 
  Design and execute specific tests to validate that data integrity is preserved during system failures, network outages, or recovery processes. For workloads involving trial data, manufacturing records, or patient datasets, enforce transactional boundaries, roll back partial updates safely, and block corrupted data from entering downstream systems. 
 

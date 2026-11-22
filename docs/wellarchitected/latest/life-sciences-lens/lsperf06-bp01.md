@@ -1,7 +1,6 @@
 
 
 # LSPERF06-BP01 Run comprehensive, benchmark-driven assessments
-<a name="lsperf06-bp01"></a>
 
  Execute standardized application-specific benchmarks using representative datasets across multiple hardware solutions (GPUs, FPGAs, ASICs), measuring not only raw performance but also performance-per-watt, scaling efficiency, and cost-effectiveness with your actual production workloads in molecular dynamics (GROMACS, NAMD, AMBER) and genomics (BWA-MEM, GATK, Minimap2). 
 

@@ -1,7 +1,6 @@
 
 
 # LSPERF09-BP02 Optimize query performance and meet diverse data access requirements in your environment
-<a name="lsperf09-bp02"></a>
 
  Analyze your organization's specific query patterns. Select OLTP-optimized stores for transactional clinical applications requiring low-latency point queries, and columnar stores (like Amazon Redshift) for analytical workloads involving large-scale clinical trial analysis. For unstructured research data, evaluate stores based on throughput requirements for genomic processing, search capabilities for literature and imaging data, and integration with machine learning pipelines. Consider hybrid approaches where query engines can span multiple storage types to avoid data duplication. 
 

@@ -1,7 +1,6 @@
 
 
 # LSPERF14-BP03 Assess edge computing integration for localized processing of research workloads
-<a name="lsperf14-bp03"></a>
 
  Assess edge computing solutions that enable research processing near data sources and users. Review edge systems' compatibility with research computing frameworks while improving version consistency. Test edge-based collaboration tools including shared notebooks, visualization systems, and model training. Compare performance and resource efficiency between edge and centralized processing. Evaluate edge solutions supporting secure multi-tenant environments where researchers from different institutions can share computing resources with proper data isolation. 
 

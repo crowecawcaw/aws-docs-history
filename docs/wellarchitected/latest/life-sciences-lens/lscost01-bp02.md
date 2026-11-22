@@ -1,7 +1,6 @@
 
 
 # LSCOST01-BP02 Analyze and optimize vendor cost structures and economic relationships
-<a name="lscost01-bp02"></a>
 
  Vendor economics focuses on optimizing the costs associated with various cloud vendors, software providers, and third-party services used in life sciences research. It aims to maximize value while maintaining the necessary tools and services for effective research. 
 

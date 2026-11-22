@@ -1,7 +1,6 @@
 
 
 # LSPERF14-BP02 Evaluate multi-CDN architectures with intelligent traffic routing capabilities
-<a name="lsperf14-bp02"></a>
 
  Evaluate content delivery network (CDN) providers focusing on their performance in academic and research regions. Create a dynamic multi-CDN system that routes content based on real-time performance, content type, and destination. Test features like origin shields, cache optimization for scientific data, and API configuration. Assess providers' capability to handle specialized research needs including HD microscopy streaming, large dataset syncing, and real-time collaborative visualization. Consider combining commercial CDNs with research networks like Internet2 or GÉANT for optimal performance. 
 

@@ -1,7 +1,6 @@
 
 
 # LSPERF03-BP01 Workload-specific performance analysis
-<a name="lsperf03-bp01"></a>
 
  Conduct systematic analysis of workload characteristics to identify distinct performance requirements and optimization opportunities. Profile computational patterns, data access behaviors, and resource utilization across different workflow stages to guide targeted optimization efforts, allocating resources on empirical performance needs rather than assumptions. 
 

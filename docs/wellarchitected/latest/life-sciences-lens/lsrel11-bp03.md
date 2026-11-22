@@ -1,7 +1,6 @@
 
 
 # LSREL11-BP03 Plan redundancy for critical laboratory equipment
-<a name="lsrel11-bp03"></a>
 
  Design redundancy strategies for critical laboratory equipment by maintaining hot spares, parallelized runs, or vendor service agreements. Effective redundancy maintains continuity of operations even during failures of high-value or high-throughput instruments. 
 

@@ -1,7 +1,6 @@
 
 
 # Optimize over time
-<a name="optimize-over-time"></a>
 
 
 |  LSCOST04: How do you optimize research data lifecycle costs while maintaining regulatory requirements over time?  | 

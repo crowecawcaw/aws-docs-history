@@ -1,7 +1,6 @@
 
 
 # Failure management
-<a name="failure-management"></a>
 
 
 |  LSREL11: How do you detect and manage laboratory equipment failures for continuity of research operations?  | 

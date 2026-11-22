@@ -1,7 +1,6 @@
 
 
 # Cost-effective resources
-<a name="cost-effective-resources"></a>
 
 
 |  LSCOST02: How effectively are you using AWS credit and investment programs?  | 

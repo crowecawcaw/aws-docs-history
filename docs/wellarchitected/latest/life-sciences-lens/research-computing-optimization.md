@@ -1,7 +1,6 @@
 
 
 # Research computing optimization
-<a name="research-computing-optimization"></a>
 
 
 |  LSSUS01: How do you optimize the scheduling and execution of research computing pipelines?  | 

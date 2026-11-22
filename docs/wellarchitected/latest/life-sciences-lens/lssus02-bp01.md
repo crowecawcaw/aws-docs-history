@@ -1,7 +1,6 @@
 
 
 # LSSUS02-BP01 Implement sustainability proxy metrics pipeline for research workloads
-<a name="lssus02-bp01"></a>
 
  Establish comprehensive tagging strategies and normalized metrics to track and measure sustainability performance across research workloads. Implement proxy metrics that correlate resource consumption with research outputs to enable meaningful comparisons and optimization opportunities. Create sustainability KPIs that combine resource utilization data with research milestones to drive continuous improvement in energy efficiency and environmental impact. 
 

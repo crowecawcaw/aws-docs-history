@@ -1,7 +1,6 @@
 
 
 # LSPERF04-BP01 Performance consistency through clinical trial lifetime
-<a name="lsperf04-bp01"></a>
 
  Design architectures with long-term performance stability as a foundational principle, improving the consistency of system behavior across the multi-year or multi-decade lifespan of clinical trials. Implement forward-compatible data models, establish performance baselines with comprehensive monitoring, and create governance processes for managing technology transitions without disrupting ongoing studies or compromising data integrity. 
 

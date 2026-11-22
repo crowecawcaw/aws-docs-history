@@ -1,7 +1,6 @@
 
 
 # LS-S03 Manufacturing and supply chain
-<a name="ls-s03-manufacturing-and-supply-chain"></a>
 
  Life sciences manufacturing and supply chain is the critical bridge between scientific discovery and the delivery of life-saving therapies and diagnostics. As companies work to bring innovative treatments to market, they face increasing pressure to modernize their operations and adapt to evolving patient needs. Key challenges include improving operational equipment effectiveness (OEE) in an era of smaller batch production, transitioning from manual spreadsheets to integrated production planning, and scaling quality checks with limited manpower. 
 

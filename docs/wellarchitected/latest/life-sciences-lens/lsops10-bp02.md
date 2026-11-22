@@ -1,7 +1,6 @@
 
 
 # LSOPS10-BP02 Store data in a format that works both for archiving and for active use by retaining related metadata
-<a name="lsops10-bp02"></a>
 
  Select a data format which is queried while the project is ongoing but archives natively. Iceberg's data format is ideal for life sciences projects because it stores metadata alongside the data. It offers advanced data versioning, time travel capabilities, and schema evolution, essential features for maintaining data lineage and regulatory adherence while handling large-scale scientific datasets that frequently change over time. 
 

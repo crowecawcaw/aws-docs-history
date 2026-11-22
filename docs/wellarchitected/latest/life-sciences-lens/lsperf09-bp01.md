@@ -1,7 +1,6 @@
 
 
 # LSPERF09-BP01 Evaluate data stores based on regulatory requirements and data governance capabilities
-<a name="lsperf09-bp01"></a>
 
  Select data stores that provide features for healthcare regulations (HIPAA, FDA 21 CFR Part 11, GxP) including audit trails, data integrity controls, and encryption at rest and in transit. Assess the data store's ability to implement role-based access controls, data lineage tracking, and automated retention policies. For clinical data, prioritize solutions offering validated environments and regulatory documentation, while verifying that research data stores can accommodate less restrictive access patterns for collaboration and discovery workflows. 
 

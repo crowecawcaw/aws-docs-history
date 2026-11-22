@@ -1,7 +1,6 @@
 
 
 # LSPERF02-BP02 Secure data separation by classification
-<a name="lsperf02-bp02"></a>
 
  Establish clear boundaries between different data types based on sensitivity and regulatory requirements. Maintain sensitive patient records in encrypted, highly-available database instances with comprehensive audit capabilities, while allowing broader access to de-identified research datasets through separate storage mechanisms with appropriate controls for scientific collaboration. 
 

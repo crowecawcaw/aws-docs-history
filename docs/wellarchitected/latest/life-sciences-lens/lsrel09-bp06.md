@@ -1,7 +1,6 @@
 
 
 # LSREL09-BP06 Automate validation testing for changes
-<a name="lsrel09-bp06"></a>
 
  Develop automated functional and regulatory validation test suites that run after system changes to verify critical functionality, data integrity, and regulatory controls. Include tests for audit trails, access control, and business functionality. These tests should also reassess resiliency factors like recovery time objectives (RTO) and recovery point objectives (RPO) to verify that changes do not degrade reliability targets. Test results should be retained as evidence in the validation package. 
 
