@@ -1,7 +1,6 @@
 
 
 # Available MFA types for IAM Identity Center
-<a name="mfa-types"></a>
 
 Multi-factor authentication (MFA) is a simple and effective mechanism to enhance the security of your users. A user’s first factor — their password — is a secret that they memorize, also known as a knowledge factor. Other factors can be possession factors (something you have, such as a security key) or inherence factors (something you are, such as a biometric scan). We strongly recommend that you configure MFA to add an additional layer of security to your account. 
 

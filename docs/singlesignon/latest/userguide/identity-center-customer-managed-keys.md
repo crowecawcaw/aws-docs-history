@@ -1,7 +1,6 @@
 
 
 # Implementing customer managed KMS keys in AWS IAM Identity Center
-<a name="identity-center-customer-managed-keys"></a>
 
 Customer managed keys are AWS Key Management Service keys that you create, own, and manage. To implement a customer managed KMS key for encryption at rest in AWS IAM Identity Center, follow these steps:
 

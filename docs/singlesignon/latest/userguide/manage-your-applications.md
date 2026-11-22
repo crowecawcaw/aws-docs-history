@@ -1,7 +1,6 @@
 
 
 # Configure access to applications
-<a name="manage-your-applications"></a>
 
 With AWS IAM Identity Center, you can control who can have single sign-on access to your applications. Users get seamless access to these applications after they use their directory credentials to sign in.
 

@@ -1,7 +1,6 @@
 
 
 # Delegate who can assign single sign-on access to users and groups in the management account
-<a name="howtodelegatessoaccess"></a>
 
 Assigning single sign-on access to the management account using the IAM Identity Center console is a privileged action. By default, only an AWS account root user or a user who has the **AWSSSOMasterAccountAdministrator** and **IAMFullAccess** AWS managed policies attached, can assign single sign-on access to the management account. The **AWSSSOMasterAccountAdministrator** and **IAMFullAccess** policies manage single sign-on access to the management account within an AWS Organizations organization.
 

@@ -1,7 +1,6 @@
 
 
 # Getting IAM Identity Center user credentials for the AWS CLI or AWS SDKs
-<a name="howtogetcredentials"></a>
 
 You can access AWS services programmatically by using the AWS Command Line Interface or AWS Software Development Kits (SDKs) with user credentials from IAM Identity Center. This topic describes how to get temporary credentials for a user in IAM Identity Center.
 

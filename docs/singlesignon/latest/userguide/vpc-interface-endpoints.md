@@ -1,7 +1,6 @@
 
 
 # AWS PrivateLink for IAM Identity Center
-<a name="vpc-interface-endpoints"></a>
 
 You can establish a private connection between your VPC and AWS IAM Identity Center by creating an *interface VPC endpoint*. Interface endpoints are powered by AWS PrivateLink. For more information, see [AWS PrivateLink](https://aws.amazon.com/privatelink) on the AWS website. You can use this technology to privately access IAM Identity Center APIs without an internet gateway, NAT device, VPN connection, or connection. Resources in your VPC do not need public IP addresses to communicate with IAM Identity Center APIs. Traffic between your VPC and IAM Identity Center does not leave the AWS network.
 
@@ -55,13 +54,13 @@ IAM Identity Center does not introduce new condition keys for its own endpoints 
 
 To scope a policy to a specific IAM Identity Center instance without a condition key, reference the instance ARN directly in the `Resource` element:
 
-```
+```JSON
 "Resource": "arn:aws:sso:::instance/ssoins-{{1234567890abcdef}}"
 ```
 
 For OIDC operations, reference the application and OAuth client resources:
 
-```
+```JSON
 "Resource": [
     "arn:aws:sso::{{111122223333}}:application/ssoins-{{1234567890abcdef}}/*",
     "arn:aws:sso::{{111122223333}}:oauthClient/ssoins-{{1234567890abcdef}}/*"
@@ -82,7 +81,7 @@ The following example restricts administrative access to a specific IAM Identity
 
 **Example Restrict SSO Admin access to a specific IAM Identity Center instance**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -101,7 +100,7 @@ To restrict administrative access to any instance in your organization instead o
 
 **Example Restrict SSO Admin access to instances in the same organization**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -130,7 +129,7 @@ The following example restricts Identity Store access to a specific identity sto
 
 **Example Restrict Identity Store access to a specific identity store**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -154,7 +153,7 @@ To restrict access to any identity store in your organization instead of a singl
 
 **Example Restrict Identity Store access to identity stores in the same organization**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -192,7 +191,7 @@ The following example allows IAM Identity Center sign-in for the same IAM Identi
 
 **Example Allow IAM Identity Center sign-in for a specific IAM Identity Center instance**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -211,7 +210,7 @@ To restrict IAM Identity Center sign-in to any instance in your organization ins
 
 **Example Allow IAM Identity Center sign-in for instances in the same organization**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -235,7 +234,7 @@ The following example allows both IAM Identity Center sign-in and IAM sign-in (C
 
 **Example Allow IAM Identity Center sign-in and IAM sign-in**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -293,7 +292,7 @@ OIDC resources are represented by the `application` resource type, for confident
 
 **Example Allow access to OIDC resources in the same organization**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -320,7 +319,7 @@ The following example scopes access to a single IAM Identity Center instance by 
 
 **Example Allow access to OIDC resources for a specific IAM Identity Center instance**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -346,7 +345,7 @@ The preceding organization example uses `aws:ResourceOrgID`, which works for org
 
 **Example Allow access to OIDC resources for an account-level instance**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -380,7 +379,7 @@ The following example restricts portal backend access to identities from a speci
 
 **Example Restrict portal backend access to a specific IAM Identity Center instance**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -400,30 +399,6 @@ The following example restricts portal backend access to identities from a speci
 }
 ```
 
-To restrict portal backend access to any instance in your organization instead of a single instance, use `aws:IdentityCenterInstanceOrgId`.
-
-**Example Restrict portal backend access to instances in the same organization**  
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AllowPortalSameOrg",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "*",
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:IdentityCenterInstanceOrgId": "o-{{xxxxxxxxxxx}}"
-                }
-            }
-        }
-    ]
-}
-```
-
 #### VPC endpoint policies on the AWS access portal and AWS managed applications
 <a name="vpc-endpoint-policy-1p-apps"></a>
 
@@ -435,8 +410,6 @@ These context keys use the `aws:IdentityCenter` prefix. IAM Identity Center's ow
 | Context key | Type | Description | 
 | --- | --- | --- | 
 | aws:IdentityCenterInstanceArn | String | The ARN of the IAM Identity Center instance connected to the bearer token. | 
-| aws:IdentityCenterInstanceAccount | String | The AWS account ID that owns the IAM Identity Center instance. | 
-| aws:IdentityCenterInstanceOrgId | String | The AWS Organizations ID of the IAM Identity Center instance. | 
 | aws:IdentityStoreArn | String | The ARN of the identity store associated with the IAM Identity Center instance. | 
 | aws:IdentityCenterSessionId | String | The session identifier for the current IAM Identity Center session. | 
 
@@ -444,7 +417,7 @@ These keys are returned to AWS managed applications when they validate IAM Ident
 
 **Example Allow access on a managed application endpoint for identities from a specific IAM Identity Center instance**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -457,28 +430,6 @@ These keys are returned to AWS managed applications when they validate IAM Ident
             "Condition": {
                 "StringEquals": {
                     "aws:IdentityCenterInstanceArn": "arn:aws:sso:::instance/ssoins-{{1234567890abcdef}}"
-                }
-            }
-        }
-    ]
-}
-```
-
-**Example Allow access for identities from any IAM Identity Center instance in the same organization**  
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "IdCOrgRestriction",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "service:DataAPI",
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:IdentityCenterInstanceOrgId": "o-{{xxxxxxxxxxx}}"
                 }
             }
         }
@@ -501,7 +452,7 @@ You can configure your IAM Identity Center instance to require that all sign-in 
 
 Use the `sso-admin update-instance` API to set the network access requirement. You configure network controls by passing a `network-configuration` object. You can't set network controls at instance creation time, only through `UpdateInstance` on an existing instance.
 
-```
+```bash
 aws sso-admin update-instance \
     --instance-arn {{arn:aws:sso:::instance/ssoins-1234567890abcdef}} \
     --network-configuration '{"VpceAccessRequired": true}'
@@ -518,7 +469,7 @@ The `network-configuration` object also accepts the following fields:
 + `AllowSourceIps` – A list of IPv4 or IPv6 CIDR ranges that bypass the VPC endpoint and VPC restrictions. A request from an IP address in this list is permitted even if it doesn't come through a VPC endpoint or one of the VPCs in `RestrictSourceVpcs`.
 + `ExcludeApplicationArns` – A list of application ARNs whose OAuth token operations skip network control evaluation. User sign-in is still evaluated. For details and examples, see [Excluding OAuth applications from network controls](#vpc-network-controls-exclusions).
 
-```
+```bash
 aws sso-admin update-instance \
     --instance-arn {{arn:aws:sso:::instance/ssoins-1234567890abcdef}} \
     --network-configuration '{
@@ -533,7 +484,7 @@ You can set `VpceAccessRequired` to `false` to allow access from both VPC endpoi
 
 To remove all network restrictions, set `VpceAccessRequired` to `false` and omit `RestrictSourceVpcs`, `AllowSourceIps`, and `ExcludeApplicationArns`. Because `UpdateInstance` performs a full replacement, omitting these fields clears them.
 
-```
+```bash
 aws sso-admin update-instance \
     --instance-arn {{arn:aws:sso:::instance/ssoins-1234567890abcdef}} \
     --network-configuration '{"VpceAccessRequired": false}'
@@ -570,7 +521,7 @@ Which ARN you add to `ExcludeApplicationArns` depends on the type of client:
 **Example Exclude AWS managed OAuth applications**  
 The following AWS CLI command excludes one Amazon Q application by its resource ARN, and all Amazon Q applications in another account by using wildcards in the Region and resource segments.  
 
-```
+```bash
 aws sso-admin update-instance \
     --instance-arn {{arn:aws:sso:::instance/ssoins-1234567890abcdef}} \
     --network-configuration '{
@@ -585,7 +536,7 @@ aws sso-admin update-instance \
 **Example Exclude a customer managed OAuth application**  
 The following AWS CLI command requires VPC endpoint access for your IAM Identity Center instance and excludes a customer managed application. The application can create tokens from its own network. Users who sign in to the application must still sign in through allowed VPC endpoints.  
 
-```
+```bash
 aws sso-admin update-instance \
     --instance-arn {{arn:aws:sso:::instance/ssoins-1234567890abcdef}} \
     --network-configuration '{
@@ -599,7 +550,7 @@ aws sso-admin update-instance \
 **Example Exclude public OAuth clients**  
 The following AWS CLI command excludes all public clients for your IAM Identity Center instance, such as the AWS CLI and AWS SDKs. They can create and refresh tokens from outside your VPC endpoints. Users must still sign in through your VPC endpoints to authorize a device or an authorization code request.  
 
-```
+```bash
 aws sso-admin update-instance \
     --instance-arn {{arn:aws:sso:::instance/ssoins-1234567890abcdef}} \
     --network-configuration '{
@@ -656,7 +607,7 @@ The following example SCP denies changes to the instance unless VPC endpoint acc
 
 **Example Require VPC endpoint access for all IAM Identity Center instances**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -690,7 +641,7 @@ SCIM provisioning traffic goes to your identity store resource, not to your IAM 
 **Important**  
 `UpdateIdentityStore` replaces the `NetworkConfiguration` object in full. Any field you omit is cleared, not left unchanged. An empty list is not accepted as a value — to clear a list field, omit it rather than setting it to `[]`.
 
-```
+```bash
 aws identitystore update-identity-store \
     --identity-store-id {{d-1234567890}} \
     --network-configuration '{
@@ -706,7 +657,7 @@ aws identitystore update-identity-store \
 
 To remove all network restrictions from the identity store, set `VpceAccessRequired` to `false` and omit `ApiRestrictSourceVpcs`, `ApiAllowSourceIps`, and `ScimAllowSourceIps`. Because the update performs a full replacement, omitting these fields clears them.
 
-```
+```bash
 aws identitystore update-identity-store \
     --identity-store-id {{d-1234567890}} \
     --network-configuration '{"VpceAccessRequired": false}'
@@ -719,7 +670,7 @@ To prevent member accounts from disabling VPC endpoint access for the identity s
 
 **Example Require VPC endpoint access for all identity stores**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [

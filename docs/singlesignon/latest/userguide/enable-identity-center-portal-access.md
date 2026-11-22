@@ -1,7 +1,6 @@
 
 
 # Update firewalls and gateways to allow access to the AWS access portal
-<a name="enable-identity-center-portal-access"></a>
 
 The AWS access portal provides users with single sign-on access to all your AWS accounts and most commonly used cloud applications such as Office 365, Concur, Salesforce, and many more. You can quickly launch multiple applications simply by choosing the AWS account or application icon in the portal. 
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting IAM Identity Center issues
-<a name="troubleshooting"></a>
 
 The following can help you troubleshoot some common issues you might encounter while setting up or using the IAM Identity Center console.
 
@@ -80,13 +79,13 @@ The following are a couple of common reasons for this error:
 
 1. The user object in the IdP lacks a first (given) name, a last (family) name, and/or a display name.
 
-   **Error Message:** "2 validation errors detected: Value at {{'name.givenName'}} failed to satisfy constraint: Member must satisfy regular expression pattern: [\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}\\\\t\\\\n\\\\r ]\+; Value at {{'name.givenName'}} failed to satisfy constraint: Member must have length greater than or equal to 1"
+   **Error Message:** `"2 validation errors detected: Value at {{'name.givenName'}} failed to satisfy constraint: Member must satisfy regular expression pattern: [\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\t\\n\\r ]+; Value at {{'name.givenName'}} failed to satisfy constraint: Member must have length greater than or equal to 1"`
 
    1. **Solution:** Add a first (given), last (family), and display name for the user object. In addition, ensure that the SCIM provisioning mappings for user objects at your IdP are configured to send nonempty values for all of these attributes.
 
 1. More than one value for a single attribute is being sent for the user (also known as “multi-value attributes”). For example, the user may have both a work and a home phone number specified in the IdP, or multiple emails or physical addresses, and your IdP is configured to try to synchronize multiple or all values for that attribute. 
 
-   **Error Message:** "List attribute {{emails}} exceeds allowed limit of 1"
+   **Error Message:** `"List attribute {{emails}} exceeds allowed limit of 1"`
 
    1. **Solution options:**
 
@@ -105,7 +104,7 @@ The following are a couple of common reasons for this error:
 
 If you experience IAM Identity Center synchronization issues when provisioning users or groups in an external identity provider (IdP), it could be due to your external IdP users or groups not having unique attribute values. You may receive the following error messages in your external IdP:
 
-Refused to create a new, duplicate resource
+`Refused to create a new, duplicate resource`
 
 You can experience this problem in the following scenarios:
 + **Scenario 1**

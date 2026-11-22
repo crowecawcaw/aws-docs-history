@@ -1,7 +1,6 @@
 
 
 # Viewing and changing details about an AWS managed application
-<a name="aws-managed-applications-view-details"></a>
 
 After you connect an AWS managed application to IAM Identity Center by using the console or APIs for the application, the application is registered with IAM Identity Center. After an application is registered with IAM Identity Center, you can view and change details about the application in the IAM Identity Center console.
 

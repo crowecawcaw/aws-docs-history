@@ -1,7 +1,6 @@
 
 
 # PingFederate
-<a name="pingfederate-idp"></a>
 
 IAM Identity Center supports automatic provisioning (synchronization) of user and group information from the PingFederate product by Ping Identity (hereafter “Ping”) into IAM Identity Center. This provisioning uses the System for Cross-domain Identity Management (SCIM) v2.0 protocol. For more information, see [Using SAML and SCIM identity federation with external identity providers](other-idps.md).
 

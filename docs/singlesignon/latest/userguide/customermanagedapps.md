@@ -1,7 +1,6 @@
 
 
 # Customer managed applications
-<a name="customermanagedapps"></a>
 
 IAM Identity Center acts as a central identity service to your workforce users and groups. If you already use an identity provider (IdP), IAM Identity Center can integrate with your IdP so that you can provision your users and groups into IAM Identity Center and use your IdP for authentication. With a single connection, IAM Identity Center represents your IdP in front of multiple AWS services and enables your OAuth 2.0 applications to request access to data in these services on behalf of your users. You can also use IAM Identity Center to assign your users access to [SAML 2.0](https://wiki.oasis-open.org/security) applications. This includes AWS services such as Connect Customer and AWS Client VPN, which integrate with IAM Identity Center exclusively using SAML and are therefore categorized as customer managed applications. 
 + If your application supports **JSON Web Tokens (JWTs)**, you can use the trusted identity propagation feature of IAM Identity Center to enable your application to request access to data in AWS services on behalf of your users. Trusted identity propagation is built on the OAuth 2.0 Authorization Framework and includes an option for applications to exchange identity tokens that come from an external OAuth 2.0 authorization server for tokens issued by IAM Identity Center and recognized by AWS services. For more information, see [Trusted identity propagation use cases](trustedidentitypropagation-integrations.md).

@@ -1,7 +1,6 @@
 
 
 # Attribute mappings between IAM Identity Center and External Identity Providers directory
-<a name="attributemappingsconcept"></a>
 
 Attribute mappings are used to map attribute types that exist in IAM Identity Center with like attributes in your external identity source such as Google Workspace, Microsoft Active Directory (AD), and Okta. IAM Identity Center retrieves user attributes from your identity source and maps them to IAM Identity Center user attributes. 
 

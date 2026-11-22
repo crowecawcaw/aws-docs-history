@@ -1,7 +1,6 @@
 
 
 # Configure SAML and SCIM with Okta and IAM Identity Center
-<a name="gs-okta"></a>
 
 You can automatically provision or synchronize user and group information from Okta into IAM Identity Center using the [System for Cross-domain Identity Management (SCIM) 2.0 protocol](scim-profile-saml.md#scim-profile). For more information, see [Using SAML and SCIM identity federation with external identity providers](other-idps.md).
 
@@ -302,11 +301,11 @@ For general SCIM and SAML troubleshooting with Okta, see the following sections:
 ### Reprovisioning users and groups deleted from IAM Identity Center
 <a name="reprovisioning-deleted-users-groups"></a>
 + You could receive the following error message in the Okta Console, if you're attempting to change either a user or group in Okta that was once synchronized and then deleted from IAM Identity Center:
-  + Automatic profile push of user {{Jane Doe}} to app AWS IAM Identity Center failed: Error while trying to push profile update for {{jane\_doe@example.com}}: No user returned for user {{xxxxx-xxxxxx-xxxxx-xxxxxxx}} 
-  + Linked group is missing in AWS IAM Identity Center. Change the linked group to resume pushing group memberships.
+  + `Automatic profile push of user {{Jane Doe}} to app AWS IAM Identity Center failed: Error while trying to push profile update for {{jane_doe@example.com}}: No user returned for user {{xxxxx-xxxxxx-xxxxx-xxxxxxx}} `
+  + `Linked group is missing in AWS IAM Identity Center. Change the linked group to resume pushing group memberships.`
 + You could also receive the following error message in the Okta's Systems Logs for either synchronized and deleted IAM Identity Center users or groups:
-  + Okta Error: Eventfailed application.provision.user.push\_profile : No user returned for user {{xxxxx-xxxxxx-xxxxx-xxxxxxx}}
-  + Okta Error: application.provision.group\_push.mapping.update.or.delete.failed.with.error : Linked group is missing in AWS IAM Identity Center. Change the linked group to resume pushing group memberships.
+  + `Okta Error: Eventfailed application.provision.user.push_profile : No user returned for user {{xxxxx-xxxxxx-xxxxx-xxxxxxx}}`
+  + `Okta Error: application.provision.group_push.mapping.update.or.delete.failed.with.error : Linked group is missing in AWS IAM Identity Center. Change the linked group to resume pushing group memberships.`
 
 **Warning**  
 Users and groups should be deleted from Okta rather than IAM Identity Center if you have synchronized Okta and IAM Identity Center using SCIM.
@@ -325,7 +324,7 @@ To address this issue with deleted IAM Identity Center groups, the group must be
 
 If you receive the following error message in Okta:
 
-Automatic provisioning of user Jane Doe to app AWS IAM Identity Center failed: Matching user not found
+`Automatic provisioning of user Jane Doe to app AWS IAM Identity Center failed: Matching user not found`
 
 See [Okta documentation](https://support.okta.com/help/s/article/aws-iam-identity-center-provisioning-error-automatic-provisioning-of-user-name-of-user-to-app-aws-iam-identity-center-failed-matching-user-not-found?language=en_US) for more information.
 

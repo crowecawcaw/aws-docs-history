@@ -1,7 +1,6 @@
 
 
 # Use the AWS access portal
-<a name="access-portal-for-workforce-users"></a>
 
  You can launch multiple applications by choosing the AWS account or application tab in the portal. The presence of application icons in your AWS access portal means that an administrator from your company has granted you access to those AWS accounts or applications. It also means that you can access all these accounts or applications from the AWS access portal without additional sign-in prompts. 
 

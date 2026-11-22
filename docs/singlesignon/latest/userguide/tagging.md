@@ -1,7 +1,6 @@
 
 
 # Tagging AWS IAM Identity Center resources
-<a name="tagging"></a>
 
 A *tag* is a custom attribute label that you add to an AWS resource to make it easier to identify, organize, and search for resources. Each tag has two parts:
 + A *tag key* (for example, `CostCenter`, `Environment`, or `Project`). Tag keys can be up to 128 characters in length and are case sensitive.

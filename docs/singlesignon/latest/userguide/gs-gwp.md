@@ -1,7 +1,6 @@
 
 
 # Configure SAML and SCIM with Google Workspace and IAM Identity Center
-<a name="gs-gwp"></a>
 
 If your organization is using Google Workspace you can integrate your users from Google Workspace into IAM Identity Center to give them access to AWS resources. You can achieve this integration by changing your IAM Identity Center identity source from the default IAM Identity Center identity source to Google Workspace.
 

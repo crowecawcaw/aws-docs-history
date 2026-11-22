@@ -1,7 +1,6 @@
 
 
 # Baseline KMS key policy
-<a name="baseline-KMS-key-policy"></a>
 
 The following KMS key policy covers the most common deployment scenario: an IAM Identity Center instance with delegated administrators and AWS managed applications, including AWS Control Tower, SSO to Amazon EC2 instances, and custom workflows. Use this policy as your starting point when creating a customer managed KMS key for IAM Identity Center. If you need more granular access controls, such as restricting the key to a specific IAM Identity Center instance or application, see [Advanced KMS key policy statements](advanced-kms-policy.md). Please note if using a multi-Region key, the same policy should be used across all replicas to help ensure consistent authorization.
 
@@ -11,7 +10,7 @@ To use this policy, replace the following placeholder values with your own:
 
  Since AWS IAM Identity Center requires that the KMS key be in the same AWS Account as the service, the following statements use the `${aws:ResourceOrgID}` and `${aws:ResourceAccount}` variables instead of literal values. You can replace these variables with your AWS Organization ID and AWS Account ID if you prefer to do so.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -142,7 +141,7 @@ Use the following IAM policy statement in [Step 4: Configure IAM policies for cr
 
 For cross-account use cases other than IAM Identity Center administration, such as SSO to Amazon EC2 instances or administration of AWS managed applications, scope `AllowCrossAccountKMSKeyUse` down to `kms:Decrypt` only and remove the `AllowListKMSKeyAliases` statement.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Disabling an AWS managed application
-<a name="awsapps-remove"></a>
 
 To prevent users from authenticating to an AWS managed application, you can disable the application in the IAM Identity Center console.
 

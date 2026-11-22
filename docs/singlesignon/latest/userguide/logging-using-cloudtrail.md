@@ -1,7 +1,6 @@
 
 
 # Logging IAM Identity Center API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS IAM Identity Center is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in IAM Identity Center. CloudTrail captures API calls for IAM Identity Center as events. The calls captured include calls from the IAM Identity Center console and code calls to the IAM Identity Center API operations. If you create a [trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-trails), you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for IAM Identity Center. If you do not configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to IAM Identity Center, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
@@ -20,7 +19,7 @@ There is an additional group of CloudTrail events, referred to as Sign-in, which
 | [Identity Store](sso-info-in-cloudtrail.md#cloudtrail-events-identity-store-operations) | [Identity Store](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html) | The Identity Store APIs enable the management of the life cycle of your workforce's users and groups, and the users' group memberships. Also, they support the management of users' MFA devices. |  sso-directory.amazonaws.com, identitystore.amazonaws.com  | 
 | [OIDC](sso-info-in-cloudtrail.md#cloudtrail-events-oidc-operations) | [OIDC](https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html) | The OIDC APIs support trusted identity propagation, and sign-in to AWS CLI and IDE toolkits as an already authenticated IAM Identity Center user. |  sso.amazonaws.com, sso-oauth.amazonaws.com  | 
 | [AWS access portal](sso-info-in-cloudtrail.md#cloudtrail-events-access-portal-operations) | [AWS access portal](https://docs.aws.amazon.com/singlesignon/latest/PortalAPIReference/Welcome.html) | The AWS access portal APIs support the operations of the AWS access portal and users getting account credentials through the AWS CLI. | sso.amazonaws.com | 
-| [SCIM](#logging-using-cloudtrail) | [SCIM](https://docs.aws.amazon.com/singlesignon/latest/developerguide/what-is-scim.html) | The SCIM APIs support the provisioning of users, groups, and group memberships through the SCIM protocol. See [Logging IAM Identity Center SCIM API calls with AWS CloudTrail](scim-logging-using-cloudtrail.md) for more information. | identitystore-scim.amazonaws.com | 
+| [SCIM](logging-using-cloudtrail.md) | [SCIM](https://docs.aws.amazon.com/singlesignon/latest/developerguide/what-is-scim.html) | The SCIM APIs support the provisioning of users, groups, and group memberships through the SCIM protocol. See [Logging IAM Identity Center SCIM API calls with AWS CloudTrail](scim-logging-using-cloudtrail.md) for more information. | identitystore-scim.amazonaws.com | 
 | [AWS Sign-In](understanding-sign-in-events.md) | No public API | AWS emits Sign-in CloudTrail events for user authentication and federation flows into IAM Identity Center. | signin.amazon.com | 
 
 **Topics**

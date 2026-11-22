@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center and AWS Organizations
-<a name="identity-center-and-orgs"></a>
 
 AWS Organizations is recommended, but not required, for use with IAM Identity Center. If you haven't set up an organization, you do not have to. When you enable IAM Identity Center, you will choose whether to enable the service with AWS Organizations. When you set up an organization, the AWS account that sets up the organization becomes the management account of the organization. The root user of the AWS account is now the owner of the organizational management account. Any additional AWS accounts you invite to your organization are member accounts. The management account creates the organizations resources, organizational units, and policies that manage the member accounts. Permissions are delegated to member accounts by the management account. 
 

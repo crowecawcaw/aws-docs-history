@@ -1,7 +1,6 @@
 
 
 # Remove a Region from IAM Identity Center
-<a name="remove-region"></a>
 
  To remove an additional Region from your IAM Identity Center instance, follow these steps: 
 
@@ -39,7 +38,7 @@
 
  **To remove a Region** 
 
-```
+```bash
 aws sso-admin remove-region \
     --instance-arn arn:aws:sso:::instance/ssoins-1234567890abcdef \
     --region-name eu-west-1
@@ -47,7 +46,7 @@ aws sso-admin remove-region \
 
  **To check the current Region status** 
 
-```
+```bash
 aws sso-admin describe-region \
     --instance-arn arn:aws:sso:::instance/ssoins-1234567890abcdef \
     --region-name eu-west-1

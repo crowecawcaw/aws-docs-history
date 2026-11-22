@@ -1,7 +1,6 @@
 
 
 # Summary of emergency access configuration
-<a name="emergency-access-implementation"></a>
 
 To configure emergency access, you must complete the following tasks:
 

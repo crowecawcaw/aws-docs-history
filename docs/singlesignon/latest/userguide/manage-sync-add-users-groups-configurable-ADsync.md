@@ -1,7 +1,6 @@
 
 
 # Add users and groups to your sync scope
-<a name="manage-sync-add-users-groups-configurable-ADsync"></a>
 
 **Note**  
 When adding groups to your sync scope, sync groups directly from the trusted on-premises domain rather than from groups in the AWS Managed Microsoft AD domain. Groups synced directly from the trusted domain contain actual user objects that IAM Identity Center can access and synchronize successfully.

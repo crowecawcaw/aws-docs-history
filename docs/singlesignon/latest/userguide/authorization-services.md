@@ -1,7 +1,6 @@
 
 
 # Authorization services
-<a name="authorization-services"></a>
 
 In all [analytics and data lakehouse use cases](trustedidentitypropagation-integrations.md#tip-data-analytic-usecases-overview), you can achieve fine-grained access controls using:
 + AWS Lake Formation - for guidance, see [Setting up AWS Lake Formation with IAM Identity Center](tip-tutorial-lf.md).

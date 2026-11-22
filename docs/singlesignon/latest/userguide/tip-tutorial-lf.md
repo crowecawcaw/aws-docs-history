@@ -1,7 +1,6 @@
 
 
 # Setting up AWS Lake Formation with IAM Identity Center
-<a name="tip-tutorial-lf"></a>
 
 [AWS Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/what-is-lake-formation.html) is a managed service that simplifies the creation and management of data lakes on AWS. It automates data collection, cataloging, and security, providing a centralized repository for storing and analyzing diverse data types. Lake Formation offers fine-grained access controls and integrates with various AWS analytics services, enabling organizations to efficiently set up, secure, and derive insights from their data lakes.
 
@@ -42,7 +41,7 @@ Before you can get started with this tutorial, you'll need to set up the followi
 
 ****  
 
-         ```
+         ```json
          {
              "Version":"2012-10-17",		 	 	 
              "Statement": [
@@ -91,7 +90,7 @@ Before you can get started with this tutorial, you'll need to set up the followi
 
 ****  
 
-         ```
+         ```json
          {
              "Version":"2012-10-17",		 	 	 
              "Statement": [

@@ -1,7 +1,6 @@
 
 
 # User background sessions
-<a name="user-background-sessions"></a>
 
 User background sessions allow a user to initiate a long-running job on an AWS managed application such as [Amazon SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-updated.html), without that user having to remain signed in while the job runs. The job runs immediately and uses the [trusted identity propagation](trustedidentitypropagation-overview.md) capability of IAM Identity Center to ensure that the user's permissions are maintained while the job is run in the background. The job can continue to run even if the user turns off their computer, their IAM Identity Center sign-in session expires, or the user signs out of the AWS access portal. This capability enables data scientists, machine learning engineers, and others to start analytics and machine learning workflows that run in the background without active user involvement.
 

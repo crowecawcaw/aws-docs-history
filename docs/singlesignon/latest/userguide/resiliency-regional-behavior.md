@@ -1,7 +1,6 @@
 
 
 # Resiliency design and Regional behavior
-<a name="resiliency-regional-behavior"></a>
 
  The IAM Identity Center service is fully managed and uses highly available and durable AWS services, such as Amazon S3 and Amazon EC2. To ensure availability in the event of an Availability Zone disruption, IAM Identity Center operates across multiple Availability Zones. You can replicate your IAM Identity Center instance to additional Regions to maintain account access with already provisioned permissions in the event of a Regional disruption. For more information, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md). 
 

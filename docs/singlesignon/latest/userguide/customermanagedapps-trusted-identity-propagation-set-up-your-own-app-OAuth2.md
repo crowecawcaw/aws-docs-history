@@ -1,7 +1,6 @@
 
 
 # Set up customer managed OAuth 2.0 applications for trusted identity propagation
-<a name="customermanagedapps-trusted-identity-propagation-set-up-your-own-app-OAuth2"></a>
 
 To set up a customer managed OAuth 2.0 application for trusted identity propagation, you must first add it to IAM Identity Center. Use the following procedure to add your application to IAM Identity Center. 
 

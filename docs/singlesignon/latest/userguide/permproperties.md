@@ -1,7 +1,6 @@
 
 
 # Configure permission set properties
-<a name="permproperties"></a>
 
 In IAM Identity Center, administrators can complete the following configuration and management tasks to control user access and session duration.
 

@@ -1,7 +1,6 @@
 
 
 # Delegated administration
-<a name="delegated-admin"></a>
 
 Delegated administration provides a convenient way for assigned users in a registered member account to perform most IAM Identity Center administrative tasks. When you enable IAM Identity Center, your IAM Identity Center instance is created in the management account in AWS Organizations by default. This was originally designed this way so that IAM Identity Center can provision, de-provision, and update roles across all your organization's member accounts. Even though your IAM Identity Center instance must always reside in the management account, you can choose to delegate administration of IAM Identity Center to a member account in AWS Organizations, thereby extending the ability to manage IAM Identity Center from outside the management account.
 
@@ -69,7 +68,7 @@ If your delegated admin needs to set up user provisioning with SCIM, or perform 
 
 If you create your users and groups directly in IAM Identity Center, rather than using an external IdP or Directory Service, then you should take precautions for who can create users, reset passwords, and control group membership. These actions give the administrator great powers for who can sign in and who can gain access through membership in groups. These policies are best implemented as in-line policies within the permission sets you use for your IAM Identity Center administrators, rather than as SCPs. The following example inline policy has two objectives. Firstly, it prevents adding users to specific groups. You can use this to prevent delegated admins from adding users to groups that grant access to the management account. Secondly, it prevents the issuance of SCIM bearer tokens.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [

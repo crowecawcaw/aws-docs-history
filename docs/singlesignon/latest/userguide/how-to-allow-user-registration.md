@@ -1,7 +1,6 @@
 
 
 # Allow users to register their own MFA devices
-<a name="how-to-allow-user-registration"></a>
 
 IAM Identity Center administrators can allow users to self-register their own MFA devices.
 

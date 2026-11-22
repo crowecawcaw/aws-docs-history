@@ -1,7 +1,6 @@
 
 
 # Manage AWS accounts with permission sets
-<a name="permissionsetsconcept"></a>
 
 A permission set is a template that you create and maintain that defines a collection of one or more [IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html). Permission sets simplify the assignment of AWS account access for users and groups in your organization. For example, you can create a *Database Admin* permission set that includes policies for administering AWS RDS, DynamoDB, and Aurora services, and use that single permission set to grant access to a list of target AWS accounts within your [AWS Organization](https://aws.amazon.com/organizations/) for your database administrators.
 

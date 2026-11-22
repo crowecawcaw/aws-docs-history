@@ -1,7 +1,6 @@
 
 
 # Revoke user access
-<a name="revoke-user-permissions"></a>
 
  The following is a general procedure for revoking an active permission set session for an IAM Identity Center user. The procedure assumes that you want to remove all access for a user who has compromised credentials or for a bad actor who is in the system. The prerequisite is to have followed the guidance in [Prepare to revoke an active IAM role session created by a permission set](prereqs-revoking-user-permissions.md#prepare-to-revoke-session). We assume that the deny all policy is present in a service control policy (SCP). 
 

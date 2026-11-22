@@ -1,7 +1,6 @@
 
 
 # Supported user and group attributes in IAM Identity Center
-<a name="manage-your-identity-source-attribute-use"></a>
 
  This guide provides a reference for SCIM attribute support in IAM Identity Center. It lists which user and group attributes from the SCIM specification are supported in the IAM Identity Center identity store, and identifies specific attributes and sub-attributes that aren't supported. 
 

@@ -1,7 +1,6 @@
 
 
 # First-time Active Directory to IAM Identity Center sync setup
-<a name="manage-sync-configurable-ADsync"></a>
 
 If you are synchronizing your users and groups from Active Directory into IAM Identity Center for the first time, follow these steps. Alternatively, you can follow steps outlined in [Change your identity source](manage-your-identity-source-change.md) to change your identity source from IAM Identity Center to Active Directory.
 

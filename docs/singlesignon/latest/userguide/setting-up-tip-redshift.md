@@ -1,7 +1,6 @@
 
 
 # Setting up trusted identity propagation with Amazon Redshift Query Editor V2
-<a name="setting-up-tip-redshift"></a>
 
 The following procedure walks you through how to achieve trusted identity propagation from Amazon Redshift Query Editor V2 to Amazon Redshift.
 
@@ -32,7 +31,7 @@ The following tasks needed to be complete by the IAM Identity Center administrat
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -72,7 +71,7 @@ The following tasks needed to be complete by the IAM Identity Center administrat
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -112,7 +111,7 @@ The following tasks needed to be complete by the IAM Identity Center administrat
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

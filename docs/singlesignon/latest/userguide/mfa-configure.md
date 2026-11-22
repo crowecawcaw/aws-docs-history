@@ -1,7 +1,6 @@
 
 
 # Configure MFA in IAM Identity Center
-<a name="mfa-configure"></a>
 
 You can configure Multi-factor authentication (MFA) capabilities in IAM Identity Center when your identity source is configured with IAM Identity Center’s identity store, AWS Managed Microsoft AD, or AD Connector. MFA in IAM Identity Center is currently not supported for [external identity providers](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-idp.html).
 
@@ -11,7 +10,7 @@ The following are general MFA recommendations, depending on your IAM Identity Ce
 + If you are already using RADIUS MFA that you configured with Directory Service, you do not need to enable MFA within IAM Identity Center. MFA in IAM Identity Center is an alternative to RADIUS MFA for Microsoft Active Directory users of IAM Identity Center. For more information, see [RADIUS MFA](mfa-types.md#about-radius).
 + The following YouTube video provides an overview of MFA and IAM Identity Center:
 
-[![AWS Videos](https://img.youtube.com/vi/1iFvT8shnng?si=hpMeBAd85ypC3BTR/0.jpg)](https://www.youtube.com/watch?v=1iFvT8shnng?si=hpMeBAd85ypC3BTR)
+[![AWS Videos](https://img.youtube.com/vi/1iFvT8shnng/0.jpg)](https://www.youtube.com/watch?v=1iFvT8shnng)
 
 
 **Topics**

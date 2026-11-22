@@ -1,7 +1,6 @@
 
 
 # Session duration considerations for using identity sources, the AWS CLI, and AWS SDKs
-<a name="user-session-duration-prereqs-considerations"></a>
 
 Following are considerations for configuring the session duration if you use Microsoft Active Directory (AD) or an external identity provider (IdP) as the identity source, or the AWS Command Line Interface, AWS Software Development Kits (SDKs), or other AWS development tools to access AWS services programmatically.
 

@@ -1,7 +1,6 @@
 
 
 # Availability of IAM Identity Center use cases in the primary and additional Regions
-<a name="use-cases-across-regions"></a>
 
 
 | Feature | Regional availability | 

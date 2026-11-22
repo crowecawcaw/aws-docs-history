@@ -1,7 +1,6 @@
 
 
 # Using IAM Identity Center to connect with your JumpCloud Directory Platform
-<a name="jumpcloud-idp"></a>
 
 IAM Identity Center supports automatic provisioning (synchronization) of user information from  JumpCloud Directory Platform into IAM Identity Center. This provisioning uses the [Security Assertion Markup Language (SAML) 2.0](scim-profile-saml.md) protocol. For more information, see [Using SAML and SCIM identity federation with external identity providers](other-idps.md).
 

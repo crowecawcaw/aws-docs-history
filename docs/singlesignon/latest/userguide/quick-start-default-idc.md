@@ -1,7 +1,6 @@
 
 
 # Configure user access with the default IAM Identity Center directory
-<a name="quick-start-default-idc"></a>
 
 When you enable IAM Identity Center for the first time, it is automatically configured with an Identity Center directory as your default identity source, so you do not need to choose an identity source. If your organization uses another identity provider such as Microsoft Active Directory, Microsoft Entra ID, or Okta consider integrating that identity source with IAM Identity Center instead of using the default configuration.
 

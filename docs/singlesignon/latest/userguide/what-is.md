@@ -1,7 +1,6 @@
 
 
 # What is IAM Identity Center?
-<a name="what-is"></a>
 
 AWS IAM Identity Center is the AWS solution for connecting your workforce users to AWS managed applications such as Kiro and AWS Quick, and other AWS resources. You can connect your existing identity provider and synchronize users and groups from your directory, or create and manage your users directly in IAM Identity Center. You can then use IAM Identity Center for either or both of the following:
 + User access to applications

@@ -1,7 +1,6 @@
 
 
 # Disabling an AWS Region where IAM Identity Center is enabled
-<a name="disabling-region-with-identity-center"></a>
 
 If you disable an AWS Region in which IAM Identity Center is installed, IAM Identity Center is also disabled. After IAM Identity Center is disabled in a Region, users in that Region won’t have single sign-on access to AWS accounts and applications. 
 

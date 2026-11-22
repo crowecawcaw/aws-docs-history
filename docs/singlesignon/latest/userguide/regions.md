@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center Region data storage and operations
-<a name="regions"></a>
 
 Learn how IAM Identity Center handles data storage and operations across AWS Regions.
 

@@ -1,7 +1,6 @@
 
 
 # CloudTrail use cases for IAM Identity Center
-<a name="sso-cloudtrail-use-cases"></a>
 
 The CloudTrail events that IAM Identity Center emits can be valuable for a variety of use cases. Organizations can use these event logs to monitor and audit the user access and activity within their AWS environment. This can help compliance use cases, as the logs capture details on who is accessing what resources and when. You can also use the CloudTrail data for incident investigations, allowing teams to analyze user actions and track suspicious behavior. Additionally, the event history can support troubleshooting efforts, providing visibility into changes made to user permissions and configurations over time.
 

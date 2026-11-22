@@ -1,7 +1,6 @@
 
 
 # Custom permissions for AWS managed and customer managed policies
-<a name="permissionsetcustom"></a>
 
 You can create a permission set with **Custom permissions**, combining any of the AWS managed and customer managed policies that you have in AWS Identity and Access Management (IAM) along with inline policies. You can also include permissions boundary, setting the maximum possible permissions that other policies can grant to users of your permission set.
 

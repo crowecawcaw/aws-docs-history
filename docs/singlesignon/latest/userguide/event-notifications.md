@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center event notifications
-<a name="event-notifications"></a>
 
 You receive an event in Amazon EventBridge when a user, group, group membership, or the identity store itself is created, updated, or deleted in IAM Identity Center Identity Store. You can use these events to respond to changes as they happen, instead of periodically checking for changes. For example, you can use these events to:
 + Start onboarding tasks, such as creating resources for a user in an application, when the user is added to a group.

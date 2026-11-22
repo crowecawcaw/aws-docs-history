@@ -1,7 +1,6 @@
 
 
 # Use IAM policies in permission sets
-<a name="howtocmp"></a>
 
 In [Create a permission set](howtocreatepermissionset.md), you learned how to add policies, including customer managed policies and permissions boundaries, to a permission set. When you add customer managed policies and permissions to a permission set, IAM Identity Center doesn't create a policy in any AWS accounts. You must instead create those policies in advance in each account where you want to assign your permission set, and match them to the name and path specifications of your permission set. When you assign a permission set to an AWS account in your organization, IAM Identity Center creates an [AWS Identity and Access Management (IAM) role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) and attaches your [IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) to that role. 
 

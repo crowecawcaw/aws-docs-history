@@ -1,7 +1,6 @@
 
 
 # Resource-based policy example for IAM Identity Center
-<a name="iam-auth-access-using-resource-based-policies"></a>
 
 Every application that works with IAM Identity Center and uses [OAuth 2.0](customermanagedapps-saml2-oauth2.md#oidc-concept) requires a resource-based policy. The application can be customer managed or AWS managed. The required resource-based policy, called the *application policy* (or [ActorPolicy](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_IamAuthenticationMethod.html#API_IamAuthenticationMethod_Contents) in the APIs), defines which [IAM principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying) are authorized to call IAM authentication method API actions such as [`CreateTokenWithIAM`](https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateTokenWithIAM.html). The IAM authentication method allows an IAM principal, such an IAM role or an AWS service, to authenticate to the IAM Identity Center OIDC service by presenting IAM credentials to request or manage access tokens at the **/token?aws\_iam=t** endpoint. 
 

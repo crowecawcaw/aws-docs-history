@@ -1,7 +1,6 @@
 
 
 # Create permission policies for ABAC in IAM Identity Center
-<a name="configure-abac-policies"></a>
 
 You can create permissions policies that determine who can access your AWS resources based on the configured attribute value. When you enable ABAC and specify attributes, IAM Identity Center passes the attribute value of the authenticated user into IAM for use in policy evaluation.
 
@@ -15,7 +14,7 @@ You can use access control attributes in your permission sets (or IAM roles when
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

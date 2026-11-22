@@ -1,7 +1,6 @@
 
 
 # Understanding IAM Identity Center sign-in events
-<a name="understanding-sign-in-events"></a>
 
 AWS CloudTrail records successful and unsuccessful sign-in events for all IAM Identity Center identity sources. IAM Identity Center, Active Directory (AD Connector and AWS Managed Microsoft AD), and external identity provider (IdP) sourced identities include additional sign-in events that are captured each time a user is prompted to solve a specific credential challenge or factor, in addition to the status of that particular credential verification request. Only after a user has completed all required credential challenges will the user be signed in, which will result in a `UserAuthentication` event being logged.
 

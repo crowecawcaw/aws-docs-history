@@ -1,7 +1,6 @@
 
 
 # Add groups to your Identity Center directory
-<a name="addgroups"></a>
 
 Use the following procedure to add groups to your Identity Center directory. Alternatively, you can call the AWS API operation [CreateGroup](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_CreateGroup.html) to add groups.
 

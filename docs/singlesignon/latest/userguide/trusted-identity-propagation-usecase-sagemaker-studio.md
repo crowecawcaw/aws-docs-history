@@ -1,7 +1,6 @@
 
 
 # Trusted identity propagation with Amazon SageMaker Studio
-<a name="trusted-identity-propagation-usecase-sagemaker-studio"></a>
 
 [Amazon SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-updated.html) integrates with IAM Identity Center, and it supports [user background sessions](user-background-sessions.md) and trusted identity propagation. User background sessions allow a user to initiate a long-running job on SageMaker Studio, without that user having to remain signed in while the job runs. The job runs immediately and in the background, using the permissions of the user who initiated the job. The job can continue to run even if the user turns off their computer, their IAM Identity Center sign-in session expires, or the user signs out of the AWS access portal. The default session duration for user background sessions is 7 days, but you can specify a maximum duration of 90 days. Trusted identity propagation allows fine-grained access to be provided to AWS resources such as Amazon S3 buckets based on the user's identity or group membership.
 

@@ -1,7 +1,6 @@
 
 
 # Certificate expiration status indicators
-<a name="certexpirationindicators"></a>
 
 In the IAM Identity Center console, the **Applications** page displays status indicator icons in the properties of each application. These icons display in the **Expires on** column next to each certificate in the list. The following describes the criteria that IAM Identity Center uses to determine which icon displays for each certificate.
 + **Red** – Indicates that a certificate is currently expired.

@@ -1,7 +1,6 @@
 
 
 # Remove user access to SAML 2.0 applications
-<a name="removeaccessfromapp"></a>
 
 Use this procedure to remove user access to SAML 2.0 applications in the application catalog or custom SAML 2.0 applications. For more information on authentication sessions and durations, see [Understanding authentication sessions in IAM Identity Center](authconcept.md).
 

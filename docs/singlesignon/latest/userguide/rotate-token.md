@@ -1,7 +1,6 @@
 
 
 # Rotate an access token
-<a name="rotate-token"></a>
 
 An IAM Identity Center directory supports up to two access tokens at a time. To generate an additional access token prior to any rotation, delete any expired or unused access tokens.
 

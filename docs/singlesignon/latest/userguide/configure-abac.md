@@ -1,7 +1,6 @@
 
 
 # Enable and configure attributes for access control
-<a name="configure-abac"></a>
 
 To use attribute-based access control (ABAC), you must first enable it in either the **Settings** page of the IAM Identity Center console or the [IAM Identity Center API](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateInstanceAccessControlAttributeConfiguration.html). Regardless of the identity source, you can always configure user attributes from the Identity Store for use in ABAC. In the console, you can do this by navigating to the **Attributes for access control** tab on the **Settings** page. If you use an external identity provider (IdP) as the identity source, you also have the option of receiving attributes from the external IdP in SAML assertions. In this case, you need to configure the external IdP to send the desired attributes. If an attribute from a SAML assertion is also defined as an ABAC attribute in IAM Identity Center, IAM Identity Center will send the value from its Identity Store as a [session tag](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html) on sign-in to an AWS account.
 

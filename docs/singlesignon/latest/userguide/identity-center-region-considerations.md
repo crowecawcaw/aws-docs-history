@@ -1,7 +1,6 @@
 
 
 # Considerations for choosing an AWS Region
-<a name="identity-center-region-considerations"></a>
 
 You can enable IAM Identity Center in a single, supported AWS Region of your choice and it is available to users globally. This global availability makes it easier for you to configure user access to multiple AWS accounts and applications. Following are key considerations for choosing an AWS Region.
 + **Geographical location of your users** – When you select a Region that is geographically closest to the majority of your end users, they'll have lower latency of access to the AWS access portal and AWS managed applications, such as Amazon SageMaker AI.

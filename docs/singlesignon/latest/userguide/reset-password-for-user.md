@@ -1,7 +1,6 @@
 
 
 # Reset the IAM Identity Center user password for an end user
-<a name="reset-password-for-user"></a>
 
 This procedure is for administrators who need to reset the password for a user in the IAM Identity Center directory. You'll use the IAM Identity Center console to reset passwords.
 

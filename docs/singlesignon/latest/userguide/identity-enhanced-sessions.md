@@ -1,7 +1,6 @@
 
 
 # Enabling identity-enhanced console sessions
-<a name="identity-enhanced-sessions"></a>
 
 An identity-enhanced session for the console enhances a user's AWS console session by providing some additional user context to personalize that user's experience. This capability is currently supported for Amazon Q Developer Pro users of [Amazon Q on AWS apps and websites](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-on-aws.html).
 

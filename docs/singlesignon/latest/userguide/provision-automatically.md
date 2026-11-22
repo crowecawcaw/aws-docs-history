@@ -1,7 +1,6 @@
 
 
 # Provision users and groups from an external identity provider using SCIM
-<a name="provision-automatically"></a>
 
 IAM Identity Center supports automatic provisioning (synchronization) of user and group information from your identity provider (IdP) into IAM Identity Center using the System for Cross-domain Identity Management (SCIM) v2.0 protocol. When you configure SCIM synchronization, you create a mapping of your identity provider (IdP) user attributes to the named attributes in IAM Identity Center. This causes the expected attributes to match between IAM Identity Center and your IdP. You configure this connection in your IdP using your SCIM endpoint for IAM Identity Center and a bearer token that you create in IAM Identity Center.
 
@@ -51,7 +50,7 @@ If you want to prevent API-based mutations, attach a service control policy (SCP
 
 The following example SCP denies all mutating Identity Store actions:
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [

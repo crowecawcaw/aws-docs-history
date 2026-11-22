@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in IAM Identity Center
-<a name="security-logging-and-monitoring"></a>
 
 A best practice is to monitor your organization to ensure that changes are logged. Monitoring helps you ensure that you can investigate any unexpected change and roll back unwanted changes. IAM Identity Center currently supports two AWS services that help you monitor your organization and the activity that happens within it: AWS CloudTrail and Amazon EventBridge.
 

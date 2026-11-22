@@ -1,7 +1,6 @@
 
 
 # Require user re-authentication
-<a name="require-user-reauthentication"></a>
 
 User re-authentication is a setting on your external identity provider (IdP) configuration in IAM Identity Center. By default, it's set to **Not required**: when a user's IAM Identity Center session expires, IAM Identity Center renews it through the user's existing IdP session, and the user isn't prompted to sign in to the AWS access portal again.
 
@@ -17,7 +16,7 @@ In the CloudTrail event, the setting appears in `requestParameters.idpSAMLConfig
 
 The following example shows the relevant fields of a CloudTrail event in which an administrator set user re-authentication to **Required**.
 
-```
+```json
 {
   "eventName": "UpdateExternalIdPConfigurationForDirectory",
   "eventSource": "sso-directory.amazonaws.com",

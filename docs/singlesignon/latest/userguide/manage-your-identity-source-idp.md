@@ -1,7 +1,6 @@
 
 
 # External identity providers
-<a name="manage-your-identity-source-idp"></a>
 
 With IAM Identity Center, you can connect your existing workforce identities from external identity providers (IdPs) through the Security Assertion Markup Language (SAML) 2.0 and System for Cross-Domain Identity Management (SCIM) protocols. This enables your users to sign in to the AWS access portal with their corporate credentials. They can then navigate to their assigned accounts, roles, and applications hosted in external IdPs.
 

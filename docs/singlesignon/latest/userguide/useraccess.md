@@ -1,7 +1,6 @@
 
 
 # Single sign-on access to AWS accounts
-<a name="useraccess"></a>
 
 You can assign users in your connected directory permissions to the management account or member accounts in your organization in AWS Organizations based on [common job functions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html). Or you can use custom permissions to meet your specific security requirements. For example, you can grant database administrators broad permissions to Amazon RDS in development accounts but limit their permissions in production accounts. IAM Identity Center configures all the necessary user permissions in your AWS accounts automatically.
 

@@ -1,7 +1,6 @@
 
 
 # Delete your IAM Identity Center instance
-<a name="delete-config"></a>
 
 When an IAM Identity Center instance is deleted, all the data in that instance is deleted and cannot be recovered. The following table describes what data is deleted based on the directory type that is configured in IAM Identity Center.
 

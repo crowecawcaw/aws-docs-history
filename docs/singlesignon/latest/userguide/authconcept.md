@@ -1,7 +1,6 @@
 
 
 # Understanding authentication sessions in IAM Identity Center
-<a name="authconcept"></a>
 
 When a user signs in to the [AWS access portal](using-the-portal.md), IAM Identity Center creates an authentication session that represents the user’s verified identity.
 

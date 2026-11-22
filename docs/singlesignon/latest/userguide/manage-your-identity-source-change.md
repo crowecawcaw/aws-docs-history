@@ -1,7 +1,6 @@
 
 
 # Change your identity source
-<a name="manage-your-identity-source-change"></a>
 
 The following procedure describes how to change from a directory that IAM Identity Center provides (the default Identity Center directory) to Active Directory or an external identity provider, or the other way around. Before you proceed, review the information in [Considerations for changing your identity source](manage-your-identity-source-considerations.md). To complete this procedure, you'll need an Organization instance of IAM Identity Center. For more information, see [Organization and account instances of IAM Identity Center](identity-center-instances.md).
 

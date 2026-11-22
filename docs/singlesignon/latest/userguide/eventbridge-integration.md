@@ -1,7 +1,6 @@
 
 
 # Connect application components with Amazon EventBridge
-<a name="eventbridge-integration"></a>
 
  You can integrate IAM Identity Center with [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) to raise events that initiate administrative notifications or invoke automated workflows in response to specific IAM Identity Center actions recorded in CloudTrail events. 
 

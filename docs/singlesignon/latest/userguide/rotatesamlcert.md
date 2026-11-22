@@ -1,7 +1,6 @@
 
 
 # Rotate a SAML 2.0 certificate
-<a name="rotatesamlcert"></a>
 
 You may need to import certificates periodically in order to rotate invalid or expired certificates issued by your identity provider. This helps to prevent authentication disruption or downtime. All imported certificates are automatically active. Certificates should only be deleted after ensuring that they are no longer in use with the associated identity provider.
 

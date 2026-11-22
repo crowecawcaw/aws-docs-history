@@ -1,7 +1,6 @@
 
 
 # Replicate IAM Identity Center to an additional Region
-<a name="replicate-to-additional-region"></a>
 
  If your environment meets the [prerequisites](multi-region-iam-identity-center.md#multi-region-prerequisites), such as configuring IAM Identity Center with a multi-Region customer managed KMS key, complete the following steps to replicate your IAM Identity Center instance to an additional Region. Your primary Region continues to operate normally during and after these steps.
 
@@ -48,7 +47,7 @@ Adding a Region in IAM Identity Center triggers automatic replication of IAM Ide
 
  **To add a Region** 
 
-```
+```bash
 aws sso-admin add-region \
     --instance-arn arn:aws:sso:::instance/ssoins-1234567890abcdef \
     --region-name eu-west-1
@@ -56,7 +55,7 @@ aws sso-admin add-region \
 
  **To check the current Region status** 
 
-```
+```bash
 aws sso-admin describe-region \
     --instance-arn arn:aws:sso:::instance/ssoins-1234567890abcdef \
     --region-name eu-west-1

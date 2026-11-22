@@ -1,7 +1,6 @@
 
 
 # Identity-enhanced IAM role sessions
-<a name="trustedidentitypropagation-identity-enhanced-iam-role-sessions"></a>
 
 The [AWS Security Token Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html) (STS) enables an application to obtain an identity-enhanced IAM role session. Identity-enhanced role sessions have an added identity context that carries a user identifier to the AWS service that it calls. AWS services can look up the group memberships and attributes of the user in IAM Identity Center and use them to authorize the user’s access to resources.
 
@@ -39,7 +38,7 @@ When a request is made to an AWS service using an identity-enhanced IAM role ses
 
 The following is an example of how a request made to an AWS service using an identity-enhanced role session is logged in CloudTrail.
 
-```
+```JSON
 "userIdentity": {
       "type": "AssumedRole",
       "principalId": "AROAEXAMPLE:MyRole",

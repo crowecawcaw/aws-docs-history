@@ -1,7 +1,6 @@
 
 
 # Considerations for customer managed KMS keys and advanced KMS key policies
-<a name="considerations-for-customer-managed-kms-keys-advanced"></a>
 
 When implementing customer managed KMS keys with IAM Identity Center, consider these factors that affect setup, security, and ongoing maintenance of your encryption configuration.
 

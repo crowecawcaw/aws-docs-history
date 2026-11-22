@@ -1,7 +1,6 @@
 
 
 # Creating shortcut links to AWS Management Console destinations
-<a name="createshortcutlink"></a>
 
 Shortcut links created in the AWS access portal take IAM Identity Center users to a specific destination in the AWS Management Console, with a specific permission set, and in a specific AWS account.
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with IAM Identity Center
-<a name="getting-started"></a>
 
 The following outlines how you can get started with IAM Identity Center.
 

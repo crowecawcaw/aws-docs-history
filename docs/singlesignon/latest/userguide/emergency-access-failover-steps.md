@@ -1,7 +1,6 @@
 
 
 # Emergency failover process
-<a name="emergency-access-failover-steps"></a>
 
 When an IAM Identity Center instance isn't available and you determine that you must provide emergency access to the AWS Management Console, we recommend the following failover process.
 

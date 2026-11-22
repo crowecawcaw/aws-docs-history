@@ -1,7 +1,6 @@
 
 
 # Users, groups, and provisioning in IAM Identity Center
-<a name="users-groups-provisioning"></a>
 
 IAM Identity Center enables you to control who can sign in and what resources they can access. A user must be provisioned to sign in. You can then assign access only to provisioned users or groups. Learn about users, groups, and provisioning in IAM Identity Center.
 

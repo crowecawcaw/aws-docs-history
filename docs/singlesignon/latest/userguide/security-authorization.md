@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center console and API authorization
-<a name="security-authorization"></a>
 
 Existing IAM Identity Center console APIs support dual authorization, which allows you to maintain use of existing API operations when newer APIs are available. If you have existing instances of IAM Identity Center that were created prior to November 15, 2023 and October 15th, 2020, you can use the following tables to determine which API operations now map to newer API operations that were released after those dates.
 

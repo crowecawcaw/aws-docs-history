@@ -1,7 +1,6 @@
 
 
 # Delete users in IAM Identity Center
-<a name="deleteusers"></a>
 
 When you delete a user in your IAM Identity Center directory, it removes their access to AWS accounts and applications. After you delete a user, you cannot undo this action. Use the following procedure to delete a user in your Identity Center directory.
 

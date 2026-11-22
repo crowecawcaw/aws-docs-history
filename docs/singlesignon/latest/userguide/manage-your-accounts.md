@@ -1,7 +1,6 @@
 
 
 # Configure access to AWS accounts
-<a name="manage-your-accounts"></a>
 
 Organization instances of IAM Identity Center are integrated with AWS Organizations. This enables you to centrally manage permissions across multiple AWS accounts without configuring access individually to each account.
 
@@ -103,7 +102,7 @@ For the identity store service used by IAM Identity Center, users who have acces
 
 To prevent users in member accounts from using API operations in the identity store, you can [attach a service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_attach.html). An SCP is a type of organization policy that you can use to manage permissions in your organization. The following example SCP prevents users in member accounts from accessing any API operation in the identity store.
 
-```
+```json
         {
             "Sid": "ExplicitlyBlockIdentityStoreAccess",
             "Effect": "Deny",

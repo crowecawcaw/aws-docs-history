@@ -1,7 +1,6 @@
 
 
 # Disable attributes for access control
-<a name="disable-abac"></a>
 
 Use the following procedure to disable the ABAC feature and delete all of the attribute mappings that have been configured. 
 

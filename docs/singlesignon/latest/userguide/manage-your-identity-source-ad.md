@@ -1,7 +1,6 @@
 
 
 # Microsoft AD directory
-<a name="manage-your-identity-source-ad"></a>
 
 With AWS IAM Identity Center, you can connect a self-managed directory in Active Directory (AD) or a directory in AWS Managed Microsoft AD by using AWS Directory Service. This Microsoft AD directory defines the pool of identities that administrators can pull from when using the IAM Identity Center console to assign single sign-on access. After connecting your corporate directory to IAM Identity Center, you can then grant your AD users or groups access to AWS accounts, applications, or both. 
 
@@ -16,7 +15,7 @@ IAM Identity Center does not support SAMBA 4-based Simple AD as a connected dire
 
 For a demonstration on the process of using Active Directory as an identity source for IAM Identity Center, see the following YouTube video:
 
-[![AWS Videos](https://img.youtube.com/vi/OMbob_ef7J4?si=J23xw0EGkZOo8y9n/0.jpg)](https://www.youtube.com/watch?v=OMbob_ef7J4?si=J23xw0EGkZOo8y9n)
+[![AWS Videos](https://img.youtube.com/vi/OMbob_ef7J4/0.jpg)](https://www.youtube.com/watch?v=OMbob_ef7J4)
 
 
 ## Considerations for using Active Directory

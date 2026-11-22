@@ -1,7 +1,6 @@
 
 
 # Setting up SCIM provisioning between OneLogin and IAM Identity Center
-<a name="onelogin-idp"></a>
 
 IAM Identity Center supports automatic provisioning (synchronization) of user and group information from OneLogin into IAM Identity Center using the System for Cross-domain Identity Management (SCIM) v2.0 protocol. For more information, see [Using SAML and SCIM identity federation with external identity providers](other-idps.md).
 

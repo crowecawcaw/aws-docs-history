@@ -1,7 +1,6 @@
 
 
 # Setting up user passwords
-<a name="set-up-user-passwords"></a>
 
 For users created in the Identity Center directory, administrators can manage password policies, handle users without initial passwords, and reset passwords when needed. These password management features apply only to users in the built-in Identity Center directory. If you're using Active Directory or an external identity provider, you must manage passwords in those systems. 
 

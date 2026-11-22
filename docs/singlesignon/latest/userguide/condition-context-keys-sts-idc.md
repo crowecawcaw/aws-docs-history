@@ -1,7 +1,6 @@
 
 
 # AWS STS condition context keys for IAM Identity Center
-<a name="condition-context-keys-sts-idc"></a>
 
 When a [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-principal) makes a [request](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-request) to AWS, AWS gathers the request information into a *request context*, which is used to evaluate and authorize the request. You can use the `Condition` element of a JSON policy to compare keys in the request context with key values that you specify in your policy. Request information is provided by different sources, including the principal making the request, the resource, the request it is made against, and the metadata about the request itself. *Service-specific condition keys* are defined for use with an individual AWS service.
 

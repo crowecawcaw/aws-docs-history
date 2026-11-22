@@ -1,7 +1,6 @@
 
 
 # Remove permission sets in IAM Identity Center
-<a name="howtoremovepermissionset"></a>
 
 You can remove a permission set from IAM Identity Center users and groups in the IAM Identity Center console. You can also remove a permission set from an AWS account. For more information about permission sets and how they are used in IAM Identity Center, see [Manage AWS accounts with permission sets](permissionsetsconcept.md).
 

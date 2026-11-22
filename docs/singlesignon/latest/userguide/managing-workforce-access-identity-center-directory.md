@@ -1,7 +1,6 @@
 
 
 # Managing access for users in the Identity Center directory
-<a name="managing-workforce-access-identity-center-directory"></a>
 
 Learn how to manage passwords and multi-factor authentication (MFA) for users in the IAM Identity Center directory. These security features help protect user accounts.
 

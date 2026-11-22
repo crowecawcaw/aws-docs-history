@@ -1,7 +1,6 @@
 
 
 # Setting up your own OAuth 2.0 application
-<a name="trustedidentitypropagation-using-customermanagedapps-setup"></a>
 
 Trusted identity propagation enables a customer managed application to request access to data in AWS services on behalf of a user. Data access management is based on a user’s identity, so administrators can grant access based on users' existing user and group memberships. The user's identity, actions performed on their behalf, and other events are recorded in service-specific logs and CloudTrail events.
 

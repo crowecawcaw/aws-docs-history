@@ -1,7 +1,6 @@
 
 
 # Viewing and ending your active session
-<a name="end-user-how-to-end-active-sessions-accessportal"></a>
 
 You can use your AWS access portal to view the list of your active sessions, and if required, end one or more sessions. 
 

@@ -1,7 +1,6 @@
 
 
 # Manage tags by using the IAM Identity Center console
-<a name="tagging-console"></a>
 
 You can use the IAM Identity Center console to add, edit, and remove tags that are associated with your instance or permission sets.
 

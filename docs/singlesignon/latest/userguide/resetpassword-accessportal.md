@@ -1,7 +1,6 @@
 
 
 # Resetting your AWS access portal user password
-<a name="resetpassword-accessportal"></a>
 
 The AWS access portal provides [IAM Identity Center](what-is.md) users with single sign-on access to all their assigned AWS accounts and cloud applications through a web portal. The AWS access portal is different from the [AWS Management Console](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/learn-whats-new.html), which is a collection of service consoles for managing AWS resources.
 

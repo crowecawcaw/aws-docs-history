@@ -1,7 +1,6 @@
 
 
 # Specify trusted applications
-<a name="trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps"></a>
 
 After you [set up your customer managed application](customermanagedapps-trusted-identity-propagation-set-up-your-own-app-OAuth2.md), you must specify one or more trusted AWS services, or trusted applications, for identity propagation. Specify an AWS service that has data that users of your customer managed applications need to access. When your users sign in to your customer managed application, that application will pass your users' identity to the trusted application.
 

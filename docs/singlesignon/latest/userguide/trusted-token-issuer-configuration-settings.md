@@ -1,7 +1,6 @@
 
 
 # Trusted token issuer configuration settings
-<a name="trusted-token-issuer-configuration-settings"></a>
 
 The following sections describe the settings required to set up and use a trusted token issuer.
 

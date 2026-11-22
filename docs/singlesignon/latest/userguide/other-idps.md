@@ -1,7 +1,6 @@
 
 
 # Using SAML and SCIM identity federation with external identity providers
-<a name="other-idps"></a>
 
 IAM Identity Center implements the following standards-based protocols for identity federation:
 + SAML 2.0 for user authentication

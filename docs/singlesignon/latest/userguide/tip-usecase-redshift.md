@@ -1,7 +1,6 @@
 
 
 # Trusted identity propagation with Amazon Redshift
-<a name="tip-usecase-redshift"></a>
 
 The steps to enable trusted identity propagation depend on whether your users interact with AWS managed applications or customer managed applications. The following diagram shows a trusted identity propagation configuration for client-facing applications - either AWS managed or external to AWS - that query Amazon Redshift data with access control provided either by Amazon Redshift or by authorization services, such as AWS Lake Formation or Amazon S3 Access Grants.
 

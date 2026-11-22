@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center identity source tutorials
-<a name="tutorials"></a>
 
 You can connect your existing identity source in your AWS Organizations management account to [an organization instance of IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html). If you do not have an existing identity provider, you can create and manage users directly in the default IAM Identity Center directory. You can have one identity source per organization. 
 

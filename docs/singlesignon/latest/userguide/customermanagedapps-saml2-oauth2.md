@@ -1,7 +1,6 @@
 
 
 # Single sign-on access to SAML 2.0 and OAuth 2.0 applications
-<a name="customermanagedapps-saml2-oauth2"></a>
 
 IAM Identity Center enables you to provide your users with single sign-on access to SAML 2.0 or OAuth 2.0 applications. The following topics provide a high-level overview of SAML 2.0 and OAuth 2.0.
 

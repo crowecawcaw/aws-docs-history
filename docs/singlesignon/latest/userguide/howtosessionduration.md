@@ -1,7 +1,6 @@
 
 
 # Set session duration for AWS accounts
-<a name="howtosessionduration"></a>
 
 For each [permission set](https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsetsconcept.html), you can specify a session duration to control the length of time that a user can be signed in to an AWS account. When the specified duration elapses, AWS signs the user out of the session. 
 

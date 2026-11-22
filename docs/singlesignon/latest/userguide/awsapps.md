@@ -1,7 +1,6 @@
 
 
 # AWS managed applications
-<a name="awsapps"></a>
 
 AWS IAM Identity Center streamlines and simplifies the task of connecting your workforce users to AWS managed applications such as Kiro and AWS Quick. With IAM Identity Center, you can connect your existing identity provider once and synchronize users and groups from your directory, or create and manage your users directly in IAM Identity Center. By providing one point of federation, IAM Identity Center eliminates the need to set up federation or user and group synchronization for each application and reduces your administrative effort. You also get a common [view of user and group assignments](howtoviewandchangepermissionset.md).
 
@@ -62,7 +61,7 @@ When you first enable IAM Identity Center, it becomes available as an identity s
 
 The following SCP example blocks access to the IAM Identity Center user and group information and prevents the application from being started, except in designated accounts (111111111111 and 222222222222):
 
-```
+```json
 {
   "Sid": "DenyIdCExceptInDesignatedAWSAccounts",
   "Effect": "Deny",

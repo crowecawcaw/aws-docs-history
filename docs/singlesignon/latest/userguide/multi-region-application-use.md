@@ -1,7 +1,6 @@
 
 
 # Deploying and managing applications across multiple AWS Regions
-<a name="multi-region-application-use"></a>
 
  The topic of application access through IAM Identity Center is covered extensively in [Configure access to applications](manage-your-applications.md). This section provides additional details relevant to the deployment and management of applications across multiple AWS Regions. 
 

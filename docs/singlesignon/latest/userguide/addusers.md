@@ -1,7 +1,6 @@
 
 
 # Add users to your Identity Center directory
-<a name="addusers"></a>
 
 Users and groups that you create in your Identity Center directory are available in IAM Identity Center only. Use the following procedure to add users to your Identity Center directory. Alternatively, you can call the AWS API operation [CreateUser](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_CreateUser.html) to add users.
 

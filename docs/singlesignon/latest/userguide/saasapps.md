@@ -1,7 +1,6 @@
 
 
 # Set up an application from the IAM Identity Center application catalog
-<a name="saasapps"></a>
 
 You can use the application catalog in the IAM Identity Center console to add many commonly used SAML 2.0 applications that work with IAM Identity Center. Examples include Salesforce, Box, and Microsoft 365.
 

@@ -1,7 +1,6 @@
 
 
 # Connect a directory in AWS Managed Microsoft AD to IAM Identity Center
-<a name="connectawsad"></a>
 
 Use the following procedure to connect a directory in AWS Managed Microsoft AD that is managed by AWS Directory Service to IAM Identity Center. 
 

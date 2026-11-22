@@ -1,7 +1,6 @@
 
 
 # Disable user access to AWS accounts and applications in IAM Identity Center
-<a name="disableuser"></a>
 
 When you disable user access in your IAM Identity Center directory, you cannot edit their user details, reset their password, add the user to a group, or view their group membership. Disabling user access prevents them from signing in to the AWS access portal and they will no longer have access to their assigned AWS accounts and applications. Use disable user access for temporary access removal when you might need to restore access later.
 

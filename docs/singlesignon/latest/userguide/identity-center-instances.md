@@ -1,7 +1,6 @@
 
 
 # Organization and account instances of IAM Identity Center
-<a name="identity-center-instances"></a>
 
 An instance is a single deployment of IAM Identity Center. There are two types of instances available for IAM Identity Center: *organization instances* and *account instances*.
 + Organization instance (recommended)

@@ -1,7 +1,6 @@
 
 
 # Using IAM Identity Center across multiple AWS Regions
-<a name="multi-region-iam-identity-center"></a>
 
  This topic explains how to use AWS IAM Identity Center across multiple AWS Regions. Learn how to replicate your instance to additional Regions, manage workforce access and sessions, deploy applications, and maintain account access during service disruptions. 
 

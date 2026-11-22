@@ -1,7 +1,6 @@
 
 
 # Troubleshoot multi-Region setup in AWS IAM Identity Center
-<a name="multi-region-related-errors"></a>
 
 This topic describes common multi-Region setup related errors you might encounter when using AWS IAM Identity Center and provides troubleshooting steps to resolve them.
 

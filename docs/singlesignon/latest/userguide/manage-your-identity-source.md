@@ -1,7 +1,6 @@
 
 
 # Manage your identity source
-<a name="manage-your-identity-source"></a>
 
 Your identity source in IAM Identity Center defines where your users and groups are managed. After you configure your identity source, you can look up users or groups to grant them single sign-on access to AWS accounts, applications, or both.
 

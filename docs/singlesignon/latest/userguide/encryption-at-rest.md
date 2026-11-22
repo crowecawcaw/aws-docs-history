@@ -1,7 +1,6 @@
 
 
 # Encryption at rest
-<a name="encryption-at-rest"></a>
 
  IAM Identity Center provides encryption to protect customer data at rest using the following key types: 
 +  **AWS owned keys (default key type)** — IAM Identity Center uses these keys by default to automatically encrypt your data. You can't view, manage, audit their use, or use AWS owned keys for other purposes. IAM Identity Center handles the key management entirely to keep your data secure, without your having to take any action. For more information, see [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the [*AWS Key Management Service Developer Guide*](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html). 

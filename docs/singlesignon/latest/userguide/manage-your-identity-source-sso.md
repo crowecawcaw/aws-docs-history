@@ -1,7 +1,6 @@
 
 
 # Manage users in the Identity Center directory
-<a name="manage-your-identity-source-sso"></a>
 
 IAM Identity Center provides the following capabilities for your users and groups:
 + Create your users and groups.

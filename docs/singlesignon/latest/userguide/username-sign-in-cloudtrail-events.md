@@ -1,7 +1,6 @@
 
 
 # Username in sign-in CloudTrail events
-<a name="username-sign-in-cloudtrail-events"></a>
 
 IAM Identity Center emits the `UserName` field under the `additionalEventData` element once per successful sign-in of an IAM Identity Center user. The following list describes the two sign-in events in scope, and the conditions under which these events happen. Only one of the conditions can be true when a user is signing in.
 + `CredentialChallenge`

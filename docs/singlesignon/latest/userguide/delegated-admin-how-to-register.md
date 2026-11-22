@@ -1,7 +1,6 @@
 
 
 # Register a member account
-<a name="delegated-admin-how-to-register"></a>
 
 To configure delegated administration, you must first register a member account in your organization as a delegated administrator. Users in that member account who have sufficient permissions will have administrative access to IAM Identity Center. After a member account is successfully registered for delegated administration, it is referred to as the *delegated administrator account*. To learn more about tasks that the delegated administrator account can perform, see [AWS account types](manage-your-accounts.md#account-types).
 

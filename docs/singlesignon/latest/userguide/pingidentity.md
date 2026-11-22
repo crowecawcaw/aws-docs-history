@@ -1,7 +1,6 @@
 
 
 # Using Ping Identity products with IAM Identity Center
-<a name="pingidentity"></a>
 
 The following Ping Identity products have been tested with IAM Identity Center.
 

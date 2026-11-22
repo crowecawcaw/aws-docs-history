@@ -1,7 +1,6 @@
 
 
 # Organization instances of IAM Identity Center
-<a name="organization-instances-identity-center"></a>
 
 When you enable IAM Identity Center in conjunction with AWS Organizations, you are creating an organization instance of IAM Identity Center. Your organization instance must be enabled in your management account and you can centrally manage the access of users and groups with a single organization instance. You can have only one organization instance for each management account in AWS Organizations. 
 

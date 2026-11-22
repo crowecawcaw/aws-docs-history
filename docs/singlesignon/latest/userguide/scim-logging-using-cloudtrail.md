@@ -1,7 +1,6 @@
 
 
 # Logging IAM Identity Center SCIM API calls with AWS CloudTrail
-<a name="scim-logging-using-cloudtrail"></a>
 
 [IAM Identity Center SCIM](other-idps.md) is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls for SCIM as events. Using the information collected by CloudTrail, you can determine the information about the requested action, the date and time of the action, request parameters, and so on. To learn more about CloudTrail, see [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
@@ -36,7 +35,7 @@ The following examples demonstrate typical CloudTrail event logs generated durin
 
 This CloudTrail event shows a successful `CreateUser` operation performed through the SCIM API. The event captures both the request parameters (with sensitive information masked) and the response elements, including the newly-created user's ID. This type of event is generated when an identity provider successfully provisions a new user to IAM Identity Center using the SCIM protocol.
 
-```
+```json
 {
   "eventVersion": "1.10",
   "userIdentity": {
@@ -101,7 +100,7 @@ This CloudTrail event shows a successful `CreateUser` operation performed throug
 
 This CloudTrail event shows a failed `PatchGroup` operation that resulted in a `ValidationException` with the error message `"Missing path in PATCH request"`. The error occurred because the `PATCH` operation requires a path attribute to specify which group attribute to modify, but this attribute was missing from the request.
 
-```
+```json
 {
   "eventVersion": "1.10",
   "userIdentity": {
@@ -151,7 +150,7 @@ This CloudTrail event shows a failed `PatchGroup` operation that resulted in a `
 
 This CloudTrail event shows a failed `CreateGroup` operation that resulted in a `ConflictException` with the error message `"Duplicate GroupDisplayName"`. This error occurs when attempting to create a group with a display name that already exists in IAM Identity Center. The identity provider must use a unique group name or update the existing group instead of creating a new one.
 
-```
+```json
 {
   "eventVersion": "1.10",
   "userIdentity": {
@@ -192,7 +191,7 @@ This CloudTrail event shows a failed `CreateGroup` operation that resulted in a 
 
 This CloudTrail event shows a failed `PatchUser` operation that resulted in a `ValidationException` with the error message `"List attribute emails exceeds allowed limit of 1"`. This error occurs when attempting to assign multiple email addresses to a user, as IAM Identity Center supports only one email address per user. The identity provider must configure SCIM mapping to send only a single email address for each user.
 
-```
+```json
 {
   "eventVersion": "1.10",
   "userIdentity": {
@@ -244,10 +243,10 @@ This CloudTrail event shows a failed `PatchUser` operation that resulted in a `V
 The following validation error messages commonly appear in CloudTrail events when using the SCIM API with IAM Identity Center. These validation errors typically occur during user and group provisioning operations.
 
 For detailed guidance on resolving these errors and properly configuring SCIM provisioning, see this [AWS re:Post article](https://repost.aws//knowledge-center/iam-identity-center-provision).
-+ List attribute email exceeds allowed limit of 1
-+ List attribute addresses allowed limit of 1
-+ 1 validation errors detected: Value at '\*name.familyName\*' failed to satisfy constraint: Member must satisfy regular expression pattern: [\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}\\\\t\\\\n\\\\r ]\+
-+ 2 validation errors detected: Value at 'name.familyName' failed to satisfy constraint: Member must have length greater than or equal to 1; Value at 'name.familyName' failed to satisfy constraint: Member must satisfy regular expression pattern: [\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}\\\\t\\\\n\\\\r ]\+
-+ 2 validation errors detected: Value at 'urn:ietf:params:scim:schemas:extension:enterprise:2.0:User.manager.value' failed to satisfy constraint: Member must have length greater than or equal to 1; Value at 'urn:ietf:params:scim:schemas:extension:enterprise:2.0:User.manager.value' failed to satisfy constraint: Member must satisfy regular expression pattern: [\\\\p{L}\\\\p{M}\\\\p{S}\\\\p{N}\\\\p{P}\\\\t\\\\n\\\\r ]\+",
-+ Invalid JSON from RequestBody
-+ Invalid Filter format
++ `List attribute email exceeds allowed limit of 1`
++ `List attribute addresses allowed limit of 1`
++ `1 validation errors detected: Value at '*name.familyName*' failed to satisfy constraint: Member must satisfy regular expression pattern: [\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\t\\n\\r ]+`
++ `2 validation errors detected: Value at 'name.familyName' failed to satisfy constraint: Member must have length greater than or equal to 1; Value at 'name.familyName' failed to satisfy constraint: Member must satisfy regular expression pattern: [\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\t\\n\\r ]+`
++ `2 validation errors detected: Value at 'urn:ietf:params:scim:schemas:extension:enterprise:2.0:User.manager.value' failed to satisfy constraint: Member must have length greater than or equal to 1; Value at 'urn:ietf:params:scim:schemas:extension:enterprise:2.0:User.manager.value' failed to satisfy constraint: Member must satisfy regular expression pattern: [\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\t\\n\\r ]+",`
++ `Invalid JSON from RequestBody`
++ `Invalid Filter format`

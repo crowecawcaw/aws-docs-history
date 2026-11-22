@@ -1,7 +1,6 @@
 
 
 # Setting up trusted identity propagation with Amazon Athena workgroups
-<a name="setting-up-tip-ate"></a>
 
 The following procedure walks you through setting up Amazon Athena workgroups for trusted identity propagation. 
 

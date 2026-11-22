@@ -1,7 +1,6 @@
 
 
 # Set up emergency access to the AWS Management Console
-<a name="emergency-access"></a>
 
 IAM Identity Center is built from highly available AWS infrastructure and uses an Availability Zone architecture to eliminate single points of failure. For an extra layer of protection in the unlikely event of an IAM Identity Center or AWS Region disruption, we recommend that you set up a configuration that you can use to provide temporary access to the AWS Management Console.
 

@@ -1,7 +1,6 @@
 
 
 # Create a permission set
-<a name="howtocreatepermissionset"></a>
 
 Use this procedure to create a predefined permission set that uses a single AWS managed policy, or a custom permission set that uses up to 10 AWS managed or customer managed policies and an inline policy. You can request an adjustment to the maximum number of 10 policies in the [Service Quotas console](https://console.aws.amazon.com/servicequotas) for IAM. You can create a permission set in the IAM Identity Center console.
 

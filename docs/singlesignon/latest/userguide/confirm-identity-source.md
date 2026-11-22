@@ -1,7 +1,6 @@
 
 
 # Confirm your identity sources in IAM Identity Center
-<a name="confirm-identity-source"></a>
 
 Your identity source in IAM Identity Center defines where your users and groups are managed. After you enable IAM Identity Center, confirm that you are using the identity source of your choice. If you already have an assigned identity source, you can continue to use it. 
 

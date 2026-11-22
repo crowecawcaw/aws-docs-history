@@ -1,7 +1,6 @@
 
 
 # Use Service Control Policies to control account instance creation
-<a name="control-account-instance"></a>
 
 The ability for member accounts to create account instances depends on when you enabled IAM Identity Center:
 + **Before November 2023** – You must [permit account instance creation in member accounts](enable-account-instance-console.md), which is an action that cannot be reversed.
@@ -30,7 +29,7 @@ Instead of preventing all account instance creation, this policy denies any atte
 **Example : Deny policy to limit account instance creation**    
 ****  
 
-```
+```json
 {
 
     "Version":"2012-10-17",		 	 	 

@@ -1,7 +1,6 @@
 
 
 # Certificate expiration status indicators
-<a name="samlcertexpirationindicators"></a>
 
 The **Manage SAML 2.0 certificates** page displays colored status indicator icons in the **Expires on** column next to each certificate in the list. The following describes the criteria that IAM Identity Center uses to determine which icon is displayed for each certificate.
 + **Red** – Indicates that a certificate is expired.

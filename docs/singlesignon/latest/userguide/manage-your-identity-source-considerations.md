@@ -1,7 +1,6 @@
 
 
 # Considerations for changing your identity source
-<a name="manage-your-identity-source-considerations"></a>
 
 Although you can change your identity source at any time, we recommend that you consider how this change might affect your current deployment. 
 

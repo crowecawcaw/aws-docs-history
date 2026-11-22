@@ -1,7 +1,6 @@
 
 
 # Disable automatic provisioning
-<a name="disable-provisioning"></a>
 
 Use the following procedure to disable automatic provisioning in the IAM Identity Center console.
 

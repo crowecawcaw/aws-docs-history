@@ -1,7 +1,6 @@
 
 
 # Setting up SCIM provisioning between CyberArk and IAM Identity Center
-<a name="cyberark-idp"></a>
 
 IAM Identity Center supports automatic provisioning (synchronization) of user information from CyberArk Directory Platform into IAM Identity Center. This provisioning uses the System for Cross-domain Identity Management (SCIM) v2.0 protocol. For more information, see [Using SAML and SCIM identity federation with external identity providers](other-idps.md).
 

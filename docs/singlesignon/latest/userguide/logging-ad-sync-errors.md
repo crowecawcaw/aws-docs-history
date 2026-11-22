@@ -1,7 +1,6 @@
 
 
 # Logging configurable AD sync errors
-<a name="logging-ad-sync-errors"></a>
 
 You can enable logging on your configurable Active Directory (AD) sync configurations to receive logs with information about errors that can occur during the sync process. With these logs, you can monitor if there is an issue with your configurable AD sync and take action if applicable. You can send your logs to an Amazon CloudWatch Logs log group, an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Data Firehose with cross account delivery supported for Amazon S3 buckets and Firehose. 
 

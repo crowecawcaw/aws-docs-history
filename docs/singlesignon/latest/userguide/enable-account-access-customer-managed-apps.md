@@ -1,7 +1,6 @@
 
 
 # Enable AWS account access for customer managed applications
-<a name="enable-account-access-customer-managed-apps"></a>
 
 You can enable AWS account access for customer managed applications in IAM Identity Center by configuring a [trusted token issuer](https://docs.aws.amazon.com/singlesignon/latest/userguide/using-apps-with-trusted-token-issuer.html). A trusted token issuer is an OAuth 2.0 authorization server that issues signed tokens on behalf of authenticated users. IAM Identity Center exchanges these tokens for credentials that allow your application to programmatically access AWS accounts and roles assigned to those users. Trusted token issuers can also be used for access to AWS managed applications. For more information, see [Using applications with a trusted token issuer](using-apps-with-trusted-token-issuer.md).
 
@@ -62,7 +61,7 @@ You can use the `PutApplicationAccessScope` API to programmatically enable the `
 
 **AWS CLI**
 
-```
+```bash
 aws sso-admin put-application-access-scope \
   --application-arn arn:aws:sso::{{123456789012}}:application/{{ssoins-1234567890abcdef}}/{{apl-1234567890abcdef}} \
   --scope "sso:account:access"
@@ -70,7 +69,7 @@ aws sso-admin put-application-access-scope \
 
 **API request:**
 
-```
+```json
 {
   "ApplicationArn": "arn:aws:sso::{{123456789012}}:application/{{ssoins-1234567890abcdef}}/{{apl-1234567890abcdef}}",
   "Scope": "sso:account:access"

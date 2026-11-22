@@ -1,7 +1,6 @@
 
 
 # Connect a self-managed directory in Active Directory to IAM Identity Center
-<a name="connectonpremad"></a>
 
 Users in your self-managed directory in Active Directory (AD) can also have single sign-on access to AWS accounts and applications in the AWS access portal. To configure single sign-on access for these users, you can do either of the following:
 + **Create a two-way trust relationship** – When two-way trust relationships are created between AWS Managed Microsoft AD and a self-managed directory in AD, users in your self-managed directory in AD can sign in with their corporate credentials to various AWS services and business applications. One-way trusts do not work with IAM Identity Center.

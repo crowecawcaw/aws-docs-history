@@ -1,7 +1,6 @@
 
 
 # Configure SAML and SCIM with Microsoft Entra ID and IAM Identity Center
-<a name="idp-microsoft-entra"></a>
 
 AWS IAM Identity Center supports integration with [Security Assertion Markup Language (SAML) 2.0](scim-profile-saml.md) as well as [automatic provisioning](provision-automatically.md) (synchronization) of user and group information from Microsoft Entra ID (formerly known as Azure Active Directory or Azure AD) into IAM Identity Center using the [System for Cross-domain Identity Management (SCIM) 2.0](scim-profile-saml.md#scim-profile) protocol. For more information, see [Using SAML and SCIM identity federation with external identity providers](other-idps.md).
 

@@ -1,7 +1,6 @@
 
 
 # User interactive sessions
-<a name="user-interactive-sessions"></a>
 
 User interactive sessions are sessions tied to a user's sign-in to the AWS access portal or access to [AWS managed applications](awsapps.md). The session duration of authentication into the AWS access portal and applications is the maximum length of time that a user can be signed in without re-authenticating. If you end an active AWS access portal session, this also ends any sessions for these managed applications.
 

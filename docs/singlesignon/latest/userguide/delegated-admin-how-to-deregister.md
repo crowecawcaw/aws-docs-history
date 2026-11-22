@@ -1,7 +1,6 @@
 
 
 # Deregister a member account
-<a name="delegated-admin-how-to-deregister"></a>
 
 You can only deregister a member account while signed in with credentials from the management account.
 

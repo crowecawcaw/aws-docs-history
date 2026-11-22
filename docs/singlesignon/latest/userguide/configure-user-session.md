@@ -1,7 +1,6 @@
 
 
 # Configure the session duration in IAM Identity Center
-<a name="configure-user-session"></a>
 
 You can configure the session duration for your workforce users when they use the AWS access portal and applications that work with IAM Identity Center, including Kiro. IAM Identity Center provides the following session types: user interactive sessions, user background sessions, and extended sessions for Kiro.
 

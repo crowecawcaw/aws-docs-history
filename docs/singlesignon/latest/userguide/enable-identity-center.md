@@ -1,7 +1,6 @@
 
 
 # Enable IAM Identity Center
-<a name="enable-identity-center"></a>
 
 When you enable IAM Identity Center you choose an AWS IAM Identity Center instance type to enable. An instance of a service is a single deployment of a service within your AWS environment. There are two types of instances available for IAM Identity Center: organization instances and account instances. The instance types available for you to enable depend upon the account type you are signed into.
 

@@ -1,7 +1,6 @@
 
 
 # Extended sessions for Kiro
-<a name="90-day-extended-session-duration"></a>
 
 If your developers use Kiro as part of an integrated development environment (IDE), you can set the session duration for Kiro to 90 days. Depending on when you enabled IAM Identity Center, extended session duration for Kiro might be enabled by default. This extended session doesn't affect the session duration of the AWS access portal or other AWS managed applications.
 

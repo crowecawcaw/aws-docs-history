@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center prerequisites and considerations
-<a name="identity-center-prerequisites"></a>
 
 You can use IAM Identity Center for access to AWS managed applications only, AWS accounts only, or both. If you are using IAM federation to manage access to AWS accounts, you can continue to do so while using IAM Identity Center for application access.
 

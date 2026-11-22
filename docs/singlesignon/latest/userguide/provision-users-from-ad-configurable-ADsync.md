@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center configurable AD sync
-<a name="provision-users-from-ad-configurable-ADsync"></a>
 
 IAM Identity Center configurable Active Directory (AD) sync enables you to explicitly configure the identities in Microsoft Active Directory that are automatically synchronized into IAM Identity Center and control the synchronization process.
 + With this sync method, you can do the following:

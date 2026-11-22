@@ -1,7 +1,6 @@
 
 
 # Setting up a trusted token issuer
-<a name="setuptrustedtokenissuer"></a>
 
 To enable trusted identity propagation for an application that authenticates externally to IAM Identity Center, one or more administrators must set up a trusted token issuer. A trusted token issuer is an OAuth 2.0 authorization server that issues tokens to applications that initiate requests (requesting applications). The tokens authorize these applications to initiate requests on behalf of their users to a receiving application (an AWS service). 
 

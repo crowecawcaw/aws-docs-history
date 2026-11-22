@@ -1,7 +1,6 @@
 
 
 # Return to normal operations
-<a name="emergency-access-return-to-normal-operations"></a>
 
  Check the [AWS Health Dashboard](https://health.aws.amazon.com/health/status) to confirm when the health of the IAM Identity Center service is restored. To return to normal operations, perform the following steps.
 

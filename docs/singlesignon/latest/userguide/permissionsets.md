@@ -1,7 +1,6 @@
 
 
 # Create, manage, and delete permission sets
-<a name="permissionsets"></a>
 
 Permission sets define the level of access that users and groups have to an AWS account. Permission sets are stored in IAM Identity Center and can be provisioned to one or more AWS accounts. You can assign more than one permission set to a user. For more information about permission sets and how they are used in IAM Identity Center, see [Manage AWS accounts with permission sets](permissionsetsconcept.md).
 

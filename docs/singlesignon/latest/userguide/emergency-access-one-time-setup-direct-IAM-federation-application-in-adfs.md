@@ -1,7 +1,6 @@
 
 
 # One-time setup of a direct IAM federation application with ADFS
-<a name="emergency-access-one-time-setup-direct-IAM-federation-application-in-adfs"></a>
 
 This guide describes the one-time setup process for configuring direct IAM federation with ADFS to enable emergency access to AWS accounts when IAM Identity Center is unavailable.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot customer managed keys in AWS IAM Identity Center
-<a name="cmk-related-errors"></a>
 
 This topic describes common customer managed key related errors you might encounter when using AWS IAM Identity Center and provides troubleshooting steps to resolve them.
 

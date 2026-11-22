@@ -1,7 +1,6 @@
 
 
 # Referencing permission sets in resource policies, Amazon EKS Cluster config maps, and AWS KMS key policies
-<a name="referencingpermissionsets"></a>
 
 When you assign a permission set to an AWS account, IAM Identity Center creates a role with a name that begins with `AWSReservedSSO_`. 
 
@@ -73,7 +72,7 @@ The `Condition` element includes the `ArnLike` condition operator and uses a wil
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

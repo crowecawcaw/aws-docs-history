@@ -1,7 +1,6 @@
 
 
 # Quick start: Setting up IAM Identity Center to test AWS managed applications
-<a name="awsapps-identity-center-quick-start"></a>
 
  If your administrator hasn’t already provided you with access to IAM Identity Center, you can use the steps in this topic to set up IAM Identity Center to test AWS managed applications. You'll learn how to enable IAM Identity Center, create a user directly in IAM Identity Center, and assign that user to an AWS managed application. 
 

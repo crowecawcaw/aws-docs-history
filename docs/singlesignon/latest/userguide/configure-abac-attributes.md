@@ -1,7 +1,6 @@
 
 
 # Select your attributes for access control
-<a name="configure-abac-attributes"></a>
 
 Use the following procedure to set up attributes for your ABAC configuration. 
 

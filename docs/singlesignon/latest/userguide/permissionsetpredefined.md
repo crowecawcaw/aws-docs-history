@@ -1,7 +1,6 @@
 
 
 # Predefined permissions for AWS managed policies
-<a name="permissionsetpredefined"></a>
 
 You can create a predefined permission set with AWS managed policies.
 

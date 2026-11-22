@@ -1,7 +1,6 @@
 
 
 # IAM roles created by IAM Identity Center
-<a name="identity-center-and-iam-roles"></a>
 
 When you assign a user to an AWS account IAM Identity Center creates IAM roles to give users permissions to resources.
 

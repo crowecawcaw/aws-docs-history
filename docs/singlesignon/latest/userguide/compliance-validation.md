@@ -1,7 +1,6 @@
 
 
 # Compliance validation for IAM Identity Center
-<a name="compliance-validation"></a>
 
 Third-party auditors assess the security and compliance of AWS services such as AWS IAM Identity Center as part of multiple AWS compliance programs.
 

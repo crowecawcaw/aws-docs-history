@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center information in CloudTrail
-<a name="sso-info-in-cloudtrail"></a>
 
 CloudTrail is enabled on your AWS account when you create the account. When activity occurs in IAM Identity Center, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html). 
 

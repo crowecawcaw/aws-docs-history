@@ -1,7 +1,6 @@
 
 
 # Edit Identity Center directory user properties
-<a name="edituser"></a>
 
 Use the following procedure to edit the properties of a user in your Identity Center directory. Alternatively, you can call the AWS API operation [ UpdateUser](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_UpdateUser.html) to update user properties.
 

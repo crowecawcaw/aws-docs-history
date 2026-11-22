@@ -1,7 +1,6 @@
 
 
 # Delete an access token
-<a name="delete-token"></a>
 
 Use the following procedure to delete an existing access token in the IAM Identity Center console.
 

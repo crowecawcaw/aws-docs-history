@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center service APIs supported in additional AWS Regions
-<a name="api-support-in-additional-regions"></a>
 
 
 | API | Functionality in additional Regions | 

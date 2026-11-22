@@ -1,7 +1,6 @@
 
 
 # Trusted identity propagation use cases
-<a name="trustedidentitypropagation-integrations"></a>
 
 As an IAM Identity Center administrator, you might be asked to help configure trusted identity propagation from user facing applications to AWS services. To support this request, you'll need the following information:
 + What client-facing application will your users interface with?

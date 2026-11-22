@@ -1,7 +1,6 @@
 
 
 # Trusted identity propagation with Amazon Athena
-<a name="tip-usecase-ate"></a>
 
 The steps to enable trusted identity propagation depend on whether your users interact with AWS managed applications or customer managed applications. The following diagram shows a trusted identity propagation configuration for client-facing applications - either AWS managed or external to AWS - that uses Amazon Athena to query Amazon S3 data with access control provided by AWS Lake Formation and Amazon S3 Access Grants.
 

@@ -1,7 +1,6 @@
 
 
 # Temporary elevated access for AWS accounts
-<a name="temporary-elevated-access"></a>
 
 All access to your AWS account involves some level of privilege. Sensitive operations, such as changing the configuration for a production environment, require special treatment due to scope and potential impact. Temporary elevated access (also known as just-in-time access) is a way to request, approve, and track the use of a permission to perform a specific task during a specified time. Temporary elevated access supplements other forms of access control, such as permission sets and multi-factor authentication.
 

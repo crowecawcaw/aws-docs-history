@@ -1,7 +1,6 @@
 
 
 # Generate an access token
-<a name="generate-token"></a>
 
 Use the following procedure to generate a new access token in the IAM Identity Center console.
 

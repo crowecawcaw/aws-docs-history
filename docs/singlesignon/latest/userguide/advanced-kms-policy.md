@@ -1,7 +1,6 @@
 
 
 # Advanced KMS key policy statements
-<a name="advanced-kms-policy"></a>
 
  Use advanced KMS key policy statements to implement more granular access controls for your customer managed KMS key. These policies build on the [Baseline KMS key policy](baseline-KMS-key-policy.md) by adding encryption context conditions and service-specific restrictions. Before deciding whether to use advanced KMS key policy statements, make sure to review the pertinent considerations.
 
@@ -69,7 +68,7 @@ Once you have updated the template with your values, return to [Step 2: Prepare 
 
 The kms:Decrypt action alone does not restrict access to read-only operations. The IAM policy must enforce read-only access on IAM Identity Center service APIs.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -139,7 +138,7 @@ To use this policy:
 
 1. Replace the example IAM Identity Center instance ARN with your actual instance ARN
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -210,7 +209,7 @@ To use this policy:
 
 1. Replace the example IAM Identity Center instance ARN with your actual instance ARN
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
