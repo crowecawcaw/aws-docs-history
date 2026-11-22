@@ -1,7 +1,6 @@
 
 
 # Use the X-Ray API
-<a name="xray-api"></a>
 
 If the X-Ray SDK doesn’t support your programming language, you can use either the X-Ray APIs directly or the AWS Command Line Interface (AWS CLI) to call X-Ray API commands. Use the following guidance to choose how you interact with the API:
 + Use the AWS CLI for simpler syntax using pre-formatted commands or with options inside your request.

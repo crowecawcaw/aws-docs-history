@@ -1,7 +1,6 @@
 
 
 # Getting data from AWS X-Ray
-<a name="xray-api-gettingdata"></a>
 
 AWS X-Ray processes the trace data that you send to it to generate full traces, trace summaries, and service graphs in JSON. You can retrieve the generated data directly from the API with the AWS CLI.
 

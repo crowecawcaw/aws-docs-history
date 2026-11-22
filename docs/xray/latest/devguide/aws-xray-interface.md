@@ -1,7 +1,6 @@
 
 
 # Choosing an interface
-<a name="aws-xray-interface"></a>
 
 AWS X-Ray can provide insights into how your application works and how well it interacts with other services and resources. After you instrument or configure your application, X-Ray collects trace data as your application serves requests. You can analyze this trace data to identify performance issues, troubleshoot errors, and optimization your resources. This guide shows you how to interact with X-Ray with the following guidelines:
 + Use an AWS Management Console if you want to get started quickly or can use pre-built visualizations to perform basic tasks.

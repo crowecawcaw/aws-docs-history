@@ -1,7 +1,6 @@
 
 
 # AWS X-Ray identity-based policy examples
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify X-Ray resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the users or groups that require those permissions.
 
@@ -42,7 +41,7 @@ You don't need to allow minimum console permissions for users that are making ca
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -93,7 +92,7 @@ A user with a role that has the following policy attached cannot add the tag `ro
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -185,7 +184,7 @@ To make granting permissions easy, IAM supports **managed policies** for each se
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -214,7 +213,7 @@ To make granting permissions easy, IAM supports **managed policies** for each se
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -259,7 +258,7 @@ To make granting permissions easy, IAM supports **managed policies** for each se
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -287,7 +286,7 @@ To make granting permissions easy, IAM supports **managed policies** for each se
 ------
 + <a name="xray-permissions-managedpolicies-apikey"></a>`AWSXRayAPIKeyAccess` – Grants the permissions that an IAM user needs to send traces to the OpenTelemetry Protocol (OTLP) traces endpoint with an X-Ray API key (bearer token). Attach this AWS managed policy to the IAM user that owns the API key.
 
-  ```
+  ```json
   {
       "Version": "2012-10-17",
       "Statement": [
@@ -356,7 +355,7 @@ The following is an example of an identity-based permissions policy for a `Creat
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -382,7 +381,7 @@ The following is an example of an identity-based permissions policy for a `Creat
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

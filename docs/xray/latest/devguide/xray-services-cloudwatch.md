@@ -1,7 +1,6 @@
 
 
 # CloudWatch integration with X-Ray
-<a name="xray-services-cloudwatch"></a>
 
 AWS X-Ray integrates with [CloudWatch Application Signals](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html), CloudWatch RUM, and CloudWatch Synthetics to make it easier to monitor the health of your applications. Enable your application for Application Signals to monitor and troubleshoot the operational health of your services, client pages, Synthetics canaries, and service dependencies.
 

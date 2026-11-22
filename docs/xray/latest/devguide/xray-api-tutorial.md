@@ -1,7 +1,6 @@
 
 
 # Using the AWS X-Ray API with the AWS CLI
-<a name="xray-api-tutorial"></a>
 
 The AWS CLI lets your access the X-Ray service directly and use the same APIs that the X-Ray console uses to retrieve the service graph and raw traces data. The sample application includes scripts that show how to use these APIs with the AWS CLI.
 

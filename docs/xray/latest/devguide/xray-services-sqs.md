@@ -1,7 +1,6 @@
 
 
 # Amazon SQS and AWS X-Ray
-<a name="xray-services-sqs"></a>
 
 AWS X-Ray integrates with Amazon Simple Queue Service (Amazon SQS) to trace messages that are passed through an Amazon SQS queue. If a service traces requests by using the X-Ray SDK, Amazon SQS can send the tracing header and continue to propagate the original trace from the sender to the consumer with a consistent trace ID. Trace continuity enables users to track, analyze, and debug throughout downstream services.
 

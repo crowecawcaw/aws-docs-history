@@ -1,7 +1,6 @@
 
 
 # Data protection in AWS X-Ray
-<a name="xray-console-encryption"></a>
 
 AWS X-Ray always encrypts traces and related data at rest. When you need to audit and disable encryption keys for compliance or internal requirements, you can configure X-Ray to use an AWS Key Management Service (AWS KMS) key to encrypt data.
 

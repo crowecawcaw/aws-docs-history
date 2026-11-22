@@ -1,7 +1,6 @@
 
 
 # Migrate to OpenTelemetry .NET
-<a name="introduction-dotnet"></a>
 
 When using X-Ray Tracing in your .NET applications, the X-Ray .NET SDK with manual efforts is used for instrumentation.
 

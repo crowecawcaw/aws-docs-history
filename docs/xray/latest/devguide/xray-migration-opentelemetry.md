@@ -1,7 +1,6 @@
 
 
 # Migrating to OpenTelemetry Java
-<a name="xray-migration-opentelemetry"></a>
 
 This section provides guidance on migrating from the X-Ray SDK to the OpenTelemetry SDK for Java applications.
 

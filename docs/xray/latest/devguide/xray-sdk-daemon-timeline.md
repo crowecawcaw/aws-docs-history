@@ -1,7 +1,6 @@
 
 
 # X-Ray SDK and Daemon Support timeline
-<a name="xray-sdk-daemon-timeline"></a>
 
 The following table lists the dates and the level of support for X-Ray SDKs and Daemon.
 

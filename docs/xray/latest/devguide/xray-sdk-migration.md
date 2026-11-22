@@ -1,7 +1,6 @@
 
 
 # Migrating from X-Ray instrumentation to OpenTelemetry instrumentation
-<a name="xray-sdk-migration"></a>
 
 **Note**  
 X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md).
@@ -388,7 +387,7 @@ Download and run the executable file from the X-Ray daemon Amazon S3 bucket.
 Automatic installation  
 Use this script to install the daemon when launching an instance:  
 
-```
+```bash
 #!/bin/bash
 curl https://s3.us-east-2.amazonaws.com/aws-xray-assets.us-east-2/xray-daemon/aws-xray-daemon-3.x.rpm \
     -o /home/ec2-user/xray.rpm
@@ -541,7 +540,7 @@ Stop any existing X-Ray Daemon container before running the CloudWatch agent or 
 
 1. Create a configuration file named `cw-agent-otel.json`:
 
-   ```
+   ```json
    {
      "traces": {
        "traces_collected": {
@@ -577,7 +576,7 @@ Stop any existing X-Ray Daemon container before running the CloudWatch agent or 
    In your task definition, the configuration depends on the networking mode that you use. Bridge networking is the default and can be used in your default VPC. In a bridge network, set the `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT`environment variable to tell the OpenTelemetry SDK what the endpoint and port are for the CloudWatch agent. You should also create a link from your application container to the Collector container for traces to be sent from the OpenTelemetry SDK in your application to the Collector container.   
 **Example CloudWatch agent task definition**  
 
-   ```
+   ```json
    {
        "containerDefinitions": [
            {
@@ -643,7 +642,7 @@ For more information, see [Deploying the CloudWatch agent to collect Amazon EC2 
    In the task definition, the configuration depends on the networking mode that you use. Bridge networking is the default and can be used in your default VPC. In a bridge network, set the `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` environment variable to tell the OpenTelemetry SDK what the endpoint and port are for the OpenTelemetry Collector. You should also create a link from your application container to the Collector container for traces to be sent from the OpenTelemetry SDK in your application to the Collector container.   
 **Example OpenTelemetry collector task definition**  
 
-   ```
+   ```json
    {
        "containerDefinitions": [
            {

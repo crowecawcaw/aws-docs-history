@@ -1,7 +1,6 @@
 
 
 # Migrate to OpenTelemetry Python
-<a name="migrate-xray-to-opentelemetry-python"></a>
 
 This guide helps you migrate Python applications from X-Ray SDK to OpenTelemetry instrumentation. It covers both automatic and manual instrumentation approaches, with code examples for common scenarios.
 

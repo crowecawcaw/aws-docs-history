@@ -1,7 +1,6 @@
 
 
 # AWS X-Ray segment documents
-<a name="xray-api-segmentdocuments"></a>
 
 A **trace segment** is a JSON representation of a request that your application serves. A trace segment records information about the original request, information about the work that your application does locally, and **subsegments** with information about downstream calls that your application makes to AWS resources, HTTP APIs, and SQL databases.
 

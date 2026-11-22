@@ -1,7 +1,6 @@
 
 
 # AWS X-Ray SDK for .NET
-<a name="xray-sdk-dotnet"></a>
 
 **Note**  
 X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation ](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-migration.html).
@@ -62,7 +61,7 @@ Use NuGet to add the X-Ray SDK for .NET to your application.
 
 The X-Ray SDK for .NET is available from [Nuget](https://www.nuget.org/packages/AWSXRayRecorder/). Install the SDK using the package manager:
 
-```
+```powershell
 Install-Package AWSXRayRecorder -Version 2.10.1
 ```
 

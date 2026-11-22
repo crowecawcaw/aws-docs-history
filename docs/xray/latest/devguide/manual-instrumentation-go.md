@@ -1,7 +1,6 @@
 
 
 # Migrate to OpenTelemetry Go
-<a name="manual-instrumentation-go"></a>
 
 Use the following code examples to manually instrument your Go applications with the OpenTelemetry SDK when migrating from X-Ray.
 
@@ -13,7 +12,7 @@ Use the following code examples to manually instrument your Go applications with
 
 When using the X-Ray SDK for Go, service plugins or local sampling rules were required to be configured before instrumenting your code.
 
-```
+```go
 func init() {
     if os.Getenv("ENVIRONMENT") == "production" {
         ec2.Init()
@@ -35,7 +34,7 @@ Configure the OpenTelemetry SDK by instantiating a TracerProvider and registerin
 + X-Ray Remote Sampler – Required for sampling requests using X-Ray sampling rules
 + Resource detectors – To detect metadata of the host running your application
 
-```
+```go
 import (
     "go.opentelemetry.io/contrib/detectors/aws/ec2"
     "go.opentelemetry.io/contrib/propagators/aws/xray"
@@ -93,7 +92,7 @@ func setupTracing() error {
 
 To instrument an HTTP handler with X-Ray, the X-Ray handler method was used to generate segments using NewFixedSegmentNamer.
 
-```
+```go
 func main() {
     http.Handle("/", xray.Handler(xray.NewFixedSegmentNamer("myApp"), http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
         w.Write([]byte("Hello!"))
@@ -107,7 +106,7 @@ func main() {
 
 To instrument an HTTP handler with OpenTelemetry, use the OpenTelemetry's newHandler method to wrap your original handler code.
 
-```
+```go
 import (
     "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 )
@@ -139,7 +138,7 @@ if err != nil {
 
 To instrument outgoing AWS requests from AWS SDK, your clients were instrumented as follows:
 
-```
+```go
 // Create a segment
 ctx, root := xray.BeginSegment(context.TODO(), "AWSSDKV2_Dynamodb")
 defer root.Close(nil)
@@ -212,7 +211,7 @@ import (
 
 To instrument outgoing HTTP calls with X-Ray, the xray.Client was used to create a copy of a provided HTTP client.
 
-```
+```go
 myClient := xray.Client(http-client)
 
 resp, err := ctxhttp.Get(ctx, xray.Client(nil), url)
@@ -269,7 +268,7 @@ Alternatively, you can search the OpenTelemetry registry to find out if OpenTele
 
 With the X-Ray SDK, the BeginSegment and BeginSubsegment methods was required to manually create X-Ray segments and sub-segments.
 
-```
+```go
 // Start a segment
 ctx, seg := xray.BeginSegment(context.Background(), "service-name")
 // Start a subsegment

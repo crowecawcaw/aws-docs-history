@@ -1,7 +1,6 @@
 
 
 # Tracking X-Ray encryption configuration changes with AWS Config
-<a name="xray-api-config"></a>
 
 AWS X-Ray integrates with AWS Config to record configuration changes made to your X-Ray encryption resources. You can use AWS Config to inventory X-Ray encryption resources, audit the X-Ray configuration history, and send notifications based on resource changes.
 

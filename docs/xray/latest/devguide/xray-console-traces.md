@@ -1,7 +1,6 @@
 
 
 # Viewing traces and trace details
-<a name="xray-console-traces"></a>
 
 Use the **Traces** page in the X-Ray console to find traces by URL, response code, or other data from the trace summary. After selecting a trace from the trace list, the **Trace details** page displays a map of service nodes that are associated with the selected trace and a timeline of trace segments. 
 

@@ -1,7 +1,6 @@
 
 
 # Use a console
-<a name="aws-xray-interface-console"></a>
 
 Use a console if you want a graphical user interface (GUI) that requires minimal coding. Users that are new to X-Ray can get started quickly using pre-built visualizations, and performing basic tasks. You can do the following directly from the console:
 + Enable X-Ray.

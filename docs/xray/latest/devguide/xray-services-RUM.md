@@ -1,7 +1,6 @@
 
 
 # CloudWatch RUM and AWS X-Ray
-<a name="xray-services-RUM"></a>
 
 With Amazon CloudWatch RUM, you can perform real user monitoring to collect and view client-side data about your web application performance from actual user sessions in near-real time. With AWS X-Ray and CloudWatch RUM, you can analyze and debug the request path starting from end users of your application through downstream AWS managed services. This helps you identify latency trends and errors that impact your end users. 
 

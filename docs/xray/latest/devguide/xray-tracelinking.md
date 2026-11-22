@@ -1,7 +1,6 @@
 
 
 # Tracing event-driven applications
-<a name="xray-tracelinking"></a>
 
 AWS X-Ray supports tracing event-driven applications using Amazon SQS and AWS Lambda. Use the CloudWatch console to see a connected view of each request as it's queued with Amazon SQS and processed by one or more Lambda functions. Traces from upstream message producers are automatically linked to traces from downstream Lambda consumer nodes, creating an end-to-end view of the application. 
 

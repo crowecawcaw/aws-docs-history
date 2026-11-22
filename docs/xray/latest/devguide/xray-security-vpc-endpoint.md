@@ -1,7 +1,6 @@
 
 
 # Using AWS X-Ray with VPC endpoints
-<a name="xray-security-vpc-endpoint"></a>
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a private connection between your VPC and X-Ray. This enables resources in your Amazon VPC to communicate with the X-Ray service without going through the public internet.
 

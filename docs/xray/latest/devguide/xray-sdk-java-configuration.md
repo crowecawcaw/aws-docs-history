@@ -1,7 +1,6 @@
 
 
 # Configuring the X-Ray SDK for Java
-<a name="xray-sdk-java-configuration"></a>
 
 **Note**  
 X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation ](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-migration.html).
@@ -34,7 +33,7 @@ To use a plugin, call `withPlugin` on your `AWSXRayRecorderBuilder`.
 
 **Example src/main/java/scorekeep/WebConfig.java - recorder**  
 
-```
+```java
 import [com.amazonaws.xray.AWSXRay](https://docs.aws.amazon.com/xray-sdk-for-java/latest/javadoc/com/amazonaws/xray/AWSXRay.html);
 import [com.amazonaws.xray.AWSXRayRecorderBuilder](https://docs.aws.amazon.com/xray-sdk-for-java/latest/javadoc/com/amazonaws/xray/AWSXRayRecorderBuilder.html);
 import [com.amazonaws.xray.plugins.EC2Plugin](https://docs.aws.amazon.com/xray-sdk-for-java/latest/javadoc/com/amazonaws/xray/plugins/EC2Plugin.html);

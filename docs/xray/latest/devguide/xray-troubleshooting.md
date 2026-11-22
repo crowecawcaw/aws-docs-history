@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS X-Ray
-<a name="xray-troubleshooting"></a>
 
 This topic lists common errors and issues that you might encounter when using the X-Ray API, console, or SDKs. If you find an issue that is not listed here, you can use the **Feedback** button on this page to report it.
 

@@ -1,7 +1,6 @@
 
 
 # Tagging X-Ray sampling rules and groups
-<a name="xray-tagging"></a>
 
 Tags are words or phrases that you can use to identify and organize your AWS resources. You can add multiple tags to each resource. Each tag includes a key and an optional value that you define. For example, a tag key might be **domain**, and the tag value might be **example.com**. You can search and filter your resources based on tags that you add. For more information about ways to use tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference*.
 

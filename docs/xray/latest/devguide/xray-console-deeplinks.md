@@ -1,7 +1,6 @@
 
 
 # Console deep linking
-<a name="xray-console-deeplinks"></a>
 
 You can use routes and queries to deep link into specific traces, or filtered views of traces and the trace map.
 

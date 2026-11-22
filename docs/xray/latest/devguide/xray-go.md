@@ -1,7 +1,6 @@
 
 
 # Working with Go
-<a name="xray-go"></a>
 
  There are two ways to instrument your Go application to send traces to X-Ray: 
 + [AWS Distro for OpenTelemetry Go](xray-go-opentel-sdk.md) – An AWS distribution that provides a set of open source libraries for sending correlated metrics and traces to multiple AWS monitoring solutions including Amazon CloudWatch, AWS X-Ray, and Amazon OpenSearch Service, via the [AWS Distro for OpenTelemetry Collector](https://aws-otel.github.io/docs/getting-started/collector).

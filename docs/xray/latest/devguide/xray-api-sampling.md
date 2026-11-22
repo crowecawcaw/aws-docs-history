@@ -1,7 +1,6 @@
 
 
 # Using sampling rules with the X-Ray API
-<a name="xray-api-sampling"></a>
 
 
 

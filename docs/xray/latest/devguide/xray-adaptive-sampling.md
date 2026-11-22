@@ -1,7 +1,6 @@
 
 
 # Configuring adaptive sampling
-<a name="xray-adaptive-sampling"></a>
 
 Missing critical traces during anomaly spikes can make root cause analysis difficult. However, maintaining high sampling rates is expensive. X-Ray adaptive sampling provides complete visibility into anomalies and controls cost during normal operations. With adaptive sampling, you set a maximum sampling rate, and X-Ray automatically adjusts within that limit. X-Ray calculates the minimum boost needed to capture error traces. If your baseline rate captures enough data, no boost occurs. You only pay for extra sampling when needed.
 
@@ -143,7 +142,7 @@ You can configure adaptive sampling features in the ADOT SDK by providing a YAML
 
 This is required for *anomaly span capture* and optional for customizing *sampling boost* conditions. The following is an example of the configuration:
 
-```
+```yaml
 version: 1.0
 anomalyConditions:
   - errorCodeRegex: "^5\\d\\d$"

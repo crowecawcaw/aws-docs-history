@@ -1,7 +1,6 @@
 
 
 # Migrate to OpenTelemetry Ruby
-<a name="migrate-xray-to-opentelemetry-ruby"></a>
 
 To migrate your Ruby applications from X-Ray SDK to OpenTelemetry instrumentation, use the following code examples and guidance for manual instrumentation.
 

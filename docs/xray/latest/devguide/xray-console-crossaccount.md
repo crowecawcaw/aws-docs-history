@@ -1,7 +1,6 @@
 
 
 # Cross-account tracing
-<a name="xray-console-crossaccount"></a>
 
 AWS X-Ray supports *cross-account observability*, enabling you to monitor and troubleshoot applications that span multiple accounts within an AWS Region. You can seamlessly search, visualize, and analyze your metrics, logs, and traces in any of the linked accounts as if you were operating in a single account. This provides a complete view of requests that travel across multiple accounts. You can view cross-account traces in the X-Ray trace map and traces pages within the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/).
 
