@@ -1,7 +1,6 @@
 
 
 # Creating a source location
-<a name="channel-assembly-creating-source-locations"></a>
 
 The following procedure explains how to create a source location using the MediaTailor console. For information about how to create source locations using the MediaTailor API, see [CreateSourceLocation](https://docs.aws.amazon.com/mediatailor/latest/apireference/API_CreateSourceLocation.html) in the *AWS Elemental MediaTailor API Reference*.<a name="create-source-location-procedure"></a>
 

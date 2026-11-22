@@ -1,7 +1,6 @@
 
 
 # Troubleshoot MediaTailor SSAI with CDNs for uninterrupted ad delivery
-<a name="troubleshooting-ssai-cdn"></a>
 
 This section provides solutions for common issues when using AWS Elemental MediaTailor dynamic ad insertion with a content delivery network (CDN). These solutions will help you troubleshoot problems with your video monetization through personalized advertising.
 

@@ -1,7 +1,6 @@
 
 
 # Customize the CloudFormation template for CDN and MediaTailor integrations
-<a name="customize-cloudformation-template"></a>
 
 AWS Elemental MediaTailor template customization allows broadcast professionals to adapt the AWS CloudFormation template to fit specific workflow requirements. Although the basic template works for many scenarios, these customizations can help you address more complex needs.
 
@@ -14,7 +13,7 @@ You can customize the CloudFormation template to meet your specific workflow req
 
 For broadcast workflows that use multiple content sources (like primary and backup sources, or different content libraries), you can add additional origins to your CloudFront distribution:
 
-```
+```yaml
 Origins:
   # Add a new origin for additional content
   - Id: SecondaryContentOrigin
@@ -27,7 +26,7 @@ Origins:
 
 Then add a corresponding cache behavior to route specific patterns to this origin:
 
-```
+```yaml
 CacheBehaviors:
   - PathPattern: '/secondary-content/*'
     TargetOriginId: SecondaryContentOrigin
@@ -40,7 +39,7 @@ CacheBehaviors:
 
 For broadcast workflows with specific caching requirements (like quality selection parameters or viewer authentication), you can create custom cache policies instead of using the managed ones. For detailed guidance on TTL values and caching strategies, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md).
 
-```
+```yaml
 # Define a custom cache policy
 CustomCachePolicy:
   Type: AWS::CloudFront::CachePolicy
@@ -74,7 +73,7 @@ CacheBehaviors:
 
 For broadcast workflows that need advanced ad insertion features, you can enhance the MediaTailor configuration with options like ad prefetching (to reduce latency), personalization thresholds, and bumper ads.
 
-```
+```yaml
 MediaTailorPlaybackConfig:
   Type: AWS::MediaTailor::PlaybackConfiguration
   Properties:
@@ -98,7 +97,7 @@ For more information about MediaTailor configuration options, see [Using AWS Ele
 
 For broadcast workflows with specific security requirements (like geo-restrictions or protection against DDoS attacks), you can add AWS WAF integration and geo-restrictions:
 
-```
+```yaml
 # Create a AWS WAF Web ACL
 WebACL:
   Type: AWS::WAFv2::WebACL

@@ -1,7 +1,6 @@
 
 
 # Channel Assembly workflow types
-<a name="channel-assembly-workflows"></a>
 
 AWS Elemental MediaTailor Channel Assembly supports three workflow types for creating linear streaming channels. Each workflow type uses a different combination of source content to meet specific use cases. This topic describes each workflow type, when to use it, and links to the detailed setup procedures.
 

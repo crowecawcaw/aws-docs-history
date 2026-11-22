@@ -1,7 +1,6 @@
 
 
 # CDN integration security best practices for MediaTailor
-<a name="cdn-security-best-practices"></a>
 
 This section explains how to implement security best practices for your AWS Elemental MediaTailor content delivery network (CDN) integration. Proper security configuration helps protect your content and infrastructure from unauthorized access and potential threats.
 

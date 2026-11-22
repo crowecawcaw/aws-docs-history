@@ -1,7 +1,6 @@
 
 
 # DASH ad markers
-<a name="dash-ad-markers"></a>
 
 MediaTailor 
 
@@ -30,7 +29,7 @@ Ad markers in DASH manifests from the origin must be formatted properly for Medi
 **Example `SpliceInsert` in XML**  
 In the following example, required SCTE markers are in bold.   
 
-```
+```xml
 <Period start="PT444806.040S" id="123586" duration="PT15.000S">
   <EventStream timescale="90000" schemeIdUri="urn:scte:scte35:2013:xml">
     <Event duration="1350000">
@@ -80,7 +79,7 @@ The following are supported cue-out numbers for the `segmentationTypeId`.
 **Example `TimeSignal` in XML**  
 In the following example, required SCTE markers are in bold.   
 
-```
+```xml
 <Period start="PT346530.250S" id="178443" duration="PT61.561S">
   <EventStream timescale="90000" schemeIdUri="urn:scte:scte35:2013:xml">
     <Event duration="5310000">
@@ -118,7 +117,7 @@ The decoded binary must provide a `splice_info_section` with the same informatio
 
 The following example shows this option, with the required markers in bold.
 
-```
+```xml
 <Period start="PT444806.040S" id="123586" duration="PT15.000S">
     <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" timescale="1">
       <Event presentationTime="1541436240" duration="24" id="29">
@@ -139,7 +138,7 @@ The following example shows this option, with the required markers in bold.
 
 The following is the decoded binary for the first event listed in the preceding example. The setting for `splice_command_type` is 5, which indicates `splice_insert`. 
 
-```
+```json
 {
         "table_id": 252,
         "section_syntax_indicator": false,

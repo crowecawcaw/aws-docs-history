@@ -1,7 +1,6 @@
 
 
 # Optimize CDN caching for MediaTailor and MediaPackage content delivery
-<a name="cdn-emp-caching"></a>
 
 AWS Elemental MediaTailor requires proper content delivery network (CDN) caching configuration for optimal performance when using AWS Elemental MediaPackage as your content origin. MediaPackage provides specific cache-control headers that tell your content delivery network how long to cache different types of content. Following these recommendations ensures smooth playback and efficient content delivery.
 

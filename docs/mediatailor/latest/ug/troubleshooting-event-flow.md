@@ -1,7 +1,6 @@
 
 
 # Troubleshooting MediaTailor event flow issues
-<a name="troubleshooting-event-flow"></a>
 
 Understanding AWS Elemental MediaTailor event flow provides a powerful foundation for troubleshooting ad insertion issues. By analyzing the sequence, timing, and patterns of events, you can quickly identify where problems occur and implement targeted solutions.
 

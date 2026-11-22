@@ -1,7 +1,6 @@
 
 
 # Optimize performance for CDN and MediaTailor integrations
-<a name="ssai-cdn-performance"></a>
 
 Maximize the performance of your AWS Elemental MediaTailor ad insertion implementation by optimizing your content delivery network (CDN) configuration. These settings ensure efficient content delivery and optimal viewer experience.
 

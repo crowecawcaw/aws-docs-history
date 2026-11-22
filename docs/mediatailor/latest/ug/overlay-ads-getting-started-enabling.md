@@ -1,7 +1,6 @@
 
 
 # Enabling overlay ads
-<a name="overlay-ads-getting-started-enabling"></a>
 
 MediaTailor support for overlay ads is enabled by default. A specific SCTE-35 ad-marker type in the manifest triggers the insertion of an overlay ad. Because some players might not support client-side rendering of overlay ads, you can disable the feature at the session level.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaTailor ADS logs description and event types
-<a name="ads-log-format"></a>
 
 The following sections describe the logs that MediaTailor emits to describe events with the ad decision server (ADS). These are `AdDecisionServerInteractions` logs.
 
@@ -152,13 +151,18 @@ This section describes the properties of the ADS logs avail.
 | Property | Type | Required | Description | 
 | --- | --- | --- | --- | 
 | availId | string | true | The unique identifier for this avail. For HLS, this is the media sequence number where the avail begins. For DASH, this is the period ID. | 
+| contentReserveDurationBeforeAvail | number | false | The duration of the content reserve before this avail changed it. Present only for sessions with dynamic avail sizing enabled. | 
 | creativeAds | array of type [creativeAd](#ads-logs-creativeAd) | true | The ads that MediaTailor inserted into the avail. | 
-| fillRate | number | true | The rate at which the ads fill the avail duration, from 0.0 (for 0%) to 1.0 (for 100%). | 
+| fillRate | number | true | The rate at which the ads fill the avail duration. This value is at most 1.0 (for 100%) when dynamic avail sizing isn't used, and can exceed 1.0 for sessions with dynamic avail sizing enabled when dynamic avail sizing inflates the avail. | 
 | filledDuration | number | true | The sum of the durations of all the ads inserted into the avail. | 
 | numAds | number | true | The number of ads that MediaTailor inserted into the avail. | 
+| omittedDuration | number | false | The duration that MediaTailor removed from the avail when dynamic avail sizing shortened it. Present only for sessions with dynamic avail sizing enabled. | 
 | originAvailDuration | number | true | The duration of the avail as specified in the content stream from the origin (CUE\_OUT or SCTE). | 
+| overfillDuration | number | false | The filled duration beyond the avail's original duration, which replenishes the content reserve. Present only for sessions with dynamic avail sizing enabled. | 
+| requestedDuration | number | false | The duration that MediaTailor requested from the ADS, including inflation. Present only for sessions with dynamic avail sizing enabled, and only when the ADS URL includes [session.avail\_duration\_ms] or [session.avail\_duration\_secs]. | 
 | skippedAds | array of type [skippedAd](#ads-logs-skippedAd) | false | The ads that MediaTailor didn't insert, for reasons like TRANSCODE\_IN\_PROGRESS and TRANSCODE\_ERROR. For a list of skipped ad reasons, see [Ad skipping troubleshooting](troubleshooting-ad-skipping-overview.md). | 
 | slateAd | object of type [slateAd](#ads-logs-slateAd) | true | Information about the slate ad, which MediaTailor uses to fill any unfilled segments in the avail. | 
+| unpersonalizedDuration | number | false | The duration of slate or unpersonalized avail content in the avail. Present only for sessions with dynamic avail sizing enabled. | 
 
 ### creativeAd
 <a name="ads-logs-creativeAd"></a>
@@ -443,7 +447,32 @@ The following lists the JSON schema for the AWS Elemental MediaTailor ADS log.
         "fillRate": {
           "$id": "#/properties/avail/fillRate",
           "type": "number",
-          "description": "The rate at which the ads fill the avail duration, from 0.0 (for 0%) to 1.0 (for 100%)."
+          "description": "The rate at which the ads fill the avail duration. This value is at most 1.0 (for 100%) when dynamic avail sizing isn't used, and can exceed 1.0 for sessions with dynamic avail sizing enabled when dynamic avail sizing inflates the avail."
+        },
+        "contentReserveDurationBeforeAvail": {
+          "$id": "#/properties/avail/contentReserveDurationBeforeAvail",
+          "type": "number",
+          "description": "The duration of the content reserve before this avail changed it. Present only for sessions with dynamic avail sizing enabled."
+        },
+        "omittedDuration": {
+          "$id": "#/properties/avail/omittedDuration",
+          "type": "number",
+          "description": "The duration that MediaTailor removed from the avail when dynamic avail sizing shortened it. Present only for sessions with dynamic avail sizing enabled."
+        },
+        "overfillDuration": {
+          "$id": "#/properties/avail/overfillDuration",
+          "type": "number",
+          "description": "The filled duration beyond the avail's original duration, which replenishes the content reserve. Present only for sessions with dynamic avail sizing enabled."
+        },
+        "requestedDuration": {
+          "$id": "#/properties/avail/requestedDuration",
+          "type": "number",
+          "description": "The duration that MediaTailor requested from the ADS, including inflation. Present only for sessions with dynamic avail sizing enabled, and only when the ADS URL includes <code>[session.avail_duration_ms]</code> or <code>[session.avail_duration_secs]</code>."
+        },
+        "unpersonalizedDuration": {
+          "$id": "#/properties/avail/unpersonalizedDuration",
+          "type": "number",
+          "description": "The duration of slate or unpersonalized avail content in the avail. Present only for sessions with dynamic avail sizing enabled."
         },
         "driftMillisecondsAtAvailStart": {
           "$id": "#/properties/avail/driftMillisecondsAtAvailStart",

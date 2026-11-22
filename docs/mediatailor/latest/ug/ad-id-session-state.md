@@ -1,7 +1,6 @@
 
 
 # Enabling ad ID signaling for sessions
-<a name="ad-id-session-state"></a>
 
 The ad ID signaling feature must be enabled during session initialization. The process to enable the feature differs from creating sessions using the HLS/DASH playback prefix (implicit session initialization), versus the session initialization prefix (explicit session initialization).
 

@@ -1,7 +1,6 @@
 
 
 # Implement multi-Region resilience for MediaTailor with MQAR
-<a name="media-quality-resiliency"></a>
 
 AWS Elemental MediaTailor multi-Region resilience is enhanced through Media Quality-Aware Resiliency (MQAR), an advanced Amazon CloudFront feature that helps MediaTailor deliver the best possible streaming experience. It automatically selects the origin with the highest quality score when you have multiple origins in different AWS Regions. This feature is particularly valuable for live streaming where you need uninterrupted service.
 

@@ -1,7 +1,6 @@
 
 
 # Example 3: Contextual metadata
-<a name="monetization-functions-examples-contextual-metadata"></a>
 
 This section provides JSONata expressions for common patterns when working with Elemental Inference `GetMetadata` responses. Use these in the `Output` block of your `AWS_SERVICE_REQUEST` function.
 

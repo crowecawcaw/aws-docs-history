@@ -1,7 +1,6 @@
 
 
 # VAST request
-<a name="monetization-functions-types-vast-request"></a>
 
 ## When to use
 <a name="monetization-functions-types-vast-request-when"></a>
@@ -70,7 +69,7 @@ Keep `RequestTimeoutMilliseconds` tight. VAST wrapper resolution can involve mul
 
 The following function fetches ads from a backup ad server and stores the parsed ads in temporary data. A `CUSTOM_OUTPUT` step later in the same sequence can append them to `adsResponse.ads`. It is designed for the `POST_ADS_RESPONSE` lifecycle hook.
 
-```
+```JSON
 {
     "FunctionId": "fetchBackupAds",
     "FunctionType": "VAST_REQUEST",

@@ -1,7 +1,6 @@
 
 
 # Create a channel using the MediaTailor console
-<a name="channel-assembly-creating-channels"></a>
 
  The following procedure describes how to create a channel using the MediaTailor console. <a name="create-channel-procedure"></a>
 

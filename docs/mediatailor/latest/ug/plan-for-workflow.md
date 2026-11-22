@@ -1,7 +1,6 @@
 
 
 # Customize planning for CDN and MediaTailor integrations
-<a name="plan-for-workflow"></a>
 
 Different AWS Elemental MediaTailor workflows have unique requirements that affect content delivery network (CDN) planning. For workflow-specific guidance, see [Working with configurations](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
 

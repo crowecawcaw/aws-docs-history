@@ -1,7 +1,6 @@
 
 
 # Disabling the As Run log
-<a name="disabling-as-run-log"></a>
 
 To disable the As Run log for a channel that has it enabled, specify the channel name and disable the *As Run* log type for that channel.
 

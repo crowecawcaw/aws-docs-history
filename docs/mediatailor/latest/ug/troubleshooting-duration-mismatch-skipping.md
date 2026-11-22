@@ -1,7 +1,6 @@
 
 
 # MediaTailor duration mismatch ad skipping troubleshooting
-<a name="troubleshooting-duration-mismatch-skipping"></a>
 
 When ads are skipped with `AVAIL_DURATION_EXCEEDED`, `LEFTOVER_AVAIL_EXCEEDED_THRESHOLD`, or format-related reasons, you have duration or format compatibility issues. AWS Elemental MediaTailor requires proper duration formatting and matching between ad content and available ad break time. This troubleshooting guide explains how to identify and resolve these duration-related issues.
 

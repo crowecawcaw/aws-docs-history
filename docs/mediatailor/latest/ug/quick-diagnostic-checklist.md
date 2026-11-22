@@ -1,7 +1,6 @@
 
 
 # Diagnostic checklist for MediaTailor and CDN integrations
-<a name="quick-diagnostic-checklist"></a>
 
 AWS Elemental MediaTailor content delivery network (CDN) integration problems can manifest in various ways. Use this checklist to quickly identify the type of issue you're experiencing:
 

@@ -1,7 +1,6 @@
 
 
 # Server-side tracking beacon glossary
-<a name="ad-reporting-server-side-beacon-glossary"></a>
 
 MediaTailor server-side tracking uses a standardized set of beacons to report ad viewing progress to ad servers and verification services. These beacons align with Interactive Advertising Bureau (IAB) standards for video ad measurement and provide accurate reporting of ad impressions and completion rates.
 

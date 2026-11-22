@@ -1,7 +1,6 @@
 
 
 # Custom transcode profiles
-<a name="custom-transcode-profiles"></a>
 
 A custom transcode profile (CTP) is an explicitly authored AWS Elemental MediaConvert job configuration that you register with MediaTailor. When a CTP is associated with a MediaTailor configuration, MediaTailor uses your defined settings to transcode every ad, bumper, and slate, giving you precise control over codecs, bitrates, audio normalization levels, segment lengths, PID values, sample rates, and more. Because a CTP completely overrides dynamic transcoding, you must explicitly configure all features you need, including trickplay features (I-frame manifests, thumbnails, and image streams), within the profile.
 
@@ -22,7 +21,7 @@ For this reason, when your encoder settings change or you onboard new content so
 Use a custom transcode profile when your workflows require one or more of the following.
 + A custom audio normalization target other than the MediaTailor default of -24 LKFS
 + Non-integer segment lengths (for example, 1.92 or 3.84)
-+ Dolby Vision audio configurations
++ Dolby Vision configurations
 + Specific PMT, video, or audio PID values required by downstream systems or players
 + Custom audio sample rates (for example, 44.1 kHz)
 + Bitrate matching beyond the 5% threshold supported by dynamic transcoding with a configuration flag
@@ -56,7 +55,7 @@ Use the following table to determine the right approach for your workflow.
 | Bitrate matching | Up to 5% rounding via enableBitrateRounding flag (contact AWS Support to enable) | Explicitly configured in CTP to match origin bitrates | 
 | Non-integer segment lengths | 2-second default; non-integer segment lengths not supported (contact AWS Support to enable calculateSegmentLength for automatic integer segment length calculation) | You must manually configure segment length to match origin | 
 | Custom PID values | Not supported | Supported | 
-| Dolby Vision audio | Not supported | Supported | 
+| Dolby Vision | Not supported | Supported | 
 | Custom audio sample rates | Not supported | Supported | 
 | Multi-origin support | Automatic | Superset CTP required; limited to 36 video variants | 
 | MediaTailor improvements | Automatic | Manual CTP updates required | 

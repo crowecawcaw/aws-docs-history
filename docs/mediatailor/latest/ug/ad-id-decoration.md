@@ -1,7 +1,6 @@
 
 
 # Ad ID decoration
-<a name="ad-id-decoration"></a>
 
 AWS Elemental MediaTailor performs server side ad stitching when transitioning from content to ad breaks. MediaTailor can condition the manifest with metadata associated with the ads that have been stitched. Doing so can provide the following benefits:
 

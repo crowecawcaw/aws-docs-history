@@ -1,7 +1,6 @@
 
 
 # MediaTailor manifest query parameters
-<a name="manifest-query-parameters"></a>
 
 AWS Elemental MediaTailor handles query parameters for different purposes: manifest query parameters for CDN routing and authorization, and other query parameters that may be used for origin-specific functionality.
 

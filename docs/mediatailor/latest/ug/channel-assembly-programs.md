@@ -1,7 +1,6 @@
 
 
 # Adding a program to a channel's schedule
-<a name="channel-assembly-programs"></a>
 
 Each program contains a VOD source or a live source that's part of a source location in your account. You add your programs to your channel's schedule to control the order that they play in your channel's stream.
 

@@ -1,7 +1,6 @@
 
 
 # MediaTailor HLS and DASH explicit session initialization
-<a name="manifest-query-parameters-hls-and-dash-explicit-session-initialization"></a>
 
 AWS Elemental MediaTailor includes the `manifestParams` as query parameters in the multivariant playlist and tracking URLs in the response when the client makes an explicit session initialization request.
 

@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Elemental MediaTailor
-<a name="security-iam"></a>
 
 
 

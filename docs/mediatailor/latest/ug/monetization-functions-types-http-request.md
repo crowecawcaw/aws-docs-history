@@ -1,7 +1,6 @@
 
 
 # HTTP request
-<a name="monetization-functions-types-http-request"></a>
 
 ## When to use
 <a name="monetization-functions-types-http-request-when"></a>
@@ -65,7 +64,7 @@ Use a conditional expression to handle failures gracefully: `{%response.statusCo
 
 The following function calls an identity resolution API at session start and stores the result in player parameters. It is designed for the `PRE_SESSION_INITIALIZATION` lifecycle hook.
 
-```
+```JSON
 {
     "FunctionId": "fetchIdentityEnvelope",
     "FunctionType": "HTTP_REQUEST",

@@ -1,7 +1,6 @@
 
 
 # Set up basic CloudFront integration with MediaTailor
-<a name="cloudfront-basic-setup"></a>
 
 AWS Elemental MediaTailor integration with Amazon CloudFront improves content delivery performance for your viewers. This topic guides you through setting up a basic CloudFront distribution for MediaTailor. With this integration, your viewers can access personalized content through the CloudFront network. You'll also learn how to configure proper caching for different content types.
 

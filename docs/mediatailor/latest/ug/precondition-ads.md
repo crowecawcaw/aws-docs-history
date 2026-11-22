@@ -1,7 +1,6 @@
 
 
 # Using preconditioned ads with AWS Elemental MediaTailor
-<a name="precondition-ads"></a>
 
 In a [typical ad insertion workflow](what-is-flow.md), MediaTailor dynamically transcodes ads to match the content stream, saves them, and stitches the ads into the live stream. Because this process happens only after MediaTailor receives the ad in a VAST response from the ad decision server (ADS), there is a delay for when the ad is available for stitching. If additional latency is introduced to the ad stitching workflow (either because of ADS timeout or other content or network issues), MediaTailor could partially fill the avail, or miss the ad break altogether. 
 

@@ -1,7 +1,6 @@
 
 
 # Example templates
-<a name="yield-optimization-examples"></a>
 
 This page provides complete, working template configurations for common use cases. Each example includes the template JSON, required player parameters, and notes on what to customize.
 

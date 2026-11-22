@@ -1,7 +1,6 @@
 
 
 # Pre-session initialization
-<a name="monetization-functions-hooks-pre-session"></a>
 
 ## When it fires
 <a name="monetization-functions-hooks-pre-session-when"></a>
@@ -53,6 +52,8 @@ The function can set the same `aws.*` service variables that a player can supply
 + `aws.insertionMode`, `aws.reportingMode`, and `aws.guidedPrefetchMode`. For values and behavior, see [MediaTailor server-guided ad insertion overview and implementation](server-guided.md) and [MediaTailor server-side ad tracking and reporting](ad-reporting-server-side.md).
 + `aws.adSignalingEnabled`. See [Ad ID decoration](ad-id-decoration.md).
 + `aws.streamId`. See [Prefetching ads](prefetching-ads.md).
++ `aws.blackoutOperation`, `aws.blackoutSlateUrl`, and `aws.blackoutMaxDurationSecs`. See [Start blackout at session start](monetization-functions-blackout.md#monetization-functions-blackout-session).
++ `aws.contentReserveSeconds`, `aws.maxAvailInflationSeconds`, and `aws.replenishmentThresholdSeconds`. See [Dynamic avail sizing](dynamic-avail-sizing.md).
 
 Values are strings and must use the same format as the corresponding query parameter (for example, `"aws.preroll": "disabled"`). If a value cannot be parsed, MediaTailor ignores that parameter and keeps the session's existing value; the rest of the function output is still applied. Keys outside this list are rejected when you create or update the function.
 

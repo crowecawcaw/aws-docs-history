@@ -1,11 +1,10 @@
 
 
 # Example 2: Dynamic template with player parameters
-<a name="yield-optimization-examples-dynamic"></a>
 
 Uses player parameters for app and device identification. Suitable for production multi-device deployments.
 
-```
+```JSON
 {
   "app": {
     "id": "{{player_params.app_id}}",

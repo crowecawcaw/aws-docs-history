@@ -1,7 +1,6 @@
 
 
 # Monitor performance for MediaPackage, CDN, and MediaTailor integrations
-<a name="cdn-emp-monitoring"></a>
 
 AWS Elemental MediaTailor requires effective monitoring to maintain optimal performance of your AWS Elemental MediaPackage and content delivery network (CDN) integration. This topic provides guidance on key metrics to track, monitoring tools to use, and how to set up alerts for proactive issue detection.
 

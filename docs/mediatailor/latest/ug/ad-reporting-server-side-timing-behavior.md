@@ -1,7 +1,6 @@
 
 
 # Server-side tracking timing and caching behavior
-<a name="ad-reporting-server-side-timing-behavior"></a>
 
 In server-side reporting, MediaTailor fires tracking events based on actual segment requests from the player, not on manifest parsing or pre-loading activities. This approach ensures accurate impression counting that aligns with industry standards for video ad measurement.
 

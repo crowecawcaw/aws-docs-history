@@ -1,7 +1,6 @@
 
 
 # Manifests and ad metadata insertion
-<a name="ad-id-manifest"></a>
 
 During the ad stitching process, MediaTailor adds to the manifest the unique ID associated with each creative being stitched. MediaTailor obtains the unique ID of the creative from the `id` attribute value of that creative in the VAST response. If the creative lacks an ID attribute value, MediaTailor will publish an empty value (`id=""`).
 

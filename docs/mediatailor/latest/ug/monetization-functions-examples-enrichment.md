@@ -1,7 +1,6 @@
 
 
 # Example 1: Data enrichment
-<a name="monetization-functions-examples-enrichment"></a>
 
 ## Scenario
 <a name="monetization-functions-examples-enrichment-scenario"></a>
@@ -13,7 +12,7 @@ A streaming service wants to fetch audience identity data from an external servi
 
 **Fetch LiveRamp envelope (HTTP\_REQUEST):**
 
-```
+```JSON
 {
     "FunctionId": "fetchLiveRamp",
     "FunctionType": "HTTP_REQUEST",
@@ -40,7 +39,7 @@ Set `RequestTimeoutMilliseconds` based on the expected response time of your ext
 ## Function mapping
 <a name="monetization-functions-examples-enrichment-mapping"></a>
 
-```
+```JSON
 {
     "FunctionMapping": {
         "PRE_SESSION_INITIALIZATION": "fetchLiveRamp"

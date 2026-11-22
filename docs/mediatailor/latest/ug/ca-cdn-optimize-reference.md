@@ -1,7 +1,6 @@
 
 
 # Complete channel assembly CDN optimization
-<a name="ca-cdn-optimize-reference"></a>
 
 For detailed CDN optimization guidance specific to channel assembly implementations, including caching strategies, request routing configuration, performance benchmarks, and advanced optimization techniques, see [CDN performance optimization](cdn-optimization.md).
 

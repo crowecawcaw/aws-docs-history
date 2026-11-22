@@ -1,7 +1,6 @@
 
 
 # Using workflow monitor
-<a name="monitor-with-workflow-monitor-operate"></a>
 
 Use the **overview** and **signal maps** sections of the workflow monitor console to review the current status of the workflows and any associated alarms, metrics, and logs. 
 

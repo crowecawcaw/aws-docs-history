@@ -1,7 +1,6 @@
 
 
 # Using metrics to diagnose stale manifests from AWS Elemental MediaTailor
-<a name="stale-manifest-diagnose"></a>
 
 A stale manifest is one that hasn't been recently updated. Different ad insertion workflows could have varying tolerance to how long must pass before a manifest is considered stale, based on a variety of factors (such as requirements for downstream systems). You can use Amazon CloudWatch metrics to identify manifests that exceed the staleness tolerance for your workflow, and help identify what could be causing the delays in manifest updates. 
 

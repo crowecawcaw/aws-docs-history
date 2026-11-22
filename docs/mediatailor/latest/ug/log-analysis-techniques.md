@@ -1,7 +1,6 @@
 
 
 # CDN log analysis tools and monitoring techniques for MediaTailor
-<a name="log-analysis-techniques"></a>
 
 AWS Elemental MediaTailor content delivery network (CDN) integration generates large volumes of log data that require efficient analysis tools and techniques. Use these approaches to efficiently analyze content delivery network and MediaTailor logs:
 + **Command-line analysis:** Use tools like `grep`, `awk`, and `sort` to filter and analyze log patterns

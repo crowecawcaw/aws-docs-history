@@ -1,7 +1,6 @@
 
 
 # DASH location feature
-<a name="dash-location-feature"></a>
 
 This section provides information about the location feature for DASH, which is enabled by default in AWS Elemental MediaTailor. Read this section if you create content delivery network (CDN) routing rules for accessing MediaTailor manifests. Also read this section if you use server-side reporting with players that don't support sticky HTTP redirects.
 

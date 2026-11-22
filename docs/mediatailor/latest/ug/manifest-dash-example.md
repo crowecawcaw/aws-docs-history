@@ -1,7 +1,6 @@
 
 
 # DASH MPD examples
-<a name="manifest-dash-example"></a>
 
 The following sections provide examples of DASH origin MPDs and personalized MPDs. Understanding these examples can help you configure and troubleshoot your MediaTailor workflows.
 

@@ -1,7 +1,6 @@
 
 
 # Function examples
-<a name="monetization-functions-examples"></a>
 
 Before working through these examples, you should be familiar with:
 + [Lifecycle hooks](monetization-functions-hooks.md) — Input fields and output namespaces available at each lifecycle hook.
@@ -18,3 +17,5 @@ This page provides complete, working function configurations for common use case
 | [Example 3: Contextual metadata](monetization-functions-examples-contextual-metadata.md) | Query Elemental Inference for IAB content classifications and GARM brand safety signals to enrich ad requests with contextual metadata. | 
 | [Example 4: Secondary ad server fallback](monetization-functions-examples-backup-ads.md) | Fetch ads from a secondary ad server when the primary ADS response is short, and append them to the ad list. | 
 | [Example 5: Origin audience routing](monetization-functions-examples-origin-routing.md) | Map a viewer's postal code to an audience identifier and send it to the content origin as a manifest query parameter. | 
+| [Example 6: SCTE-35 signal processing](monetization-functions-examples-signal-processing.md) | Clean SCTE-35 signals on the origin response: keep selected segmentation types, remove empty tags, and backfill missing UPIDs. | 
+| [Example 7: Regional blackout](monetization-functions-examples-blackout.md) | Black out a program for viewers in one region with a slate, driven by SCTE-35 program boundary tags on the origin response. | 

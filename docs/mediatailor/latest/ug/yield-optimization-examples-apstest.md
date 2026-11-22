@@ -1,7 +1,6 @@
 
 
 # Example 4: Testing APS directly (Postman / curl)
-<a name="yield-optimization-examples-apstest"></a>
 
 Use this example to test the APS endpoint directly outside of MediaTailor to verify that your Publisher ID and bid parameters produce a valid response. Paste this into Postman or use `curl` to confirm APS is returning bids before configuring your MediaTailor template.
 
@@ -21,7 +20,7 @@ This is the `AMERICAS` region endpoint (`iad` = US East). For other regions, the
 
 Replace the placeholder values marked with `<YOUR_VALUE>` with your actual values. All other fields are valid working examples.
 
-```
+```JSON
 {
   "id": "test-request-001",
   "imp": [
@@ -154,7 +153,7 @@ If you receive HTTP **204**, APS has no matching bids. This usually means:
 ## curl example
 <a name="yield-optimization-examples-apstest-curl"></a>
 
-```
+```bash
 curl -X POST \
   'https://emt-ortb-iad.stv.bid-na.ads.aps.amazon-adsystem.com/stv/ortb/ads' \
   -H 'Content-Type: application/json' \

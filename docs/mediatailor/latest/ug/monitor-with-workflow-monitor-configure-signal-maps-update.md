@@ -1,7 +1,6 @@
 
 
 # Updating the signal map of your AWS media workflow
-<a name="monitor-with-workflow-monitor-configure-signal-maps-update"></a>
 
 If a change is made to your workflow, you might need to rediscover the signal map and redeploy monitoring resources. Workflow monitor is a visualization and monitoring tool that does not have the ability to make any changes to your workflow. Signal maps represent a point-in-time visualization of your workflow. In the event that you add, remove, or significantly modify parts of your media workflow, we recommend that you rediscover the signal map. If you have monitoring resources attached to the signal map, we recommend you redeploy monitoring after the rediscovery process.
 

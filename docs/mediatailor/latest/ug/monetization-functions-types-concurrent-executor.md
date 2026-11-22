@@ -1,7 +1,6 @@
 
 
 # Concurrent executor
-<a name="monetization-functions-types-concurrent-executor"></a>
 
 ## When to use
 <a name="monetization-functions-types-concurrent-executor-when"></a>
@@ -9,6 +8,9 @@
 A `CONCURRENT_EXECUTOR` runs a set of child functions in parallel up to a maximum concurrency, then combines their outputs after all children complete.
 
 Use `CONCURRENT_EXECUTOR` when your logic requires multiple independent operations that don't depend on each other's results. Common use cases include making parallel HTTP calls to different enrichment services, running independent data lookups simultaneously, and reducing total latency by overlapping network requests.
+
+**Note**  
+When the children are HLS tag processors, their `TagFilter` sets must not overlap. MediaTailor rejects the mapping otherwise. For more information, see [Composing with a concurrent executor](monetization-functions-types-hls-tag-processor.md#monetization-functions-types-hls-tag-processor-composition).
 
 ## Configuration fields
 <a name="monetization-functions-types-concurrent-executor-fields"></a>
@@ -37,7 +39,7 @@ Each child in the executor has an optional `RunCondition` field. This field cont
 
 If the `RunCondition` expression evaluates to `false`, MediaTailor skips the child entirely. If the `RunCondition` field is omitted, the child always runs.
 
-```
+```JSON
 { "FunctionId": "fetchDevice", "RunCondition": "{%session.player_params.device_id != null%}" }
 ```
 
@@ -62,7 +64,9 @@ Individual `HTTP_REQUEST` functions still respect their own `RequestTimeoutMilli
 
 This example calls two enrichment APIs in parallel and combines their results into player parameters. It uses two HTTP\_REQUEST functions orchestrated by a CONCURRENT\_EXECUTOR.
 
-```
+**Child 1 – User profile (`fetchUserProfile`)**
+
+```JSON
 {
     "FunctionId": "fetchUserProfile",
     "FunctionType": "HTTP_REQUEST",
@@ -77,7 +81,9 @@ This example calls two enrichment APIs in parallel and combines their results in
 }
 ```
 
-```
+**Child 2 – Device info (`fetchDeviceInfo`)**
+
+```JSON
 {
     "FunctionId": "fetchDeviceInfo",
     "FunctionType": "HTTP_REQUEST",
@@ -92,7 +98,9 @@ This example calls two enrichment APIs in parallel and combines their results in
 }
 ```
 
-```
+**Executor (`parallelEnrichment`)**
+
+```JSON
 {
     "FunctionId": "parallelEnrichment",
     "FunctionType": "CONCURRENT_EXECUTOR",

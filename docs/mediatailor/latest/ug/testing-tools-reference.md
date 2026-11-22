@@ -1,7 +1,6 @@
 
 
 # Testing tools and utilities reference for CDN and MediaTailor integrations
-<a name="testing-tools-reference"></a>
 
 AWS Elemental MediaTailor content delivery network (CDN) integration testing requires various tools for comprehensive validation and debugging. Reference guide for tools commonly used in content delivery network and MediaTailor integration testing.
 

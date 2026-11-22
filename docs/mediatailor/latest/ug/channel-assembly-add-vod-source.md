@@ -1,7 +1,6 @@
 
 
 # Adding VOD sources to your source location
-<a name="channel-assembly-add-vod-source"></a>
 
 The following procedure explains how to add VOD sources to your source location and set up package configurations using the MediaTailor console. For information about how to add VOD sources using the MediaTailor API, see [CreateVodSource](https://docs.aws.amazon.com/mediatailor/latest/apireference/API_CreateVodSource.html) in the *AWS Elemental MediaTailor API Reference*.
 

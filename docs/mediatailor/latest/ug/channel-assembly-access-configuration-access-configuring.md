@@ -1,7 +1,6 @@
 
 
 # Configuring AWS Secrets Manager access token authentication
-<a name="channel-assembly-access-configuration-access-configuring"></a>
 
 When you want to use AWS Secrets Manager access token authentication, you perform the following steps:
 
@@ -69,7 +68,7 @@ To use your customer managed key with your MediaTailor source location resources
 
 The following is an example policy statement that you can add for MediaTailor:
 
-```
+```json
 {
     "Sid": "Enable MediaTailor Channel Assembly access token usage for the MediaTailorManagement IAM role",
     "Effect": "Allow",
@@ -122,7 +121,7 @@ The following is a policy statement example that you can add for MediaTailor:
 
 ****  
 
-```
+```json
 {
 
     "Version":"2012-10-17",		 	 	 

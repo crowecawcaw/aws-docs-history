@@ -1,7 +1,6 @@
 
 
 # Personalizing DASH manifests with ad metadata
-<a name="ad-id-manifest-dash"></a>
 
 MediaTailor personalizes the manifest with creatives returned by the Ad Decision Server (ADS). For each ad, MediaTailor also includes an `EventStream` element that spans the duration of the ad. The `Event` element format is similar to that described in the section [Ad creative signaling in DASH and HLS](https://www.svta.org/document/draft-ad-creative-signaling-in-dash-and-hls/) in the 2023 version of the *SVA technical publication*.
 

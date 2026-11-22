@@ -1,7 +1,6 @@
 
 
 # Working with channels
-<a name="channel-assembly-channels"></a>
 
 A channel assembles your source manifests into a linear stream. Each channel contains one or more outputs that correspond to your package configurations.
 

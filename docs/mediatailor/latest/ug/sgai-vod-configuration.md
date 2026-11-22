@@ -1,7 +1,6 @@
 
 
 # MediaTailor server-guided ad insertion configuration for VOD content
-<a name="sgai-vod-configuration"></a>
 
 AWS Elemental MediaTailor server-guided ad insertion for VOD content provides significant performance benefits through highly cacheable manifests and reduced server processing. Configuring SGAI for VOD content leverages the static nature of video-on-demand assets to maximize caching efficiency and minimize origin requests, making it ideal for large content libraries with repeated viewing patterns.
 

@@ -1,7 +1,6 @@
 
 
 # HLS supported ad markers
-<a name="hls-ad-markers"></a>
 
 AWS Elemental MediaTailor identifies ad avail boundaries in an HLS manifest by parsing the input manifest for supported ad markers. The following sections describe what markers MediaTailor uses.
 

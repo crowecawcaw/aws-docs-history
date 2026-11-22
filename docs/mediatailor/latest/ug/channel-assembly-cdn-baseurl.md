@@ -1,7 +1,6 @@
 
 
 # Configure base URLs for MediaTailor channel assembly CDN
-<a name="channel-assembly-cdn-baseurl"></a>
 
 AWS Elemental MediaTailor channel assembly requires proper base URL configuration to ensure content routing through your content delivery network (CDN) works correctly. Configure the base URL settings in channel assembly to enable successful content delivery to viewers.
 

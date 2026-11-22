@@ -1,7 +1,6 @@
 
 
 # Creating and managing Functions
-<a name="monetization-functions-managing"></a>
 
 This page walks you through creating, attaching, updating, and deleting Functions using the MediaTailor console. Functions let you customize session behavior and ad requests by running logic at key points during playback.
 

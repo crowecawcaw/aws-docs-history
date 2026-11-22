@@ -1,7 +1,6 @@
 
 
 # MediaTailor HLS implicit session initialization
-<a name="manifest-query-parameters-hls-implicit-session-initialization"></a>
 
 AWS Elemental MediaTailor includes query parameters in links to MediaTailor resources when your request includes query parameters with the key `manifest.{{*}}`. The following example shows this request format:
 

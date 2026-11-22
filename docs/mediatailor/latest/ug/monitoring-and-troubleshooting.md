@@ -1,7 +1,6 @@
 
 
 # Monitor and troubleshoot your CloudFront and MediaTailor integration
-<a name="monitoring-and-troubleshooting"></a>
 
 AWS Elemental MediaTailor integration with Amazon CloudFront requires ongoing monitoring and troubleshooting to maintain optimal performance. After implementing your CloudFront and MediaTailor integration, monitor performance and prepare to troubleshoot any issues. The content delivery network (CDN) provides tools to help you understand how your distribution performs and identify potential problems.
 

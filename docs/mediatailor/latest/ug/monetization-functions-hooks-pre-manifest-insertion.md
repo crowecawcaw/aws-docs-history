@@ -1,7 +1,6 @@
 
 
 # Pre-manifest insertion
-<a name="monetization-functions-hooks-pre-manifest-insertion"></a>
 
 ## When it fires
 <a name="monetization-functions-hooks-pmi-when"></a>

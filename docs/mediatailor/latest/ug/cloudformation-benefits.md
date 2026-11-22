@@ -1,7 +1,6 @@
 
 
 # Why use CloudFormation for MediaTailor and CDN integration
-<a name="cloudformation-benefits"></a>
 
 AWS Elemental MediaTailor automation with AWS CloudFormation provides significant advantages for broadcast professionals managing streaming workflows. Manually configuring MediaTailor with a content delivery network (CDN) can be time-consuming and error-prone. Using CloudFormation automation offers the following advantages.
 + **Consistency**: Ensures the same configuration is deployed every time, reducing human error.

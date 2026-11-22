@@ -1,7 +1,6 @@
 
 
 # Securing AWS Elemental MediaTailor origin interactions with SigV4
-<a name="origin-sigv4"></a>
 
 Signature Version 4 (SigV4) is a signing protocol used to authenticate MediaTailor requests to supported origins over HTTPS. MediaTailor only supports HTTPS communication and does not allow HTTP connections. With SigV4 signing, MediaTailor includes a signed authorization header in the HTTPS origin request to MediaTailor Channel Assembly, Amazon S3 and AWS Elemental MediaPackage version 2. 
 
@@ -23,7 +22,7 @@ If you use SigV4 to protect your MediaTailor Channel Assembly origin, the follow
 
 **Example origin access policy for Channel Assembly, scoped to the MediaTailor configuration account**  
 
-```
+```json
 {
     "Effect": "Allow",
     "Principal": {"Service": "mediatailor.amazonaws.com"},
@@ -37,7 +36,7 @@ If you use SigV4 to protect your MediaTailor Channel Assembly origin, the follow
 
 **Example origin access policy for Channel Assembly, scoped to the MediaTailor playback configuration**  
 
-```
+```json
 {
     "Effect": "Allow",
     "Principal": {"Service": "mediatailor.amazonaws.com"},
@@ -65,7 +64,7 @@ If you use SigV4 to protect your Amazon S3 origin, the following requirements mu
 
 **Example origin access policy for Amazon S3, scoped to the MediaTailor account**  
 
-```
+```json
 {
     "Effect": "Allow",
     "Principal": {"Service": "mediatailor.amazonaws.com"},
@@ -79,7 +78,7 @@ If you use SigV4 to protect your Amazon S3 origin, the following requirements mu
 
 **Example origin access policy for Amazon S3, scoped to the MediaTailor playback configuration**  
 
-```
+```json
 {
     "Effect": "Allow",
     "Principal": {"Service": "mediatailor.amazonaws.com"},
@@ -105,7 +104,7 @@ If you use SigV4 to protect your MediaPackage v2 origin, the following requireme
 
 **Example origin access policy for MediaPackage v2, scoped to the MediaTailor account**  
 
-```
+```json
 {
     "Effect": "Allow",
     "Principal": {"Service": "mediatailor.amazonaws.com"},
@@ -119,7 +118,7 @@ If you use SigV4 to protect your MediaPackage v2 origin, the following requireme
 
 **Example origin access policy for MediaPackage v2, scoped to the MediaTailor playback configuration**  
 
-```
+```json
 {
     "Effect": "Allow",
     "Principal": {"Service": "mediatailor.amazonaws.com"},

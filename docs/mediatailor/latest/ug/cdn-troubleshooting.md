@@ -1,7 +1,6 @@
 
 
 # Troubleshoot issues with MediaTailor and CDN integration
-<a name="cdn-troubleshooting"></a>
 
 This comprehensive troubleshooting guide covers common content delivery network (CDN) integration issues across all AWS Elemental MediaTailor implementations including server-side ad insertion (SSAI), channel assembly, and AWS Elemental MediaPackage integration. When your CDN and MediaTailor integration experiences problems, use this systematic diagnostic approach to quickly identify root causes and implement validated solutions.
 
@@ -15,7 +14,7 @@ This guide applies to all MediaTailor CDN integrations regardless of your specif
 + Device and browser information where issues occur
 
 **Related topics:**
-+ For operational setup and troubleshooting preparation, see [Troubleshoot CDN integration](#cdn-troubleshooting)
++ For operational setup and troubleshooting preparation, see [Troubleshoot CDN integration](cdn-troubleshooting.md)
 + For log analysis and error code reference, see [CDN integration log analysis reference](cdn-log-error-reference.md)
 + For escalation and getting additional help, see [Get CDN integration support](cdn-get-help.md)
 

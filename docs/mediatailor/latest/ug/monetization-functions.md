@@ -1,7 +1,6 @@
 
 
 # Working with MediaTailor Monetization Functions
-<a name="monetization-functions"></a>
 
 With MediaTailor Monetization Functions (Functions), you can customize how AWS Elemental MediaTailor manages session data, builds ad requests, and selects ads during ad insertion. Functions let you call external APIs, transform data with expressions, modify ad decision server (ADS) request parameters or player parameters, and filter, reorder, or supplement the ads that are inserted into the stream. You don't need to deploy or manage custom infrastructure.
 
@@ -16,6 +15,8 @@ Use Functions when you need to:
 + **Filter or reorder the ads returned by your ADS.** Remove ads from specific ad systems for competitive separation, or reorder ads before MediaTailor selects which to insert.
 + **Fill unfilled ad time with your own ads.** Detect underfilled ad breaks and fetch house ads or promos from a secondary VAST endpoint to fill the remaining time.
 + **Reduce traffic to your endpoints.** Cache function responses and share them across sessions so that MediaTailor calls your endpoint only when it needs fresh data.
++ **Process SCTE-35 signals in the origin manifest.** Filter descriptors, carry UPIDs, and remove tags before ad decisioning, without an external POIS. For more information, see [Post-origin response](monetization-functions-hooks-post-origin.md).
++ **Black out restricted content.** Show a slate to viewers who aren't entitled to a program. For more information, see [Blackout](monetization-functions-blackout.md).
 
 ## How Functions fit into the MediaTailor workflow
 <a name="monetization-functions-workflow"></a>
@@ -38,6 +39,7 @@ If you are new to Functions, start with the [Quick start guide](monetization-fun
 + [Function types and composition](monetization-functions-types.md)
 + [Caching HTTP responses](monetization-functions-caching.md)
 + [Contextual ad targeting with Elemental Inference](monetization-functions-elemental-inference-integration.md)
++ [Blackout with Functions](monetization-functions-blackout.md)
 + [Creating and managing Functions](monetization-functions-managing.md)
 + [JSONata expression reference for Functions](monetization-functions-jsonata.md)
 + [Function examples](monetization-functions-examples.md)

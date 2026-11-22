@@ -1,7 +1,6 @@
 
 
 # Adding live sources to your source location
-<a name="channel-assembly-add-live-sources"></a>
 
 The following procedure explains how to use the MediaTailor console to add live sources to your source location and set up package configurations. For information about how to add live sources using the MediaTailor API, see [CreateLiveSource](https://docs.aws.amazon.com/mediatailor/latest/apireference/API_CreateLiveSource.html) in the *AWS Elemental MediaTailor API Reference*.
 

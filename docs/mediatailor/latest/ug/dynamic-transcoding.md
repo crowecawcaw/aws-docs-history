@@ -1,7 +1,6 @@
 
 
 # Dynamic transcoding
-<a name="dynamic-transcoding"></a>
 
 Dynamic transcoding is the default ad transcoding behavior in MediaTailor. When an ad, bumper, or slate needs to be transcoded, MediaTailor automatically inspects the origin manifest and derives transcoding settings at runtime, without any configuration on your part.
 
@@ -26,7 +25,7 @@ Dynamic transcoding handles the majority of ad transcoding scenarios. However, t
 + **Bitrate matching** – Dynamic transcoding does not guarantee precise bitrate matching by default. If your workflow requires ad bitrates to closely align with origin bitrates, you can enable the `enableBitrateRounding` flag, which allows for up to 5% bitrate rounding to better match origin values. This flag must be enabled by AWS Support. Contact AWS Support to request activation of `enableBitrateRounding` for your account or specific configurations. If your workflow requires bitrate matching beyond 5%, a custom transcode profile is required.
 + A custom audio normalization target other than the MediaTailor default of -24 LKFS
 + Non-integer segment lengths (for example, 1.92s or 3.84s)
-+ Dolby Vision audio
++ Dolby Vision
 + Specific PMT, video, or audio PID values required by downstream systems or players
 + Custom audio sample rates (for example, 44.1 kHz)
 + Custom pixel aspect ratios (PAR) – for example, 1:1 for square pixels or 40:33 for D1/DV NTSC widescreen

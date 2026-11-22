@@ -1,7 +1,6 @@
 
 
 # JSONata expression reference for Functions
-<a name="monetization-functions-jsonata"></a>
 
 This page is a complete reference for the expression syntax, operators, and functions available in Functions. Use it when you write expressions for output blocks, URL fields, header values, body templates, and run conditions.
 
@@ -289,6 +288,24 @@ MediaTailor supports the following built-in functions. Any function not listed h
 
 **Tip**  
 Use `$encodeUrlComponent()` for individual query parameter values. Use `$encodeUrl()` only when you need to encode a full URL while preserving its structure.
+
+### HLS tag processor functions (9)
+<a name="monetization-functions-jsonata-allowed-tag-processor"></a>
+
+These functions decode and encode SCTE-35 payloads, return tag actions, and control blackout. Use them in HLS tag processor functions at `POST_ORIGIN_RESPONSE`, the only hook that processes manifest tags.
+
+
+| Function | Signature | Returns | 
+| --- | --- | --- | 
+| $decodeScte35 | $decodeScte35(binary) | Decoded SCTE-35 object (SCTE-35 2022) from a hex or base64 payload. | 
+| $encodeScte35 | $encodeScte35(object) | SCTE-35 binary in the manifest's carriage encoding. | 
+| $insertUpidIfEmpty | $insertUpidIfEmpty(scte35Object, targetTypeIds, upid) | Copy of the object, with upid written into descriptors whose segmentation\_type\_id is in targetTypeIds and whose segmentation\_upid is empty. | 
+| $replaceUpid | $replaceUpid(scte35Object, targetTypeIds, upid) | Copy of the object, with upid written into descriptors whose segmentation\_type\_id is in targetTypeIds. | 
+| $updateTag | $updateTag(tag, patch) | Tag action. Emits the tag with patch applied. | 
+| $removeTag | $removeTag(tag) | Tag action. Removes the tag. | 
+| $passthroughTag | $passthroughTag(tag) | Tag action. Emits the tag unchanged. | 
+| $startBlackout | $startBlackout(slateUrl?, maxDurationSeconds?) | Blackout start command for blackoutConfiguration. | 
+| $endBlackout | $endBlackout() | Blackout end command for blackoutConfiguration. | 
 
 ## Common patterns
 <a name="monetization-functions-jsonata-patterns"></a>

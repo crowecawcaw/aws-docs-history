@@ -1,7 +1,6 @@
 
 
 # Controlling the volume of AWS Elemental MediaTailor logs
-<a name="log-configuration"></a>
 
 MediaTailor ad insertion session logs are sometimes verbose. To reduce log costs, you can define the percentage of session logs that MediaTailor sends to Amazon CloudWatch Logs. For example, if your playback configuration has 1000 ad insertion sessions and you set a percentage enabled value of `60`, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the sessions to send logs for. If you want to view logs for a specific session, you can use the [debug log mode](debug-log-mode.md). 
 

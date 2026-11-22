@@ -1,7 +1,6 @@
 
 
 # Viewing MediaTailor configuration details
-<a name="configurations-view"></a>
 
 In addition to the values provided when the configuration was created, AWS Elemental MediaTailor displays the name of the configuration, playback endpoints, and relevant access URLs. To view a configuration, use the following procedure.
 

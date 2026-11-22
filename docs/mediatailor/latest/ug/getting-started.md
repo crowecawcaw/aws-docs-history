@@ -1,7 +1,6 @@
 
 
 # Getting started with MediaTailor
-<a name="getting-started"></a>
 
  To get started with MediaTailor, you can choose between two tutorials—one on setting up ad insertion, and another on channel assembly. You can also explore a hands-on workshop for live events. The ad insertion tutorial will guide you through sending a playback request to MediaTailor to incorporate personalized ads into your content stream. The channel assembly tutorial will show you how to view your channel's stream, including the personalized ads, directly in a browser using a playback URL.
 

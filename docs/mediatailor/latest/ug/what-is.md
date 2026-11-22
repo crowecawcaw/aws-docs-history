@@ -1,7 +1,6 @@
 
 
 # What is AWS Elemental MediaTailor?
-<a name="what-is"></a>
 
 AWS Elemental MediaTailor is a scalable ad insertion and channel assembly service that runs in the AWS Cloud. With MediaTailor, you can serve targeted ad content to viewers and create linear streams while maintaining broadcast quality in over-the-top (OTT) video applications. MediaTailor ad insertion supports Apple HTTP Live Streaming (HLS) and MPEG Dynamic Adaptive Streaming over HTTP (DASH) for video on demand (VOD) and live workflows.
 

@@ -1,7 +1,6 @@
 
 
 # Deleting prefetch schedules
-<a name="deleting-prefetch-schedules"></a>
 
 The following procedure explains how to delete a prefetch schedule by using the MediaTailor console. For information about how to delete prefetch schedules programmatically using the MediaTailor API, see [DeletePrefetchSchedule](https://docs.aws.amazon.com/mediatailor/latest/apireference/API_DeletePrefetchSchedule.html) in the *AWS Elemental MediaTailor API Reference*.
 

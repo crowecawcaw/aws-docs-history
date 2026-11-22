@@ -1,7 +1,6 @@
 
 
 # Creating a service-linked role for MediaTailor
-<a name="create-slr"></a>
 
 You don't need to manually create a service-linked role. When you enable session logging in the AWS Management Console, the AWS Command Line Interface (AWS CLI), or the AWS API, MediaTailor creates the service-linked role for you. 
 

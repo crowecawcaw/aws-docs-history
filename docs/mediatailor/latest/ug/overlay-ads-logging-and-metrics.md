@@ -1,7 +1,6 @@
 
 
 # Logging and metrics for overlay ads in MediaTailor
-<a name="overlay-ads-logging-and-metrics"></a>
 
 This section explains logging and metrics for overlay ads in MediaTailor. For more information about setting up logging, see [Monitoring and tagging AWS Elemental MediaTailor resources](monitoring.md).
 

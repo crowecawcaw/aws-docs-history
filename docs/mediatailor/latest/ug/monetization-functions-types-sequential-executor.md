@@ -1,7 +1,6 @@
 
 
 # Sequential executor
-<a name="monetization-functions-types-sequential-executor"></a>
 
 ## When to use
 <a name="monetization-functions-types-sequential-executor-when"></a>
@@ -36,7 +35,7 @@ Each step in the sequence has an optional `RunCondition` field. This field conta
 
 If the `RunCondition` expression evaluates to `false`, MediaTailor skips the step entirely and moves to the next one. If the `RunCondition` field is omitted, the step always runs.
 
-```
+```JSON
 { "FunctionId": "retryFetch", "RunCondition": "{%temp.statusCode = 500%}" }
 ```
 
@@ -64,7 +63,7 @@ This example calls an identity API and automatically retries if the first call r
 
 **Step 1 — Primary fetch (`fetchIdentity`):**
 
-```
+```JSON
 {
     "FunctionId": "fetchIdentity",
     "FunctionType": "HTTP_REQUEST",
@@ -86,7 +85,7 @@ This example calls an identity API and automatically retries if the first call r
 
 **Step 2 — Retry on failure (`retryIdentity`):**
 
-```
+```JSON
 {
     "FunctionId": "retryIdentity",
     "FunctionType": "HTTP_REQUEST",
@@ -108,7 +107,7 @@ This example calls an identity API and automatically retries if the first call r
 
 **Sequence (`identityWithRetry`):**
 
-```
+```JSON
 {
     "FunctionId": "identityWithRetry",
     "FunctionType": "SEQUENTIAL_EXECUTOR",

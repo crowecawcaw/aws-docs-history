@@ -1,7 +1,6 @@
 
 
 # Delete a channel using the MediaTailor console
-<a name="channel-assembly-starting-stopping-channels"></a>
 
  To delete your channel, complete the following procedure. <a name="delete-channel"></a>
 

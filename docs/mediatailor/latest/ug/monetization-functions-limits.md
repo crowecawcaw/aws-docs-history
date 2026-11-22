@@ -1,7 +1,6 @@
 
 
 # Functions limits
-<a name="monetization-functions-limits"></a>
 
 This page lists the limits that apply to Functions. These limits are enforced at authoring time (when you create or update a function) and at runtime (when the function runs).
 
@@ -13,6 +12,12 @@ This page lists the limits that apply to Functions. These limits are enforced at
 | --- | --- | --- | 
 | PRE\_SESSION\_INITIALIZATION | Total timeout | 2,000 ms | 
 | PRE\_SESSION\_INITIALIZATION | Total player\_params size | 1,000 characters | 
+| POST\_ORIGIN\_RESPONSE | Tags dispatched for each invocation | 100 | 
+| POST\_ORIGIN\_RESPONSE | Cumulative CPU for each invocation | 50 ms | 
+| POST\_ORIGIN\_RESPONSE | Cumulative modification size for each manifest window | 25 KB | 
+| POST\_ORIGIN\_RESPONSE | Outbound HTTP requests from the hook | None | 
+| POST\_ORIGIN\_RESPONSE | Maximum blackout duration | 12 hours | 
+| POST\_ORIGIN\_RESPONSE | Backfill window on the first invocation for a stream | 20 minutes from the live edge | 
 | PRE\_ADS\_REQUEST | Total timeout | 2,000 ms | 
 | POST\_ADS\_RESPONSE | Total timeout | 2,000 ms | 
 | POST\_ADS\_RESPONSE | Input payload size | 400 KB | 
@@ -25,7 +30,9 @@ This page lists the limits that apply to Functions. These limits are enforced at
 
 These timeouts cover the entire hook execution, including all function steps and HTTP calls. If the hook exceeds its timeout, MediaTailor discards all output and proceeds as if no function were attached.
 
-In addition to each hook's own timeout, the `PRE_ADS_REQUEST`, `POST_ADS_RESPONSE`, and `PRE_MANIFEST_INSERTION` hooks that run within a single request share a combined execution budget of 2,000 ms. Time spent by an earlier hook reduces the budget available to later hooks in the same request, and a hook's effective timeout is the smaller of its own timeout and the remaining budget. If the budget is exhausted before a hook starts, MediaTailor skips that hook entirely and continues processing the request. `PRE_SESSION_INITIALIZATION` runs during session initialization and is not part of the combined budget.
+In addition to each hook's own timeout, the `PRE_ADS_REQUEST`, `POST_ADS_RESPONSE`, and `PRE_MANIFEST_INSERTION` hooks that run within a single request share a combined execution budget of 2,000 ms. Time spent by an earlier hook reduces the budget available to later hooks in the same request. A hook's effective timeout is the smaller of its own timeout and the remaining budget. If the budget is exhausted before a hook starts, MediaTailor skips that hook entirely and continues processing the request. `PRE_SESSION_INITIALIZATION` and `POST_ORIGIN_RESPONSE` run outside this combined budget: `PRE_SESSION_INITIALIZATION` runs once during session initialization, and `POST_ORIGIN_RESPONSE` runs on the origin-manifest fetch under its own per-invocation CPU limit.
+
+When a `POST_ORIGIN_RESPONSE` limit is exceeded, tags in the invocation pass through unchanged and MediaTailor logs the event.
 
 The input payload size limit applies to the ads projection that MediaTailor serializes for the `POST_ADS_RESPONSE` and `PRE_MANIFEST_INSERTION` hooks. It measures only the writable projection, not the full request, and does not count session variables. If the projection exceeds 400 KB, MediaTailor skips the hook invocation for that request. The output size limit caps the total serialized size that a function can write to the hook's writable namespace; output that exceeds 512 KB is discarded.
 

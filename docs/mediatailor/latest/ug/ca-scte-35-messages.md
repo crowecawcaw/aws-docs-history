@@ -1,7 +1,6 @@
 
 
 # SCTE-35 messages for ad breaks
-<a name="ca-scte-35-messages"></a>
 
 With MediaTailor, you can create a content channel based off of source location and VOD source resources. You can then set up one or more ad breaks for each of the programs on a channel's schedule. You use messages based on the SCTE-35 specification to condition the content for ad breaks. For example, you can use SCTE-35 messages to provide metadata about the ad breaks. For more information about the SCTE-35 specification, see [Digital Program Insertion Cueing Message](https://webstore.ansi.org/Standards/SCTE/ANSISCTE352022).
 

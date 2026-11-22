@@ -1,7 +1,6 @@
 
 
 # Estimate traffic requirements for CDN and MediaTailor integrations
-<a name="estimate-traffic"></a>
 
 To accurately size your content delivery network (CDN) integration with AWS Elemental MediaTailor:
 

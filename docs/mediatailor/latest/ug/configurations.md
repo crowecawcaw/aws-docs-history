@@ -1,7 +1,6 @@
 
 
 # Using AWS Elemental MediaTailor to insert ads
-<a name="configurations"></a>
 
 A configuration is an object that you interact with in AWS Elemental MediaTailor. The configuration holds the mapping information for the origin server and the ad decision server (ADS). You can also define a default playback for MediaTailor to use when an ad isn't available or doesn't fill the entire ad avail.
 
@@ -21,6 +20,7 @@ If you use a content delivery network (CDN) with MediaTailor, you must set up th
 + [MediaTailor bumper ad insertion](bumpers.md)
 + [MediaTailor pre-roll ad insertion](ad-behavior-preroll.md)
 + [MediaTailor slate ad insertion](slate-management.md)
++ [Dynamic avail sizing](dynamic-avail-sizing.md)
 + [Ad transcoding in AWS Elemental MediaTailor](ad-transcoding.md)
 + [Prefetching ads](prefetching-ads.md)
 + [Using preconditioned ads with AWS Elemental MediaTailor](precondition-ads.md)

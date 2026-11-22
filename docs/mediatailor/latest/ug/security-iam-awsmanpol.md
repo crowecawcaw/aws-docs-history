@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Elemental MediaTailor
-<a name="security-iam-awsmanpol"></a>
 
 
 

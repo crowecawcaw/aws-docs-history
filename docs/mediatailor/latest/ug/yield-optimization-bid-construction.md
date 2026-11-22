@@ -1,7 +1,6 @@
 
 
 # Bid construction and templating
-<a name="yield-optimization-bid-construction"></a>
 
 This page explains how MediaTailor builds an OpenRTB bid request from your template, how variable interpolation works, and what values MediaTailor sets automatically.
 
@@ -41,7 +40,7 @@ If any mandatory field is missing or empty after interpolation, the bid request 
 
 When you enable Yield Optimization in the MediaTailor console, the following pre-filled template is provided as a starting point. You should customize the values for your application:
 
-```
+```JSON
 {
   "imp": [
     {

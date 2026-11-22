@@ -1,7 +1,6 @@
 
 
 # Example 4: Secondary ad server fallback
-<a name="monetization-functions-examples-backup-ads"></a>
 
 ## Scenario
 <a name="monetization-functions-examples-backup-ads-scenario"></a>
@@ -15,7 +14,7 @@ This example uses the `POST_ADS_RESPONSE` lifecycle hook. A `VAST_REQUEST` funct
 
 **Fetch function (`fetchBackupAds`):**
 
-```
+```JSON
 {
     "FunctionId": "fetchBackupAds",
     "FunctionType": "VAST_REQUEST",
@@ -36,7 +35,7 @@ This example uses the `POST_ADS_RESPONSE` lifecycle hook. A `VAST_REQUEST` funct
 
 **Sequence (`backupAdsFallback`):**
 
-```
+```JSON
 {
     "FunctionId": "backupAdsFallback",
     "FunctionType": "SEQUENTIAL_EXECUTOR",
@@ -56,7 +55,7 @@ This example uses the `POST_ADS_RESPONSE` lifecycle hook. A `VAST_REQUEST` funct
 ## Function mapping
 <a name="monetization-functions-examples-backup-ads-mapping"></a>
 
-```
+```JSON
 {
     "FunctionMapping": {
         "POST_ADS_RESPONSE": "backupAdsFallback"

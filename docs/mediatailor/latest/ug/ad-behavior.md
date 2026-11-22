@@ -1,7 +1,6 @@
 
 
 # Understanding AWS Elemental MediaTailor ad insertion behavior
-<a name="ad-behavior"></a>
 
 AWS Elemental MediaTailor stitches ads into live or video on demand (VOD) content by either replacing or inserting ads into the origin manifest. Whether ads are inserted or replaced depends on how the ad breaks are configured in the origin manifest, and whether the content is VOD or live. An ad break is the time period during programming when commercials are shown, while ad avails are the specific units of advertising time within an ad break that can be filled with ads.
 + With *ad replacement*, MediaTailor replaces content segments with ads. 

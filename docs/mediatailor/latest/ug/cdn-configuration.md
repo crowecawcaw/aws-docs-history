@@ -1,7 +1,6 @@
 
 
 # Set up CDN integration with MediaTailor
-<a name="cdn-configuration"></a>
 
 This section provides guidance on integrating AWS Elemental MediaTailor with a content delivery network (CDN). 
 

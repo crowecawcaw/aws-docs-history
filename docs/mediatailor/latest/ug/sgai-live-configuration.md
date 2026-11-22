@@ -1,7 +1,6 @@
 
 
 # MediaTailor server-guided ad insertion configuration for live streams
-<a name="sgai-live-configuration"></a>
 
 AWS Elemental MediaTailor server-guided ad insertion for live content provides significant performance benefits through cacheable manifests. Configuring SGAI for live content uses the same core parameters as VOD, with specific considerations for live stream characteristics and real-time processing.
 

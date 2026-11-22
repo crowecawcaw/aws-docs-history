@@ -1,7 +1,6 @@
 
 
 # Use the CloudFormation deployed resources for CDN and MediaTailor integration
-<a name="use-deployed-resources"></a>
 
 AWS Elemental MediaTailor resources deployed by the AWS CloudFormation stack provide several important outputs that you'll use to access your content with ad insertion. After the CloudFormation stack is created successfully, you'll need to understand how to use the outputs to access your content with ads inserted. This is similar to how you would use MediaTailor URLs in a manual setup, but the CloudFormation deployment provides these URLs automatically.
 
@@ -54,7 +53,7 @@ For more information about MediaTailor URL structure, see [Set up CDN integratio
 
 After you have your playback URL, you need to configure a video player to use it. For broadcast professionals, this is similar to configuring a player for any HLS or DASH stream, but now the stream will include personalized ads. Here's a simple example using the popular HLS.js player:
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>

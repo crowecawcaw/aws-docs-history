@@ -1,7 +1,6 @@
 
 
 # MediaTailor configuration aliases overview
-<a name="configuration-aliases-overview"></a>
 
 AWS Elemental MediaTailor configuration aliases enable dynamic variable replacement in URL domains and other supported fields. Use this feature to use multiple domains and dynamically configure URLs during session initialization.
 

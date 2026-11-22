@@ -1,7 +1,6 @@
 
 
 # Test your implementation for CDN and MediaTailor integrations
-<a name="test-implementation"></a>
 
 Ensure reliable viewer experiences by thoroughly testing your AWS Elemental MediaTailor content delivery network (CDN) integration before production deployment. Proper testing helps identify and resolve issues before they impact your audience. For guidance on testing methodologies, see [Testing CloudFront distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-testing.html). You can also consult your CDN provider's testing documentation.
 

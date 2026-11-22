@@ -1,7 +1,6 @@
 
 
 # Working with live sources
-<a name="channel-assembly-working-live-sources"></a>
 
 A *live source* represents a single live stream, such as a live football game or news broadcast, that you add to your source location. After you create your channel, you add one or more live sources to your source location, and then associate each live source with a program.
 

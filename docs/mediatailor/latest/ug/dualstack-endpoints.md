@@ -1,7 +1,6 @@
 
 
 # Dual-stack (IPv6) endpoints for AWS Elemental MediaTailor
-<a name="dualstack-endpoints"></a>
 
 AWS Elemental MediaTailor supports dual-stack endpoints that you can use to connect over either IPv4 or IPv6. These endpoints are functionally equivalent to the standard IPv4-only endpoints. The service behavior is identical, and only the network transport layer differs.
 
@@ -47,7 +46,7 @@ Dual-stack endpoints appear in the **Playback configuration details** page under
 
 Specify the dual-stack endpoint URL when you make API calls:
 
-```
+```bash
 aws mediatailor get-playback-configuration \
     --name {{my-config}} \
     --endpoint-url https://mediatailor.{{us-east-1}}.api.aws
@@ -62,7 +61,7 @@ Enable dual-stack in your SDK configuration.
 
 **Python (boto3)**:
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -74,7 +73,7 @@ client = boto3.client(
 
 **JavaScript (AWS SDK v3)**:
 
-```
+```javascript
 import { MediaTailorClient } from "@aws-sdk/client-mediatailor";
 
 const client = new MediaTailorClient({

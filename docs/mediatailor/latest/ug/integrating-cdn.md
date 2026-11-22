@@ -1,7 +1,6 @@
 
 
 # Using a CDN to optimize MediaTailor ad personalization and content delivery
-<a name="integrating-cdn"></a>
 
 AWS Elemental MediaTailor works effectively as a standalone service, but integrating it with a content delivery network (CDN), such as Amazon CloudFront or other third-party CDNs, can significantly enhance your streaming workflows. A CDN integration is particularly valuable when you need to serve content to a large, geographically distributed audience or when you want to ensure consistent ad delivery across different AWS Regions.
 

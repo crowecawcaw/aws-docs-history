@@ -1,7 +1,6 @@
 
 
 # Deploying templates to the signal map of your AWS media workflow
-<a name="monitor-with-workflow-monitor-configure-deploy"></a>
 
 After you have attached the alarm and event templates to your signal map, you must deploy the monitoring. Until the deployment is complete, the monitoring of your signal map will not be active.
 

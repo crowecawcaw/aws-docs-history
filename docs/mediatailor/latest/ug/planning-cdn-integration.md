@@ -1,7 +1,6 @@
 
 
 # Plan your CDN integration for AWS Elemental MediaTailor
-<a name="planning-cdn-integration"></a>
 
 You can improve the viewer experience and reduce latency with a CDN integration for AWS Elemental MediaTailor. When you implement a content delivery network (CDN), you can deliver content from locations that are closer to your viewers. This ensures faster load times, better scalability, and consistent ad delivery across different geographic regions.
 

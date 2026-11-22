@@ -1,7 +1,6 @@
 
 
 # Prefetching ads
-<a name="prefetching-ads"></a>
 
 Use AWS Elemental MediaTailor ad prefetching for live streams to help reduce peak load on ad decision servers (ADS) and decrease manifest delivery latency at the start of each ad break. When you define a prefetch schedule, MediaTailor follows the schedule to retrieve ads from the ADS and prepare them for ad insertion before they’re needed for an ad break. During live streams, prefetching can help mitigate decreased ad fill rates and missed monetization opportunities because of ad request and transcoding timeouts or other network delays. 
 

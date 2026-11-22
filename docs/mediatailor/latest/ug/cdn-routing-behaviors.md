@@ -1,7 +1,6 @@
 
 
 # Set up CDN routing behaviors for MediaTailor
-<a name="cdn-routing-behaviors"></a>
 
 This section explains how to set up your content delivery network (CDN) to route different types of requests appropriately for AWS Elemental MediaTailor integration. Proper routing configuration ensures that manifest requests, content segments, and ad segments are handled correctly.
 

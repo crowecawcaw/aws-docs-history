@@ -1,7 +1,6 @@
 
 
 # MediaTailor parameter reference and limitations
-<a name="parameter-comprehensive-reference"></a>
 
 Before configuring dynamic ad variables, understand the parameter formatting requirements and limitations that apply to all MediaTailor configurations.
 

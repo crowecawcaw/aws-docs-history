@@ -1,7 +1,6 @@
 
 
 # Monitoring ad insertion performance with the analytics dashboard
-<a name="analytics-dashboard"></a>
 
 The MediaTailor analytics dashboard is a console page that gives you a single view of the CloudWatch metrics that MediaTailor publishes for server-side ad insertion (SSAI). Use it to monitor monetization health across every AWS region you use, spot regressions early, and compare performance between AWS regions without building your own CloudWatch dashboards. The dashboard shows key monetization metrics, trend graphs, and metric tables for playback configurations and ad tracking domains.
 

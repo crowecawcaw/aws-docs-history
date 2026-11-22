@@ -1,7 +1,6 @@
 
 
 # Deleting MediaTailor configurations
-<a name="configurations-delete"></a>
 
 You can delete a configuration to make it unavailable for playback with AWS Elemental MediaTailor.
 

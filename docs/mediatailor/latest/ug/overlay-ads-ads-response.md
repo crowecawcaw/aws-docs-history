@@ -1,7 +1,6 @@
 
 
 # Ad Decision Server (ADS) response
-<a name="overlay-ads-ads-response"></a>
 
 The ADS response must contain one valid tracking event. At minimum, the tracking event can be an `Impression` tracking event. The tracking event should contain at least one `NonLinear` ad. This ad is the overlay ad, taking the form of a static, HTML, or iFrame resource.
 

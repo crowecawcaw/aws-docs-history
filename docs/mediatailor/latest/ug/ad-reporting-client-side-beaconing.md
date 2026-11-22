@@ -1,7 +1,6 @@
 
 
 # Client-side beaconing
-<a name="ad-reporting-client-side-beaconing"></a>
 
 With the client-side tracking `startTimeInSeconds` element, you can use MediaTailor to support beacons timing.
 

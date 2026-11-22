@@ -1,7 +1,6 @@
 
 
 # Set up CDN mapping in MediaTailor
-<a name="cdn-mapping-mediatailor"></a>
 
 This section explains how to configure AWS Elemental MediaTailor to use your content delivery network (CDN) domain names. After setting up your CDN routing behaviors, you need to update your MediaTailor configuration to ensure that manifests reference your CDN domain instead of directly referencing origin servers.
 

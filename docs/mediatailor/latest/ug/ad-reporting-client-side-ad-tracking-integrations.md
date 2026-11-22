@@ -1,7 +1,6 @@
 
 
 # Client-side ad-tracking integrations
-<a name="ad-reporting-client-side-ad-tracking-integrations"></a>
 
 This section describes integrations between MediaTailor and various client-side ad-tracking servers.
 

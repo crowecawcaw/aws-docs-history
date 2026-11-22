@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaTailor resources
-<a name="resources"></a>
 
 The following table lists related resources that you will find useful as you work with AWS Elemental MediaTailor.
 

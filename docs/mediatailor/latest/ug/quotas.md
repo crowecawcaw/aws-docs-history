@@ -1,7 +1,6 @@
 
 
 # Quotas in AWS Elemental MediaTailor
-<a name="quotas"></a>
 
 MediaTailor resources and operations requests are subject to the following quotas (formerly referred to as "limits").
 

@@ -1,7 +1,6 @@
 
 
 # Generating AWS Elemental MediaTailor debug logs
-<a name="debug-log-mode"></a>
 
 Use debug logs to troubleshoot MediaTailor ad insertion playback session issues. To generate debug logs, set the log mode to debug in the player's request to MediaTailor. For server-side reporting, set the log mode in the *playback request*. For client-side reporting, set the log mode in the *session initialization request*. 
 

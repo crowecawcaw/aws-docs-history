@@ -1,7 +1,6 @@
 
 
 # Optimize costs for CDN and MediaTailor integrations
-<a name="optimize-costs"></a>
 
 Content delivery network (CDN) costs can vary significantly based on traffic patterns, geographic distribution, and feature usage with AWS Elemental MediaTailor. For current pricing information, see [CloudFront pricing](https://aws.amazon.com/cloudfront/pricing/). You can also consult your CDN provider's documentation.
 

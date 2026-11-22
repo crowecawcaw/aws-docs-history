@@ -1,7 +1,6 @@
 
 
 # MediaTailor parameter character restrictions and URL-encoding
-<a name="manifest-query-parameters-character-restrictions"></a>
 
 AWS Elemental MediaTailor supports specific characters in manifest query parameters. You can use URL-encoding for special characters.
 

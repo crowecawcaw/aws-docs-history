@@ -1,7 +1,6 @@
 
 
 # Creating and using configuration aliases with MediaTailor
-<a name="creating-configuration-aliases"></a>
 
 Before you start to use domain variables, you create configuration aliases for your configuration. You use the configuration aliases as domain replacement variables at session initialization time.
 

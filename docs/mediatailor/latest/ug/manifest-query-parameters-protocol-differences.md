@@ -1,7 +1,6 @@
 
 
 # MediaTailor protocol-specific parameter behavior
-<a name="manifest-query-parameters-protocol-differences"></a>
 
 AWS Elemental MediaTailor handles manifest query parameters differently for HLS and DASH protocols. Each protocol type has specific application locations and processing methods.
 

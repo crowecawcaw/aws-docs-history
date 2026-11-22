@@ -1,7 +1,6 @@
 
 
 # Architecture considerations for CDN and MediaTailor integrations
-<a name="cdn-architecture-considerations"></a>
 
 Position your content delivery network (CDN) correctly in your architecture to ensure optimal performance and reliability with AWS Elemental MediaTailor. The recommended architecture places the CDN between viewers and MediaTailor, not between MediaTailor and your origin.
 

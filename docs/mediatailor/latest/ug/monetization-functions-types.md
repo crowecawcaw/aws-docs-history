@@ -1,9 +1,8 @@
 
 
 # Function types and composition
-<a name="monetization-functions-types"></a>
 
-AWS Elemental MediaTailor provides six function types, each designed for a different category of work. You choose a type when you create a function, and the type determines what the function can do at runtime. This page explains how each type executes, when to use it, and how to compose functions into multi-step pipelines.
+AWS Elemental MediaTailor provides seven function types, each designed for a different category of work. You choose a type when you create a function, and the type determines what the function can do at runtime. This page explains how each type executes, when to use it, and how to compose functions into multi-step pipelines.
 
 ## Function type overview
 <a name="monetization-functions-types-overview"></a>
@@ -17,6 +16,7 @@ AWS Elemental MediaTailor provides six function types, each designed for a diffe
 | SEQUENTIAL\_EXECUTOR | Orchestration | Run a sequence of functions in order, passing data between steps through temporary data. | 
 | CONCURRENT\_EXECUTOR | Orchestration | Run a set of functions in parallel up to a maximum concurrency, then combine their outputs. | 
 | AWS\_SERVICE\_REQUEST | AWS service integration | Make an authenticated request to a supported AWS service API, then evaluate output expressions that can reference the response. | 
+| HLS\_TAG\_PROCESSOR | Manifest processing | Read and change HLS tags in the origin manifest at the POST\_ORIGIN\_RESPONSE hook. | 
 
 Each type serves a distinct role. Choose a type when you create a function — the type determines what the function can do at runtime.
 

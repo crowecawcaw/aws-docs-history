@@ -1,11 +1,10 @@
 
 
 # Example 3: Full-featured template (production-ready)
-<a name="yield-optimization-examples-full"></a>
 
 Comprehensive template with all APS-recommended fields, regulatory compliance, content targeting, and extended identifiers.
 
-```
+```JSON
 {
   "app": {
     "id": "{{player_params.app_id}}",

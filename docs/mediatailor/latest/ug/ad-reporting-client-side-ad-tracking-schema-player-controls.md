@@ -1,7 +1,6 @@
 
 
 # Player controls and functionality for client-side ad tracking
-<a name="ad-reporting-client-side-ad-tracking-schema-player-controls"></a>
 
 MediaTailor client-side tracking metadata supports various player controls and functionality. The following list describes popular player controls.
 

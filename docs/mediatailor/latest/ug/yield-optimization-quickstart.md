@@ -1,7 +1,6 @@
 
 
 # Yield Optimization quick start guide
-<a name="yield-optimization-quickstart"></a>
 
 This guide walks you through enabling Yield Optimization on a playback configuration and verifying that it works.
 
@@ -40,7 +39,7 @@ This guide walks you through enabling Yield Optimization on a playback configura
 
 The console provides a JSON editor for the OpenRTB template. At minimum, your template must include:
 
-```
+```JSON
 {
   "app": {
     "bundle": "your.app.bundle.id",
@@ -84,7 +83,7 @@ If `BidRequest` is emitting but `AdsInserted` is 0, check the `RAW_BID_REQUEST` 
 
 Use the `PutPlaybackConfiguration` API with the `YieldOptimizationConfiguration` parameter:
 
-```
+```bash
 aws mediatailor put-playback-configuration \
   --name "MyStreamingService" \
   --ad-decision-server-url "https://ads.example.com/vast" \

@@ -1,7 +1,6 @@
 
 
 # Advanced DASH manifest concepts
-<a name="dash-manifest-advanced-concepts"></a>
 
 When working with DASH manifests in MediaTailor, understanding the following advanced concepts can help you configure and troubleshoot your streaming workflows more effectively:
 

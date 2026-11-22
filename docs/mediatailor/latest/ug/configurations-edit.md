@@ -1,7 +1,6 @@
 
 
 # Editing MediaTailor configuration settings
-<a name="configurations-edit"></a>
 
 You can edit a configuration to update the origin server and ad decision server (ADS) mapping, or change how AWS Elemental MediaTailor interacts with a content distribution network (CDN).
 

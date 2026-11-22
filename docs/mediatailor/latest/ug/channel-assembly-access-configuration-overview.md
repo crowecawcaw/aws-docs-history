@@ -1,7 +1,6 @@
 
 
 # How MediaTailor Secrets Manager access token authentication works
-<a name="channel-assembly-access-configuration-overview"></a>
 
 After you create or update a source location to use access token authentication, MediaTailor includes the access token in an HTTP header when requesting source content manifests from your origin.
 

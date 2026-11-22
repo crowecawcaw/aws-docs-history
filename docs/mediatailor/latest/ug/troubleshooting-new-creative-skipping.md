@@ -1,7 +1,6 @@
 
 
 # MediaTailor NEW\_CREATIVE ad skipping troubleshooting
-<a name="troubleshooting-new-creative-skipping"></a>
 
 When ads are skipped with the `NEW_CREATIVE` reason, AWS Elemental MediaTailor encountered an ad that requires transcoding before insertion. This troubleshooting guide explains the causes and provides step-by-step resolution procedures.
 

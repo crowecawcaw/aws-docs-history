@@ -1,7 +1,6 @@
 
 
 # HLS playlist types
-<a name="hls-playlist-types"></a>
 
 HTTP Live Streaming (HLS) uses two primary types of playlists: multivariant playlists and media playlists. Understanding the difference between these playlist types is essential for configuring and troubleshooting MediaTailor workflows.
 

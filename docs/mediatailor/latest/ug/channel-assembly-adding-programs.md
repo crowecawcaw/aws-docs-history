@@ -1,7 +1,6 @@
 
 
 # Creating a program within a channel schedule using the MediaTailor console
-<a name="channel-assembly-adding-programs"></a>
 
  The following procedure describes how to create a program within your channel's schedule using the MediaTailor console. It also describes how to configure ad breaks, which are optional. For information about how to create programs using the MediaTailor API, see [CreateProgram](https://docs.aws.amazon.com/mediatailor/latest/apireference/API_CreateProgram.html) in the *AWS Elemental MediaTailor API Reference*. <a name="add-programs-procedure"></a>
 

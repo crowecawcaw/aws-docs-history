@@ -1,7 +1,6 @@
 
 
 # Caching HTTP responses
-<a name="monetization-functions-caching"></a>
 
 By default, every time an `HTTP_REQUEST`, `AWS_SERVICE_REQUEST`, or `VAST_REQUEST` function runs, MediaTailor sends a request to the function's endpoint. When many viewers request the same data, such as content metadata for the ad break that they're all watching, this can multiply the request rate to your endpoint by the number of concurrent sessions.
 
@@ -32,7 +31,7 @@ Add the optional `Cache` object to an `HttpRequestConfiguration`, `AwsServiceReq
 
 The following example shows the `Cache` object in an `HTTP_REQUEST` function:
 
-```
+```JSON
 "HttpRequestConfiguration": {
     ...
     "Cache": {
@@ -129,7 +128,7 @@ Keep the following in mind when you write a custom key:
 
 The following `AWS_SERVICE_REQUEST` function queries Elemental Inference for contextual metadata at the `PRE_ADS_REQUEST` hook. The request body is built from the ad break's presentation timestamp (PTS) time window, so sessions that reach the same ad break with the same time window send the same body. With the default cache key, MediaTailor calls Elemental Inference about once for each ad break instead of once for each session.
 
-```
+```JSON
 {
     "FunctionId": "eiContextualMetadataCached",
     "FunctionType": "AWS_SERVICE_REQUEST",
@@ -162,7 +161,7 @@ For details about the request body and the time window, see [Elemental Inference
 
 Request headers aren't part of the default cache key. If your endpoint returns a different response for each value of a header, add that value to a custom key. The following `HTTP_REQUEST` function fetches localized promo text at the `PRE_SESSION_INITIALIZATION` hook. The endpoint selects the language from the `Accept-Language` header, which the function sets from a player parameter. The custom key combines the URL with the header value, so sessions share a cached response only when they request the same URL in the same language.
 
-```
+```JSON
 {
     "FunctionId": "fetchLocalizedPromo",
     "FunctionType": "HTTP_REQUEST",

@@ -1,7 +1,6 @@
 
 
 # Insert personalized ads and ad breaks in a channel stream
-<a name="channel-assembly-integrating-mediatailor-ssai"></a>
 
 With MediaTailor, you can monetize channel assembly linear streams by inserting ad breaks in your programs without conditioning the content with SCTE-35 markers. You can use channel assembly with the MediaTailor ad insertion service, or with any server-side ad insertion (SSAI).
 

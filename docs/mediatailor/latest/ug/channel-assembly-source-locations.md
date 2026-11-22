@@ -1,7 +1,6 @@
 
 
 # Working with source locations
-<a name="channel-assembly-source-locations"></a>
 
 A source location represents the origin server where your source content is stored. A source location can be Amazon S3, a standard web server, a content delivery network (CDN) such as Amazon CloudFront, or a packaging origin such as AWS Elemental MediaPackage. MediaTailor retrieves your content manifests from the source location, and uses them to assemble your channel's linear stream.
 

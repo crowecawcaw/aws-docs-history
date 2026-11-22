@@ -1,7 +1,6 @@
 
 
 # Post-ads response
-<a name="monetization-functions-hooks-post-ads"></a>
 
 ## When it fires
 <a name="monetization-functions-hooks-post-ads-when"></a>
@@ -33,7 +32,7 @@ Write the modified ad list back to `adsResponse.ads`. You can:
 **Important**  
 Always use a JSONata array constructor or array coercion when filtering. A filter expression such as `adsResponse.ads[adSystem != 'BLOCKED']` produces a single object when exactly one ad matches. It produces no value at all when zero ads match. In that case the output key is omitted and the filter has no effect. Wrap the expression in brackets or append `[]`:  
 
-```
+```JSON
 {
     "Output": {
         "adsResponse.ads": "{%adsResponse.ads[adSystem != 'BLOCKED'][]%}"

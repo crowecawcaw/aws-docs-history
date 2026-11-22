@@ -1,7 +1,6 @@
 
 
 # Using AWS Elemental MediaTailor to create linear assembled streams
-<a name="channel-assembly"></a>
 
 AWS Elemental MediaTailor channel assembly is a manifest-only service that allows you to create linear streaming channels using your existing video on demand (VOD) content mixed with live content. MediaTailor never touches your content segments, which are served directly from your origin server. Instead, MediaTailor fetches the manifests from your origin, and uses them to assemble a live sliding manifest window that references the underlying content segments. Channel assembly keeps track of things like the media sequence number that's necessary to make playback smooth from asset to asset. Linear assembled streams are created with a low running cost by using existing multi-bitrate encoded and packaged VOD content.
 

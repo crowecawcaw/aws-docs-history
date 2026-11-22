@@ -1,7 +1,6 @@
 
 
 # Select the right CDN for your needs
-<a name="cdn-selection-guidance"></a>
 
 Choosing the right content delivery network (CDN) provider is an important decision that can impact your content delivery performance, cost, and viewer experience with AWS Elemental MediaTailor. Consider these factors when selecting a CDN for your MediaTailor implementation:
 

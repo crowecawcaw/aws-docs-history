@@ -1,7 +1,6 @@
 
 
 # Creating prefetch schedules
-<a name="creating-prefetch-schedules"></a>
 
 The following procedure explains how to create a prefetch schedule by using the MediaTailor console. For information about creating and managing prefetch schedules programmatically using the MediaTailor API, see [PrefetchSchedules](https://docs.aws.amazon.com/mediatailor/latest/apireference/API_PrefetchSchedule.html) in the *AWS Elemental MediaTailor API Reference*.
 

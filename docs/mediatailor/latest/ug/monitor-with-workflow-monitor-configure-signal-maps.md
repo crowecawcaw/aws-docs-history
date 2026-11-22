@@ -1,7 +1,6 @@
 
 
 # Workflow monitor signal maps
-<a name="monitor-with-workflow-monitor-configure-signal-maps"></a>
 
 Signal maps are visual mappings of AWS resources in your media workflow. You can use workflow monitor to start the signal map discovery on any of the supported resource types. During the discovery process, workflow monitor will automatically and recursively map all connected AWS resources. After the signal map has been created, you can use the workflow monitor console to do things like deploy monitoring templates, view metrics, and view details of the mapped resources.
 

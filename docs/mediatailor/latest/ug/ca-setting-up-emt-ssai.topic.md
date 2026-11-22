@@ -1,7 +1,6 @@
 
 
 # Setting up ad insertion with MediaTailor
-<a name="ca-setting-up-emt-ssai.topic"></a>
 
 To insert personalized ads into your channel's stream, your channel's endpoint URL is the content source for AWS Elemental MediaTailor. This guide shows how to set up MediaTailor for ad insertion.
 

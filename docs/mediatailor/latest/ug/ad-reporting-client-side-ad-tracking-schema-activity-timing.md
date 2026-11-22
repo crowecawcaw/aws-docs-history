@@ -1,7 +1,6 @@
 
 
 # Ad-tracking activity timing
-<a name="ad-reporting-client-side-ad-tracking-schema-activity-timing"></a>
 
 With client-side reporting, the player must emit tracking events (beacons) with a level of precision. Using the MediaTailor client-side tracking schema, you can ensure that, for every avail, ad, companion, overlay, and tracking events, timing and duration information is present, and in different forms.
 

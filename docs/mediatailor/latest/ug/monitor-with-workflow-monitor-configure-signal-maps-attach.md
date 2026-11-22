@@ -1,7 +1,6 @@
 
 
 # Attaching alarm and event templates to the signal map of your AWS media workflow
-<a name="monitor-with-workflow-monitor-configure-signal-maps-attach"></a>
 
 After you have created alarm and event templates, you need to attach these to a signal map. Any of the alarm and event templates you have created can be attached to any discovered signal maps. 
 

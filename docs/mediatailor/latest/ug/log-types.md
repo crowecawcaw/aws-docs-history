@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaTailor manifest logs description and event types
-<a name="log-types"></a>
 
 The following sections describe the logs that MediaTailor emits to describe events with the origin server when requesting and receiving a manifest. These are `ManifestService` logs.
 

@@ -1,7 +1,6 @@
 
 
 # Working with SigV4 for MediaPackage Version 2
-<a name="channel-assembly-access-configuration-sigv4-empv2"></a>
 
 Signature Version 4 (SigV4) for MediaPackage v2 is a signing protocol used to authenticate requests to MediaPackage v2 over HTTP. When you use SigV4 for MediaPackage v2, MediaTailor includes a signed authorization header in the HTTP request to the MediaPackage v2 endpoint used as your origin. If the signed authorization header is valid, your origin fulfills the request. If it isn't valid, the request fails.
 

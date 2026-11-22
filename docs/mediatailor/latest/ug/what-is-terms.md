@@ -1,7 +1,6 @@
 
 
 # MediaTailor concepts
-<a name="what-is-terms"></a>
 
  Here's an overview of the concepts that are used throughout the *AWS Elemental MediaTailor User Guide*.
 

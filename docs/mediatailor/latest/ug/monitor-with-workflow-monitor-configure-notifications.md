@@ -1,7 +1,6 @@
 
 
 # EventBridge rule groups and templates for monitoring your AWS media workflow
-<a name="monitor-with-workflow-monitor-configure-notifications"></a>
 
 CloudWatch uses Amazon EventBridge rules to send notifications. You begin by creating an event template group. In that event template group, you create event templates that determine what conditions create a notification and who is notified.
 

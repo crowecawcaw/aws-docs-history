@@ -1,11 +1,10 @@
 
 
 # AWS CloudFormation template reference for AWS Elemental MediaTailor and Amazon CloudFront integration
-<a name="cloudformation-template-reference"></a>
 
 AWS Elemental MediaTailor integration with Amazon CloudFront can be automated using the following complete AWS CloudFormation template:
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: |
   CloudFormation template that sets up AWS Elemental MediaTailor integration with CloudFront Distribution

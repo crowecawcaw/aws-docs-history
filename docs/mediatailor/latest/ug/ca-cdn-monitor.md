@@ -1,7 +1,6 @@
 
 
 # Monitor MediaTailor channel assembly CDN operations
-<a name="ca-cdn-monitor"></a>
 
 AWS Elemental MediaTailor channel assembly requires effective monitoring when integrated with a content delivery network (CDN) to ensure reliable content delivery. Implement monitoring strategies for your channel assembly and CDN integration to help ensure reliable content delivery and quick problem resolution.
 

@@ -1,7 +1,6 @@
 
 
 # Automate MediaTailor and CDN with CloudFormation
-<a name="automating-cdn-integration"></a>
 
 Automating AWS Elemental MediaTailor with a content delivery network (CDN) using AWS CloudFormation streamlines your ad insertion workflow and improves reliability.
 

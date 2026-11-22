@@ -1,7 +1,6 @@
 
 
 # Getting started with MediaTailor ad insertion
-<a name="getting-started-ad-insertion"></a>
 
 To use AWS Elemental MediaTailor, you need an AWS account and permissions to access, view, and edit MediaTailor configurations. For information on how to do this, see [Setting up AWS Elemental MediaTailor](setting-up.md).
 

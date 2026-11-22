@@ -1,7 +1,6 @@
 
 
 # Build MediaTailor linear channels with channel assembly and CDN
-<a name="ca-cdn-wflw"></a>
 
 This section provides comprehensive guidance for integrating AWS Elemental MediaTailor channel assembly with a content delivery network (CDN). Follow these steps to set up, configure, and optimize your channel assembly CDN integration.
 

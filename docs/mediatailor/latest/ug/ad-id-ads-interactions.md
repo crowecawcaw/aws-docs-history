@@ -1,7 +1,6 @@
 
 
 # Ad Decision Server (ADS) interactions
-<a name="ad-id-ads-interactions"></a>
 
 MediaTailor uses the creative `id` attribute value from the VAST response as a value in the ad ID signaling. If the `id` attribute value is empty or not present in the VAST response, MediaTailor places an empty value in the ad ID signaling.
 

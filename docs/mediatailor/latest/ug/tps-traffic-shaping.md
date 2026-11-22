@@ -1,7 +1,6 @@
 
 
 # TPS-based traffic shaping
-<a name="tps-traffic-shaping"></a>
 
 AWS Elemental MediaTailor provides two optional traffic shaping approaches to limit the number of requests to the ADS at one time. TPS-based traffic shaping offers an alternative to time-window based traffic shaping for prefetch schedules. This approach provides more intuitive configuration by allowing you to specify your ad decision server (ADS) capacity in terms of transactions per second (TPS) and expected concurrent users, rather than time calculations.
 

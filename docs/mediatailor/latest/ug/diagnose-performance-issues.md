@@ -1,7 +1,6 @@
 
 
 # Optimize CDN performance and resolve latency issues for MediaTailor
-<a name="diagnose-performance-issues"></a>
 
 AWS Elemental MediaTailor content delivery network (CDN) integration performance directly impacts viewer experience and ad delivery quality. If you experience slow response times or performance degradation:
 

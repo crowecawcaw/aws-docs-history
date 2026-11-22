@@ -1,7 +1,6 @@
 
 
 # Troubleshooting and monitoring Functions
-<a name="monetization-functions-troubleshooting"></a>
 
 This page helps you diagnose common function errors and monitor function performance in production. The troubleshooting section is organized by symptom — start with what you observe, then follow the cause and fix.
 
@@ -21,6 +20,9 @@ MediaTailor publishes metrics for function execution to Amazon CloudWatch. No op
 | PreSessionInitHook.Invocations | Count of hook executions | ConfigurationName | 
 | PreSessionInitHook.Errors | Count of hook errors | ConfigurationName | 
 | PreSessionInitHook.Latency | Hook execution time (ms) | ConfigurationName | 
+| PostOriginResponseHook.Invocations | Count of hook executions | ConfigurationName | 
+| PostOriginResponseHook.Errors | Count of hook errors | ConfigurationName | 
+| PostOriginResponseHook.Latency | Hook execution time (ms) | ConfigurationName | 
 | PreAdsRequestHook.Invocations | Count of hook executions | ConfigurationName | 
 | PreAdsRequestHook.Errors | Count of hook errors | ConfigurationName | 
 | PreAdsRequestHook.Latency | Hook execution time (ms) | ConfigurationName | 
@@ -290,3 +292,86 @@ The following table lists possible causes and fixes.
 | Your endpoint returns responses that MediaTailor doesn't cache, such as 500 errors, or requests time out. | Check the health and latency of your endpoint. See [Which responses are cached](monetization-functions-caching.md#monetization-functions-caching-status). | 
 | The custom Key expression fails to evaluate or produces an empty value, so MediaTailor uses the default cache key. | Verify that every value that the key expression references exists in the session state at the hook where the function runs. | 
 | The function runs on several playback configurations. | Cached responses aren't shared across playback configurations. Each playback configuration keeps its own cache entries. | 
+
+### POST\_ORIGIN\_RESPONSE: Tag change rejected for HLS compliance
+<a name="monetization-functions-ts-tag-rejected"></a>
+
+**Symptom:** A change your HLS tag processor makes doesn't appear in the manifest. The origin tag is delivered unchanged.
+
+**Cause:** The change would make the manifest violate RFC 8216. MediaTailor rejects changes that break HLS compliance.
+
+**Fix:** Adjust the function so the output tag stays HLS-compliant. For the compliance rules, see [HLS specification compliance](monetization-functions-types-hls-tag-processor.md#monetization-functions-types-hls-tag-processor-compliance).
+
+MediaTailor emits the tag unchanged and logs the event to the customer log stream.
+
+### POST\_ORIGIN\_RESPONSE: Limit exceeded
+<a name="monetization-functions-ts-tag-limit-exceeded"></a>
+
+**Symptom:** Tags in some invocations aren't modified.
+
+**Cause:** The invocation exceeded a `POST_ORIGIN_RESPONSE` limit, such as 100 tags or 50 ms of cumulative CPU in one invocation, or 25 KB of cumulative modification size in one manifest window. For the full list, see [Limits](monetization-functions-limits.md).
+
+**Fix:** Reduce the work in each invocation. Narrow the `TagFilter`, add a `RunCondition`, or simplify the output expression.
+
+Tags in the invocation pass through unchanged and MediaTailor logs the event to the customer log stream.
+
+### POST\_ORIGIN\_RESPONSE: Invalid function output
+<a name="monetization-functions-ts-tag-invalid-output"></a>
+
+**Symptom:** Your tag changes don't take effect.
+
+**Cause:** The `tag` output isn't a valid tag action, or the function wrote to a field that isn't allowed at this hook. The `tag` output must come from `$updateTag`, `$removeTag`, or `$passthroughTag`.
+
+**Fix:** Return a tag action from the `tag` output, and write only to allowed namespaces. See [Post-origin response](monetization-functions-hooks-post-origin.md).
+
+MediaTailor emits the tag unchanged and logs the event to the customer log stream.
+
+### POST\_ORIGIN\_RESPONSE: Invalid blackout slate URL
+<a name="monetization-functions-ts-blackout-slate-url"></a>
+
+**Symptom:** A blackout doesn't start.
+
+**Cause:** The slate URL passed to `$startBlackout` is invalid. For blackout configuration, see [Blackout](monetization-functions-blackout.md).
+
+**Fix:** Provide a valid slate URL.
+
+The command passes through unchanged and MediaTailor logs the event to the customer log stream.
+
+### Blackout: Viewers see program content instead of the slate
+<a name="monetization-functions-ts-blackout-no-slate"></a>
+
+**Symptom:** A blackout command is accepted, but viewers see program content, and ad breaks are personalized as usual.
+
+**Cause:** The slate wasn't ready when MediaTailor applied the start command to the viewer's session, or MediaTailor can't use the slate. For example:
++ The slate is still being prepared.
++ The slate is 2 hours or longer, or it doesn't meet the slate requirements.
++ A `PRE_SESSION_INITIALIZATION` start doesn't set `aws.blackoutSlateUrl`.
++ Your renditions changed after you prepared the slate.
++ MediaTailor can't prepare an I-frame rendition of the slate for the I-frame playlists that it serves.
+
+Blackout commands also have no effect when your origin's playlists have no `EXT-X-PROGRAM-DATE-TIME` tags.
+
+**Fix:**
+
+1. Make sure that your origin's playlists include `EXT-X-PROGRAM-DATE-TIME` tags, and that a `PRE_SESSION_INITIALIZATION` start sets `aws.blackoutSlateUrl`.
+
+1. Check that the slate meets the requirements and is shorter than 2 hours. See [Slate requirements](monetization-functions-blackout.md#monetization-functions-blackout-slate).
+
+1. Prepare the slate with a test blackout before the event, and confirm that a new test session shows the slate. See [Prepare the slate before the event](monetization-functions-blackout.md#monetization-functions-blackout-slate-prepare).
+
+Sessions that get the start command after the slate is ready see the slate.
+
+### Blackout: Audio drifts away from video during a long blackout
+<a name="monetization-functions-ts-blackout-av-drift"></a>
+
+**Symptom:** During a long blackout, the slate's audio moves gradually ahead of or behind its video.
+
+**Cause:** The slate length isn't a whole multiple of *L*, the shortest length that is a whole number of slate segments and a whole number of audio frames. Each loop of the slate then carries slightly more audio than video.
+
+**Fix:**
+
+1. Find the slate segment duration and compute *L*. See [MediaTailor blackout slate length](monetization-functions-blackout.md#monetization-functions-blackout-slate-length).
+
+1. Encode the slate to a whole multiple of *L*, with AAC-LC audio at 48 kHz.
+
+1. Publish the new slate at a new URL, use that URL in your blackout commands, and prepare it with a test blackout before the event.

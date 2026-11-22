@@ -1,7 +1,6 @@
 
 
 # Migrating your AWS Elemental MediaTailor logging strategy
-<a name="vended-logs-migrate"></a>
 
  If you change the log strategy from Legacy CloudWatch to vended logs, MediaTailor will make this change as soon as you save the updates. To avoid interruptions in your logging workflow, use the following steps to migrate your logging strategy. 
 

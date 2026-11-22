@@ -1,7 +1,6 @@
 
 
 # Getting started with workflow monitor
-<a name="monitor-with-workflow-monitor-configure-getting-started"></a>
 
 The following steps provide a basic overview of using workflow monitor for the first time. 
 

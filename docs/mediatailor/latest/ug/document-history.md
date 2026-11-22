@@ -1,12 +1,13 @@
 
 
 # Document history for AWS Elemental MediaTailor
-<a name="document-history"></a>
 
 The following table describes important changes to this documentation. 
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Dynamic avail sizing metrics](monitoring-cloudwatch-metrics.md) | Added CloudWatch metrics for dynamic avail sizing. | November 19, 2026 | 
+| [Dynamic avail sizing documentation](dynamic-avail-sizing.md) | Added a topic that describes dynamic avail sizing for live HLS workflows. | November 19, 2026 | 
 | [New `BEACON_RECEIVED` event](ads-log-format.md) | Added the `BEACON_RECEIVED` event, which MediaTailor emits when the playback device reports an ad tracking event back to the service. | October 23, 2026 | 
 | [Client-side ad tracking event metrics](monitoring-cloudwatch-metrics.md) | Added the `Avail.Mute`, `Avail.Unmute`, `Avail.Pause`, and `Avail.Skip` metrics. The `Avail.Impression`, `Avail.Start`, `Avail.FirstQuartile`, `Avail.Midpoint`, `Avail.ThirdQuartile`, and `Avail.Complete` metrics now also count the beacons that MediaTailor receives from the playback device during client-side reporting, in addition to the beacons that MediaTailor fires during server-side reporting. | October 23, 2026 | 
 | [Ad delivery breakdown section](analytics-dashboard.md) | Added documentation for the Ad delivery breakdown section of the MediaTailor analytics dashboard. This section shows the ad delivery funnel (L1 through L4) and a per-reason breakdown of ad insertions that were skipped. | October 21, 2026 | 

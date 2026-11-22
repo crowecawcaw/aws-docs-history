@@ -1,7 +1,6 @@
 
 
 # CDN integration log analysis and error code reference for MediaTailor
-<a name="cdn-log-error-reference"></a>
 
 AWS Elemental MediaTailor content delivery network (CDN) integration logs provide valuable insights into performance and errors. This guide covers both CDN logs (from your content delivery network) and MediaTailor logs and error codes that are relevant to CDN integration troubleshooting. Use this reference when you need to understand what your content delivery network logs and error codes are telling you about your MediaTailor integration. This guide helps you interpret log entries and error messages to identify the root cause of issues.
 

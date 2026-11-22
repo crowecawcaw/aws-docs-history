@@ -1,7 +1,6 @@
 
 
 # MediaTailor server-side ad tracking and reporting
-<a name="ad-reporting-server-side"></a>
 
 AWS Elemental MediaTailor defaults to server-side reporting for comprehensive ad tracking and measurement. With server-side reporting, when the player requests an ad URL from the manifest, the service reports ad consumption directly to the ad tracking URL. After the player initializes a playback session with MediaTailor, no further input is required from you or the player to perform server-side reporting. As each ad is played back, MediaTailor sends beacons to the ad server to report how much of the ad has been viewed. MediaTailor sends beacons for the start of the ad and for the ad progression in quartiles: the first quartile, midpoint, third quartile, and ad completion.
 

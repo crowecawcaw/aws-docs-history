@@ -1,7 +1,6 @@
 
 
 # Working with MediaTailor Yield Optimization
-<a name="yield-optimization"></a>
 
 Yield Optimization is a feature that automatically monetizes unused ad inventory with Amazon Ads demand during server-side ad insertion (SSAI) for livestreams. At launch, Yield Optimization is available to publishers enrolled in the Amazon Publisher Services (APS) Streaming TV program, with additional demand sources coming over time. Yield Optimization turns unfilled ad breaks into revenue at zero cost to enable and with no additional infrastructure required.
 

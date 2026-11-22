@@ -1,7 +1,6 @@
 
 
 # Test and validate your CloudFormation deployment for CDN and MediaTailor integration
-<a name="test-validate-deployment"></a>
 
 AWS Elemental MediaTailor deployment validation is a critical step for broadcast professionals before going live. This section guides you through testing your deployment to ensure ads are being inserted properly and content is delivered smoothly.
 

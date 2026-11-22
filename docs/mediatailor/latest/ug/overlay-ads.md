@@ -1,7 +1,6 @@
 
 
 # Overlay ads
-<a name="overlay-ads"></a>
 
 For live-streaming workflows where you want to increase monetization without interrupting the viewing experience with mid-roll ads, you can leverage your current AWS Elemental MediaTailor integration to guide an advertising format that is rendered client-side. This type of advertising is known as *overlay ads*. Overlay ads are non-linear video ads that appear in the form of 'L-band ads,' 'non-linear video ads,' 'picture-in-picture ads,' 'motion overlays', 'in-content advertising', or 'frame ads.'
 

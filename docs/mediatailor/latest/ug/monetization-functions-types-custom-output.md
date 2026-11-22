@@ -1,7 +1,6 @@
 
 
 # Custom output
-<a name="monetization-functions-types-custom-output"></a>
 
 ## When to use
 <a name="monetization-functions-types-custom-output-when"></a>
@@ -32,7 +31,7 @@ If any expression fails to evaluate, MediaTailor discards the entire function's 
 
 The following function randomly assigns each ad break to one of two ad decision server URLs. It is designed for the `PRE_ADS_REQUEST` lifecycle hook.
 
-```
+```JSON
 {
     "FunctionId": "abTestAdsUrl",
     "FunctionType": "CUSTOM_OUTPUT",

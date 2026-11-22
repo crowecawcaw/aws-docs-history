@@ -1,7 +1,6 @@
 
 
 # Performance optimization guide for CDN and MediaTailor integrations
-<a name="cdn-optimization"></a>
 
 AWS Elemental MediaTailor performance can be maximized through systematic content delivery network (CDN) optimization. Whether you're implementing server-side ad insertion (SSAI), channel assembly, or combined workflows, the optimization principles and performance targets remain consistent. This guide provides comprehensive optimization techniques and benchmarks that apply across all MediaTailor implementations.
 

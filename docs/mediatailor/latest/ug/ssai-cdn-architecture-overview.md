@@ -1,7 +1,6 @@
 
 
 # Understand ad insertion architecture for CDN and MediaTailor integrations
-<a name="ssai-cdn-architecture-overview"></a>
 
 This section explains the concepts and architecture of server-side ad insertion (SSAI) with content delivery networks (CDNs) for AWS Elemental MediaTailor. You'll learn how dynamic ad insertion and manifest manipulation work together to enable effective video monetization.
 

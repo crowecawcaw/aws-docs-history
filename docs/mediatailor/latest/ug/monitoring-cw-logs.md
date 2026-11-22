@@ -1,7 +1,6 @@
 
 
 # Writing AWS Elemental MediaTailor logs directly to Amazon CloudWatch Logs
-<a name="monitoring-cw-logs"></a>
 
 MediaTailor produces logs that contain detailed information about session activity and ad decision server interactions, and writes them to Amazon CloudWatch. The logs provide a sequential description of activity that occurs during the session.
 

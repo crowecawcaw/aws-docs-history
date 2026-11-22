@@ -1,7 +1,6 @@
 
 
 # Advanced CDN features for MediaTailor
-<a name="advanced-cdn-features"></a>
 
 After implementing basic content delivery network (CDN) configuration, explore these advanced features to further enhance your AWS Elemental MediaTailor streaming platform's performance and reliability.
 

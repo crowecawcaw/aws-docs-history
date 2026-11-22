@@ -1,7 +1,6 @@
 
 
 # Defining audience cohorts and alternate content with Program Rules
-<a name="working-with-program-rules"></a>
 
 With Program Rules, you can define audience cohorts for a channel and specify alternate media to play for those audiences. You can associate one or more alternate content sources with an audience for a program. After the program ends, the default audience content will play unless you specify further alternate media.
 

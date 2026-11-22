@@ -1,7 +1,6 @@
 
 
 # MediaTailor service variables for session control
-<a name="variables-service"></a>
 
 AWS Elemental MediaTailor reserves the `aws.` query parameter namespace for service variables that control session-level behavior. Unlike `ads.` parameters (which are forwarded to the ADS) and `manifest.` parameters (which are appended to the personalized manifest URLs), `aws.` parameters are consumed directly by MediaTailor and are not forwarded to the origin server or the ADS.
 
@@ -20,6 +19,9 @@ The following table lists the `aws.*` parameters you can use to control session-
 | aws.availSuppressionMode | String enum | OFF, BEHIND\_LIVE\_EDGE, AFTER\_LIVE\_EDGE (case-insensitive) | OFF | Controls whether ad avails are suppressed based on their position relative to the live edge. | 
 | aws.availSuppressionValue | Time duration | HH:MM:SS format (for example, 00:00:10) | Not set | The time window for avail suppression. Required when availSuppressionMode is BEHIND\_LIVE\_EDGE or AFTER\_LIVE\_EDGE. | 
 | aws.availSuppressionFillPolicy | String enum | FULL\_AVAIL\_ONLY, PARTIAL\_AVAIL (case-insensitive) | FULL\_AVAIL\_ONLY | When mode is AFTER\_LIVE\_EDGE, controls whether partially-suppressed avails are filled. | 
+| aws.contentReserveSeconds | Integer (seconds) | At least 1 | Not set (dynamic avail sizing off) | Sets the size of the content reserve and turns on dynamic avail sizing for the session. For more information, see [aws.contentReserveSeconds](#variables-service-contentreserveseconds). | 
+| aws.maxAvailInflationSeconds | Integer (seconds) | 0 to 120 (0 turns inflation off) | 120 | Sets the maximum time that MediaTailor adds to a single avail when it inflates to refill the content reserve. For more information, see [aws.maxAvailInflationSeconds](#variables-service-maxavailinflationseconds). | 
+| aws.replenishmentThresholdSeconds | Integer (seconds) | 0 up to the value of aws.contentReserveSeconds | 0 | Sets the minimum deficit that triggers inflation. For more information, see [aws.replenishmentThresholdSeconds](#variables-service-replenishmentthresholdseconds). | 
 
 ## aws.startTime
 <a name="variables-service-starttime"></a>
@@ -243,3 +245,103 @@ The following limitations apply:
 + You cannot change this parameter after session initialization.
 + `aws.availSuppressionValue` must not be provided when mode is `OFF`.
 + Invalid time format in `aws.availSuppressionValue` causes mode to fall back to `OFF`.
+
+## aws.contentReserveSeconds
+<a name="variables-service-contentreserveseconds"></a>
+
+When `aws.contentReserveSeconds` is present, MediaTailor turns on dynamic avail sizing for the session and holds back a content reserve of this size, in seconds. MediaTailor uses the reserve to shorten underfilled ad avails without stalling the player. For more information, see [Dynamic avail sizing](dynamic-avail-sizing.md).
+
+**Usage**  
+Pass `aws.contentReserveSeconds` as a query parameter in the manifest request:
+
+```
+GET /v1/master/{hashed-account-id}/{origin-id}/{asset}.m3u8?aws.contentReserveSeconds=180
+```
+
+**Requirements**  
+The following requirements apply to `aws.contentReserveSeconds`:
++ Applies to HLS live and live-to-VOD streams.
++ Applies to server-side ad insertion only, not server-guided ad insertion (SGAI).
++ The reserve can't be larger than the origin manifest window minus 60 seconds. If you request a larger reserve, MediaTailor reduces it to that limit.
+
+**Behavior**  
+The following table describes how `aws.contentReserveSeconds` behaves:
+
+
+**aws.contentReserveSeconds behavior**  
+
+| Value | Result | 
+| --- | --- | 
+| Integer, at least 1 | Dynamic avail sizing is on, with a content reserve of this size | 
+| Larger than the origin manifest window minus 60 seconds | Reduced to the origin manifest window minus 60 seconds | 
+| Omitted | Dynamic avail sizing is off | 
+| Invalid value (for example, less than 1 or not an integer) | Session request fails | 
+
+**Limitations**  
+You cannot change this parameter after session initialization.
+
+## aws.maxAvailInflationSeconds
+<a name="variables-service-maxavailinflationseconds"></a>
+
+`aws.maxAvailInflationSeconds` sets the maximum time, in seconds, that MediaTailor adds to a single ad avail when it inflates that avail to refill the content reserve. MediaTailor inflates by the smaller of the deficit and this value. For more information, see [Dynamic avail sizing](dynamic-avail-sizing.md).
+
+**Usage**  
+Pass `aws.maxAvailInflationSeconds` as a query parameter in the manifest request, together with `aws.contentReserveSeconds`:
+
+```
+GET /v1/master/{hashed-account-id}/{origin-id}/{asset}.m3u8?aws.contentReserveSeconds=180&aws.maxAvailInflationSeconds=60
+```
+
+**Requirements**  
+The following requirements apply to `aws.maxAvailInflationSeconds`:
++ This parameter is ignored unless `aws.contentReserveSeconds` is present.
+
+**Behavior**  
+The following table describes how `aws.maxAvailInflationSeconds` behaves:
+
+
+**aws.maxAvailInflationSeconds behavior**  
+
+| Value | Result | 
+| --- | --- | 
+| 0 | Inflation is off. The reserve absorbs underfill but doesn't refill. | 
+| 1 to 120 | MediaTailor inflates an avail by the smaller of the deficit and this value | 
+| Omitted | Default of 120 applies | 
+| Invalid value (outside 0 to 120 or not an integer) | Session request fails | 
+| Present without aws.contentReserveSeconds | Ignored | 
+
+**Limitations**  
+You cannot change this parameter after session initialization.
+
+## aws.replenishmentThresholdSeconds
+<a name="variables-service-replenishmentthresholdseconds"></a>
+
+`aws.replenishmentThresholdSeconds` sets the minimum deficit, in seconds, that triggers inflation. The deficit is `aws.contentReserveSeconds` minus the current reserve. MediaTailor doesn't inflate an avail until the deficit reaches this value. If you set it higher than the deficit your sessions typically reach, MediaTailor never inflates avails. For more information, see [Dynamic avail sizing](dynamic-avail-sizing.md).
+
+**Usage**  
+Pass `aws.replenishmentThresholdSeconds` as a query parameter in the manifest request, together with `aws.contentReserveSeconds`:
+
+```
+GET /v1/master/{hashed-account-id}/{origin-id}/{asset}.m3u8?aws.contentReserveSeconds=180&aws.maxAvailInflationSeconds=60&aws.replenishmentThresholdSeconds=60
+```
+
+**Requirements**  
+The following requirements apply to `aws.replenishmentThresholdSeconds`:
++ This parameter is ignored unless `aws.contentReserveSeconds` is present.
+
+**Behavior**  
+The following table describes how `aws.replenishmentThresholdSeconds` behaves:
+
+
+**aws.replenishmentThresholdSeconds behavior**  
+
+| Value | Result | 
+| --- | --- | 
+| 0 | MediaTailor inflates on any deficit | 
+| 1 up to the value of aws.contentReserveSeconds | MediaTailor inflates only when the deficit reaches this value | 
+| Omitted | Default of 0 applies | 
+| Invalid value (negative, greater than aws.contentReserveSeconds, or not an integer) | Session request fails | 
+| Present without aws.contentReserveSeconds | Ignored | 
+
+**Limitations**  
+You cannot change this parameter after session initialization.

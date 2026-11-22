@@ -1,7 +1,6 @@
 
 
 # Viewing AWS Elemental MediaTailor logs
-<a name="monitoring-through-logs"></a>
 
 MediaTailor emits logs that describe a variety of milestones and activities in channels and playback configurations. You can use these logs to gain visibility into your workflow and to troubleshoot issues with the service. The following topics describe logs and logging options. 
 

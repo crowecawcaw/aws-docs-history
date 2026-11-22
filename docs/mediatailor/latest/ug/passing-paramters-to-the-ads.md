@@ -1,7 +1,6 @@
 
 
 # MediaTailor passing parameters to ADS
-<a name="passing-paramters-to-the-ads"></a>
 
 AWS Elemental MediaTailor supports setting up dynamic variables in MediaTailor requests to the ADS using the following steps. 
 + For information about supported formatting for query parameters, see [MediaTailor parameter reference and limitations](parameter-comprehensive-reference.md).
