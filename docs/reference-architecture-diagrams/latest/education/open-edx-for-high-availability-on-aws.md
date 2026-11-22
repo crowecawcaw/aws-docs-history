@@ -1,0 +1,52 @@
+
+
+# Open edX on AWS
+
+Publication date: **April 14, 2023 ([Diagram history](diagram-history.md))**
+
+[Open edX](https://openedx.org/) is an open-source, distributed learning platform that, when implemented on AWS, can scale flexibly to optimize cost and maximize availability. Instructors and students can focus on teaching and learning, and organizations can reduce administrative overhead.
+
+## Open edX on AWS diagram
+<a name="open-edx-for-high-availability-on-aws-diagram"></a>
+
+![Open edX runs on Amazon EC2 across multiple Availability Zones, with Aurora, ElastiCache, and OpenSearch Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/education/images/open-edx-for-high-availability-on-aws.png)
+
+
+1. [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/) provides highly available routing policies and reduces latency by directing students to the closest [Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/) locations for accessing static content. 
+
+1. Use [AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/) (ACM) to manage your SSL certificates for secure communication with public and private resources. 
+
+1. CloudFront provides access to stateless Open edX mobile front ends (MFEs) that are stored on [Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/userguide/) (Amazon S3). This access to Open edX includes services such as instructor reports, student/learner accounts, payments, and credit/debit card access MFEs. 
+
+1. [Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/) scales automatically with your student traffic, and keeps student data secure and compliant with SSL termination and HTTPS. 
+
+1. Within this subnet, the Bastion host grants Open edX platform administrators secure access to manage the platform components. The NAT gateway provides a pathway to Open edX code repositories. 
+
+1. The Open edX layer of user-facing backend web apps is shown as an abstraction layer and run on [Amazon Elastic Compute Cloud](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) (Amazon EC2). Each of the apps can be created with its own [Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/) group so that instances within separate private subnets or within private subnets are shared by other front end apps. The application instances (including Open edX CMS, LMS, and Insights) are accessible through Application Load Balancer. 
+
+1. The Open edX layer API backend services is shown as an abstraction layer. Each app can be created with its own Amazon EC2 Auto Scaling group so that instances within separate private subnets or within private subnets are shared by other backend apps. The application instances (including Open edX Notes, Forums, and Blockstore) are accessible through Application Load Balancer. 
+
+1. [MongoDB](https://www.mongodb.com/) is an open-source, NoSQL database that provides support for JSON-styled, document-oriented storage within the [Open edX platform](https://openedx.org/platform/). This clustered implementation provides resiliency through replication. The two secondary nodes provide a sufficient quorum to select a lead if the primary fails. 
+
+1. The load balancer receives a connection request, selects a target from the target group for the default rule, and opens a TCP connection to the selected target on the port specified in the listener configuration. 
+
+1. ProxySQL provides a single MySQL-compatible [Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/) endpoint that automatically directs write traffic to the cluster endpoint and read traffic to the reader endpoint, improving the performance and scalability of the Open edX platform by adding read replicas to meet peak utilization. 
+
+1. [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/) [for Redis OSS](https://aws.amazon.com/elasticache/redis/) and [Memcached](https://aws.amazon.com/elasticache/what-is-memcached/) provide fully managed solutions that enhance robustness and reduce the cost of installing, operating, and maintaining highly available cache clusters. ElastiCache manages the state of transactions to allow separation of application and database tiers. ElastiCache can deploy nodes across Availability Zones to provide higher resiliency. 
+
+1. Aurora provides a MySQL solution for Open edX relational database workloads, combining the performance and availability of traditional enterprise databases with the simplicity and cost-effectiveness of open-source databases. 
+
+1. [Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/) provides support for open source Elasticsearch APIs, managed Kibana, integration with Logstash and other AWS services, and built-in alerting and SQL querying. 
+
+1. Use Amazon S3 to store learning assets and log files generated by your servers. Use Amazon S3 services to manage logs, active learning assets, and archived material and lower operations costs. 
+
+1. Use [Amazon Simple Email Service](https://docs.aws.amazon.com/ses/latest/dg/) (Amazon SES) to communicate with your students via Open edX SMTP email integration. 
+
+## Further reading
+<a name="open-edx-for-high-availability-on-aws-further-reading"></a>
+
+For additional information, see the following resources:
++ [AWS Architecture Icons](https://aws.amazon.com/architecture/icons)
++ [AWS Architecture Center](https://aws.amazon.com/architecture)
++  [AWS Well-Architected](https://aws.amazon.com/architecture/well-architected) 
++  [Open edX](https://openedx.org/) 
