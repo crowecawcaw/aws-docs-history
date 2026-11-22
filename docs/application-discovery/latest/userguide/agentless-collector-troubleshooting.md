@@ -3,7 +3,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # Troubleshooting Agentless Collector
-<a name="agentless-collector-troubleshooting"></a>
 
 This section contains topics that can help you troubleshoot known issues with Application Discovery Service Agentless Collector (Agentless Collector).
 
@@ -100,14 +99,14 @@ This error occurs because of a failed attempt by Agentless Collector to establis
 
    1. Open the collector’s VM web console and sign in as **ec2-user** using the password **collector** as shown in the following example.
 
-      ```
+      ```bash
       username: ec2-user
       password: collector
       ```
 
    1. Test the connection to the listed domains by running telnet on ports 443 as shown in the following example.
 
-      ```
+      ```bash
       telnet migrationhub-config.us-west-2.amazonaws.com 443
       ```
 
@@ -124,7 +123,7 @@ If communication with the optionally provided proxy is via HTTPS and the proxy h
 
 1. Open the collector’s VM web console and sign in as `ec2-user` with the password `collector` as shown in the following example.
 
-   ```
+   ```bash
    username: ec2-user
    password: collector
    ```
@@ -137,13 +136,13 @@ If communication with the optionally provided proxy is via HTTPS and the proxy h
 
 1. To install the new certificate, run the following commands:
 
-   ```
+   ```bash
    sudo update-ca-trust
    ```
 
 1. Restart the Agentless Collector by running the following command:
 
-   ```
+   ```bash
    sudo shutdown -r now
    ```
 
@@ -305,20 +304,20 @@ If you encounter issues with Application Discovery Service Agentless Collector (
 
 1. Open the collector’s VM web console and sign in as **ec2-user** using the password **collector** as shown in the following example.
 
-   ```
+   ```bash
    username: ec2-user
    password: collector
    ```
 
 1. Use the following command to navigate to the log folder. 
 
-   ```
+   ```bash
    cd /var/log/aws/collector
    ```
 
 1. Zip the log files by using the following commands.
 
-   ```
+   ```bash
    sudo cp /local/agentless_collector/compose.log .
    docker inspect $(docker ps --format {{.Names}}) | sudo tee docker_inspect.log >/dev/null
    sudo tar czf logs_$(date '+%d-%m-%Y_%H.%M.%S').tar.gz --exclude='db.mv*' *
@@ -326,7 +325,7 @@ If you encounter issues with Application Discovery Service Agentless Collector (
 
 1. Copy the log file from the Agentless Collector VM.
 
-   ```
+   ```bash
    scp logs*.tar.gz {{targetuser}}@{{targetaddress}}
    ```
 

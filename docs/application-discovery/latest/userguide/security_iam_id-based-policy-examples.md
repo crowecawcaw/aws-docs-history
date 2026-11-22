@@ -3,7 +3,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # AWS Application Discovery Service identity-based policy examples
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, IAM users and roles don't have permission to create or modify Application Discovery Service resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the IAM users or groups that require those permissions.
 
@@ -39,7 +38,7 @@ An IAM user with this policy attached to their account can configure Application
 **Example AWSApplicationDiscoveryServiceFullAccess policy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -74,7 +73,7 @@ This policy also grants the user access to Arsenal. Arsenal is an agent service 
 **Example AWSApplicationDiscoveryAgentAccess Policy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -101,7 +100,7 @@ For information about using this policy, see [AWS managed policies for AWS Appli
 **Example ApplicationDiscoveryServiceContinuousExportServiceRolePolicy**    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -189,7 +188,7 @@ The AWSDiscoveryContinuousExportFirehosePolicy policy is required to use data ex
 **Example AWSDiscoveryContinuousExportFirehosePolicy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -242,7 +241,7 @@ The following example shows how to use the `discovery:GetNetworkConnectionGraph`
 **Example**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

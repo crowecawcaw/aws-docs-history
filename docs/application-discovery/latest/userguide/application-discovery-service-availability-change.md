@@ -3,7 +3,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # AWS Application Discovery Service availability change
-<a name="application-discovery-service-availability-change"></a>
 
 After careful consideration, we decided to close AWS Application Discovery Service to new customers starting November 7, 2025. If you would like to use the service, sign up prior to that date. Existing customers can continue to use the service as normal.
 

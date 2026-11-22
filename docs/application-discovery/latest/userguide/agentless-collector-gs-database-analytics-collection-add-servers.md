@@ -3,7 +3,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # Adding your LDAP and OS servers
-<a name="agentless-collector-gs-database-analytics-collection-add-servers"></a>
 
 The database and analytics data collection module uses LDAP in Microsoft Active Directory to gather information about the OS, database, and analytics servers in your network. *Lightweight Directory Access Protocol (LDAP)* is an open standard application protocol. You can use this protocol to access and maintain distributed directory information services over your IP network.
 

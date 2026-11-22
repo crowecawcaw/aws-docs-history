@@ -3,7 +3,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # Viewing data in the AWS Migration Hub console dashboard
-<a name="dashboard"></a>
 
 To view the main dashboard, choose **Dashboard** from the AWS Migration Hub (Migration Hub) console navigation pane. In the Migration Hub main dashboard, you can view high-level statistics about servers, applications, and data collectors such as Application Discovery Service Agentless Collector (Agentless Collector) and AWS Application Discovery Agent (Discovery Agent).
 

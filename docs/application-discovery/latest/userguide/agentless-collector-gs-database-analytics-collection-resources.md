@@ -3,7 +3,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # Creating the AWS DMS data collector
-<a name="agentless-collector-gs-database-analytics-collection-resources"></a>
 
 Your database and analytics data collection module uses an AWS DMS data collector to interact with the AWS DMS console. You can view the collected data in the AWS DMS console, or use it to determine the right-sized AWS target engine. For more information, see [Using the AWS DMS Fleet Advisor Target Recommendations feature](https://docs.aws.amazon.com/dms/latest/userguide/fa-recommendations.html).
 
@@ -32,7 +31,7 @@ Before you create an AWS DMS data collector, create an IAM role that your AWS DM
 
 ****  
 
-   ```
+   ```json
    {
    	"Version":"2012-10-17",		 	 	 
    	"Statement": [{

@@ -3,7 +3,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # Importing data into Migration Hub
-<a name="discovery-import"></a>
 
 AWS Migration Hub (Migration Hub) import allows you to import details of your on-premises environment directly into Migration Hub without using the Application Discovery Service Agentless Collector (Agentless Collector) or AWS Application Discovery Agent (Discovery Agent), so you can perform migration assessment and planning directly from your imported data. You also can group your devices as applications and track their migration status.
 
@@ -119,7 +118,7 @@ Use the following procedure to edit the permissions policy for the IAM user that
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -181,7 +180,7 @@ Use the following procedure to create the managed policies necessary to give an 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -214,7 +213,7 @@ Use the following procedure to create the managed policies necessary to give an 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

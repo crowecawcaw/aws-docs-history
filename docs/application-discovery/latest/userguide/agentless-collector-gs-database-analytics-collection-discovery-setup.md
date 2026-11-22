@@ -3,7 +3,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # Configuring set up
-<a name="agentless-collector-gs-database-analytics-collection-discovery-setup"></a>
 
 To discover the databases running on the previously added OS Servers, the data collection module requires access to the operating system and database servers. This page outlines the steps you need to take to make sure that your database is accessible at the port that you specified in connection settings. You'll also turn on the remote authentication on your database server and provide your data collection module with permissions.
 

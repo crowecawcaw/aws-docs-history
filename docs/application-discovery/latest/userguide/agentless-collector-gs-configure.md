@@ -3,7 +3,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # Configuring Agentless Collector
-<a name="agentless-collector-gs-configure"></a>
 
 Application Discovery Service Agentless Collector (Agentless Collector) is an Amazon Linux 2 based virtual machine (VM). The following section describes how to configure a collector VM on the Agentless Collector console's **Configure Agentless Collector** page.
 
@@ -69,7 +68,7 @@ The Agentless Collector supports IPv4. It does not support IPv6.
 
 1. Open the collector’s VM console and sign in as **ec2-user** using the password **collector** as shown in the following example.
 
-   ```
+   ```bash
    username: ec2-user
    password: collector
    ```
@@ -191,7 +190,7 @@ The Agentless Collector supports IPv4. It does not support IPv6.
 
 1. Open the collector’s VM console and sign in as **ec2-user** using the password **collector** as shown in the following example.
 
-   ```
+   ```bash
    username: ec2-user
    password: collector
    ```
@@ -422,7 +421,7 @@ The following steps describe how to configure the Kerberos authentication protoc
 
 1. Open the collector’s VM console and sign in as **ec2-user** using the password **collector** as shown in the following example.
 
-   ```
+   ```bash
    username: ec2-user
    password: collector
    ```

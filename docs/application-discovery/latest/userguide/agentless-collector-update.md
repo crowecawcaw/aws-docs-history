@@ -3,7 +3,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # Manually updating Application Discovery Service Agentless Collector
-<a name="agentless-collector-update"></a>
 
 When you configure Application Discovery Service Agentless Collector (Agentless Collector), you can choose to enable automatic updates as described in [Configuring Agentless Collector](agentless-collector-gs-configure.md). If you do not enable automatic updates, you'll need to manually update Agentless Collector.
 

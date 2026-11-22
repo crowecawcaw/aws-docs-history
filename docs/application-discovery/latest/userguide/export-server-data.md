@@ -3,7 +3,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # Using AWS Migration Hub to export server data
-<a name="export-server-data"></a>
 
 This topic explains how to export server data by using the AWS Management Console, the AWS Command Line Interface, or the API.<a name="export-data-for-all-servers"></a>
 

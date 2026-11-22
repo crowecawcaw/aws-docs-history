@@ -3,7 +3,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # Setting up the Network Data Collection module
-<a name="network-data-module-setup"></a>
 
 The Network Data Collection module collects network data for the server inventory that comes from the VMware vCenter module. Therefore, to use the Network Data Collection module, first set up the VMware vCenter module. For instructions, follow the guidance in the following topics: 
 

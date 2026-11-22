@@ -3,9 +3,8 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # Exploring data in Amazon Athena
-<a name="explore-data"></a>
 
-Data exploration in Amazon Athena allows you to analyze the data that's collected from all the discovered on-premises servers by Discovery Agent in one place. Once Data exploration in Amazon Athena is enabled from the Migration Hub console (or by using the StartContinousExport API) and the data collection for agents is turned on, data that's collected by agents is automatically get stored in your S3 bucket at regular intervals. For more information, see [Exploring data in Amazon Athena](#explore-data).
+Data exploration in Amazon Athena allows you to analyze the data that's collected from all the discovered on-premises servers by Discovery Agent in one place. Once Data exploration in Amazon Athena is enabled from the Migration Hub console (or by using the StartContinousExport API) and the data collection for agents is turned on, data that's collected by agents is automatically get stored in your S3 bucket at regular intervals. For more information, see [Exploring data in Amazon Athena](explore-data.md).
 
 Data exploration in Amazon Athena allows you to analyze the data that's collected from all the discovered on-premises servers by Discovery Agents in one place. Once data exploration in Amazon Athena is enabled from the Migration Hub console (or by using the StartContinousExport API) and the data collection for agents is turned on, data that's collected by agents is automatically get stored in your S3 bucket at regular intervals.
 

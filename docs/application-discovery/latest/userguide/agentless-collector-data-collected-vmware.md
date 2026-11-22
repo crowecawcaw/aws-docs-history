@@ -3,7 +3,6 @@
 AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # Data collected by the Agentless Collector VMware vCenter data collection module
-<a name="agentless-collector-data-collected-vmware"></a>
 
 The following information describes the data that's collected by the Application Discovery Service Agentless Collector (Agentless Collector) VMware vCenter data collection module. For information about setting up data collection, see [Setting up the Agentless Collector data collection module for VMware vCenter](agentless-collector-gs-vcenter.md).
 
