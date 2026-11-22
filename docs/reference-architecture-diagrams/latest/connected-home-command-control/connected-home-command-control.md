@@ -1,7 +1,6 @@
 
 
 # Connected Home Command and Control on AWS
-<a name="connected-home-command-control"></a>
 
 Publication date: **March 24, 2021 ([Diagram history](#diagram-history))**
 
