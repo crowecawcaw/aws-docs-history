@@ -1,7 +1,6 @@
 
 
 # Updating the storage type of a FSx for Windows file system
-<a name="updating-storage-type"></a>
 
 You can change the storage type of a file system that uses HDD storage to use SSD storage. You can use the the Amazon FSx console, the AWS CLI, or the Amazon FSx API to change a file system's storage type, as shown in the following procedures. For more information, see [Managing your file system's storage type](managing-storage-configuration.md#managing-storage-type).
 

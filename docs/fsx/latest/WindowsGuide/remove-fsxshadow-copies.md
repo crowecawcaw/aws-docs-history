@@ -1,7 +1,6 @@
 
 
 # Deleting shadow copies
-<a name="remove-fsxshadow-copies"></a>
 
  You can delete one or more existing shadow copies on your file system using the `Remove-FsxShadowCopies` command in a remote PowerShell session on your file system. For instructions on launching a remote PowerShell session on your file system, see [Using the Amazon FSx CLI for PowerShell](administering-file-systems.md#remote-pwrshell).
 

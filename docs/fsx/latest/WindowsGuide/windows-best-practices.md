@@ -1,7 +1,6 @@
 
 
 # Best practices for FSx for Windows File Server
-<a name="windows-best-practices"></a>
 
  We recommend that you follow these best practices when working with Amazon FSx for Windows File Server.
 

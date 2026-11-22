@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon FSx
-<a name="troubleshooting"></a>
 
 Use the following sections to help troubleshoot problems you have with Amazon FSx. 
 

@@ -1,7 +1,6 @@
 
 
 # Increasing file system storage capacity
-<a name="increase-storage-capacity"></a>
 
 You can increase your FSx for Windows File Server file system's storage capacity as your storage requirements change. Use the Amazon FSx console, the AWS CLI, or the Amazon FSx API to increase a file system's storage capacity as described in the following procedures. For more information, see [Managing storage capacity](managing-storage-configuration.md#managing-storage-capacity).
 

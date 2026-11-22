@@ -1,7 +1,6 @@
 
 
 # Migrating existing file storage to Amazon FSx
-<a name="migrate-to-fsx"></a>
 
 Amazon FSx for Windows File Server has the features, performance, and compatibility to help you easily lift and shift enterprise applications to the Amazon Web Services Cloud. The process to migrate your on-premises Microsoft Windows File Server storage to FSx for Windows File Server has the following four major steps:
 

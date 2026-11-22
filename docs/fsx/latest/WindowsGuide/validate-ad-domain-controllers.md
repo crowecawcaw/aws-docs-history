@@ -1,7 +1,6 @@
 
 
 # Validating connectivity to your Active Directory domain controllers
-<a name="validate-ad-domain-controllers"></a>
 
  Before you create an FSx for Windows File Server file system joined to your Active Directory, use the Amazon FSx Active Directory Validation tool to validate the connectivity to your Active Directory domain. You can use this test whether you are using FSx for Windows File Server with AWS Managed Microsoft Active Directory or with a self-managed Active Directory configuration. The Domain Controller Network Connectivity test (Test-FSxADControllerConnection) does not run the full suite of network connectivity checks against every domain controller in the domain. Instead, use this test to run network connectivity validation against a specific set of domain controllers. <a name="test-ad-controller-connectivity"></a>
 

@@ -1,7 +1,6 @@
 
 
 # Common Use Cases
-<a name="fsrm-common-use-cases"></a>
 
 This topic provides step-by-step examples for common File Server Resource Manager tasks. These examples demonstrate how to use and implement FSRM features to solve typical file management challenges.
 
@@ -17,7 +16,7 @@ This example shows how to create a hard quota that prevents users from storing m
 
 1. Create a hard quota with a 10 GB limit:
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        New-FSxFSRMQuota -Folder "share\department" -Size 10GB -Description "10 GB hard limit for department folder" 
    }
@@ -25,7 +24,7 @@ This example shows how to create a hard quota that prevents users from storing m
 
 1. (Optional) Modify the quota to add a threshold notification at 85% usage:
 
-   ```
+   ```powershell
    $thresholds = [System.Collections.ArrayList]@() 
    $threshold = @{ 
        ThresholdPercentage = 85 
@@ -48,7 +47,7 @@ This example shows how to create a hard quota that prevents users from storing m
 
 1. Verify the quota was created:
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        Get-FSxFSRMQuota -Folder "share\department"
    }
@@ -63,7 +62,7 @@ This example shows how to block users from saving audio and video files to a bus
 
 1. Create an active file screen that blocks audio and video files:
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
    New-FSxFSRMFileScreen -Folder "share\business-documents" -IncludeGroup "Audio and Video Files" -Description "Block media files in business documents folder" 
    }
@@ -71,7 +70,7 @@ This example shows how to block users from saving audio and video files to a bus
 
 1. (Optional) Update the file screen to add a notification when users attempt to save blocked files:
 
-   ```
+   ```powershell
    $notifications = [System.Collections.ArrayList]@()
                        
    $eventNotification = @{
@@ -89,7 +88,7 @@ This example shows how to block users from saving audio and video files to a bus
 
 1. Verify the file screen was created:
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        Get-FSxFSRMFileScreen -Folder "share\business-documents"
    }
@@ -104,7 +103,7 @@ This example shows how to automatically identify files containing Social Securit
 
 1. Create a classification property for PII:
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        New-FSxFSRMClassificationPropertyDefinition -Name "ContainsPII" -Type OrderedList -PossibleValueConfigurations @(
            @{ Name = "Yes" },
@@ -116,7 +115,7 @@ This example shows how to automatically identify files containing Social Securit
 **Note**  
 The following Regular Expression will search files for text with the pattern XXX-XX-XXXX. For production use, consider using more sophisticated patterns or combining multiple detection methods.
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        New-FSxFSRMClassificationRule -Name "Detect_SSN" -Property "ContainsPII" -PropertyValue "Yes" -Namespace "share" -ClassificationMechanism "Content Classifier" -ContentRegularExpression "\b\d{3}-\d{2}-\d{4}\b" 
    }
@@ -124,7 +123,7 @@ The following Regular Expression will search files for text with the pattern XXX
 
 1. Run classification:
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        Start-FSxFSRMClassification
    }
@@ -132,7 +131,7 @@ The following Regular Expression will search files for text with the pattern XXX
 
 1. (Optional) Configure continuous classification to automatically classify new files:
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        Set-FSxFSRMClassification -Continuous:$true
    }
@@ -140,7 +139,7 @@ The following Regular Expression will search files for text with the pattern XXX
 
 1. Check for status (1 means completed):
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        Get-FSxFSRMClassification
    }
@@ -157,7 +156,7 @@ This example shows how to classify files by retention period based on their fold
 
 1. Create a classification property for retention period:
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        New-FSxFSRMClassificationPropertyDefinition -Name "RetentionPeriod" -Type String -Description "File retention period" 
    }
@@ -166,14 +165,14 @@ This example shows how to classify files by retention period based on their fold
 1. Create classification rules for different retention periods:
    + 7-year retention for legal documents under the folder **Legal Documents**:
 
-     ```
+     ```powershell
      Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
          New-FSxFSRMClassificationRule -Name "Legal_7Year" -Property "RetentionPeriod" -PropertyValue "7 years" -Namespace "share/Legal Documents" -ClassificationMechanism "Folder Classifier" 
      }
      ```
    + 3-year retention for financial records under the folder **Finance**:
 
-     ```
+     ```powershell
      Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
          New-FSxFSRMClassificationRule -Name "Finance_3Year" -Property "RetentionPeriod" -PropertyValue "3 years" -Namespace "share/Finance" -ClassificationMechanism "Folder Classifier" 
      }
@@ -183,7 +182,7 @@ This example shows how to classify files by retention period based on their fold
 
 1. Run classification to apply retention properties:
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        Start-FSxFSRMClassification
    }
@@ -191,7 +190,7 @@ This example shows how to classify files by retention period based on their fold
 
 1. (Optional) Configure continuous classification to automatically classify new files:
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        Set-FSxFSRMClassification -Continuous:$true
    }
@@ -199,7 +198,7 @@ This example shows how to classify files by retention period based on their fold
 
 1. Check for status (1 means completed):
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        Get-FSxFSRMClassification
    }
@@ -223,7 +222,7 @@ This example creates a monthly report that identifies files larger than 200 MB.
 
 1. Create a scheduled large files report:
 
-   ```
+   ```powershell
    $schedule = @{
        Time = "2:00 AM"
        Monthly = @(1) # Run on the 1st of each month
@@ -237,7 +236,7 @@ This example creates a monthly report that identifies files larger than 200 MB.
 
 1. (Optional) Run the report immediately to test:
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        Start-FSxFSRMStorageReport -Name "Monthly Large Files Report"
    }
@@ -252,7 +251,7 @@ This example creates a weekly report that shows storage consumption by user.
 
 1. Create a scheduled files by owner report:
 
-   ```
+   ```powershell
    $schedule = @{
        Time = "3:00 AM"
        Weekly = @('Sunday')
@@ -266,7 +265,7 @@ This example creates a weekly report that shows storage consumption by user.
 
 1. (Optional) Run the report immediately to test:
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        Start-FSxFSRMStorageReport -Name "Weekly Files by Owner Report"
    }

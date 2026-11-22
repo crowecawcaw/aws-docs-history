@@ -1,7 +1,6 @@
 
 
 # Mapping a file share on an Amazon EC2 Windows instance
-<a name="map-share-windows"></a>
 
 You can map a file share on an EC2 Windows instance to access your FSx for Windows File Server file system by using the Windows File Explorer or the command prompt.
 

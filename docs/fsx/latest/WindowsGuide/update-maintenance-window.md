@@ -1,7 +1,6 @@
 
 
 # Changing the weekly maintenance window
-<a name="update-maintenance-window"></a>
 
 FSx for Windows File Server lets you adjust when your file system's maintenance window starts to accommodate your workload and operational requirements. You can use the AWS Management Console, AWS CLI, and Amazon FSx API to change when the weekly maintenance window starts, described in the following procedure.
 

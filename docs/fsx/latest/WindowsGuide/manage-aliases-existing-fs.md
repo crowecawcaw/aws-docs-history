@@ -1,7 +1,6 @@
 
 
 # Managing DNS aliases on existing file systems
-<a name="manage-aliases-existing-fs"></a>
 
 You can add and remove aliases on existing FSx for Windows File Server file systems using the AWS Management Console and AWS CLI, as described in the following procedures.
 

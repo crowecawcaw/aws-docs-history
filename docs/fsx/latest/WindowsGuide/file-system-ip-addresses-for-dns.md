@@ -1,7 +1,6 @@
 
 
 # Getting the correct file system IP addresses to use for manual DNS entries
-<a name="file-system-ip-addresses-for-dns"></a>
 
 Amazon FSx only registers DNS records for a file system if you are using Microsoft DNS as the default DNS service. If you are using a third-party DNS, you will need to manually setup DNS entries for your Amazon FSx file systems. This section describes how to obtain the correct file system IP addresses to use if you have to manually add the file system to your DNS. Note that once a file system is created, its IP addresses don't change until the file system is deleted.
 

@@ -1,7 +1,6 @@
 
 
 # Restoring a backup to a new file system
-<a name="how-to-restore-backups"></a>
 
 You can restore a file system backup to create new file system using the AWS Management Console, CLI, and API, as described in the following procedure.
 

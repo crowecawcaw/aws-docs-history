@@ -1,7 +1,6 @@
 
 
 # Monitoring self-managed Active Directory updates
-<a name="monitor-self-ad-update"></a>
 
 You can monitor the progress of a self-managed Active Directory configuration update using the AWS Management Console, the API, or the AWS CLI, as described in the following procedures.
 

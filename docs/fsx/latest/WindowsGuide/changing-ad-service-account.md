@@ -1,7 +1,6 @@
 
 
 # Changing the Amazon FSx service account
-<a name="changing-ad-service-account"></a>
 
 If you update your file system with a new service account, the new service account must have the required permissions and privileges to join your Active Directory and has **Full control** permissions for the existing computer objects associated with the file system. In addition, make sure that new service account is part of the trusted accounts with the enabled **Group Policy** setting **Domain controller: Allow computer account re-use during domain join**.
 

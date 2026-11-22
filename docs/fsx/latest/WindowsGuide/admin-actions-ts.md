@@ -1,7 +1,6 @@
 
 
 # Storage or throughput capacity updates fail
-<a name="admin-actions-ts"></a>
 
 There are a number of potential causes for file system storage and throughput capacity update requests to fail, each with their own resolution.
 

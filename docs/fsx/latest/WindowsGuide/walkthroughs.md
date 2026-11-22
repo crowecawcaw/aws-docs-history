@@ -1,7 +1,6 @@
 
 
 # Working with other services
-<a name="walkthroughs"></a>
 
 In addition to Amazon CloudWatch, AWS Identity and Access Management, AWS CloudTrail, and AWS DataSync, FSx for Windows File Server also integrates with the following AWS services:
 + Amazon WorkSpaces Applications – WorkSpaces Applicationsis a fully managed application streaming service that provides users with instant access to their desktop applications from anywhere. WorkSpaces Applications manages the AWS resources required to host and run your applications, scales automatically, and provides access to your users on demand. Learn how to create persistent storage for individual users, and share storage across many users on your FSx for Windows File Server file systems using WorkSpaces Applications. For more information, see [Using Amazon FSx with Amazon WorkSpaces Applications](walkthrough04-fsx-with-appstream2.md).

@@ -1,7 +1,6 @@
 
 
 # Accessing your data
-<a name="supported-fsx-clients"></a>
 
 You can access your Amazon FSx file systems using a variety of supported clients and methods from both the AWS Cloud and on-premises environments.
 

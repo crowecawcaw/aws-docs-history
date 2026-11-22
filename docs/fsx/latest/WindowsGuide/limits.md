@@ -1,7 +1,6 @@
 
 
 # Quotas
-<a name="limits"></a>
 
 Following, you can find out about quotas when working with Amazon FSx for Windows File Server.
 

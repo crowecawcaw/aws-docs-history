@@ -1,7 +1,6 @@
 
 
 # Using a self-managed Microsoft Active Directory
-<a name="self-managed-AD"></a>
 
 If your organization manages identities and devices using a self-managed Active Directory on-premises or in the cloud, you can join an FSx for Windows File Server file system to your Active Directory domain at creation.
 
@@ -224,7 +223,7 @@ For **Encryption Key**, create a new key, don't use the AWS default KMS key. Be 
 
 1. For **Key policy**, choose **Edit** and include the following to the policy **Statement** to allow Amazon FSx to use the KMS key and choose **Next**. Make sure to replace the {{us-west-2}} to the AWS Region where the file system is deployed and {{123456789012}} to your AWS account ID.
 
-   ```
+   ```json
    {
        "Sid": "Allow FSx to use the KMS key",
        "Version": "2012-10-17", 		 	 	 
@@ -285,7 +284,7 @@ You can set more granular access control by modifying the `Resource` and `aws:So
 
    Add the following policy to the permission policy to allow Amazon FSx to use the secret, then choose **Next**. Make sure to replace the {{us-west-2}} to the AWS Region where the file system is deployed and {{123456789012}} to your AWS account ID.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17", 		 	 	 
        "Statement": [
@@ -484,4 +483,4 @@ For more information about how to delegate privileges using either the **Delegat
 
 If you update your file system with a new service account, the new service account must have the required permissions and privileges to join your Active Directory and have **Full control** permissions for the existing computer objects associated with the file system. For more information, see [Changing the Amazon FSx service account](changing-ad-service-account.md).
 
-We recommend storing your Active Directory service account credentials in AWS Secrets Manager for enhanced security. This eliminates the need to store sensitive credentials in plaintext and aligns with security best practices. For more information, see [Using a self-managed Microsoft Active Directory](#self-managed-AD).
+We recommend storing your Active Directory service account credentials in AWS Secrets Manager for enhanced security. This eliminates the need to store sensitive credentials in plaintext and aligns with security best practices. For more information, see [Using a self-managed Microsoft Active Directory](self-managed-AD.md).

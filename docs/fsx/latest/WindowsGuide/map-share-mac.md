@@ -1,7 +1,6 @@
 
 
 # Mounting a file share on an Amazon EC2 Mac instance
-<a name="map-share-mac"></a>
 
 You can mount a file share on an Amazon EC2 Mac instance that is either joined to your Active Directory or not joined to access your FSx for Windows File Server file system. If the instance is not joined to your Active Directory, be sure to update the DHCP options set for the Amazon Virtual Private Cloud (Amazon VPC) in which the instance resides to include the DNS name servers for your Active Directory domain. Then relaunch the instance.
 

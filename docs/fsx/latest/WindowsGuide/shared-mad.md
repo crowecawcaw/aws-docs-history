@@ -1,7 +1,6 @@
 
 
 # Using Amazon FSx with AWS Managed Microsoft AD in a different VPC or account
-<a name="shared-mad"></a>
 
 You can join your FSx for Windows File Server file system to an AWS Managed Microsoft AD directory that's in a different VPC within the same account by using VPC peering. You can also join your file system to an AWS Managed Microsoft AD directory that's in a different AWS account by using directory sharing.
 

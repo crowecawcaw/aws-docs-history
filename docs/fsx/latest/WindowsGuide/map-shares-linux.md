@@ -1,7 +1,6 @@
 
 
 # Mounting a file share on an Amazon EC2 Linux instance
-<a name="map-shares-linux"></a>
 
 You can mount an FSx for Windows File Server file share on an Amazon EC2 Linux instance that is either joined to your Active Directory or not joined to access your FSx for Windows File Server file system.
 

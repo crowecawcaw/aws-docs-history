@@ -1,7 +1,6 @@
 
 
 # Cutting over operations to Amazon FSx for Windows File Server
-<a name="cutover-to-fsx"></a>
 
 After you have migrated your on-premises file storage, file share configuration, and DNS configuration, the next step is cutting over your operations to the FSx for Windows File Server file systems. To cut over to your FSx for Windows File Server file system, you perform the following steps:
 + Prepare for the cut over.

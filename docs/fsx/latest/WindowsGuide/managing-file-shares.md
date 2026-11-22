@@ -1,7 +1,6 @@
 
 
 # Creating, updating, removing file shares
-<a name="managing-file-shares"></a>
 
 This topic describes how you can manage file shares by performing the following tasks.
 + Create a new file share

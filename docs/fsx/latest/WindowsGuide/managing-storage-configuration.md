@@ -1,7 +1,6 @@
 
 
 # Managing storage on FSx for Windows File Server
-<a name="managing-storage-configuration"></a>
 
 Your file system's storage configuration includes the amount of provisioned storage capacity, the storage type, and if the storage type is solid state drive (SSD), the amount of SSD IOPS. You can configure these resources, along with the file system's throughput capacity, when creating a file system and after it's created, to achieve the desired performance for your workload. Learn how to manage your file system's storage and storage-related performance using the AWS Management Console, AWS CLI, and the Amazon FSx CLI for remote management on PowerShell by exploring the following topics.
 

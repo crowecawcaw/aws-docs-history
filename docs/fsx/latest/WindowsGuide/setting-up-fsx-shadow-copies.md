@@ -1,7 +1,6 @@
 
 
 # Configuring shadow copies to use the default storage and schedule
-<a name="setting-up-fsx-shadow-copies"></a>
 
 You can quickly set up shadow copies on your file system by using the default shadow copy storage setting and schedule. The default shadow copy storage setting lets shadow copies consume a maximum of 10 percent of your file system storage capacity. If you increase your file system's storage capacity, the amount of the currently allocated shadow copy storage is not similarly increased.
 

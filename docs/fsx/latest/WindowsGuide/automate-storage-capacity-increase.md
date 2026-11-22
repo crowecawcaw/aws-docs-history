@@ -1,7 +1,6 @@
 
 
 # Increasing the storage capacity of an FSx for Windows File Server file system dynamically
-<a name="automate-storage-capacity-increase"></a>
 
 As an alternative to manually increasing your FSx for Windows File Server file system's storage capacity as the amount of data stored increases, you can use a CloudFormation template to increase storage automatically. The solution presented in the this section dynamically increases a file system's storage capacity when the amount of free storage capacity falls below a defined threshold that you specify.
 

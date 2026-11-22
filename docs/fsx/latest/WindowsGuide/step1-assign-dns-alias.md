@@ -1,7 +1,6 @@
 
 
 # Associate DNS aliases with your file system
-<a name="step1-assign-dns-alias"></a>
 
 You can associate DNS aliases with existing FSx for Windows File Server file systems, when you create new file systems, and when you create a new file system from a backup using the Amazon FSx console, CLI, and API. If you are creating an alias with a different domain name, input the full name, including parent domain, to associate an alias.
 

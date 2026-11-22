@@ -1,7 +1,6 @@
 
 
 # File system is in a misconfigured state
-<a name="misconfigured-ad-config"></a>
 
 An FSx for Windows File Server file system can get into a **Misconfigured** state due to a change in your Active Directory environment. In this state, your file system is either currently unavailable or at risk of losing availability, and backups may not succeed.
 

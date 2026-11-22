@@ -1,7 +1,6 @@
 
 
 # Setting the maximum amount of shadow copy storage
-<a name="shadow-copy-storage"></a>
 
 You define the maximum amount of storage that shadow copies can consume on a file system using the `Set-FsxShadowStorage` custom PowerShell command. You can specify the maximum size that shadow copies can grow to by using either the `-Maxsize` or the `-Default` parameters. Using `Default` sets the maximum to 10% of the file system's storage capacity. You cannot specify the `-Maxsize` and `-Default` parameters in the same command.
 

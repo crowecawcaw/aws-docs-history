@@ -1,7 +1,6 @@
 
 
 # File Server Resource Manager on FSx for Windows File Server
-<a name="managing-files-fsrm"></a>
 
 File Server Resource Manager (FSRM) is a Windows Server feature that helps you manage and classify data stored on your Amazon FSx for Windows File Server file system. FSRM provides automated policy enforcement and reporting capabilities that help you control storage costs, maintain compliance with data management policies, and organize files based on business rules.
 

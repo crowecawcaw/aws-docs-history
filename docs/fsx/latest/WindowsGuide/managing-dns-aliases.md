@@ -1,7 +1,6 @@
 
 
 # Managing DNS aliases
-<a name="managing-dns-aliases"></a>
 
 In addition to the default Domain Name System (DNS) name that Amazon FSx provides, you can also associate DNS aliases of your choosing with your file systems. With DNS aliases, you can continue using existing DNS names to access data stored on Amazon FSx when [migrating file system storage](migrate-to-fsx.md) from on-premises to Amazon FSx, without needing to update any tools or applications.
 

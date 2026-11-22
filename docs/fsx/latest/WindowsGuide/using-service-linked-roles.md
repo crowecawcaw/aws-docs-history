@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for FSx for Windows File Server
-<a name="using-service-linked-roles"></a>
 
 Amazon FSx for Windows File Server uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to FSx for Windows File Server. Service-linked roles are predefined by FSx for Windows File Server and include all the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -18,7 +17,7 @@ FSx for Windows File Server uses the service-linked role named `AWSServiceRoleFo
 
 The role permissions policy allows FSx for Windows File Server to complete the following actions on the all applicable AWS resources:
 
-You can't attach AmazonFSxServiceRolePolicy to your IAM entities. This policy is attached to a service-linked role that allows FSx to manage AWS resources on your behalf. For more information, see [Using service-linked roles for FSx for Windows File Server](#using-service-linked-roles).
+You can't attach AmazonFSxServiceRolePolicy to your IAM entities. This policy is attached to a service-linked role that allows FSx to manage AWS resources on your behalf. For more information, see [Using service-linked roles for FSx for Windows File Server](using-service-linked-roles.md).
 
 For updates to this policy, see [AmazonFSxServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonFSxServiceRolePolicy).
 
@@ -49,7 +48,7 @@ AmazonFSxServiceRolePolicy is used by all Amazon FSx file system types; some of 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

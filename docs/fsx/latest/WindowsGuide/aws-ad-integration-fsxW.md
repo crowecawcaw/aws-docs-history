@@ -1,7 +1,6 @@
 
 
 # Working with Microsoft Active Directory
-<a name="aws-ad-integration-fsxW"></a>
 
 When you create an FSx for Windows File Server file system, you join it to your Active Directory domain to provide user authentication and file- and folder-level access control. Amazon FSx works with Microsoft Active Directory to integrate with your existing Microsoft Windows environments. Amazon FSx provides two options using your FSx for Windows File Server file system with Active Directory: [Using Amazon FSx with AWS Directory Service for Microsoft Active Directory](fsx-aws-managed-ad.md) and [Using a self-managed Microsoft Active Directory](self-managed-AD.md).
 

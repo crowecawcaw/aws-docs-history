@@ -1,7 +1,6 @@
 
 
 # Accessing data using DNS aliases
-<a name="dns-aliases"></a>
 
 FSx for Windows File Server provides a DNS name for every file system that you can use to access your file shares. You can also access your file shares using DNS names other than the default DNS name by registering DNS aliases for your FSx for Windows File Server file systems.
 

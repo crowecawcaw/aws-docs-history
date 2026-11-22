@@ -1,7 +1,6 @@
 
 
 # You can't access your file system
-<a name="unable-to-access"></a>
 
 There are a number of potential causes for being unable to access your file system, each with their own resolution, as follows.
 
@@ -128,7 +127,7 @@ If you're unable to access a file system using a DNS alias, use the following pr
       ipconfig /flushdns
       ```
 
-1. If the DNS CNAME record resolves to the Amazon FSx file system's default DNS, and the client is still unable to access the file system, see [You can't access your file system](#unable-to-access) for additional troubleshooting steps.
+1. If the DNS CNAME record resolves to the Amazon FSx file system's default DNS, and the client is still unable to access the file system, see [You can't access your file system](unable-to-access.md) for additional troubleshooting steps.
 
 ## Can't access the file system using an IP address
 <a name="cant-connect-using-ip-address"></a>

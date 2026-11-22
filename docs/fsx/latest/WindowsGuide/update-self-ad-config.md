@@ -1,7 +1,6 @@
 
 
 # Updating a self-managed Active Directory configuration
-<a name="update-self-ad-config"></a>
 
 To help ensure continuous, uninterrupted availability of your Amazon FSx file system, you must update the file system's Active Directory configuration when any of the following Active Directory properties change:
 + The DNS server IP addresses

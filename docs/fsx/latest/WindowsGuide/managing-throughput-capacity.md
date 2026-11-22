@@ -1,7 +1,6 @@
 
 
 # Managing throughput capacity
-<a name="managing-throughput-capacity"></a>
 
 You can increase and decrease your file system's throughput capacity to help manage its performance at any time. Throughput capacity is one of the dimensions that determines the speed at which the file server hosting your FSx for Windows File Server file system can serve data. Higher levels of throughput capacity also come with higher levels of I/O operations per second (IOPS) and a larger amount of cache memory on the file server. For more information, see [FSx for Windows File Server performance](performance.md). 
 

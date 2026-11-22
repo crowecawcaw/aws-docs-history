@@ -1,7 +1,6 @@
 
 
 # File Classification
-<a name="fsrm-file-classification"></a>
 
 File classification automatically assigns metadata properties to files based on their content, location, or other attributes. Classification helps you organize files, enforce data management policies, and meet compliance requirements by identifying files that contain sensitive information, belong to specific business categories, or require retention periods. 
 
@@ -187,7 +186,7 @@ All the examples in this page assume that you have defined the ` $FSxWindowsRemo
 
  **1. Create a property list for PII data.** 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     New-FSxFSRMClassificationPropertyDefinition -Name "ContainsPII" -Type OrderedList -PossibleValueConfigurations @(
             @{ Name = "Yes" },
@@ -197,7 +196,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
  **2. Create an ordered list property for Data Sensitivity.** 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     New-FSxFSRMClassificationPropertyDefinition -Name "DataSensitivity" -Type OrderedList -PossibleValueConfigurations @(
             @{ Name = "Public" },
@@ -220,7 +219,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
  **1. Retrieve all classification property definitions on the file system.** 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Get-FSxFSRMClassificationPropertyDefinition
 }
@@ -246,7 +245,7 @@ Modifies the properties of an existing classification property definition.
 
 1. Update possible values with descriptions on an existing Property Definition. 
 
-```
+```powershell
 $values = [System.Collections.ArrayList]@()
 $null = $values.Add(@{
     Name = "High"
@@ -277,7 +276,7 @@ Removes one or more classification property definitions from your file system. O
 
  1. Remove a single property definition. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Remove-FSxFSRMClassificationPropertyDefinition -Name "RiskLevel" -PassThru 
 }
@@ -318,7 +317,7 @@ Creates an automatic classification rule that assigns property values to files b
 
  1. Detect Social Security Numbers using a Regular Expression. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     New-FSxFSRMClassificationRule -Name "Detect_SSN" -Property "ContainsPII" -PropertyValue "Yes" -Namespace "share" -ClassificationMechanism "Content Classifier" -ContentRegularExpression "\b\d{3}-\d{2}-\d{4}\b" 
 }
@@ -326,7 +325,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
  2. Detect Credit Card Numbers using a regular Expression. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     New-FSxFSRMClassificationRule -Name "Detect_CreditCard" -Property "ContainsPII" -PropertyValue "Yes" -Namespace "share" -ClassificationMechanism "Content Classifier" -ContentRegularExpression "\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b" 
 }
@@ -334,7 +333,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
  3. Classify every file under a folder with a 7-year retention period Property. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     New-FSxFSRMClassificationRule -Name "Contracts_Records_7Year" -Property "RetentionPeriod" -PropertyValue "7 years" -Namespace "share/Legal Documents" -ClassificationMechanism "Folder Classifier" 
 }
@@ -353,7 +352,7 @@ Retrieves one or more classification rules from your file system.
 
  1. Retrieve all classification rules on the file system. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Get-FSxFSRMClassificationRule
 }
@@ -393,7 +392,7 @@ Modifies the properties of existing classification rules.
 
  1. Update rule properties and namespace of an existing Classification Rule. 
 
-```
+```powershell
 $namespaces = @("share\finance", "share\accounting") 
 
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ArgumentList $namespaces -ScriptBlock { 
@@ -416,7 +415,7 @@ Removes one or more classification rules from your file system.
 
  1. Remove a single classification rule. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Remove-FSxFSRMClassificationRule -Name "Find Confidential Files" -PassThru 
 }
@@ -441,7 +440,7 @@ Retrieves management properties from specified folders. Management properties ar
 
  1. Retrieve all management properties on the file system. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Get-FSxFSRMMgmtProperty
 }
@@ -449,7 +448,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
  2. Retrieve management properties for a specific folder. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Get-FSxFSRMMgmtProperty -Namespace "share\department"
 }
@@ -470,7 +469,7 @@ Removes management properties from specified folders.
 
  1. Remove all instances of a management property. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Remove-FSxFSRMMgmtProperty -Name "FolderUsage_MS"
 }
@@ -478,7 +477,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
  2. Remove a management property from a specific folder. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Remove-FSxFSRMMgmtProperty -Name "FolderUsage_MS" -Namespace "share\department" 
 }
@@ -499,7 +498,7 @@ Changes the value of a management property for a specified namespace. Management
 
  1. Set a folder usage property. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Set-FSxFSRMMgmtProperty -Namespace "share\department" -Name "FolderUsage_MS" -Value "User Files" 
 }
@@ -526,7 +525,7 @@ None
 
  1. Retrieve the current classification status. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Get-FSxFSRMClassification
 }
@@ -549,7 +548,7 @@ Initiates the file classification process, which applies classification rules to
 
  1. Start classification with no time limit. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Start-FSxFSRMClassification -RunDuration 0
 }
@@ -569,7 +568,7 @@ None
 
  1. Stop a running classification. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Stop-FSxFSRMClassification
 }
@@ -590,7 +589,7 @@ Waits for the file classification process to complete. Use this command when you
 
  1. Wait indefinitely for classification to complete. 
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Wait-FSxFSRMClassification
 }
@@ -616,7 +615,7 @@ Modifies the configuration settings for file classification.
 
 1. Enable continuous classification.
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Set-FSxFSRMClassification -Continuous:$true
 }
@@ -624,7 +623,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 2. Set a weekly schedule to run classification.
 
-```
+```powershell
 $schedule = @{
     Time = ("12:00am")
     Weekly = @('Monday', 'Wednesday', 'Friday')
@@ -638,7 +637,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 3. Set a monthly schedule with custom exclusions.
 
-```
+```powershell
 $schedule = @{
     Time = ("12:00am")
     Monthly = @(1, 15, -1) # 1st, 15th, and last day

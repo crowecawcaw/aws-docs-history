@@ -1,7 +1,6 @@
 
 
 # Administering FSx for Windows file systems
-<a name="administering-file-systems"></a>
 
 Amazon FSx provides a wide range of administrative capabilities that help you easily manage and grow your Amazon FSx for Windows File Server file systems to meet changing workload and user requirements, and your organizations regulatory and compliance needs. The following is a list of some of the file system configurations that you can manage using the AWS Management Console, AWS CLI and API, the Amazon FSx CLI for remote management on PowerShell, and native Microsoft Windows Server graphical interfaces.
 + Storage capacity

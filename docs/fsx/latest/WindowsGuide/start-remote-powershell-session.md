@@ -1,7 +1,6 @@
 
 
 # Starting an Amazon FSx remote PowerShell session
-<a name="start-remote-powershell-session"></a>
 
 This topic provides instructions for starting a long-lived remote PowerShell session on your FSx for Windows File Server file server.
 

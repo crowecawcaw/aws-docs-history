@@ -1,7 +1,6 @@
 
 
 # Using FSx for Windows File Server with Microsoft SQL Server
-<a name="sql-server"></a>
 
 High availability (HA) Microsoft SQL Server is typically deployed across multiple database nodes in a Windows Server Failover Cluster (WSFC), with each node having access to shared file storage. You can use FSx for Windows File Server as shared storage for High Availability (HA) Microsoft SQL Server deployments in two ways: as storage for active data files and as an SMB file share witness.
 

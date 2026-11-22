@@ -1,7 +1,6 @@
 
 
 # User sessions and open files
-<a name="manage-sessions-and-files"></a>
 
 You can monitor connected user sessions and open files on your FSx for Windows File Server file system using the Shared Folders tool. The Shared Folders tool provides a central location to monitor who is connected to the file system, along with what files are open and by whom. You can use this tool to do the following:
 +  Restore access to locked files. 

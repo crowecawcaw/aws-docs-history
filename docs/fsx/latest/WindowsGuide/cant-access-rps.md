@@ -1,7 +1,6 @@
 
 
 # Troubleshooting access to the Amazon FSx CLI on PowerShell
-<a name="cant-access-rps"></a>
 
 There are a number of potential causes for being unable to connect to your file system using Remote PowerShell, each with their own resolution, as follows.
 

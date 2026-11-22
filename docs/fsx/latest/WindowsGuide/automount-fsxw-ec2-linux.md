@@ -1,7 +1,6 @@
 
 
 # Automatically mount file shares on an Amazon EC2 Linux instance
-<a name="automount-fsxw-ec2-linux"></a>
 
 You can automatically mount your FSx for Windows File Server file share to access your FSx for Windows File Server file system whenever the Amazon EC2 Linux instance to which it's mounted reboots. To do so, add an entry to the `/etc/fstab` file on the EC2 instance. The `/etc/fstab` file contains information about file systems. The command **mount -a**, which runs during instance startup, mounts the file systems listed in the `/etc/fstab` file. 
 

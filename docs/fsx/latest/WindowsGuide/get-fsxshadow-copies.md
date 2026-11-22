@@ -1,7 +1,6 @@
 
 
 # Viewing existing shadow copies
-<a name="get-fsxshadow-copies"></a>
 
 To view the set of existing shadow copies on your file system, enter the following command in a remote PowerShell session on your file system. For instructions on launching a remote PowerShell session on your file system, see [Using the Amazon FSx CLI for PowerShell](administering-file-systems.md#remote-pwrshell). 
 

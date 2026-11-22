@@ -1,7 +1,6 @@
 
 
 # New-FSxSmbShare command fails with a one-way trust
-<a name="new-smbshare-fails"></a>
 
 Amazon FSx does not support executing the `New-FSxSmbShare` PowerShell command in cases where you have a one-way trust and the domain in which the user resides is not configured to trust the domain associated with Amazon FSx file system.
 

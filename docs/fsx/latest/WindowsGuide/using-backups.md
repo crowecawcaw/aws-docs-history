@@ -1,7 +1,6 @@
 
 
 # Protecting your data with backups
-<a name="using-backups"></a>
 
 You can protect the data on your FSx for Windows File Server file system by taking regular file system backups. Amazon FSx provides you with multiple options for backing up your file systems. You can use automatic daily backups to take a backup everyday. You can take a user-initiated backup of your file system at any time. You can also use AWS Backup as part of a centralized backup solution for your AWS resources. These backup solutions can help you to meet your data retention, business, and compliance needs.
 
@@ -102,7 +101,7 @@ You use the policy to grant permissions to the `CopyBackup` action for the backu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

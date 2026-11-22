@@ -1,7 +1,6 @@
 
 
 # Delegating permissions to the Amazon FSx service account or group
-<a name="assign-permissions-to-service-account"></a>
 
 The Amazon FSx service account or admin group must have the [privileges necessary](self-managed-AD.md#service-account-prereqs) for it to join FSx for Windows File Server file systems to your self-managed Active Directory domain. To delegate these permissions, you can use either **Delegate Control** or **Advanced Features** in the Active Directory User and Computers MMC snap-in, as described in the following procedures.
 

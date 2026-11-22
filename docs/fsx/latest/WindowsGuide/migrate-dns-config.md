@@ -1,7 +1,6 @@
 
 
 # Migrating your on-premises DNS configuration to FSx for Windows File Server
-<a name="migrate-dns-config"></a>
 
 FSx for Windows File Server provides a default Domain Name System (DNS) name for every file system that you can use to access the data on your file system. You can also access your file systems using any DNS name of your choosing by configuring the alternate DNS name as a DNS alias for your Amazon FSx file system. 
 

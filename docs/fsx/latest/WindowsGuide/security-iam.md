@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Amazon FSx for Windows File Server
-<a name="security-iam"></a>
 
 
 

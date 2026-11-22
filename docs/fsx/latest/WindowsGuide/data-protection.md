@@ -1,7 +1,6 @@
 
 
 # Protecting your data with backups, shadow copies, and scheduled replication
-<a name="data-protection"></a>
 
 Beyond automatically replicating your file system's data to ensure high durability, Amazon FSx provides you with the following options to further protect the data stored on your file systems:
 + Native Amazon FSx backups support your backup retention and compliance needs within Amazon FSx.

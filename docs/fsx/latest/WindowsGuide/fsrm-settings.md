@@ -1,7 +1,6 @@
 
 
 # FSRM Settings
-<a name="fsrm-settings"></a>
 
 FSRM settings provide system-wide configuration that allows you to customize behavior and streamline feature management. Use these settings to control how FSRM operates across your file system and to set default values that simplify creating and configuring features like storage reports and file screening.
 
@@ -74,7 +73,7 @@ None
 
 1. Retrieve all current FSRM settings.
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
    Get-FSxFSRMSetting
    }
@@ -126,7 +125,7 @@ None
 
 1. Configure default file screen auditing with a 30-day history.
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        Set-FSxFSRMSetting -ReportFileScreenAuditDaysSince 30 -PassThru 
    }
@@ -134,7 +133,7 @@ None
 
 1. Configure default large file report settings.
 
-   ```
+   ```powershell
    Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
        Set-FSxFSRMSetting -ReportLargeFileMinimum 100MB -ReportLargeFilePattern "*.iso" -PassThru 
    }

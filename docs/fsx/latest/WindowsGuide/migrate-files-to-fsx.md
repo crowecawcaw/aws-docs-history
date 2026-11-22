@@ -1,7 +1,6 @@
 
 
 # Migrating existing files to FSx for Windows File Server using Robocopy
-<a name="migrate-files-to-fsx"></a>
 
 Built on Microsoft Windows Server, Amazon FSx for Windows File Server enables you to migrate your existing datasets fully into your Amazon FSx file systems. You can migrate the data for each file. You can also migrate all the relevant file metadata including attributes, timestamps, access control lists (ACLs), owner information, and auditing information. With this total migration support, Amazon FSx enables moving your Windows-based workloads and applications relying on these file datasets to the Amazon Web Services Cloud.
 

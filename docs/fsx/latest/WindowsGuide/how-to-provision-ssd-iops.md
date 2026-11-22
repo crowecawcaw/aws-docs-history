@@ -1,7 +1,6 @@
 
 
 # Updating a file system's SSD IOPS
-<a name="how-to-provision-ssd-iops"></a>
 
 For file systems configured with SSD storage, the level of provisioned SSD IOPS determines the amount of disk I/O available when your file system has to read data from and write data to disk, as opposed to reading or writing data that is in cache. You can update SSD IOPS for a file system using the Amazon FSx console, the AWS CLI, or the Amazon FSx API, as described in the following procedures. For more information about managing SSD IOPS, see [Managing SSD IOPS](managing-storage-configuration.md#managing-provisioned-ssd-iops).
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting shadow copies
-<a name="shadow-copy-ts"></a>
 
 There are a number of potential causes when shadow copies are missing or inaccessible, as described in the following section.
 

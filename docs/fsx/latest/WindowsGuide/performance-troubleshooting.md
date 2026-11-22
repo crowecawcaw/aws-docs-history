@@ -1,7 +1,6 @@
 
 
 # Troubleshooting file system performance issues
-<a name="performance-troubleshooting"></a>
 
 The performance of your FSx for Windows File Server file system depends on several factors, including the traffic that you drive to your file system, how you provision your file system, and the resources being consumed by features that are enabled, such as Data Deduplication or Shadow Copies. For information about understanding your file system’s performance, see [FSx for Windows File Server performance](performance.md).
 

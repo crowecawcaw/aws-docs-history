@@ -1,7 +1,6 @@
 
 
 # Creating a new Amazon FSx file system fails
-<a name="unable-to-create-fs"></a>
 
 There are a number of potential causes when a file system creation request fails, as described in the following section.
 

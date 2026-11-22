@@ -1,7 +1,6 @@
 
 
 # Storage Reports
-<a name="fsrm-storage-reports"></a>
 
 Storage reports provide detailed analysis of file system usage, helping you understand how storage is being consumed, identify files that can be archived or deleted, and monitor compliance with file management policies. You can generate multiple types of reports that analyze file ownership, file types, duplicate files, large files, file screening and quota usage.
 
@@ -194,7 +193,7 @@ All the examples in this page assume that you have defined the ` $FSxWindowsRemo
 
 1. Create a monthly large files report.
 
-```
+```powershell
 $schedule = @{
     Time = ("3:00 AM")
     Monthly = @(1) # Run on first day
@@ -208,7 +207,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 2. Create a weekly duplicate files report with multiple namespaces and formats.
 
-```
+```powershell
 $schedule = @{
     Time = ("12:00 AM")
     Weekly = @('Sunday')
@@ -225,7 +224,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 3. Create an interactive report that runs immediately.
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     New-FSxFSRMStorageReport -Name "Find large files" -Namespace "share" -Interactive:$true -ReportType "QuotaUsage" 
 }
@@ -243,7 +242,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 1. Retrieve all storage reports on the file system.
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Get-FSxFSRMStorageReport
 }
@@ -262,7 +261,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 1. Remove a single storage report.
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Remove-FSxFSRMStorageReport -Name "Monthly Report" -PassThru 
 }
@@ -323,7 +322,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 1. Update schedule and format for an existing report.
 
-```
+```powershell
 $schedule = @{
     Time = ("3:00 AM")
     Monthly = @(1)
@@ -357,7 +356,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 1. Start a storage report immediately.
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Start-FSxFSRMStorageReport -Name "Monthly Report"
 }
@@ -365,7 +364,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 2. Queue a storage report with a duration limit.
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Start-FSxFSRMStorageReport -Name "Quarterly Report" -Queue:$true -RunDuration 4 
 }
@@ -383,7 +382,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 1. Stop a single storage report.
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Stop-FSxFSRMStorageReport -Name "Monthly Report"
 }
@@ -404,7 +403,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 1. Wait indefinitely for a storage report to complete.
 
-```
+```powershell
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
     Wait-FSxFSRMStorageReport -Name "Monthly Report"
 }

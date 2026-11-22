@@ -1,7 +1,6 @@
 
 
 # Using DFS Namespaces
-<a name="using-dfs-namespaces"></a>
 
 DFS Namespaces is a Windows Server role service that you use to group shared folders located on different servers into one or more logically structured namespaces. This makes it possible to give users a virtual view of shared folders, where a single path leads to files located on multiple file systems, as shown in the following diagram. In addition to organizing and unifying access to your file shares across multiple file systems, 
 

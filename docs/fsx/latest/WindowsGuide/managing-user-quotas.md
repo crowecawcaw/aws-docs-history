@@ -1,7 +1,6 @@
 
 
 # Managing storage quotas
-<a name="managing-user-quotas"></a>
 
 You can configure user storage quotas on your file systems to limit how much data storage that users can consume. After you set quotas, you can track quota status to monitor usage and see when users surpass their quotas. 
 

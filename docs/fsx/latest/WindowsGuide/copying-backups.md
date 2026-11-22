@@ -1,7 +1,6 @@
 
 
 # Copying backups within the same account
-<a name="copying-backups"></a>
 
 You can use the AWS Management Console and AWS CLI to manually copy backups within the same AWS account to another AWS Region (cross-Region copies) or within the same AWS Region (in-Region copies) using the following procedures.
 

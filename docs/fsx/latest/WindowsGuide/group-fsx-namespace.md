@@ -1,7 +1,6 @@
 
 
 # Group multiple file systems under a single namespace
-<a name="group-fsx-namespace"></a>
 
 In this procedure, you will create a single domain-based namespace (`example.com\corp`) on two namespace servers, in order to consolidate file shares stored on multiple FSx for Windows file systems (finance, marketing, sales, home\_directories). You will also set up four file shares under the namespace, each transparently redirecting users to shares hosted on separate FSx for Windows file systems. This enables your users to access file shares using a common namespace instead of having to specify the DNS names for each of the file systems hosting the file shares.
 

@@ -1,7 +1,6 @@
 
 
 # Event Logs
-<a name="fsrm-event-logs"></a>
 
 When you enable FSRM on your file system, AWS FSx for Windows File Server generates event logs for file management activities and sends them to the destination you configured (AWS CloudWatch Logs or AWS Kinesis Data Firehose). These logs help you monitor FSRM operations, troubleshoot issues, and maintain audit trails of file management activities.
 

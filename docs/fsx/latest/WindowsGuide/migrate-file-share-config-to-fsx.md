@@ -1,7 +1,6 @@
 
 
 # Migrating your on-premises file share configurations to Amazon FSx
-<a name="migrate-file-share-config-to-fsx"></a>
 
 You can migrate an existing file share configuration to Amazon FSx by using the following procedure. In this procedure, the source file server is the file server whose file share configuration you want to migrate to Amazon FSx.
 

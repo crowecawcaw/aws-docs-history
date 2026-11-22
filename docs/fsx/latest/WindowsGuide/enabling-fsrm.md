@@ -1,7 +1,6 @@
 
 
 # Getting Started with File Server Resource Manager
-<a name="enabling-fsrm"></a>
 
 You can enable File Server Resource Manager (FSRM) when creating a new Amazon FSx for Windows File Server file system, or you can update your existing file system to enable FSRM.
 
@@ -35,7 +34,7 @@ To enable FSRM when creating an FSx for Windows File Server file system, use the
 + `FsrmServiceEnabled` - Set to `true`
 + `EventLogDestination` - The Amazon Resource Name (ARN) that specifies the destination of the FSRM event logs. Can be a CloudWatch Logs log group ARN or Kinesis Data Firehose delivery stream ARN.
 
-```
+```bash
 aws fsx create-file-system \
         --file-system-type WINDOWS \
         --storage-capacity 300 \
@@ -78,7 +77,7 @@ To enable FSRM, include the following FSRM configuration in the `--windows-confi
 + `FsrmServiceEnabled` - Set to `true`
 + `EventLogDestination` - The Amazon Resource Name (ARN) that specifies the destination of the FSRM event logs. Can be a CloudWatch Logs log group ARN or Kinesis Data Firehose delivery stream ARN.
 
-```
+```bash
 aws fsx update-file-system \ 
     --file-system-id fs-0123456789abcdef0 \ 
     --windows-configuration FsrmConfiguration='{FsrmServiceEnabled=true,EventLogDestination=”arn:aws:logs:us-east-1:123456789012:log-group:/aws/fsx/fsrm”}'
@@ -89,7 +88,7 @@ aws fsx update-file-system \
 
 To disable FSRM:
 
-```
+```bash
 aws fsx update-file-system \ 
     --file-system-id fs-0123456789abcdef0 \ 
     --windows-configuration FsrmConfiguration='{FsrmServiceEnabled=false}'

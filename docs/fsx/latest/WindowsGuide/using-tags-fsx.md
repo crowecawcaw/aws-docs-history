@@ -1,7 +1,6 @@
 
 
 # Using tags with Amazon FSx
-<a name="using-tags-fsx"></a>
 
 You can use tags to control access to Amazon FSx resources and to implement attribute-based access control (ABAC). Users need to have permission to apply tags to Amazon FSx resources during creation.
 
@@ -14,7 +13,7 @@ To enable users to tag resources on creation, they must have permissions to use 
 
 The following example demonstrates a policy that allows users to create file systems and apply tags to file systems during creation in a specific AWS account.
 
-```
+```json
 {
   "Statement": [
     {
@@ -31,7 +30,7 @@ The following example demonstrates a policy that allows users to create file sys
 
 Similarly, the following policy allows users to create backups on a specific file system and apply any tags to the backup during backup creation.
 
-```
+```json
 {
   "Statement": [
     {
@@ -95,7 +94,7 @@ This policy allows the user to create a file system only when they tag it with a
 This policy allows users to create backups only of file systems that are tagged with the key value pair `key=Department, value=Finance`, and the backup will be created with the tag `Deparment=Finance`.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -132,7 +131,7 @@ This policy allows users to create backups only of file systems that are tagged 
 This policy allows users to create file systems that are tagged with `Department=Finance` only from backups that are tagged with `Department=Finance`.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -170,7 +169,7 @@ This policy allows users to create file systems that are tagged with `Department
 This policy allows a user to delete only file systems that are tagged with `Department=Finance`. If they create a final backup, then it must be tagged with `Department=Finance`.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Protecting your data with shadow copies
-<a name="shadow-copies-fsxW"></a>
 
 A Microsoft Windows *shadow copy* is a snapshot of a Windows file system at a point in time. With shadow copies enabled, users can quickly recover deleted or changed files that are stored on the network, and compare file versions. Storage administrators can easily schedule shadow copies to be taken periodically using Windows PowerShell commands.
 

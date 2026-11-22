@@ -1,7 +1,6 @@
 
 
 # Logging Amazon FSx for Windows File Server API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon FSx for Windows File Server is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon FSx. CloudTrail captures all API calls for Amazon FSx as events. The calls captured include calls from the Amazon FSx console and code calls to the Amazon FSx API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon FSx. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Amazon FSx, the IP address from which the request was made, who made the request, when it was made, and additional details.
 

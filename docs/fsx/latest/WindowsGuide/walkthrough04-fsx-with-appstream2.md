@@ -1,7 +1,6 @@
 
 
 # Using Amazon FSx with Amazon WorkSpaces Applications
-<a name="walkthrough04-fsx-with-appstream2"></a>
 
 By supporting the Server Message Block (SMB) protocol, Amazon FSx for Windows File Server supports accessing your file system from Amazon EC2, VMware Cloud on AWS, Amazon WorkSpaces, and Amazon WorkSpaces Applications instances. WorkSpaces Applications is a fully managed application streaming service. You centrally manage your desktop applications on WorkSpaces Applications and securely deliver them to a browser on any computer. For more information on WorkSpaces Applications, see the [*Amazon WorkSpaces Applications Administration Guide*](https://docs.aws.amazon.com/appstream2/latest/developerguide/). For instructions on how you can streamline the management of your Amazon WorkSpaces Applications images and fleets, see the AWS blog post [Automatically create customized AppStream 2.0 Windows images](https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/).
 

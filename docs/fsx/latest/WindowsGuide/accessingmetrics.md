@@ -1,7 +1,6 @@
 
 
 # Accessing file system metrics
-<a name="accessingmetrics"></a>
 
 You can see Amazon FSx metrics for CloudWatch in the following ways.
 + The Amazon FSx console

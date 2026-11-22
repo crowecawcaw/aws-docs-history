@@ -1,7 +1,6 @@
 
 
 # Logging end user access with file access auditing
-<a name="file-access-auditing"></a>
 
 Amazon FSx for Windows File Server supports auditing end-user access to files, folders, and file shares. You can choose to send a file system's audit event logs to other AWS services that offer a rich set of features. These include the enabling querying, processing, storing and archiving logs, issuing notifications, and triggering actions to further advance your security and compliance goals.
 

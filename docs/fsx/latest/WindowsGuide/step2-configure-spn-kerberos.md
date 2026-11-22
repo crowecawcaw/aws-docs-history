@@ -1,7 +1,6 @@
 
 
 # Configure service principal names (SPNs) for Kerberos
-<a name="step2-configure-spn-kerberos"></a>
 
 We recommend that you use Kerberos-based authentication and encryption in transit with Amazon FSx. Kerberos provides the most secure authentication for clients that access your file system.
 
