@@ -1,7 +1,6 @@
 
 
 # Database and analytics tags
-<a name="DBA-tags"></a>
 
 Use the following tables for migration plans whose Migration Tracking and Incentive Guide includes database and analytics MAP credits. 
 

@@ -1,7 +1,6 @@
 
 
 # MAP tag
-<a name="tag-key"></a>
 
 The Migration Acceleration Program requires that you tag resources with the following tag key. Copy the following key and use it exactly as it is without any alterations:
 

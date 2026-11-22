@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 ## Verify and Fix map-migrated cost-allocation tag
 <a name="getting-started-manual"></a>

@@ -1,7 +1,6 @@
 
 
 # Tagging key combinations
-<a name="setting-up"></a>
 
 To better help you find your tagging values, consider the following questions:
 

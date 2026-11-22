@@ -1,7 +1,6 @@
 
 
 # AWS Serverless Application Model (SAM)
-<a name="getting-started-step2-Automation-SAM"></a>
 
 The AWS Serverless Application Model (SAM) is an open-source framework for building serverless applications. It provides shorthand syntax to express functions, APIs, databases, and event source mappings. You can define the application you want and model it using YAML by using a few lines per resource. During deployment, SAM transforms and expands the SAM syntax into AWS CloudFormation syntax, enabling you to build serverless applications faster. For more information about SAM, see the [Globals section of the AWS SAM template](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-template-anatomy-globals.html) in the *AWS Serverless Application Model developer guide*.
 
@@ -9,7 +8,7 @@ The AWS Serverless Application Model (SAM) is an open-source framework for build
 
 Replace `mig12345` with the tag value needed for your migrated resource followed by your MAP term agreement number in the following example to tag resources at the Global and Resource level:
 
-```
+```yaml
 Globals:
   Function:
     Tags:

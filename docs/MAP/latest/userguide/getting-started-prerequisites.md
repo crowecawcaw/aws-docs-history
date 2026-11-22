@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="getting-started-prerequisites"></a>
 
 Before you begin tagging your workloads, you must have the following:
 + Your AWS Migration Program Engagement number (MPE ID number), also known as your project number, in your Migration Plan.
