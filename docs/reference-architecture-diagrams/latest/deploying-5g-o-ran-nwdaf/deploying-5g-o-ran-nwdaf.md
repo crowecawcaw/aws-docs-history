@@ -1,7 +1,6 @@
 
 
 # Deploying 5G O-RAN NWDAF on AWS
-<a name="deploying-5g-o-ran-nwdaf"></a>
 
 Publication date: **June 16, 2022 ([Diagram history](#nwdaf-history))**
 
