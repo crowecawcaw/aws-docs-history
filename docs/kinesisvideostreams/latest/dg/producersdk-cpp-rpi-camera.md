@@ -1,7 +1,6 @@
 
 
 # Configure the Raspberry Pi camera
-<a name="producersdk-cpp-rpi-camera"></a>
 
 Follow these steps to configure the [Raspberry Pi camera module](https://www.raspberrypi.com/documentation/accessories/camera.html) to send video from the device to a Kinesis video stream. 
 
@@ -60,20 +59,20 @@ If you’re using a Camera module 2, you use either `bcm2835-v4l2` (legacy) or `
 
 1. [libcamera](https://www.raspberrypi.com/documentation/computers/camera_software.html#libcamera) should come pre-installed on your Raspberry Pi. Check for any updates and update to the latest version for bug fixes and security updates. Open the terminal and type the following commands:
 
-   ```
+   ```bash
    sudo apt-get update
    sudo apt-get upgrade
    ```
 
 1. Reboot your system for the updates to take effect.
 
-   ```
+   ```bash
    sudo reboot
    ```
 
 1. Test your camera. This application starts a camera preview stream and displays it on the screen.
 
-   ```
+   ```bash
    libcamera-hello
    ```
 

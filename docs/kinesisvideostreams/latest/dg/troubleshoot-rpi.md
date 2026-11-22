@@ -1,7 +1,6 @@
 
 
 # Troubleshooting build issues on C\+\+ producer SDK for Raspberry Pi
-<a name="troubleshoot-rpi"></a>
 
 If you encounter a build issue and want to try different CMake arguments, make sure to perform a clean build. Delete the `open-source`, `dependency`, and `build` folders before you try again.
 
@@ -10,7 +9,7 @@ If you encounter a build issue and want to try different CMake arguments, make s
 
 If you receive output similar to the following, it indicates that OpenSSL has incorrectly detected your system architecture.
 
-```
+```bash
 crypto/md5/md5-aarch64.S: Assembler messages:
 crypto/md5/md5-aarch64.S:3: Error: unrecognized symbol type ""
 crypto/md5/md5-aarch64.S:6: Error: bad instruction `stp x19,x20,[sp,#-80]!'
@@ -23,7 +22,7 @@ In this example, it is attempting to build a 64-bit version (`linux-aarch64`) wh
 
 Determine which architecture OpenSSL is trying to build for. You can find the log line during the `configure` step for OpenSSL:
 
-```
+```bash
 [ 33%] Performing update step for 'project_libopenssl'
 -- Already at requested tag: OpenSSL_1_1_1t
 [ 44%] No patch step for 'project_libopenssl'
@@ -45,7 +44,7 @@ You can also review your CPU information with `cat /proc/cpuinfo` or `lscpu` com
 
 To resolve this issue, add the following CMake argument when building, to ensure OpenSSL builds correctly for the 32-bit ARM architecture:
 
-```
+```bash
 -DBUILD_OPENSSL_PLATFORM=linux-armv4 
 ```
 
@@ -60,7 +59,7 @@ Ensure the `GST_PLUGIN_PATH` environment variable in your current shell session 
 
 If you encounter the error `Cannot open shared object file: No such file or directory`, run the following command:
 
-```
+```bash
 gst-inspect-1.0 /{{path}}/{{to}}/libgstkvssink.so
 ```
 
@@ -71,7 +70,7 @@ If you receive the following output, it indicates that the dynamic linker can't 
 
 **Output:**
 
-```
+```bash
 WARNING: erroneous pipeline: no element "kvssink"
 error while loading shared libraries: libcproducer.so: cannot open shared object file: No such file or directory
 ```
@@ -82,13 +81,13 @@ For **moved libraries**, add the directory containing the missing libraries to `
 
 From the root directory of the original repository, you can locate the missing library using the `find` utility. In the terminal, type: 
 
-```
+```bash
 find . -name "*{{libcproducer}}*" 
 ```
 
 **Output:**
 
-```
+```bash
 ./{{build}}/{{dependency}}/libkvscproducer/kvscproducer-src/libcproducer.so
 ```
 
@@ -96,7 +95,7 @@ The file path separator on Linux devices is `:`. The command below appends a new
 
 In your terminal, type:
 
-```
+```bash
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/{{path}}/{{to}}/{{build}}/{{dependency}}/libkvscproducer/kvscproducer-src
 ```
 
@@ -115,7 +114,7 @@ Navigate to the library location specified in the error and type: `ls -la` to in
 
 **Response:**
 
-```
+```bash
 drwxr-xr-x  16 me  staff      512 Sep 10 17:16 .
 drwxr-xr-x   7 me  staff      224 Jan  6 23:46 ..
 drwxr-xr-x   4 me  staff      128 Sep 10 17:16 engines-1.1
@@ -141,7 +140,7 @@ In the sample output above, the `symlinks` are not broken. Broken `symlinks` won
 There are two options to fix the symlinks:
 + **Recommended:** Recreate the `symlink` with the `ln` command. Type:
 
-  ```
+  ```bash
   ln -s /path/to/actual/library /path/to/symlink
   ```
 + Copy the actual library file and rename it to match the `symlink`.

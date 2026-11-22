@@ -1,7 +1,6 @@
 
 
 # Use the C producer library
-<a name="producer-sdk-c-api"></a>
 
 You can use the Amazon Kinesis Video Streams provided C producer library to write application code to send media data from a device to a Kinesis video stream. 
 

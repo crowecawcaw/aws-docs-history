@@ -1,7 +1,6 @@
 
 
 # Play back media from your Kinesis video stream
-<a name="producersdk-cpp-rpi-playback"></a>
 
 Open the [Kinesis Video Streams console](https://console.aws.amazon.com/kinesisvideo/home/) and select the **Stream name** for the stream you created.
 
@@ -28,7 +27,7 @@ The following are some frequently encountered playback issues, and how to troubl
 
 If you see PERSISTED Acks in the logs, Kinesis Video Streams has successfully ingested and stored the media that was uploaded by `kvssink`. Acks received from Kinesis Video Streams look like this. In the JSON, look at the value for the `"EventType"` key.
 
-```
+```json
 {"EventType":"RECEIVED","FragmentTimecode":252200,"FragmentNumber":"12345678901234567890123456724587702494771079511"}
 {"EventType":"BUFFERING","FragmentTimecode":252467,"FragmentNumber":"12345678901234567890123456781729223736853277017"}
 {"EventType":"RECEIVED","FragmentTimecode":252467,"FragmentNumber":"12345678901234567890123456781729223736853277017"}
@@ -74,7 +73,7 @@ To improve loading times, consider reducing the key-frame interval. This will cr
 
 For the `x264enc` GStreamer element, you can explicitly set the key-frame interval via the `key-int-max` property:
 
-```
+```bash
 x264enc bframes=0 key-int-max=60
 ```
 
@@ -87,7 +86,7 @@ To troubleshoot this issue, make sure that all cables are tightly connected. Rev
 
 In your GStreamer pipeline, replace `kvssink` with `autovideosink` or `matroskamux` and `filesink`. For example:
 
-```
+```bash
 ... x264enc tune=zerolatency speed-preset=ultrafast bframes=0 key-int-max=60 byte-stream=true ! h264parse ! matroskamux ! filesink location=output.mkv 
 ```
 
@@ -95,7 +94,7 @@ Review the output file for `filesink` or the media player that opens when using 
 
 Also review the output of the following pipeline:
 
-```
+```bash
 gst-launch-1.0 autovideosrc ! videoconvert ! autovideosink
 ```
 

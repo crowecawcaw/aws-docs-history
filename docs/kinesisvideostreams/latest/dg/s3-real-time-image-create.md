@@ -1,7 +1,6 @@
 
 
 # Automated real-time image generation
-<a name="s3-real-time-image-create"></a>
 
 Amazon Kinesis Video Streams offers the capability to transcode and deliver images. Kinesis Video Streams automatically extracts images from video data in real-time, and delivers the images to your specified Amazon S3 bucket. Implementing real-time, automated image extraction involves the following steps:
 + Creating an S3 bucket to receive the generated images.
@@ -30,7 +29,7 @@ For more information, see [How do I get started with server-side encryption?](ho
 
 1. Create a new file called `update-image-generation-input.json` with the following content as input. Update the placeholder values with the values that you want to use. For the maximum and minimum supported values, see the [UpdateImageGenerationConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_UpdateImageGenerationConfiguration.html) API.
 
-   ```
+   ```json
    {
       "StreamName": "{{demo-stream}}",
       "ImageGenerationConfiguration": {
@@ -53,7 +52,7 @@ For more information, see [How do I get started with server-side encryption?](ho
 
 1. Update the stream's image generation configuration using the [UpdateImageGenerationConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_UpdateImageGenerationConfiguration.html) API and attaching the JSON file as the input, as shown in the following command. Note that the file path points to the file in the current directory.
 
-   ```
+   ```bash
    aws kinesisvideo update-image-generation-configuration \
      --cli-input-json file://./update-image-generation-input.json
    ```
@@ -64,7 +63,7 @@ It takes at least 1 minute to initiate the image generation workflow after updat
 
 1. Verify the configuration settings. Use the AWS CLI to call the [DescribeImageGenerationConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_DescribeImageGenerationConfiguration.html) API for your stream.
 
-   ```
+   ```bash
    aws kinesisvideo describe-image-generation-configuration \
      --stream-name "{{demo-stream}}"
    ```
@@ -79,7 +78,7 @@ Image generation tags count towards the fragment-metadata tag limit. For more in
 
 The following is an example of what the fragment metadata tags structure looks like using the `mkvinfo` utility. The image generation tag is an MKV simple tag with a key of `AWS_KINESISVIDEO_IMAGE_GENERATION` and no value. For more information, see [Video Tags Example](https://www.matroska.org/technical/tagging-video-example.html) in the Matroska documentation.
 
-```
+```cpp
 |+ Tags
 | + Tag
 |  // MANDATORY: Predefined MKV tag to trigger image generation for the fragment
@@ -111,7 +110,7 @@ If you're uploading a prerecorded video, it might get uploaded at a different ra
 
 To view a full example of this code, see the [`VideoOnlyRealtimeStreamingSample`](https://github.com/awslabs/amazon-kinesis-video-streams-producer-c/blob/master/samples/KvsVideoOnlyRealtimeStreamingSample.c) code sample in GitHub.
 
-```
+```cpp
 // Setup sample frame
 MEMSET(frameBuffer, 0x00, frameSize);
 frame.frameData = frameBuffer;

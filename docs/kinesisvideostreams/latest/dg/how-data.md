@@ -1,7 +1,6 @@
 
 
 # Kinesis Video Streams data model
-<a name="how-data"></a>
 
 The [Upload to Kinesis Video Streams](producer-sdk.md) and [Watch output from cameras using parser library](parser-library.md) send and receive video data in a format that supports embedding information alongside video data. This format is based on the Matroska (MKV) specification.
 

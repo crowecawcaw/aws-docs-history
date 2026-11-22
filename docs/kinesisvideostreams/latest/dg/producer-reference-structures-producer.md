@@ -1,7 +1,6 @@
 
 
 # Producer SDK structures
-<a name="producer-reference-structures-producer"></a>
 
 This section includes information about structures that you can use to provide data to the Kinesis Video Streams Producer object.
 

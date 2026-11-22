@@ -1,7 +1,6 @@
 
 
 # Document history for Amazon Kinesis Video Streams
-<a name="doc-history"></a>
 
 The following table describes the important changes to the documentation since the last release of Amazon Kinesis Video Streams.
 + **Latest API version:** 2017-11-29

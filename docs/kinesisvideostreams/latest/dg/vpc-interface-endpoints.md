@@ -1,7 +1,6 @@
 
 
 # Access Amazon Kinesis Video Streams using AWS PrivateLink
-<a name="vpc-interface-endpoints"></a>
 
 You can access Amazon Kinesis Video Streams privately from your VPC using an interface VPC endpoint powered by AWS PrivateLink. With this endpoint, traffic between your VPC and Kinesis Video Streams does not traverse the public internet. The endpoint provides private access to the Kinesis Video Streams control plane and to the video ingestion and playback data planes.
 
@@ -46,7 +45,7 @@ The endpoint service name and private DNS name follow these patterns:
 
 The recommended way to find the exact service name, private DNS name, and Availability Zones for a Region is to run the following command. To run this command, you need permission to call `ec2:DescribeVpcEndpointServices`. This example uses the `us-east-1` Region. Replace it with your Region.
 
-```
+```bash
 aws ec2 describe-vpc-endpoint-services \
     --filters Name=service-name,Values=com.amazonaws.us-east-1.kinesisvideo \
     --region us-east-1 \
@@ -55,7 +54,7 @@ aws ec2 describe-vpc-endpoint-services \
 
 The output is similar to the following.
 
-```
+```json
 [
     {
         "ServiceName": "com.amazonaws.us-east-1.kinesisvideo",

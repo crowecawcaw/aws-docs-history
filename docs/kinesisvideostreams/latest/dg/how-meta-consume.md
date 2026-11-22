@@ -1,11 +1,10 @@
 
 
 # Consume metadata embedded in a Kinesis video stream
-<a name="how-meta-consume"></a>
 
 To consume the metadata in a Kinesis video stream, use an implementation of `MkvTagProcessor`:
 
-```
+```java
 public interface MkvTagProcessor {
         default void process(MkvTag mkvTag, Optional<FragmentMetadata> currentFragmentMetadata) {
             throw new NotImplementedException("Default FragmentMetadataVisitor.MkvTagProcessor");
@@ -21,7 +20,7 @@ This interface is found in the [FragmentMetadataVisitor](parser-library-write.md
 
 The `FragmentMetadataVisitor` class contains an implementation of `MkvTagProcessor`:
 
-```
+```java
 public static final class BasicMkvTagProcessor implements FragmentMetadataVisitor.MkvTagProcessor {
     @Getter
     private List<MkvTag> tags = new ArrayList<>();
@@ -40,7 +39,7 @@ public static final class BasicMkvTagProcessor implements FragmentMetadataVisito
 
 The `KinesisVideoRendererExample` class contains an example of how to use a `BasicMkvTagProcessor`. In the following example, a `BasicMkvTagProcessor` is added to the `MediaProcessingArguments` of an application:
 
-```
+```java
 if (renderFragmentMetadata) {
     getMediaProcessingArguments = KinesisVideoRendererExample.GetMediaProcessingArguments.create(
         Optional.of(new FragmentMetadataVisitor.BasicMkvTagProcessor()));

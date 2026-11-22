@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="producersdk-android-prerequisites"></a>
 
 We recommend [Android Studio](https://developer.android.com/studio/index.html) for examining, editing, and running the application code. We recommend using the latest stable version.
 
@@ -124,7 +123,7 @@ Use the search bar, if needed.
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

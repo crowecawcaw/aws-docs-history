@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="producersdk-cpp-rpi-prerequisites"></a>
 
 Before you set up the C\+\+ producer SDK on your Raspberry Pi, ensure that you have the following prerequisites: 
 + A Raspberry Pi device with the following configuration:

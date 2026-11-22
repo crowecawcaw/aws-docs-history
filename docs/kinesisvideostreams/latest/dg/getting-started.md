@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Kinesis Video Streams
-<a name="getting-started"></a>
 
  This section describes how to perform the following tasks in Amazon Kinesis Video Streams: 
 + Set up your AWS account and create an administrator, if you haven't already done so.

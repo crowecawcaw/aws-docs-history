@@ -1,7 +1,6 @@
 
 
 # Run and verify the code
-<a name="producersdk-c-test"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # Set up notifications in Kinesis Video Streams
-<a name="notifications"></a>
 
 When a media fragment is available for consumption, Kinesis Video Streams notifies customers using Amazon Simple Notification Service (Amazon SNS) notifications. 
 
@@ -153,7 +152,7 @@ The IAM role or user that calls the `PutMedia` API must have `sns:Publish` permi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -187,7 +186,7 @@ The Amazon SNS topic in the destination account must have a resource-based acces
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "__default_policy_ID",

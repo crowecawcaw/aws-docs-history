@@ -1,7 +1,6 @@
 
 
 # Video playback with HLS
-<a name="hls-playback"></a>
 
 [HTTP Live Streaming (HLS)](https://en.wikipedia.org/wiki/HTTP_Live_Streaming) is an industry standard HTTP-based media streaming communications protocol. You can use HLS to view a Kinesis video stream, either for live playback or to view archived video.
 
@@ -38,7 +37,7 @@ Alternatively, open the AWS CloudShell terminal, which has the AWS CLI installed
 
    You'll receive a response that looks like this:
 
-   ```
+   ```json
    {
        "DataEndpoint": "https://b-{{1234abcd}}.kinesisvideo.{{aws-region}}.amazonaws.com"
    }
@@ -161,7 +160,7 @@ The application retrieves these values from the input boxes on the HTML page and
 
 In the web page, include the following script tag to import the AWS SDK for JavaScript v2 into the project.
 
-```
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.490.0/aws-sdk.min.js"></script>
 ```
 
@@ -172,7 +171,7 @@ For more information, refer to the [AWS SDK for JavaScript](https://docs.aws.ama
 
 To access streaming video with HLS, first create and configure the Kinesis Video Streams client. See [Setting Credentials in a Web Browser](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-browser.html) for other authentication methods.
 
-```
+```JavaScript
 const clientConfig = {
     accessKeyId: '{{YourAccessKey}}',
     secretAccessKey: '{{YourSecretKey}}',
@@ -188,7 +187,7 @@ The application retrieves the necessary values from input boxes on the HTML page
 
 Use the Kinesis Video Streams client to invoke the [GetDataEndpoint](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_GetDataEndpoint.html) API to retrieve the endpoint.
 
-```
+```JavaScript
 const getDataEndpointOptions = {
     StreamName: '{{YourStreamName}}',
     APIName: 'GET_HLS_STREAMING_SESSION_URL'
@@ -206,7 +205,7 @@ This code stores the endpoint in the `hlsDataEndpoint` variable.
 
 In the client configuration for the Kinesis Video Streams archived media client, specify the endpoint that you obtained in the previous step.
 
-```
+```JavaScript
 const archivedMediaClientConfig = {
     accessKeyId: '{{YourAccessKey'}},
     secretAccessKey: '{{YourSecretKey'}},
@@ -221,7 +220,7 @@ const kinesisVideoArchivedMediaClient = new AWS.KinesisVideoArchivedMedia(archiv
 
 Use the Kinesis Video Streams archived media client to invoke the [GetHLSStreamingSessionURL](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_reader_GetHLSStreamingSessionURL.html) API to retrieve the HLS playback URL.
 
-```
+```JavaScript
 const getHLSStreamingSessionURLOptions = {
     StreamName: '{{YourStreamName}}',
     PlaybackMode: 'LIVE'
@@ -256,7 +255,7 @@ Create a `video` HTML element to display the video:
 
 Set the HLS URL as the HTML video element source:
 
-```
+```JavaScript
 const playerElement = document.getElementById('videojs');
 const player = videojs(playerElement);
 player.src({
@@ -283,7 +282,7 @@ Create a `video` HTML element to display the video:
 
 Create a Shaka player specifying the video element and call the load method:
 
-```
+```js
 const playerElement = document.getElementById('shaka');
 const player = new shaka.Player(playerElement);
 player.load({{hlsUrl}});
@@ -306,7 +305,7 @@ Create a `video` HTML element to display the video:
 
 Create an hls.js player, give it the HLS URL, and tell it to play:
 
-```
+```js
 const playerElement = document.getElementById('hlsjs');
 const player = new Hls();
 player.loadSource({{hlsUrl}});

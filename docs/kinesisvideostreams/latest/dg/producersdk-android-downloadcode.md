@@ -1,7 +1,6 @@
 
 
 # Download and configure the Android producer library code
-<a name="producersdk-android-downloadcode"></a>
 
 In this section of the Android producer library procedure, you download the Android example code and open the project in Android Studio. 
 
@@ -11,7 +10,7 @@ For prerequisites and other details about this example, see [Using the Android p
 
 1. Create a directory, and then clone the AWS Mobile SDK for Android from the GitHub repository. 
 
-   ```
+   ```bash
    git clone https://github.com/awslabs/aws-sdk-android-samples
    ```
 
@@ -29,7 +28,7 @@ For prerequisites and other details about this example, see [Using the Android p
 
 1. Your `awsconfiguration.json` file will look similar to the following:
 
-   ```
+   ```json
    {
      "Version": "1.0",
      "CredentialsProvider": {

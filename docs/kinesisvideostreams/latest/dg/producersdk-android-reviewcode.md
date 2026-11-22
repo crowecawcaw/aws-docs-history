@@ -1,7 +1,6 @@
 
 
 # Run and verify the code
-<a name="producersdk-android-reviewcode"></a>
 
 To run the Android example application for the [Android producer library](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producer-sdk-android.html), do the following.
 

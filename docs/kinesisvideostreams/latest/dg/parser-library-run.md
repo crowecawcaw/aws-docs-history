@@ -1,7 +1,6 @@
 
 
 # Run the code
-<a name="parser-library-run"></a>
 
 The Kinesis video stream parser library contains tools that are intended for you to use in your own projects. The project contains unit tests for the tools that you can run to verify your installation.
 

@@ -1,13 +1,12 @@
 
 
 # Install software prerequisites
-<a name="producersdk-cpp-rpi-software"></a>
 
 The C\+\+ producer SDK requires that you install the following software prerequisites on Raspberry Pi.
 
 1. Update the package list and install the libraries needed to build the SDK. Open the terminal and type the following commands:
 
-   ```
+   ```bash
    sudo apt-get update
    sudo apt-get install -y \
      automake \
@@ -30,13 +29,13 @@ The C\+\+ producer SDK requires that you install the following software prerequi
 
 1. If you’re using the `libcamera` stack, also install the `libcamerasrc` GStreamer plugin. This GStreamer plugin doesn't come installed by default.
 
-   ```
+   ```bash
    sudo apt-get install gstreamer1.0-libcamera
    ```
 
 1. Copy the following PEM file to `/etc/ssl/cert.pem`:
 
-   ```
+   ```bash
    sudo curl https://www.amazontrust.com/repository/AmazonRootCA1.pem -o /etc/ssl/AmazonRootCA1.pem
    sudo chmod 644 /etc/ssl/AmazonRootCA1.pem
    ```

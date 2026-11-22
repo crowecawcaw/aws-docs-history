@@ -1,7 +1,6 @@
 
 
 # Using streaming metadata with Kinesis Video Streams
-<a name="how-meta"></a>
 
 You can use the Amazon Kinesis Video Streams producer SDK to embed metadata at the individual fragment level in a Kinesis video stream. Metadata in Kinesis Video Streams is a mutable key-value pair. You can use it to describe the content of the fragment, embed associated sensor readings that must be transferred along with the actual fragment, or meet other custom needs. The metadata is made available as part of the [GetMedia](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_dataplane_GetMedia.html) or [GetMediaForFragmentList](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_reader_GetMediaForFragmentList.html) API operations. It's stored along with the fragments for the entire duration of the stream's retention period. Your consuming applications can read, process, and react based on the metadata using the [Watch output from cameras using parser library](parser-library.md). 
 

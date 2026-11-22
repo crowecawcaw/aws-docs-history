@@ -1,7 +1,6 @@
 
 
 # Write and examine the code
-<a name="producersdk-c-write"></a>
 
 In this section, you examine the code of the sample application `KvsVideoOnlyStreamingSample.c` in the `samples` folder of the [https://github.com/awslabs/amazon-kinesis-video-streams-producer-c](https://github.com/awslabs/amazon-kinesis-video-streams-producer-c) repo on GitHub. You downloaded this code in the previous step. This sample demonstrates how to use the C producer library to send H.264-encoded video frames inside the folder `samples/h264SampleFrames` to your Kinesis video stream.
 

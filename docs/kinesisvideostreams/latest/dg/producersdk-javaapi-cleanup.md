@@ -1,7 +1,6 @@
 
 
 # Clean up resources
-<a name="producersdk-javaapi-cleanup"></a>
 
 In order to avoid memory leaks, do the following to unregister a media source from the client and free the client.
 

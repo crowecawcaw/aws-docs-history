@@ -1,7 +1,6 @@
 
 
 # Amazon Kinesis Video Streams examples
-<a name="examples"></a>
 
 The following code examples demonstrate how to work with the Kinesis Video Streams API:
 

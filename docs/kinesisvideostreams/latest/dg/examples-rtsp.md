@@ -1,7 +1,6 @@
 
 
 # Example: Streaming from an RTSP source
-<a name="examples-rtsp"></a>
 
 The [C\+\+](producer-sdk-cpp.md) contains a definition for a [Docker](https://www.docker.com/) container that connects to a Real-Time Streaming Protocol (RTSP) network camera. Using Docker standardizes the operating environment for Kinesis Video Streams, which streamlines building and using the application.
 
@@ -18,12 +17,12 @@ The following procedure demonstrates how to set up and use the RTSP demo applica
 
 This video shows how to set up a Raspberry Pi to send RTSP feeds to AWS cloud and Amazon Kinesis Video Streams. This is an end-to-end demonstration. 
 
-[![AWS Videos](https://img.youtube.com/vi/YoOYTCD_v3Q?si=ajdNXZpRhNnpAOKk/0.jpg)](https://www.youtube.com/watch?v=YoOYTCD_v3Q?si=ajdNXZpRhNnpAOKk)
+[![AWS Videos](https://img.youtube.com/vi/YoOYTCD_v3Q/0.jpg)](https://www.youtube.com/watch?v=YoOYTCD_v3Q)
 
 
 This video demonstrates how to capture images from a feed to use computer vision and Amazon Rekognition to process the images and send alerts.
 
-
+[![AWS Videos](https://img.youtube.com/vi/pUvxI76YnfA/0.jpg)](https://www.youtube.com/watch?v=pUvxI76YnfA)
 
 
 ## Prerequisites
@@ -42,19 +41,19 @@ First, build the Docker image that the demo application will run inside.
 
 1. Clone the Amazon Kinesis Video Streams demos repository.
 
-   ```
+   ```bash
    git clone https://github.com/aws-samples/amazon-kinesis-video-streams-demos.git
    ```
 
 1. Change to the directory containing the Dockerfile. In this case, it is the [docker-rtsp](https://github.com/aws-samples/amazon-kinesis-video-streams-demos/blob/master/producer-cpp/docker-rtsp/) directory.
 
-   ```
+   ```bash
    cd amazon-kinesis-video-streams-demos/producer-cpp/docker-rtsp/
    ```
 
 1. Use the following command to build the Docker image. This command creates the image and tags it as rtspdockertest.
 
-   ```
+   ```bash
    docker build -t rtspdockertest .
    ```
 
@@ -62,7 +61,7 @@ First, build the Docker image that the demo application will run inside.
 
    For example, in the sample output below, the `IMAGE ID` is `54f0d65f69b2`.
 
-   ```
+   ```bash
    REPOSITORY        TAG       IMAGE ID        CREATED           PLATFORM       SIZE         BLOB SIZE
    rtspdockertest    latest    54f0d65f69b2    10 minutes ago    linux/arm64    653.1 MiB    292.4 MiB
    ```
@@ -85,7 +84,7 @@ You can run the RTSP example application either from within or outside the Docke
 
 1. Start the Amazon Kinesis Video Streams Docker container using the following command:
 
-   ```
+   ```bash
    docker run -it {{YourImageId}} /bin/bash
    ```
 
@@ -93,7 +92,7 @@ You can run the RTSP example application either from within or outside the Docke
 **Important**  
 If you are using temporary credentials, you'll also need to provide your `AWS_SESSION_TOKEN`. See the second example below. 
 
-   ```
+   ```bash
    export AWS_ACCESS_KEY_ID={{YourAccessKeyId}}
    export AWS_SECRET_ACCESS_KEY={{YourSecretKeyId}}
    export AWS_DEFAULT_REGION={{YourAWSRegion}}
@@ -102,7 +101,7 @@ If you are using temporary credentials, you'll also need to provide your `AWS_SE
 
    **Temporary credentials:**
 
-   ```
+   ```bash
    export AWS_ACCESS_KEY_ID={{YourAccessKeyId}}
    export AWS_SECRET_ACCESS_KEY={{YourSecretKeyId}}
    export AWS_SESSION_TOKEN={{YourSessionToken}}
@@ -123,6 +122,6 @@ If you are using temporary credentials, you'll also need to provide your `AWS_SE
 
 From **outside** the Docker container, use the following command:
 
-```
+```bash
 docker run -it {{YourImageId}} /bin/bash -c "export AWS_ACCESS_KEY_ID={{YourAccessKeyId}}; export AWS_SECRET_ACCESS_KEY={{YourSecretKeyId}}; export AWS_SESSION_TOKEN={{YourSessionToken}}; export AWS_DEFAULT_REGION={{YourAWSRegion}}; ./kvs_gstreamer_sample {{YourStreamName}} {{YourRtspUrl}}"
 ```

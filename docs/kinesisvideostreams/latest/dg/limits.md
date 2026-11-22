@@ -1,7 +1,6 @@
 
 
 # Amazon Kinesis Video Streams service quotas
-<a name="limits"></a>
 
 Kinesis Video Streams has the following service quotas:
 
@@ -175,8 +174,8 @@ Before setting these values, you must validate your inputs. The SDK doesn't vali
 | Retention period | 0 or greater than one hour | 0 indicates no retention. | 
 | Min cluster duration | 1 second | The value is specified in 100 ns units, which is the SDK standard. | 
 | Max cluster duration | 30 seconds | The value is specified in 100 ns units, which is the SDK standard. The backend API can enforce a shorter cluster duration. | 
-| Max fragment size | 50 MB | For more information, see [Amazon Kinesis Video Streams service quotas](#limits). | 
-| Max fragment duration | 20 seconds | For more information, see [Amazon Kinesis Video Streams service quotas](#limits). | 
+| Max fragment size | 50 MB | For more information, see [Amazon Kinesis Video Streams service quotas](limits.md). | 
+| Max fragment duration | 20 seconds | For more information, see [Amazon Kinesis Video Streams service quotas](limits.md). | 
 | Max connection duration | 45 minutes | The backend closes the connection after this time. The SDK rotates the token and establishes a new connection within this time. | 
 | Max ACK segment length | 1,024 characters | Maximum segment length of the acknowledgement sent to the ACK parser function. | 
 | Max content type string length | 128 characters |   | 

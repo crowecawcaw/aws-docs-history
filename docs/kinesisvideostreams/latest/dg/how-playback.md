@@ -1,7 +1,6 @@
 
 
 # Kinesis Video Streams playback
-<a name="how-playback"></a>
 
 
 

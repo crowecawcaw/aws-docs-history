@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="producer-sdk-c-prerequisites"></a>
 
 Before you set up the C producer SDK, ensure that you have the following prerequisites: 
 + **Credentials** – In the sample code, you provide credentials by specifying a profile that you set up in your AWS credentials profile file. If you haven't already done so, first set up your credentials profile. 

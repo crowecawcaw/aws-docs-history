@@ -1,7 +1,6 @@
 
 
 # Use IPv6 with Kinesis Video Streams
-<a name="ipv6-support"></a>
 
 You can configure Kinesis Video Streams to use IPv6 for both control plane and data plane operations. This enables your applications to communicate with Kinesis Video Streams services using IPv6 addresses through dual-stack endpoints.
 

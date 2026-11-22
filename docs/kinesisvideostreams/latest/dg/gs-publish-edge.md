@@ -1,7 +1,6 @@
 
 
 # Install the AWS IoT Greengrass log manager component on the device
-<a name="gs-publish-edge"></a>
 
 **Note**  
 Be aware of the [CloudWatch quotas](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html).
@@ -27,7 +26,7 @@ Follow these procedures to configure the Amazon Kinesis Video Streams Edge Agent
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -80,7 +79,7 @@ Don't uninstall these components.
 
       In the screen that appears, paste the following log manager configuration in the **Configuration to merge** box.
 
-      ```
+      ```JSON
       {
           "logsUploaderConfiguration": {
               "componentLogsConfigurationMap": {

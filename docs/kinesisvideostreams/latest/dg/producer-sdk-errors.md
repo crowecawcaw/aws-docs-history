@@ -1,7 +1,6 @@
 
 
 # Error code reference
-<a name="producer-sdk-errors"></a>
 
 This section contains error and status code information for the [Upload to Kinesis Video Streams](producer-sdk.md).
 

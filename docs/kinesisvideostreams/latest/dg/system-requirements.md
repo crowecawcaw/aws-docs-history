@@ -1,7 +1,6 @@
 
 
 # Amazon Kinesis Video Streams system requirements
-<a name="system-requirements"></a>
 
 The following sections contain hardware, software, and storage requirements for Amazon Kinesis Video Streams.
 

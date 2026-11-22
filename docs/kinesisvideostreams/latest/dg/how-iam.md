@@ -1,7 +1,6 @@
 
 
 # Controlling access to Kinesis Video Streams resources using IAM
-<a name="how-iam"></a>
 
 You can use AWS Identity and Access Management (IAM) with Amazon Kinesis Video Streams, to control whether users in your organization can perform a task using specific Kinesis Video Streams API operations and whether they can use specific AWS resources. 
 
@@ -22,7 +21,7 @@ For more information about IAM, see the following:
 
 An IAM policy is a JSON document that consists of one or more statements. Each statement is structured as follows:
 
-```
+```json
 {
   "Statement":[{
     "Effect":"{{effect}}",
@@ -53,19 +52,19 @@ In an IAM policy statement, you can specify any API action from any service that
 
 To specify multiple actions in a single statement, separate them with commas as follows:
 
-```
+```json
 "Action": ["kinesisvideo:action1", "kinesisvideo:action2"]
 ```
 
 You can also specify multiple actions using wildcards. For example, you can specify all actions whose name begins with the word "Get" as follows:
 
-```
+```json
 "Action": "kinesisvideo:Get*"
 ```
 
 To specify all Kinesis Video Streams operations, use the asterisk (\*) wildcard as follows:
 
-```
+```json
 "Action": "kinesisvideo:*"
 ```
 
@@ -78,13 +77,13 @@ Each IAM policy statement applies to the resources that you specify using their 
 
 Use the following ARN resource format for Kinesis Video Streams:
 
-```
+```json
 arn:aws:kinesisvideo:{{region}}:{{account-id}}:stream/{{stream-name}}/{{code}}
 ```
 
 For example:
 
-```
+```json
 "Resource": arn:aws:kinesisvideo:*:111122223333:stream/my-stream/0123456789012
 ```
 
@@ -108,7 +107,7 @@ You might need to grant permission to other IAM accounts to perform operations o
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -138,7 +137,7 @@ You might need to grant permission to other IAM accounts to perform operations o
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -170,7 +169,7 @@ Make note of the role ARN, you'll need it in the next step.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -187,7 +186,7 @@ Make note of the role ARN, you'll need it in the next step.
 
    This user's crendentials call AWS STS `AssumeRole` API to get the session credentials, which are subsequently used to call Kinesis Video Streams APIs on the stream created in account 999999999999.
 
-   ```
+   ```JSON
    aws sts assume-role --role-arn "arn:aws:iam::{{999999999999}}:role/CustomRoleName" --role-session-name "kvs-cross-account-assume-role"
    {
        "Credentials": {
@@ -205,7 +204,7 @@ Make note of the role ARN, you'll need it in the next step.
 
 1. Set the access key, secret key, and session credentials based on the previous set in the environment.
 
-   ```
+   ```bash
    set AWS_ACCESS_KEY_ID=
    set AWS_SECRET_ACCESS_KEY=
    set AWS_SESSION_TOKEN=
@@ -213,7 +212,7 @@ Make note of the role ARN, you'll need it in the next step.
 
 1. Run Kinesis Video Streams APIs to describe and get the data endpoint for the stream in account 999999999999.
 
-   ```
+   ```JSON
    aws kinesisvideo describe-stream --stream-arn "arn:aws:kinesisvideo:us-west-2:{{999999999999}}:stream/custom-stream-name/1613732218179"
    {
        "StreamInfo": {
@@ -244,7 +243,7 @@ The following example policies demonstrate how you can control user access to yo
 This policy allows a user or group to perform the `DescribeStream`, `GetDataEndpoint`, `GetMedia`, `ListStreams`, and `ListTagsForStream` operations on any Kinesis video stream. This policy is appropriate for users who can get data from any video stream.     
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -264,7 +263,7 @@ This policy allows a user or group to perform the `DescribeStream`, `GetDataEndp
 **Example 2: Allow a user to create a Kinesis video stream and write data to it**  
 This policy allows a user or group to perform the `CreateStream` and `PutMedia` operations. This policy is appropriate for a security camera that can create a video stream and send data to it.  
 
-```
+```json
 {
     "Statement": [
         {
@@ -283,7 +282,7 @@ This policy allows a user or group to perform the `CreateStream` and `PutMedia` 
 This policy allows a user or group to perform any Kinesis Video Streams operation on any resource. This policy is appropriate for administrators.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -300,7 +299,7 @@ This policy allows a user or group to perform any Kinesis Video Streams operatio
 This policy allows a user or group to write data to a specific video stream. This policy is appropriate for a device that can send data to a single stream.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

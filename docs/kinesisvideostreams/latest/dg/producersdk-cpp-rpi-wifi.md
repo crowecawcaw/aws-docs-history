@@ -1,7 +1,6 @@
 
 
 # Join your Raspberry Pi to your Wi-Fi network
-<a name="producersdk-cpp-rpi-wifi"></a>
 
 If you are using an attached monitor and keyboard, proceed to [Configure the Raspberry Pi camera](producersdk-cpp-rpi-camera.md). 
 

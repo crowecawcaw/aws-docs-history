@@ -1,7 +1,6 @@
 
 
 # Schedule video recording and storage with Amazon Kinesis Video Streams Edge Agent
-<a name="edge"></a>
 
 Amazon Kinesis Video Streams offers an efficient, cost-effective way to connect to IP cameras on customer premises. With the Amazon Kinesis Video Streams Edge Agent, you can locally record and store video from the cameras and stream videos to the cloud on a customer-defined schedule for long-term storage, playback, and analytical processing.
 

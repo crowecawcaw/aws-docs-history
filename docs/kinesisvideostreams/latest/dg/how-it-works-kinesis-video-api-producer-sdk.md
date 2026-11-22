@@ -1,7 +1,6 @@
 
 
 # Kinesis Video Streams API and producer libraries support
-<a name="how-it-works-kinesis-video-api-producer-sdk"></a>
 
 Kinesis Video Streams provides APIs for you to create and manage streams and read or write media data to and from a stream. The Kinesis Video Streams console, in addition to administration functionality, also supports live and video-on-demand playback. Kinesis Video Streams also provides a set of producer libraries that you can use in your application code to extract data from your media sources and upload to your Kinesis video stream.
 

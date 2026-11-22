@@ -1,7 +1,6 @@
 
 
 # What is Amazon Kinesis Video Streams?
-<a name="what-is-kinesis-video"></a>
 
 You can use Amazon Kinesis Video Streams, a fully managed AWS service, to stream live video from devices to the AWS Cloud, or build applications for real-time video processing or batch-oriented video analytics.
 

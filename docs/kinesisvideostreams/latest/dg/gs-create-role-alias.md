@@ -1,7 +1,6 @@
 
 
 # Create the AWS IoT role alias
-<a name="gs-create-role-alias"></a>
 
 Follow these procedures to create an AWS IoT role alias for the IAM role that you created in [Create an IAM role](gs-create-role.md). A role alias is an alternate data model that points to the IAM role. An AWS IoT credentials provider request must include a role alias to indicate which IAM role to assume in order to obtain temporary credentials from the AWS Security Token Service (AWS STS). For more information, see [How to use a certificate to get a security token](https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html#authorizing-direct-aws.walkthrough).
 

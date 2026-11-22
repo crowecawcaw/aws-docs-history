@@ -1,7 +1,6 @@
 
 
 # Video playback with MPEG-DASH
-<a name="dash-playback"></a>
 
 To view a Kinesis video stream using MPEG-DASH, you first create a streaming session using [GetDASHStreamingSessionURL](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_GetDASHStreamingSessionURL.html). This action returns a URL (containing a session token) for accessing the MPEG-DASH session. You can then use the URL in a media player or a standalone application to display the stream. 
 
@@ -30,7 +29,7 @@ The following example shows how to retrieve an MPEG-DASH streaming session for a
 
 To access streaming video with MPEG-DASH, first create and configure the Kinesis Video Streams client (to retrieve the service endpoint) and archived media client (to retrieve the MPEG-DASH streaming session). The application retrieves the necessary values from input boxes on the HTML page.
 
-```
+```JavaScript
 var streamName = $('#streamName').val();
 
 // Step 1: Configure SDK Clients
@@ -50,7 +49,7 @@ var kinesisVideoArchivedContent = new AWS.KinesisVideoArchivedMedia(options);
 
 After the clients are initiated, retrieve the Kinesis Video Streams archived content endpoint so that you can retrieve the MPEG-DASH streaming session URL as follows:
 
-```
+```JavaScript
  // Step 2: Get a data endpoint for the stream
 console.log('Fetching data endpoint');
 kinesisVideo.getDataEndpoint({

@@ -1,7 +1,6 @@
 
 
 # Deploy the Amazon Kinesis Video Streams Edge Agent AWS IoT Greengrass component on the device
-<a name="gs-deploy-edge"></a>
 
 Do the following to deploy the Amazon Kinesis Video Streams Edge Agent AWS IoT Greengrass component on the device:
 
@@ -19,7 +18,7 @@ Do the following to deploy the Amazon Kinesis Video Streams Edge Agent AWS IoT G
 
    After extraction, your folder structure will look like the following:
 
-   ```
+   ```bash
    kvs-edge-agent/LICENSE
    kvs-edge-agent/THIRD-PARTY-LICENSES
    kvs-edge-agent/pom.xml
@@ -71,7 +70,7 @@ Make sure that the modified run script doesn't contain any **tab** characters. T
 
    Type:
 
-   ```
+   ```bash
    sudo /greengrass/v2/bin/greengrass-cli deployment create \
      --recipeDir <download location>/kvs-edge-agent/KvsEdgeComponent/recipes/ \
      --artifactDir <download location>/kvs-edge-agent/KvsEdgeComponent/artifacts/ \
@@ -90,7 +89,7 @@ Make sure that the modified run script doesn't contain any **tab** characters. T
 
       For more information, see [StartEdgeConfigurationUpdate](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_StartEdgeConfigurationUpdate.html).
 
-      ```
+      ```json
       {
           "StreamARN": "arn:aws:kinesisvideo:{{your-region}}:{{your-account-id}}:stream/{{your-stream}}/{{0123456789012}}",
           "EdgeConfig": {
@@ -125,7 +124,7 @@ Make sure that the modified run script doesn't contain any **tab** characters. T
 
    1. Type the following in the AWS CLI to send the file to the Amazon Kinesis Video Streams Edge Agent:
 
-      ```
+      ```bash
       aws kinesisvideo start-edge-configuration-update --cli-input-json "file://{{example-edge-configuration}}.json"
       ```
 

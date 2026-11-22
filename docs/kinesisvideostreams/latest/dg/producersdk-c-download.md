@@ -1,7 +1,6 @@
 
 
 # Download the C producer library code
-<a name="producersdk-c-download"></a>
 
 In this section, you download the low-level libraries. For prerequisites and other details about this example, see [Use the C\+\+ producer library](producer-sdk-cpp.md).
 

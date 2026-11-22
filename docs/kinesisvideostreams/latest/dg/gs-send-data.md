@@ -1,7 +1,6 @@
 
 
 # Send data to an Amazon Kinesis video stream
-<a name="gs-send-data"></a>
 
 This section describes how to send media data from a camera to the Kinesis video stream that you created in the previous section. This section uses the [Use the C\+\+ producer library](producer-sdk-cpp.md) as a [Example: Kinesis Video Streams producer SDK GStreamer Plugin - kvssink](examples-gstreamer-plugin.md) plugin.
 
@@ -53,19 +52,19 @@ If you accidentally close the terminal, select **Window**, **New Terminal**.
 
    1. Download the script.
 
-      ```
+      ```bash
       wget https://awsj-iot-handson.s3-ap-northeast-1.amazonaws.com/kvs-workshop/resize_volume.sh
       ```
 
    1. Give the script execute permissions.
 
-      ```
+      ```bash
       chmod +x resize_volume.sh
       ```
 
    1. Run the script.
 
-      ```
+      ```bash
       ./resize_volume.sh
       ```
 
@@ -73,13 +72,13 @@ If you accidentally close the terminal, select **Window**, **New Terminal**.
 
    This command doesn't update the software itself, but makes sure your system knows what the latest available versions are.
 
-   ```
+   ```bash
    sudo apt-get update
    ```
 
 1. Install the C\+\+ producer SDK dependencies.
 
-   ```
+   ```bash
    sudo apt-get install -y cmake m4 git build-essential pkg-config libssl-dev libcurl4-openssl-dev \
    liblog4cplus-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
    gstreamer1.0-plugins-base-apps gstreamer1.0-plugins-bad gstreamer1.0-plugins-good \
@@ -88,13 +87,13 @@ If you accidentally close the terminal, select **Window**, **New Terminal**.
 
 1. Use git to clone the C\+\+ producer SDK. 
 
-   ```
+   ```bash
    git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp.git
    ```
 
 1. Prepare a build directory.
 
-   ```
+   ```bash
    cd amazon-kinesis-video-streams-producer-sdk-cpp
    mkdir build
    cd build
@@ -102,32 +101,32 @@ If you accidentally close the terminal, select **Window**, **New Terminal**.
 
 1. Use CMake to generate makefiles. 
 
-   ```
+   ```bash
    cmake .. -DBUILD_GSTREAMER_PLUGIN=TRUE -DBUILD_DEPENDENCIES=OFF
    ```
 
    The end of the expected output looks like the following:
 
-   ```
+   ```bash
    -- Build files have been written to: /home/ubuntu/environment/amazon-kinesis-video-streams-producer-sdk-cpp/build
    ```
 
 1. Use make to compile the SDK and sample applications, as well as build the final executables.
 
-   ```
+   ```bash
    make
    ```
 
    The end of the expected output looks like the following:
 
-   ```
+   ```bash
    [100%] Linking CXX executable kvs_gstreamer_file_uploader_sample
    [100%] Built target kvs_gstreamer_file_uploader_sample
    ```
 
 1. Confirm the sample files were built. List the files in the current directory:
 
-   ```
+   ```bash
    ls
    ```
 
@@ -139,25 +138,25 @@ If you accidentally close the terminal, select **Window**, **New Terminal**.
 
    Run the following command to append the command to the end of the shell's start-up script.
 
-   ```
+   ```bash
    echo "export GST_PLUGIN_PATH=~/environment/amazon-kinesis-video-streams-producer-sdk-cpp/build" >> ~/.bashrc
    ```
 
    Type the following to run the shell's start-up script:
 
-   ```
+   ```bash
    source ~/.bashrc
    ```
 
    Confirm GST\_PLUGIN\_PATH is set.
 
-   ```
+   ```bash
    echo $GST_PLUGIN_PATH
    ```
 
    If you set the output correctly, you will see the following output. If the output is blank, the environment variable is not set properly.
 
-   ```
+   ```bash
    /home/ubuntu/environment/amazon-kinesis-video-streams-producer-sdk-cpp/build
    ```
 
@@ -168,7 +167,7 @@ If you accidentally close the terminal, select **Window**, **New Terminal**.
 
 The sample application does not support IMDS credentials. In your terminal, export AWS credentials for your IAM user or role and the region your stream is located in.
 
-```
+```bash
 export AWS_ACCESS_KEY_ID={{YourAccessKey}}
 export AWS_SECRET_ACCESS_KEY={{YourSecretKey}}
 export AWS_DEFAULT_REGION={{YourAWSRegion}}
@@ -176,7 +175,7 @@ export AWS_DEFAULT_REGION={{YourAWSRegion}}
 
 If you're using temporary AWS credentials, also export your session token:
 
-```
+```bash
 export AWS_SESSION_TOKEN={{YourSessionToken}}
 ```
 
@@ -185,7 +184,7 @@ export AWS_SESSION_TOKEN={{YourSessionToken}}
 
 Download a sample .mp4 video to upload to Kinesis Video Streams. 
 
-```
+```bash
 wget https://awsj-iot-handson.s3-ap-northeast-1.amazonaws.com/kvs-workshop/sample.mp4
 ```
 
@@ -198,7 +197,7 @@ Video specifications:
 
 Run the following command with the name of the stream you previously created. If you haven't created a stream yet, see [Create an Amazon Kinesis video stream](gs-createstream.md).
 
-```
+```bash
 ./kvs_gstreamer_sample {{YourStreamName}} ./sample.mp4
 ```
 
@@ -211,7 +210,7 @@ Tell GStreamer where to locate the `kvssink` GStreamer plugin. In your build dir
 
 From your build directory, run the following command:
 
-```
+```bash
 export GST_PLUGIN_PATH=`pwd`
 ```
 
@@ -219,7 +218,7 @@ This GStreamer pipeline generates a live test video stream with a standard test 
 
 Run the following command:
 
-```
+```bash
 gst-launch-1.0 -v videotestsrc is-live=true \
   ! video/x-raw,framerate=10/1,width=640,height=480 \
   ! clockoverlay time-format="%a %B %d, %Y %I:%M:%S %p" \
@@ -240,7 +239,7 @@ For more information about using the GStreamer plugin to stream video from an RT
 
 During upload, Kinesis Video Streams will send acknowledgement objects back to the client performing the upload. You should see these printed in the command output. An example looks like the following: 
 
-```
+```bash
 {"EventType":"PERSISTED","FragmentTimecode":{{1711124585823}},"FragmentNumber":"{{12345678901234567890123456789012345678901234567}}"}
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Producer SDK callbacks
-<a name="producer-reference-callbacks"></a>
 
 The classes and methods in the Amazon Kinesis Video Streams Producer SDK don't maintain their own processes. Instead, they use the incoming function calls and events to schedule callbacks to communicate with the application.
 

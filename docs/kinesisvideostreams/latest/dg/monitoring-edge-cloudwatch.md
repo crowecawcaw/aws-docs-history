@@ -1,7 +1,6 @@
 
 
 # Monitor the Amazon Kinesis Video Streams Edge Agent with CloudWatch
-<a name="monitoring-edge-cloudwatch"></a>
 
 You can monitor the Amazon Kinesis Video Streams Edge Agent using Amazon CloudWatch, which collects and processes raw data into readable, near real-time metrics. These statistics are recorded for a period of 15 months. With this historical information, you can gain a better perspective on how your web application or Amazon Kinesis Video Streams Edge Agent service is performing. 
 

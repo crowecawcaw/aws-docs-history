@@ -1,7 +1,6 @@
 
 
 # Deploy the Amazon Kinesis Video Streams Edge Agent to AWS IoT Greengrass
-<a name="gs-edge-gg"></a>
 
  
 

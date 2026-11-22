@@ -1,7 +1,6 @@
 
 
 # Use the Android producer library
-<a name="producer-sdk-android"></a>
 
 You can use the Amazon Kinesis Video Streams provided Android producer library to write application code, with minimal configuration, to send media data from an Android device to a Kinesis video stream. 
 

@@ -1,7 +1,6 @@
 
 
 # Benefits
-<a name="benefits"></a>
 
 Benefits of using Kinesis Video Streams include the following:
 + **Connect and stream from millions of devices** – You can use Kinesis Video Streams to connect and stream video, audio, and other data from millions of devices ranging from consumer smartphones, drones, and dash cams. You can use the Kinesis Video Streams producer libraries to configure your devices and reliably stream in real time, or as after-the-fact media uploads. 

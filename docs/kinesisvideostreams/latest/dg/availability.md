@@ -1,7 +1,6 @@
 
 
 # Region availability
-<a name="availability"></a>
 
 Amazon Kinesis Video Streams is available in the following regions:
 

@@ -1,7 +1,6 @@
 
 
 # Install the CloudWatch agent on the device
-<a name="gs-install-cloudwatch"></a>
 
 **Note**  
 Be aware of the [CloudWatch quotas](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html). 
@@ -17,7 +16,7 @@ The `file_path` in the following configurations assumes that the default logging
 The file path used assumes that you are running the Amazon Kinesis Video Streams Edge Agent from the location: `{{download-location}}/kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{version}}`.
 + To configure the CloudWatch agent to upload logs and post device RAM and CPU metrics, paste the following into the configuration file.
 
-  ```
+  ```JSON
   {
     "agent": {
       "run_as_user": "{{ubuntu}}",
@@ -79,7 +78,7 @@ The file path used assumes that you are running the Amazon Kinesis Video Streams
   ```
 + To upload only the logs and not collect device’s RAM and CPU, use the following configuration:
 
-  ```
+  ```JSON
   {
     "logs": {
       "logs_collected": {

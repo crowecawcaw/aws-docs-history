@@ -1,7 +1,6 @@
 
 
 # GStreamer element parameter reference
-<a name="examples-gstreamer-plugin-parameters"></a>
 
 To send video to the Amazon Kinesis Video Streams producer C\+\+ SDK, you specify `kvssink` as the *sink*, or final destination of the pipeline. This reference provides information about `kvssink` required and optional parameters. For more information, see [Example: Kinesis Video Streams producer SDK GStreamer Plugin - kvssink](examples-gstreamer-plugin.md).
 

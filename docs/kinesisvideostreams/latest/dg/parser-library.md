@@ -1,7 +1,6 @@
 
 
 # Watch output from cameras using parser library
-<a name="parser-library"></a>
 
 The Kinesis video stream parser library is a set of tools that you can use in Java applications to consume the MKV data in a Kinesis video stream.
 

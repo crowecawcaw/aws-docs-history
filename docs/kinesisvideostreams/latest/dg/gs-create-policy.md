@@ -1,7 +1,6 @@
 
 
 # Create the AWS IoT policy
-<a name="gs-create-policy"></a>
 
 Follow these procedures to create an AWS IoT policy that will be attached to the device certificate. This gives permissions to AWS IoT capabilities and allows the assumption of the role alias using the certificate.
 
@@ -38,7 +37,7 @@ For more information, see [AWS IoT Core policies](https://docs.aws.amazon.com/io
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

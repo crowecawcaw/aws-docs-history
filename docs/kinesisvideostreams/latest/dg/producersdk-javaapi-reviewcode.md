@@ -1,7 +1,6 @@
 
 
 # Run and verify the code
-<a name="producersdk-javaapi-reviewcode"></a>
 
 To run the Java test harness for the [Java producer library](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producer-sdk-javaapi.html), do the following.
 

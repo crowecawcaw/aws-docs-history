@@ -1,7 +1,6 @@
 
 
 # Examine the code
-<a name="parser-library-write"></a>
 
 In this section, you examine the Java library and test code, and learn how to use the tools from the library in your own code.
 
@@ -18,7 +17,7 @@ This class reads specified MKV elements from a stream in a non-blocking way.
 
 The following code example (from `FragmentMetadataVisitorTest`) shows how to create and use a `Streaming MkvReader` to retrieve `MkvElement` objects from an input stream called `inputStream`:
 
-```
+```java
 StreamingMkvReader mkvStreamReader =
                 StreamingMkvReader.createDefault(new InputStreamParserByteSource(inputStream));
         while (mkvStreamReader.mightHaveNext()) {
@@ -38,7 +37,7 @@ This class retrieves metadata for fragments (media elements) and tracks individu
 
 The following code example (from the `FragmentMetadataVisitorTest` file) shows how to use `FragmentMetadataVisitor` to retrieve data from a `MkvElement` object:
 
-```
+```java
 FragmentMetadataVisitor fragmentVisitor = FragmentMetadataVisitor.create();
         StreamingMkvReader mkvStreamReader =
                 StreamingMkvReader.createDefault(new InputStreamParserByteSource(in));
@@ -83,7 +82,7 @@ The preceding example shows the following coding pattern:
 
 To use `FragmentMetadataVisitor` in your project, pass `MkvElement` objects to the visitor using their `accept` method:
 
-```
+```java
 mkvElement.get().accept(fragmentVisitor);
 ```
 
@@ -94,7 +93,7 @@ This class merges metadata from different tracks in the stream into a stream wit
 
 The following code example (from the `FragmentMetadataVisitorTest` file) shows how to use `OutputSegmentMerger` to merge track metadata from a byte array called `inputBytes`:
 
-```
+```java
 FragmentMetadataVisitor fragmentVisitor = FragmentMetadataVisitor.create();
 
 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -148,14 +147,14 @@ This class performs the following operations:
 
 The following code example (from the `StreamOps.java` file) deletes a given Kinesis video stream:
 
-```
+```Java
 //Delete the stream
 amazonKinesisVideo.deleteStream(new DeleteStreamRequest().withStreamARN(streamInfo.get().getStreamARN()));
 ```
 
 The following code example (from the `StreamOps.java` file) creates a Kinesis video stream with the specified name:
 
-```
+```Java
 amazonKinesisVideo.createStream(new CreateStreamRequest().withStreamName(streamName)
 .withDataRetentionInHours(DATA_RETENTION_IN_HOURS)
 .withMediaType("video/h264"));
@@ -166,7 +165,7 @@ amazonKinesisVideo.createStream(new CreateStreamRequest().withStreamName(streamN
 
 The following code example (from the `PutMediaWorker.java` file) calls [PutMedia](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html) on the stream:
 
-```
+```Java
  putMedia.putMedia(new PutMediaRequest().withStreamName(streamName)
 .withFragmentTimecodeType(FragmentTimecodeType.RELATIVE)
 .withProducerStartTimestamp(new Date())
@@ -180,7 +179,7 @@ The following code example (from the `PutMediaWorker.java` file) calls [PutMedia
 
 The following code example (from the `GetMediaWorker.java` file) calls [GetMedia](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_GetMedia.html) on the stream:
 
-```
+```Java
 GetMediaResult result = videoMedia.getMedia(new GetMediaRequest().withStreamName(streamName).withStartSelector(startSelector));
 ```
 
@@ -194,7 +193,7 @@ This section describes how to use [StreamingMkvReader](#parser-library-write-SMS
 
 The following code example (from the `GetMediaWorker.java` file) creates a [StreamingMkvReader](#parser-library-write-SMSR) and uses it to parse the result from the [GetMedia](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_GetMedia.html) operation:
 
-```
+```Java
 StreamingMkvReader mkvStreamReader = StreamingMkvReader.createDefault(new InputStreamParserByteSource(result.getPayload()));
 log.info("StreamingMkvReader created for stream {} ", streamName);
 try {
@@ -213,13 +212,13 @@ The following code examples (from the `KinesisVideoExample.java` and `StreamingM
 
 *from `KinesisVideoExample.java`:*
 
-```
+```Java
 FragmentMetadataVisitor fragmentMetadataVisitor = FragmentMetadataVisitor.create();
 ```
 
 *from `StreamingMkvReader.java`:*
 
-```
+```Java
 if (mkvElementOptional.isPresent()) {
     //Apply the MkvElement to the visitor
     mkvElementOptional.get().accept(elementVisitor);

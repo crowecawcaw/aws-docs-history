@@ -1,7 +1,6 @@
 
 
 # Create an Ubuntu Amazon EC2 instance
-<a name="gs-ubuntu"></a>
 
 Do the following to create an Ubuntu Amazon EC2 instance.
 
@@ -38,7 +37,7 @@ Do the following to create an Ubuntu Amazon EC2 instance.
 
 1. Install system libraries to build the Amazon Kinesis Video Streams Edge Agent onto the instance.
 
-   ```
+   ```bash
    wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
    sudo add-apt-repository 'deb https://apt.corretto.aws stable main'
    

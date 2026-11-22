@@ -1,7 +1,6 @@
 
 
 # Amazon Kinesis Video Streams Edge Agent FAQ
-<a name="edge-faq"></a>
 
 The following are some common questions for the Amazon Kinesis Video Streams Edge Agent service.
 

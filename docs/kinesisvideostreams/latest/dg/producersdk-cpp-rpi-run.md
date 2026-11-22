@@ -1,7 +1,6 @@
 
 
 # Stream video to your Kinesis video stream
-<a name="producersdk-cpp-rpi-run"></a>
 
 To run the sample application, you need the following information:
 + The name of the stream you created in the [Prerequisites](producersdk-cpp-rpi-prerequisites.md) section.
@@ -10,7 +9,7 @@ To run the sample application, you need the following information:
 
 1. Set the credentials and region.
 
-   ```
+   ```bash
    export AWS_ACCESS_KEY_ID={{YourAccessKey}}
    export AWS_SECRET_ACCESS_KEY={{YourSecretKey}}
    export AWS_DEFAULT_REGION={{us-west-2}}
@@ -34,7 +33,7 @@ To use a different Region for your Kinesis video stream, set the following envir
 
    Run the following command:
 
-   ```
+   ```bash
    gst-launch-1.0 -v videotestsrc is-live=true \
      ! video/x-raw,framerate=10/1,width=640,height=480 \
      ! clockoverlay time-format="%a %B %d, %Y %I:%M:%S %p" \
@@ -55,7 +54,7 @@ To use a different Region for your Kinesis video stream, set the following envir
 
    Run the following command to have GStreamer auto-detect your USB camera:
 
-   ```
+   ```bash
    gst-launch-1.0 autovideosrc \
      ! videoconvert \
      ! video/x-raw,format=I420,width=640,height=480 \
@@ -69,13 +68,13 @@ To use a different Region for your Kinesis video stream, set the following envir
 
    Rather than let GStreamer auto-detect, you can use `v4l2src` with a specific device identifier. Run the following command:
 
-   ```
+   ```bash
    gst-device-monitor-1.0
    ```
 
    In the output, you’ll see some devices and the start of a GStreamer pipeline for how to use the device:
 
-   ```
+   ```bash
    Device found:
    
        name  : H264 USB Camera: USB Camera
@@ -102,7 +101,7 @@ To use a different Region for your Kinesis video stream, set the following envir
 
    If you’re using the Pi camera module 1 or Pi camera module 2 with `bcm2835-v4l2`, use the following:
 
-   ```
+   ```bash
    gst-launch-1.0 v4l2src device=/dev/video0 \
      ! videoconvert \
      ! video/x-raw,format=I420,width=640,height=480 \
@@ -118,7 +117,7 @@ To use a different Region for your Kinesis video stream, set the following envir
 
    If you’re using the modern `libcamera` stack, use the following GStreamer pipeline:
 
-   ```
+   ```bash
    gst-launch-1.0 libcamerasrc \
      ! video/x-raw,width=640,height=480,framerate=30/1,format=I420 \
      ! videoconvert \
@@ -140,20 +139,20 @@ To use a different Region for your Kinesis video stream, set the following envir
 
    1. Install the necessary dependency libraries to build the Gst-Rtsp-Server project. Make sure you have the software prerequisites installed as well. Type the following into your terminal:
 
-      ```
+      ```bash
       sudo apt-get update
       sudo apt-get install libgstrtspserver-1.0
       ```
 
    1. Download the 1.22 version of GStreamer on your Raspberry Pi.
 
-      ```
+      ```bash
       git clone https://gitlab.freedesktop.org/gstreamer/gstreamer.git --single-branch -b 1.22
       ```
 
    1. Change directories to the examples directory in the gst-rtsp-server.
 
-      ```
+      ```bash
       cd gstreamer
       cd subprojects
       cd gst-rtsp-server
@@ -162,13 +161,13 @@ To use a different Region for your Kinesis video stream, set the following envir
 
    1. Compile the test-launch.c into an executable called test-launch using gcc.
 
-      ```
+      ```bash
       gcc -o test-launch test-launch.c `pkg-config --cflags --libs gstreamer-rtsp-server-1.0`
       ```
 
    1. Run the executable with the following arguments. Note: GStreamer might take some time to load for the first time.
 
-      ```
+      ```bash
       ./test-launch "videotestsrc is-live=true ! video/x-raw,height=480,width=640,framerate=10/1 ! videoconvert ! x264enc tune=zerolatency bitrate=512 key-int-max=25 bframes=0 ! h264parse ! rtph264pay ! name=pay0 pt=96"
       ```
 
@@ -180,13 +179,13 @@ To use a different Region for your Kinesis video stream, set the following envir
 
    1. Verify the RTSP video stream. You can use any RTSP viewer. For example, VLC media player. To use VLC media player to view your live stream, open a new terminal and type:
 
-      ```
+      ```bash
       sudo apt-get install vlc
       ```
 
       to install VLC media player. Then type:
 
-      ```
+      ```bash
       vlc rtsp://127.0.0.1:8554/test
       ```
 
@@ -194,7 +193,7 @@ To use a different Region for your Kinesis video stream, set the following envir
 
       Another way to verify the RTSP stream is by using the gst-discoverer-1.0 utility. Type:
 
-      ```
+      ```bash
       gst-discoverer-1.0 "rtsp://127.0.0.1:8554/test"
       ```
 
@@ -227,7 +226,7 @@ To use a different Region for your Kinesis video stream, set the following envir
 
    Run the following command:
 
-   ```
+   ```bash
    gst-launch-1.0 -v rtspsrc location="rtsp://127.0.0.1:8554/test" short-header=true \
      ! rtph264depay \
      ! h264parse \
@@ -246,13 +245,13 @@ Some Raspberry Pi models come with hardware-accelerated H.264 encoders. You can 
 
 1. Make sure that the GStreamer plugins are installed:
 
-   ```
+   ```bash
    sudo apt-get install gstreamer1.0-tools gstreamer1.0-plugins-bad
    ```
 
 1. Type:
 
-   ```
+   ```bash
    gst-inspect-1.0 | grep h264
    ```
 
@@ -264,7 +263,7 @@ Some Raspberry Pi models come with hardware-accelerated H.264 encoders. You can 
 
    **`omxh264enc`:**
 
-   ```
+   ```bash
    gst-launch-1.0 v4l2src device=/dev/video0 \
      ! videoconvert \
      ! video/x-raw,format=I420,width=640,height=480 \
@@ -275,7 +274,7 @@ Some Raspberry Pi models come with hardware-accelerated H.264 encoders. You can 
 
    **`v4l2h264enc` and `v4l2convert`:**
 
-   ```
+   ```bash
    gst-launch-1.0 libcamerasrc \
      ! video/x-raw,width=640,height=480,framerate=30/1,format=I420 \
      ! {{v4l2convert}} \
@@ -296,7 +295,7 @@ The following are some frequently encountered runtime issues, and how to trouble
 
 If you receive an error like the following, it means you're missing a GStreamer plugin:
 
-```
+```bash
 WARNING: erroneous pipeline: no element "videoconvert"
 ```
 
@@ -315,7 +314,7 @@ Based on which element is missing, determine the appropriate action:
 
 If you receive an error like the following it means the pipeline being used is using `v4l2src`, but it should use `libcamerasrc` instead.
 
-```
+```bash
 ERROR bufferpool gstbufferpool.c:572:gst_buffer_pool_set_active:source:pool0:src start failed
 WARN v4l2src gstv4l2src.c:976:gst_v4l2src_decide_allocation: error: Failed to allocate required memory.
 WARN v4l2src gstv4l2src.c:976:gst_v4l2src_decide_allocation: error: Buffer pool activation failed
@@ -329,7 +328,7 @@ WARN basesrc gstbasesrc.c:3132:gst_base_src_loop: error: streaming stopped, reas
 
 For example, if you are using the following pipeline the with the camera module 2 without `libcamerasrc` installed, you might encounter this error when GStreamer is trying to auto-detect which elements to use.
 
-```
+```bash
 gst-launch-1.0 autovideosrc ! videoconvert ! autovideosink
 ```
 
@@ -337,7 +336,7 @@ gst-launch-1.0 autovideosrc ! videoconvert ! autovideosink
 
 Make sure that `libcamerasrc` is installed and use it as the source element, rather than `v4l2src`. Type the following to install the `libcamerasrc` GStreamer element:
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install gstreamer1.0-libcamera
 ```
@@ -349,7 +348,7 @@ Once `libcamerasrc` is installed, if you're using the `autovideosrc` element, GS
 
 If you receive a Bus error shortly after starting `kvssink` (typically, around the time the HTTP call for `PutMedia` completes), it means your Raspberry Pi doesn't support unaligned memory access. The logs will look like the following:
 
-```
+```bash
 INFO Camera camera.cpp:1197 configuring streams: (0) 640x480-YUV420
 INFO RPI pisp.cpp:1450 Sensor: /base/axi/pcie@120000/rp1/i2c@88000/imx708@1a - Selected sensor format: 1536x864-SBGGR10_1X10 - Selected CFE format: 1536x864-PC1B
 [INFO ] kinesisVideoStreamFormatChanged(): Stream format changed.
@@ -386,7 +385,7 @@ Configure `x264enc` with the `zerolatency` tuning option. This significantly red
 
 Example configuration:
 
-```
+```bash
 ... ! x264enc {{tune=zerolatency}} byte-stream=true speed-preset=ultrafast bframes=0 key-int-max=60 ! ...
 ```
 
@@ -410,7 +409,7 @@ When you create a GStreamer pipeline, you connect elements by linking the source
 
 The error message "Pad link failed" in the log indicates that GStreamer encountered an issue when trying to establish a connection (link) between the pads of two elements in your pipeline.
 
-```
+```bash
 Pad link failed
 Error received from element udpsrc0: Internal data stream error.
 ```

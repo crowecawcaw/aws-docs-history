@@ -1,7 +1,6 @@
 
 
 # Write and examine the code
-<a name="producersdk-cpp-write"></a>
 
 In this section of the [Use the C\+\+ producer library](producer-sdk-cpp.md), you examine the code in the C\+\+ test harness (`tst/ProducerTestFixture.h` and other files). You downloaded this code in the previous section.
 
@@ -98,7 +97,7 @@ If you have codec private data for the audio track, then you can pass it when ca
 
 You put media into the Kinesis video stream using `KinesisVideoStream::putFrame`, passing in a `Frame` object that contains the header and media data. The example calls `putFrame` in the `ProducerApiTest.cpp` file:
 
-```
+```cpp
 frame.duration = FRAME_DURATION_IN_MICROS * HUNDREDS_OF_NANOS_IN_A_MICROSECOND;
     frame.size = SIZEOF(frameBuffer_);
     frame.frameData = frameBuffer_;

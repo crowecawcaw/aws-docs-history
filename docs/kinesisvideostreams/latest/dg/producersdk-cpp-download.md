@@ -1,7 +1,6 @@
 
 
 # Download and configure the C\+\+ producer library code
-<a name="producersdk-cpp-download"></a>
 
 For information about how to download and configure the C\+\+ producer library, see [Amazon Kinesis Video Streams CPP Producer, GStreamer Plugin and JNI](https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp).
 
@@ -55,7 +54,7 @@ Set these if your target and host machine CPU architectures are different.
 
 To use these CMake arguments, pass them as a space-separated list of `-D{{key}}={{value}}` pairs following the `cmake ..` command. For example:
 
-```
+```bash
 cmake .. -DBUILD_GSTREAMER_PLUGIN=ON -DBUILD_DEPENDENCIES=OFF -DALIGNED_MEMORY_MODEL=ON 
 ```
 

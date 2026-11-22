@@ -1,7 +1,6 @@
 
 
 # Download and configure the Java producer library code
-<a name="producersdk-javaapi-downloadcode"></a>
 
 In this section of the Java producer library procedure, you download the Java example code, import the project into your Java IDE, and configure the library locations. 
 
@@ -11,7 +10,7 @@ For prerequisites and other details about this example, see [Using the Java prod
 
 1. Create a directory, and then clone the example source code from the GitHub repository. 
 
-   ```
+   ```bash
    git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-java
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Network Abstraction Layer (NAL) adaptation flag reference
-<a name="producer-reference-nal"></a>
 
 This section contains information about available flags for the `StreamInfo.NalAdaptationFlags` enumeration.
 
