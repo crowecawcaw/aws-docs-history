@@ -1,7 +1,6 @@
 
 
 # ebs-optimized-instance
-<a name="ebs-optimized-instance"></a>
 
 Checks if Amazon EBS optimization is enabled for your Amazon Elastic Compute Cloud (Amazon EC2) instances that can be Amazon EBS-optimized. The rule is NON\_COMPLIANT if EBS optimization is not enabled for an Amazon EC2 instance that can be EBS-optimized. 
 

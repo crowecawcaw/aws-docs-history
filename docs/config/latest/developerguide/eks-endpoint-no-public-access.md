@@ -1,7 +1,6 @@
 
 
 # eks-endpoint-no-public-access
-<a name="eks-endpoint-no-public-access"></a>
 
 Checks if the Amazon Elastic Kubernetes Service (Amazon EKS) endpoint is not publicly accessible. The rule is NON\_COMPLIANT if the endpoint is publicly accessible. 
 

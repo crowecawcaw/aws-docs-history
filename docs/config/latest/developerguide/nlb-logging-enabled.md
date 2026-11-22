@@ -1,7 +1,6 @@
 
 
 # nlb-logging-enabled
-<a name="nlb-logging-enabled"></a>
 
 Checks if access logging is enabled for Network Load Balancers. The rule is NON\_COMPLIANT if access logging is not enabled for a Network Load balancer. 
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring
-<a name="monitoring"></a>
 
 You can use other AWS services to monitor AWS Config resources.
 + You can use Amazon Simple Notification Service (SNS) to send you notifications every time a supported AWS resource is created, updated, or otherwise modified as a result of user API activity.

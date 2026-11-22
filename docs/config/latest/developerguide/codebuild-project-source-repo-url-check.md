@@ -1,7 +1,6 @@
 
 
 # codebuild-project-source-repo-url-check
-<a name="codebuild-project-source-repo-url-check"></a>
 
 Checks if the Bitbucket source repository URL contains sign-in credentials or not. The rule is NON\_COMPLIANT if the URL contains any sign-in information and COMPLIANT if it doesn't. 
 

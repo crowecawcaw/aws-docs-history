@@ -1,7 +1,6 @@
 
 
 # codebuild-project-environment-privileged-check
-<a name="codebuild-project-environment-privileged-check"></a>
 
 Checks if an AWS CodeBuild project environment has privileged mode enabled. The rule is NON\_COMPLIANT for a CodeBuild project if ‘privilegedMode’ is set to ‘true’. 
 

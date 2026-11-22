@@ -1,7 +1,6 @@
 
 
 # ec2-stopped-instance
-<a name="ec2-stopped-instance"></a>
 
 Checks if there are Amazon Elastic Compute Cloud (Amazon EC2) instances stopped for more than the allowed number of days. The rule is NON\_COMPLIANT if the state of an Amazon EC2 instance has been stopped for longer than the allowed number of days, or if the amount of time cannot be determined.
 

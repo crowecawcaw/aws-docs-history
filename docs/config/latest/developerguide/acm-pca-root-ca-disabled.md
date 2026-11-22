@@ -1,7 +1,6 @@
 
 
 # acm-pca-root-ca-disabled
-<a name="acm-pca-root-ca-disabled"></a>
 
 Checks if AWS Private Certificate Authority (AWS Private CA) has a root CA that is disabled. The rule is NON\_COMPLIANT for root CAs with status that is not DISABLED. 
 

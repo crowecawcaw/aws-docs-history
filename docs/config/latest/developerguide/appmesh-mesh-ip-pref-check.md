@@ -1,7 +1,6 @@
 
 
 # appmesh-mesh-ip-pref-check
-<a name="appmesh-mesh-ip-pref-check"></a>
 
 Checks if an AWS App Mesh mesh is configured with the specified IP preference for traffic control. The rule is NON\_COMPLIANT if the App Mesh mesh is not configured with the IP preference specified in the required rule parameter. 
 

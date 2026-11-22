@@ -1,7 +1,6 @@
 
 
 # neptune-cluster-encrypted
-<a name="neptune-cluster-encrypted"></a>
 
 Checks if storage encryption is enabled for your Amazon Neptune DB clusters. The rule is NON\_COMPLIANT if storage encryption is not enabled. 
 

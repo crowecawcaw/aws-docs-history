@@ -1,7 +1,6 @@
 
 
 # sagemaker-model-quality-job-definition-isolation
-<a name="sagemaker-model-quality-job-definition-isolation"></a>
 
 Checks if Amazon SageMaker model quality job definitions have network isolation enabled. The rule is NON\_COMPLIANT if configuration.NetworkConfig.EnableNetworkIsolation is false. 
 

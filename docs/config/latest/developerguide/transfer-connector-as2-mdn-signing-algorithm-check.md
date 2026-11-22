@@ -1,7 +1,6 @@
 
 
 # transfer-connector-as2-mdn-signing-algorithm-check
-<a name="transfer-connector-as2-mdn-signing-algorithm-check"></a>
 
 Checks if AWS Transfer Family AS2 connectors are configured with a specified MDN signing algorithm for MDN responses. The rule is NON\_COMPLIANT if configuration.As2Config.MdnSigningAlgorithm is a value not specified in the required rule parameter. 
 

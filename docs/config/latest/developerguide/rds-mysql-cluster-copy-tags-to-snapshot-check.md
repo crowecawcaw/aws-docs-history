@@ -1,7 +1,6 @@
 
 
 # rds-mysql-cluster-copy-tags-to-snapshot-check
-<a name="rds-mysql-cluster-copy-tags-to-snapshot-check"></a>
 
 Checks if Amazon Relational Database Service (Amazon RDS) MySQL DB clusters are configured to copy tags to snapshots. The rule is NON\_COMPLIANT if an Amazon RDS MySQL DB cluster is not configured to copy tags to snapshots. 
 

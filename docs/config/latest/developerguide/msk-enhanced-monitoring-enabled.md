@@ -1,7 +1,6 @@
 
 
 # msk-enhanced-monitoring-enabled
-<a name="msk-enhanced-monitoring-enabled"></a>
 
 Checks if enhanced monitoring is enabled for an Amazon MSK cluster set to PER\_TOPIC\_PER\_BROKER or PER\_TOPIC\_PER\_PARTITION. The rule is NON\_COMPLIANT if enhanced monitoring is enabled and set to DEFAULT or PER\_BROKER. 
 

@@ -1,7 +1,6 @@
 
 
 # bedrock-data-source-encryption-enabled
-<a name="bedrock-data-source-encryption-enabled"></a>
 
 Checks whether an Amazon Bedrock data source is encrypted with a customer-managed KMS key. The rule is NON\_COMPLIANT if the data source does not have ServerSideEncryptionConfiguration.KmsKeyArn configured. 
 

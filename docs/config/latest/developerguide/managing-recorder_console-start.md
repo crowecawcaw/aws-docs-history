@@ -1,7 +1,6 @@
 
 
 # Starting the customer managed configuration recorder
-<a name="managing-recorder_console-start"></a>
 
 You can use the AWS Config console or the AWS CLI start the customer managed configuration recorder.
 

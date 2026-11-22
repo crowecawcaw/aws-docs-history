@@ -1,7 +1,6 @@
 
 
 # appmesh-virtual-node-dns-ip-pref-check
-<a name="appmesh-virtual-node-dns-ip-pref-check"></a>
 
 Checks if an AWS App Mesh virtual node is configured with the specified IP preference for DNS service discovery. The rule is NON\_COMPLIANT if the virtual node is not configured with the IP preference specified in the required rule parameter. 
 

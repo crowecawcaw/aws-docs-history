@@ -1,7 +1,6 @@
 
 
 # 1-click setup for AWS Config
-<a name="1-click-setup"></a>
 
 AWS Config **1-click setup** helps simplify the getting started process for AWS Config console customers by reducing the number of manual selections. To go through all the manual selections of the setup process, see [Manual setup](https://docs.aws.amazon.com/config/latest/developerguide/detailed-setup.html).
 

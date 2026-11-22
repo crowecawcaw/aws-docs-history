@@ -1,7 +1,6 @@
 
 
 # s3-bucket-public-write-prohibited
-<a name="s3-bucket-public-write-prohibited"></a>
 
 Checks if your Amazon S3 buckets do not allow public write access. The rule checks the Block Public Access settings, the bucket policy, and the bucket access control list (ACL).
 

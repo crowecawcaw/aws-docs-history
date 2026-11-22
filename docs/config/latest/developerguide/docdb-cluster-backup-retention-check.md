@@ -1,7 +1,6 @@
 
 
 # docdb-cluster-backup-retention-check
-<a name="docdb-cluster-backup-retention-check"></a>
 
 Checks if an Amazon Document DB cluster retention period is set to specific number of days. The rule is NON\_COMPLIANT if the retention period is less than the value specified by the parameter. 
 

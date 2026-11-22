@@ -1,7 +1,6 @@
 
 
 # eks-cluster-supported-version
-<a name="eks-cluster-supported-version"></a>
 
 Checks if an Amazon Elastic Kubernetes Service (EKS) cluster is running a supported Kubernetes version. This rule is NON\_COMPLIANT if an EKS cluster is running an unsupported version (less than the parameter '`oldestVersionSupported`'). 
 

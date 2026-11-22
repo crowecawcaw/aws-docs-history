@@ -1,7 +1,6 @@
 
 
 # appintegrations-application-tagged
-<a name="appintegrations-application-tagged"></a>
 
 Checks if AWS AppIntegrations application resources have tags. Optionally, required tag keys can be specified. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys aren't present. The rule doesn't check for tags starting with 'aws:'. 
 

@@ -1,7 +1,6 @@
 
 
 # appmesh-virtual-node-backend-defaults-tls-on
-<a name="appmesh-virtual-node-backend-defaults-tls-on"></a>
 
 Checks if backend defaults for AWS App Mesh virtual nodes require the virtual nodes to communicate with all ports using TLS. The rule is NON\_COMPLIANT if configuration.Spec.BackendDefaults.ClientPolicy.Tls.Enforce is false. 
 

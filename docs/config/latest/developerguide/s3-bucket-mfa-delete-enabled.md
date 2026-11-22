@@ -1,7 +1,6 @@
 
 
 # s3-bucket-mfa-delete-enabled
-<a name="s3-bucket-mfa-delete-enabled"></a>
 
 Checks if MFA Delete is enabled in the Amazon Simple Storage Service (Amazon S3) bucket versioning configuration. The rule is NON\_COMPLIANT if MFA Delete is not enabled. 
 

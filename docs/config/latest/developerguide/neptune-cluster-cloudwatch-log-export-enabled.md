@@ -1,7 +1,6 @@
 
 
 # neptune-cluster-cloudwatch-log-export-enabled
-<a name="neptune-cluster-cloudwatch-log-export-enabled"></a>
 
 Checks if an Amazon Neptune cluster has CloudWatch log export enabled for audit logs. The rule is NON\_COMPLIANT if a Neptune cluster does not have CloudWatch log export enabled for audit logs. 
 

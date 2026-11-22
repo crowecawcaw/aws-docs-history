@@ -1,7 +1,6 @@
 
 
 # Cyber Resilience Best Practices for Amazon S3, Amazon EBS, and Amazon DynamoDB
-<a name="cyber-resilience-best-practices-for-s3-ebs-dynamoDB"></a>
 
  This conformance pack contains AWS Config rules based on Cyber Resilience Best Practices for Amazon S3, Amazon EBS, and Amazon DynamoDB. For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html). 
 

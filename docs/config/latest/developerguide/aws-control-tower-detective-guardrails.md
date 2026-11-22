@@ -1,7 +1,6 @@
 
 
 # AWS Control Tower Detective Guardrails Conformance Pack
-<a name="aws-control-tower-detective-guardrails"></a>
 
  This conformance pack contains AWS Config rules based on AWS Control Tower Detective Guardrails. For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html). 
 

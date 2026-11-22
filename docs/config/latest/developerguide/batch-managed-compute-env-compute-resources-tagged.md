@@ -1,7 +1,6 @@
 
 
 # batch-managed-compute-env-compute-resources-tagged
-<a name="batch-managed-compute-env-compute-resources-tagged"></a>
 
 Checks if AWS Batch managed compute environments compute resources have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. Tags starting with 'aws:' are not checked. 
 

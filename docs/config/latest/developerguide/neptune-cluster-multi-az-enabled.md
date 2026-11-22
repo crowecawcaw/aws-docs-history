@@ -1,7 +1,6 @@
 
 
 # neptune-cluster-multi-az-enabled
-<a name="neptune-cluster-multi-az-enabled"></a>
 
 Checks if an Amazon Neptune cluster is configured with Amazon RDS Multi-AZ replication. The rule is NON\_COMPLIANT if Multi-AZ replication is not enabled. 
 

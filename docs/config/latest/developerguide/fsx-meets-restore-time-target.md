@@ -1,7 +1,6 @@
 
 
 # fsx-meets-restore-time-target
-<a name="fsx-meets-restore-time-target"></a>
 
 Checks if the restore time of Amazon FSx File Systems meets the specified duration. The rule is NON\_COMPLIANT if LatestRestoreExecutionTimeMinutes of an Amazon FSx File System is greater than maxRestoreTime minutes. 
 

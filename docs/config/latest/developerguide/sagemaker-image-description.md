@@ -1,7 +1,6 @@
 
 
 # sagemaker-image-description
-<a name="sagemaker-image-description"></a>
 
 Checks if Amazon SageMaker images have a description. The rule is NON\_COMPLIANT if configuration.ImageDescription does not exist. 
 

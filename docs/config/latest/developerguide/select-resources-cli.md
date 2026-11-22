@@ -1,7 +1,6 @@
 
 
 # Recording resources with the AWS CLI
-<a name="select-resources-cli"></a>
 
 You can use the AWS CLI to select the types of resources that you want AWS Config to record. You do this by creating a customer managed configuration recorder, which records the types of resources that you specify in a recording group. In the recording group, you specify whether you want to record all supported resource types, or to include or exclude specific types of resources.
 

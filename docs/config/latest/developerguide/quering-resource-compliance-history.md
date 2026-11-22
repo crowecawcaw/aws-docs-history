@@ -1,7 +1,6 @@
 
 
 # Querying Compliance History for your AWS Resources
-<a name="quering-resource-compliance-history"></a>
 
 Query the resource compliance history using get-resource-config-history using the resource type `AWS::Config::ResourceCompliance`.
 

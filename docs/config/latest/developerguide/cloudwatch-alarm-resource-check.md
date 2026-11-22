@@ -1,7 +1,6 @@
 
 
 # cloudwatch-alarm-resource-check
-<a name="cloudwatch-alarm-resource-check"></a>
 
 Checks if a resource type has a CloudWatch alarm for the named metric. For resource type, you can specify EBS volumes, EC2 instances, Amazon RDS clusters, or S3 buckets. The rule is COMPLIANT if the named metric has a resource ID and CloudWatch alarm. 
 

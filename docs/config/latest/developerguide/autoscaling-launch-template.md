@@ -1,7 +1,6 @@
 
 
 # autoscaling-launch-template
-<a name="autoscaling-launch-template"></a>
 
 Checks if an Amazon Elastic Compute Cloud (EC2) Auto Scaling group is created from an EC2 launch template. The rule is NON\_COMPLIANT if the scaling group is not created from an EC2 launch template. 
 

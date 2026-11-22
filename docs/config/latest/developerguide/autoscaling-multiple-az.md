@@ -1,7 +1,6 @@
 
 
 # autoscaling-multiple-az
-<a name="autoscaling-multiple-az"></a>
 
 Checks if the Auto Scaling group spans multiple Availability Zones. The rule is NON\_COMPLIANT if the Auto Scaling group does not span multiple Availability Zones. 
 

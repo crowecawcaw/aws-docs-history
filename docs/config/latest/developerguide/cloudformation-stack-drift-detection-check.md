@@ -1,7 +1,6 @@
 
 
 # cloudformation-stack-drift-detection-check
-<a name="cloudformation-stack-drift-detection-check"></a>
 
 Checks if the actual configuration of a AWS CloudFormation (CloudFormation) stack differs, or has drifted, from the expected configuration. A stack is considered to have drifted if one or more of its resources differ from their expected configuration. The rule and the stack are COMPLIANT when the stack drift status is IN\_SYNC. The rule is NON\_COMPLIANT if the stack drift status is DRIFTED.
 

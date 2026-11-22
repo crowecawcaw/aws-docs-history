@@ -1,7 +1,6 @@
 
 
 # vpc-endpoint-enabled
-<a name="vpc-endpoint-enabled"></a>
 
 Checks if each service specified in the parameter has an Amazon VPC endpoint. The rule is NON\_COMPLIANT if Amazon VPC does not have a VPC endpoint created for each specified service. Optionally, you can specify certain VPCs for the rule to check. 
 

@@ -1,7 +1,6 @@
 
 
 # bedrockagentcore-browsercustom-network-mode-not-public
-<a name="bedrockagentcore-browsercustom-network-mode-not-public"></a>
 
 Checks if an Amazon Bedrock AgentCore custom browser is configured with public network mode. The rule is NON\_COMPLIANT if the NetworkMode is set to PUBLIC. 
 

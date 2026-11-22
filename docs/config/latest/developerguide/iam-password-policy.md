@@ -1,7 +1,6 @@
 
 
 # iam-password-policy
-<a name="iam-password-policy"></a>
 
 Checks if the account password policy for AWS Identity and Access Management (IAM) users meets the specified requirements indicated in the parameters. The rule is NON\_COMPLIANT if the account password policy does not meet the specified requirements. 
 

@@ -1,7 +1,6 @@
 
 
 # amplify-app-description
-<a name="amplify-app-description"></a>
 
 Checks if AWS Amplify apps have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string. 
 

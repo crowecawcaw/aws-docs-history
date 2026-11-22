@@ -1,7 +1,6 @@
 
 
 # List of AWS Config Managed Rules by Evaluation Mode
-<a name="managed-rules-by-evaluation-mode"></a>
 
 AWS Config currently supports the following managed rules. Before using these rules, see [Considerations](evaluate-config.md#evaluate-config-considerations).
 
@@ -15,7 +14,6 @@ Proactive rules do not remediate resources that are flagged as NON\_COMPLIANT or
 
 ### Proactive Evaluation
 <a name="proactive-evaluation"></a>
-+ [eip-attached](./eip-attached.html)
 + [subnet-auto-assign-public-ip-disabled](./subnet-auto-assign-public-ip-disabled.html)
 
 ## Detective Evaluation

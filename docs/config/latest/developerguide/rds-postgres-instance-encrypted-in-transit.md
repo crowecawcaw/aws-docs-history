@@ -1,7 +1,6 @@
 
 
 # rds-postgres-instance-encrypted-in-transit
-<a name="rds-postgres-instance-encrypted-in-transit"></a>
 
 Checks if connections to Amazon RDS PostgreSQL database instances are configured to use encryption in transit. The rule is NON\_COMPLIANT if the associated database parameter group is not in-sync or if the rds.force\_ssl parameter is not set to 1. 
 

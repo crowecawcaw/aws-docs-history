@@ -1,7 +1,6 @@
 
 
 # Managing and Viewing AWS Resource Configurations with AWS Config
-<a name="aws-config-landing-page"></a>
 
 AWS Config allows you to assess, audit, and evaluate the configurations of AWS resources.
 

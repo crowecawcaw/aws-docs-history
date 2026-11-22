@@ -1,7 +1,6 @@
 
 
 # Setting Up Manual Remediation for AWS Config
-<a name="setup-manualremediation"></a>
 
 To apply remediation on noncompliant resources, you can either choose the remediation action you want to associate from a prepopulated list or create your own custom remediation actions using SSM documents. AWS Config provides a recommended list of remediation action in the AWS Management Console. 
 

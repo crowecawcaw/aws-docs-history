@@ -1,7 +1,6 @@
 
 
 # iam-customer-policy-blocked-kms-actions
-<a name="iam-customer-policy-blocked-kms-actions"></a>
 
 Checks if the managed AWS Identity and Access Management (IAM) policies that you create do not allow blocked actions on AWS KMS keys. The rule is NON\_COMPLIANT if any blocked action is allowed on AWS KMS keys by the managed IAM policy. 
 

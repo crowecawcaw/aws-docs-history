@@ -1,7 +1,6 @@
 
 
 # ecs-task-definition-linux-user-non-root
-<a name="ecs-task-definition-linux-user-non-root"></a>
 
 Checks if the latest active revision of an Amazon ECS task definition configures Linux containers to run as non-root users.The rule is NON\_COMPLIANT if root user is specified or user configuration is absent for any container. 
 

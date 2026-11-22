@@ -1,7 +1,6 @@
 
 
 # fis-experiment-template-tagged
-<a name="fis-experiment-template-tagged"></a>
 
 Checks if AWS FIS experiment templates have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'. 
 

@@ -1,7 +1,6 @@
 
 
 # iam-server-certificate-expiration-check
-<a name="iam-server-certificate-expiration-check"></a>
 
 Checks if AWS IAM SSL/TLS server certificates stored in IAM are expired. The rule is NON\_COMPLIANT if an IAM server certificate is expired. 
 

@@ -1,7 +1,6 @@
 
 
 # iam-user-group-membership-check
-<a name="iam-user-group-membership-check"></a>
 
 Checks whether IAM users are members of at least one IAM group. 
 

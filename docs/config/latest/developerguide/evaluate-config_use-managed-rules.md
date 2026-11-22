@@ -1,7 +1,6 @@
 
 
 # AWS Config Managed Rules
-<a name="evaluate-config_use-managed-rules"></a>
 
 AWS Config provides *AWS managed rules*, which are predefined, customizable rules that AWS Config uses to evaluate whether your AWS resources comply with common best practices. For example, you could use a managed rule to quickly start assessing whether your Amazon Elastic Block Store (Amazon EBS) volumes are encrypted or whether specific tags are applied to your resources.
 

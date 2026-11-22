@@ -1,7 +1,6 @@
 
 
 # dms-endpoint-ssl-configured
-<a name="dms-endpoint-ssl-configured"></a>
 
 Checks if AWS Database Migration Service (AWS DMS) endpoints are configured with an SSL connection. The rule is NON\_COMPLIANT if AWS DMS does not have an SSL connection configured. 
 

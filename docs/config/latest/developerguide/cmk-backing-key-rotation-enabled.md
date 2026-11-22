@@ -1,7 +1,6 @@
 
 
 # cmk-backing-key-rotation-enabled
-<a name="cmk-backing-key-rotation-enabled"></a>
 
 Checks if automatic key rotation is enabled for each key and matches to the key ID of the customer created AWS KMS key. The rule is NON\_COMPLIANT if the AWS Config recorder role for a resource does not have the kms:DescribeKey permission. 
 

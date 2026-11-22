@@ -1,7 +1,6 @@
 
 
 # vpc-sg-port-restriction-check
-<a name="vpc-sg-port-restriction-check"></a>
 
 Checks if security groups restrict incoming traffic to restricted ports explicitly from 0.0.0.0/0 or ::/0. The rule is NON\_COMPLIANT if security groups allow incoming traffic from 0.0.0.0/0 or ::/0 over TCP/UDP ports 22/3389 or as specified in parameters. 
 

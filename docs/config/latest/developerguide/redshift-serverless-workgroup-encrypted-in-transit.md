@@ -1,7 +1,6 @@
 
 
 # redshift-serverless-workgroup-encrypted-in-transit
-<a name="redshift-serverless-workgroup-encrypted-in-transit"></a>
 
 Checks if AWS Redshift Serverless workgroups have the require\_ssl config parameter set to true. The rule is NON\_COMPLIANT if require\_ssl is set to false. 
 

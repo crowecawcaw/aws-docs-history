@@ -1,7 +1,6 @@
 
 
 # Change Compliance Status of a Process Check
-<a name="change-compliance-status"></a>
 
 You can change the compliance status of a process check using the AWS Config console, the AWS CLI, and APIs.
 

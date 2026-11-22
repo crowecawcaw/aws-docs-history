@@ -1,7 +1,6 @@
 
 
 # Stopping the customer managed configuration recorder
-<a name="managing-recorder_console-stop"></a>
 
 **Note**  
 **Service-linked configuration recorders are always recording**  

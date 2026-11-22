@@ -1,7 +1,6 @@
 
 
 # rds-logging-enabled
-<a name="rds-logging-enabled"></a>
 
 Checks if respective logs of Amazon Relational Database Service (Amazon RDS) are enabled. The rule is NON\_COMPLIANT if any log types are not enabled. 
 

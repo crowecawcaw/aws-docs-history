@@ -1,7 +1,6 @@
 
 
 # Use `GetComplianceDetailsByConfigRule` with a CLI
-<a name="example_config-service_GetComplianceDetailsByConfigRule_section"></a>
 
 The following code examples show how to use `GetComplianceDetailsByConfigRule`.
 
@@ -73,7 +72,7 @@ For more information, see [Viewing Compliance Information and Evaluation Results
 **Tools for PowerShell V4**  
 **Example 1: This example obtains the evaluation results for the rule access-keys-rotated and returns the output grouped by compliance-type**  
 
-```
+```powershell
 Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated | Group-Object ComplianceType
 ```
 **Output:**  
@@ -86,7 +85,7 @@ Count Name                      Group
 ```
 **Example 2: This example queries compliance details for the rule access-keys-rotated for COMPLIANT resources.**  
 
-```
+```powershell
 Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated -ComplianceType COMPLIANT | ForEach-Object {$_.EvaluationResultIdentifier.EvaluationResultQualifier}
 ```
 **Output:**  
@@ -102,7 +101,7 @@ access-keys-rotated BCAB1CDJ2LITL3EHREM4Q AWS::IAM::User
 **Tools for PowerShell V5**  
 **Example 1: This example obtains the evaluation results for the rule access-keys-rotated and returns the output grouped by compliance-type**  
 
-```
+```powershell
 Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated | Group-Object ComplianceType
 ```
 **Output:**  
@@ -115,7 +114,7 @@ Count Name                      Group
 ```
 **Example 2: This example queries compliance details for the rule access-keys-rotated for COMPLIANT resources.**  
 
-```
+```powershell
 Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated -ComplianceType COMPLIANT | ForEach-Object {$_.EvaluationResultIdentifier.EvaluationResultQualifier}
 ```
 **Output:**  

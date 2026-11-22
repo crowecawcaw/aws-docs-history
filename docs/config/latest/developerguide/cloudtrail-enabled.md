@@ -1,7 +1,6 @@
 
 
 # cloudtrail-enabled
-<a name="cloudtrail-enabled"></a>
 
 **Important**  
 For this rule, the rule identifier (CLOUD\_TRAIL\_ENABLED) and rule name (cloudtrail-enabled) are different.

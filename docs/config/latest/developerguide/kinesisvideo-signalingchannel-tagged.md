@@ -1,7 +1,6 @@
 
 
 # kinesisvideo-signalingchannel-tagged
-<a name="kinesisvideo-signalingchannel-tagged"></a>
 
 Checks if AWS KinesisVideo signaling channel resources have tags. Optionally, required tag keys can be specified. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. It does not check for tags starting with 'aws:'. 
 

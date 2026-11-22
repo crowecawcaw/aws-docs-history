@@ -1,7 +1,6 @@
 
 
 # Using Service-Linked Roles for AWS Config
-<a name="using-service-linked-roles-config"></a>
 
 ## Service-Linked Role Permissions for AWS Config
 <a name="slr-permissions"></a>

@@ -1,7 +1,6 @@
 
 
 # dynamodb-table-cross-region-replication-enabled
-<a name="dynamodb-table-cross-region-replication-enabled"></a>
 
 Checks if an Amazon DynamoDB table has an active cross-Region replica through global tables. The rule is NON\_COMPLIANT if configuration.replicas is empty or if no replica has a regionName other than the table's awsRegion and replicaStatus ACTIVE. 
 

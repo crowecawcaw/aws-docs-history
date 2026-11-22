@@ -1,7 +1,6 @@
 
 
 # rds-mariadb-instance-encrypted-in-transit
-<a name="rds-mariadb-instance-encrypted-in-transit"></a>
 
 Checks if connections to Amazon RDS for MariaDB DB instances with engine version greater than or equal to 10.5 use encryption in transit. The rule is NON\_COMPLIANT if the DB parameter group is not in-sync or if require\_secure\_transport is not set to ON. 
 

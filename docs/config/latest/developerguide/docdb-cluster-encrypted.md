@@ -1,7 +1,6 @@
 
 
 # docdb-cluster-encrypted
-<a name="docdb-cluster-encrypted"></a>
 
 Checks if storage encryption is enabled for your Amazon DocumentDB (with MongoDB compatibility) clusters. The rule is NON\_COMPLIANT if storage encryption is not enabled. 
 

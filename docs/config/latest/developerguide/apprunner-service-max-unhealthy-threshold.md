@@ -1,7 +1,6 @@
 
 
 # apprunner-service-max-unhealthy-threshold
-<a name="apprunner-service-max-unhealthy-threshold"></a>
 
 Checks if an AWS App Runner service is configured to have an unhealthy threshold less than or equal to the specified value. The rule is NON\_COMPLIANT if the unhealthy threshold is greater than the value specified in the required rule parameter. 
 

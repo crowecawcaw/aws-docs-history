@@ -1,7 +1,6 @@
 
 
 # sagemaker-notebook-no-direct-internet-access
-<a name="sagemaker-notebook-no-direct-internet-access"></a>
 
 Checks if direct internet access is disabled for an Amazon SageMaker notebook instance. The rule is NON\_COMPLIANT if a SageMaker notebook instance is internet-enabled. 
 

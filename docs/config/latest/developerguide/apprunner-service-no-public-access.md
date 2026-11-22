@@ -1,7 +1,6 @@
 
 
 # apprunner-service-no-public-access
-<a name="apprunner-service-no-public-access"></a>
 
 Checks if AWS AppRunner Services are not publicly accessible. The rule is NON\_COMPLIANT if service.configuration.NetworkConfiguration.IngressConfiguration.IsPubliclyAccessible is False. 
 

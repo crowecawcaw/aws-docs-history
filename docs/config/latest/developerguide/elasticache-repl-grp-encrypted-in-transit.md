@@ -1,7 +1,6 @@
 
 
 # elasticache-repl-grp-encrypted-in-transit
-<a name="elasticache-repl-grp-encrypted-in-transit"></a>
 
 Checks if Amazon ElastiCache replication groups have encryption-in-transit enabled. The rule is NON\_COMPLIANT for an ElastiCache replication group if ‘TransitEncryptionEnabled’ is set to ‘false’. 
 

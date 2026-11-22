@@ -1,7 +1,6 @@
 
 
 # elasticache-automatic-backup-check-enabled
-<a name="elasticache-automatic-backup-check-enabled"></a>
 
 Checks if Amazon ElastiCache clusters (Valkey or Redis OSS) have automatic backup turned on. The rule is NON\_COMPLIANT if automated backup is not enabled or the SnapshotRetentionLimit for a cluster is less than the specified `snapshotRetentionPeriod`. 
 

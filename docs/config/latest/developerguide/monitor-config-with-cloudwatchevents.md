@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Config with Amazon EventBridge
-<a name="monitor-config-with-cloudwatchevents"></a>
 
 Amazon EventBridge delivers a near real-time stream of system events that describe changes in AWS resources. Use Amazon EventBridge to detect and react to changes in the status of AWS Config events.
 

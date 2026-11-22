@@ -1,7 +1,6 @@
 
 
 # backup-plan-min-frequency-and-min-retention-check
-<a name="backup-plan-min-frequency-and-min-retention-check"></a>
 
 Checks if a backup plan has a backup rule that satisfies the required frequency and retention period. The rule is NON\_COMPLIANT if recovery points are not created at least as often as the specified frequency or expire before the specified period. 
 

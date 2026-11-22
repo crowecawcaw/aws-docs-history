@@ -1,7 +1,6 @@
 
 
 # appsync-logging-enabled
-<a name="appsync-logging-enabled"></a>
 
 Checks if an AWS AppSync API has field level logging enabled. The rule is NON\_COMPLIANT if field level logging is not enabled, or if the field logging levels for the AppSync API do not match the values specified in the '`fieldLoggingLevel`' parameter. 
 

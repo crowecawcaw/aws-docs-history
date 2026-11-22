@@ -1,7 +1,6 @@
 
 
 # ecs-containers-nonprivileged
-<a name="ecs-containers-nonprivileged"></a>
 
 Checks if the privileged parameter in the container definition of ECSTaskDefinitions is set to ‘true’. The rule is NON\_COMPLIANT if the privileged parameter is ‘true’. 
 

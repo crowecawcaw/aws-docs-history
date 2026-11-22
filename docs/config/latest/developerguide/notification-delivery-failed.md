@@ -1,7 +1,6 @@
 
 
 # Example Delivery Failed Notification
-<a name="notification-delivery-failed"></a>
 
 AWS Config sends a delivery failed notification if AWS Config can't deliver the configuration snapshot or an oversized configuration item change notification to your Amazon S3 bucket. Verify that you specified a valid Amazon S3 bucket.
 

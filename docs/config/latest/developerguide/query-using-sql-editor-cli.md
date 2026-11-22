@@ -1,7 +1,6 @@
 
 
 # Query Using the SQL Query Editor for AWS Config (AWS CLI)
-<a name="query-using-sql-editor-cli"></a>
 
 The AWS CLI is a unified tool to manage your AWS services. With just one tool to download and configure, you can control multiple AWS services from the command line and use scripts to automate them. For more information about the AWS CLI and for instructions on installing the AWS CLI tools, see the following in the *AWS Command Line Interface User Guide*.
 + [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)

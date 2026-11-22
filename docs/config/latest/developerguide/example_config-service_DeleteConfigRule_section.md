@@ -1,7 +1,6 @@
 
 
 # Use `DeleteConfigRule` with an AWS SDK or CLI
-<a name="example_config-service_DeleteConfigRule_section"></a>
 
 The following code examples show how to use `DeleteConfigRule`.
 
@@ -26,7 +25,7 @@ For more information, see [Deleting AWS Config Rules](https://docs.aws.amazon.co
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/config#code-examples). 
 
-```
+```python
 class ConfigWrapper:
     """
     Encapsulates AWS Config functions.
@@ -60,7 +59,7 @@ class ConfigWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples). 
 
-```
+```sap-abap
     lo_cfs->deleteconfigrule( iv_rule_name ).
     MESSAGE 'Deleted AWS Config rule.' TYPE 'I'.
 ```

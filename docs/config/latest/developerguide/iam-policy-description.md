@@ -1,7 +1,6 @@
 
 
 # iam-policy-description
-<a name="iam-policy-description"></a>
 
 Checks if AWS Identity and Access Management (IAM) Policy description field exists. The rule is NON\_COMPLIANT if the description field does not exist or is an empty string. 
 

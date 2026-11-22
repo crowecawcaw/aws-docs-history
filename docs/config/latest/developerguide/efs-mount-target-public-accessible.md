@@ -1,7 +1,6 @@
 
 
 # efs-mount-target-public-accessible
-<a name="efs-mount-target-public-accessible"></a>
 
 Checks if an Amazon Elastic File System (Amazon EFS) is associated with subnets that assign public IP addresses on launch. The rule is NON\_COMPLIANT if the Amazon EFS mount target is associated with subnets that assign public IP addresses on launch. 
 

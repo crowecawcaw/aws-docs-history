@@ -1,7 +1,6 @@
 
 
 # dynamodb-resources-protected-by-backup-plan
-<a name="dynamodb-resources-protected-by-backup-plan"></a>
 
 Checks if Amazon DynamoDB tables are protected by a backup plan. The rule is NON\_COMPLIANT if the DynamoDB Table is not covered by a backup plan. 
 

@@ -1,7 +1,6 @@
 
 
 # elasticache-repl-grp-encrypted-at-rest
-<a name="elasticache-repl-grp-encrypted-at-rest"></a>
 
 Checks if Amazon ElastiCache replication groups have encryption-at-rest enabled. The rule is NON\_COMPLIANT for an ElastiCache replication group if 'AtRestEncryptionEnabled' is disabled or if the KMS key ARN does not match the approvedKMSKeyArns parameter. 
 

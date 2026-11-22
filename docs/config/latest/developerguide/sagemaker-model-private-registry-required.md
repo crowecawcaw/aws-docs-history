@@ -1,7 +1,6 @@
 
 
 # sagemaker-model-private-registry-required
-<a name="sagemaker-model-private-registry-required"></a>
 
 Checks if Amazon SageMaker models that use a PrimaryContainer pull container image from a private Docker registry in a VPC. The rule is NON\_COMPLIANT if ImageConfig is missing or RepositoryAccessMode is set to Platform. 
 

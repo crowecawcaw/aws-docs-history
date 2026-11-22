@@ -1,7 +1,6 @@
 
 
 # dsql-cluster-multi-region-replication-enabled
-<a name="dsql-cluster-multi-region-replication-enabled"></a>
 
 Checks if an Amazon Aurora DSQL cluster is replicated to another AWS Region through multi-Region peering. The rule is NON\_COMPLIANT if configuration.MultiRegionProperties.Clusters does not exist, is empty, or the cluster status is not ACTIVE. 
 

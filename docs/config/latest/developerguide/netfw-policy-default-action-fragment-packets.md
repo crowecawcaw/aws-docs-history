@@ -1,7 +1,6 @@
 
 
 # netfw-policy-default-action-fragment-packets
-<a name="netfw-policy-default-action-fragment-packets"></a>
 
 Checks if an AWS Network Firewall policy is configured with a user defined stateless default action for fragmented packets. The rule is NON\_COMPLIANT if stateless default action for fragmented packets does not match with user defined default action. 
 

@@ -1,7 +1,6 @@
 
 
 # Managing AWS Config Rules Across All Accounts in Your Organization
-<a name="config-rule-multi-account-deployment"></a>
 
 **Important**  
 Organizational rules can only be created using the API or CLI. This operation is not supported in the AWS Config console.

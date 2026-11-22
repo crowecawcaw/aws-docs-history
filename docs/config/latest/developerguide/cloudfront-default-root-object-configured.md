@@ -1,7 +1,6 @@
 
 
 # cloudfront-default-root-object-configured
-<a name="cloudfront-default-root-object-configured"></a>
 
 Checks if an Amazon CloudFront distribution is configured to return a specific object that is the default root object. The rule is NON\_COMPLIANT if Amazon CloudFront distribution does not have a default root object configured. 
 

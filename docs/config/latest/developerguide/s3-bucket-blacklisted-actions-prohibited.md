@@ -1,7 +1,6 @@
 
 
 # s3-bucket-blacklisted-actions-prohibited
-<a name="s3-bucket-blacklisted-actions-prohibited"></a>
 
 Checks if an Amazon Simple Storage Service (Amazon S3) bucket policy does not allow blocklisted bucket-level and object-level actions on resources in the bucket for principals from other AWS accounts. For example, the rule checks that the Amazon S3 bucket policy does not allow another AWS account to perform any `s3:GetBucket*` actions and `s3:DeleteObject` on any object in the bucket. The rule is NON\_COMPLIANT if any blocklisted actions are allowed by the Amazon S3 bucket policy.
 

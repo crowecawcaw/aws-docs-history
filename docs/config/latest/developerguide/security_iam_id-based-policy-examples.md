@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS Config
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify AWS Config resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -63,7 +62,7 @@ To provide access, add permissions to your users, groups, or roles:
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -108,7 +107,7 @@ The following example shows an AWS managed policy, `AWSConfigUserAccess` that gr
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -162,7 +161,7 @@ This policy grants broad permissions. Before granting full access, consider star
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -302,7 +301,7 @@ In the first policy, you allow the AWS Config rule read actions such as `Describ
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -333,7 +332,7 @@ In the second policy, you deny the AWS Config rule write actions on the specific
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -387,7 +386,7 @@ In this policy, you allow access to the supported aggregator actions for the AWS
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -426,7 +425,7 @@ In this policy, you deny access to the supported aggregator actions for the AWS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -468,7 +467,7 @@ aws configservice describe-configuration-aggregators
 
 When command has successfully completed, you will be able to see the details for all the aggregators associated with your account. In this example, those are `AccessibleAggregator` and `InAccessibleAggregator`:
 
-```
+```json
 {
     "ConfigurationAggregators": [
         {
@@ -517,7 +516,7 @@ Attach the following IAM policy to deny access to `InAccessibleAggregator`, or t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

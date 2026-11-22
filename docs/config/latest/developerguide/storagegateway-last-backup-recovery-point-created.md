@@ -1,7 +1,6 @@
 
 
 # storagegateway-last-backup-recovery-point-created
-<a name="storagegateway-last-backup-recovery-point-created"></a>
 
 Checks if a recovery point was created for AWS Storage Gateway volumes. The rule is NON\_COMPLIANT if the Storage Gateway volume does not have a corresponding recovery point created within the specified time period. 
 

@@ -1,7 +1,6 @@
 
 
 # ecr-private-image-scanning-enabled
-<a name="ecr-private-image-scanning-enabled"></a>
 
 Checks if a private Amazon Elastic Container Registry (Amazon ECR) repository has image scanning enabled. The rule is NON\_COMPLIANT if the private Amazon ECR repository's scan frequency is not on scan on push or continuous scan. For more information on enabling image scanning, see [Image scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) in the *Amazon ECR User Guide*.
 

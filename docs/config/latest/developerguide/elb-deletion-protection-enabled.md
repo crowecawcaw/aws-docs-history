@@ -1,7 +1,6 @@
 
 
 # elb-deletion-protection-enabled
-<a name="elb-deletion-protection-enabled"></a>
 
 Checks whether an Elastic Load Balancer has deletion protection enabled. The rule is NON\_COMPLIANT if deletion\_protection.enabled is false. 
 

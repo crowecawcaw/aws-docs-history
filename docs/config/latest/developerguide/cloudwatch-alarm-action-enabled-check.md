@@ -1,7 +1,6 @@
 
 
 # cloudwatch-alarm-action-enabled-check
-<a name="cloudwatch-alarm-action-enabled-check"></a>
 
 Checks if Amazon CloudWatch alarms actions are in enabled state. The rule is NON\_COMPLIANT if the CloudWatch alarms actions are not in enabled state. 
 

@@ -1,9 +1,6 @@
 
 
 # Creating templates for Custom Conformance Packs for AWS Config
-<a name="custom-conformance-pack"></a>
-
-A custom conformance pack is a unique collection of AWS Config rules and remediation actions that you can deploy together in an account and an AWS Region, or across an organization in AWS Organizations.
 
 To make a custom conformance pack, follow the steps in the following **Customizing the template **section to author a YAML file that contains the list of [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) or [AWS Config Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) that you want to work with.
 
@@ -34,7 +31,7 @@ Your file will contain a **Parameters** and **Resources** section.
 
 The `Parameters` section in your YAML file is for the rule parameters for the set of AWS Config rules that you will add later in the `Resources` section. Create the `Parameters` section by copying and pasting the following code block into your YAML file, customizing it as needed and repeating for each rule parameter.
 
-```
+```yaml
 Parameters:    
     {{NameOfRule}}Param{{NameOfRuleParameter}}: 
         Default: {{Parameter value}}
@@ -44,7 +41,7 @@ Parameters:
 
 For example:
 
-```
+```yaml
 Parameters:
     IamPasswordPolicyParamMinimumPasswordLength:
         Default: '14'
@@ -70,7 +67,7 @@ For each parameter, `Type` must be specified. `Type` can be one of "String", "in
 
 The `Resources` section lists the rules that are being added to your Custom Conformance Pack. Add the following `Resources` block directly beneath your `Parameters` section, customizing it as needed and repeating for each rule. For more information on the specifications, see [AWS::Config::ConfigRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#aws-resource-config-configrule-syntax).
 
-```
+```yaml
 Resources:
      {{NameOfRule}}:
         Properties:
@@ -86,7 +83,7 @@ Resources:
 
 For example:
 
-```
+```yaml
 Resources:
     IamPasswordPolicy:
         Properties:
@@ -124,7 +121,7 @@ For AWS Config custom rules created with Lambda, the `SourceIdentifier` is the A
 
 Altogether, your filled out custom conformance pack should begin to look similar to the following, which is an example using these AWS Config Managed Rules: **iam-password-policy**, **access-keys-rotated**, and **iam-user-unused-credentials-check**.
 
-```
+```yaml
 Parameters:
     IamPasswordPolicyParamMinimumPasswordLength:
         Default: '14'

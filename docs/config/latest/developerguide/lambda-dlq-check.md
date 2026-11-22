@@ -1,7 +1,6 @@
 
 
 # lambda-dlq-check
-<a name="lambda-dlq-check"></a>
 
 Checks whether an AWS Lambda function is configured with a dead-letter queue. The rule is NON\_COMPLIANT if the Lambda function is not configured with a dead-letter queue. 
 

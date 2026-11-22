@@ -1,7 +1,6 @@
 
 
 # appintegrations-application-approved-origins-check
-<a name="appintegrations-application-approved-origins-check"></a>
 
 Checks that Amazon AppIntegrations applications do not contain approved origins. The rule is NON\_COMPLIANT if configuration.ApplicationSourceConfig.ExternalUrlConfig.ApprovedOrigins is not an empty list. 
 

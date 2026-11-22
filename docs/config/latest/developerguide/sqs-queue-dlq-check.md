@@ -1,7 +1,6 @@
 
 
 # sqs-queue-dlq-check
-<a name="sqs-queue-dlq-check"></a>
 
 Checks if Amazon Simple Queue Service (Amazon SQS) queues have configuration to use dead-letter queue (DLQ). The rule is NON\_COMPLIANT if an Amazon SQS queue does not have any configuration to use DLQ. 
 

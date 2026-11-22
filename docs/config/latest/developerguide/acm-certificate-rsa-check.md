@@ -1,7 +1,6 @@
 
 
 # acm-certificate-rsa-check
-<a name="acm-certificate-rsa-check"></a>
 
 Checks if RSA certificates managed by AWS Certificate Manager (ACM) have a key length of at least '2048' bits.The rule is NON\_COMPLIANT if the minimum key length is less than 2048 bits. 
 

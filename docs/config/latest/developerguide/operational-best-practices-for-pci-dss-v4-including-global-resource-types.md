@@ -1,7 +1,6 @@
 
 
 # Operational Best Practices for PCI DSS 4.0 (Including global resource types)
-<a name="operational-best-practices-for-pci-dss-v4-including-global-resource-types"></a>
 
 Conformance packs provide a general-purpose compliance framework designed to enable you to create security, operational or cost-optimization governance checks using managed or custom AWS Config rules and AWS Config remediation actions. Conformance Packs, as sample templates, are not designed to fully ensure compliance with a specific governance or compliance standard. You are responsible for making your own assessment of whether your use of the Services meets applicable legal and regulatory requirements.
 

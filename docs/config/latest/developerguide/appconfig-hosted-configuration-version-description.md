@@ -1,7 +1,6 @@
 
 
 # appconfig-hosted-configuration-version-description
-<a name="appconfig-hosted-configuration-version-description"></a>
 
 Checks if AWS AppConfig hosted configuration versions have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string. 
 

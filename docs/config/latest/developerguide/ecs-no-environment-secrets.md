@@ -1,7 +1,6 @@
 
 
 # ecs-no-environment-secrets
-<a name="ecs-no-environment-secrets"></a>
 
 Checks if secrets are passed as container environment variables. The rule is NON\_COMPLIANT if 1 or more environment variable key matches a key listed in the '`secretKeys`' parameter (excluding environmental variables from other locations such as Amazon S3). 
 

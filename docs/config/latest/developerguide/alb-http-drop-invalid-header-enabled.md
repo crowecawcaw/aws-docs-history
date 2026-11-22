@@ -1,7 +1,6 @@
 
 
 # alb-http-drop-invalid-header-enabled
-<a name="alb-http-drop-invalid-header-enabled"></a>
 
 Checks if rule evaluates AWS Application Load Balancers (ALB) to ensure they are configured to drop http headers. The rule is NON\_COMPLIANT if the value of routing.http.drop\_invalid\_header\_fields.enabled is set to false 
 

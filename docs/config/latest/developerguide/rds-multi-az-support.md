@@ -1,7 +1,6 @@
 
 
 # rds-multi-az-support
-<a name="rds-multi-az-support"></a>
 
 Checks whether high availability is enabled for your RDS DB instances.
 

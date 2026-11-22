@@ -1,7 +1,6 @@
 
 
 # aurora-global-database-encryption-at-rest
-<a name="aurora-global-database-encryption-at-rest"></a>
 
 Checks if Amazon Aurora Global Databases have storage encryption enabled. This rule is NON\_COMPLIANT if an Amazon Aurora Global Database does not have storage encryption enabled. 
 

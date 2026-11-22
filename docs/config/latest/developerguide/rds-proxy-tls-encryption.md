@@ -1,7 +1,6 @@
 
 
 # rds-proxy-tls-encryption
-<a name="rds-proxy-tls-encryption"></a>
 
 Checks if Amazon RDS proxies enforce TLS for all connections. The rule is NON\_COMPLIANT if an Amazon RDS proxy does not have TLS enforced for all connections. 
 

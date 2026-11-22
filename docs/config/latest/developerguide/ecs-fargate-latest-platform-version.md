@@ -1,7 +1,6 @@
 
 
 # ecs-fargate-latest-platform-version
-<a name="ecs-fargate-latest-platform-version"></a>
 
 Checks if ECS Fargate services is set to the latest platform version. The rule is NON\_COMPLIANT if PlatformVersion for the Fargate launch type is not set to LATEST, or if neither latestLinuxVersion nor `latestWindowsVersion` are provided as parameters. 
 

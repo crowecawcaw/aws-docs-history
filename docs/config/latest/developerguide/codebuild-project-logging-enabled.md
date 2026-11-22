@@ -1,7 +1,6 @@
 
 
 # codebuild-project-logging-enabled
-<a name="codebuild-project-logging-enabled"></a>
 
 Checks if an AWS CodeBuild project environment has at least one log option enabled. The rule is NON\_COMPLIANT if the status of all present log configurations is set to 'DISABLED'. 
 

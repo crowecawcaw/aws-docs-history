@@ -1,7 +1,6 @@
 
 
 # dynamodb-throughput-limit-check
-<a name="dynamodb-throughput-limit-check"></a>
 
 Checks if provisioned DynamoDB throughput is approaching the maximum limit for your account. By default, the rule checks if provisioned throughput exceeds a threshold of 80 percent of your account limits.
 

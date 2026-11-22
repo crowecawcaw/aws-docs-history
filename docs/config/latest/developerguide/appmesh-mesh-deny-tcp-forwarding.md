@@ -1,7 +1,6 @@
 
 
 # appmesh-mesh-deny-tcp-forwarding
-<a name="appmesh-mesh-deny-tcp-forwarding"></a>
 
 Checks if proxies for AWS App Mesh service meshes do not forward TCP traffic directly to services that aren't deployed with a proxy that is defined in the mesh. The rule is NON\_COMPLIANT if configuration.Spec.EgressFilter.Type is set to 'ALLOW\_ALL'. 
 

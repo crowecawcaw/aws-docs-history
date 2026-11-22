@@ -1,7 +1,6 @@
 
 
 # vpc-sg-open-only-to-authorized-ports
-<a name="vpc-sg-open-only-to-authorized-ports"></a>
 
 Checks if security groups allowing unrestricted incoming traffic ('0.0.0.0/0' or '::/0') only allow inbound TCP or UDP connections on authorized ports. The rule is NON\_COMPLIANT if such security groups do not have ports specified in the rule parameters. 
 

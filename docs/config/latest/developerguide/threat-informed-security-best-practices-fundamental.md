@@ -1,7 +1,6 @@
 
 
 # Threat-Informed Security Best Practices (Fundamental)
-<a name="threat-informed-security-best-practices-fundamental"></a>
 
 This conformance pack contains a focused set of AWS Config rules recommended by AWS Security Incident Response security engineers. These rules target the most common misconfigurations that security engineers observe causing real security incidents in customer environments. For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
 

@@ -1,7 +1,6 @@
 
 
 # Viewing Compliance and Inventory Data in the Aggregator Dashboard for AWS Config
-<a name="viewing-the-aggregate-dashboard"></a>
 
 The dashboard on the **Aggregators** page displays the configuration data of your aggregated AWS resources. It provides an overview of your rules, conformance packs, and their compliance states.
 

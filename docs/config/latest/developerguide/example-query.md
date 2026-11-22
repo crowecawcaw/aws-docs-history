@@ -1,7 +1,6 @@
 
 
 # Example Queries for AWS Config
-<a name="example-query"></a>
 
 View the following example queries.
 

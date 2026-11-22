@@ -1,7 +1,6 @@
 
 
 # aps-rule-groups-namespace-tagged
-<a name="aps-rule-groups-namespace-tagged"></a>
 
 Checks if Amazon Managed Service for Prometheus rule groups namepaces have tags. You can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'. 
 

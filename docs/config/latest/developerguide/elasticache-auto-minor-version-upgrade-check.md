@@ -1,7 +1,6 @@
 
 
 # elasticache-auto-minor-version-upgrade-check
-<a name="elasticache-auto-minor-version-upgrade-check"></a>
 
 Checks if Amazon ElastiCache clusters have auto minor version upgrades enabled. The rule is NON\_COMPLIANT for an ElastiCache cluster if it is using the Redis or Valkey engine and 'AutoMinorVersionUpgrade' is not set to 'true'. 
 

@@ -1,7 +1,6 @@
 
 
 # Use `DescribeComplianceByResource` with a CLI
-<a name="example_config-service_DescribeComplianceByResource_section"></a>
 
 The following code examples show how to use `DescribeComplianceByResource`.
 
@@ -57,7 +56,7 @@ For more information, see [Viewing Compliance Information and Evaluation Results
 **Tools for PowerShell V4**  
 **Example 1: This example checks the `AWS::SSM::ManagedInstanceInventory` resource type for 'COMPLIANT' compliance type.**  
 
-```
+```powershell
 Get-CFGComplianceByResource -ComplianceType COMPLIANT -ResourceType AWS::SSM::ManagedInstanceInventory
 ```
 **Output:**  
@@ -73,7 +72,7 @@ Amazon.ConfigService.Model.Compliance i-0a1234f6f5d6b78f7 AWS::SSM::ManagedInsta
 **Tools for PowerShell V5**  
 **Example 1: This example checks the `AWS::SSM::ManagedInstanceInventory` resource type for 'COMPLIANT' compliance type.**  
 
-```
+```powershell
 Get-CFGComplianceByResource -ComplianceType COMPLIANT -ResourceType AWS::SSM::ManagedInstanceInventory
 ```
 **Output:**  

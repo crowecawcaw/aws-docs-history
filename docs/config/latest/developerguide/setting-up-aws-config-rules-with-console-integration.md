@@ -1,7 +1,6 @@
 
 
 # Sending Rule Evaluations to Security Hub CSPM
-<a name="setting-up-aws-config-rules-with-console-integration"></a>
 
 After adding an AWS Config rule, you can also send rule evaluations to AWS Security Hub CSPM. The integration between AWS Config and Security Hub CSPM allows you to triage and remediate rule evaluations alongside other misconfigurations and security issues.
 

@@ -1,7 +1,6 @@
 
 
 # cloudfront-s3-origin-access-control-enabled
-<a name="cloudfront-s3-origin-access-control-enabled"></a>
 
 Checks if an Amazon CloudFront distribution with an Amazon Simple Storage Service (Amazon S3) Origin type has origin access control (OAC) enabled. The rule is NON\_COMPLIANT for CloudFront distributions with Amazon S3 origins that don't have OAC enabled. 
 

@@ -1,7 +1,6 @@
 
 
 # batch-managed-compute-env-allocation-strategy-check
-<a name="batch-managed-compute-env-allocation-strategy-check"></a>
 
 Checks if an AWS Batch managed compute environment is configured with a specified allocation strategy. The rule is NON\_COMPLIANT if the compute environment is not configured with an allocation strategy specified in the required rule parameter. 
 

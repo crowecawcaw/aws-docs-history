@@ -1,7 +1,6 @@
 
 
 # ecs-awsvpc-networking-enabled
-<a name="ecs-awsvpc-networking-enabled"></a>
 
 Checks if the networking mode for active ECSTaskDefinitions is set to ‘awsvpc’. This rule is NON\_COMPLIANT if active ECSTaskDefinitions is not set to ‘awsvpc’. 
 

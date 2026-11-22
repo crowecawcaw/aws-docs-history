@@ -1,7 +1,6 @@
 
 
 # ec2-managedinstance-inventory-blacklisted
-<a name="ec2-managedinstance-inventory-blacklisted"></a>
 
 Checks whether instances managed by Amazon EC2 Systems Manager are configured to collect blacklisted inventory types. 
 

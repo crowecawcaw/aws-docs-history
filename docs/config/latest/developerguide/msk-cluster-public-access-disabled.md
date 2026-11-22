@@ -1,7 +1,6 @@
 
 
 # msk-cluster-public-access-disabled
-<a name="msk-cluster-public-access-disabled"></a>
 
 Checks if public access is disabled on Amazon MSK clusters. The rule is NON\_COMPLIANT if public access on an Amazon MSK cluster is not disabled. 
 

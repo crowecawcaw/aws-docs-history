@@ -1,7 +1,6 @@
 
 
 # elb-cross-zone-load-balancing-enabled
-<a name="elb-cross-zone-load-balancing-enabled"></a>
 
 Checks if cross-zone load balancing is enabled for Classic Load Balancers. The rule is NON\_COMPLIANT if cross-zone load balancing is not enabled for Classic Load Balancers. 
 

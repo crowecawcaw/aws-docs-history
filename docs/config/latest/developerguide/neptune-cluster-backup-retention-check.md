@@ -1,7 +1,6 @@
 
 
 # neptune-cluster-backup-retention-check
-<a name="neptune-cluster-backup-retention-check"></a>
 
 Checks if an Amazon Neptune DB cluster retention period is set to specific number of days. The rule is NON\_COMPLIANT if the retention period is less than the value specified by the parameter. 
 

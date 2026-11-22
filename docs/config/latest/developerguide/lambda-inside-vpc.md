@@ -1,7 +1,6 @@
 
 
 # lambda-inside-vpc
-<a name="lambda-inside-vpc"></a>
 
 Checks if a Lambda function is allowed access to a virtual private cloud (VPC). The rule is NON\_COMPLIANT if the Lambda function is not VPC enabled. 
 

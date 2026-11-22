@@ -1,7 +1,6 @@
 
 
 # guardduty-eks-protection-runtime-enabled
-<a name="guardduty-eks-protection-runtime-enabled"></a>
 
 Checks if Amazon EKS Runtime Monitoring with automated agent management is enabled for GuardDuty detector in your account. The rule is NON\_COMPLIANT if EKS Runtime Monitoring with automated agent management in GuardDuty is not enabled for your account. 
 

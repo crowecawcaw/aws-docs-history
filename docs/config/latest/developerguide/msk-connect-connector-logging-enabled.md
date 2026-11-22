@@ -1,7 +1,6 @@
 
 
 # msk-connect-connector-logging-enabled
-<a name="msk-connect-connector-logging-enabled"></a>
 
 Checks if Amazon MSK Connector has logging enabled to any one of the log destinations. The rule is NON\_COMPLIANT if Amazon MSK Connector does not have logging enabled. 
 

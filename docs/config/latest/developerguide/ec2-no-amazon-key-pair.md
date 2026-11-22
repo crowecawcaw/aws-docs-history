@@ -1,7 +1,6 @@
 
 
 # ec2-no-amazon-key-pair
-<a name="ec2-no-amazon-key-pair"></a>
 
 Checks if running Amazon EC2 instances were launched without key pairs. The rule is NON\_COMPLIANT if an instance was launched with a key pair. Evaluation is based on launch-time configuration only. 
 

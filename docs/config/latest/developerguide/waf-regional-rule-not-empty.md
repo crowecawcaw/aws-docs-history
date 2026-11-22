@@ -1,7 +1,6 @@
 
 
 # waf-regional-rule-not-empty
-<a name="waf-regional-rule-not-empty"></a>
 
 Checks whether WAF regional rule contains conditions. This rule is COMPLIANT if the regional rule contains at least one condition and NON\_COMPLIANT otherwise. 
 

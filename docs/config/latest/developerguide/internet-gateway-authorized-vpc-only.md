@@ -1,7 +1,6 @@
 
 
 # internet-gateway-authorized-vpc-only
-<a name="internet-gateway-authorized-vpc-only"></a>
 
 Checks if internet gateways are attached to an authorized virtual private cloud (Amazon VPC). The rule is NON\_COMPLIANT if internet gateways are attached to an unauthorized VPC. 
 

@@ -1,7 +1,6 @@
 
 
 # redshift-cluster-subnet-group-multi-az
-<a name="redshift-cluster-subnet-group-multi-az"></a>
 
 Checks If Amazon Redshift subnet groups contain subnets from more than one Availability Zone. The rule is NON\_COMPLIANT if an Amazon Redshift subnet group does not contain subnets from at least two different Availability Zones. 
 

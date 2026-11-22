@@ -1,7 +1,6 @@
 
 
 # cloudfront-origin-failover-enabled
-<a name="cloudfront-origin-failover-enabled"></a>
 
 Checks if an origin group is configured for the distribution of at least two origins in the origin group for Amazon CloudFront. The rule is NON\_COMPLIANT if there are no origin groups for the distribution. 
 

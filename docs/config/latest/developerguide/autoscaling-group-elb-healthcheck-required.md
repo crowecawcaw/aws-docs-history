@@ -1,7 +1,6 @@
 
 
 # autoscaling-group-elb-healthcheck-required
-<a name="autoscaling-group-elb-healthcheck-required"></a>
 
 Checks if your Amazon EC2 Auto Scaling groups that are associated with an Elastic Load Balancer use Elastic Load Balancing health checks. The rule is NON\_COMPLIANT if the Amazon EC2 Auto Scaling groups are not using Elastic Load Balancing health checks. 
 

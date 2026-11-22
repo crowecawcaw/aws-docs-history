@@ -1,7 +1,6 @@
 
 
 # netfw-policy-rule-group-associated
-<a name="netfw-policy-rule-group-associated"></a>
 
 Check AWS Network Firewall policy is associated with stateful OR stateless rule groups. This rule is NON\_COMPLIANT if no stateful or stateless rule groups are associated with the Network Firewall policy else COMPLIANT if any one of the rule group exists. 
 

@@ -1,7 +1,6 @@
 
 
 # Turning on Proactive Evaluation for AWS Config Rules
-<a name="evaluate-config_turn-on-proactive-rules"></a>
 
 You can use the AWS Config console or the AWS SDKs to turn on proactive evaluation rules. For a list of resource types and managed rules that support proactive evaluation, see [Components of a Rule \| Evaluation Modes](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_components.html#evaluate-config_use-managed-rules-proactive-detective).
 

@@ -1,7 +1,6 @@
 
 
 # Deleting Evaluation Results from AWS Config Rules
-<a name="deleting-evaluations-results"></a>
 
 After AWS Config evaluates your rule, you can see the evaluation results on the **Rules** page or the **Rules details** page for the rule. If the evaluation results are incorrect or if you want to evaluate again, you can delete the current evaluation results for the rule. For example, if your rule was incorrectly evaluating your resources or you recently deleted resources from your account, you can delete the evaluation results and then run a new evaluation.
 

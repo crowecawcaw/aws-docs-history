@@ -1,7 +1,6 @@
 
 
 # batch-compute-environment-tagged
-<a name="batch-compute-environment-tagged"></a>
 
 Checks if AWS Batch compute environments have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'. 
 

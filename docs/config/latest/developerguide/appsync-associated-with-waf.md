@@ -1,7 +1,6 @@
 
 
 # appsync-associated-with-waf
-<a name="appsync-associated-with-waf"></a>
 
 Checks if AWS AppSync APIs are associated with AWS WAFv2 web access control lists (ACLs). The rule is NON\_COMPLIANT for an AWS AppSync API if it is not associated with a web ACL. 
 

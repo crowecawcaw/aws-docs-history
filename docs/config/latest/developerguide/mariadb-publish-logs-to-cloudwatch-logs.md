@@ -1,7 +1,6 @@
 
 
 # mariadb-publish-logs-to-cloudwatch-logs
-<a name="mariadb-publish-logs-to-cloudwatch-logs"></a>
 
 Checks if Amazon MariaDB database instances are configured to publish logs to Amazon CloudWatch Logs. The rule is NON\_COMPLIANT if a database instance is not configured to publish logs to CloudWatch Logs. 
 

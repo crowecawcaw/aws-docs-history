@@ -1,7 +1,6 @@
 
 
 # Updating AWS Config Rules
-<a name="evaluate-config_update-rules"></a>
 
 You can use the AWS Config console or the AWS SDKs to update your rules.
 
@@ -117,7 +116,7 @@ For more information, see [AWS Config Custom Rules](https://docs.aws.amazon.com/
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/config#code-examples). 
 
-```
+```python
 class ConfigWrapper:
     """
     Encapsulates AWS Config functions.
@@ -168,7 +167,7 @@ class ConfigWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples). 
 
-```
+```sap-abap
     " Create a config rule for S3 bucket public read prohibition
     lo_cfs->putconfigrule(
       io_configrule = NEW /aws1/cl_cfsconfigrule(

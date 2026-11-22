@@ -1,7 +1,6 @@
 
 
 # docdb-cluster-encrypted-in-transit
-<a name="docdb-cluster-encrypted-in-transit"></a>
 
 Checks if connections to Amazon DocumentDB clusters are configured to use encryption in transit. The rule is NON\_COMPLIANT if the parameter group is not "in-sync", or the TLS parameter is set to either "disabled" or a value in `excludeTlsParameters`. 
 

@@ -1,7 +1,6 @@
 
 
 # s3-lifecycle-policy-check
-<a name="s3-lifecycle-policy-check"></a>
 
 Checks if a lifecycle rule is configured for an Amazon Simple Storage Service (Amazon S3) bucket. The rule is NON\_COMPLIANT if there is no active lifecycle configuration rules or the configuration does not match with the parameter values. 
 

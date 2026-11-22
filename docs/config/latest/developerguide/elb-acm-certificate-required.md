@@ -1,7 +1,6 @@
 
 
 # elb-acm-certificate-required
-<a name="elb-acm-certificate-required"></a>
 
 Checks if the Classic Load Balancers use SSL certificates provided by AWS Certificate Manager. To use this rule, use an SSL or HTTPS listener with your Classic Load Balancer. This rule is only applicable to Classic Load Balancers. This rule does not check Application Load Balancers and Network Load Balancers.
 

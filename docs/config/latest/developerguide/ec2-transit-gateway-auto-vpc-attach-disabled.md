@@ -1,7 +1,6 @@
 
 
 # ec2-transit-gateway-auto-vpc-attach-disabled
-<a name="ec2-transit-gateway-auto-vpc-attach-disabled"></a>
 
 Checks if Amazon Elastic Compute Cloud (Amazon EC2) Transit Gateways have 'AutoAcceptSharedAttachments' enabled. The rule is NON\_COMPLIANT for a Transit Gateway if 'AutoAcceptSharedAttachments' is set to 'enable'. 
 

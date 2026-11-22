@@ -1,7 +1,6 @@
 
 
 # Frequently Asked Questions
-<a name="faq"></a>
 
 ## Unable to see my latest configuration changes
 <a name="config-delays"></a>

@@ -1,7 +1,6 @@
 
 
 # ecs-task-definition-log-configuration
-<a name="ecs-task-definition-log-configuration"></a>
 
 Checks if logConfiguration is set on active ECS Task Definitions. This rule is NON\_COMPLIANT if an active ECSTaskDefinition does not have the logConfiguration resource defined or the value for logConfiguration is null in at least one container definition. 
 

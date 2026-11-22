@@ -1,7 +1,6 @@
 
 
 # s3-account-level-public-access-blocks
-<a name="s3-account-level-public-access-blocks"></a>
 
 Checks if the required public access block settings are configured from account level. The rule is only NON\_COMPLIANT when the fields set below do not match the corresponding fields in the configuration item.
 

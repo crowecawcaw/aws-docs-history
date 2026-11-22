@@ -1,7 +1,6 @@
 
 
 # athena-prepared-statement-description
-<a name="athena-prepared-statement-description"></a>
 
 Checks if Amazon Athena prepared statements have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist. 
 

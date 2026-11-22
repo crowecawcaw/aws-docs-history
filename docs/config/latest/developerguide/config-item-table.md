@@ -1,7 +1,6 @@
 
 
 # Components of a Configuration Item
-<a name="config-item-table"></a>
 
 A *configuration item* represents a point-in-time view of the various attributes of a supported AWS resource that exists in your account. The components of a configuration item include metadata, attributes, relationships, current configuration, and related events. AWS Config creates a configuration item whenever it detects a change to a resource type that it is recording. For example, if AWS Config is recording Amazon S3 buckets, AWS Config creates a configuration item whenever a bucket is created, updated, or deleted. You can also select for AWS Config to create a configuration item at the recording frequency that you set.
 

@@ -1,7 +1,6 @@
 
 
 # opensearchserverless-collection-standbyreplicas-enabled
-<a name="opensearchserverless-collection-standbyreplicas-enabled"></a>
 
 Checks if Amazon OpenSearch Serverless collections have standby replicas enabled. The rule is NON\_COMPLIANT if configuration.StandbyReplicas is 'DISABLED'. 
 

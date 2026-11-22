@@ -1,7 +1,6 @@
 
 
 # cognito-user-pool-advanced-security-enabled
-<a name="cognito-user-pool-advanced-security-enabled"></a>
 
 Checks if an Amazon Cognito user pool has advanced security enabled for standard authentication. The rule is NON\_COMPLIANT if advanced security is not enabled. Optionally, you can specify an advanced security mode for the rule to check. 
 

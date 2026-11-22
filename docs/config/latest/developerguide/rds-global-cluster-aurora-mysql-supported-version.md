@@ -1,7 +1,6 @@
 
 
 # rds-global-cluster-aurora-mysql-supported-version
-<a name="rds-global-cluster-aurora-mysql-supported-version"></a>
 
 Checks if an Amazon Aurora MySQL global database is running on a specified minimum supported engine version. The rule is NON\_COMPLIANT if the database is not running on the minimum supported engine version that you specify. 
 

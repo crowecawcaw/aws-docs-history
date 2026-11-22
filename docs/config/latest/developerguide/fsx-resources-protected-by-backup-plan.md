@@ -1,7 +1,6 @@
 
 
 # fsx-resources-protected-by-backup-plan
-<a name="fsx-resources-protected-by-backup-plan"></a>
 
 Checks if Amazon FSx File Systems are protected by a backup plan. The rule is NON\_COMPLIANT if the Amazon FSx File System is not covered by a backup plan. 
 

@@ -1,7 +1,6 @@
 
 
 # Getting Started with AWS Config
-<a name="getting-started"></a>
 
 AWS Config provides a detailed view of the configuration of AWS resources in your AWS account. With AWS Config, you can review changes in configurations and relationships between AWS resources, explore resource configuration history, and use rules to determine compliance. For more information, see [What Is AWS Config?](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) and [How AWS Config Works](https://docs.aws.amazon.com/config/latest/developerguide/how-does-config-work.html).
 

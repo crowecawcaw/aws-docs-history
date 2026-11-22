@@ -1,7 +1,6 @@
 
 
 # fis-experiment-template-log-configuration-exists
-<a name="fis-experiment-template-log-configuration-exists"></a>
 
 Checks if AWS FIS experiment templates have experiment logging configured. The rule is NON\_COMPLIANT if configuration.LogConfiguration does not exist. 
 

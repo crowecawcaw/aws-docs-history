@@ -1,7 +1,6 @@
 
 
 # dms-replication-task-targetdb-logging
-<a name="dms-replication-task-targetdb-logging"></a>
 
 Checks if logging is enabled with a valid severity level for AWS DMS replication task events of a target database. The rule is NON\_COMPLIANT if logging is not enabled or replication task logging of a target database has a severity level that is not valid. 
 

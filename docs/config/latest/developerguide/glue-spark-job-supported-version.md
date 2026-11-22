@@ -1,7 +1,6 @@
 
 
 # glue-spark-job-supported-version
-<a name="glue-spark-job-supported-version"></a>
 
 Checks if an AWS Glue Spark job is running on the specified minimum supported AWS Glue version. The rule is NON\_COMPLIANT if the AWS Glue Spark job is not running on the minimum supported AWS Glue version that you specify. 
 

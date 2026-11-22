@@ -1,7 +1,6 @@
 
 
 # ec2-instance-detailed-monitoring-enabled
-<a name="ec2-instance-detailed-monitoring-enabled"></a>
 
 Checks if detailed monitoring is enabled for EC2 instances. The rule is NON\_COMPLIANT if detailed monitoring is not enabled.
 

@@ -1,7 +1,6 @@
 
 
 # emr-security-configuration-encryption-rest
-<a name="emr-security-configuration-encryption-rest"></a>
 
 Checks if an Amazon EMR security configuration has encryption at rest enabled. The rule is NON\_COMPLIANT if configuration.SecurityConfiguration.EncryptionConfiguration.EnableAtRestEncryption is false. 
 

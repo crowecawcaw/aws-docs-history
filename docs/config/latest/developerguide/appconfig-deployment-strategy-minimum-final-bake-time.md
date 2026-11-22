@@ -1,7 +1,6 @@
 
 
 # appconfig-deployment-strategy-minimum-final-bake-time
-<a name="appconfig-deployment-strategy-minimum-final-bake-time"></a>
 
 Checks if an AWS AppConfig deployment strategy requires the specified minimum bake time. The rule is NON\_COMPLIANT if the deployment strategy has a final bake time less than value specified in the rule parameter. The default value is 30 minutes. 
 

@@ -1,7 +1,6 @@
 
 
 # elbv2-targetgroup-healthcheck-protocol-encrypted
-<a name="elbv2-targetgroup-healthcheck-protocol-encrypted"></a>
 
 Checks the target groups for load balancers healthchecks use an encrypted transport protocol. The rule is NON\_COMPLIANT if configuration.healthCheckProtocol is not HTTPS. Lambda target types are not applicable. 
 

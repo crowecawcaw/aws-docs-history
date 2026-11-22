@@ -1,7 +1,6 @@
 
 
 # Permissions for the KMS Key for the AWS Config Delivery Channel
-<a name="s3-kms-key-policy"></a>
 
 Use the information in this topic if you want to create a policy for an AWS KMS key for your S3 bucket that allows you to use KMS-based encryption on objects delivered by AWS Config for S3 bucket delivery.
 

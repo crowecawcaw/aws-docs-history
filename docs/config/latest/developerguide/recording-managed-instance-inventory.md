@@ -1,7 +1,6 @@
 
 
 # Recording Software Configuration for Managed Instances with AWS Config
-<a name="recording-managed-instance-inventory"></a>
 
 You can use AWS Config to record software inventory changes on Amazon EC2 instances and on-premises servers. This enables you to see the historical changes to software configuration. For example, when a new Windows update is installed on a managed Windows instance, AWS Config records the changes and then sends the changes to your delivery channel, so that you are notified about the change. With AWS Config, you can see the history of when Windows updates were installed for the managed instance and how they changed over time. 
 

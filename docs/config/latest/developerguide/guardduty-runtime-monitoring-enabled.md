@@ -1,7 +1,6 @@
 
 
 # guardduty-runtime-monitoring-enabled
-<a name="guardduty-runtime-monitoring-enabled"></a>
 
 Checks if Runtime Monitoring is enabled for Amazon GuardDuty detector in your account or organization. The rule is NON\_COMPLIANT if Runtime Monitoring in GuardDuty is not enabled for your account or at least one member account in your organization. 
 

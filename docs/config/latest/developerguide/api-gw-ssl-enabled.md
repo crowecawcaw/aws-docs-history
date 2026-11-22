@@ -1,7 +1,6 @@
 
 
 # api-gw-ssl-enabled
-<a name="api-gw-ssl-enabled"></a>
 
 Checks if a REST API stage uses an SSL certificate. The rule is NON\_COMPLIANT if the REST API stage does not have an associated SSL certificate. 
 

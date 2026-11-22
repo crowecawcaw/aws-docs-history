@@ -1,7 +1,6 @@
 
 
 # opensearchserverless-collection-description
-<a name="opensearchserverless-collection-description"></a>
 
 Checks if Amazon OpenSearch Serverless collections have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist. 
 

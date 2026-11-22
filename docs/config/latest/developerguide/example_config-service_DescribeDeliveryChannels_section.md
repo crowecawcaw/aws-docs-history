@@ -1,7 +1,6 @@
 
 
 # Use `DescribeDeliveryChannels` with a CLI
-<a name="example_config-service_DescribeDeliveryChannels_section"></a>
 
 The following code examples show how to use `DescribeDeliveryChannels`.
 
@@ -40,7 +39,7 @@ For more information, see [Working with the Delivery Channel](https://docs.aws.a
 **Tools for PowerShell V4**  
 **Example 1: This example retrieves the delivery channel for the region and displays details.**  
 
-```
+```powershell
 Get-CFGDeliveryChannel -Region eu-west-1 | Select-Object Name, S3BucketName, S3KeyPrefix, @{N="DeliveryFrequency";E={$_.ConfigSnapshotDeliveryProperties.DeliveryFrequency}}
 ```
 **Output:**  
@@ -55,7 +54,7 @@ default config-bucket-NA my          TwentyFour_Hours
 **Tools for PowerShell V5**  
 **Example 1: This example retrieves the delivery channel for the region and displays details.**  
 
-```
+```powershell
 Get-CFGDeliveryChannel -Region eu-west-1 | Select-Object Name, S3BucketName, S3KeyPrefix, @{N="DeliveryFrequency";E={$_.ConfigSnapshotDeliveryProperties.DeliveryFrequency}}
 ```
 **Output:**  

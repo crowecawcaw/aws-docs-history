@@ -1,7 +1,6 @@
 
 
 # ecr-repository-cmk-encryption-enabled
-<a name="ecr-repository-cmk-encryption-enabled"></a>
 
 Checks if ECR repository is encrypted at rest using customer-managed KMS key. This rule is NON\_COMPLIANT if the repository is encrypted using AES256 or the default KMS key ('aws/ecr'). 
 

@@ -1,7 +1,6 @@
 
 
 # dms-redis-tls-enabled
-<a name="dms-redis-tls-enabled"></a>
 
 Checks if AWS Database Migration Service (AWS DMS) endpoints for Redis data stores are enabled for TLS/SSL encryption of data communicated with other endpoints. The rule is NON\_COMPLIANT if TLS/SSL encryption is not enabled. 
 

@@ -1,7 +1,6 @@
 
 
 # codepipeline-deployment-count-check
-<a name="codepipeline-deployment-count-check"></a>
 
 Checks if the first deployment stage of AWS CodePipeline performs more than one deployment. Optionally checks if each of the subsequent remaining stages deploy to more than the specified number of deployments (`deploymentLimit`). 
 

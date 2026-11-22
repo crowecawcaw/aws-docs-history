@@ -1,7 +1,6 @@
 
 
 # cloudwatch-log-group-encrypted
-<a name="cloudwatch-log-group-encrypted"></a>
 
 Checks if Amazon CloudWatch Log Groups are encrypted with any AWS KMS key or a specified AWS KMS key Id. The rule is NON\_COMPLIANT if a CloudWatch Log Group is not encrypted with a KMS key or is encrypted with a KMS key not supplied in the rule parameter. 
 

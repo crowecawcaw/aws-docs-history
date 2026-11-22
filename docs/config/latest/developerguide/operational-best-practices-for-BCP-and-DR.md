@@ -1,7 +1,6 @@
 
 
 # Operational Best Practices for BCP and DR
-<a name="operational-best-practices-for-BCP-and-DR"></a>
 
  This conformance pack contains AWS Config rules based on BCP and DR within AWS. For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html). 
 

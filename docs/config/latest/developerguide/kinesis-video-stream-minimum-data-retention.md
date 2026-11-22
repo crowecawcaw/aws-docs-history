@@ -1,7 +1,6 @@
 
 
 # kinesis-video-stream-minimum-data-retention
-<a name="kinesis-video-stream-minimum-data-retention"></a>
 
 Checks if an Amazon Kinesis Video stream is configured with a value greater than or equal to the specified minimum data retention. The rule is NON\_COMPLIANT if DataRetentionInHours is less than the value specified in the required rule parameter. 
 

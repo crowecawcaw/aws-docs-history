@@ -1,7 +1,6 @@
 
 
 # rds-snapshots-public-prohibited
-<a name="rds-snapshots-public-prohibited"></a>
 
 Checks if Amazon Relational Database Service (Amazon RDS) snapshots are public. The rule is NON\_COMPLIANT if any existing and new Amazon RDS snapshots are public. 
 

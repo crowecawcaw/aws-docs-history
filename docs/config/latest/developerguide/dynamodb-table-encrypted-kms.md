@@ -1,7 +1,6 @@
 
 
 # dynamodb-table-encrypted-kms
-<a name="dynamodb-table-encrypted-kms"></a>
 
 Checks if Amazon DynamoDB table is encrypted with AWS Key Management Service (KMS). The rule is NON\_COMPLIANT if Amazon DynamoDB table is not encrypted with AWS KMS. The rule is also NON\_COMPLIANT if the encrypted AWS KMS key is not present in `kmsKeyArns` input parameter.
 

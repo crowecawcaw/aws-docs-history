@@ -1,7 +1,6 @@
 
 
 # dynamodb-autoscaling-enabled
-<a name="dynamodb-autoscaling-enabled"></a>
 
 Checks if Amazon DynamoDB tables or global secondary indexes can process read/write capacity using on-demand mode or provisioned mode with auto scaling enabled. The rule is NON\_COMPLIANT if either mode is used without auto scaling enabled 
 

@@ -1,7 +1,6 @@
 
 
 # devicefarm-instance-profile-tagged
-<a name="devicefarm-instance-profile-tagged"></a>
 
 Checks if AWS Device Farm instance profiles have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'. 
 

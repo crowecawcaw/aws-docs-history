@@ -1,7 +1,6 @@
 
 
 # cloudfront-viewer-policy-https
-<a name="cloudfront-viewer-policy-https"></a>
 
 Checks whether your Amazon CloudFront distributions use HTTPS (directly or via a redirection). The rule is NON\_COMPLIANT if the value of ViewerProtocolPolicy is set to 'allow-all' for the defaultCacheBehavior or for the CacheBehaviors. 
 

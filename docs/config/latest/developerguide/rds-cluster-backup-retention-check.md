@@ -1,7 +1,6 @@
 
 
 # rds-cluster-backup-retention-check
-<a name="rds-cluster-backup-retention-check"></a>
 
 Checks if an Amazon RDS cluster automated backup retention period is set to a specific number of days. The rule is NON\_COMPLIANT if the retention period is less than the value specified by the parameter. The default value is 7 days. 
 

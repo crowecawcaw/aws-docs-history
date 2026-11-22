@@ -1,7 +1,6 @@
 
 
 # elbv2-predefined-security-policy-ssl-check
-<a name="elbv2-predefined-security-policy-ssl-check"></a>
 
 Checks if listeners for Application Load Balancers (ALBs) or Network Load Balancers (NLBs) use certain security policies. The rule is NON\_COMPLIANT if an HTTPS listener for an ALB or a TLS listener for a NLB does not use the security policies you specify. 
 

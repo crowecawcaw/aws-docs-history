@@ -1,7 +1,6 @@
 
 
 # netfw-stateless-rule-group-not-empty
-<a name="netfw-stateless-rule-group-not-empty"></a>
 
 Checks if a Stateless Network Firewall Rule Group contains rules. The rule is NON\_COMPLIANT if there are no rules in a Stateless Network Firewall Rule Group. 
 

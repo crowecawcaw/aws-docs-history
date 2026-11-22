@@ -1,7 +1,6 @@
 
 
 # rds-instance-iam-authentication-enabled
-<a name="rds-instance-iam-authentication-enabled"></a>
 
 Checks if an Amazon Relational Database Service (Amazon RDS) instance has AWS Identity and Access Management (IAM) authentication enabled. The rule is NON\_COMPLIANT if an Amazon RDS instance does not have IAM authentication enabled. 
 

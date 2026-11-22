@@ -1,7 +1,6 @@
 
 
 # alb-listener-tagged
-<a name="alb-listener-tagged"></a>
 
 Checks if Application Load Balancer listeners have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'. 
 

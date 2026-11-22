@@ -1,14 +1,13 @@
 
 
 # Query Components for AWS Config
-<a name="query-components"></a>
 
 The SQL `SELECT` query components for AWS Config advanced queries are as follows.
 
 ## Synopsis
 <a name="synopsis"></a>
 
-```
+```sql
 SELECT property [, ...]
 [ WHERE condition ]
 [ GROUP BY property ]
@@ -40,10 +39,10 @@ When the clause contains multiple properties, the result set is sorted according
 ## Examples
 <a name="examples"></a>
 
-```
+```sql
 SELECT resourceId WHERE resourceType='AWS::EC2::Instance'
 ```
 
-```
+```sql
 SELECT configuration.complianceType, COUNT(*) WHERE resourceType = 'AWS::Config::ResourceCompliance' GROUP BY configuration.complianceType  
 ```

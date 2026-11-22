@@ -1,7 +1,6 @@
 
 
 # rds-snapshot-encrypted
-<a name="rds-snapshot-encrypted"></a>
 
 Checks if Amazon Relational Database Service (Amazon RDS) DB snapshots are encrypted. The rule is NON\_COMPLIANT if the Amazon RDS DB snapshots are not encrypted. 
 

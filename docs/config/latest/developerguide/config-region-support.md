@@ -1,7 +1,6 @@
 
 
 # Region Support for AWS Config
-<a name="config-region-support"></a>
 
 ## Considerations
 <a name="config-region-support-considerations"></a>

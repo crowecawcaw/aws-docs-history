@@ -1,7 +1,6 @@
 
 
 # imagebuilder-infrastructureconfiguration-tagged
-<a name="imagebuilder-infrastructureconfiguration-tagged"></a>
 
 Checks if EC2 Image Builder infrastructure configuration resources have tags. Optionally, required tag keys can be specified. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. 
 

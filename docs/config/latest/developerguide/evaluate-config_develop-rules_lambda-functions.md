@@ -1,7 +1,6 @@
 
 
 # Creating AWS Config Custom Lambda Rules
-<a name="evaluate-config_develop-rules_lambda-functions"></a>
 
 You can develop custom rules and add them to AWS Config with AWS Lambda functions.
 
@@ -30,7 +29,7 @@ If you use the AWS Config console to create a rule that is associated with a fun
 
 This example evaluates your resources and checks whether the instances match the resource type, `AWS::EC2::Instance`. The rule is triggered when AWS Config generates a configuration item or an oversized configuration item notification. 
 
-```
+```javascript
 'use strict';
 
 import { ConfigServiceClient, GetResourceConfigHistoryCommand, PutEvaluationsCommand } from "@aws-sdk/client-config-service";
@@ -200,7 +199,7 @@ If you use the AWS Config console to create a rule that is associated with a fun
 
 This example checks whether the total number of a specified resource exceeds a specified maximum.
 
-```
+```javascript
 'use strict';
 import { ConfigServiceClient, ListDiscoveredResourcesCommand, PutEvaluationsCommand } from "@aws-sdk/client-config-service";
 
@@ -342,7 +341,7 @@ AWS Config will invoke a function like the following example when it detects a c
 
 If you use the AWS Config console to create a rule that is associated with a function like this example, choose **Configuration changes** as the trigger type. If you use the AWS Config API or AWS CLI to create the rule, set the `MessageType` attribute to `ConfigurationItemChangeNotification` and `OversizedConfigurationItemChangeNotification`. These settings enable your rule to be triggered whenever AWS Config generates a configuration item or an oversized configuration item as a result of a resource change.
 
-```
+```python
 import botocore 
 import boto3
 import json
@@ -514,7 +513,7 @@ AWS Config will invoke a function like the following example for periodic evalua
 
 If you use the AWS Config console to create a rule that is associated with a function like this example, choose **Periodic** as the trigger type. If you use the AWS Config API or AWS CLI to create the rule, set the `MessageType` attribute to `ScheduledNotification`.
 
-```
+```python
 import botocore 
 import boto3
 import json
@@ -714,7 +713,7 @@ The event that triggers the evaluation for a rule. If the event is published in 
 If the event is published for a periodic evaluation, the value is a string that contains a JSON object. The object includes information about the evaluation that was triggered.  
 For each type of event, a function must parse the string with a JSON parser to be able to evaluate its contents, as shown in the following Node.js example:  
 
-```
+```javascript
 var invokingEvent = JSON.parse(event.invokingEvent);
 ```
 

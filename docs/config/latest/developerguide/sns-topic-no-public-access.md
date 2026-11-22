@@ -1,7 +1,6 @@
 
 
 # sns-topic-no-public-access
-<a name="sns-topic-no-public-access"></a>
 
 Checks if the SNS topic access policy allows public access. The rule is NON\_COMPLIANT if the SNS topic access policy allows public access. 
 

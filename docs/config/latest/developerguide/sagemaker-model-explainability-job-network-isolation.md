@@ -1,7 +1,6 @@
 
 
 # sagemaker-model-explainability-job-network-isolation
-<a name="sagemaker-model-explainability-job-network-isolation"></a>
 
 Checks whether an Amazon SageMaker model explainability job definition has network isolation enabled. The rule is NON\_COMPLIANT if NetworkConfig.EnableNetworkIsolation is not set to true. 
 

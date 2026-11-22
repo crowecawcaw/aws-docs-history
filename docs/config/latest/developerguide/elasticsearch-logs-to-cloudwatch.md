@@ -1,7 +1,6 @@
 
 
 # elasticsearch-logs-to-cloudwatch
-<a name="elasticsearch-logs-to-cloudwatch"></a>
 
 Checks if OpenSearch Service (previously called Elasticsearch) domains are configured to send logs to CloudWatch Logs. The rule is COMPLIANT if a log is enabled for an OpenSearch Service domain. The rule is NON\_COMPLIANT if logging is not configured. 
 

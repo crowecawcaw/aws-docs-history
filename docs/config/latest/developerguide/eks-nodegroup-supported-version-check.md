@@ -1,7 +1,6 @@
 
 
 # eks-nodegroup-supported-version-check
-<a name="eks-nodegroup-supported-version-check"></a>
 
 Checks if an Amazon Elastic Kubernetes Service (EKS) nodegroup is running the oldest supported version. 
 

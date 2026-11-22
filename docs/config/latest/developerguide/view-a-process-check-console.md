@@ -1,7 +1,6 @@
 
 
 # View and Edit the Process Check (Console)
-<a name="view-a-process-check-console"></a>
 
 You can view process checks only after a compliance state has been added to process checks. Choose the specific conformance pack to view all the process checks within that conformance pack. Here you can see a list of process checks that are in compliant and noncompliant status.
 

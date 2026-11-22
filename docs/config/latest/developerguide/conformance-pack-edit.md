@@ -1,9 +1,8 @@
 
 
 # Editing Conformance Packs for AWS Config
-<a name="conformance-pack-edit"></a>
 
-You can use the AWS Config console or the AWS CLI to edit your conformance packs.
+You can use the AWS Config console or the AWS CLI to edit your conformance packs. For a managed conformance pack, you can change the resource scope, parameters, and tags. You can't change the name, the source, or the conformance pack type. To change the source or the type, delete the conformance pack and deploy it again.
 
 ------
 #### [ Editing Conformance Packs (Console) ]
@@ -12,9 +11,9 @@ You can use the AWS Config console or the AWS CLI to edit your conformance packs
 
 1. Choose **Actions** and then choose **Edit**.
 
-1. On the **Edit conformance pack** page, you can edit the template details, sample template, conformance pack, and parameters section. 
+1. For a custom conformance pack, on the **Edit conformance pack** page, you can edit the template details, sample template, conformance pack, and parameters section. You can't change the name of the conformance pack.
 
-   You cannot change the name of the conformance pack.
+   For a managed conformance pack, on the **Edit conformance pack settings** page, update the **Resource scope**, **Parameters**, and **Tags**. Choose **Next**, and then review your changes on the **Review and save** page.
 
 1. Choose **Save changes**.
 
@@ -27,7 +26,20 @@ If you are editing a conformance pack that you added previously, use the same `P
 
 1. Open a command prompt or a terminal window.
 
-1. Enter one of the following commands to deploy a conformance pack named **MyConformancePack**. The template source is either an Amazon S3 URI, a template that you upload, or an AWS Systems Manager document (SSM document).
+1. Run one of the following commands to update a conformance pack named **MyConformancePack**.
+
+   **Managed conformance pack**
+
+   ```
+   aws configservice put-conformance-pack
+   --conformance-pack-name MyConformancePack
+   --source SourceIdentifier={{AWS-WAF_V10}}
+   --scope TagKey={{environment}},TagValue={{staging}}
+   ```
+
+   For the `source` parameter, specify the same value as the existing conformance pack. Also specify every setting that you want to keep. If you omit a setting, it's removed. For example, if you omit the `scope` parameter, the tag scope is removed from the conformance pack.
+
+   For a custom conformance pack, the template source is either an Amazon S3 URI, a template that you upload, or an AWS Systems Manager document (SSM document).
 
    **Amazon S3 URI**
 
@@ -59,9 +71,9 @@ If you are editing a conformance pack that you added previously, use the same `P
 
    You should see output similar to the following.
 
-   ```
+   ```yaml
    {
-       "conformancePackArn": "arn:aws:config:us-west-2:{{AccountID}}:conformance-pack/MyConformancePack1/{{conformance-pack-ID}}"
+       "conformancePackArn": "arn:aws:config:us-west-2:{{AccountID}}:conformance-pack/MyConformancePack/{{conformance-pack-ID}}"
    }
    ```
 

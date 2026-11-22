@@ -1,7 +1,6 @@
 
 
 # docdb-cluster-deletion-protection-enabled
-<a name="docdb-cluster-deletion-protection-enabled"></a>
 
 Checks if an Amazon DocumentDB (with MongoDB compatibility) cluster has deletion protection enabled. The rule is NON\_COMPLIANT if an Amazon DocumentDB cluster has the deletionProtection field set to false. 
 

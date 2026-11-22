@@ -1,7 +1,6 @@
 
 
 # vpc-network-acl-unused-check
-<a name="vpc-network-acl-unused-check"></a>
 
 Checks if there are unused network access control lists (network ACLs). The rule is COMPLIANT if each network ACL is associated with a subnet. The rule is NON\_COMPLIANT if a network ACL is not associated with a subnet.
 

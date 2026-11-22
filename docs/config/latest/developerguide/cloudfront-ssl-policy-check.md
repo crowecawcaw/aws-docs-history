@@ -1,7 +1,6 @@
 
 
 # cloudfront-ssl-policy-check
-<a name="cloudfront-ssl-policy-check"></a>
 
 Checks if Amazon CloudFront distributions are configured with the specified security policies.The rule is NON\_COMPLIANT if a CloudFront Distribution is not configured with security policies that you specify. 
 

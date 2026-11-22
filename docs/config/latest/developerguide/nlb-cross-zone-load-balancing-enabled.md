@@ -1,7 +1,6 @@
 
 
 # nlb-cross-zone-load-balancing-enabled
-<a name="nlb-cross-zone-load-balancing-enabled"></a>
 
 Checks if cross-zone load balancing is enabled on Network Load Balancers (NLBs). The rule is NON\_COMPLIANT if cross-zone load balancing is not enabled for an NLB. 
 

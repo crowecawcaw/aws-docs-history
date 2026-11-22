@@ -1,7 +1,6 @@
 
 
 # ec2-traffic-mirror-target-description
-<a name="ec2-traffic-mirror-target-description"></a>
 
 Checks if Amazon EC2 traffic mirror targets have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist. 
 

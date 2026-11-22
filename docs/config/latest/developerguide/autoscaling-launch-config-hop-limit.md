@@ -1,7 +1,6 @@
 
 
 # autoscaling-launch-config-hop-limit
-<a name="autoscaling-launch-config-hop-limit"></a>
 
 Checks the number of network hops that the metadata token can travel. This rule is NON\_COMPLIANT if the Metadata response hop limit is greater than 1. 
 

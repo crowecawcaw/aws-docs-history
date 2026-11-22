@@ -1,7 +1,6 @@
 
 
 # Security Best Practices for AWS Secrets Manager
-<a name="security-best-practices-for-Secrets-Manager"></a>
 
  This conformance pack contains AWS Config rules based on AWS Secrets Manager. For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html). 
 

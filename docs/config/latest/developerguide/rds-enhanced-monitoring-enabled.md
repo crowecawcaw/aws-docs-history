@@ -1,7 +1,6 @@
 
 
 # rds-enhanced-monitoring-enabled
-<a name="rds-enhanced-monitoring-enabled"></a>
 
 Checks if enhanced monitoring is enabled for Amazon RDS instances. This rule is NON\_COMPLIANT if '`monitoringInterval`' is '0' in the configuration item of the RDS instance, or if '`monitoringInterval`' does not match the rule parameter value. 
 

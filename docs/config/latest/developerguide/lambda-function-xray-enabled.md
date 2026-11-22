@@ -1,7 +1,6 @@
 
 
 # lambda-function-xray-enabled
-<a name="lambda-function-xray-enabled"></a>
 
 Checks if AWS X-Ray is enabled on AWS Lambda functions.The rule is NON\_COMPLIANT if X-Ray tracing is disabled for a Lambda function. 
 

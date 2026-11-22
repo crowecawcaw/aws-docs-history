@@ -1,7 +1,6 @@
 
 
 # alb-internal-scheme-check
-<a name="alb-internal-scheme-check"></a>
 
 Checks if an Application Load Balancer scheme is internal. The rule is NON\_COMPLIANT if configuration.scheme is not set to internal. 
 

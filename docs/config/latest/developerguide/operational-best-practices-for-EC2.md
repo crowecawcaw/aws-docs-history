@@ -1,7 +1,6 @@
 
 
 # Operational Best Practices for EC2
-<a name="operational-best-practices-for-EC2"></a>
 
  This conformance pack contains AWS Config rules based on EC2. For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html). 
 

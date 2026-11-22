@@ -1,7 +1,6 @@
 
 
 # ec2-launch-template-public-ip-disabled
-<a name="ec2-launch-template-public-ip-disabled"></a>
 
 Checks if Amazon EC2 Launch Templates are set to assign public IP addresses to Network Interfaces. The rule is NON\_COMPLIANT if the default version of an EC2 Launch Template has at least 1 Network Interface with 'AssociatePublicIpAddress' set to 'true'. 
 

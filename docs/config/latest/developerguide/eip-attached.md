@@ -1,7 +1,6 @@
 
 
 # eip-attached
-<a name="eip-attached"></a>
 
 Checks whether Elastic IP addresses allocated to your account are in use. The rule is NON\_COMPLIANT if an EIP is not attached to an EC2 instance or an in-use network interface.
 

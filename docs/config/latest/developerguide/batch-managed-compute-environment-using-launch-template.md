@@ -1,7 +1,6 @@
 
 
 # batch-managed-compute-environment-using-launch-template
-<a name="batch-managed-compute-environment-using-launch-template"></a>
 
 Checks if AWS Batch managed compute environments are configured using a launch template. The rule is NON\_COMPLIANT if configuration.ComputeResources.LaunchTemplate does not exist. 
 

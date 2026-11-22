@@ -1,7 +1,6 @@
 
 
 # storagegateway-resources-in-logically-air-gapped-vault
-<a name="storagegateway-resources-in-logically-air-gapped-vault"></a>
 
 Checks if AWS Storage Gateway volumes are in a logically air-gapped vault. The rule is NON\_COMPLIANT if an AWS Storage Gateway volume is not in a logically air-gapped vault within the specified time period. 
 

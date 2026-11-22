@@ -1,7 +1,6 @@
 
 
 # ec2-client-vpn-endpoint-tagged
-<a name="ec2-client-vpn-endpoint-tagged"></a>
 
 Checks if Amazon EC2 client VPN endpoints have tags. Optionally, you can specify tag keys for the rule. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'. 
 

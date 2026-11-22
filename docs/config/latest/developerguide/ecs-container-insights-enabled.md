@@ -1,7 +1,6 @@
 
 
 # ecs-container-insights-enabled
-<a name="ecs-container-insights-enabled"></a>
 
 Checks if Amazon Elastic Container Service clusters have container insights enabled. The rule is NON\_COMPLIANT if container insights are not enabled. 
 

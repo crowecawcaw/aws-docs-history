@@ -1,7 +1,6 @@
 
 
 # s3-bucket-acl-prohibited
-<a name="s3-bucket-acl-prohibited"></a>
 
 Checks if Amazon Simple Storage Service (Amazon S3) Buckets allow user permissions through access control lists (ACLs). The rule is NON\_COMPLIANT if ACLs are configured for user access in Amazon S3 Buckets. 
 

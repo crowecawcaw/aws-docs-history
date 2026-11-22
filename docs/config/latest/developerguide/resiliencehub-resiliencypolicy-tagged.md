@@ -1,7 +1,6 @@
 
 
 # resiliencehub-resiliencypolicy-tagged
-<a name="resiliencehub-resiliencypolicy-tagged"></a>
 
 Checks if AWS Resilience Hub policy resources have tags. Optionally, required tag keys can be specified. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'. 
 

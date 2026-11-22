@@ -1,7 +1,6 @@
 
 
 # bedrockagentcore-browsercustom-recording-enabled
-<a name="bedrockagentcore-browsercustom-recording-enabled"></a>
 
 Checks if an Amazon Bedrock AgentCore custom browser has session recording enabled with an S3 destination. The rule is NON\_COMPLIANT if recording is disabled or not configured. 
 

@@ -1,7 +1,6 @@
 
 
 # netfw-subnet-change-protection-enabled
-<a name="netfw-subnet-change-protection-enabled"></a>
 
 Checks if AWS Network Firewall has subnet change protection enabled. The rule is NON\_COMPLIANT if subnet change protection is not enabled. 
 

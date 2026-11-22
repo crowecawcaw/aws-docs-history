@@ -1,7 +1,6 @@
 
 
 # dynamodb-pitr-enabled
-<a name="dynamodb-pitr-enabled"></a>
 
 Checks if point-in-time recovery (PITR) is enabled for Amazon DynamoDB tables. The rule is NON\_COMPLIANT if PITR is not enabled for DynamoDB tables. 
 

@@ -1,7 +1,6 @@
 
 
 # lambda-function-system-log-level-check
-<a name="lambda-function-system-log-level-check"></a>
 
 Checks if AWS Lambda functions with JSON structured logs are configured with a specified system log level. The rule is NON\_COMPLIANT if configuration.loggingConfig.systemLogLevel is not a value specified in the required rule parameter. 
 

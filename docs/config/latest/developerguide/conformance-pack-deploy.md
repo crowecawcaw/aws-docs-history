@@ -1,20 +1,51 @@
 
 
 # Deploying Conformance Packs for AWS Config
-<a name="conformance-pack-deploy"></a>
 
-You can use the AWS Config console or the AWS CLI to deploy your conformance packs.
+You can use the AWS Config console or the AWS CLI to deploy your conformance packs. You deploy a custom conformance pack from a template. You deploy a managed conformance pack by choosing its source from the [managed conformance pack catalog](managed-conformance-pack-catalog.md).
 
 ------
 #### [ Deploy Conformance Packs (Console) ]
 
 On the **Conformance packs** page, you can deploy a conformance pack for an account in a Region. You can also edit and delete the deployed conformance pack. 
 
+**Deploy a managed conformance pack**
+
+1. Sign in to the AWS Management Console and open the AWS Config console at [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home).
+
+1. Navigate to the **Conformance packs** page and choose **Deploy conformance pack**.
+
+1. On the **Specify pack** page, under **Conformance pack type**, choose **Managed conformance pack**.
+
+1. Under **Managed conformance pack source**, select a source from the table.
+
+   To use a source as the starting point for a custom conformance pack, choose **Download YAML**.
+
+1. Choose **Next**.
+
+1. On the **Specify details** page, enter a name for your conformance pack, or use the default.
+
+1. Under **Resource scope**, choose **All supported resource types**, or choose **Specify resources by tag** and enter a tag **Key** and an optional **Value**. You can specify only one tag.
+
+1. Under **Parameters**, choose **Use recommended default values**, or choose **Customize parameters** and edit the values you want to override.
+
+   Parameters that you customize keep your values when AWS updates the managed conformance pack. Parameters that you don't customize use the current default value, which can change when AWS updates the pack.
+
+1. (Optional) Under **Tags**, add tags to the conformance pack.
+
+1. Choose **Next**.
+
+1. On the **Review and deploy** page, review your settings, and then choose **Deploy conformance pack**.
+
+**Deploy a custom conformance pack**
+
 You can deploy a conformance pack using AWS Config sample templates or your own custom template. For instructions on how to create personalized conformance packs, see [Custom Conformance Pack](https://docs.aws.amazon.com/config/latest/developerguide/custom-conformance-pack.html).
 
 1. Sign in to the AWS Management Console and open the AWS Config console at [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home).
 
 1. Navigate to the **Conformance packs** page and choose **Deploy conformance pack**.
+
+1. Under **Conformance pack type**, choose **Custom conformance pack**.
 
 1. On the **Specify template** page, either choose a sample template or use an existing template.
 
@@ -50,16 +81,29 @@ Choose **Template is ready** if you created your conformance pack YAML file from
 
    If your conformance pack deployment fails, check your permissions, verify that you did the prerequisite steps, and try again. Or you can contact AWS Support.
 
-To deploy a **conformance pack using sample template with remediations**, see the [A. Prerequisites for Using a Conformance Pack With Remediation](cpack-prerequisites.md#cpack-prerequisites-remediations) and then use the preceding procedure.
+To deploy a **conformance pack using sample template with remediations**, see the [Prerequisites for Using a Conformance Pack With Remediation](cpack-prerequisites.md#cpack-prerequisites-remediations) and then use the preceding procedure.
 
-To deploy a **conformance pack with one or more AWS Config rules**, see the [B. Prerequisites for Using a Conformance Pack With One or More Custom AWS Config Rules](cpack-prerequisites.md#cpack-prerequisites-oneormorerules).
+To deploy a **conformance pack with one or more AWS Config rules**, see the [Prerequisites for Using a Conformance Pack With One or More Custom AWS Config Rules](cpack-prerequisites.md#cpack-prerequisites-oneormorerules).
 
 ------
 #### [ Deploy Conformance Packs (AWS CLI) ]
 
 1. Open a command prompt or a terminal window.
 
-1. Enter one of the following commands to deploy a conformance pack named **MyConformancePack**. The template source is either an Amazon S3 URI, a template that you upload, or an AWS Systems Manager document (SSM document).
+1. Run one of the following commands to deploy a conformance pack named **MyConformancePack**.
+
+   **Managed conformance pack**
+
+   ```
+   aws configservice put-conformance-pack
+   --conformance-pack-name MyConformancePack
+   --source SourceIdentifier={{AWS-WAF_V10}}
+   --scope TagKey={{environment}},TagValue={{production}}
+   ```
+
+   For a managed conformance pack, the `source` parameter is required. The `scope` and `conformance-pack-input-parameters` parameters are optional. You can't specify a template or an Amazon S3 bucket for delivery. For the source identifiers and parameters of each pack, see the [managed conformance pack catalog](managed-conformance-pack-catalog.md).
+
+   For a custom conformance pack, the template source is either an Amazon S3 URI, a template that you upload, or an AWS Systems Manager document (SSM document).
 
    **Amazon S3 URI**
 
@@ -91,9 +135,9 @@ To deploy a **conformance pack with one or more AWS Config rules**, see the [B. 
 
    You should see output similar to the following.
 
-   ```
+   ```yaml
    {
-       "conformancePackArn": "arn:aws:config:us-west-2:{{AccountID}}:conformance-pack/MyConformancePack1/{{conformance-pack-ID}}"
+       "conformancePackArn": "arn:aws:config:us-west-2:{{AccountID}}:conformance-pack/MyConformancePack/{{conformance-pack-ID}}"
    }
    ```
 

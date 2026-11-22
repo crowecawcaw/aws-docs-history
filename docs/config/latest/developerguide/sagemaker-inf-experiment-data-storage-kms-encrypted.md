@@ -1,7 +1,6 @@
 
 
 # sagemaker-inf-experiment-data-storage-kms-encrypted
-<a name="sagemaker-inf-experiment-data-storage-kms-encrypted"></a>
 
 Checks whether a SageMaker inference experiment with data capture enabled has a customer-managed KMS key for encrypting captured data at rest. The rule is NON\_COMPLIANT if DataStorageConfig.KmsKey is not set or is empty. 
 

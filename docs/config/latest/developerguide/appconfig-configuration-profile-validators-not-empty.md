@@ -1,7 +1,6 @@
 
 
 # appconfig-configuration-profile-validators-not-empty
-<a name="appconfig-configuration-profile-validators-not-empty"></a>
 
 Checks if an AWS AppConfig configuration profile includes at least one validator for syntactic or semantic check to ensure the configuration deploy functions as intended. The rule is NON\_COMPLIANT if the Validators property is an empty array. 
 

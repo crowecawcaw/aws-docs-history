@@ -1,7 +1,6 @@
 
 
 # efs-in-backup-plan
-<a name="efs-in-backup-plan"></a>
 
 Checks if Amazon Elastic File System (Amazon EFS) file systems are added in the backup plans of AWS Backup. The rule is NON\_COMPLIANT if EFS file systems are not included in the backup plans. 
 

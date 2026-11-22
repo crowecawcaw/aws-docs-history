@@ -1,7 +1,6 @@
 
 
 # apigateway-domain-name-tls-check
-<a name="apigateway-domain-name-tls-check"></a>
 
 Checks if Amazon API Gateway domain names are configured with TLS 1.2 or higher. The rule is NON\_COMPLIANT if configuration.SecurityPolicy is 'TLS\_1\_0', or if the '`allowedSecurityPolicies`' parameter is provided and the security policy does not match. 
 

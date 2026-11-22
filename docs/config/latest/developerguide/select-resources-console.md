@@ -1,7 +1,6 @@
 
 
 # Recording resources in the AWS Config console
-<a name="select-resources-console"></a>
 
 You can use the AWS Config console to select the types of resources that AWS Config records with the customer managed configuration recorder.
 

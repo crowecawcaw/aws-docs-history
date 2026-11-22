@@ -1,7 +1,6 @@
 
 
 # backup-recovery-point-minimum-retention-check
-<a name="backup-recovery-point-minimum-retention-check"></a>
 
 Checks if a recovery point expires no earlier than after the specified period. The rule is NON\_COMPLIANT if the recovery point has a retention point that is less than the required retention period. 
 

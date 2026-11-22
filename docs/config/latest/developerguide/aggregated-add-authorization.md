@@ -1,7 +1,6 @@
 
 
 # Authorizing Aggregator Accounts to Collect AWS Config Configuration and Compliance Data
-<a name="aggregated-add-authorization"></a>
 
 *Authorization* refers to the permissions you grant to an aggregator account and region to collect your AWS Config configuration and compliance data. Authorization is not required if you are aggregating source accounts that are part of AWS Organizations. You can use the AWS Config console or the AWS CLI to authorize aggregator accounts.
 

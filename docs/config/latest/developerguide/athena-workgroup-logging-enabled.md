@@ -1,7 +1,6 @@
 
 
 # athena-workgroup-logging-enabled
-<a name="athena-workgroup-logging-enabled"></a>
 
 Checks if Amazon Athena WorkGroup publishes usage metrics to Amazon CloudWatch. The rule is NON\_COMPLIANT if an Amazon Athena WorkGroup 'PublishCloudWatchMetricsEnabled' is set to false. 
 

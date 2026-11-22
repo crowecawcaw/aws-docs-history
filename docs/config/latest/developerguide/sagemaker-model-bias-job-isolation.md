@@ -1,7 +1,6 @@
 
 
 # sagemaker-model-bias-job-isolation
-<a name="sagemaker-model-bias-job-isolation"></a>
 
 Checks if Amazon SageMaker model bias job definitions have network isolation enabled. The rule is NON\_COMPLIANT if configuration.NetworkConfig.EnableNetworkIsolation is false. 
 

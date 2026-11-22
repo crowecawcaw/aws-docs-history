@@ -1,7 +1,6 @@
 
 
 # bedrock-agentcore-memory-encryption-enabled
-<a name="bedrock-agentcore-memory-encryption-enabled"></a>
 
 Checks whether Amazon Bedrock AgentCore Memory uses customer-managed KMS key for encryption. The rule is NON\_COMPLIANT if AgentCore Memory does not have EncryptionKeyArn configured. 
 

@@ -1,7 +1,6 @@
 
 
 # Sample Conformance Pack Template for Creating Process Checks
-<a name="Sample-CPack-Template-for-Creating-Process-Check-Rule"></a>
 
 ```
 ################################################################################

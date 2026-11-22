@@ -1,7 +1,6 @@
 
 
 # apprunner-service-observability-enabled
-<a name="apprunner-service-observability-enabled"></a>
 
 Checks if AWS App Runner services have observability enabled. The rule is NON\_COMPLIANT if configuration.ObservabilityConfiguration.ObservabilityEnabled is false'. 
 

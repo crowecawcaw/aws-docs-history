@@ -1,7 +1,6 @@
 
 
 # Service-Linked AWS Config Rules
-<a name="service-linked-awsconfig-rules"></a>
 
 A service-linked AWS Config rule is a unique type of AWS Config managed rules that supports other AWS services to create AWS Config rules in your account. Service-linked rules are predefined to include all the permissions required to call other AWS services on your behalf. These rules are similar to standards that an AWS service recommends in your AWS account for compliance verification. 
 

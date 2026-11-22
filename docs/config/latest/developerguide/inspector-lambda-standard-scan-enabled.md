@@ -1,7 +1,6 @@
 
 
 # inspector-lambda-standard-scan-enabled
-<a name="inspector-lambda-standard-scan-enabled"></a>
 
 Checks if Amazon Inspector V2 Lambda standard scanning is activated for your single or multi-account environment to detect potential software vulnerabilities. The rule is NON\_COMPLIANT if Lambda standard scanning is not activated. 
 

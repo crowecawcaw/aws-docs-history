@@ -1,7 +1,6 @@
 
 
 # virtualmachine-resources-protected-by-backup-plan
-<a name="virtualmachine-resources-protected-by-backup-plan"></a>
 
 Checks if AWS Backup-Gateway VirtualMachines are protected by a backup plan. The rule is NON\_COMPLIANT if the Backup-Gateway VirtualMachine is not covered by a backup plan. 
 

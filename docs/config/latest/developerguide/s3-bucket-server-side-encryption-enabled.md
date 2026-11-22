@@ -1,7 +1,6 @@
 
 
 # s3-bucket-server-side-encryption-enabled
-<a name="s3-bucket-server-side-encryption-enabled"></a>
 
 Checks if your Amazon S3 bucket either has the Amazon S3 default encryption enabled or that the Amazon S3 bucket policy explicitly denies `put-object` requests without server side encryption that uses AES-256 or AWS Key Management Service. The rule is NON\_COMPLIANT if your Amazon S3 bucket is not encrypted by default.
 

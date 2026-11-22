@@ -1,7 +1,6 @@
 
 
 # mediatailor-playbackconfiguration-tagged
-<a name="mediatailor-playbackconfiguration-tagged"></a>
 
 Checks if AWS Elemental MediaTailor playback configurations have tags. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'. 
 

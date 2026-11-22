@@ -1,7 +1,6 @@
 
 
 # ec2-managedinstance-applications-blacklisted
-<a name="ec2-managedinstance-applications-blacklisted"></a>
 
 Checks if none of the specified applications are installed on the instance. Optionally, specify the version. Newer versions will not be denylisted. Optionally, specify the platform to apply the rule only to instances running that platform. 
 

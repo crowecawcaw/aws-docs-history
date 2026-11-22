@@ -1,7 +1,6 @@
 
 
 # eventschemas-registry-tagged
-<a name="eventschemas-registry-tagged"></a>
 
 Checks if Amazon EventBridge Schema Registry resources have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'. 
 

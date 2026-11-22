@@ -1,7 +1,6 @@
 
 
 # secretsmanager-scheduled-rotation-success-check
-<a name="secretsmanager-scheduled-rotation-success-check"></a>
 
 Checks if AWS Secrets Manager secrets rotated successfully according to the rotation schedule. Secrets Manager calculates the date the rotation should happen. The rule is NON\_COMPLIANT if the date passes and the secret isn't rotated. 
 

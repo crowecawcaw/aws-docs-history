@@ -1,7 +1,6 @@
 
 
 # List of AWS Config Managed Rules
-<a name="managed-rules-by-aws-config"></a>
 
 AWS Config currently supports the following managed rules. Before using these rules, see [Considerations](evaluate-config.md#evaluate-config-considerations).
 

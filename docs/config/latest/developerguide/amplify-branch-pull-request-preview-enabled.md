@@ -1,7 +1,6 @@
 
 
 # amplify-branch-pull-request-preview-enabled
-<a name="amplify-branch-pull-request-preview-enabled"></a>
 
 Checks if AWS Amplify branches have pull request preview enabled. The rule is NON\_COMPLIANT if configuration.EnablePullRequestPreview is false. 
 

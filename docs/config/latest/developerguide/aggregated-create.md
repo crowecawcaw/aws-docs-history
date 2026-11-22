@@ -1,7 +1,6 @@
 
 
 # Creating Aggregators for AWS Config
-<a name="aggregated-create"></a>
 
 You can use the AWS Config console or the AWS CLI to create your aggregators. From the AWS Config you can choose **Add individual account IDs** or **Add my organization** from where you want to aggregate data. For the AWS CLI there are two different procedures.
 
@@ -72,7 +71,7 @@ In the IAM console, attach the `AWSConfigRoleForOrganizations` managed policy to
 
      The JSON file must be in the following format:
 
-   ```
+   ```json
    [
        {
            "AccountIds": [
@@ -89,7 +88,7 @@ In the IAM console, attach the `AWSConfigRoleForOrganizations` managed policy to
 
    You should see output similar to the following:
 
-   ```
+   ```json
    {
        "ConfigurationAggregator": {
            "ConfigurationAggregatorArn": "arn:aws:config:{{Region}}:{{AccountID}}:config-aggregator/config-aggregator-floqpus3",
@@ -122,7 +121,7 @@ Ensure that the management account registers a delegated administrator with both
 
 1. If have not created an IAM role for your AWS Config aggregator, enter the following command: 
 
-   ```
+   ```json
    aws iam create-role --role-name {{OrgConfigRole}} --assume-role-policy-document "{\"Version\":\"2012-10-17\",		 	 	 \"Statement\":[{\"Sid\":\"\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"config.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}" --description "Role for organizational AWS Config aggregator"
    ```
 **Note**  
@@ -130,7 +129,7 @@ Copy the Amazon Resource Name (ARN) from this IAM role for use when you create y
 
 1. If have not attached a policy to your IAM role, attach the [AWSConfigRoleForOrganizations](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSConfigRoleForOrganizations.html) managed policy or enter the following command: 
 
-   ```
+   ```json
    aws iam create-policy --policy-name OrgConfigPolicy --policy-document '{"Version":"2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Action":["organizations:ListAccounts","organizations:DescribeOrganization","organizations:ListAWSServiceAccessForOrganization","organizations:ListDelegatedAdministrators"],"Resource":"*"}]}'
    ```
 
@@ -144,7 +143,7 @@ Copy the Amazon Resource Name (ARN) from this IAM role for use when you create y
 
    You should see output similar to the following:
 
-   ```
+   ```json
    {
        "ConfigurationAggregator": {
            "ConfigurationAggregatorArn": "arn:aws:config:{{Region}}:{{AccountID}}:config-aggregator/config-aggregator-floqpus3",

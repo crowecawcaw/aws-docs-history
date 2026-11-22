@@ -1,7 +1,6 @@
 
 
 # backup-recovery-point-encrypted
-<a name="backup-recovery-point-encrypted"></a>
 
 Checks if a recovery point is encrypted. The rule is NON\_COMPLIANT if the recovery point is not encrypted. 
 

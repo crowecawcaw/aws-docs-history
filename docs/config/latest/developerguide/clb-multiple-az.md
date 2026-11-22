@@ -1,7 +1,6 @@
 
 
 # clb-multiple-az
-<a name="clb-multiple-az"></a>
 
 Checks if a Classic Load Balancer spans multiple Availability Zones (AZs). The rule is NON\_COMPLIANT if a Classic Load Balancer spans less than 2 AZs or does not span number of AZs mentioned in the `minAvailabilityZones` parameter (if provided). 
 

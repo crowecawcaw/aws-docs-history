@@ -1,7 +1,6 @@
 
 
 # opensearch-data-node-fault-tolerance
-<a name="opensearch-data-node-fault-tolerance"></a>
 
 Checks if Amazon OpenSearch Service domains are configured with at least three data nodes and zoneAwarenessEnabled is true. The rule is NON\_COMPLIANT for an OpenSearch domain if 'instanceCount' is less than 3 or 'zoneAwarenessEnabled' is set to 'false'. 
 

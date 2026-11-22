@@ -1,7 +1,6 @@
 
 
 # ebs-resources-protected-by-backup-plan
-<a name="ebs-resources-protected-by-backup-plan"></a>
 
 Checks if Amazon Elastic Block Store (Amazon EBS) volumes are protected by a backup plan. The rule is NON\_COMPLIANT if the Amazon EBS volume is not covered by a backup plan. 
 

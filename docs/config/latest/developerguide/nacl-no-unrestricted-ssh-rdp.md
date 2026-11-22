@@ -1,7 +1,6 @@
 
 
 # nacl-no-unrestricted-ssh-rdp
-<a name="nacl-no-unrestricted-ssh-rdp"></a>
 
 Checks if default ports for SSH/RDP ingress traffic for network access control lists (NACLs) is unrestricted. The rule is NON\_COMPLIANT if a NACL inbound entry allows a source TCP or UDP CIDR block for ports 22 or 3389. 
 

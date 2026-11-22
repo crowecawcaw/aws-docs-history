@@ -1,7 +1,6 @@
 
 
 # ecr-private-lifecycle-policy-configured
-<a name="ecr-private-lifecycle-policy-configured"></a>
 
 Checks if a private Amazon Elastic Container Registry (ECR) repository has at least one lifecycle policy configured. The rule is NON\_COMPLIANT if no lifecycle policy is configured for the ECR private repository. 
 

@@ -1,7 +1,6 @@
 
 
 # fsx-openzfs-deployment-type-check
-<a name="fsx-openzfs-deployment-type-check"></a>
 
 Checks if the Amazon FSx for OpenZFS file systems are configured with certain deployment types. The rule is NON\_COMPLIANT if FSx for OpenZFS file systems are not configured with the deployment types you specify. 
 

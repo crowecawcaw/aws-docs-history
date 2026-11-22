@@ -1,7 +1,6 @@
 
 
 # Security and Governance Best Practices for AI/ML Supporting Infrastructure
-<a name="security-and-governance-best-practices-for-AI-ML-supporting-infrastructure"></a>
 
  This conformance pack is intended to provide a baseline of security configurations for any AI workload (inclusive of AI, ML, generative AI, agentic AI, and physical AI). For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html). 
 

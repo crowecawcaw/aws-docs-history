@@ -1,7 +1,6 @@
 
 
 # elasticbeanstalk-application-description
-<a name="elasticbeanstalk-application-description"></a>
 
 Checks if AWS Elastic Beanstalk applications have a description. The rule is NON\_COMPLIANT if configuration.description does not exist or is an empty string. 
 

@@ -1,7 +1,6 @@
 
 
 # virtualmachine-last-backup-recovery-point-created
-<a name="virtualmachine-last-backup-recovery-point-created"></a>
 
 Checks if a recovery point was created for AWS Backup-Gateway VirtualMachines. The rule is NON\_COMPLIANT if an AWS Backup-Gateway VirtualMachines does not have a corresponding recovery point created within the specified time period. 
 

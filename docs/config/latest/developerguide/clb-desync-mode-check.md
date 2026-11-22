@@ -1,7 +1,6 @@
 
 
 # clb-desync-mode-check
-<a name="clb-desync-mode-check"></a>
 
 Checks if Classic Load Balancers (CLB) are configured with a user defined Desync mitigation mode. The rule is NON\_COMPLIANT if CLB Desync mitigation mode does not match with user defined Desync mitigation mode. 
 

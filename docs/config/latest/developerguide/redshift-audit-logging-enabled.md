@@ -1,7 +1,6 @@
 
 
 # redshift-audit-logging-enabled
-<a name="redshift-audit-logging-enabled"></a>
 
 Checks if Amazon Redshift clusters are logging audits to a specific bucket. The rule is NON\_COMPLIANT if audit logging is not enabled for a Redshift cluster or if the '`bucketNames`' parameter is provided but the audit logging destination does not match. 
 

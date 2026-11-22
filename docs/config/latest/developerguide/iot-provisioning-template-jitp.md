@@ -1,7 +1,6 @@
 
 
 # iot-provisioning-template-jitp
-<a name="iot-provisioning-template-jitp"></a>
 
 Checks if AWS IoT provisioning templates are using just-in-time provisioning (JITP). The rule is NON\_COMPLIANT if configuration.TemplateType is not 'JITP'. 
 

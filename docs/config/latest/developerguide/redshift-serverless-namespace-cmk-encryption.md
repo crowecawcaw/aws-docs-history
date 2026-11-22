@@ -1,7 +1,6 @@
 
 
 # redshift-serverless-namespace-cmk-encryption
-<a name="redshift-serverless-namespace-cmk-encryption"></a>
 
 Checks if Amazon Redshift Serverless namespaces are encrypted by customer managed AWS KMS keys. The rule is NON\_COMPLIANT if a namespace is not encrypted by a customer managed key. Optionally, you can specify a list of KMS keys for rule to check. 
 

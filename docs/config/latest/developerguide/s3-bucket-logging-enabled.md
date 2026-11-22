@@ -1,7 +1,6 @@
 
 
 # s3-bucket-logging-enabled
-<a name="s3-bucket-logging-enabled"></a>
 
 Checks if logging is enabled for your S3 buckets. The rule is NON\_COMPLIANT if logging is not enabled. 
 

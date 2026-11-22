@@ -1,7 +1,6 @@
 
 
 # sagemaker-domain-in-vpc
-<a name="sagemaker-domain-in-vpc"></a>
 
 Checks if an Amazon SageMaker domain uses a customer owned Amazon Virtual Private Cloud (VPC) for non-EFS traffic. The rule is NON\_COMPLIANT if configuration.AppNetworkAccessType is not set to VpcOnly. 
 

@@ -1,7 +1,6 @@
 
 
 # iam-external-access-analyzer-enabled
-<a name="iam-external-access-analyzer-enabled"></a>
 
 Checks if an IAM Access Analyzer for external access is activated in your account per region. The rule is NON\_COMPLIANT if there are no analyzers for external access in the region or if the 'status' attribute is not set to 'ACTIVE'. 
 

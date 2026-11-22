@@ -1,7 +1,6 @@
 
 
 # bedrockagentcore-codeinterpreter-networkmode-check
-<a name="bedrockagentcore-codeinterpreter-networkmode-check"></a>
 
 Checks if an Amazon Bedrock AgentCore CodeInterpreterCustom is configured with a private network mode. The rule is NON\_COMPLIANT if the CodeInterpreterCustom has NetworkMode set to PUBLIC or SANDBOX. 
 

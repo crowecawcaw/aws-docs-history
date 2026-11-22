@@ -1,7 +1,6 @@
 
 
 # Use `DescribeComplianceByConfigRule` with a CLI
-<a name="example_config-service_DescribeComplianceByConfigRule_section"></a>
 
 The following code examples show how to use `DescribeComplianceByConfigRule`.
 
@@ -54,7 +53,7 @@ For more information, see [Viewing Compliance Information and Evaluation Results
 **Tools for PowerShell V4**  
 **Example 1: This example retrieves compliances details for the rule ebs-optimized-instance, for which there is no current evaluation results for the rule, hence it returns INSUFFICIENT\_DATA**  
 
-```
+```powershell
 (Get-CFGComplianceByConfigRule -ConfigRuleName ebs-optimized-instance).Compliance
 ```
 **Output:**  
@@ -66,7 +65,7 @@ ComplianceContributorCount ComplianceType
 ```
 **Example 2: This example returns the number of non-compliant resources for the rule ALB\_HTTP\_TO\_HTTPS\_REDIRECTION\_CHECK.**  
 
-```
+```powershell
 (Get-CFGComplianceByConfigRule -ConfigRuleName ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK -ComplianceType NON_COMPLIANT).Compliance.ComplianceContributorCount
 ```
 **Output:**  
@@ -81,7 +80,7 @@ False       2
 **Tools for PowerShell V5**  
 **Example 1: This example retrieves compliances details for the rule ebs-optimized-instance, for which there is no current evaluation results for the rule, hence it returns INSUFFICIENT\_DATA**  
 
-```
+```powershell
 (Get-CFGComplianceByConfigRule -ConfigRuleName ebs-optimized-instance).Compliance
 ```
 **Output:**  
@@ -93,7 +92,7 @@ ComplianceContributorCount ComplianceType
 ```
 **Example 2: This example returns the number of non-compliant resources for the rule ALB\_HTTP\_TO\_HTTPS\_REDIRECTION\_CHECK.**  
 
-```
+```powershell
 (Get-CFGComplianceByConfigRule -ConfigRuleName ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK -ComplianceType NON_COMPLIANT).Compliance.ComplianceContributorCount
 ```
 **Output:**  

@@ -1,7 +1,6 @@
 
 
 # autoscaling-multiple-instance-types
-<a name="autoscaling-multiple-instance-types"></a>
 
 Checks if an Amazon EC2 Auto Scaling group uses multiple instance types. The rule is NON\_COMPLIANT if the Amazon EC2 Auto Scaling group has only one instance type defined. This rule does not evaluate attribute-based instance types. 
 

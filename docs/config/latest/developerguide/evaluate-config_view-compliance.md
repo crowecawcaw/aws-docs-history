@@ -1,7 +1,6 @@
 
 
 # Viewing Compliance Information and Evaluation Results for your AWS Resources with AWS Config
-<a name="evaluate-config_view-compliance"></a>
 
 **Important**  
 For accurate reporting on the compliance status, you must record the `AWS::Config::ResourceCompliance` resource type. For more information, see [Recording AWS Resources](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html).
@@ -92,7 +91,7 @@ For more information, see [Viewing Compliance Information and Evaluation Results
 **Tools for PowerShell V4**  
 **Example 1: This example checks the `AWS::SSM::ManagedInstanceInventory` resource type for 'COMPLIANT' compliance type.**  
 
-```
+```powershell
 Get-CFGComplianceByResource -ComplianceType COMPLIANT -ResourceType AWS::SSM::ManagedInstanceInventory
 ```
 **Output:**  
@@ -108,7 +107,7 @@ Amazon.ConfigService.Model.Compliance i-0a1234f6f5d6b78f7 AWS::SSM::ManagedInsta
 **Tools for PowerShell V5**  
 **Example 1: This example checks the `AWS::SSM::ManagedInstanceInventory` resource type for 'COMPLIANT' compliance type.**  
 
-```
+```powershell
 Get-CFGComplianceByResource -ComplianceType COMPLIANT -ResourceType AWS::SSM::ManagedInstanceInventory
 ```
 **Output:**  
@@ -200,7 +199,7 @@ For more information, see [Viewing Compliance Information and Evaluation Results
 **Tools for PowerShell V4**  
 **Example 1: This sample returns the number of resources that are compliant or noncompliant and converts the output to json.**  
 
-```
+```powershell
 Get-CFGComplianceSummaryByResourceType -Select ComplianceSummariesByResourceType.ComplianceSummary | ConvertTo-Json
 {
   "ComplianceSummaryTimestamp": "2019-12-14T06:14:49.778Z",
@@ -219,7 +218,7 @@ Get-CFGComplianceSummaryByResourceType -Select ComplianceSummariesByResourceType
 **Tools for PowerShell V5**  
 **Example 1: This sample returns the number of resources that are compliant or noncompliant and converts the output to json.**  
 
-```
+```powershell
 Get-CFGComplianceSummaryByResourceType -Select ComplianceSummariesByResourceType.ComplianceSummary | ConvertTo-Json
 {
   "ComplianceSummaryTimestamp": "2019-12-14T06:14:49.778Z",
@@ -298,7 +297,7 @@ For more information, see [Viewing Compliance Information and Evaluation Results
 **Tools for PowerShell V4**  
 **Example 1: This example evaulation results for the given resource.**  
 
-```
+```powershell
 Get-CFGComplianceDetailsByResource -ResourceId ABCD5STJ4EFGHIVEW6JAH -ResourceType 'AWS::IAM::User'
 ```
 **Output:**  
@@ -316,7 +315,7 @@ ResultToken                :
 **Tools for PowerShell V5**  
 **Example 1: This example evaulation results for the given resource.**  
 
-```
+```powershell
 Get-CFGComplianceDetailsByResource -ResourceId ABCD5STJ4EFGHIVEW6JAH -ResourceType 'AWS::IAM::User'
 ```
 **Output:**  

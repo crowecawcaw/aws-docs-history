@@ -1,7 +1,6 @@
 
 
 # s3-account-level-public-access-blocks-periodic
-<a name="s3-account-level-public-access-blocks-periodic"></a>
 
 Checks if the required public access block settings are configured at the account level. The rule is NON\_COMPLIANT if the configuration item does not match one or more settings from parameters (or default). 
 

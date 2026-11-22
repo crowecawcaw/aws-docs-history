@@ -1,7 +1,6 @@
 
 
 # Deleting Aggregators for AWS Config
-<a name="aggregated-delete"></a>
 
 You can use the AWS Config console or the AWS CLI to delete your aggregators.
 

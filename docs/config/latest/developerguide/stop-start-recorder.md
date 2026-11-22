@@ -1,7 +1,6 @@
 
 
 # Working with the configuration recorder
-<a name="stop-start-recorder"></a>
 
 The *configuration recorder* stores the configuration changes to the resource types in scope as [configuration items (CIs)](https://docs.aws.amazon.com/config/latest/developerguide/config-item-table.html). 
 

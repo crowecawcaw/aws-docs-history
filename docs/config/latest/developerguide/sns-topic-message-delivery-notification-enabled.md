@@ -1,7 +1,6 @@
 
 
 # sns-topic-message-delivery-notification-enabled
-<a name="sns-topic-message-delivery-notification-enabled"></a>
 
 Checks if an Amazon SNS topic has IAM roles for both successful and failed deliveries set for any endpoint type. The rule is NON\_COMPLIANT otherwise, including email/SMS-only topics. The rule does not check subscriptions, role existence, or log delivery. 
 

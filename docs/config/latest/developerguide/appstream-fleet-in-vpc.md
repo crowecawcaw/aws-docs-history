@@ -1,7 +1,6 @@
 
 
 # appstream-fleet-in-vpc
-<a name="appstream-fleet-in-vpc"></a>
 
 Checks if Amazon AppStream 2.0 fleets use an Amazon Virtual Private Cloud (Amazon VPC). The rule is NON\_COMPLIANT if configuration.VpcConfig does not exist. The rule does not check Elastic fleets. 
 

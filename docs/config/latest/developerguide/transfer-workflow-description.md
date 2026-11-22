@@ -1,7 +1,6 @@
 
 
 # transfer-workflow-description
-<a name="transfer-workflow-description"></a>
 
 Checks if AWS Transfer Family workflows have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string. 
 

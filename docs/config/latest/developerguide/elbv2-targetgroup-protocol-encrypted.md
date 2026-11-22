@@ -1,7 +1,6 @@
 
 
 # elbv2-targetgroup-protocol-encrypted
-<a name="elbv2-targetgroup-protocol-encrypted"></a>
 
 Checks the target groups for application and network load balancers use an encrypted transport protocol. The rule is NON\_COMPLIANT if configuration.protocol is not HTTPS, TLS, or QUIC. Lambda and ALB target types are not applicable. 
 

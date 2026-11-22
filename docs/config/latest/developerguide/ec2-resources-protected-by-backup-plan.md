@@ -1,7 +1,6 @@
 
 
 # ec2-resources-protected-by-backup-plan
-<a name="ec2-resources-protected-by-backup-plan"></a>
 
 Checks if Amazon Elastic Compute Cloud (Amazon EC2) instances are protected by a backup plan. The rule is NON\_COMPLIANT if the Amazon EC2 instance is not covered by a backup plan. 
 

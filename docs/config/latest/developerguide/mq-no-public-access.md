@@ -1,7 +1,6 @@
 
 
 # mq-no-public-access
-<a name="mq-no-public-access"></a>
 
 Checks if Amazon MQ brokers are not publicly accessible. The rule is NON\_COMPLIANT if the 'PubliclyAccessible' field is set to true for an Amazon MQ broker. 
 

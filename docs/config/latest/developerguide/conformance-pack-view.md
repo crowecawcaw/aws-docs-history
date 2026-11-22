@@ -1,7 +1,6 @@
 
 
 # Viewing Details and Compliance Information for your Conformance Packs for AWS Config
-<a name="conformance-pack-view"></a>
 
 **Important**  
 For accurate reporting on the compliance status, you must record the `AWS::Config::ResourceCompliance` resource type. For more information, see [Recording AWS Resources](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html).
@@ -30,7 +29,7 @@ To view your conformance packs in the AWS Management Console, see [Conformance P
 
 1. You should see output similar to the following.
 
-   ```
+   ```yaml
    {
        "conformancePackName": "{{MyConformancePack1}}",
        "conformancePackId": "{{conformance-pack-ID}}",
@@ -51,7 +50,7 @@ To view your conformance packs in the AWS Management Console, see [Conformance P
 
 1. You should see output similar to the following .
 
-   ```
+   ```yaml
    {
        "stackArn": "arn:aws:cloudformation:us-west-2:{{AccountID}}:stack/awsconfigconforms-{{MyConformancePack1}}-{{conformance-pack-ID}}/d4301fe0-a9b1-11e9-994d-025f28dd83ba",
        "conformancePackName": "{{MyConformancePack1}}",
@@ -74,7 +73,7 @@ To view your conformance packs in the AWS Management Console, see [Conformance P
 
 1. You should see output similar to the following.
 
-   ```
+   ```yaml
    {
        "conformancePackName": "{{MyConformancePack1}}",
        "conformancePackRuleComplianceList": [
@@ -101,7 +100,7 @@ To view your conformance packs in the AWS Management Console, see [Conformance P
 
 1. You should see output similar to the following.
 
-   ```
+   ```yaml
    {
        "conformancePackRuleEvaluationResults": [
            {

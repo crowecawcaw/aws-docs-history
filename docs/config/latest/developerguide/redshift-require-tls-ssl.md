@@ -1,7 +1,6 @@
 
 
 # redshift-require-tls-ssl
-<a name="redshift-require-tls-ssl"></a>
 
 Checks if Amazon Redshift clusters require TLS/SSL encryption to connect to SQL clients. The rule is NON\_COMPLIANT if any Amazon Redshift cluster has parameter require\_SSL not set to true. 
 

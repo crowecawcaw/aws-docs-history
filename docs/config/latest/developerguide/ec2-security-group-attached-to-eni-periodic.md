@@ -1,7 +1,6 @@
 
 
 # ec2-security-group-attached-to-eni-periodic
-<a name="ec2-security-group-attached-to-eni-periodic"></a>
 
 Checks if non-default security groups are attached to Elastic network interfaces (ENIs). The rule is NON\_COMPLIANT if the security group is not associated with an ENI. Security groups not owned by the calling account evaluate as NOT\_APPLICABLE. 
 

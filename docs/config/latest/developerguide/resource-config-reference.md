@@ -1,7 +1,6 @@
 
 
 # Supported Resource Types for AWS Config
-<a name="resource-config-reference"></a>
 
 **Important**  
 This page is updated on a monthly cadence at the beginning of each month.

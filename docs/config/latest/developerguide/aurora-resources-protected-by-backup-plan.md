@@ -1,7 +1,6 @@
 
 
 # aurora-resources-protected-by-backup-plan
-<a name="aurora-resources-protected-by-backup-plan"></a>
 
 Checks if Amazon Aurora DB clusters are protected by a backup plan. The rule is NON\_COMPLIANT if the Amazon Relational Database Service (Amazon RDS) Database Cluster is not protected by a backup plan. 
 

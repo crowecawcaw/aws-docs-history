@@ -1,7 +1,6 @@
 
 
 # appmesh-virtual-node-cloud-map-ip-pref-check
-<a name="appmesh-virtual-node-cloud-map-ip-pref-check"></a>
 
 Checks if an AWS App Mesh virtual node is configured with the specified IP preference for AWS Cloud Map service discovery. The rule is NON\_COMPLIANT if the virtual node is not configured with the IP preference specified in the required rule parameter. 
 

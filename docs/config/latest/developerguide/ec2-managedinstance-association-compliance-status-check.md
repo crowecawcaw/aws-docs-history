@@ -1,7 +1,6 @@
 
 
 # ec2-managedinstance-association-compliance-status-check
-<a name="ec2-managedinstance-association-compliance-status-check"></a>
 
 Checks if the status of the AWS Systems Manager association compliance is COMPLIANT or NON\_COMPLIANT after the association execution on the instance. The rule is compliant if the field status is COMPLIANT. For more information about associations, see [What is an association?](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state.html#state-manager-association-what-is).
 

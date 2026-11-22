@@ -1,7 +1,6 @@
 
 
 # route53-recovery-control-cluster-tagged
-<a name="route53-recovery-control-cluster-tagged"></a>
 
 Checks if Amazon Route 53 Recovery Control clusters have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'. 
 

@@ -1,7 +1,6 @@
 
 
 # db-instance-backup-enabled
-<a name="db-instance-backup-enabled"></a>
 
 Checks if RDS DB instances have backups enabled. Optionally, the rule checks the backup retention period and the backup window.
 

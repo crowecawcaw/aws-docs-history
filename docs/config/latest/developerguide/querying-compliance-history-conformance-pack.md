@@ -1,7 +1,6 @@
 
 
 # Querying Compliance History for Conformance Packs for AWS Config
-<a name="querying-compliance-history-conformance-pack"></a>
 
 Query the compliance history using get-resource-config-history using the resource type `AWS::Config::ConformancePackCompliance`.
 

@@ -1,7 +1,6 @@
 
 
 # rds-pgsql-cluster-copy-tags-to-snapshot-check
-<a name="rds-pgsql-cluster-copy-tags-to-snapshot-check"></a>
 
 Checks if Amazon Relational Database Service (Amazon RDS) PostgreSQL DB clusters are configured to copy tags to snapshots. The rule is NON\_COMPLIANT if an RDS PostgreSQL DB cluster's CopyTagsToSnapshot property is set to false. 
 

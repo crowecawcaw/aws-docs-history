@@ -1,7 +1,6 @@
 
 
 # Prerequisites for Setting Up AWS Config with the AWS CLI
-<a name="gs-cli-prereq"></a>
 
 Before setting up AWS with the AWS CLI, you need to create an Amazon S3 bucket, an Amazon SNS topic, and an IAM role with attached policies as prerequisites. You can then use the AWS CLI to specify the bucket, topic, and role for AWS Config. Follow this procedure to set up your prerequisites for AWS Config.
 
@@ -78,7 +77,7 @@ The following code examples show how to use `CreateBucket`.
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Shows how to create a new Amazon S3 bucket.
     /// </summary>
@@ -111,7 +110,7 @@ The following code examples show how to use `CreateBucket`.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 Create a bucket with object lock enabled.  
 
-```
+```csharp
     /// <summary>
     /// Create a new Amazon S3 bucket with object lock actions.
     /// </summary>
@@ -149,7 +148,7 @@ Create a bucket with object lock enabled.
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function iecho
 #
@@ -261,7 +260,7 @@ function create_bucket() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
-```
+```cpp
 bool AwsDoc::S3::createBucket(const Aws::String &bucketName,
                               const Aws::S3::S3ClientConfiguration &clientConfig) {
     Aws::S3::S3Client client(clientConfig);
@@ -354,7 +353,7 @@ For more information, see [Creating a bucket](https://docs.aws.amazon.com/Amazon
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
 Create a bucket with default configuration.  
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -412,7 +411,7 @@ func (basics BucketBasics) CreateBucket(ctx context.Context, name string, region
 ```
 Create a bucket with object locking and wait for it to exist.  
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -481,7 +480,7 @@ func (actor S3Actions) CreateBucketWithLock(ctx context.Context, bucket string, 
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 Create a bucket.  
 
-```
+```java
     /**
      * Creates an S3 bucket asynchronously.
      *
@@ -517,7 +516,7 @@ Create a bucket.
 ```
 Create a bucket with object lock enabled.  
 
-```
+```java
     // Create a new Amazon S3 bucket with object lock options.
     public void createBucketWithLockOptions(boolean enableObjectLock, String bucketName) {
         S3Waiter s3Waiter = getClient().waiter();
@@ -545,7 +544,7 @@ Create a bucket with object lock enabled.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 Create the bucket.  
 
-```
+```javascript
 import {
   BucketAlreadyExists,
   BucketAlreadyOwnedByYou,
@@ -600,7 +599,7 @@ export const main = async ({ bucketName }) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
-```
+```kotlin
 suspend fun createNewBucket(bucketName: String) {
     val request =
         CreateBucketRequest {
@@ -622,7 +621,7 @@ suspend fun createNewBucket(bucketName: String) {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
 Create a bucket.  
 
-```
+```php
         $s3client = new Aws\S3\S3Client(['region' => 'us-west-2']);
 
         try {
@@ -645,7 +644,7 @@ Create a bucket.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 Create a bucket with default settings.  
 
-```
+```python
 class BucketWrapper:
     """Encapsulates S3 bucket actions."""
 
@@ -686,7 +685,7 @@ class BucketWrapper:
 ```
 Create a versioned bucket with a lifecycle configuration.  
 
-```
+```python
 def create_versioned_bucket(bucket_name, prefix):
     """
     Creates an Amazon S3 bucket, enables it for versioning, and configures a lifecycle
@@ -763,7 +762,7 @@ def create_versioned_bucket(bucket_name, prefix):
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-s3'
 
 # Wraps Amazon S3 bucket actions.
@@ -822,7 +821,7 @@ run_demo if $PROGRAM_NAME == __FILE__
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
-```
+```rust
 pub async fn create_bucket(
     client: &aws_sdk_s3::Client,
     bucket_name: &str,
@@ -861,7 +860,7 @@ pub async fn create_bucket(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
-```
+```sap-abap
     TRY.
         " determine our region from our session
         DATA(lv_region) = CONV /aws1/s3_bucketlocationcnstrnt( lo_session->get_region( ) ).
@@ -892,7 +891,7 @@ pub async fn create_bucket(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples). 
 
-```
+```swift
 import AWSS3
 
     public func createBucket(name: String) async throws {
@@ -1050,7 +1049,7 @@ The following code examples show how to use `CreateTopic`.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples). 
 Create a topic with a specific name.  
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.SimpleNotificationService;
@@ -1094,7 +1093,7 @@ Create a topic with a specific name.
 ```
 Create a new topic with a name and specific FIFO and de-duplication attributes.  
 
-```
+```csharp
     /// <summary>
     /// Create a new topic with a name and specific FIFO and de-duplication attributes.
     /// </summary>
@@ -1140,7 +1139,7 @@ Create a new topic with a name and specific FIFO and de-duplication attributes.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
-```
+```cpp
 //! Create an Amazon Simple Notification Service (Amazon SNS) topic.
 /*!
   \param topicName: An Amazon SNS topic name.
@@ -1203,7 +1202,7 @@ For more information, see [Using the AWS Command Line Interface with Amazon SQS 
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -1255,7 +1254,7 @@ func (actor SnsActions) CreateTopic(ctx context.Context, topicName string, isFif
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.CreateTopicRequest;
@@ -1324,7 +1323,7 @@ public class CreateTopic {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
 Create the client in a separate module and export it.  
 
-```
+```javascript
 import { SNSClient } from "@aws-sdk/client-sns";
 
 // The AWS Region can be provided here using the `region` property. If you leave it blank
@@ -1333,7 +1332,7 @@ export const snsClient = new SNSClient({});
 ```
 Import the SDK and client modules and call the API.  
 
-```
+```javascript
 import { CreateTopicCommand } from "@aws-sdk/client-sns";
 import { snsClient } from "../libs/snsClient.js";
 
@@ -1368,7 +1367,7 @@ export const createTopic = async (topicName = "TOPIC_NAME") => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
-```
+```kotlin
 suspend fun createSNSTopic(topicName: String): String {
     val request =
         CreateTopicRequest {
@@ -1389,7 +1388,7 @@ suspend fun createSNSTopic(topicName: String): String {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
-```
+```php
 require 'vendor/autoload.php';
 
 use Aws\Exception\AwsException;
@@ -1430,7 +1429,7 @@ try {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 
-```
+```python
 class SnsWrapper:
     """Encapsulates Amazon SNS topic and subscription functions."""
 
@@ -1458,7 +1457,7 @@ class SnsWrapper:
             return topic
 ```
 
-```
+```python
 class SnsWrapper:
     """Wrapper class for managing Amazon SNS operations."""
 
@@ -1529,7 +1528,7 @@ class SnsWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sns#code-examples). 
 
-```
+```ruby
 # This class demonstrates how to create an Amazon Simple Notification Service (SNS) topic.
 class SNSTopicCreator
   # Initializes an SNS client.
@@ -1575,7 +1574,7 @@ end
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sns#code-examples). 
 
-```
+```rust
 async fn make_topic(client: &Client, topic_name: &str) -> Result<(), Error> {
     let resp = client.create_topic().name(topic_name).send().await?;
 
@@ -1595,7 +1594,7 @@ async fn make_topic(client: &Client, topic_name: &str) -> Result<(), Error> {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_sns->createtopic( iv_name = iv_topic_name ). " oo_result is returned for testing purposes. "
         MESSAGE 'SNS topic created' TYPE 'I'.
@@ -1611,7 +1610,7 @@ async fn make_topic(client: &Client, topic_name: &str) -> Result<(), Error> {
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples). 
 
-```
+```swift
 import AWSSNS
 
         let config = try await SNSClient.SNSClientConfig(region: region)
@@ -1676,7 +1675,7 @@ The following code examples show how to use `CreateRole`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Create a new IAM role.
     /// </summary>
@@ -1704,7 +1703,7 @@ The following code examples show how to use `CreateRole`.
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -1799,7 +1798,7 @@ function iam_create_role() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
 bool AwsDoc::IAM::createIamRole(
         const Aws::String &roleName,
         const Aws::String &policy,
@@ -1997,7 +1996,7 @@ For more information, see [Tagging IAM roles](https://docs.aws.amazon.com/IAM/la
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -2056,7 +2055,7 @@ func (wrapper RoleWrapper) CreateRole(ctx context.Context, roleName string, trus
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
-```
+```java
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import software.amazon.awssdk.services.iam.model.CreateRoleRequest;
@@ -2141,7 +2140,7 @@ public class CreateRole {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 Create the role.  
 
-```
+```javascript
 import { CreateRoleCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -2178,7 +2177,7 @@ export const createRole = (roleName) => {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
-```
+```php
 $uuid = uniqid();
 $service = new IAMService();
 
@@ -2218,7 +2217,7 @@ echo "Created role: {$assumeRoleRole['RoleName']}\n";
 **Tools for PowerShell V4**  
 **Example 1: This example creates a new role named `MyNewRole` and attaches to it the policy found in the file `NewRoleTrustPolicy.json`. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file. The policy document displayed in the output is URL encoded. It is decoded in this example with the `UrlDecode` .NET method. **  
 
-```
+```powershell
 $results = New-IAMRole -AssumeRolePolicyDocument (Get-Content -raw NewRoleTrustPolicy.json) -RoleName MyNewRole
 $results
 ```
@@ -2259,7 +2258,7 @@ RoleName                 : MyNewRole
 **Tools for PowerShell V5**  
 **Example 1: This example creates a new role named `MyNewRole` and attaches to it the policy found in the file `NewRoleTrustPolicy.json`. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file. The policy document displayed in the output is URL encoded. It is decoded in this example with the `UrlDecode` .NET method. **  
 
-```
+```powershell
 $results = New-IAMRole -AssumeRolePolicyDocument (Get-Content -raw NewRoleTrustPolicy.json) -RoleName MyNewRole
 $results
 ```
@@ -2303,7 +2302,7 @@ RoleName                 : MyNewRole
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def create_role(role_name, allowed_services):
     """
     Creates a role that lets a list of specified services assume the role.
@@ -2343,7 +2342,7 @@ def create_role(role_name, allowed_services):
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
-```
+```ruby
   # Creates a role and attaches policies to it.
   #
   # @param role_name [String] The name of the role.
@@ -2378,7 +2377,7 @@ def create_role(role_name, allowed_services):
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 pub async fn create_role(
     client: &iamClient,
     role_name: &str,
@@ -2407,7 +2406,7 @@ pub async fn create_role(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_iam->createrole(
           iv_rolename = iv_role_name
@@ -2429,7 +2428,7 @@ pub async fn create_role(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

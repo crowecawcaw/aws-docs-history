@@ -1,7 +1,6 @@
 
 
 # elasticache-supported-engine-version
-<a name="elasticache-supported-engine-version"></a>
 
 Checks if ElastiCache clusters are running a version greater or equal to the recommended engine version. The rule is NON\_COMPLIANT if the 'EngineVersion' for an ElastiCache cluster is less than the specified recommended version for its given engine. 
 

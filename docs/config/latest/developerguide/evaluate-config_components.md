@@ -1,7 +1,6 @@
 
 
 # Components of an AWS Config Rule
-<a name="evaluate-config_components"></a>
 
 AWS Config rules evaluate the configuration settings of your AWS resources. This page discusses the components of a rule.
 
@@ -65,7 +64,6 @@ For a list of managed rules that support proactive evaluation, see [List of AWS 
 <a name="list-proactive-resource-types"></a>
 
 The following is a list of resource types that are supported for proactive evaluation:
-+ `AWS::EC2::EIP`
 + `AWS::EC2::Subnet`
 
 ## AWS Config Rule Metadata

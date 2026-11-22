@@ -1,7 +1,6 @@
 
 
 # amplify-app-platform-check
-<a name="amplify-app-platform-check"></a>
 
 Checks if AWS Amplify apps are configured with the specified platform. The rule is NON\_COMPLIANT if configuration.Platform is a value not specified in the required rule parameter. 
 

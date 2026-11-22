@@ -1,7 +1,6 @@
 
 
 # required-tags
-<a name="required-tags"></a>
 
 Checks if your resources have the tags that you specify. For example, you can check whether your Amazon EC2 instances have the `CostCenter` tag, while also checking if all your RDS instance have one set of Keys tag. Separate multiple values with commas. You can check up to 6 tags at a time.
 

@@ -1,7 +1,6 @@
 
 
 # Permissions for the Amazon S3 Bucket for the AWS Config Delivery Channel
-<a name="s3-bucket-policy"></a>
 
 **Important**  
 This page is about setting up the Amazon S3 Bucket for the AWS Config delivery channel. This page is not about the `AWS::S3::Bucket` resource type that the AWS Config configuration recorder can record.
@@ -55,7 +54,7 @@ We strongly recommend that you restrict access in the bucket policy with the `AW
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

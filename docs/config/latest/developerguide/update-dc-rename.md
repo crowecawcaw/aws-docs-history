@@ -1,7 +1,6 @@
 
 
 # Renaming the Delivery Channel
-<a name="update-dc-rename"></a>
 
 To change the delivery channel name, you must delete it and create a new delivery channel with your specified name. Before you can delete the delivery channel, you must temporarily stop the configuration recorder. The AWS Config console does not provide the option to delete the delivery channel. You must use the AWS CLI, the AWS Config API, or one of the AWS SDKs. 
 

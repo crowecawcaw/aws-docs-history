@@ -1,7 +1,6 @@
 
 
 # ec2-instances-in-vpc
-<a name="ec2-instances-in-vpc"></a>
 
 **Important**  
 For this rule, the rule identifier (INSTANCES\_IN\_VPC) and rule name (ec2-instances-in-vpc) are different.

@@ -1,7 +1,6 @@
 
 
 # s3-access-point-public-access-blocks
-<a name="s3-access-point-public-access-blocks"></a>
 
 Checks if Amazon S3 access points have block public access settings enabled. The rule is NON\_COMPLIANT if block public access settings are not enabled for S3 access points. 
 

@@ -1,7 +1,6 @@
 
 
 # Notifications that AWS Config Sends to an Amazon SNS topic
-<a name="notifications-for-AWS-Config"></a>
 
 **Note**  
 Before AWS Config can send notifications to an Amazon SNS topic, you must first set up the configuration recorder and the delivery channel. For more information, see [Managing the Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html) and [Managing the Delivery Channel](https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html).

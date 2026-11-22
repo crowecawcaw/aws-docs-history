@@ -1,7 +1,6 @@
 
 
 # s3-directory-bucket-lifecycle-policy-rule-check
-<a name="s3-directory-bucket-lifecycle-policy-rule-check"></a>
 
 Checks if directory buckets for Amazon S3 have a lifecycle policy with at least one enabled rule. The rule is NON\_COMPLIANT if there are no lifecycle policy rules or if none of the lifecycle policy rules have status Enabled. 
 

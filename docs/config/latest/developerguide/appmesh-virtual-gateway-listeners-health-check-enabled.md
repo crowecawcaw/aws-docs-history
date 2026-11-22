@@ -1,7 +1,6 @@
 
 
 # appmesh-virtual-gateway-listeners-health-check-enabled
-<a name="appmesh-virtual-gateway-listeners-health-check-enabled"></a>
 
 Checks if listeners for AWS App Mesh virtual gateways have health check enabled. The rule is NON\_COMPLIANT if configuration.Spec.Listeners[].HealthCheck does not exist in one or more listeners. 
 

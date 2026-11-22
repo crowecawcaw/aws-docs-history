@@ -1,23 +1,20 @@
 
 
 # Conformance Packs for AWS Config
-<a name="conformance-packs"></a>
 
-A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a Region or across an organization in AWS Organizations.
+A conformance pack is a collection of AWS Config rules and remediation actions that can be deployed as a single entity. AWS Config supports managed conformance packs and custom conformance packs.
++ AWS managed conformance packs are predefined and maintained by AWS. You can deploy an AWS managed conformance pack to an account and an AWS Region without creating or maintaining a conformance pack template.
++ Custom conformance packs are created by authoring a YAML template that contains a list of AWS Config managed or custom rules and remediation actions. Custom conformance packs can be deployed to an account and an AWS Region or across an organization in AWS Organizations. You can also use AWS Systems Manager documents (SSM documents) to store your custom conformance pack templates on AWS and directly deploy conformance packs using SSM document names. You can deploy the template by using the AWS Config console or the AWS CLI.
 
-Conformance packs are created by authoring a YAML template that contains the list of AWS Config managed or custom rules and remediation actions. You can also use AWS Systems Manager documents (SSM documents) to store your conformance pack templates on AWS and directly deploy conformance packs using SSM document names. You can deploy the template by using the AWS Config console or the AWS CLI.
-
-To quickly get started and to evaluate your AWS environment, use one of the [sample conformance pack templates](https://docs.aws.amazon.com/config/latest/developerguide/conformancepack-sample-templates.html).
-
-You can also create a conformance pack YAML file from scratch based on [Custom Conformance Pack](https://docs.aws.amazon.com/config/latest/developerguide/custom-conformance-pack.html).
+To get started, you can deploy a [managed conformance pack](managed-conformance-packs.md) or create your own [custom conformance pack](custom-conformance-packs.md). AWS Config also provides [sample conformance pack templates](conformancepack-sample-templates.md) that you can use as a starting point for creating your own conformance packs.
 
 **Topics**
-+ [Conformance Pack Dashboard](conformance-pack-dashboard.md)
 + [Prerequisites](cpack-prerequisites.md)
++ [Conformance Pack Dashboard](conformance-pack-dashboard.md)
 + [Region Support](#conformance-packs-regions)
 + [Process Checks](process-checks.md)
-+ [Conformance Pack Sample Templates](conformancepack-sample-templates.md)
-+ [Creating Custom Templates](custom-conformance-pack.md)
++ [Managed Conformance Packs](managed-conformance-packs.md)
++ [Custom Conformance Packs](custom-conformance-packs.md)
 + [Deploying Conformance Packs](conformance-pack-deploy.md)
 + [Editing Conformance Packs](conformance-pack-edit.md)
 + [Deleting Conformance Packs](conformance-pack-delete.md)

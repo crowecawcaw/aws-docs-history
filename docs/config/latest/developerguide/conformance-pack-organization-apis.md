@@ -1,7 +1,6 @@
 
 
 # Managing Conformance Packs for AWS Config Across all Accounts in Your Organization
-<a name="conformance-pack-organization-apis"></a>
 
 Use AWS Config to manage conformance packs across all AWS accounts within an organization. You can do the following:
 + Centrally deploy, update, and delete conformance packs across member accounts in an organization in AWS Organizations.

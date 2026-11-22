@@ -1,7 +1,6 @@
 
 
 # Use `PutDeliveryChannel` with a CLI
-<a name="example_config-service_PutDeliveryChannel_section"></a>
 
 The following code examples show how to use `PutDeliveryChannel`.
 
@@ -46,7 +45,7 @@ For more information, see [Working with the Delivery Channel](https://docs.aws.a
 **Tools for PowerShell V4**  
 **Example 1: This example changes the deliveryFrequency property of an existing delivery channel.**  
 
-```
+```powershell
 Write-CFGDeliveryChannel -ConfigSnapshotDeliveryProperties_DeliveryFrequency TwentyFour_Hours -DeliveryChannelName default -DeliveryChannel_S3BucketName amzn-s3-demo-bucket -DeliveryChannel_S3KeyPrefix my
 ```
 +  For API details, see [PutDeliveryChannel](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -54,7 +53,7 @@ Write-CFGDeliveryChannel -ConfigSnapshotDeliveryProperties_DeliveryFrequency Twe
 **Tools for PowerShell V5**  
 **Example 1: This example changes the deliveryFrequency property of an existing delivery channel.**  
 
-```
+```powershell
 Write-CFGDeliveryChannel -ConfigSnapshotDeliveryProperties_DeliveryFrequency TwentyFour_Hours -DeliveryChannelName default -DeliveryChannel_S3BucketName amzn-s3-demo-bucket -DeliveryChannel_S3KeyPrefix my
 ```
 +  For API details, see [PutDeliveryChannel](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # rds-aurora-postgresql-logs-to-cloudwatch
-<a name="rds-aurora-postgresql-logs-to-cloudwatch"></a>
 
 Checks if an Amazon Aurora PostgreSQL DB cluster is configured to publish PostgreSQL logs to Amazon CloudWatch Logs. This rule is NON\_COMPLIANT if the DB cluster is not configured to publish PostgreSQL logs to Amazon CloudWatch Logs. 
 

@@ -1,7 +1,6 @@
 
 
 # macie-auto-sensitive-data-discovery-check
-<a name="macie-auto-sensitive-data-discovery-check"></a>
 
 Checks if automated sensitive data discovery is enabled for Amazon Macie. The rule is NON\_COMPLIANT if automated sensitive data discovery is disabled. The rule is APPLICABLE for administrator accounts and NOT\_APPLICABLE for member accounts. 
 

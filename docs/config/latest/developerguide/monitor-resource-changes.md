@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Resource Changes with Amazon SQS
-<a name="monitor-resource-changes"></a>
 
 AWS Config uses Amazon Simple Notification Service (SNS) to send you notifications every time a supported AWS resource is created, updated, or otherwise modified as a result of user API activity. However, you might be interested in only certain resource configuration changes. For example, you might consider it critical to know when someone modifies the configuration of a security group, but not need to know every time there is a change to tags on your Amazon EC2 instances. Or, you might want to write a program that performs specific actions when specific resources are updated. For example, you might want to start a certain workflow when a security group configuration is changed. If you want to programmatically consume the data from AWS Config in these or other ways, use an Amazon Simple Queue Service queue as the notification endpoint for Amazon SNS.
 
@@ -20,7 +19,7 @@ To use Amazon SQS with AWS Config, you must configure a policy that grants permi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "Queue1_Policy_UUID",
@@ -49,7 +48,7 @@ The account for the SNS topic and the SQS queue must be in the same region.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "SNStoSQS",

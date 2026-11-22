@@ -1,7 +1,6 @@
 
 
 # iam-user-no-policies-check
-<a name="iam-user-no-policies-check"></a>
 
 Checks if none of your AWS Identity and Access Management (IAM) users have policies attached. IAM users must inherit permissions from IAM groups or roles. The rule is NON\_COMPLIANT if there is at least one policy that is attached to the IAM user. 
 

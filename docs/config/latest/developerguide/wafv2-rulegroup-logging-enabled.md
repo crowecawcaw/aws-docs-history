@@ -1,7 +1,6 @@
 
 
 # wafv2-rulegroup-logging-enabled
-<a name="wafv2-rulegroup-logging-enabled"></a>
 
 Checks if Amazon CloudWatch security metrics collection on AWS WAFv2 rule groups is enabled. The rule is NON\_COMPLIANT if the 'VisibilityConfig.CloudWatchMetricsEnabled' field is set to false. 
 

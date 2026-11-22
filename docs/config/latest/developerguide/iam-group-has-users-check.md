@@ -1,7 +1,6 @@
 
 
 # iam-group-has-users-check
-<a name="iam-group-has-users-check"></a>
 
 Checks whether IAM groups have at least one IAM user. 
 

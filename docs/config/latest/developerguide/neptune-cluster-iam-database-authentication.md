@@ -1,7 +1,6 @@
 
 
 # neptune-cluster-iam-database-authentication
-<a name="neptune-cluster-iam-database-authentication"></a>
 
 Checks if an Amazon Neptune cluster has AWS Identity and Access Management (IAM) database authentication enabled. The rule is NON\_COMPLIANT if an Amazon Neptune cluster does not have IAM database authentication enabled. 
 

@@ -1,7 +1,6 @@
 
 
 # imagebuilder-distributionconfiguration-tagged
-<a name="imagebuilder-distributionconfiguration-tagged"></a>
 
 Checks if ImageBuilder DistributionConfiguration resources have tags. Optionally, required tag keys can be specified. The rule is NON\_COMPLIANT if there are no tags or the specified tag keys are not present. It does not consider tags starting with 'aws:'. 
 

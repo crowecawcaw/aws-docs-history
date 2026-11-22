@@ -1,7 +1,6 @@
 
 
 # shield-advanced-enabled-autorenew
-<a name="shield-advanced-enabled-autorenew"></a>
 
 Checks if AWS Shield Advanced is enabled in your AWS account and this subscription is set to automatically renew. The rule is COMPLIANT if Shield Advanced is enabled and auto renew is enabled. 
 

@@ -1,7 +1,6 @@
 
 
 # ec2-token-hop-limit-check
-<a name="ec2-token-hop-limit-check"></a>
 
 Checks if an Amazon Elastic Compute Cloud (EC2) instance metadata has a specified token hop limit that is below the desired limit. The rule is NON\_COMPLIANT for an instance if it has a hop limit value above the intended limit. 
 

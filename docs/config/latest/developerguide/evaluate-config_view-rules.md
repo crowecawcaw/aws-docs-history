@@ -1,7 +1,6 @@
 
 
 # Viewing Details and Compliance Information for your AWS Config Rules
-<a name="evaluate-config_view-rules"></a>
 
 **Important**  
 For accurate reporting on the compliance status, you must record the `AWS::Config::ResourceCompliance` resource type. For more information, see [Recording AWS Resources](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html).
@@ -96,7 +95,7 @@ For more information, see [Components of an AWS Config Rule](https://docs.aws.am
 **Tools for PowerShell V4**  
 **Example 1: This sample lists config rules for the account, with selected properties.**  
 
-```
+```powershell
 Get-CFGConfigRule | Select-Object ConfigRuleName, ConfigRuleId, ConfigRuleArn, ConfigRuleState
 ```
 **Output:**  
@@ -113,7 +112,7 @@ autoscaling-group-elb-healthcheck-required        config-rule-cn1f2x arn:aws:con
 **Tools for PowerShell V5**  
 **Example 1: This sample lists config rules for the account, with selected properties.**  
 
-```
+```powershell
 Get-CFGConfigRule | Select-Object ConfigRuleName, ConfigRuleId, ConfigRuleArn, ConfigRuleState
 ```
 **Output:**  
@@ -133,7 +132,7 @@ autoscaling-group-elb-healthcheck-required        config-rule-cn1f2x arn:aws:con
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/config#code-examples). 
 
-```
+```python
 class ConfigWrapper:
     """
     Encapsulates AWS Config functions.
@@ -173,7 +172,7 @@ class ConfigWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples). 
 
-```
+```sap-abap
     DATA(lo_result) = lo_cfs->describeconfigrules(
       it_configrulenames = VALUE /aws1/cl_cfsconfigrulenames_w=>tt_configrulenames(
         ( NEW /aws1/cl_cfsconfigrulenames_w( iv_rule_name ) )
@@ -240,7 +239,7 @@ For more information, see [Viewing Compliance Information and Evaluation Results
 **Tools for PowerShell V4**  
 **Example 1: This example retrieves compliances details for the rule ebs-optimized-instance, for which there is no current evaluation results for the rule, hence it returns INSUFFICIENT\_DATA**  
 
-```
+```powershell
 (Get-CFGComplianceByConfigRule -ConfigRuleName ebs-optimized-instance).Compliance
 ```
 **Output:**  
@@ -252,7 +251,7 @@ ComplianceContributorCount ComplianceType
 ```
 **Example 2: This example returns the number of non-compliant resources for the rule ALB\_HTTP\_TO\_HTTPS\_REDIRECTION\_CHECK.**  
 
-```
+```powershell
 (Get-CFGComplianceByConfigRule -ConfigRuleName ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK -ComplianceType NON_COMPLIANT).Compliance.ComplianceContributorCount
 ```
 **Output:**  
@@ -267,7 +266,7 @@ False       2
 **Tools for PowerShell V5**  
 **Example 1: This example retrieves compliances details for the rule ebs-optimized-instance, for which there is no current evaluation results for the rule, hence it returns INSUFFICIENT\_DATA**  
 
-```
+```powershell
 (Get-CFGComplianceByConfigRule -ConfigRuleName ebs-optimized-instance).Compliance
 ```
 **Output:**  
@@ -279,7 +278,7 @@ ComplianceContributorCount ComplianceType
 ```
 **Example 2: This example returns the number of non-compliant resources for the rule ALB\_HTTP\_TO\_HTTPS\_REDIRECTION\_CHECK.**  
 
-```
+```powershell
 (Get-CFGComplianceByConfigRule -ConfigRuleName ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK -ComplianceType NON_COMPLIANT).Compliance.ComplianceContributorCount
 ```
 **Output:**  
@@ -335,7 +334,7 @@ For more information, see [Viewing Compliance Information and Evaluation Results
 **Tools for PowerShell V4**  
 **Example 1: This sample returns the number of Config rules that are non-compliant.**  
 
-```
+```powershell
 Get-CFGComplianceSummaryByConfigRule -Select ComplianceSummary.NonCompliantResourceCount
 ```
 **Output:**  
@@ -350,7 +349,7 @@ False       9
 **Tools for PowerShell V5**  
 **Example 1: This sample returns the number of Config rules that are non-compliant.**  
 
-```
+```powershell
 Get-CFGComplianceSummaryByConfigRule -Select ComplianceSummary.NonCompliantResourceCount
 ```
 **Output:**  
@@ -437,7 +436,7 @@ For more information, see [Viewing Compliance Information and Evaluation Results
 **Tools for PowerShell V4**  
 **Example 1: This example obtains the evaluation results for the rule access-keys-rotated and returns the output grouped by compliance-type**  
 
-```
+```powershell
 Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated | Group-Object ComplianceType
 ```
 **Output:**  
@@ -450,7 +449,7 @@ Count Name                      Group
 ```
 **Example 2: This example queries compliance details for the rule access-keys-rotated for COMPLIANT resources.**  
 
-```
+```powershell
 Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated -ComplianceType COMPLIANT | ForEach-Object {$_.EvaluationResultIdentifier.EvaluationResultQualifier}
 ```
 **Output:**  
@@ -466,7 +465,7 @@ access-keys-rotated BCAB1CDJ2LITL3EHREM4Q AWS::IAM::User
 **Tools for PowerShell V5**  
 **Example 1: This example obtains the evaluation results for the rule access-keys-rotated and returns the output grouped by compliance-type**  
 
-```
+```powershell
 Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated | Group-Object ComplianceType
 ```
 **Output:**  
@@ -479,7 +478,7 @@ Count Name                      Group
 ```
 **Example 2: This example queries compliance details for the rule access-keys-rotated for COMPLIANT resources.**  
 
-```
+```powershell
 Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated -ComplianceType COMPLIANT | ForEach-Object {$_.EvaluationResultIdentifier.EvaluationResultQualifier}
 ```
 **Output:**  

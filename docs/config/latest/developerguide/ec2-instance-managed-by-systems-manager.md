@@ -1,7 +1,6 @@
 
 
 # ec2-instance-managed-by-systems-manager
-<a name="ec2-instance-managed-by-systems-manager"></a>
 
 **Important**  
 For this rule, the rule identifier (EC2\_INSTANCE\_MANAGED\_BY\_SSM) and rule name (ec2-instance-managed-by-systems-manager) are different.

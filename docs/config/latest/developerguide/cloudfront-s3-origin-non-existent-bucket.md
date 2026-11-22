@@ -1,7 +1,6 @@
 
 
 # cloudfront-s3-origin-non-existent-bucket
-<a name="cloudfront-s3-origin-non-existent-bucket"></a>
 
 Checks if Amazon CloudFront distributions point to a non-existent S3 bucket. The rule is NON\_COMPLIANT if `S3OriginConfig` for a CloudFront distribution points to a non-existent S3 bucket. The rule does not evaluate S3 buckets with static website hosting. 
 

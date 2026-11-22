@@ -1,7 +1,6 @@
 
 
 # restricted-common-ports
-<a name="restricted-common-ports"></a>
 
 **Important**  
 For this rule, the rule identifier (RESTRICTED\_INCOMING\_TRAFFIC) and rule name (restricted-common-ports) are different.

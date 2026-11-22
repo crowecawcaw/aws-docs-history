@@ -1,7 +1,6 @@
 
 
 # Operational Best Practices for Storage Services
-<a name="operational-best-practices-for-Storage-Services"></a>
 
  This conformance pack contains AWS Config rules based on Storage Services. For more information, see [Cloud Storage on AWS](https://aws.amazon.com/products/storage/). For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html). 
 

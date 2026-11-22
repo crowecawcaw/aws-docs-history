@@ -1,7 +1,6 @@
 
 
 # transfer-connector-logging-enabled
-<a name="transfer-connector-logging-enabled"></a>
 
 Checks if AWS Transfer Family Connector publishes logs to Amazon CloudWatch. The rule is NON\_COMPLIANT if a Connector does not have a LoggingRole assigned. 
 

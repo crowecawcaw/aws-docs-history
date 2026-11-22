@@ -1,7 +1,6 @@
 
 
 # Updating the Delivery Channel
-<a name="update-dc-console"></a>
 
 When you update the delivery channel, you can set the following options:
 + The Amazon S3 bucket where AWS Config sends configuration snapshots and configuration history files.
@@ -58,7 +57,7 @@ For more information, see [Working with the Delivery Channel](https://docs.aws.a
 **Tools for PowerShell V4**  
 **Example 1: This example changes the deliveryFrequency property of an existing delivery channel.**  
 
-```
+```powershell
 Write-CFGDeliveryChannel -ConfigSnapshotDeliveryProperties_DeliveryFrequency TwentyFour_Hours -DeliveryChannelName default -DeliveryChannel_S3BucketName amzn-s3-demo-bucket -DeliveryChannel_S3KeyPrefix my
 ```
 +  For API details, see [PutDeliveryChannel](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -66,7 +65,7 @@ Write-CFGDeliveryChannel -ConfigSnapshotDeliveryProperties_DeliveryFrequency Twe
 **Tools for PowerShell V5**  
 **Example 1: This example changes the deliveryFrequency property of an existing delivery channel.**  
 
-```
+```powershell
 Write-CFGDeliveryChannel -ConfigSnapshotDeliveryProperties_DeliveryFrequency TwentyFour_Hours -DeliveryChannelName default -DeliveryChannel_S3BucketName amzn-s3-demo-bucket -DeliveryChannel_S3KeyPrefix my
 ```
 +  For API details, see [PutDeliveryChannel](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -125,7 +124,7 @@ For more information, see [Working with the Delivery Channel](https://docs.aws.a
 **Tools for PowerShell V4**  
 **Example 1: This example retrieves the delivery channel for the region and displays details.**  
 
-```
+```powershell
 Get-CFGDeliveryChannel -Region eu-west-1 | Select-Object Name, S3BucketName, S3KeyPrefix, @{N="DeliveryFrequency";E={$_.ConfigSnapshotDeliveryProperties.DeliveryFrequency}}
 ```
 **Output:**  
@@ -140,7 +139,7 @@ default config-bucket-NA my          TwentyFour_Hours
 **Tools for PowerShell V5**  
 **Example 1: This example retrieves the delivery channel for the region and displays details.**  
 
-```
+```powershell
 Get-CFGDeliveryChannel -Region eu-west-1 | Select-Object Name, S3BucketName, S3KeyPrefix, @{N="DeliveryFrequency";E={$_.ConfigSnapshotDeliveryProperties.DeliveryFrequency}}
 ```
 **Output:**  

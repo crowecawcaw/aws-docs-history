@@ -1,7 +1,6 @@
 
 
 # Use `DescribeConfigRules` with an AWS SDK or CLI
-<a name="example_config-service_DescribeConfigRules_section"></a>
 
 The following code examples show how to use `DescribeConfigRules`.
 
@@ -56,7 +55,7 @@ For more information, see [Components of an AWS Config Rule](https://docs.aws.am
 **Tools for PowerShell V4**  
 **Example 1: This sample lists config rules for the account, with selected properties.**  
 
-```
+```powershell
 Get-CFGConfigRule | Select-Object ConfigRuleName, ConfigRuleId, ConfigRuleArn, ConfigRuleState
 ```
 **Output:**  
@@ -73,7 +72,7 @@ autoscaling-group-elb-healthcheck-required        config-rule-cn1f2x arn:aws:con
 **Tools for PowerShell V5**  
 **Example 1: This sample lists config rules for the account, with selected properties.**  
 
-```
+```powershell
 Get-CFGConfigRule | Select-Object ConfigRuleName, ConfigRuleId, ConfigRuleArn, ConfigRuleState
 ```
 **Output:**  
@@ -93,7 +92,7 @@ autoscaling-group-elb-healthcheck-required        config-rule-cn1f2x arn:aws:con
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/config#code-examples). 
 
-```
+```python
 class ConfigWrapper:
     """
     Encapsulates AWS Config functions.
@@ -133,7 +132,7 @@ class ConfigWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples). 
 
-```
+```sap-abap
     DATA(lo_result) = lo_cfs->describeconfigrules(
       it_configrulenames = VALUE /aws1/cl_cfsconfigrulenames_w=>tt_configrulenames(
         ( NEW /aws1/cl_cfsconfigrulenames_w( iv_rule_name ) )

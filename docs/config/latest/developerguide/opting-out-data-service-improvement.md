@@ -1,7 +1,6 @@
 
 
 # Opting out of using your data for service improvement
-<a name="opting-out-data-service-improvement"></a>
 
 You can choose to opt out of having your data (defined as "Config Content" in the AWS Config service terms) used to develop and improve AWS Config and related AWS security and observability services by using the AWS Organizations opt-out policy. You can choose to opt out even if AWS Config doesn't currently collect any such Content. For more information about how to opt out, see [AI services opt-out policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html) in the *AWS Organizations User Guide*.
 

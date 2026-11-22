@@ -1,7 +1,6 @@
 
 
 # Adding Third-Party Resources to AWS Config
-<a name="customresources-adding"></a>
 
 Follow these steps to add a third-party resource to AWS Config.
 

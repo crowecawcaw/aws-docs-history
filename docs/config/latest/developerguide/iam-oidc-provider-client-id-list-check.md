@@ -1,7 +1,6 @@
 
 
 # iam-oidc-provider-client-id-list-check
-<a name="iam-oidc-provider-client-id-list-check"></a>
 
 Checks if AWS IAM OIDC providers are configured with approved client IDs. The rule is NON\_COMPLIANT if configuration.ClientIdList contains IDs not specified in the required rule parameter. 
 

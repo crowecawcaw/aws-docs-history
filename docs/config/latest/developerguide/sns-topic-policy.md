@@ -1,7 +1,6 @@
 
 
 # Permissions for the Amazon SNS Topic
-<a name="sns-topic-policy"></a>
 
 **Encrypted Amazon SNS not supported**  
 AWS Config does not support encrypted Amazon SNS topics.

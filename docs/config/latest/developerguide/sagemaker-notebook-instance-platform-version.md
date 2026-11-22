@@ -1,7 +1,6 @@
 
 
 # sagemaker-notebook-instance-platform-version
-<a name="sagemaker-notebook-instance-platform-version"></a>
 
 Checks if a Sagemaker Notebook Instance is configured to use a supported platform identifier version. The rule is NON\_COMPLIANT if a Notebook Instance is not using the specified supported platform identifier version as specified in the parameter. 
 

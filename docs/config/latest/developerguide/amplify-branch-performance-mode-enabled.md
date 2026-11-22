@@ -1,7 +1,6 @@
 
 
 # amplify-branch-performance-mode-enabled
-<a name="amplify-branch-performance-mode-enabled"></a>
 
 Checks if AWS Amplify branches have performance mode enabled. The rule is NON\_COMPLIANT if configuration.EnablePerformanceMode is false. 
 

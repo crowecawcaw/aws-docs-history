@@ -1,7 +1,6 @@
 
 
 # Working with the Delivery Channel
-<a name="manage-delivery-channel"></a>
 
 As AWS Config continually records the changes that occur to your AWS resources, it sends notifications and updated configuration states through the *delivery channel*. You can manage the delivery channel to control where AWS Config sends configuration updates.
 

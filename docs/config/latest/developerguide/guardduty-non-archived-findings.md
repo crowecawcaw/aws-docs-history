@@ -1,7 +1,6 @@
 
 
 # guardduty-non-archived-findings
-<a name="guardduty-non-archived-findings"></a>
 
 Checks if Amazon GuardDuty has findings that are non-archived. The rule is NON\_COMPLIANT if GuardDuty has non-archived low/medium/high severity findings older than the specified number in the daysLowSev/`daysMediumSev`/daysHighSev parameter. 
 

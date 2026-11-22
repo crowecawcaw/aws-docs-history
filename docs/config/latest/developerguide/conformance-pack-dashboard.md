@@ -1,11 +1,10 @@
 
 
 # Viewing Compliance Data in the Conformance Packs Dashboard for AWS Config
-<a name="conformance-pack-dashboard"></a>
 
 The main page for **Conformance Packs** displays all of the conformance packs that you currently have in your AWS account. The page also contains the name, deployment status, and compliance score of each conformance pack. A compliance score is the percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack.
 
-You can use this dashboard to understand the level of compliance of your conformance packs and use the compliance score to track remediation progress, perform comparisons across different sets of requirements, and see the impact a specific change or deployment has on a conformance pack.
+You can use this dashboard to understand the level of compliance of your conformance packs and use the compliance score to track remediation progress, perform comparisons across different sets of requirements, and see the impact a specific change or deployment has on a conformance pack. While a conformance pack is deploying, its compliance and compliance score can be incomplete. To learn how to check the deployment status of a conformance pack, see [Viewing Conformance Packs](conformance-pack-view.md).
 
 ## Navigating the Conformance Packs Main Page
 <a name="use-cpack-view"></a>

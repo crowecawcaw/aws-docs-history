@@ -1,7 +1,6 @@
 
 
 # cloudwatch-alarm-action-check
-<a name="cloudwatch-alarm-action-check"></a>
 
 Checks if CloudWatch alarms have an action configured for the ALARM, INSUFFICIENT\_DATA, or OK state. Optionally checks if any actions match a named ARN. The rule is NON\_COMPLIANT if there is no action specified for the alarm or optional parameter. 
 

@@ -1,7 +1,6 @@
 
 
 # fsx-openzfs-copy-tags-enabled
-<a name="fsx-openzfs-copy-tags-enabled"></a>
 
 Checks if the Amazon FSx for OpenZFS file systems are configured to copy tags to backups and volumes. The rule is NON\_COMPLIANT if FSx for OpenZFS file systems are not configured to copy tags to backups and volumes. 
 

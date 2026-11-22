@@ -1,7 +1,6 @@
 
 
 # eks-cluster-log-enabled
-<a name="eks-cluster-log-enabled"></a>
 
 Checks if an Amazon Elastic Kubernetes Service (Amazon EKS) cluster is configured with logging enabled. The rule is NON\_COMPLIANT if logging for Amazon EKS clusters is not enabled or if logging is not enabled with the log type mentioned. 
 

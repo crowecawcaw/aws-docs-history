@@ -1,7 +1,6 @@
 
 
 # cloudtrail-event-data-store-multi-region
-<a name="cloudtrail-event-data-store-multi-region"></a>
 
 Checks if AWS CloudTrail event data stores have multi-region enabled when ingesting live events. The rule is NON\_COMPLIANT if configuration.MultiRegionEnabled is false. 
 

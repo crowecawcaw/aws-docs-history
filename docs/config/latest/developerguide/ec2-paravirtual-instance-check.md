@@ -1,7 +1,6 @@
 
 
 # ec2-paravirtual-instance-check
-<a name="ec2-paravirtual-instance-check"></a>
 
 Checks if the virtualization type of an EC2 instance is paravirtual. This rule is NON\_COMPLIANT for an EC2 instance if 'virtualizationType' is set to 'paravirtual'. 
 

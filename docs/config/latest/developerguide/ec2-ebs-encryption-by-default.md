@@ -1,7 +1,6 @@
 
 
 # ec2-ebs-encryption-by-default
-<a name="ec2-ebs-encryption-by-default"></a>
 
 Checks if Amazon Elastic Block Store (EBS) encryption is enabled by default. The rule is NON\_COMPLIANT if the encryption is not enabled. 
 

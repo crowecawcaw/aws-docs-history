@@ -1,7 +1,6 @@
 
 
 # Viewing Aggregators for AWS Config
-<a name="aggregated-view"></a>
 
 You can use the AWS Config console or the AWS CLI to view your aggregators.
 
@@ -23,7 +22,7 @@ To view your conformance packs in the AWS Management Console, see [Aggregator Da
 
    **For individuals accounts**
 
-   ```
+   ```json
    {
        "ConfigurationAggregators": [
            {
@@ -50,7 +49,7 @@ To view your conformance packs in the AWS Management Console, see [Aggregator Da
 
    **For an organization**
 
-   ```
+   ```json
    {
        "ConfigurationAggregator": {
            "ConfigurationAggregatorArn": "arn:aws:config:{{Region}}:{{AccountID}}:config-aggregator/config-aggregator-floqpus3",
