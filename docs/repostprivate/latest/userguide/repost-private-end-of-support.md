@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # AWS re:Post Private end of support
-<a name="repost-private-end-of-support"></a>
 
 AWS re:Post Private will reach end of service on June 30, 2027. After this date, the re:Post Private service will no longer be available, and all private re:Post Private spaces will be decommissioned. We understand that re:Post Private has been a valuable tool for centralizing AWS technical content and fostering private collaboration within your organization, and we are committed to helping you transition smoothly to alternative solutions before the end-of-service date.
 
@@ -83,7 +82,7 @@ Your exported data will be available in one of two formats, based on your prefer
 
 1. Update your S3 bucket policy to grant `s3:PutObject` and `s3:PutObjectAcl` permissions to the provided principal. Example bucket policy statement:
 
-   ```
+   ```JSON
    {
      "Sid": "AllowRePostDataEgress",
      "Effect": "Allow",

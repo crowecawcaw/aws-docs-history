@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # Convert your question to an Support case
-<a name="convert-question-support-case"></a>
 
 If you're a **Support requester**, then you can create a case to Support from a question that you posted in your private re:Post.
 

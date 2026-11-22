@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # Get an answer to your question from re:Post Agent
-<a name="get-answer"></a>
 
 When you wait for the other users in your private re:Post to answer your question, re:Post Agent reviews the question and provides an answer. re:Post Agent is an AI-powered persona that provides the first response to your questions within a few seconds.
 
