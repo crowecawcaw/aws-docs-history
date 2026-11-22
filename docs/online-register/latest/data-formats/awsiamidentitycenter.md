@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IAM Identity Center
-<a name="awsiamidentitycenter"></a>
 
 AWS IAM Identity Center provides the following APIs for data retrieval.
 

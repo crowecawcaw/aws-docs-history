@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Cloud Map
-<a name="awscloudmap"></a>
 
 AWS Cloud Map provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Route 53 Resolver
-<a name="amazonroute53resolver"></a>
 
 Amazon Route 53 Resolver provides the following APIs for data retrieval.
 

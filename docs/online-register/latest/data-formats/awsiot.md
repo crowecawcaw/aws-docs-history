@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IoT
-<a name="awsiot"></a>
 
 AWS IoT provides the following APIs for data retrieval.
 

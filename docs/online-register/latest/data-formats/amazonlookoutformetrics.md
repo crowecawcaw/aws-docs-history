@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Lookout for Metrics
-<a name="amazonlookoutformetrics"></a>
 
 Amazon Lookout for Metrics provides the following APIs for data retrieval.
 

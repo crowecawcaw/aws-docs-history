@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS CodeBuild
-<a name="awscodebuild"></a>
 
 AWS CodeBuild provides the following APIs for data retrieval.
 

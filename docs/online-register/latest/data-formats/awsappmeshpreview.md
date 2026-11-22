@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS App Mesh Preview
-<a name="awsappmeshpreview"></a>
 
 AWS App Mesh Preview provides the following APIs for data retrieval.
 

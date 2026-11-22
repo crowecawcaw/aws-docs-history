@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Payment Cryptography
-<a name="awspaymentcryptography"></a>
 
 AWS Payment Cryptography provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Telco Network Builder
-<a name="awstelconetworkbuilder"></a>
 
 AWS Telco Network Builder provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Shield network security director
-<a name="awsshieldnetworksecuritydirector"></a>
 
 AWS Shield network security director provides the following APIs for data retrieval.
 

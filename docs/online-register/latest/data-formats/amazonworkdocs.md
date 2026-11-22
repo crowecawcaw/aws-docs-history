@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon WorkDocs
-<a name="amazonworkdocs"></a>
 
 Amazon WorkDocs provides the following APIs for data retrieval.
 

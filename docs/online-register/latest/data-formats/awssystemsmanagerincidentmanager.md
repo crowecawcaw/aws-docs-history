@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Systems Manager Incident Manager
-<a name="awssystemsmanagerincidentmanager"></a>
 
 AWS Systems Manager Incident Manager provides the following APIs for data retrieval.
 

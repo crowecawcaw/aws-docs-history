@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CloudWatch Synthetics
-<a name="amazoncloudwatchsynthetics"></a>
 
 Amazon CloudWatch Synthetics provides the following APIs for data retrieval.
 

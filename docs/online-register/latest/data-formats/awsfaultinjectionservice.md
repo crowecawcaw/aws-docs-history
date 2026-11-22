@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Fault Injection Service
-<a name="awsfaultinjectionservice"></a>
 
 AWS Fault Injection Service provides the following APIs for data retrieval.
 

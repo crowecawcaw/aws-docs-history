@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Security Token Service
-<a name="awssecuritytokenservice"></a>
 
 AWS Security Token Service provides the following APIs for data retrieval.
 

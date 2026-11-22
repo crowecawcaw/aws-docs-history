@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Cognito Sync
-<a name="amazoncognitosync"></a>
 
 Amazon Cognito Sync provides the following APIs for data retrieval.
 

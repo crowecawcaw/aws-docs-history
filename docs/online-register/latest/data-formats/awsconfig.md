@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Config
-<a name="awsconfig"></a>
 
 AWS Config provides the following APIs for data retrieval.
 

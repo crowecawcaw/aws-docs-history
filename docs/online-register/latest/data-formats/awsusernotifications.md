@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS User Notifications
-<a name="awsusernotifications"></a>
 
 AWS User Notifications provides the following APIs for data retrieval.
 

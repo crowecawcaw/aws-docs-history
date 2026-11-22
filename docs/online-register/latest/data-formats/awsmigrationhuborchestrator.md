@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Migration Hub Orchestrator
-<a name="awsmigrationhuborchestrator"></a>
 
 AWS Migration Hub Orchestrator provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Timestream InfluxDB
-<a name="amazontimestreaminfluxdb"></a>
 
 Amazon Timestream InfluxDB provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon EMR Serverless
-<a name="amazonemrserverless"></a>
 
 Amazon EMR Serverless provides the following APIs for data retrieval.
 

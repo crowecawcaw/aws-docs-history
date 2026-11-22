@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Detective
-<a name="amazondetective"></a>
 
 Amazon Detective provides the following APIs for data retrieval.
 

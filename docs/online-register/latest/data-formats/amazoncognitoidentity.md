@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Cognito Identity
-<a name="amazoncognitoidentity"></a>
 
 Amazon Cognito Identity provides the following APIs for data retrieval.
 

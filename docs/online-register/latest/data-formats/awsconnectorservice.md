@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Connector Service
-<a name="awsconnectorservice"></a>
 
 AWS Connector Service provides the following APIs for data retrieval.
 

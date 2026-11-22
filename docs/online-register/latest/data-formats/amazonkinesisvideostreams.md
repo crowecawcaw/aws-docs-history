@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Kinesis Video Streams
-<a name="amazonkinesisvideostreams"></a>
 
 Amazon Kinesis Video Streams provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Mechanical Turk
-<a name="amazonmechanicalturk"></a>
 
 Amazon Mechanical Turk provides the following APIs for data retrieval.
 

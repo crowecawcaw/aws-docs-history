@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Apache Kafka APIs for Amazon MSK clusters
-<a name="apachekafkaapisforamazonmskclusters"></a>
 
 Apache Kafka APIs for Amazon MSK clusters provides the following APIs for data retrieval.
 

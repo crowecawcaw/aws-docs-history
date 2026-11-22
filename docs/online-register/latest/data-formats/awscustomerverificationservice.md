@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Customer Verification Service
-<a name="awscustomerverificationservice"></a>
 
 AWS Customer Verification Service provides the following APIs for data retrieval.
 

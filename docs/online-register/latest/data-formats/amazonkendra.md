@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Kendra
-<a name="amazonkendra"></a>
 
 Amazon Kendra provides the following APIs for data retrieval.
 

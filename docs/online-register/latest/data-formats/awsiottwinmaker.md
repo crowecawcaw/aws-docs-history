@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IoT TwinMaker
-<a name="awsiottwinmaker"></a>
 
 AWS IoT TwinMaker provides the following APIs for data retrieval.
 

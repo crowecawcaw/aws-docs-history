@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Network Manager
-<a name="awsnetworkmanager"></a>
 
 AWS Network Manager provides the following APIs for data retrieval.
 

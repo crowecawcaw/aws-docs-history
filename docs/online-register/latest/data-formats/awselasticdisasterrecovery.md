@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Elastic Disaster Recovery
-<a name="awselasticdisasterrecovery"></a>
 
 AWS Elastic Disaster Recovery provides the following APIs for data retrieval.
 

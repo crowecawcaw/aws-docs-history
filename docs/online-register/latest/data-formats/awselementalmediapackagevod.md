@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Elemental MediaPackage VOD
-<a name="awselementalmediapackagevod"></a>
 
 AWS Elemental MediaPackage VOD provides the following APIs for data retrieval.
 

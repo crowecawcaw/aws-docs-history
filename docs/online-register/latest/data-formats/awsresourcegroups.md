@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Resource Groups
-<a name="awsresourcegroups"></a>
 
 AWS Resource Groups provides the following APIs for data retrieval.
 

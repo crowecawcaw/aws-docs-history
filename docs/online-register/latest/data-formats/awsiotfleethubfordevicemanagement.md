@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IoT Fleet Hub for Device Management
-<a name="awsiotfleethubfordevicemanagement"></a>
 
 AWS IoT Fleet Hub for Device Management provides the following APIs for data retrieval.
 

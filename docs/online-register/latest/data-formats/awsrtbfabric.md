@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS RTB Fabric
-<a name="awsrtbfabric"></a>
 
 AWS RTB Fabric provides the following APIs for data retrieval.
 

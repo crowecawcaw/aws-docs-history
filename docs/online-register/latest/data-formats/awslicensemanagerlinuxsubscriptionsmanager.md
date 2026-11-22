@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS License Manager Linux Subscriptions Manager
-<a name="awslicensemanagerlinuxsubscriptionsmanager"></a>
 
 AWS License Manager Linux Subscriptions Manager provides the following APIs for data retrieval.
 

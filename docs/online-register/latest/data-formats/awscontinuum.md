@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Continuum
-<a name="awscontinuum"></a>
 
 AWS Continuum provides the following APIs for data retrieval.
 

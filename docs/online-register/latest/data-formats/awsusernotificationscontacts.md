@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS User Notifications Contacts
-<a name="awsusernotificationscontacts"></a>
 
 AWS User Notifications Contacts provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Cloud Control API
-<a name="awscloudcontrolapi"></a>
 
 AWS Cloud Control API provides the following APIs for data retrieval.
 

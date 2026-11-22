@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS OpsWorks Configuration Management
-<a name="awsopsworksconfigurationmanagement"></a>
 
 AWS OpsWorks Configuration Management provides the following APIs for data retrieval.
 

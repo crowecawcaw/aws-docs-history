@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon ElastiCache
-<a name="amazonelasticache"></a>
 
 Amazon ElastiCache provides the following APIs for data retrieval.
 

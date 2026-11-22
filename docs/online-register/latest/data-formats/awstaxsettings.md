@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Tax Settings
-<a name="awstaxsettings"></a>
 
 AWS Tax Settings provides the following APIs for data retrieval.
 

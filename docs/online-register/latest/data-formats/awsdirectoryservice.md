@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Directory Service
-<a name="awsdirectoryservice"></a>
 
 AWS Directory Service provides the following APIs for data retrieval.
 

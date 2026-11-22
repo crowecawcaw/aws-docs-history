@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Bedrock
-<a name="amazonbedrock"></a>
 
 Amazon Bedrock provides the following APIs for data retrieval.
 

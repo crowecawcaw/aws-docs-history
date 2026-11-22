@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Billing And Cost Management Recommended Actions
-<a name="awsbillingandcostmanagementrecommendedactions"></a>
 
 AWS Billing And Cost Management Recommended Actions provides the following APIs for data retrieval.
 

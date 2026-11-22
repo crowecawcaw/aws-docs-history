@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Pinpoint Email Service
-<a name="amazonpinpointemailservice"></a>
 
 Amazon Pinpoint Email Service provides the following APIs for data retrieval.
 

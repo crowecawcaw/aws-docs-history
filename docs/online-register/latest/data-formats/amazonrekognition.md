@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Rekognition
-<a name="amazonrekognition"></a>
 
 Amazon Rekognition provides the following APIs for data retrieval.
 

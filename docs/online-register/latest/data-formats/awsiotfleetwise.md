@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IoT FleetWise
-<a name="awsiotfleetwise"></a>
 
 AWS IoT FleetWise provides the following APIs for data retrieval.
 

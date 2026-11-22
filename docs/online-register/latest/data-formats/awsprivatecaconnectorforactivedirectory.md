@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Private CA Connector for Active Directory
-<a name="awsprivatecaconnectorforactivedirectory"></a>
 
 AWS Private CA Connector for Active Directory provides the following APIs for data retrieval.
 

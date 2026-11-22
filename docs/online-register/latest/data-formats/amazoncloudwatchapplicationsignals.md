@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CloudWatch Application Signals
-<a name="amazoncloudwatchapplicationsignals"></a>
 
 Amazon CloudWatch Application Signals provides the following APIs for data retrieval.
 

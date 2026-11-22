@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Marketplace Private Marketplace
-<a name="awsmarketplaceprivatemarketplace"></a>
 
 AWS Marketplace Private Marketplace provides the following APIs for data retrieval.
 

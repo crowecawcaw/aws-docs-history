@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IoT Wireless
-<a name="awsiotwireless"></a>
 
 AWS IoT Wireless provides the following APIs for data retrieval.
 

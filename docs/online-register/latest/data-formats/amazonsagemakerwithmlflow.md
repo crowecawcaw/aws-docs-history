@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon SageMaker with MLflow
-<a name="amazonsagemakerwithmlflow"></a>
 
 Amazon SageMaker with MLflow provides the following APIs for data retrieval.
 

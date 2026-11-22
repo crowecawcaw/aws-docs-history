@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Elemental MediaConvert
-<a name="awselementalmediaconvert"></a>
 
 AWS Elemental MediaConvert provides the following APIs for data retrieval.
 

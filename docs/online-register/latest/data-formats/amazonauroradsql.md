@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Aurora DSQL
-<a name="amazonauroradsql"></a>
 
 Amazon Aurora DSQL provides the following APIs for data retrieval.
 

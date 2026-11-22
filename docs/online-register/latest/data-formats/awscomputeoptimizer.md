@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Compute Optimizer
-<a name="awscomputeoptimizer"></a>
 
 AWS Compute Optimizer provides the following APIs for data retrieval.
 

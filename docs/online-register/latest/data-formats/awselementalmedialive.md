@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Elemental MediaLive
-<a name="awselementalmedialive"></a>
 
 AWS Elemental MediaLive provides the following APIs for data retrieval.
 

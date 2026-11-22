@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Tag Editor
-<a name="tageditor"></a>
 
 Tag Editor provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Service - Oracle Database@AWS
-<a name="awsservice-oracledatabase_aws"></a>
 
 AWS Service - Oracle Database@AWS provides the following APIs for data retrieval.
 

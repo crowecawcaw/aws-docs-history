@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon MemoryDB
-<a name="amazonmemorydb"></a>
 
 Amazon MemoryDB provides the following APIs for data retrieval.
 

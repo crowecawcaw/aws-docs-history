@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS App Mesh
-<a name="awsappmesh"></a>
 
 AWS App Mesh provides the following APIs for data retrieval.
 

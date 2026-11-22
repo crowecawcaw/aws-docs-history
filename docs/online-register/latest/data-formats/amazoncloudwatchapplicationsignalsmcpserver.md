@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CloudWatch Application Signals MCP Server
-<a name="amazoncloudwatchapplicationsignalsmcpserver"></a>
 
 Amazon CloudWatch Application Signals MCP Server provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS rePost Private
-<a name="awsrepostprivate"></a>
 
 AWS rePost Private provides the following APIs for data retrieval.
 

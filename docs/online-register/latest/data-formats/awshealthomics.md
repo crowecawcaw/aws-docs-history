@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS HealthOmics
-<a name="awshealthomics"></a>
 
 AWS HealthOmics provides the following APIs for data retrieval.
 

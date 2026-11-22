@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Elemental Appliances and Software Activation Service
-<a name="awselementalappliancesandsoftwareactivationservice"></a>
 
 AWS Elemental Appliances and Software Activation Service provides the following APIs for data retrieval.
 

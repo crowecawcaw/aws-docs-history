@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Data Lifecycle Manager
-<a name="amazondatalifecyclemanager"></a>
 
 Amazon Data Lifecycle Manager provides the following APIs for data retrieval.
 

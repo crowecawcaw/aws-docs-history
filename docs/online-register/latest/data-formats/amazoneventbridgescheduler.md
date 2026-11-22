@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon EventBridge Scheduler
-<a name="amazoneventbridgescheduler"></a>
 
 Amazon EventBridge Scheduler provides the following APIs for data retrieval.
 

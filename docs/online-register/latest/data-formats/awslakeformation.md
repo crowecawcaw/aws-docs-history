@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Lake Formation
-<a name="awslakeformation"></a>
 
 AWS Lake Formation provides the following APIs for data retrieval.
 

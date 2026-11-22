@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS DataSync
-<a name="awsdatasync"></a>
 
 AWS DataSync provides the following APIs for data retrieval.
 

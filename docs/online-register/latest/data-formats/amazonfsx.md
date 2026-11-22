@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon FSx
-<a name="amazonfsx"></a>
 
 Amazon FSx provides the following APIs for data retrieval.
 

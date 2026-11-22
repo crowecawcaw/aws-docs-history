@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Security Hub
-<a name="awssecurityhub"></a>
 
 AWS Security Hub provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Route 53 Profiles
-<a name="amazonroute53profiles"></a>
 
 Amazon Route 53 Profiles provides the following APIs for data retrieval.
 

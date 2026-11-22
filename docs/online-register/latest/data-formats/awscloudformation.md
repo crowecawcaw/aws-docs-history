@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS CloudFormation
-<a name="awscloudformation"></a>
 
 AWS CloudFormation provides the following APIs for data retrieval.
 

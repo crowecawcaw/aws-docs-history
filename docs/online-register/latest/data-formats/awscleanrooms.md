@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Clean Rooms
-<a name="awscleanrooms"></a>
 
 AWS Clean Rooms provides the following APIs for data retrieval.
 

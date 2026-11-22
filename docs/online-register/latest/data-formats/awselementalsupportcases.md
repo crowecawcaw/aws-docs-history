@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Elemental Support Cases
-<a name="awselementalsupportcases"></a>
 
 AWS Elemental Support Cases provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Database Migration Service
-<a name="awsdatabasemigrationservice"></a>
 
 AWS Database Migration Service provides the following APIs for data retrieval.
 

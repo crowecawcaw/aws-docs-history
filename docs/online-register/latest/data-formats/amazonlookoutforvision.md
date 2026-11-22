@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Lookout for Vision
-<a name="amazonlookoutforvision"></a>
 
 Amazon Lookout for Vision provides the following APIs for data retrieval.
 

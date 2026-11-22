@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Wickr
-<a name="awswickr"></a>
 
 AWS Wickr provides the following APIs for data retrieval.
 

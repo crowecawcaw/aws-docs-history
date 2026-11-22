@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Account access manager
-<a name="accountaccessmanager"></a>
 
 Account access manager provides the following APIs for data retrieval.
 

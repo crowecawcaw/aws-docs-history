@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon DocumentDB Elastic Clusters
-<a name="amazondocumentdbelasticclusters"></a>
 
 Amazon DocumentDB Elastic Clusters provides the following APIs for data retrieval.
 

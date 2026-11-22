@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Partner Central
-<a name="awspartnercentral"></a>
 
 AWS Partner Central provides the following APIs for data retrieval.
 

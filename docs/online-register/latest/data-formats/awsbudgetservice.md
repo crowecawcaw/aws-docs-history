@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Budget Service
-<a name="awsbudgetservice"></a>
 
 AWS Budget Service provides the following APIs for data retrieval.
 

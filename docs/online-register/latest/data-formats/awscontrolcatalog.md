@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Control Catalog
-<a name="awscontrolcatalog"></a>
 
 AWS Control Catalog provides the following APIs for data retrieval.
 

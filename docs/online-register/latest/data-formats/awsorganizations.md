@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Organizations
-<a name="awsorganizations"></a>
 
 AWS Organizations provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS service providing managed private networks
-<a name="awsserviceprovidingmanagedprivatenetworks"></a>
 
 AWS service providing managed private networks provides the following APIs for data retrieval.
 

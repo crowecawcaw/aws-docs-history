@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS FinOps Agent
-<a name="awsfinopsagent"></a>
 
 AWS FinOps Agent provides the following APIs for data retrieval.
 

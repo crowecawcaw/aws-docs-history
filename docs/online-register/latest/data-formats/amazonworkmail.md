@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon WorkMail
-<a name="amazonworkmail"></a>
 
 Amazon WorkMail provides the following APIs for data retrieval.
 

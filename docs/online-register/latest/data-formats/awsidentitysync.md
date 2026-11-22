@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Identity Sync
-<a name="awsidentitysync"></a>
 
 AWS Identity Sync provides the following APIs for data retrieval.
 

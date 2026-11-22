@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon ECS MCP Service
-<a name="amazonecsmcpservice"></a>
 
 Amazon ECS MCP Service provides the following APIs for data retrieval.
 

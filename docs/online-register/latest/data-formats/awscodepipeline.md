@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS CodePipeline
-<a name="awscodepipeline"></a>
 
 AWS CodePipeline provides the following APIs for data retrieval.
 

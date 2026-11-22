@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Parallel Computing Service
-<a name="awsparallelcomputingservice"></a>
 
 AWS Parallel Computing Service provides the following APIs for data retrieval.
 

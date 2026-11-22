@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS CodeConnections
-<a name="awscodeconnections"></a>
 
 AWS CodeConnections provides the following APIs for data retrieval.
 

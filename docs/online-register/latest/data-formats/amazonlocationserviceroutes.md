@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Location Service Routes
-<a name="amazonlocationserviceroutes"></a>
 
 Amazon Location Service Routes provides the following APIs for data retrieval.
 

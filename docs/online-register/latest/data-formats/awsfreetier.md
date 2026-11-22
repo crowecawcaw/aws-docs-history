@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Free Tier
-<a name="awsfreetier"></a>
 
 AWS Free Tier provides the following APIs for data retrieval.
 

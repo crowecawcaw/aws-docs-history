@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Pinpoint SMS and Voice Service
-<a name="amazonpinpointsmsandvoiceservice"></a>
 
 Amazon Pinpoint SMS and Voice Service provides the following APIs for data retrieval.
 

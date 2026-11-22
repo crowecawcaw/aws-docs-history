@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Consolidated Billing
-<a name="awsconsolidatedbilling"></a>
 
 AWS Consolidated Billing provides the following APIs for data retrieval.
 

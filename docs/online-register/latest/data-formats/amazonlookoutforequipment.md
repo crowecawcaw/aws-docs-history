@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Lookout for Equipment
-<a name="amazonlookoutforequipment"></a>
 
 Amazon Lookout for Equipment provides the following APIs for data retrieval.
 

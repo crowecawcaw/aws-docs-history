@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Q Business
-<a name="amazonqbusiness"></a>
 
 Amazon Q Business provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon InspectorScan
-<a name="amazoninspectorscan"></a>
 
 Amazon InspectorScan provides the following APIs for data retrieval.
 

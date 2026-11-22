@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Migration Hub Refactor Spaces
-<a name="awsmigrationhubrefactorspaces"></a>
 
 AWS Migration Hub Refactor Spaces provides the following APIs for data retrieval.
 

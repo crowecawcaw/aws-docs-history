@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CloudWatch Network Synthetic Monitor
-<a name="amazoncloudwatchnetworksyntheticmonitor"></a>
 
 Amazon CloudWatch Network Synthetic Monitor provides the following APIs for data retrieval.
 

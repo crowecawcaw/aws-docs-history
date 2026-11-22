@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Mobile Analytics
-<a name="amazonmobileanalytics"></a>
 
 Amazon Mobile Analytics provides the following APIs for data retrieval.
 

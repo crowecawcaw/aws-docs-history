@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IoT Jobs DataPlane
-<a name="awsiotjobsdataplane"></a>
 
 AWS IoT Jobs DataPlane provides the following APIs for data retrieval.
 

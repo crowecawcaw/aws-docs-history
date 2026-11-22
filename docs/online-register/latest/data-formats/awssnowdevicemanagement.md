@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Snow Device Management
-<a name="awssnowdevicemanagement"></a>
 
 AWS Snow Device Management provides the following APIs for data retrieval.
 

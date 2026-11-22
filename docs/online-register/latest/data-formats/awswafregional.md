@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS WAF Regional
-<a name="awswafregional"></a>
 
 AWS WAF Regional provides the following APIs for data retrieval.
 

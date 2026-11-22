@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon EKS Auth
-<a name="amazoneksauth"></a>
 
 Amazon EKS Auth provides the following APIs for data retrieval.
 

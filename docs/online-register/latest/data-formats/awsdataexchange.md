@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Data Exchange
-<a name="awsdataexchange"></a>
 
 AWS Data Exchange provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Cost and Usage Report
-<a name="awscostandusagereport"></a>
 
 AWS Cost and Usage Report provides the following APIs for data retrieval.
 

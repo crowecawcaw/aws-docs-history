@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Inspector
-<a name="amazoninspector"></a>
 
 Amazon Inspector provides the following APIs for data retrieval.
 

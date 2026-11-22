@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Q Developer
-<a name="amazonqdeveloper"></a>
 
 Amazon Q Developer provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Support Console
-<a name="awssupportconsole"></a>
 
 AWS Support Console provides the following APIs for data retrieval.
 

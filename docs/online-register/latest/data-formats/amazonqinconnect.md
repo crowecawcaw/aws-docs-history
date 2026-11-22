@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Q in Connect
-<a name="amazonqinconnect"></a>
 
 Amazon Q in Connect provides the following APIs for data retrieval.
 

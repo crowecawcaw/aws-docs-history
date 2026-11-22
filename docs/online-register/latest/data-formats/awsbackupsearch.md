@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Backup Search
-<a name="awsbackupsearch"></a>
 
 AWS Backup Search provides the following APIs for data retrieval.
 

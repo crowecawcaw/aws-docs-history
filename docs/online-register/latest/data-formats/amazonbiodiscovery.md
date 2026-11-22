@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Bio Discovery
-<a name="amazonbiodiscovery"></a>
 
 Amazon Bio Discovery provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon EventBridge
-<a name="amazoneventbridge"></a>
 
 Amazon EventBridge provides the following APIs for data retrieval.
 

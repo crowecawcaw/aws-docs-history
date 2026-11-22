@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Billing
-<a name="awsbilling"></a>
 
 AWS Billing provides the following APIs for data retrieval.
 

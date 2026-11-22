@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Mainframe Modernization Application Testing
-<a name="awsmainframemodernizationapplicationtesting"></a>
 
 AWS Mainframe Modernization Application Testing provides the following APIs for data retrieval.
 

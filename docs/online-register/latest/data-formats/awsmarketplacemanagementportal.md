@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Marketplace Management Portal
-<a name="awsmarketplacemanagementportal"></a>
 
 AWS Marketplace Management Portal provides the following APIs for data retrieval.
 

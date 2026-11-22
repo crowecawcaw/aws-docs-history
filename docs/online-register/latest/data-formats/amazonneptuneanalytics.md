@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Neptune Analytics
-<a name="amazonneptuneanalytics"></a>
 
 Amazon Neptune Analytics provides the following APIs for data retrieval.
 

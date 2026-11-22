@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Payments
-<a name="awspayments"></a>
 
 AWS Payments provides the following APIs for data retrieval.
 

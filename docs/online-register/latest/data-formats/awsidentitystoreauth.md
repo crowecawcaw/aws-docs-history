@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Identity Store Auth
-<a name="awsidentitystoreauth"></a>
 
 AWS Identity Store Auth provides the following APIs for data retrieval.
 

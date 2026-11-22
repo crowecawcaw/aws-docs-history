@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Monitron
-<a name="amazonmonitron"></a>
 
 Amazon Monitron provides the following APIs for data retrieval.
 

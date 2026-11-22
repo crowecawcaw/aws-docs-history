@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Trusted Advisor
-<a name="awstrustedadvisor"></a>
 
 AWS Trusted Advisor provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Secrets Manager
-<a name="awssecretsmanager"></a>
 
 AWS Secrets Manager provides the following APIs for data retrieval.
 

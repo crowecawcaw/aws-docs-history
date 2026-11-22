@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Identity and Access Management (IAM)
-<a name="awsidentityandaccessmanagementiam"></a>
 
 AWS Identity and Access Management (IAM) provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Elemental MediaConnect
-<a name="awselementalmediaconnect"></a>
 
 AWS Elemental MediaConnect provides the following APIs for data retrieval.
 

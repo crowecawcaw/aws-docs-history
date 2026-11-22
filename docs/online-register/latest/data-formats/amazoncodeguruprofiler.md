@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CodeGuru Profiler
-<a name="amazoncodeguruprofiler"></a>
 
 Amazon CodeGuru Profiler provides the following APIs for data retrieval.
 

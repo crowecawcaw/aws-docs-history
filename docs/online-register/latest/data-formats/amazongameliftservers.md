@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon GameLift Servers
-<a name="amazongameliftservers"></a>
 
 Amazon GameLift Servers provides the following APIs for data retrieval.
 

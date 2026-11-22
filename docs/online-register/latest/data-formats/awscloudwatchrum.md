@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS CloudWatch RUM
-<a name="awscloudwatchrum"></a>
 
 AWS CloudWatch RUM provides the following APIs for data retrieval.
 

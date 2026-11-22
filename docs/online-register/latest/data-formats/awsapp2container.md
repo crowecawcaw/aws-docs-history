@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS App2Container
-<a name="awsapp2container"></a>
 
 AWS App2Container provides the following APIs for data retrieval.
 

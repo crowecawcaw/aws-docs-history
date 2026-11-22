@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon WorkSpaces AgentAccess MCP Server
-<a name="amazonworkspacesagentaccessmcpserver"></a>
 
 Amazon WorkSpaces AgentAccess MCP Server provides the following APIs for data retrieval.
 

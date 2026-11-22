@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Location Service Maps
-<a name="amazonlocationservicemaps"></a>
 
 Amazon Location Service Maps provides the following APIs for data retrieval.
 

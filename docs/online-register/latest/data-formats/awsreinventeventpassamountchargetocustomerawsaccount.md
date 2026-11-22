@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS reInvent event pass amount charge to customer AWS account
-<a name="awsreinventeventpassamountchargetocustomerawsaccount"></a>
 
 AWS reInvent event pass amount charge to customer AWS account provides the following APIs for data retrieval.
 

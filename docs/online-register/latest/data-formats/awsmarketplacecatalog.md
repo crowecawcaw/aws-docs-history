@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Marketplace Catalog
-<a name="awsmarketplacecatalog"></a>
 
 AWS Marketplace Catalog provides the following APIs for data retrieval.
 

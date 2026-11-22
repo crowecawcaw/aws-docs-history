@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS User Experience Customization
-<a name="awsuserexperiencecustomization"></a>
 
 AWS User Experience Customization provides the following APIs for data retrieval.
 

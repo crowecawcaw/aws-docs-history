@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS SQL Workbench
-<a name="awssqlworkbench"></a>
 
 AWS SQL Workbench provides the following APIs for data retrieval.
 

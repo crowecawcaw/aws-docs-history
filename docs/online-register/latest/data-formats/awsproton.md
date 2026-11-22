@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Proton
-<a name="awsproton"></a>
 
 AWS Proton provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Marketplace Entitlement Service
-<a name="awsmarketplaceentitlementservice"></a>
 
 AWS Marketplace Entitlement Service provides the following APIs for data retrieval.
 

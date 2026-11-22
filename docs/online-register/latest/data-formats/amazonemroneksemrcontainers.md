@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon EMR on EKS (EMR Containers)
-<a name="amazonemroneksemrcontainers"></a>
 
 Amazon EMR on EKS (EMR Containers) provides the following APIs for data retrieval.
 

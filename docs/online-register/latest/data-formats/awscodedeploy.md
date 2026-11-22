@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS CodeDeploy
-<a name="awscodedeploy"></a>
 
 AWS CodeDeploy provides the following APIs for data retrieval.
 

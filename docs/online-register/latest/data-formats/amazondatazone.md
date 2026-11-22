@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon DataZone
-<a name="amazondatazone"></a>
 
 Amazon DataZone provides the following APIs for data retrieval.
 

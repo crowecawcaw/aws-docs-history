@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS DevOps Agent Service
-<a name="awsdevopsagentservice"></a>
 
 AWS DevOps Agent Service provides the following APIs for data retrieval.
 

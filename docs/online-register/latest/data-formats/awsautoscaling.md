@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Auto Scaling
-<a name="awsautoscaling"></a>
 
 AWS Auto Scaling provides the following APIs for data retrieval.
 

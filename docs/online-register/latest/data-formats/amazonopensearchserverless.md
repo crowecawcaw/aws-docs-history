@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon OpenSearch Serverless
-<a name="amazonopensearchserverless"></a>
 
 Amazon OpenSearch Serverless provides the following APIs for data retrieval.
 

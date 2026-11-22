@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Marketplace Seller Reporting
-<a name="awsmarketplacesellerreporting"></a>
 
 AWS Marketplace Seller Reporting provides the following APIs for data retrieval.
 

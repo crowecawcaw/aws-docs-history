@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon QuickSight
-<a name="amazonquicksight"></a>
 
 Amazon QuickSight provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS CloudShell
-<a name="awscloudshell"></a>
 
 AWS CloudShell provides the following APIs for data retrieval.
 

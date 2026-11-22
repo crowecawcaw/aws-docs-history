@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Kinesis Analytics V2
-<a name="amazonkinesisanalyticsv2"></a>
 
 Amazon Kinesis Analytics V2 provides the following APIs for data retrieval.
 

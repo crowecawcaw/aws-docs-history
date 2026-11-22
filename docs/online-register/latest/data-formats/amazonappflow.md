@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon AppFlow
-<a name="amazonappflow"></a>
 
 Amazon AppFlow provides the following APIs for data retrieval.
 

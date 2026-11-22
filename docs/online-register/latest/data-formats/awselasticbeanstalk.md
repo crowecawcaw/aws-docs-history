@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Elastic Beanstalk
-<a name="awselasticbeanstalk"></a>
 
 AWS Elastic Beanstalk provides the following APIs for data retrieval.
 

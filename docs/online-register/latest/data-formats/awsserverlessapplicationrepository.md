@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Serverless Application Repository
-<a name="awsserverlessapplicationrepository"></a>
 
 AWS Serverless Application Repository provides the following APIs for data retrieval.
 

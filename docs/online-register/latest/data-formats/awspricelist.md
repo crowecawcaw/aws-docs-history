@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Price List
-<a name="awspricelist"></a>
 
 AWS Price List provides the following APIs for data retrieval.
 

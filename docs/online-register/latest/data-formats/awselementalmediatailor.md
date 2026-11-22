@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Elemental MediaTailor
-<a name="awselementalmediatailor"></a>
 
 AWS Elemental MediaTailor provides the following APIs for data retrieval.
 

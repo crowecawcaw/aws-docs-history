@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Transcribe
-<a name="amazontranscribe"></a>
 
 Amazon Transcribe provides the following APIs for data retrieval.
 

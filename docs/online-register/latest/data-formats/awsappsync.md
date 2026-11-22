@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS AppSync
-<a name="awsappsync"></a>
 
 AWS AppSync provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Shield
-<a name="awsshield"></a>
 
 AWS Shield provides the following APIs for data retrieval.
 

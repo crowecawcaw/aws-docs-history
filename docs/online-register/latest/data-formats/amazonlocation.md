@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Location
-<a name="amazonlocation"></a>
 
 Amazon Location provides the following APIs for data retrieval.
 

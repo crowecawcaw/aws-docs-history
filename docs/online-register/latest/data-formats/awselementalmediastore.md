@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Elemental MediaStore
-<a name="awselementalmediastore"></a>
 
 AWS Elemental MediaStore provides the following APIs for data retrieval.
 

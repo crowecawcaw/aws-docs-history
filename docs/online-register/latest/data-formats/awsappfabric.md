@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS AppFabric
-<a name="awsappfabric"></a>
 
 AWS AppFabric provides the following APIs for data retrieval.
 

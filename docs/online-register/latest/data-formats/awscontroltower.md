@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Control Tower
-<a name="awscontroltower"></a>
 
 AWS Control Tower provides the following APIs for data retrieval.
 

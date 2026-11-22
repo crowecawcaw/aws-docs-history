@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Verified Permissions
-<a name="amazonverifiedpermissions"></a>
 
 Amazon Verified Permissions provides the following APIs for data retrieval.
 

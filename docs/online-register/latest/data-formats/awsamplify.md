@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Amplify
-<a name="awsamplify"></a>
 
 AWS Amplify provides the following APIs for data retrieval.
 

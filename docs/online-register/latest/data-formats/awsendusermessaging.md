@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS End User Messaging
-<a name="awsendusermessaging"></a>
 
 AWS End User Messaging provides the following APIs for data retrieval.
 

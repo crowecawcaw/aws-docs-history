@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Global Accelerator
-<a name="awsglobalaccelerator"></a>
 
 AWS Global Accelerator provides the following APIs for data retrieval.
 

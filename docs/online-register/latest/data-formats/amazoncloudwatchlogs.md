@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CloudWatch Logs
-<a name="amazoncloudwatchlogs"></a>
 
 Amazon CloudWatch Logs provides the following APIs for data retrieval.
 

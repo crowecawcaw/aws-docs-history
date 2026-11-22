@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Textract
-<a name="amazontextract"></a>
 
 Amazon Textract provides the following APIs for data retrieval.
 

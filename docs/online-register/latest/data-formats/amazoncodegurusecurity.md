@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CodeGuru Security
-<a name="amazoncodegurusecurity"></a>
 
 Amazon CodeGuru Security provides the following APIs for data retrieval.
 

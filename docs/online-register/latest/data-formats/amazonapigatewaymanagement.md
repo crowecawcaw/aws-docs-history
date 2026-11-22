@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon API Gateway Management
-<a name="amazonapigatewaymanagement"></a>
 
 Amazon API Gateway Management provides the following APIs for data retrieval.
 

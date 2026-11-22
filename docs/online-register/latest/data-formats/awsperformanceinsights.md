@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Performance Insights
-<a name="awsperformanceinsights"></a>
 
 AWS Performance Insights provides the following APIs for data retrieval.
 

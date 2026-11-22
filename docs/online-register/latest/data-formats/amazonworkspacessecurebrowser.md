@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon WorkSpaces Secure Browser
-<a name="amazonworkspacessecurebrowser"></a>
 
 Amazon WorkSpaces Secure Browser provides the following APIs for data retrieval.
 

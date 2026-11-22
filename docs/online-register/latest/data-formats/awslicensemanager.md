@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS License Manager
-<a name="awslicensemanager"></a>
 
 AWS License Manager provides the following APIs for data retrieval.
 

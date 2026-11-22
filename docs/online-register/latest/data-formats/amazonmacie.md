@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Macie
-<a name="amazonmacie"></a>
 
 Amazon Macie provides the following APIs for data retrieval.
 

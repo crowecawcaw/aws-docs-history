@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Honeycode
-<a name="amazonhoneycode"></a>
 
 Amazon Honeycode provides the following APIs for data retrieval.
 

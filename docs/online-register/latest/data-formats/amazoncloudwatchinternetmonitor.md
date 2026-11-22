@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CloudWatch Internet Monitor
-<a name="amazoncloudwatchinternetmonitor"></a>
 
 Amazon CloudWatch Internet Monitor provides the following APIs for data retrieval.
 

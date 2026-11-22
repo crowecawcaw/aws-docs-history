@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS CloudTrail
-<a name="awscloudtrail"></a>
 
 AWS CloudTrail provides the following APIs for data retrieval.
 

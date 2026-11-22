@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IoT SiteWise
-<a name="awsiotsitewise"></a>
 
 AWS IoT SiteWise provides the following APIs for data retrieval.
 

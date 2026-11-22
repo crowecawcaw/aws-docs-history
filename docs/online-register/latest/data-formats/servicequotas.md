@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Service Quotas
-<a name="servicequotas"></a>
 
 Service Quotas provides the following APIs for data retrieval.
 

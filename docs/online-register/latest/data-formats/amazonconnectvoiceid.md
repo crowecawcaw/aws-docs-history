@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Connect Voice ID
-<a name="amazonconnectvoiceid"></a>
 
 Amazon Connect Voice ID provides the following APIs for data retrieval.
 

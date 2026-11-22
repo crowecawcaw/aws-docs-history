@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Fraud Detector
-<a name="amazonfrauddetector"></a>
 
 Amazon Fraud Detector provides the following APIs for data retrieval.
 

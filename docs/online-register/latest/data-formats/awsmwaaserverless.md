@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS MWAA Serverless
-<a name="awsmwaaserverless"></a>
 
 AWS MWAA Serverless provides the following APIs for data retrieval.
 

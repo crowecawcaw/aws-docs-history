@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Security Agent
-<a name="awssecurityagent"></a>
 
 AWS Security Agent provides the following APIs for data retrieval.
 

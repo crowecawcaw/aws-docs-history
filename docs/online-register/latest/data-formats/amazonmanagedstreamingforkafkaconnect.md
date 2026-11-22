@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Managed Streaming for Kafka Connect
-<a name="amazonmanagedstreamingforkafkaconnect"></a>
 
 Amazon Managed Streaming for Kafka Connect provides the following APIs for data retrieval.
 

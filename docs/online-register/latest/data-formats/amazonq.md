@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Q
-<a name="amazonq"></a>
 
 Amazon Q provides the following APIs for data retrieval.
 

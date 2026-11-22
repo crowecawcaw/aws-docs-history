@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon OpenSearch Ingestion
-<a name="amazonopensearchingestion"></a>
 
 Amazon OpenSearch Ingestion provides the following APIs for data retrieval.
 

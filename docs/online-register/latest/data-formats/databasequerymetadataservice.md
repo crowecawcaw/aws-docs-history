@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Database Query Metadata Service
-<a name="databasequerymetadataservice"></a>
 
 Database Query Metadata Service provides the following APIs for data retrieval.
 

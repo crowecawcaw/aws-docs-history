@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Billing And Cost Management Data Exports
-<a name="awsbillingandcostmanagementdataexports"></a>
 
 AWS Billing And Cost Management Data Exports provides the following APIs for data retrieval.
 

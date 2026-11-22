@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon RHEL Knowledgebase Portal
-<a name="amazonrhelknowledgebaseportal"></a>
 
 Amazon RHEL Knowledgebase Portal provides the following APIs for data retrieval.
 

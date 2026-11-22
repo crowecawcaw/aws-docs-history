@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon S3
-<a name="amazons3"></a>
 
 Amazon S3 provides the following APIs for data retrieval.
 

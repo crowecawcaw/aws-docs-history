@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Elastic Kubernetes Service
-<a name="amazonelastickubernetesservice"></a>
 
 Amazon Elastic Kubernetes Service provides the following APIs for data retrieval.
 

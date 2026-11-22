@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Interactive Video Service
-<a name="amazoninteractivevideoservice"></a>
 
 Amazon Interactive Video Service provides the following APIs for data retrieval.
 

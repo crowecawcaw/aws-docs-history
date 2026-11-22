@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Migration Hub
-<a name="awsmigrationhub"></a>
 
 AWS Migration Hub provides the following APIs for data retrieval.
 

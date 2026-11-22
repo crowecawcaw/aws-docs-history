@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Marketplace Vendor Insights
-<a name="awsmarketplacevendorinsights"></a>
 
 AWS Marketplace Vendor Insights provides the following APIs for data retrieval.
 

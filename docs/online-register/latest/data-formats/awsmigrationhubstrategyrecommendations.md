@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Migration Hub Strategy Recommendations
-<a name="awsmigrationhubstrategyrecommendations"></a>
 
 AWS Migration Hub Strategy Recommendations provides the following APIs for data retrieval.
 

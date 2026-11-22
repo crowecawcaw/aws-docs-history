@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Network Manager Chat
-<a name="awsnetworkmanagerchat"></a>
 
 AWS Network Manager Chat provides the following APIs for data retrieval.
 

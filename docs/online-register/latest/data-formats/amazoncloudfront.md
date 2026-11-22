@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CloudFront
-<a name="amazoncloudfront"></a>
 
 Amazon CloudFront provides the following APIs for data retrieval.
 

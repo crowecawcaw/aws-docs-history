@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CodeGuru
-<a name="amazoncodeguru"></a>
 
 Amazon CodeGuru provides the following APIs for data retrieval.
 

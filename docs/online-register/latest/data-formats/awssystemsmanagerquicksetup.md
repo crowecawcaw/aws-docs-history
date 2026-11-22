@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Systems Manager Quick Setup
-<a name="awssystemsmanagerquicksetup"></a>
 
 AWS Systems Manager Quick Setup provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CloudWatch
-<a name="amazoncloudwatch"></a>
 
 Amazon CloudWatch provides the following APIs for data retrieval.
 

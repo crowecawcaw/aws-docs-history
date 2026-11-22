@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Storage Gateway
-<a name="awsstoragegateway"></a>
 
 AWS Storage Gateway provides the following APIs for data retrieval.
 

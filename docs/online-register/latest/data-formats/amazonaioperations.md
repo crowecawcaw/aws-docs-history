@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon AI Operations
-<a name="amazonaioperations"></a>
 
 Amazon AI Operations provides the following APIs for data retrieval.
 

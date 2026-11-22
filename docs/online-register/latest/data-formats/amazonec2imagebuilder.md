@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon EC2 Image Builder
-<a name="amazonec2imagebuilder"></a>
 
 Amazon EC2 Image Builder provides the following APIs for data retrieval.
 

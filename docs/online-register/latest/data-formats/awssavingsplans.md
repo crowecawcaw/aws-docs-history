@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Savings Plans
-<a name="awssavingsplans"></a>
 
 AWS Savings Plans provides the following APIs for data retrieval.
 

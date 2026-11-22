@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Interconnect
-<a name="awsinterconnect"></a>
 
 AWS Interconnect provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Claude Platform on AWS
-<a name="claudeplatformonaws"></a>
 
 Claude Platform on AWS provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Signer
-<a name="awssigner"></a>
 
 AWS Signer provides the following APIs for data retrieval.
 

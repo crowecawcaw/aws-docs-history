@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon GroundTruth Labeling
-<a name="amazongroundtruthlabeling"></a>
 
 Amazon GroundTruth Labeling provides the following APIs for data retrieval.
 

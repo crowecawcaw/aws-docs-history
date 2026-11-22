@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CloudWatch Observability Access Manager
-<a name="amazoncloudwatchobservabilityaccessmanager"></a>
 
 Amazon CloudWatch Observability Access Manager provides the following APIs for data retrieval.
 

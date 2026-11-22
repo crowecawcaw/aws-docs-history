@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon S3 Tables
-<a name="amazons3tables"></a>
 
 Amazon S3 Tables provides the following APIs for data retrieval.
 

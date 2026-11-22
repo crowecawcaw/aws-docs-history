@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Elastic Load Balancing
-<a name="awselasticloadbalancing"></a>
 
 AWS Elastic Load Balancing provides the following APIs for data retrieval.
 

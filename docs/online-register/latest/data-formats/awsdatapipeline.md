@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Data Pipeline
-<a name="awsdatapipeline"></a>
 
 AWS Data Pipeline provides the following APIs for data retrieval.
 

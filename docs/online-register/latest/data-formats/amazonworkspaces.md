@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon WorkSpaces
-<a name="amazonworkspaces"></a>
 
 Amazon WorkSpaces provides the following APIs for data retrieval.
 

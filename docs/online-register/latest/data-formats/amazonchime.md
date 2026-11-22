@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Chime
-<a name="amazonchime"></a>
 
 Amazon Chime provides the following APIs for data retrieval.
 

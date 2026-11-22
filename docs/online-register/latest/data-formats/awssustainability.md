@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Sustainability
-<a name="awssustainability"></a>
 
 AWS Sustainability provides the following APIs for data retrieval.
 

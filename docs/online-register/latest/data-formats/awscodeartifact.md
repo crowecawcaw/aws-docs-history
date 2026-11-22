@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS CodeArtifact
-<a name="awscodeartifact"></a>
 
 AWS CodeArtifact provides the following APIs for data retrieval.
 

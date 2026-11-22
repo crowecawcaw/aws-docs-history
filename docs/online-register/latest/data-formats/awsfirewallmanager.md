@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Firewall Manager
-<a name="awsfirewallmanager"></a>
 
 AWS Firewall Manager provides the following APIs for data retrieval.
 

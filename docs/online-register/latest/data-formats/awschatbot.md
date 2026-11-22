@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Chatbot
-<a name="awschatbot"></a>
 
 AWS Chatbot provides the following APIs for data retrieval.
 

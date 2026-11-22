@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Identity and Access Management Roles Anywhere
-<a name="awsidentityandaccessmanagementrolesanywhere"></a>
 
 AWS Identity and Access Management Roles Anywhere provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon WorkSpaces Thin Client
-<a name="amazonworkspacesthinclient"></a>
 
 Amazon WorkSpaces Thin Client provides the following APIs for data retrieval.
 

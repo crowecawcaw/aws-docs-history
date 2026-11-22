@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Network Security Manager
-<a name="awsnetworksecuritymanager"></a>
 
 AWS Network Security Manager provides the following APIs for data retrieval.
 

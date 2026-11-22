@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Cloud9
-<a name="awscloud9"></a>
 
 AWS Cloud9 provides the following APIs for data retrieval.
 

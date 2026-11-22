@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS SimSpace Weaver
-<a name="awssimspaceweaver"></a>
 
 AWS SimSpace Weaver provides the following APIs for data retrieval.
 

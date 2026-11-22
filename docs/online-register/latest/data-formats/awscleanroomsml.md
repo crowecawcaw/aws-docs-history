@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Clean Rooms ML
-<a name="awscleanroomsml"></a>
 
 AWS Clean Rooms ML provides the following APIs for data retrieval.
 

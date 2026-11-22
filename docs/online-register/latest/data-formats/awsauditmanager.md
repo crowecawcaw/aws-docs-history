@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Audit Manager
-<a name="awsauditmanager"></a>
 
 AWS Audit Manager provides the following APIs for data retrieval.
 

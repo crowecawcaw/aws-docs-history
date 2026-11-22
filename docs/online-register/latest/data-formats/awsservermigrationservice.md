@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Server Migration Service
-<a name="awsservermigrationservice"></a>
 
 AWS Server Migration Service provides the following APIs for data retrieval.
 

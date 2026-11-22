@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IAM Access Analyzer
-<a name="awsiamaccessanalyzer"></a>
 
 AWS IAM Access Analyzer provides the following APIs for data retrieval.
 

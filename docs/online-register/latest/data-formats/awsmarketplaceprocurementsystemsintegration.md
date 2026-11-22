@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Marketplace Procurement Systems Integration
-<a name="awsmarketplaceprocurementsystemsintegration"></a>
 
 AWS Marketplace Procurement Systems Integration provides the following APIs for data retrieval.
 

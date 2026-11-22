@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IoT Analytics
-<a name="awsiotanalytics"></a>
 
 AWS IoT Analytics provides the following APIs for data retrieval.
 

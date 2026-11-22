@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS CodeCommit
-<a name="awscodecommit"></a>
 
 AWS CodeCommit provides the following APIs for data retrieval.
 

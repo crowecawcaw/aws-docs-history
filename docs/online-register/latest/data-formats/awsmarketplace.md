@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Marketplace
-<a name="awsmarketplace"></a>
 
 AWS Marketplace provides the following APIs for data retrieval.
 

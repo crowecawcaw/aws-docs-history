@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Athena
-<a name="amazonathena"></a>
 
 Amazon Athena provides the following APIs for data retrieval.
 

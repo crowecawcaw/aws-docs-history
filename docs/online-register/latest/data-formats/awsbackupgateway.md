@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Backup Gateway
-<a name="awsbackupgateway"></a>
 
 AWS Backup Gateway provides the following APIs for data retrieval.
 

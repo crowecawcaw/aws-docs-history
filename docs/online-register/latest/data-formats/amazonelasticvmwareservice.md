@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Elastic VMware Service
-<a name="amazonelasticvmwareservice"></a>
 
 Amazon Elastic VMware Service provides the following APIs for data retrieval.
 

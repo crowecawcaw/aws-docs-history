@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Elastic MapReduce
-<a name="amazonelasticmapreduce"></a>
 
 Amazon Elastic MapReduce provides the following APIs for data retrieval.
 

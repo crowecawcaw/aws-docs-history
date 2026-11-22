@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CodeGuru Reviewer
-<a name="amazoncodegurureviewer"></a>
 
 Amazon CodeGuru Reviewer provides the following APIs for data retrieval.
 

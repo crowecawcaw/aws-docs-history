@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Managed Grafana
-<a name="amazonmanagedgrafana"></a>
 
 Amazon Managed Grafana provides the following APIs for data retrieval.
 

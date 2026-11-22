@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Security Incident Response
-<a name="awssecurityincidentresponse"></a>
 
 AWS Security Incident Response provides the following APIs for data retrieval.
 

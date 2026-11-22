@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IoT Device Tester
-<a name="awsiotdevicetester"></a>
 
 AWS IoT Device Tester provides the following APIs for data retrieval.
 

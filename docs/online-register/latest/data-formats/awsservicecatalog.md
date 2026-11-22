@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Service Catalog
-<a name="awsservicecatalog"></a>
 
 AWS Service Catalog provides the following APIs for data retrieval.
 

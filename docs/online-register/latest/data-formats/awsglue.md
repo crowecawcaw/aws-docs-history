@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Glue
-<a name="awsglue"></a>
 
 AWS Glue provides the following APIs for data retrieval.
 

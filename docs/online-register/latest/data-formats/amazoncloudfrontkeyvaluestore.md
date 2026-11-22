@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CloudFront KeyValueStore
-<a name="amazoncloudfrontkeyvaluestore"></a>
 
 Amazon CloudFront KeyValueStore provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Pinpoint
-<a name="amazonpinpoint"></a>
 
 Amazon Pinpoint provides the following APIs for data retrieval.
 

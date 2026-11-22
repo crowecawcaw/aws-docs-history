@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon SimpleDB
-<a name="amazonsimpledb"></a>
 
 Amazon SimpleDB provides the following APIs for data retrieval.
 

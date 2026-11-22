@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS AppConfig
-<a name="awsappconfig"></a>
 
 AWS AppConfig provides the following APIs for data retrieval.
 

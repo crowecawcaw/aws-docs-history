@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IQ Permissions
-<a name="awsiqpermissions"></a>
 
 AWS IQ Permissions provides the following APIs for data retrieval.
 

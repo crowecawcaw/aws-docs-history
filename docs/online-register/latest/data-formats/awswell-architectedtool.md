@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Well-Architected Tool
-<a name="awswell-architectedtool"></a>
 
 AWS Well-Architected Tool provides the following APIs for data retrieval.
 

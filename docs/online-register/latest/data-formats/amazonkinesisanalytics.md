@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Kinesis Analytics
-<a name="amazonkinesisanalytics"></a>
 
 Amazon Kinesis Analytics provides the following APIs for data retrieval.
 

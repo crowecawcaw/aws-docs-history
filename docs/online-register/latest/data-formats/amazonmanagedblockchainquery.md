@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Managed Blockchain Query
-<a name="amazonmanagedblockchainquery"></a>
 
 Amazon Managed Blockchain Query provides the following APIs for data retrieval.
 

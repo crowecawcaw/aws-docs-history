@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Activate
-<a name="awsactivate"></a>
 
 AWS Activate provides the following APIs for data retrieval.
 

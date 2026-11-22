@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Translate
-<a name="amazontranslate"></a>
 
 Amazon Translate provides the following APIs for data retrieval.
 

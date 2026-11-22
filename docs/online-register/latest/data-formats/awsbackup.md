@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Backup
-<a name="awsbackup"></a>
 
 AWS Backup provides the following APIs for data retrieval.
 

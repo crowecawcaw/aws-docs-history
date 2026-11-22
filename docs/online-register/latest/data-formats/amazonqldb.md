@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon QLDB
-<a name="amazonqldb"></a>
 
 Amazon QLDB provides the following APIs for data retrieval.
 

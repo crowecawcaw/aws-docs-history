@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Marketplace Deployment Service
-<a name="awsmarketplacedeploymentservice"></a>
 
 AWS Marketplace Deployment Service provides the following APIs for data retrieval.
 

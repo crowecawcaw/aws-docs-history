@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon S3 Glacier
-<a name="amazons3glacier"></a>
 
 Amazon S3 Glacier provides the following APIs for data retrieval.
 

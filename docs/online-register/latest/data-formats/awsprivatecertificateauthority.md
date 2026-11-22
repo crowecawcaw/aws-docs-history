@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Private Certificate Authority
-<a name="awsprivatecertificateauthority"></a>
 
 AWS Private Certificate Authority provides the following APIs for data retrieval.
 

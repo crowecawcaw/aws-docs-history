@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Route 53
-<a name="amazonroute53"></a>
 
 Amazon Route 53 provides the following APIs for data retrieval.
 

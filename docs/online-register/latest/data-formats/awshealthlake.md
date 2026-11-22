@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS HealthLake
-<a name="awshealthlake"></a>
 
 AWS HealthLake provides the following APIs for data retrieval.
 

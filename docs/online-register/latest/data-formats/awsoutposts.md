@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Outposts
-<a name="awsoutposts"></a>
 
 AWS Outposts provides the following APIs for data retrieval.
 

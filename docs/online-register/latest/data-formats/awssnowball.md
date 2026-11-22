@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Snowball
-<a name="awssnowball"></a>
 
 AWS Snowball provides the following APIs for data retrieval.
 

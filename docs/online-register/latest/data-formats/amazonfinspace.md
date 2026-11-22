@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon FinSpace
-<a name="amazonfinspace"></a>
 
 Amazon FinSpace provides the following APIs for data retrieval.
 

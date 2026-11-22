@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Cost Optimization Hub
-<a name="awscostoptimizationhub"></a>
 
 AWS Cost Optimization Hub provides the following APIs for data retrieval.
 

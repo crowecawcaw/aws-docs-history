@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Purchase Orders Console
-<a name="awspurchaseordersconsole"></a>
 
 AWS Purchase Orders Console provides the following APIs for data retrieval.
 

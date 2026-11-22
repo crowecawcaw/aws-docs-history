@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Tiros
-<a name="awstiros"></a>
 
 AWS Tiros provides the following APIs for data retrieval.
 

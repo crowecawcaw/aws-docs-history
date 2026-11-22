@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Transfer Family
-<a name="awstransferfamily"></a>
 
 AWS Transfer Family provides the following APIs for data retrieval.
 

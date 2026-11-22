@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Redshift
-<a name="amazonredshift"></a>
 
 Amazon Redshift provides the following APIs for data retrieval.
 

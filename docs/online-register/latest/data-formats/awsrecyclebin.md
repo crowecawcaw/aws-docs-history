@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Recycle Bin
-<a name="awsrecyclebin"></a>
 
 AWS Recycle Bin provides the following APIs for data retrieval.
 

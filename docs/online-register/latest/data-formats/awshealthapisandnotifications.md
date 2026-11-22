@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Health APIs and Notifications
-<a name="awshealthapisandnotifications"></a>
 
 AWS Health APIs and Notifications provides the following APIs for data retrieval.
 

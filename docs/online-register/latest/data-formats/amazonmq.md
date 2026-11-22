@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon MQ
-<a name="amazonmq"></a>
 
 Amazon MQ provides the following APIs for data retrieval.
 

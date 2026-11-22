@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Step Functions
-<a name="awsstepfunctions"></a>
 
 AWS Step Functions provides the following APIs for data retrieval.
 

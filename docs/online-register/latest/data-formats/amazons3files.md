@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon S3 Files
-<a name="amazons3files"></a>
 
 Amazon S3 Files provides the following APIs for data retrieval.
 

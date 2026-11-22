@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon EventBridge Schemas
-<a name="amazoneventbridgeschemas"></a>
 
 Amazon EventBridge Schemas provides the following APIs for data retrieval.
 

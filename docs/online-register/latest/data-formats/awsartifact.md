@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Artifact
-<a name="awsartifact"></a>
 
 AWS Artifact provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CodeWhisperer
-<a name="amazoncodewhisperer"></a>
 
 Amazon CodeWhisperer provides the following APIs for data retrieval.
 

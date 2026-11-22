@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Comprehend Medical
-<a name="amazoncomprehendmedical"></a>
 
 Amazon Comprehend Medical provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon GuardDuty
-<a name="amazonguardduty"></a>
 
 Amazon GuardDuty provides the following APIs for data retrieval.
 

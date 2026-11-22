@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon VPC Lattice
-<a name="amazonvpclattice"></a>
 
 Amazon VPC Lattice provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Cloud Directory
-<a name="amazonclouddirectory"></a>
 
 Amazon Cloud Directory provides the following APIs for data retrieval.
 

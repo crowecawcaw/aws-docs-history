@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Network Flow Monitor
-<a name="networkflowmonitor"></a>
 
 Network Flow Monitor provides the following APIs for data retrieval.
 

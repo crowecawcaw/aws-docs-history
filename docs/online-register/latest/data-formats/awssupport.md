@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Support
-<a name="awssupport"></a>
 
 AWS Support provides the following APIs for data retrieval.
 

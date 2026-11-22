@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Braket
-<a name="amazonbraket"></a>
 
 Amazon Braket provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Security Lake
-<a name="amazonsecuritylake"></a>
 
 Amazon Security Lake provides the following APIs for data retrieval.
 

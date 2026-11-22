@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Timestream
-<a name="amazontimestream"></a>
 
 Amazon Timestream provides the following APIs for data retrieval.
 

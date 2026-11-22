@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS CodeStar Connections
-<a name="awscodestarconnections"></a>
 
 AWS CodeStar Connections provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS WorkSpaces Managed Instances
-<a name="awsworkspacesmanagedinstances"></a>
 
 AWS WorkSpaces Managed Instances provides the following APIs for data retrieval.
 

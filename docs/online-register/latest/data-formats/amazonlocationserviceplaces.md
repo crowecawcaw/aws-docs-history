@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Location Service Places
-<a name="amazonlocationserviceplaces"></a>
 
 Amazon Location Service Places provides the following APIs for data retrieval.
 

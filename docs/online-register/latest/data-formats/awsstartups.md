@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Startups
-<a name="awsstartups"></a>
 
 AWS Startups provides the following APIs for data retrieval.
 

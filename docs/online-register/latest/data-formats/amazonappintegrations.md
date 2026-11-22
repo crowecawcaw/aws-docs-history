@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon AppIntegrations
-<a name="amazonappintegrations"></a>
 
 Amazon AppIntegrations provides the following APIs for data retrieval.
 

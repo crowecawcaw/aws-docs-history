@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Account Management
-<a name="awsaccountmanagement"></a>
 
 AWS Account Management provides the following APIs for data retrieval.
 

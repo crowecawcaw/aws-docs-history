@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Multi-party approval
-<a name="multi-partyapproval"></a>
 
 Multi-party approval provides the following APIs for data retrieval.
 

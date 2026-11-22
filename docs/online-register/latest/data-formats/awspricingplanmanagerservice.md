@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS PricingPlanManager Service
-<a name="awspricingplanmanagerservice"></a>
 
 AWS PricingPlanManager Service provides the following APIs for data retrieval.
 

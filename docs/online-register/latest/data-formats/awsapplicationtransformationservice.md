@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Application Transformation Service
-<a name="awsapplicationtransformationservice"></a>
 
 AWS Application Transformation Service provides the following APIs for data retrieval.
 

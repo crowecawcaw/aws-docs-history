@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Systems Manager for SAP
-<a name="awssystemsmanagerforsap"></a>
 
 AWS Systems Manager for SAP provides the following APIs for data retrieval.
 

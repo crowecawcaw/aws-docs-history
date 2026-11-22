@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Deadline Cloud
-<a name="awsdeadlinecloud"></a>
 
 AWS Deadline Cloud provides the following APIs for data retrieval.
 

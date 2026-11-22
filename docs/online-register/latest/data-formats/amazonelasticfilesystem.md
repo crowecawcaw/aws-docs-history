@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Elastic File System
-<a name="amazonelasticfilesystem"></a>
 
 Amazon Elastic File System provides the following APIs for data retrieval.
 

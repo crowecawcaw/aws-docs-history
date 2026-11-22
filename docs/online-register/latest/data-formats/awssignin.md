@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Signin
-<a name="awssignin"></a>
 
 AWS Signin provides the following APIs for data retrieval.
 

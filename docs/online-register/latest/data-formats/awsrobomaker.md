@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS RoboMaker
-<a name="awsrobomaker"></a>
 
 AWS RoboMaker provides the following APIs for data retrieval.
 

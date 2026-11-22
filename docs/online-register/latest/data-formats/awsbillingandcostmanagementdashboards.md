@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Billing and Cost Management Dashboards
-<a name="awsbillingandcostmanagementdashboards"></a>
 
 AWS Billing and Cost Management Dashboards provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Elemental Inference
-<a name="awselementalinference"></a>
 
 AWS Elemental Inference provides the following APIs for data retrieval.
 

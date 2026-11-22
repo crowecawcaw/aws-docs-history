@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Route53 Global Resolver
-<a name="awsroute53globalresolver"></a>
 
 AWS Route53 Global Resolver provides the following APIs for data retrieval.
 

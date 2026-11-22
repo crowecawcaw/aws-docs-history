@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Connect
-<a name="amazonconnect"></a>
 
 Amazon Connect provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Network Firewall
-<a name="awsnetworkfirewall"></a>
 
 AWS Network Firewall provides the following APIs for data retrieval.
 

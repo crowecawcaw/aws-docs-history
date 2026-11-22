@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Route 53 Domains
-<a name="amazonroute53domains"></a>
 
 Amazon Route 53 Domains provides the following APIs for data retrieval.
 

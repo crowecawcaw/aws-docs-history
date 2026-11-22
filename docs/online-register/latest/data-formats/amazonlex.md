@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Lex
-<a name="amazonlex"></a>
 
 Amazon Lex provides the following APIs for data retrieval.
 

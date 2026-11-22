@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IoT Greengrass V2
-<a name="awsiotgreengrassv2"></a>
 
 AWS IoT Greengrass V2 provides the following APIs for data retrieval.
 

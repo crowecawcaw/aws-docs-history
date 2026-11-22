@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon WorkLink
-<a name="amazonworklink"></a>
 
 Amazon WorkLink provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Application Migration Service
-<a name="awsapplicationmigrationservice"></a>
 
 AWS Application Migration Service provides the following APIs for data retrieval.
 

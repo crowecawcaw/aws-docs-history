@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Billing Conductor
-<a name="awsbillingconductor"></a>
 
 AWS Billing Conductor provides the following APIs for data retrieval.
 

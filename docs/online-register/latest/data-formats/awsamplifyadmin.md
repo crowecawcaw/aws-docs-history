@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Amplify Admin
-<a name="awsamplifyadmin"></a>
 
 AWS Amplify Admin provides the following APIs for data retrieval.
 

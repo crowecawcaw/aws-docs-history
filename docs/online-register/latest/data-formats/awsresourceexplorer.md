@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Resource Explorer
-<a name="awsresourceexplorer"></a>
 
 AWS Resource Explorer provides the following APIs for data retrieval.
 

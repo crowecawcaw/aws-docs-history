@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon EC2
-<a name="amazonec2"></a>
 
 Amazon EC2 provides the following APIs for data retrieval.
 

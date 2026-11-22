@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Elemental MediaPackage
-<a name="awselementalmediapackage"></a>
 
 AWS Elemental MediaPackage provides the following APIs for data retrieval.
 

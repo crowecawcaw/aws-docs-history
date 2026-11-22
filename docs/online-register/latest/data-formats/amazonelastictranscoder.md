@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Elastic Transcoder
-<a name="amazonelastictranscoder"></a>
 
 Amazon Elastic Transcoder provides the following APIs for data retrieval.
 

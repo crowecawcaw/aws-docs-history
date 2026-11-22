@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Bedrock Agentcore
-<a name="amazonbedrockagentcore"></a>
 
 Amazon Bedrock Agentcore provides the following APIs for data retrieval.
 

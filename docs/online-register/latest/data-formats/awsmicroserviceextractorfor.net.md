@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Microservice Extractor for .NET
-<a name="awsmicroserviceextractorfor.net"></a>
 
 AWS Microservice Extractor for .NET provides the following APIs for data retrieval.
 

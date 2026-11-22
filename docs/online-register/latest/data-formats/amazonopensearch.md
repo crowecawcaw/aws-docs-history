@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon OpenSearch
-<a name="amazonopensearch"></a>
 
 Amazon OpenSearch provides the following APIs for data retrieval.
 

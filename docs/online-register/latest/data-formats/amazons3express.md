@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon S3 Express
-<a name="amazons3express"></a>
 
 Amazon S3 Express provides the following APIs for data retrieval.
 

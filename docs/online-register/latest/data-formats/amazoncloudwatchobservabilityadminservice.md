@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon CloudWatch Observability Admin Service
-<a name="amazoncloudwatchobservabilityadminservice"></a>
 
 Amazon CloudWatch Observability Admin Service provides the following APIs for data retrieval.
 

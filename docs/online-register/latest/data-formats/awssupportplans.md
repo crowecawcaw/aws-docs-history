@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Support Plans
-<a name="awssupportplans"></a>
 
 AWS Support Plans provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon EC2 Auto Scaling
-<a name="amazonec2autoscaling"></a>
 
 Amazon EC2 Auto Scaling provides the following APIs for data retrieval.
 

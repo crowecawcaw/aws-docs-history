@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Key Management Service
-<a name="awskeymanagementservice"></a>
 
 AWS Key Management Service provides the following APIs for data retrieval.
 

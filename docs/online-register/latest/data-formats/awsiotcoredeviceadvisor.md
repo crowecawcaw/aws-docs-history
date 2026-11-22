@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IoT Core Device Advisor
-<a name="awsiotcoredeviceadvisor"></a>
 
 AWS IoT Core Device Advisor provides the following APIs for data retrieval.
 

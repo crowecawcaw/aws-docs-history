@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Simple Email Service - Mail Manager
-<a name="amazonsimpleemailservice-mailmanager"></a>
 
 Amazon Simple Email Service - Mail Manager provides the following APIs for data retrieval.
 

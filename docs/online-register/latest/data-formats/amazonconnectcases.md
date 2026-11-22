@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Connect Cases
-<a name="amazonconnectcases"></a>
 
 Amazon Connect Cases provides the following APIs for data retrieval.
 

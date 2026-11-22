@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Agent Registry
-<a name="awsagentregistry"></a>
 
 AWS Agent Registry provides the following APIs for data retrieval.
 

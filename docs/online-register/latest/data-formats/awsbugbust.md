@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS BugBust
-<a name="awsbugbust"></a>
 
 AWS BugBust provides the following APIs for data retrieval.
 

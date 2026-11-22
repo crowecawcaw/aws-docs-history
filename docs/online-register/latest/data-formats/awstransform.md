@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Transform
-<a name="awstransform"></a>
 
 AWS Transform provides the following APIs for data retrieval.
 

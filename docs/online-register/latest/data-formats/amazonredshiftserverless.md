@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Redshift Serverless
-<a name="amazonredshiftserverless"></a>
 
 Amazon Redshift Serverless provides the following APIs for data retrieval.
 

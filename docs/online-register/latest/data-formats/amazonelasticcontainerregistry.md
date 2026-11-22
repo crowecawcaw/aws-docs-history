@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Elastic Container Registry
-<a name="amazonelasticcontainerregistry"></a>
 
 Amazon Elastic Container Registry provides the following APIs for data retrieval.
 

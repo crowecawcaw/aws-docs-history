@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Managed Service for Prometheus
-<a name="amazonmanagedserviceforprometheus"></a>
 
 Amazon Managed Service for Prometheus provides the following APIs for data retrieval.
 

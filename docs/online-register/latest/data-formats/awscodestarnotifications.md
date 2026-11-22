@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS CodeStar Notifications
-<a name="awscodestarnotifications"></a>
 
 AWS CodeStar Notifications provides the following APIs for data retrieval.
 

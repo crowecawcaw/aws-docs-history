@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Launch Wizard
-<a name="awslaunchwizard"></a>
 
 AWS Launch Wizard provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon DynamoDB
-<a name="amazondynamodb"></a>
 
 Amazon DynamoDB provides the following APIs for data retrieval.
 

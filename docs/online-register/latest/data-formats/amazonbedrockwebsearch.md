@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Bedrock Web Search
-<a name="amazonbedrockwebsearch"></a>
 
 Amazon Bedrock Web Search provides the following APIs for data retrieval.
 

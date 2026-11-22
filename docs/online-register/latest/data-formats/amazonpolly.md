@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Polly
-<a name="amazonpolly"></a>
 
 Amazon Polly provides the following APIs for data retrieval.
 

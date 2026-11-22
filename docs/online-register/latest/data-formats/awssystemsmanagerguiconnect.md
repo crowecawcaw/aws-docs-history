@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Systems Manager GUI Connect
-<a name="awssystemsmanagerguiconnect"></a>
 
 AWS Systems Manager GUI Connect provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Batch
-<a name="awsbatch"></a>
 
 AWS Batch provides the following APIs for data retrieval.
 

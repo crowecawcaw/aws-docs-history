@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon Forecast
-<a name="amazonforecast"></a>
 
 Amazon Forecast provides the following APIs for data retrieval.
 

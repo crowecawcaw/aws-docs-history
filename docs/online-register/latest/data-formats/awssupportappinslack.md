@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Support App in Slack
-<a name="awssupportappinslack"></a>
 
 AWS Support App in Slack provides the following APIs for data retrieval.
 

@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Systems Manager
-<a name="awssystemsmanager"></a>
 
 AWS Systems Manager provides the following APIs for data retrieval.
 

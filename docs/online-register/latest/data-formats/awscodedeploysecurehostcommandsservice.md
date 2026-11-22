@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS CodeDeploy secure host commands service
-<a name="awscodedeploysecurehostcommandsservice"></a>
 
 AWS CodeDeploy secure host commands service provides the following APIs for data retrieval.
 

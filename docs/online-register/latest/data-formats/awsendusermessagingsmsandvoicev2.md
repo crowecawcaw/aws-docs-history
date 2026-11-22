@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS End User Messaging SMS and Voice V2
-<a name="awsendusermessagingsmsandvoicev2"></a>
 
 AWS End User Messaging SMS and Voice V2 provides the following APIs for data retrieval.
 

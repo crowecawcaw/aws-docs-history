@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS IoT Managed Integrations
-<a name="awsiotmanagedintegrations"></a>
 
 AWS IoT Managed Integrations provides the following APIs for data retrieval.
 

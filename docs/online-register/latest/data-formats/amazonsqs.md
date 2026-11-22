@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for Amazon SQS
-<a name="amazonsqs"></a>
 
 Amazon SQS provides the following APIs for data retrieval.
 

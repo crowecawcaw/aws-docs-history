@@ -1,7 +1,6 @@
 
 
 # Data retrieval APIs for AWS Application Discovery Service
-<a name="awsapplicationdiscoveryservice"></a>
 
 AWS Application Discovery Service provides the following APIs for data retrieval.
 
