@@ -1,7 +1,6 @@
 
 
 # Deliver Content Faster with Amazon CloudFront
-<a name="deliver-content-faster"></a>
 
 
 |  |  | 
