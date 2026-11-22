@@ -1,7 +1,6 @@
 
 
 # Managing Oracle Database@AWS
-<a name="managing"></a>
 
 You can modify and delete some Oracle Database@AWS resources after you create them.
 
@@ -117,6 +116,23 @@ To delete an ODB peering connection, use the `delete-odb-peering-connection` com
 aws odb delete-odb-peering-connection \
     --odb-peering-connection-id {{odbpcx-1234567890abcdef}}
 ```
+
+## Scaling Exadata infrastructure and VM clusters in Oracle Database@AWS
+<a name="managing-scaling"></a>
+
+You can scale an Oracle Exadata infrastructure, an Exadata VM cluster, or an Autonomous VM cluster after you create it. You can scale from the Oracle Database@AWS console, CLI, or APIs. In the console, open the details page for the resource and choose **Actions**. Scaling operations can take several hours to complete.
+
+**Note**  
+Scaling depends on the OCI service limits for your tenancy. If a scaling request exceeds a limit, request a limit increase from OCI. For more information, see [Quotas for Oracle Database@AWS](quotas.md).
+
+**Scale an Exadata infrastructure**  
+Add or remove database servers or storage servers. After you scale an Exadata infrastructure, allocate the new storage capacity to your Exadata VM cluster or Autonomous VM cluster. You can use the remaining capacity for database storage and for future storage scale-up operations.
+
+**Scale an Exadata VM cluster**  
+Increase or decrease the CPU cores, memory, local storage, and Exadata storage. Add VMs on more database servers, or remove the VM from one database server at a time.
+
+**Scale an Autonomous VM cluster**  
+Increase or decrease the database storage, ECPU count per VM, and the maximum number of autonomous container databases.
 
 ## Managing Autonomous Database Serverless instances
 <a name="managing-adbs"></a>

@@ -1,7 +1,6 @@
 
 
 # Logging Oracle Database@AWS API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Oracle Database@AWS is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for Oracle Database@AWS as events. The calls captured include calls from the Oracle Database@AWS console and code calls to the Oracle Database@AWS API operations. Using the information collected by CloudTrail, you can determine the request that was made to Oracle Database@AWS, the IP address from which the request was made, when it was made, and additional details.
 
@@ -40,7 +39,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail event that demonstrates the `CreateOdbNetwork` operation.
 
-```
+```JSON
 {
     "eventVersion": "1.09",
     "userIdentity": {

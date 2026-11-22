@@ -1,7 +1,6 @@
 
 
 # Data filtering for zero-ETL integrations in Oracle Database@AWS
-<a name="filtering-zero-etl"></a>
 
 Oracle Database@AWS zero-ETL integrations support data filtering. You can use it to control which data your source Oracle Exadata database replicates to your target data warehouse. Instead of replicating the entire database, you can apply one or more filters to selectively include or exclude specific tables. This helps you optimize storage and query performance by ensuring that only relevant data is transferred. Filtering is limited to the database and table levels. Column- and row-level filtering aren't supported.
 

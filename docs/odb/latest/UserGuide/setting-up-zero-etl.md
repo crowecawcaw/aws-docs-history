@@ -1,7 +1,6 @@
 
 
 # Setting up Oracle Database@AWS integrations with Amazon Redshift
-<a name="setting-up-zero-etl"></a>
 
 To set up zero-ETL integration between your Oracle database and Amazon Redshift, complete the following steps:
 
@@ -108,7 +107,7 @@ Create a Customer Managed Key (CMK) and store your database credentials.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -145,7 +144,7 @@ Create a Customer Managed Key (CMK) and store your database credentials.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -211,7 +210,7 @@ The following policy grants the necessary permissions.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Oracle Database@AWS
-<a name="odb-troubleshooting-overview"></a>
 
 Use the following sections to help troubleshoot networking issues you may encounter with Oracle Database@AWS.
 
@@ -38,12 +37,48 @@ If you add a CIDR range to the ODB network peered CIDR list without attaching a 
 ## Connectivity issues between your VPC and ODB network or VM clusters
 <a name="odb_troubleshooting.vpctoodb"></a>
 
-When you can't connect from your VPC to the ODB network or the VM clusters within it, the following are common causes:
-+ **Verifying VPC configuration** – In the Oracle Database@AWS console, locate the VPC that is peered with the ODB network. Confirm the VPC ID matches the one shown in the ODB network details.
-+ **Inspecting route tables** – In the Amazon VPC console, find the route table attached to the subnet where your application is running. Check for a route with a destination CIDR that matches the client subnet CIDR of the ODB network. Confirm that this route points to the correct ODB network ARN. If the route is missing, add a new one to the ODB network's client subnet CIDR.
-+ **Validating peered CIDRs** – Review the `Peered CIDRs` section in the ODB network details. Confirm all the relevant CIDR blocks from your VPC are listed. If a required CIDR is missing, update the peered CIDRs.
-+ **Checking security group rules** – In the Amazon EC2 console, locate the security groups for resources in your VPC. Review the inbound and outbound rules, updating them as needed to permit the necessary traffic.
-+ **Avoiding multiple ODB network peering connections** – Check your VPC peering connections in the Oracle Database@AWS Console. Make sure you have only one active connection to an ODB network. If you see more than one ODB network peering, remove the extra ones.
+When you can't connect from your VPC to the ODB network or the VM clusters within it, the following are common causes.
+
+**Important**  
+Currently, your Amazon VPC must have at least one subnet in the Availability Zone where you deployed your ODB network. If it doesn't, you can't send cross-Availability Zone (cross-AZ) traffic between your Amazon VPC and the ODB network. To fix this, add a subnet in that Availability Zone. The subnet doesn't need any resources. For more information, see [Creating an ODB peering connection in Oracle Database@AWS](configuring.md#network-peering).
+
+Checking the peered VPC  
+
+1. In the Oracle Database@AWS console, open the ODB network details and find the peered VPC.
+
+1. Confirm that the VPC ID matches the ID of the VPC where your application runs.
+
+Checking route tables for the ODB network route  
+
+1. In the Amazon VPC console, find the route table attached to the subnet where your application runs.
+
+1. Check for a route with a destination CIDR that matches the client subnet CIDR of the ODB network.
+
+1. Confirm that this route points to the correct ODB network ARN.
+
+1. If the route is missing, add a route to the ODB network's client subnet CIDR.
+
+Checking peered CIDRs  
+
+1. In the ODB network details, review the **Peered CIDRs** section.
+
+1. Confirm that all the relevant CIDR blocks from your VPC are listed.
+
+1. If a required CIDR is missing, update the peered CIDRs.
+
+Checking security group rules  
+
+1. In the Amazon EC2 console, find the security groups for the resources in your VPC.
+
+1. Review the inbound and outbound rules, and update them to allow the required traffic.
+
+Checking for multiple ODB network peering connections  
+
+1. In the Oracle Database@AWS console, review your VPC peering connections.
+
+1. Make sure that you have only one active connection to an ODB network.
+
+1. If you see more than one ODB network peering connection, remove the extra ones.
 
 ## Unresolvable hostnames or scannames of VM clusters from VPC
 <a name="odb_troubleshooting.unreshostname"></a>

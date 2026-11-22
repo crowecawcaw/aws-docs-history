@@ -1,7 +1,6 @@
 
 
 # Monitoring zero-ETL integration
-<a name="monitoring-zero-etl"></a>
 
 Regular monitoring of your zero-ETL integration ensures optimal performance and helps identify issues early.
 

@@ -1,7 +1,6 @@
 
 
 # What is Oracle Database@AWS?
-<a name="what-is-odb"></a>
 
 With Oracle Database@AWS, you can access Oracle Exadata infrastructure, Oracle Exadata Database Service on Exascale Infrastructure (ExaDB-XS), and Oracle Autonomous Database Serverless managed by Oracle Cloud Infrastructure (OCI) inside AWS data centers. You can migrate your Oracle Exadata workloads, deploy elastic Exascale databases, and deploy serverless Oracle Autonomous Databases. You can also establish low-latency connectivity with applications running on AWS and integrate with AWS services. You get a single invoice through AWS Marketplace, which counts towards AWS commitments and Oracle Support rewards.
 

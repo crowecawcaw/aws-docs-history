@@ -1,7 +1,6 @@
 
 
 # Getting started with Oracle Database@AWS
-<a name="getting-started"></a>
 
 To begin using Oracle Database@AWS, you can create the following resources using the Oracle Database@AWS console, CLI, or APIs:
 
@@ -105,15 +104,8 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | --- | --- | --- | 
 | South America (São Paulo) | sa-east-1 | sae1-az1, sae1-az2 | 
 
-**Supported Availability Zones for Autonomous Database Serverless (ADB-S)**
-
-ADB-S is available in the following Availability Zones:
-
-
-| Region name | Region code | Availability Zones | 
-| --- | --- | --- | 
-| US East (N. Virginia) | us-east-1 | use1-az6 | 
-| US West (Oregon) | us-west-2 | usw2-az3, usw2-az4 | 
+**Note**  
+Autonomous Database Serverless (ADB-S) is available in a subset of the supported AWS Regions and Availability Zones. For more information about ADB-S availability by Region and Availability Zone, see [Regional Availability for Oracle Database@AWS](https://docs.oracle.com/en-us/iaas/Content/database-at-aws/oaaws-regions.htm) on the Oracle Help Center website.
 
 To find the logical AZ names in your account that map to the preceding physical AZ IDs, run the following command.
 
@@ -348,7 +340,7 @@ The Oracle Exadata infrastructure is the underlying architecture of database ser
 
 You can create the Oracle Exadata infrastructure and the ODB network in either order. You don't need to specify networking information when you create the infrastructure.
 
-You can't modify an Oracle Exadata infrastructure after you create it. To delete an Exadata infrastructure, see [Deleting an Oracle Exadata infrastructure in Oracle Database@AWS](managing.md#deleting_infra).
+After you create an Oracle Exadata infrastructure, you can scale it from the Oracle Database@AWS console, CLI, or APIs. For instructions on scaling, see [Scaling Exadata infrastructure and VM clusters in Oracle Database@AWS](managing.md#managing-scaling). For instructions on deleting an Exadata infrastructure, see [Deleting an Oracle Exadata infrastructure in Oracle Database@AWS](managing.md#deleting_infra).
 
 **To create an Exadata infrastructure**
 

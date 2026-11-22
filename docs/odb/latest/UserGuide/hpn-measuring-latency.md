@@ -1,7 +1,6 @@
 
 
 # Measuring network latency
-<a name="hpn-measuring-latency"></a>
 
 To measure and validate network latency between your Amazon EC2 instances and Oracle Database@AWS databases, we recommend using **sockperf**, an open-source TCP-level latency measurement tool. sockperf provides complementary network metrics that help you:
 + Establish network performance baselines

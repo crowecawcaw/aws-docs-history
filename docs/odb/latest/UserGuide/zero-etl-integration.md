@@ -1,7 +1,6 @@
 
 
 # Oracle Database@AWS Zero-ETL integration with Amazon Redshift
-<a name="zero-etl-integration"></a>
 
 Zero-ETL integration is a fully managed solution that makes transactional and operational data available in Amazon Redshift from multiple sources. With this solution, you can replicate data to Amazon Redshift from your Oracle databases running on Oracle Exadata or Autonomous Database on Dedicated Exadata Infrastructure. The automatic synchronization avoids the traditional extract, transform, and load (ETL) process. It also enables real-time analytics and AI workloads. For more information, see [Zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/mgmt/zero-etl-using.html) in the *Amazon Redshift Management Guide*.
 

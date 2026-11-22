@@ -1,7 +1,6 @@
 
 
 # Prerequisites for zero-ETL integration in Oracle Database@AWS
-<a name="zero-etl-prerequisites"></a>
 
 Before setting up zero-ETL integration, ensure that you meet the following prerequisites.
 

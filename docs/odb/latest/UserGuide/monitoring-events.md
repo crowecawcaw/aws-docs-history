@@ -1,7 +1,6 @@
 
 
 # Monitoring Oracle Database@AWS events in Amazon EventBridge
-<a name="monitoring-events"></a>
 
 You can monitor Oracle Database@AWS events in EventBridge, which delivers a stream of real-time data from applications and AWS services. EventBridge routes this data to targets such as AWS Lambda and Amazon Simple Notification Service.
 

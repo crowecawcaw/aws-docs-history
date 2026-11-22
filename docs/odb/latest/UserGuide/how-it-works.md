@@ -1,7 +1,6 @@
 
 
 # How Oracle Database@AWS works
-<a name="how-it-works"></a>
 
 Oracle Database@AWS integrates Oracle Cloud Infrastructure (OCI) with the AWS Cloud. In the following sections, you can learn about the key components of this multicloud architecture.
 
@@ -140,22 +139,8 @@ When you create an ODB network, you specify information such as the following:
 </tbody>
 </table>
 
-
-  **Supported Availability Zones for Autonomous Database Serverless (ADB-S)**
-
-  ADB-S is available in the following Availability Zones:
-
-
-<table>
-<thead>
-  <tr><th>Region name</th><th>Region code</th><th>Availability Zones</th></tr>
-</thead>
-<tbody>
-  <tr><td>US East (N. Virginia)</td><td><code>us-east-1</code></td><td><code>use1-az6</code></td></tr>
-  <tr><td>US West (Oregon)</td><td><code>us-west-2</code></td><td><code>usw2-az3</code>, <code>usw2-az4</code></td></tr>
-</tbody>
-</table>
-
+**Note**  
+Autonomous Database Serverless (ADB-S) is available in a subset of the supported AWS Regions and Availability Zones. For more information about ADB-S availability by Region and Availability Zone, see [Regional Availability for Oracle Database@AWS](https://docs.oracle.com/en-us/iaas/Content/database-at-aws/oaaws-regions.htm) on the Oracle Help Center website.
 
   To find the logical AZ names in your account that map to the preceding physical AZ IDs, run the following command.
 

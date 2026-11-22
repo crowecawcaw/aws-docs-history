@@ -1,7 +1,6 @@
 
 
 # Getting started with High Performance Networking
-<a name="hpn-getting-started"></a>
 
 ## Supported offerings
 <a name="hpn-supported-offerings"></a>

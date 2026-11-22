@@ -1,7 +1,6 @@
 
 
 # Data protection in Oracle Database@AWS
-<a name="data-protection"></a>
 
 For data protection purposes, we recommend that you protect AWS account credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
 + Use multi-factor authentication (MFA) with each account.

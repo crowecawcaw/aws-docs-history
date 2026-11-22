@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="hpn-troubleshooting"></a>
 
 ## Handling Insufficient Capacity Errors (ICE)
 <a name="handling-ice-errors"></a>

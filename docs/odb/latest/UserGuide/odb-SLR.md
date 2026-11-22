@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Oracle Database@AWS
-<a name="odb-SLR"></a>
 
 Oracle Database@AWS uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#id_roles_terms-and-concepts). A service-linked role is a unique type of IAM role that is linked directly to Oracle Database@AWS. Service-linked roles are predefined by Oracle Database@AWS and include all the permissions that the service requires to call other AWS services on your behalf.
 

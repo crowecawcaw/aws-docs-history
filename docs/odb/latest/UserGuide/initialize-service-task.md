@@ -1,7 +1,6 @@
 
 
 # Initializing Oracle Database@AWS in a trusted account
-<a name="initialize-service-task"></a>
 
 A trusted account is an AWS account that you designate as eligible to receive resource shares. It must be another individual AWS account in your AWS organization. Before you can use shared Oracle Database@AWS resources in a trusted account, you must initialize the service. Initialization creates the necessary metadata and establishes the connection between your AWS account and Oracle Cloud Infrastructure.
 

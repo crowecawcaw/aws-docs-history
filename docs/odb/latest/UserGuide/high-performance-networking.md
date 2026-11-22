@@ -1,7 +1,6 @@
 
 
 # High Performance Networking for Oracle Database@AWS
-<a name="high-performance-networking"></a>
 
 ## Overview
 <a name="hpn-overview"></a>

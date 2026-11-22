@@ -1,7 +1,6 @@
 
 
 # Entitlement sharing in Oracle Database@AWS
-<a name="entitlement-sharing"></a>
 
 With Oracle Database@AWS, you can share AWS Marketplace entitlements for Oracle Database@AWS across AWS accounts in the same AWS organization. With this sharing, other accounts can provision their own Oracle Exadata infrastructure, ODB network, Autonomous Database Serverless (ADB-S), and Oracle Exadata Database Service on Exascale Infrastructure (ExaDB-XS) resources using your subscription.
 

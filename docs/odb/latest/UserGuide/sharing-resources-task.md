@@ -1,7 +1,6 @@
 
 
 # Sharing Oracle Database@AWS resources across accounts
-<a name="sharing-resources-task"></a>
 
 To enable collaboration while optimizing costs, share Oracle Database@AWS resources with other AWS accounts within the same AWS organization. This topic explains how to share resources using AWS Resource Access Manager (AWS RAM).
 
