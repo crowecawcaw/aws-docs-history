@@ -1,7 +1,6 @@
 
 
 # Concepts
-<a name="sap-nw-pacemaker-sles-concepts"></a>
 
 This section covers AWS, SAP, and SUSE concepts.
 

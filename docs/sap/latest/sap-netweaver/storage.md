@@ -1,7 +1,6 @@
 
 
 # Storage
-<a name="storage"></a>
 
 The following table lists the main directories for SQL Server database.
 

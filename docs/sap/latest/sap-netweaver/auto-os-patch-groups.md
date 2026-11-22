@@ -1,7 +1,6 @@
 
 
 # Create patch groups
-<a name="auto-os-patch-groups"></a>
 
 You can use patch groups to organize instances for patching. This can help you ensure that you only deploy patches to the correct set of instances and that the patches have been adequately tested before they are deployed. After you create the patch group, you can tag your Amazon EC2 instances to add them to the patch group and then add the patch group to a patch baseline.
 

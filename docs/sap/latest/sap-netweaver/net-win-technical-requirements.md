@@ -1,7 +1,6 @@
 
 
 # Technical Requirements
-<a name="net-win-technical-requirements"></a>
 
 1. Ensure that any [service limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) are high enough and the current usage low enough to be able to launch the resources that you need. If necessary, request a service limit increase for the AWS resource that you’re planning to use. In particular:
 

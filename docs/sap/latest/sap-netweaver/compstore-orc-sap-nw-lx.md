@@ -1,7 +1,6 @@
 
 
 # Compute & storage
-<a name="compstore-orc-sap-nw-lx"></a>
 
 ## Compute
 <a name="compute-compstore-orc-sap-nw-lx"></a>

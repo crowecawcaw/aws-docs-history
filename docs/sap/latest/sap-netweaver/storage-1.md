@@ -1,7 +1,6 @@
 
 
 # Storage
-<a name="storage-1"></a>
 
 The following list includes Amazon storage services included in this guide.
 

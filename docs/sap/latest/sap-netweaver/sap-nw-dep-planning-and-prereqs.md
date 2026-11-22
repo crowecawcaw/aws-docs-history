@@ -1,7 +1,6 @@
 
 
 # Planning and Prerequisites
-<a name="sap-nw-dep-planning-and-prereqs"></a>
 
 **Topics**
 + [SAP Landscape Assessment](#sap-nw-dep-planning-and-prereqs-assess)

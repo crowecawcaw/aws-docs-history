@@ -1,7 +1,6 @@
 
 
 # Install SAP
-<a name="install-sap-nw-sles"></a>
 
 The following topics provide information about installing SAP on AWS Cloud in a highly available cluster. Review SAP Documentation for more details.
 
@@ -30,13 +29,13 @@ Install the ASCS instance on `<instance_id_1>` using virtual hostname `<ascs_vir
 
  *Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md) *:
 
-```
+```console
 # <swpm location>/sapinst SAPINST_USE_HOSTNAME=<ascs_virt_hostname>
 ```
 
 Install the ERS instance on `<instance_id_2>` using virtual hostname `<ers_virt_hostname>` with the `SAPINST_USE_HOSTNAME` parameter. This ensures the installation uses the overlay IP rather than the physical hostname:
 
-```
+```console
 # <swpm location>/sapinst SAPINST_USE_HOSTNAME=<ers_virt_hostname>
 ```
 
@@ -60,6 +59,6 @@ This is applicable to both cluster nodes. The SAP host agent is used for system 
 
 Use the following command to check the version of the host agent:
 
-```
+```console
 # /usr/sap/hostctrl/exe/saphostexec -version
 ```

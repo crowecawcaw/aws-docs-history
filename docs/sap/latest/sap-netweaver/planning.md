@@ -1,7 +1,6 @@
 
 
 # Planning
-<a name="planning"></a>
 
 **Topics**
 + [Architecture Options](architecture-options.md)

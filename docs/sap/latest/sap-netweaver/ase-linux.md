@@ -1,7 +1,6 @@
 
 
 # SAP ASE for SAP NetWeaver on AWS Deployment and Operations Guide for Linux
-<a name="ase-linux"></a>
 
 This guide provides information about configuring SAP ASE database for SAP NetWeaver on AWS.
 

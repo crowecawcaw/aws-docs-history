@@ -1,7 +1,6 @@
 
 
 # Predefined patch baselines
-<a name="auto-os-patch-predefined-baselines"></a>
 
 Patch manager provides predefined patch baselines for each of the supported operating systems. If your patching requirement patches the predefined baseline configuration, you might be able to use a predefined patch baseline for operating system patching. Alternatively, you can create your own custom patch baselines. This gives you greater control over which patches are approved or rejected for your environment.
 

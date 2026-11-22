@@ -1,7 +1,6 @@
 
 
 # Storage for Oracle
-<a name="storeorc-orc-sap-nw-lx"></a>
 
 This section describes the key considerations for designing storage layout of Oracle for SAP NetWeaver on AWS. Before defining the layout, we recommend familiarizing yourself with IOPS and throughput offered by [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) and learning to calculate the baseline and burstable IOPS and throughput for these volumes. Amazon EC2 instances also have IOPS and throughput limits. For more details, see [Amazon EBS-optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html).
 

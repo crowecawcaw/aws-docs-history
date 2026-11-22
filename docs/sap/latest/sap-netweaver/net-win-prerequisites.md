@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="net-win-prerequisites"></a>
 
 ## Specialized Knowledge
 <a name="net-win-specialized-knowledge"></a>

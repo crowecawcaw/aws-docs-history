@@ -1,7 +1,6 @@
 
 
 # Cluster Node Setup
-<a name="cluster-node-setup-nw-rhel"></a>
 
 Establish cluster communication between nodes using Corosync and configure required authentication.
 
@@ -20,7 +19,7 @@ Establish cluster communication between nodes using Corosync and configure requi
 
 On all cluster nodes, change the password of the operating system user hacluster:
 
-```
+```console
 # passwd hacluster
 ```
 
@@ -39,7 +38,7 @@ Review the security implications for your organization, including root access co
 
 On all cluster nodes, enable and start the pcsd service:
 
-```
+```console
 # systemctl enable pcsd --now
 ```
 
@@ -48,12 +47,12 @@ On all cluster nodes, enable and start the pcsd service:
 
 Run the following command to authenticate the cluster nodes. You will be prompted for the hacluster password you set earlier:
 
-```
+```console
 # pcs host auth <hostname_1> <hostname_2> -u hacluster -p <password>
 ```
 +  *Example using values from [Parameter Reference](sap-nw-pacemaker-rhel-parameters.md) *:
 
-  ```
+  ```console
   # pcs host auth rhxhost01 rhxhost02 -u hacluster -p <password>
   ```
 
@@ -62,14 +61,14 @@ Run the following command to authenticate the cluster nodes. You will be prompte
 
 Corosync provides membership and member-communication needs for high availability clusters. Initial setup can be performed using the following command with dual network rings for redundant communication:
 
-```
+```console
 # pcs cluster setup <cluster_name> \
 <hostname_1> addr=<host_ip_1> addr=<host_additional_ip_1> \
 <hostname_2> addr=<host_ip_2> addr=<host_additional_ip_2>
 ```
 +  *Example using values from [Parameter Reference](sap-nw-pacemaker-rhel-parameters.md) *:
 
-  ```
+  ```console
   # pcs cluster setup myCluster rhxhost01 addr=10.1.10.1 addr=10.1.10.2 rhxhost02 addr=10.1.20.1 addr=10.1.20.2
   Destroying cluster on hosts: 'rhxhost01', 'rhxhost02'...
   rhxhost01: Successfully destroyed cluster
@@ -90,7 +89,7 @@ Corosync provides membership and member-communication needs for high availabilit
 
 The timing parameters are optimized for AWS cloud environments. Update the token timeout to provide reliable cluster operation while accommodating normal cloud network characteristics:
 
-```
+```console
 # pcs cluster config update totem token=15000
 ```
 
@@ -99,7 +98,7 @@ The timing parameters are optimized for AWS cloud environments. Update the token
 
 Start the cluster on all nodes:
 
-```
+```console
 # pcs cluster start --all
 ```
 
@@ -108,13 +107,13 @@ By enabling the pacemaker service, the server automatically joins the cluster af
 
 Run the following command to check the cluster status:
 
-```
+```console
 # pcs status
 ```
 
 Example output:
 
-```
+```console
 Cluster name: myCluster
 
 WARNINGS:
@@ -142,13 +141,13 @@ Daemon Status:
 
 Both cluster nodes must show up as online. You can find the ring status and the associated IP addresses of the cluster with the corosync-cfgtool command:
 
-```
+```console
 # corosync-cfgtool -s
 ```
 
 Example output:
 
-```
+```text
 Local node ID 1, transport knet
 LINK ID 0 udp
         addr    = 10.1.10.114
@@ -169,7 +168,7 @@ Both network rings should report "active with no faults". If either ring is miss
 
 Enable pacemaker to start automatically after reboot:
 
-```
+```console
 # pcs cluster enable --all
 ```
 
@@ -180,19 +179,19 @@ Enabling pacemaker also handles corosync through service dependencies. The clust
 
  **1. Check pacemaker service status:** 
 
-```
+```console
 # systemctl status pacemaker
 ```
 
  **2. Verify cluster status:** 
 
-```
+```console
 # pcs status
 ```
 
  *Example output*:
 
-```
+```text
 Cluster name: myCluster
 Cluster Summary:
   * Stack: corosync

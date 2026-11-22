@@ -1,7 +1,6 @@
 
 
 # Architecture Options
-<a name="net-win-architecture-options"></a>
 
 **Topics**
 + [Standard System Deployment](net-win-standard-system-deployment.md)

@@ -1,7 +1,6 @@
 
 
 # Setup Overview
-<a name="sap-nw-pacemaker-rhel-setup-overview"></a>
 
 You must meet the following prerequisites before commencing setup.
 

@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
  AWS provides several [security capabilities](https://aws.amazon.com/security/) and services to securely run your SAP applications on AWS platform. In the context of SQL Server for SAP applications, you can use network services and features such as Amazon VPC, AWS Virtual Private Network, AWS Direct Connect, and Amazon EC2 [security groups, network access controls, route tables,](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html) and so on, to restrict the access to your database.
 

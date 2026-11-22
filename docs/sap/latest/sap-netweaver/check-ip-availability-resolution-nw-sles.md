@@ -1,7 +1,6 @@
 
 
 # Check IP availability and resolution
-<a name="check-ip-availability-resolution-nw-sles"></a>
 
 ## Add Overlay IP for SAP Installation
 <a name="add-oip-sapinst-nw-sles"></a>
@@ -12,13 +11,13 @@ To facilitate SAP installation, manually add the Overlay IPs to the instances:
 
 1. To the instance where you intend to install the **ASCS** 
 
-   ```
+   ```console
    # ip addr add <ascs_overlayip>/32 dev eth0
    ```
 
 1. To the instance where you intend to install the **ERS** 
 
-   ```
+   ```console
    # ip addr add <ers_overlayip>/32 dev eth0
    ```
 
@@ -32,7 +31,7 @@ Note the following:
 
 You must ensure that all instances can resolve all hostnames in use. Add the hostnames for cluster nodes to `/etc/hosts` file on all cluster nodes. This ensures that hostnames for cluster nodes can be resolved even in case of DNS issues. Configure the `/etc/hosts` file for a two-node cluster:
 
-```
+```text
 # cat /etc/hosts
 <primary_ip_1> <hostname_1>.example.com <hostname_1>
 <primary_ip_2> <hostname_2>.example.com <hostname_2>
@@ -41,7 +40,7 @@ You must ensure that all instances can resolve all hostnames in use. Add the hos
 ```
 +  *Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md) *:
 
-  ```
+  ```text
   # cat /etc/hosts
   10.1.10.1 slxhost01.example.com slxhost01
   10.1.20.1 slxhost02.example.com slxhost02

@@ -1,7 +1,6 @@
 
 
 # SAP NetWeaver Guides
-<a name="welcome"></a>
 
 This section covers the following guides.
 +  [SAP NetWeaver Environment Setup for Linux on AWS](https://docs.aws.amazon.com/sap/latest/sap-netweaver/std-sap-netweaver-environment-setup.html) 

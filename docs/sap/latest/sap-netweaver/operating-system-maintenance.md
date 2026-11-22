@@ -1,7 +1,6 @@
 
 
 # Operating System Maintenance
-<a name="operating-system-maintenance"></a>
 
 In general, operating system maintenance across large estates of EC2 instances can be managed by:
 + Tools specific to each operating system, such as Microsoft System Center 2019

@@ -1,7 +1,6 @@
 
 
 # SAP NetWeaver on AWS Deployment and Operations Guide for Windows
-<a name="sap-netweaver-windows-guide"></a>
 
  *SAP specialists, Amazon Web Services* 
 

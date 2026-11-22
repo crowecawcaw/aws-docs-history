@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="sap-nw-pacemaker-rhel-prerequisites"></a>
 
 **Topics**
 + [AWS Infrastructure Setup](sap-nw-pacemaker-rhel-infra-setup.md)

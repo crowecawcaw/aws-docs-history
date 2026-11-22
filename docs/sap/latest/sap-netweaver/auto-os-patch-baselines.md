@@ -1,7 +1,6 @@
 
 
 # Configure patch baselines
-<a name="auto-os-patch-baselines"></a>
 
 Patch Manager uses patch baselines, which include rules for auto-approving patches within days of their release, as well as a list of approved and rejected patches. For information about patch baselines, see [About patch baselines](https://docs.aws.amazon.com/systems-manager/latest/userguide/about-patch-baselines.html) in the * AWS Systems Manager User Guide*. You can use predefined patch baselines or create custom patch baselines. The sections below contain instructions on how to use both.
 

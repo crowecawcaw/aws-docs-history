@@ -1,7 +1,6 @@
 
 
 # Deployment Steps
-<a name="net-win-deployment-steps"></a>
 
 **Topics**
 + [Step 1: Prepare your AWS Account](net-win-step-1-prepare-your-aws-account.md)

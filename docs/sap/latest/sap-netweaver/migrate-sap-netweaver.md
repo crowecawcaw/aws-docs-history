@@ -1,7 +1,6 @@
 
 
 # Migrate SAP NetWeaver applications with AWS Migration Hub Orchestrator
-<a name="migrate-sap-netweaver"></a>
 
  AWS Migration Hub Orchestrator simplifies and automates the migration of servers and enterprise applications to AWS. It provides a single location to run and track your migrations. It helps reduce migration costs and time by automating many migration tasks. Migration Hub Orchestrator offers templates to create a migration workflow that can be customized to fit your unique migration requirements.
 

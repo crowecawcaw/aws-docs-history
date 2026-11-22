@@ -1,7 +1,6 @@
 
 
 # Security and Compliance
-<a name="net-win-security-and-compliance"></a>
 
 These additional AWS security resources can help you achieve the level of security that you require for your SAP NetWeaver environment on AWS:
 +  [AWS Cloud Security Center](https://aws.amazon.com/security/) 

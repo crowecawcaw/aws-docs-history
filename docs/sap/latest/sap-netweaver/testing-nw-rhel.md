@@ -1,7 +1,6 @@
 
 
 # Testing
-<a name="testing-nw-rhel"></a>
 
 We recommend scheduling regular fault scenario recovery testing at least annually, and as part of the operating system or SAP kernel updates that may impact operations. For more details on best practices for regular testing, see SAP Lens – [Best Practice 4.3 – Regularly test business continuity plans and fault recovery](https://docs.aws.amazon.com/wellarchitected/latest/sap-lens/best-practice-4-3.html).
 

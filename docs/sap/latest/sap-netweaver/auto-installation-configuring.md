@@ -1,7 +1,6 @@
 
 
 # Configuring automated SAP installation
-<a name="auto-installation-configuring"></a>
 
 The sections below contain detailed instructions on how to configure automated SAP NetWeaver on AWS installation.
 

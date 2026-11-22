@@ -1,7 +1,6 @@
 
 
 # Compute & storage
-<a name="compute-storage-sap-ase"></a>
 
 ## Compute
 <a name="compute-operations-sap-ase"></a>

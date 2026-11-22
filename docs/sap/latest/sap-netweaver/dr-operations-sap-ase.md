@@ -1,7 +1,6 @@
 
 
 # Disaster recovery
-<a name="dr-operations-sap-ase"></a>
 
 See [Disaster recovery deployment](deploy-options-sap-ase.md#ase-disaster-recovery-deployment) to learn about disaster recovery for your SAP ASE database.
 

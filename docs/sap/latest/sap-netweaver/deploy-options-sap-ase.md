@@ -1,7 +1,6 @@
 
 
 # Deployment options
-<a name="deploy-options-sap-ase"></a>
 
 To install SAP ASE for SAP NetWeaver, you have four deployment options:
 

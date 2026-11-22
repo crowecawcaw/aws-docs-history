@@ -1,7 +1,6 @@
 
 
 # Operating System Requirements
-<a name="sap-nw-pacemaker-rhel-os-settings"></a>
 
 This section outlines the required operating system configurations for Red Hat Enterprise Linux for SAP (RHEL for SAP) cluster nodes. Note that this is not a comprehensive list of configuration requirements for running SAP on AWS, but rather focuses specifically on cluster management prerequisites.
 
@@ -55,7 +54,7 @@ Refer to [Vendor Support of Deployment Types](sap-nw-pacemaker-rhel-references.m
 
 You can use the following script to check for missing packages and optionally install them:
 
-```
+```bash
 #!/bin/bash
 # Mandatory core packages for SAP NetWeaver HA on AWS
 mandatory_packages="corosync pacemaker resource-agents resource-agents-cloud fence-agents-aws rsyslog chrony sap-cluster-connector pcs resource-agents-sap"
@@ -94,13 +93,13 @@ fi
 
 If a package is not installed, and you are unable to install it using dnf, it may be because Red Hat Enterprise Linux High Availability Add-On is not available as a repository in your chosen image. You can verify the availability of the add-on using the following command:
 
-```
+```console
 $ sudo dnf repolist
 ```
 
 To install or update a package or packages with confirmation, use the following command:
 
-```
+```console
 $ sudo dnf install <package_name(s)>
 ```
 
@@ -111,7 +110,7 @@ You must update and confirm versions across nodes. Apply all the latest patches 
 
 You can update the patches individually or update all system patches using the `dnf update` command. A clean reboot is recommended prior to setting up a cluster.
 
-```
+```console
 $ sudo dnf update
 $ sudo reboot
 ```
@@ -125,20 +124,20 @@ Both systemd-journald and rsyslog are suggested for comprehensive logging. Syste
 
  **1. Enable and start rsyslog:** 
 
-```
+```console
 # systemctl enable --now rsyslog
 ```
 
 **2. (Optional) Configure persistent logging for systemd-journald:**  
 If you are not using a logging agent (like the AWS CloudWatch Unified Agent or Vector) to ship logs to a centralized location, you may want to configure persistent logging to retain logs after system reboots.
 
-```
+```console
 # mkdir -p /etc/systemd/journald.conf.d
 ```
 
 Create `/etc/systemd/journald.conf.d/99-logstorage.conf` with:
 
-```
+```ini
 [Journal]
 Storage=persistent
 ```
@@ -147,7 +146,7 @@ Persistent logging requires careful storage management. Configure appropriate re
 
 To apply the changes, restart journald:
 
-```
+```console
 # systemctl restart systemd-journald
 ```
 
@@ -155,7 +154,7 @@ After enabling persistent storage, only new logs will be stored persistently. Ex
 
  **3. Verify services are running:** 
 
-```
+```console
 # systemctl status systemd-journald
 # systemctl status rsyslog
 ```
@@ -167,14 +166,14 @@ When using Red Hat Enterprise Linux 8.6 or later, the NetworkManager cloud setup
 
 Run these commands on each cluster node:
 
-```
+```console
 # systemctl disable --now nm-cloud-setup.timer
 # systemctl disable --now nm-cloud-setup
 ```
 
 Verify the services are disabled and stopped:
 
-```
+```console
 # systemctl status nm-cloud-setup.timer
 # systemctl status nm-cloud-setup
 ```
@@ -186,7 +185,7 @@ The status commands should show both services as "disabled" and "inactive (dead)
 
 The kernel crash dump facility (kdump) should be disabled with the following commands on each cluster node:
 
-```
+```console
 # systemctl stop kdump
 # systemctl disable kdump
 ```
@@ -202,21 +201,21 @@ You can use Amazon Time Sync Service that is available on any instance running i
 
 Create or check the `/etc/chrony.d/ec2.conf` file to define the server:
 
-```
+```ini
 # Amazon EC2 time source config
 server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4
 ```
 
 Start the chronyd.service, using the following command:
 
-```
+```console
 # systemctl enable --now chronyd.service
 # systemctl status chronyd
 ```
 
 Verify time synchronization is working:
 
-```
+```console
 # chronyc tracking
 ```
 
@@ -231,13 +230,13 @@ The AWS cluster resource agents require AWS Command Line Interface (AWS CLI). Ch
 
 Check if AWS CLI is installed:
 
-```
+```console
 # aws --version
 ```
 
 If the command is not found, install AWS CLI v2 using the following commands:
 
-```
+```console
 # cd /tmp
 # curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 # dnf install -y unzip
@@ -247,13 +246,13 @@ If the command is not found, install AWS CLI v2 using the following commands:
 
 Create symlinks to ensure AWS CLI is in the system PATH:
 
-```
+```console
 # sudo ln -sf /usr/local/bin/aws /usr/bin/aws
 ```
 
 Verify the installation:
 
-```
+```console
 # aws --version
 ```
 
@@ -267,7 +266,7 @@ You can either edit the config file at `/root/.aws` manually or by using the `aw
 
 You should skip providing the information for the access and secret access keys. The permissions are provided through IAM roles attached to Amazon EC2 instances.
 
-```
+```console
 # aws configure
 AWS Access Key ID [None]:
 AWS Secret Access Key [None]:
@@ -277,7 +276,7 @@ Default output format [None]:
 
 The profile name is `default` unless configured. If you choose to use a different name you can specify `--profile`. The name chosen in this example is cluster. It is used in the AWS resource agent definition for pacemaker. The AWS Region must be the default AWS Region of the instance.
 
-```
+```console
 # aws configure --profile cluster
 AWS Access Key ID [None]:
 AWS Secret Access Key [None]:
@@ -287,13 +286,13 @@ Default output format [None]:
 
 On the hosts, you can verify the available profiles using the following command:
 
-```
+```console
 # aws configure list-profiles
 ```
 
 And review that an assumed role is associated by querying the caller identity:
 
-```
+```console
 # aws sts get-caller-identity --profile=<profile_name>
 ```
 
@@ -304,7 +303,7 @@ If your Amazon EC2 instance has been configured to access the internet and/or AW
 
 Add the following lines to `/etc/sysconfig/pacemaker`:
 
-```
+```ini
 http_proxy=http://<proxyhost>:<proxyport>
 https_proxy=http://<proxyhost>:<proxyport>
 no_proxy=127.0.0.1,localhost,169.254.169.254,fd00:ec2::254

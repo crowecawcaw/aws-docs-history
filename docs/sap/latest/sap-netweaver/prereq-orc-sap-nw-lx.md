@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="prereq-orc-sap-nw-lx"></a>
 
 We recommend familiarizing yourself with these guides:
 +  [SAP on AWS Overview and Planning](https://docs.aws.amazon.com/sap/latest/general/sap-on-aws-overview.html) 

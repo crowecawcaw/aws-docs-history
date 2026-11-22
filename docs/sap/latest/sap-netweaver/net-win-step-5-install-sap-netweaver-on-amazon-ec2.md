@@ -1,7 +1,6 @@
 
 
 # Step 5: Install SAP NetWeaver on Amazon EC2
-<a name="net-win-step-5-install-sap-netweaver-on-amazon-ec2"></a>
 
 You are now ready to install SAP NetWeaver on this EC2 instance using the downloaded software. Proceed with the instructions in the SAP installation guide for your version of SAP NetWeaver.
 

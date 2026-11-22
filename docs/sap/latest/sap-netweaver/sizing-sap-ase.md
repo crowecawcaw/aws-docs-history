@@ -1,7 +1,6 @@
 
 
 # Sizing
-<a name="sizing-sap-ase"></a>
 
 Sizing applies to three key areas - compute, network, and storage.
 

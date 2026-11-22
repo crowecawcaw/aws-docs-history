@@ -1,7 +1,6 @@
 
 
 # Architecture diagrams
-<a name="rhel-netweaver-ha-diagrams"></a>
 
 This guide covers two architectures for SAP cluster solutions on RHEL for SAP – simple-mount and classic (previous standard). See the following images to learn more.
 

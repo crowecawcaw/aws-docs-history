@@ -1,7 +1,6 @@
 
 
 # Sizing
-<a name="net-win-sizing"></a>
 
 One of the first points to consider is whether this deployment is a completely new project (greenfield) or a migration. Sizing then applies across three key areas: compute, storage, and network.
 

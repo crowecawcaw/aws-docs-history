@@ -1,7 +1,6 @@
 
 
 # High Availability
-<a name="net-win-high-availability"></a>
 
 After your HA cluster is deployed and configured successfully on AWS, the operation of the HA software still follows the third-party software interface. This can be best understood by following the operational guides from the respective vendors.
 

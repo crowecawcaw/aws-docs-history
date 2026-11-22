@@ -1,7 +1,6 @@
 
 
 # Concepts
-<a name="sap-nw-pacemaker-rhel-concepts"></a>
 
 This section covers AWS, SAP, and Red Hat concepts.
 

@@ -1,7 +1,6 @@
 
 
 # SAP NetWeaver on AWS: high availability configuration for Red Hat Enterprise Linux (RHEL) for SAP applications
-<a name="sap-nw-on-aws-rhel-pacemaker"></a>
 
 This topic applies to Red Hat Enterprise Linux (RHEL) operating system for SAP NetWeaver applications on AWS cloud. It covers the instructions for configuration of a pacemaker cluster for the ABAP SAP Central Service (ASCS) and the Enqueue Replication Server (ERS) when deployed on Amazon EC2 instances in two different Availability Zones within an AWS Region.
 

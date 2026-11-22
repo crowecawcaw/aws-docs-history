@@ -1,7 +1,6 @@
 
 
 # Vendor Support
-<a name="sap-nw-pacemaker-rhel-references"></a>
 
 The following section details the documentation and deployment guidance from Red Hat.
 
@@ -71,7 +70,7 @@ These steps must be performed in an outage window, allowing stop/start of servic
 
 1. Backup the configuration with the following command.
 
-   ```
+   ```console
    # pcs config show >> /tmp/classic_ha_setup.txt
    ```
 
@@ -79,7 +78,7 @@ These steps must be performed in an outage window, allowing stop/start of servic
 
 1.  *Optional* – delete the configuration. You can edit in place but we recommend starting with a blank configuration. This ensures that latest timeout and priority parameters are in place. See [Reset Configuration](cluster-config-nw-rhel.md#reset-config-nw-rhel) 
 
-   ```
+   ```console
    # pcs resource cleanup
    # pcs config show
    ```

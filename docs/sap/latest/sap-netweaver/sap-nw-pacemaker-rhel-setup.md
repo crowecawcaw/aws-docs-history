@@ -1,7 +1,6 @@
 
 
 # SAP ASCS and Cluster Setup
-<a name="sap-nw-pacemaker-rhel-setup"></a>
 
 This section covers the following topics.
 

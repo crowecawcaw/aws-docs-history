@@ -1,7 +1,6 @@
 
 
 # HA/DR operations
-<a name="hadrops-orc-sap-nw-lx"></a>
 
 ## Oracle Data Guard
 <a name="odg-hadrops-orc-sap-nw-lx"></a>

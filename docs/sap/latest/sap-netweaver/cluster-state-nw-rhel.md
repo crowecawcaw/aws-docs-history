@@ -1,7 +1,6 @@
 
 
 # Viewing the cluster state
-<a name="cluster-state-nw-rhel"></a>
 
 You can view the state of the cluster in two ways - based on your operating system or with a web based console provided by Red Hat.
 
@@ -14,13 +13,13 @@ You can view the state of the cluster in two ways - based on your operating syst
 
 There are multiple operating system commands that can be run as root or as a user with appropriate permissions. The commands enable you to get an overview of the status of the cluster and its services. See the following commands for more details.
 
-```
+```console
 # pcs status
 ```
 
 Sample output:
 
-```
+```console
 rhxhost01:~ # pcs status
 Cluster name: rhx-cluster
 Cluster Summary:
@@ -64,7 +63,7 @@ The following table provides a list of useful commands.
 
 Cockpit is a web-based graphical user interface for managing and monitoring Red Hat Enterprise Linux systems, including pacemaker highly availability clusters. It must be enabled on every node in the cluster, to point your web browser on any node for accessing it. Use the following command to enable Cockpit.
 
-```
+```console
 # systemctl enable --now cockpit.socket
 # systemctl status cockpit.socket
 ```

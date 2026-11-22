@@ -1,7 +1,6 @@
 
 
 # Disaster Recovery
-<a name="net-win-disaster-recovery-1"></a>
 
 ## Network Fileshare Copy Out-of-Region
 <a name="net-win-network-fileshare-copy-out-of-region"></a>

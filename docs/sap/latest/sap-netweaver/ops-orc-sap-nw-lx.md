@@ -1,7 +1,6 @@
 
 
 # Operations
-<a name="ops-orc-sap-nw-lx"></a>
 
 ## Tagging AWS resources
 <a name="tag-res-orc-sap-nw-lx"></a>

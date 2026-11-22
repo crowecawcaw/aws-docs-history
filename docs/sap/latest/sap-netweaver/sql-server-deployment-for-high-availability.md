@@ -1,7 +1,6 @@
 
 
 # SQL Server Deployment for High Availability
-<a name="sql-server-deployment-for-high-availability"></a>
 
 1. Deploy the SAP NetWeaver ASCS instance. For instructions, see the [SAP NetWeaver on AWS Deployment and Operations Guide for Windows](https://docs.aws.amazon.com/sap/latest/sap-netweaver/sap-netweaver-windows-guide.html) .
 

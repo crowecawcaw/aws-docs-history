@@ -1,7 +1,6 @@
 
 
 # Business Continuity
-<a name="business-continuity"></a>
 
 We recommend that you architect your business-critical applications to be fault tolerant. Depending on your availability requirements, there are different ways in which you can achieve this. This section discusses how you can set up highly available SQL Server for SAP applications.
 

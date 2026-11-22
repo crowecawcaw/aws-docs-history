@@ -1,7 +1,6 @@
 
 
 # Business Continuity
-<a name="business-continuity-1"></a>
 
  AWS recommends that you periodically schedule business continuity process validations by executing disaster recovery (DR) tests. This planned activity will help to flush out any potential unknowns and help the organization to deal with any real disaster in a streamlined manner. Depending on your disaster recovery architecture, business continuity may include:
 + Backup/recovery of database from AmazonS3

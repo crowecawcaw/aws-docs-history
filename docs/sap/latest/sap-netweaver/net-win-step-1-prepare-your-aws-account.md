@@ -1,7 +1,6 @@
 
 
 # Step 1: Prepare your AWS Account
-<a name="net-win-step-1-prepare-your-aws-account"></a>
 
 In this example, we step through setting up a sample environment for the installation, which includes a public subnet for RDP and SSH access via the internet. In this scenario, we are using the [AWS Quick Start for Modular and Scalable VPC Architecture](https://aws.amazon.com/quickstart/architecture/vpc/) in a Single-AZ deployment to create the VPC, subnets, security groups, and IAM roles. This setup is just an example and you should follow your own network layout and ensure that you comply with your security standards. This could include:
 + Using an AWS Quick Start that suits their requirements such as a Multi-AZ deployment of the AWS Quick Start for SAP HANA
@@ -14,7 +13,7 @@ In this example, we step through setting up a sample environment for the install
 
      1. Display the AWS CLI configuration data:
 
-        ```
+        ```sh
          $ aws configure list
         ```
 
@@ -61,7 +60,7 @@ In this example, we step through setting up a sample environment for the install
 
      Make sure that you choose one of the [Amazon EC2 Instance Types for SAP](https://aws.amazon.com/sap/instance-types/). Sample AWS CLI syntax is given below.
 
-     ```
+     ```sh
      $ aws ec2 run-instances \
      --image-id <AMI-ID> \
      --monitoring Enabled=true \
@@ -76,7 +75,7 @@ In this example, we step through setting up a sample environment for the install
 
      This example enables detailed monitoring (data is available in 1-minute periods for an additional cost) which is a support prerequisite for SAP workloads on Amazon EC2.
 
-     ```
+     ```sh
      $ aws ec2 run-instances \
      --image-id ami-012345678901234ab \
      --monitoring Enabled=true \

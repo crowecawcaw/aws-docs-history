@@ -1,7 +1,6 @@
 
 
 # Operations
-<a name="rhel-netweaver-ha-operations"></a>
 
 This section covers the following topics.
 

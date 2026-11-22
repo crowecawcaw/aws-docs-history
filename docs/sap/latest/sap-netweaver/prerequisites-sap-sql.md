@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="prerequisites-sap-sql"></a>
 
 ## Specialized Knowledge
 <a name="specialized-knowledge"></a>

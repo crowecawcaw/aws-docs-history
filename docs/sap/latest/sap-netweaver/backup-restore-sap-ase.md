@@ -1,7 +1,6 @@
 
 
 # Backup & restore
-<a name="backup-restore-sap-ase"></a>
 
 ## Snapshots and AMIs
 <a name="snapshots-sap-ase"></a>

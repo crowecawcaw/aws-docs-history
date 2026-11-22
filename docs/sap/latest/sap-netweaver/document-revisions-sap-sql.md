@@ -1,7 +1,6 @@
 
 
 # Document Revisions
-<a name="document-revisions-sap-sql"></a>
 
 
 | Date | Change | 

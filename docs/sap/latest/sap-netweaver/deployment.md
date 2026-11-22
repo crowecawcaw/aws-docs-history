@@ -1,7 +1,6 @@
 
 
 # Deployment
-<a name="deployment"></a>
 
 **Topics**
 + [Windows EC2 Instance Deployment](windows-ec2-instance-deployment.md)

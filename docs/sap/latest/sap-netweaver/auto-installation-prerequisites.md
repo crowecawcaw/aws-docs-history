@@ -1,7 +1,6 @@
 
 
 # Automated SAP NetWeaver on AWS installation prerequisites
-<a name="auto-installation-prerequisites"></a>
 
 In addition to the prerequisites described in the [Automation prerequisites](sap-nw-automation.md#automation-prerequisites) section of this guide, verify the following prerequisites that are specific to automated SAP installation:
 + You must have an existing infrastructure deployed.

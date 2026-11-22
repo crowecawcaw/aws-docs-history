@@ -1,7 +1,6 @@
 
 
 # Compute
-<a name="net-win-compute-1"></a>
 
  AWS has certified multiple instance families of various sizes for running SAP NetWeaver workloads. For a complete list of the certified EC2 instance types, see [Amazon EC2 Instance Types for SAP](https://aws.amazon.com/sap/instance-types/).
 

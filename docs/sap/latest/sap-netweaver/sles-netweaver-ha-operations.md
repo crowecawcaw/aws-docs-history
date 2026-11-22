@@ -1,7 +1,6 @@
 
 
 # Operations
-<a name="sles-netweaver-ha-operations"></a>
 
 This section covers the following topics.
 

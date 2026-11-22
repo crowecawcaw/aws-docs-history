@@ -1,7 +1,6 @@
 
 
 # Planning
-<a name="sap-nw-pacemaker-rhel-planning"></a>
 
 This section covers the following topics.
 

@@ -1,7 +1,6 @@
 
 
 # Sizing
-<a name="sizing-orc-sap-nw-lx"></a>
 
 Sizing applies to three key areas - compute, network, and storage.
 

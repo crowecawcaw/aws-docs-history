@@ -1,7 +1,6 @@
 
 
 # Setup Overview
-<a name="sap-nw-pacemaker-sles-setup-overview"></a>
 
 You must meet the following prerequisites before commencing setup.
 

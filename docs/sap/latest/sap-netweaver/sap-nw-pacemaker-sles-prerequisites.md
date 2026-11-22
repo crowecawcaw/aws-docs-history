@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="sap-nw-pacemaker-sles-prerequisites"></a>
 
 **Topics**
 + [AWS Infrastructure Setup](sap-nw-pacemaker-sles-infra-setup.md)

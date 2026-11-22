@@ -1,7 +1,6 @@
 
 
 # Launch and Setup Instance
-<a name="sap-nw-os-setup"></a>
 
 **Topics**
 + [Launch an instance](#sap-nw-os-setup-launch)
@@ -23,7 +22,7 @@ If you are new to AWS, we suggest exploring the options using the launch instanc
 
 If using AWS CloudFormation for infrastructure as code, the following snippet shows the minimum requirements for a SAP NetWeaver instance. This is not a complete CloudFormation template but demonstrates the key properties:
 
-```
+```yaml
 MySAPNetWeaverInstance:
   Type: AWS::EC2::Instance
   Properties:
@@ -105,13 +104,13 @@ Use the following commands to install packages on your system:
 
  **SLES systems:** 
 
-```
+```console
 $ sudo zypper install <package-name>
 ```
 
  **RHEL systems:** 
 
-```
+```console
 $ sudo dnf install <package-name>
 ```
 
@@ -133,7 +132,7 @@ While LVM can be used for volume management, it is not recommended for SAP NetWe
 
    Rescan for new or changed block devices, then identify the devices attached to your instance, their sizes, and associated volume IDs.
 
-   ```
+   ```console
    $ sudo partprobe
    $ sudo lsblk -o NAME,SIZE,TYPE,FSTYPE,LABEL,PATH,SERIAL | sed 's/vol0/vol-0/g'
    ```
@@ -152,7 +151,7 @@ While LVM can be used for volume management, it is not recommended for SAP NetWe
 
    Create XFS filesystems on the volumes allocated for SAP NetWeaver. Use labels to ensure consistent mounting across instance restarts.
 
-   ```
+   ```console
    $ sudo mkfs.xfs -f /dev/nvme1n1 -L USR_SAP
    ```
 **Tip**  
@@ -162,7 +161,7 @@ Labels provide consistent device identification across instance restarts and ins
 
    Create the required directories and add entries to /etc/fstab for automatic mounting.
 
-   ```
+   ```console
    $ sudo mkdir /usr/sap
    $ echo "/dev/disk/by-label/USR_SAP /usr/sap xfs noatime,nodiratime,logbsize=256k 0 0" | sudo tee -a /etc/fstab
    $ sudo mount -a
@@ -176,20 +175,20 @@ Configure swap space for SAP NetWeaver installation. For swap sizing recommendat
 
 1.  **Create swap filesystem** 
 
-   ```
+   ```console
    $ sudo mkswap -f /dev/nvme2n1 -L SWAP
    ```
 
 1.  **Configure swap in fstab and enable** 
 
-   ```
+   ```console
    $ echo "/dev/disk/by-label/SWAP none swap sw 0 0" | sudo tee -a /etc/fstab
    $ sudo swapon -L SWAP
    ```
 
 1.  **Verify swap is active** 
 
-   ```
+   ```console
    $ sudo swapon -s
    ```
 
@@ -202,7 +201,7 @@ Configure NFS filesystems for shared SAP directories such as transport directori
 
    Test the NFS mount temporarily and create the required directory structure on the EFS filesystem.
 
-   ```
+   ```console
    $ sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,intr,timeo=600 your-efs-mount-target.efs.region.amazonaws.com:/ /mnt/
    $ sudo mkdir -p /mnt/SHARED_SID
    $ sudo mkdir -p /mnt/SHARED_TRANS
@@ -214,7 +213,7 @@ Configure NFS filesystems for shared SAP directories such as transport directori
 
    Create the required local directories for NFS mounts.
 
-   ```
+   ```console
    $ sudo mkdir -p /sapmnt/SID
    $ sudo mkdir -p /usr/sap/trans
    ```
@@ -223,14 +222,14 @@ Configure NFS filesystems for shared SAP directories such as transport directori
 
    Add NFS mount entries to /etc/fstab for automatic mounting.
 
-   ```
+   ```console
    $ echo "your-efs-mount-target.efs.region.amazonaws.com:/SHARED_SID /sapmnt/SID nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,intr,timeo=600 0 0" | sudo tee -a /etc/fstab
    $ echo "your-efs-mount-target.efs.region.amazonaws.com:/SHARED_TRANS /usr/sap/trans nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,intr,timeo=600 0 0" | sudo tee -a /etc/fstab
    ```
 
 1.  **Mount NFS filesystems** 
 
-   ```
+   ```console
    $ sudo mount -a
    $ df -h
    ```

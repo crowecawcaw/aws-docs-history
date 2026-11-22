@@ -1,7 +1,6 @@
 
 
 # Standalone deployment
-<a name="standalone-dep-orc-sap-nw-lx"></a>
 
 In this example, we set up a sample environment for installation. It includes a public subnet for RDP and SSH access via the internet. We use AWS Launch Wizard for SAP in a single Availability Zone deployment to create the Amazon VPC, subnets, security groups, and IAM roles. You can refer to this example set up but should also follow your own network layout and comply with security standards, such as the following:
 + Using a Landing Zone solution like [AWS Control Tower](https://aws.amazon.com/controltower/).

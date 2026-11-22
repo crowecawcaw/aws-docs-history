@@ -1,7 +1,6 @@
 
 
 # Compute
-<a name="net-win-compute-2"></a>
 
 EBS volumes are exposed as NVMe block devices on [Nitro-based instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#ec2-nitro-instances). When changing EC2 instance types from a previous generation to a Nitro generation, and if using a Windows Server 2008 R2, or later, Windows AMI, the AWS NVMe driver is already included as described in the [Amazon EBS and NVMe documentation](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/nvme-ebs-volumes.html). If you are not using the latest Windows AMIs provided by Amazon, see [Installing or Upgrading AWS NVMe Drivers](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/aws-nvme-drivers.html#install-nvme-drivers).
 

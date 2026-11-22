@@ -1,7 +1,6 @@
 
 
 # Support
-<a name="support"></a>
 
 SAP requires customers to have a minimum of an [AWS Business Support](https://aws.amazon.com/premiumsupport/plans/business/) plan with AWS. This ensures that any critical issues raised with SAP are also handled by AWS on priority. AWS Business Support provides less than one hour response time for production down scenarios. For a response time of less than 15 minute for business critical systems along with other benefits, you can choose [AWS Enterprise Support](https://aws.amazon.com/premiumsupport/plans/enterprise/).
 

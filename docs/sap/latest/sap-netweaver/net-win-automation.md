@@ -1,7 +1,6 @@
 
 
 # Automation
-<a name="net-win-automation"></a>
 
 ## Automation using Infrastructure as Code with AWS CloudFormation
 <a name="net-win-automation-using-infrastructure-as-code-with-aws-cloudformation"></a>

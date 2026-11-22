@@ -1,7 +1,6 @@
 
 
 # Select the Region
-<a name="net-win-select-region"></a>
 
 In choosing the Region for deployment, you’ll need to consider some key factors. For more details, see our [Overview and Planning](https://docs.aws.amazon.com/sap/latest/general/sap-on-aws-overview.html) guide.
 + Service availability

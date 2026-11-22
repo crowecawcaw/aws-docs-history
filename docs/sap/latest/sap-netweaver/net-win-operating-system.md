@@ -1,7 +1,6 @@
 
 
 # Operating System
-<a name="net-win-operating-system"></a>
 
 If you plan on using Windows other than via Amazon EC2 for Windows Server, then ensure that you have the appropriate licenses and tenancy type selected. For more details, refer to your licensing terms and conditions, and see our [Windows on AWS](https://aws.amazon.com/windows/) webpage.
 

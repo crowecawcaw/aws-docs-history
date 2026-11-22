@@ -1,7 +1,6 @@
 
 
 # Operations
-<a name="net-win-operations"></a>
 
 **Topics**
 + [Tagging AWS Resources](net-win-tagging-aws-resources.md)

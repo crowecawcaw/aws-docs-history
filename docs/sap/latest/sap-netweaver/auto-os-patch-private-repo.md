@@ -1,7 +1,6 @@
 
 
 # Private and local repositories
-<a name="auto-os-patch-private-repo"></a>
 
 If you would like to manage your operating system repository locally, either within your VPC on AWS or an on-premises data center, without using an outbound internet connection for your instance, you can use a private or local repository.
 

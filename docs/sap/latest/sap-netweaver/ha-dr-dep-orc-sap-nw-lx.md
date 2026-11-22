@@ -1,7 +1,6 @@
 
 
 # HA/DR deployment
-<a name="ha-dr-dep-orc-sap-nw-lx"></a>
 
 ## Installing SAP Oracle on Amazon EC2 instances and configuring HA/DR
 <a name="steps-ha-dr-dep-orc-sap-nw-lx"></a>

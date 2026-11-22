@@ -1,7 +1,6 @@
 
 
 # Automated operating system patching architecture
-<a name="auto-os-patch-architecture"></a>
 
 The diagram below highlights the AWS services that you can use to set up automated operating system patching and optional notifications on the patch status using Amazon Simple Notification Service (Amazon SNS).
 

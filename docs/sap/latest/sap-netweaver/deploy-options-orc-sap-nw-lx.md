@@ -1,7 +1,6 @@
 
 
 # Deployment options
-<a name="deploy-options-orc-sap-nw-lx"></a>
 
 To install Oracle for SAP NetWeaver, you have four deployment options:
 
