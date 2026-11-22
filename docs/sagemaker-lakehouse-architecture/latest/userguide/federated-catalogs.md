@@ -1,7 +1,6 @@
 
 
 # Federated catalogs for the lakehouse architecture of Amazon SageMaker
-<a name="federated-catalogs"></a>
 
 The lakehouse architecture with integrated access controls for Athena federated queries enables you to connect to and query data across multiple data sources without moving or duplicating data. Federated catalogs establish secure links to external data sources, breaking down data silos while maintaining consistent governance and security controls. For a step-by-step guide, see [Get started with lakehouse architecture integrated access controls for Athena federated queries](https://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/lakehouse-athena-federated-queries.html).
 

@@ -1,7 +1,6 @@
 
 
 # Uploading data
-<a name="lakehouse-upload-data"></a>
 
 You can upload data to the lakehouse architecture.
 

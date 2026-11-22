@@ -1,7 +1,6 @@
 
 
 # Amazon Redshift Managed Storage for the lakehouse architecture of Amazon SageMaker
-<a name="rms-integration"></a>
 
 You can manage Amazon Redshift tables in the lakehouse architecture of Amazon SageMaker by creating a Amazon Redshift managed catalog in the AWS Glue Data Catalog (Data Catalog). With lakehouse architecture integration, you can access Amazon Redshift tables stored in the Amazon Redshift managed storage (RMS) through Apache Iceberg REST APIs. The lakehouse architecture uses Data Catalog as the technical catalog. The Data Catalog functions as the centralized metadata repository, storing table schemas, partitioning information, and other metadata required for query planning and execution. AWS Lake Formation provides fine-grained access to Redshift tables stored in RMS. You can query and analyze Amazon Redshift data alongside your data lake assets.
 

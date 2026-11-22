@@ -1,7 +1,6 @@
 
 
 # Adding data sources in lakehouse architecture
-<a name="lakehouse-add-data"></a>
 
 lakehouse architecture supports several data sources. If you are new to data connections in lakehouse architecture, see [Data connections in the lakehouse architecture of Amazon SageMaker](lakehouse-data-connection.md).
 

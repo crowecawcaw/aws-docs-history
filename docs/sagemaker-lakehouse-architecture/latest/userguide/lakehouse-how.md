@@ -1,7 +1,6 @@
 
 
 # How the lakehouse architecture of Amazon SageMaker works
-<a name="lakehouse-how"></a>
 
 The lakehouse architecture organizes data from various sources into catalogs. Each catalog represents data from existing sources like Amazon Redshift data warehouses, Amazon S3 data lakes, databases, or business applications. You can also create new catalogs in the lakehouse to store data in S3 or Redshift Managed Storage (RMS). Additionally, these catalogs are mounted as databases in Amazon Redshift, so you can connect and analyze your lakehouse data using SQL tools.
 

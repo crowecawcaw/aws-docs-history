@@ -1,7 +1,6 @@
 
 
 # Creating an AWS Glue database via Amazon SageMaker Unified Studio
-<a name="lakehouse-add-new-database"></a>
 
 You can use this procedure to create a new AWS Glue database in your catalog in lakehouse. 
 

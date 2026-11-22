@@ -1,7 +1,6 @@
 
 
 # Creating connections in lakehouse architecture
-<a name="lakehouse-create-connection"></a>
 
 Amazon SageMaker Unified Studio provides an interface for managing and utilizing data connections across various AWS services and external data sources. With Amazon SageMaker Unified Studio, you create, configure, and manage connections to databases, data warehouses, and applications all from a single platform. Amazon SageMaker Unified Studio allows you to explore your connected data sources, preview sample data, and seamlessly use these connections in SQL queries and Spark notebooks without having to switch between different interfaces or manage complex connection details manually.
 
@@ -51,7 +50,7 @@ You can find the project ARN on the Page details page in the lakehouse architect
 
    The following is an example policy. It allows access of the IAM role named `datazone_user_role_projectid` to perform the allowed actions (`Query`, `Scan`, `DescribeTable`, `PartiQLSelect`) on the specified DynamoDB table. Administrators should choose to allow or deny the set of actions.
 
-   ```
+   ```JSON
    {
        "Sid": "Statement1",
        "Effect": "Allow",

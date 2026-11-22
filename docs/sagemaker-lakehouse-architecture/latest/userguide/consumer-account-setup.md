@@ -1,7 +1,6 @@
 
 
 # Configure account B
-<a name="consumer-account-setup"></a>
 
 To configure the receipient account, account B, the Lake Formation administrator accepts the AWS Resource Access Manager (AWS RAM) shares, creates resource links that point to the shared catalog, database, and tables, and configures permissions for the AWS Glue execution role ({{`Glue-execution-role`}}).
 
@@ -157,7 +156,7 @@ Verify your access by running test queries in Athena:
 
 1. Run a join query using the three-point notation for referring to tables from different catalogs as show in the following example:
 
-   ```
+   ```sql
    SELECT
        {{returns_tb.market}} as Market,
        sum({{orders_tb}}.quantity) as Total_Quantity

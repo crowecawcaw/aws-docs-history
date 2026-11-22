@@ -1,7 +1,6 @@
 
 
 # Prerequisites for managing Amazon Redshift managed catalog in the AWS Glue Data Catalog
-<a name="redshift-managed-catalog-prereqs"></a>
 
 This section covers the prerequisites needed to manage Amazon Redshift managed storage catalogs within the AWS Glue Data Catalog using Lake Formation permissions.
 

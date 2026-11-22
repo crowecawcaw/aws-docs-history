@@ -1,7 +1,6 @@
 
 
 # What is the lakehouse architecture of Amazon SageMaker?
-<a name="what-is-smlh"></a>
 
 The lakehouse architecture of Amazon SageMaker unifies data across Amazon S3 data lakes and Amazon Redshift data warehouses so you can work with your data in one place. You can bring data from operational databases and business applications into your lakehouse in near real-time through zero-ETL integrations. Additionally, run federated queries on data stored across multiple external data sources to access and query your data in-place. The lakehouse architecture is compatible with the Apache Iceberg open standard, giving you the flexibility to use your preferred analytics engine. Secure your data in the lakehouse architecture by defining fine-grained permissions that are enforced across all analytics and machine learning (ML) tools and engines.
 

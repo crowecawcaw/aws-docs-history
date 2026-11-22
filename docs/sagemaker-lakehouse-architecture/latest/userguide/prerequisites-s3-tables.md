@@ -1,7 +1,6 @@
 
 
 # Prerequisites for onboarding data to the lakehouse architecture of Amazon SageMaker
-<a name="prerequisites-s3-tables"></a>
 
 Before onboarding data into the lakehouse architecture, ensure you have completed the initial setup. For detailed setup instructions, see [Getting started with the lakehouse architecture of Amazon SageMaker](lakehouse-get-started.md).
 + AWS account with access to the following AWS services:

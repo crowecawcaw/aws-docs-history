@@ -1,7 +1,6 @@
 
 
 # Support for the Apache Iceberg open standard in the lakehouse architecture of Amazon SageMaker
-<a name="lakehouse-iceberg"></a>
 
 The lakehouse architecture provides support for [Apache Iceberg](https://docs.aws.amazon.com/prescriptive-guidance/latest/apache-iceberg-on-aws/introduction.html), enabling organizations to unify data across Amazon S3 data lakes and Amazon Redshift data warehouses while building powerful analytics and AI/ML applications on a unified data layer. 
 

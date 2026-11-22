@@ -1,7 +1,6 @@
 
 
 # Getting started with the lakehouse architecture of Amazon SageMaker
-<a name="lakehouse-get-started"></a>
 
 This guide helps you accomplish common tasks like finding relevant datasets, running SQL queries against your data warehouse and data lake simultaneously, collaborating with team members through data publishing, and maintaining data governance standards. Your administrator will provide the necessary access permissions and project roles to get started.
 

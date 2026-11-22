@@ -1,7 +1,6 @@
 
 
 # Run a PySpark job in AWS Glue 5.0
-<a name="run-pyspark-job"></a>
 
 Download the PySpark script . This AWS Glue PySpark script runs Spark SQL by joining the shared federated table in account A and S3 based table in account B to analyze the data and identify the total orders placed per market.
 

@@ -1,7 +1,6 @@
 
 
 # Configure account A
-<a name="producer-account-setup"></a>
 
 In account A, configure the catalog, grant permissions to account B, and register the object storage location with fine-grained permissions. You can use either your IAM administrator role (added as administrator) or a role with the permissions described in the prerequisites.
 

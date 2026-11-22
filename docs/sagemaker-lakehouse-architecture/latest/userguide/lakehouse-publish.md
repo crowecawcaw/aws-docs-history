@@ -1,7 +1,6 @@
 
 
 # Publishing data in lakehouse architecture
-<a name="lakehouse-publish"></a>
 
 After you have added data in the lakehouse architecture, you can publish the data to share it with other users in the lakehouse architecture. Data that is published is viewable as an asset in the project catalog and the Amazon SageMaker Catalog, and other users can create subscription requests in the Amazon SageMaker Catalog to include that data in their projects.
 

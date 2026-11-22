@@ -1,7 +1,6 @@
 
 
 # Creating a catalog
-<a name="lakehouse-create-catalog"></a>
 
 You can create a catalog for your Redshift Managed Storage (RMS) objects.
 

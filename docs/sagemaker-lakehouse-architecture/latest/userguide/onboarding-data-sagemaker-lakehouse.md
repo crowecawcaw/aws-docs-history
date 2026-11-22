@@ -1,7 +1,6 @@
 
 
 # Onboarding data into the lakehouse architecture of Amazon SageMaker
-<a name="onboarding-data-sagemaker-lakehouse"></a>
 
 The lakehouse architecture of Amazon SageMaker is a unified data architecture that combines data lakes and data warehouses. It's compatible with Apache Iceberg and specifically optimized for building machine learning and generative AI applications on a single copy of data.
 
