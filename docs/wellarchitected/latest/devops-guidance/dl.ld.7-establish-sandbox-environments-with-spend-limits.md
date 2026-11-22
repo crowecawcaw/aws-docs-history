@@ -1,7 +1,6 @@
 
 
 # [DL.LD.7] Establish sandbox environments with spend limits
-<a name="dl.ld.7-establish-sandbox-environments-with-spend-limits"></a>
 
  **Category:** RECOMMENDED 
 

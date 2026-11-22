@@ -1,7 +1,6 @@
 
 
 # [AG.DEP.4] Codify environment vending
-<a name="ag.dep.4-codify-environment-vending"></a>
 
  **Category:** RECOMMENDED 
 

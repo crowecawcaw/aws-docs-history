@@ -1,7 +1,6 @@
 
 
 # [AG.DLM.5] Reduce risks and costs with systematic data retention strategies
-<a name="ag.dlm.5-reduce-risks-and-costs-with-systematic-data-retention-strategies"></a>
 
  **Category:** FOUNDATIONAL 
 

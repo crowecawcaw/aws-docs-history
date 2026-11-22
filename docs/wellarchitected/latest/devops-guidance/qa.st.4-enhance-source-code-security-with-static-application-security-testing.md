@@ -1,7 +1,6 @@
 
 
 # [QA.ST.4] Enhance source code security with static application security testing
-<a name="qa.st.4-enhance-source-code-security-with-static-application-security-testing"></a>
 
  **Category:** FOUNDATIONAL 
 

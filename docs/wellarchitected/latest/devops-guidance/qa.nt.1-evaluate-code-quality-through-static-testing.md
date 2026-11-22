@@ -1,7 +1,6 @@
 
 
 # [QA.NT.1] Evaluate code quality through static testing
-<a name="qa.nt.1-evaluate-code-quality-through-static-testing"></a>
 
  **Category:** FOUNDATIONAL 
 

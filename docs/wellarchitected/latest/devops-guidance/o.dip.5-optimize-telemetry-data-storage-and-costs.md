@@ -1,7 +1,6 @@
 
 
 # [O.DIP.5] Optimize telemetry data storage and costs
-<a name="o.dip.5-optimize-telemetry-data-storage-and-costs"></a>
 
  **Category:** RECOMMENDED 
 

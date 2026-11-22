@@ -1,7 +1,6 @@
 
 
 # Indicators for dynamic environment provisioning
-<a name="indicators-for-dynamic-environment-provisioning"></a>
 
 Practices for creating, maintaining, and managing multiple environments within a landing zone using automated processes.
 

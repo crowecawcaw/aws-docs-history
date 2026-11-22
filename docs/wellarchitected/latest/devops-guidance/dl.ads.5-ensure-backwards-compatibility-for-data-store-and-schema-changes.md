@@ -1,7 +1,6 @@
 
 
 # [DL.ADS.5] Ensure backwards compatibility for data store and schema changes
-<a name="dl.ads.5-ensure-backwards-compatibility-for-data-store-and-schema-changes"></a>
 
  **Category:** RECOMMENDED 
 

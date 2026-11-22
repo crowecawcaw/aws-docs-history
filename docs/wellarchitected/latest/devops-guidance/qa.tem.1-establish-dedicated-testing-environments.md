@@ -1,7 +1,6 @@
 
 
 # [QA.TEM.1] Establish dedicated testing environments
-<a name="qa.tem.1-establish-dedicated-testing-environments"></a>
 
  **Category:** FOUNDATIONAL 
 

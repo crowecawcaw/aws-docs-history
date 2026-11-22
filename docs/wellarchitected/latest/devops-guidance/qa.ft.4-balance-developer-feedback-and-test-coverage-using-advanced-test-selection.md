@@ -1,7 +1,6 @@
 
 
 # [QA.FT.4] Balance developer feedback and test coverage using advanced test selection
-<a name="qa.ft.4-balance-developer-feedback-and-test-coverage-using-advanced-test-selection"></a>
 
  **Category:** OPTIONAL 
 

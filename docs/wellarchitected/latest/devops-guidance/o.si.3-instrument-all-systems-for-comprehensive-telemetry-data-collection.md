@@ -1,7 +1,6 @@
 
 
 # [O.SI.3] Instrument all systems for comprehensive telemetry data collection
-<a name="o.si.3-instrument-all-systems-for-comprehensive-telemetry-data-collection"></a>
 
  **Category:** FOUNDATIONAL 
 

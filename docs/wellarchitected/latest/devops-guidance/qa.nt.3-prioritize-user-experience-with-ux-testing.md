@@ -1,7 +1,6 @@
 
 
 # [QA.NT.3] Prioritize user experience with UX testing
-<a name="qa.nt.3-prioritize-user-experience-with-ux-testing"></a>
 
  **Category:** RECOMMENDED 
 

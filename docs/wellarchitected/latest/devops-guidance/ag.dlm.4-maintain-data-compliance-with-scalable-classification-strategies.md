@@ -1,7 +1,6 @@
 
 
 # [AG.DLM.4] Maintain data compliance with scalable classification strategies
-<a name="ag.dlm.4-maintain-data-compliance-with-scalable-classification-strategies"></a>
 
  **Category:** FOUNDATIONAL 
 

@@ -1,7 +1,6 @@
 
 
 # [QA.ST.6] Validate third-party components using software composition analysis
-<a name="qa.st.6-validate-third-party-components-using-software-composition-analysis"></a>
 
  **Category:** FOUNDATIONAL 
 

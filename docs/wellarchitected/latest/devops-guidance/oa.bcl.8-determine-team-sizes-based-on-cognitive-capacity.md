@@ -1,7 +1,6 @@
 
 
 # [OA.BCL.8] Determine team sizes based on cognitive capacity
-<a name="oa.bcl.8-determine-team-sizes-based-on-cognitive-capacity"></a>
 
  **Category:** FOUNDATIONAL 
 

@@ -1,7 +1,6 @@
 
 
 # [AG.DLM.8] Improve traceability with data provenance tracking
-<a name="ag.dlm.8-improve-traceability-with-data-provenance-tracking"></a>
 
  **Category:** RECOMMENDED 
 

@@ -1,7 +1,6 @@
 
 
 # [OA.TI.1] Communicate work flow and goals between teams and stakeholders
-<a name="oa.ti.1-communicate-work-flow-and-goals-between-teams-and-stakeholders"></a>
 
  **Category:** FOUNDATIONAL 
 

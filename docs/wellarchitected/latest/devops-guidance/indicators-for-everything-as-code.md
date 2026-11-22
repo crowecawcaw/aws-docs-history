@@ -1,7 +1,6 @@
 
 
 # Indicators for everything as code
-<a name="indicators-for-everything-as-code"></a>
 
 Adopt a code-centric approach across the development lifecycle for enhanced maintainability, scalability, and automation.
 

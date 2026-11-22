@@ -1,7 +1,6 @@
 
 
 # [O.SI.4] Build health checks into every service
-<a name="o.si.4-build-health-checks-into-every-service"></a>
 
  **Category:** RECOMMENDED 
 

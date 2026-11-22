@@ -1,7 +1,6 @@
 
 
 # [AG.DLM.6] Centralize shared data to enhance governance
-<a name="ag.dlm.6-centralize-shared-data-to-enhance-governance"></a>
 
  **Category:** FOUNDATIONAL 
 

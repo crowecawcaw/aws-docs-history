@@ -1,7 +1,6 @@
 
 
 # [DL.LD.9] Share tool configurations
-<a name="dl.ld.9-share-tool-configurations"></a>
 
  **Category:** OPTIONAL 
 

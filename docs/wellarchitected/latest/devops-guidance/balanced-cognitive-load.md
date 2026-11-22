@@ -1,7 +1,6 @@
 
 
 # Balanced cognitive load
-<a name="balanced-cognitive-load"></a>
 
  Maintaining a balanced cognitive load challenges team members without overwhelming or under-stimulating them. Focusing on cognitive load not only promotes individual job satisfaction, but also yields improved performance by teaching them to process information effectively, learn from their experiences, and retain knowledge. In a DevOps environment, a balanced cognitive load supports a healthy environment for innovation and adaptability, directly contributing to the overall success of the organization. 
 

@@ -1,7 +1,6 @@
 
 
 # [OA.TI.2] Streamline intra-team communication using tools and processes
-<a name="oa.ti.2-streamline-intra-team-communication-using-tools-and-processes"></a>
 
  **Category:** FOUNDATIONAL 
 

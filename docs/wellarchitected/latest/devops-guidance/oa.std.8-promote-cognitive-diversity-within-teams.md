@@ -1,7 +1,6 @@
 
 
 # [OA.STD.8] Promote cognitive diversity within teams
-<a name="oa.std.8-promote-cognitive-diversity-within-teams"></a>
 
  **Category:** RECOMMENDED 
 

@@ -1,7 +1,6 @@
 
 
 # [DL.SCM.5] Maintain an approved open-source software license list
-<a name="dl.scm.5-maintain-an-approved-open-source-software-license-list"></a>
 
  **Category:** FOUNDATIONAL 
 

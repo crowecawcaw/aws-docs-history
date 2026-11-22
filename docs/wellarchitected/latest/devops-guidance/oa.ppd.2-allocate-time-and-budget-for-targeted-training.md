@@ -1,7 +1,6 @@
 
 
 # [OA.PPD.2] Allocate time and budget for targeted training
-<a name="oa.ppd.2-allocate-time-and-budget-for-targeted-training"></a>
 
  **Category:** FOUNDATIONAL 
 

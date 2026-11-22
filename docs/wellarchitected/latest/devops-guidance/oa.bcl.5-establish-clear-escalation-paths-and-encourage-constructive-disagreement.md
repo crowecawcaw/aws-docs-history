@@ -1,7 +1,6 @@
 
 
 # [OA.BCL.5] Establish clear escalation paths and encourage constructive disagreement
-<a name="oa.bcl.5-establish-clear-escalation-paths-and-encourage-constructive-disagreement"></a>
 
  **Category:** FOUNDATIONAL 
 

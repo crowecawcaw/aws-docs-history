@@ -1,7 +1,6 @@
 
 
 # [O.CM.10] Proactively detect issues using AI/ML
-<a name="o.cm.10-proactively-detect-issues-using-aiml"></a>
 
  **Category:** OPTIONAL 
 

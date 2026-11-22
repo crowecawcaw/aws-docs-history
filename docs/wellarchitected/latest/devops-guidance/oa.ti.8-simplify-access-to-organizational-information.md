@@ -1,7 +1,6 @@
 
 
 # [OA.TI.8] Simplify access to organizational information
-<a name="oa.ti.8-simplify-access-to-organizational-information"></a>
 
  **Category:** RECOMMENDED 
 

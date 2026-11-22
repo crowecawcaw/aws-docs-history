@@ -1,7 +1,6 @@
 
 
 # [DL.LD.6] Leverage extensible development tools
-<a name="dl.ld.6-leverage-extensible-development-tools"></a>
 
  **Category:** RECOMMENDED 
 

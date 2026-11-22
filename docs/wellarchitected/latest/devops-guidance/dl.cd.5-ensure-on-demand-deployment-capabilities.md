@@ -1,7 +1,6 @@
 
 
 # [DL.CD.5] Ensure on-demand deployment capabilities
-<a name="dl.cd.5-ensure-on-demand-deployment-capabilities"></a>
 
  **Category:** FOUNDATIONAL 
 

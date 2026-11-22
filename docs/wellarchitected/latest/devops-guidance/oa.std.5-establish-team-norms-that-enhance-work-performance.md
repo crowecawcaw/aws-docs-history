@@ -1,7 +1,6 @@
 
 
 # [OA.STD.5] Establish team norms that enhance work performance
-<a name="oa.std.5-establish-team-norms-that-enhance-work-performance"></a>
 
  **Category:** FOUNDATIONAL 
 

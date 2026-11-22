@@ -1,7 +1,6 @@
 
 
 # Team interfaces
-<a name="team-interfaces"></a>
 
  Team interfaces are the input and output mechanisms that direct the flow of work between teams in a DevOps environment. These interfaces work to share information and resources aacross the organization, facilitate collaboration, and help teams to align their goals and priorities. Effective team interfaces streamline processes, reduce bottlenecks, and improve overall productivity within and across teams. 
 

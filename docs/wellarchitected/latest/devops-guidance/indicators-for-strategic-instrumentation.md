@@ -1,7 +1,6 @@
 
 
 # Indicators for strategic instrumentation
-<a name="indicators-for-strategic-instrumentation"></a>
 
 A capability focused on obtaining a deep view into your systems, which aids in rapidly responding to issues, enhancing system performance, and aligning with business objectives.
 

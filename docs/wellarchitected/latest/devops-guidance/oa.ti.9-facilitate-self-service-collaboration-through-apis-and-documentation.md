@@ -1,7 +1,6 @@
 
 
 # [OA.TI.9] Facilitate self-service collaboration through APIs and documentation
-<a name="oa.ti.9-facilitate-self-service-collaboration-through-apis-and-documentation"></a>
 
  **Category:** RECOMMENDED 
 

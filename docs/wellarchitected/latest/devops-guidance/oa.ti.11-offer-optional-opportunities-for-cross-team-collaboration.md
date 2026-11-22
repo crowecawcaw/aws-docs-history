@@ -1,7 +1,6 @@
 
 
 # [OA.TI.11] Offer optional opportunities for cross-team collaboration
-<a name="oa.ti.11-offer-optional-opportunities-for-cross-team-collaboration"></a>
 
  **Category:** RECOMMENDED 
 

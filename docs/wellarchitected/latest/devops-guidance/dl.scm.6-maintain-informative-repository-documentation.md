@@ -1,7 +1,6 @@
 
 
 # [DL.SCM.6] Maintain informative repository documentation
-<a name="dl.scm.6-maintain-informative-repository-documentation"></a>
 
  **Category:** FOUNDATIONAL 
 

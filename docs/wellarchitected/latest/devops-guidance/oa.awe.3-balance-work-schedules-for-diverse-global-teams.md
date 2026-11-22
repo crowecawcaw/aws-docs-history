@@ -1,7 +1,6 @@
 
 
 # [OA.AWE.3] Balance work schedules for diverse global teams
-<a name="oa.awe.3-balance-work-schedules-for-diverse-global-teams"></a>
 
  **Category:** RECOMMENDED 
 

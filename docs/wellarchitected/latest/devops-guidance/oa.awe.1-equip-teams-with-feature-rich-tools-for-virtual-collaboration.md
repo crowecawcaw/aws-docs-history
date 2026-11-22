@@ -1,7 +1,6 @@
 
 
 # [OA.AWE.1] Equip teams with feature-rich tools for virtual collaboration
-<a name="oa.awe.1-equip-teams-with-feature-rich-tools-for-virtual-collaboration"></a>
 
  **Category:** FOUNDATIONAL 
 

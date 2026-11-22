@@ -1,7 +1,6 @@
 
 
 # [OA.TI.4] Refine error tracking and resolution
-<a name="oa.ti.4-refine-error-tracking-and-resolution"></a>
 
  **Category:** FOUNDATIONAL 
 

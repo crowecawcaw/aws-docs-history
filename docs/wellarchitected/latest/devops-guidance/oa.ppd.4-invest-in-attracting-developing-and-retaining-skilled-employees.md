@@ -1,7 +1,6 @@
 
 
 # [OA.PPD.4] Invest in attracting, developing, and retaining skilled employees
-<a name="oa.ppd.4-invest-in-attracting-developing-and-retaining-skilled-employees"></a>
 
  **Category:** FOUNDATIONAL 
 

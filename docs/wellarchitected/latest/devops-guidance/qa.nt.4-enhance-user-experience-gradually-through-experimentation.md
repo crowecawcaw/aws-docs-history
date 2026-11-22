@@ -1,7 +1,6 @@
 
 
 # [QA.NT.4] Enhance user experience gradually through experimentation
-<a name="qa.nt.4-enhance-user-experience-gradually-through-experimentation"></a>
 
  **Category:** RECOMMENDED 
 

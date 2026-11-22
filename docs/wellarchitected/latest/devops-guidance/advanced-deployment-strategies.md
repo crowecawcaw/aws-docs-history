@@ -1,7 +1,6 @@
 
 
 # Advanced deployment strategies
-<a name="advanced-deployment-strategies"></a>
 
  Advanced deployment strategies provide organizations with the ability to deploy and release new features and updates gradually. The fast feedback loop enabled by these strategies aids in early detection and resolution of potential issues during deployment, enhancing the reliability of the release process. With advanced deployment strategies, organizations can improve the quality and speed of software releases, reduce the risk of downtime or errors, and provide enhanced user experience. 
 

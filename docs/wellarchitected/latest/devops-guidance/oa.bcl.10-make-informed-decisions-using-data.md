@@ -1,7 +1,6 @@
 
 
 # [OA.BCL.10] Make informed decisions using data
-<a name="oa.bcl.10-make-informed-decisions-using-data"></a>
 
  **Category:** RECOMMENDED 
 

@@ -1,7 +1,6 @@
 
 
 # [AG.DLM.1] Define recovery objectives to maintain business continuity
-<a name="ag.dlm.1-define-recovery-objectives-to-maintain-business-continuity"></a>
 
  **Category:** FOUNDATIONAL 
 

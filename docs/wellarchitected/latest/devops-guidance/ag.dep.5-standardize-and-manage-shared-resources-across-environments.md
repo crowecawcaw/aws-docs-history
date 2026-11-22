@@ -1,7 +1,6 @@
 
 
 # [AG.DEP.5] Standardize and manage shared resources across environments
-<a name="ag.dep.5-standardize-and-manage-shared-resources-across-environments"></a>
 
  **Category:** RECOMMENDED 
 

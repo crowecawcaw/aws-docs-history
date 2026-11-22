@@ -1,7 +1,6 @@
 
 
 # Indicators for continuous-delivery
-<a name="indicators-for-continuous-delivery"></a>
 
 Ensure that your code base remains in a releasable state at all times and deploy more often and with more confidence using automated pipelines.
 

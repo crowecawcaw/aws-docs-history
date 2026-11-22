@@ -1,7 +1,6 @@
 
 
 # [OA.STD.4] Structure teams around desired business outcomes
-<a name="oa.std.4-structure-teams-around-desired-business-outcomes"></a>
 
  **Category:** FOUNDATIONAL 
 

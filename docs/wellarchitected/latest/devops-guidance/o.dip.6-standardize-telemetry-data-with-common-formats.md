@@ -1,7 +1,6 @@
 
 
 # [O.DIP.6] Standardize telemetry data with common formats
-<a name="o.dip.6-standardize-telemetry-data-with-common-formats"></a>
 
  **Category:** RECOMMENDED 
 

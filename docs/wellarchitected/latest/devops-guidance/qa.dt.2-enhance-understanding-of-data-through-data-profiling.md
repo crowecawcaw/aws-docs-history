@@ -1,7 +1,6 @@
 
 
 # [QA.DT.2] Enhance understanding of data through data profiling
-<a name="qa.dt.2-enhance-understanding-of-data-through-data-profiling"></a>
 
  **Category:** OPTIONAL 
 

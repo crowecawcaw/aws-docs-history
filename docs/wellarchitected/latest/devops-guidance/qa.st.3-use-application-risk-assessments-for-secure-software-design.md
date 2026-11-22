@@ -1,7 +1,6 @@
 
 
 # [QA.ST.3] Use application risk assessments for secure software design
-<a name="qa.st.3-use-application-risk-assessments-for-secure-software-design"></a>
 
  **Category:** FOUNDATIONAL 
 

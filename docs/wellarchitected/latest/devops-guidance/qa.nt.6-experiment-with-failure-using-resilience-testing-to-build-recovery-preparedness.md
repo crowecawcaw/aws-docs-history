@@ -1,7 +1,6 @@
 
 
 # [QA.NT.6] Experiment with failure using resilience testing to build recovery preparedness
-<a name="qa.nt.6-experiment-with-failure-using-resilience-testing-to-build-recovery-preparedness"></a>
 
  **Category:** RECOMMENDED 
 

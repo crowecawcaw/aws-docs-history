@@ -1,7 +1,6 @@
 
 
 # [OA.BCL.7] Cultivate a psychologically-safe culture for experimentation
-<a name="oa.bcl.7-cultivate-a-psychologically-safe-culture-for-experimentation"></a>
 
  **Category:** FOUNDATIONAL 
 

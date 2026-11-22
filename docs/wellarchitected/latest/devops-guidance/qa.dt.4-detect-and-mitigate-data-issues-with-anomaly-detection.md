@@ -1,7 +1,6 @@
 
 
 # [QA.DT.4] Detect and mitigate data issues with anomaly detection
-<a name="qa.dt.4-detect-and-mitigate-data-issues-with-anomaly-detection"></a>
 
  **Category:** OPTIONAL 
 

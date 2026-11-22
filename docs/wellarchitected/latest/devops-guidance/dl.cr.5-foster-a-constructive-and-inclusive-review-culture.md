@@ -1,7 +1,6 @@
 
 
 # [DL.CR.5] Foster a constructive and inclusive review culture
-<a name="dl.cr.5-foster-a-constructive-and-inclusive-review-culture"></a>
 
  **Category:** FOUNDATIONAL 
 

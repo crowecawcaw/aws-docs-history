@@ -1,7 +1,6 @@
 
 
 # [OA.PPD.6] Promote knowledge sharing through inter-team interest groups
-<a name="oa.ppd.6-promote-knowledge-sharing-through-inter-team-interest-groups"></a>
 
  **Category:** RECOMMENDED 
 

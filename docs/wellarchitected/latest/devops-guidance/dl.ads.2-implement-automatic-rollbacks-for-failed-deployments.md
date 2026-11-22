@@ -1,7 +1,6 @@
 
 
 # [DL.ADS.2] Implement automatic rollbacks for failed deployments
-<a name="dl.ads.2-implement-automatic-rollbacks-for-failed-deployments"></a>
 
  **Category:** FOUNDATIONAL 
 

@@ -1,7 +1,6 @@
 
 
 # [QA.FT.1] Ensure individual component functionality with unit tests
-<a name="qa.ft.1-ensure-individual-component-functionality-with-unit-tests"></a>
 
  **Category:** FOUNDATIONAL 
 

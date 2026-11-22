@@ -1,7 +1,6 @@
 
 
 # [QA.TEM.5] Run tests in parallel for faster results
-<a name="qa.tem.5-run-tests-in-parallel-for-faster-results"></a>
 
  **Category:** RECOMMENDED 
 

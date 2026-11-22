@@ -1,7 +1,6 @@
 
 
 # [AG.CA.1] Establish comprehensive audit trails
-<a name="ag.ca.1-establish-comprehensive-audit-trails"></a>
 
  **Category:** FOUNDATIONAL 
 

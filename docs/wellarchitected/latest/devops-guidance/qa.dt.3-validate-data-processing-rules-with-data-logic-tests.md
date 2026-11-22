@@ -1,7 +1,6 @@
 
 
 # [QA.DT.3] Validate data processing rules with data logic tests
-<a name="qa.dt.3-validate-data-processing-rules-with-data-logic-tests"></a>
 
  **Category:** OPTIONAL 
 

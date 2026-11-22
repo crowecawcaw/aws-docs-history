@@ -1,7 +1,6 @@
 
 
 # [AG.ACG.1] Adopt a risk-based compliance framework
-<a name="ag.acg.1-adopt-a-risk-based-compliance-framework"></a>
 
  **Category:** FOUNDATIONAL 
 

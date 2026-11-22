@@ -1,7 +1,6 @@
 
 
 # Indicators for adaptive work environment
-<a name="indicators-for-adaptive-work-environment"></a>
 
 Support diverse, distributed teams by offering flexible and adaptable work environments that enable sustainable productivity and collaboration.
 

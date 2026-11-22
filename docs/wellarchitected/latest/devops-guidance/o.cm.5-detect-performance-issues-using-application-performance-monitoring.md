@@ -1,7 +1,6 @@
 
 
 # [O.CM.5] Detect performance issues using application performance monitoring
-<a name="o.cm.5-detect-performance-issues-using-application-performance-monitoring"></a>
 
  **Category:** RECOMMENDED 
 

@@ -1,7 +1,6 @@
 
 
 # [AG.DEP.3] Enable deployment to the landing zone
-<a name="ag.dep.3-enable-deployment-to-the-landing-zone"></a>
 
  **Category:** FOUNDATIONAL 
 

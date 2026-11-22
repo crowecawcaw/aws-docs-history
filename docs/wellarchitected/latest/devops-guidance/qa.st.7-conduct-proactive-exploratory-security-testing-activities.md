@@ -1,7 +1,6 @@
 
 
 # [QA.ST.7] Conduct proactive exploratory security testing activities
-<a name="qa.st.7-conduct-proactive-exploratory-security-testing-activities"></a>
 
  **Category:** RECOMMENDED 
 

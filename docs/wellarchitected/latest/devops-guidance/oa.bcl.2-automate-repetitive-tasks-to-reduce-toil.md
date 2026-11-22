@@ -1,7 +1,6 @@
 
 
 # [OA.BCL.2] Automate repetitive tasks to reduce toil
-<a name="oa.bcl.2-automate-repetitive-tasks-to-reduce-toil"></a>
 
  **Category:** FOUNDATIONAL 
 

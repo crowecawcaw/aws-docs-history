@@ -1,7 +1,6 @@
 
 
 # [O.CM.4] Report on business metrics to drive data-driven decision making
-<a name="o.cm.4-report-on-business-metrics-to-drive-data-driven-decision-making"></a>
 
  **Category:** FOUNDATIONAL 
 

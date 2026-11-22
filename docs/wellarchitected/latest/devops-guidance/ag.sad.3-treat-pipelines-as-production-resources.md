@@ -1,7 +1,6 @@
 
 
 # [AG.SAD.3] Treat pipelines as production resources
-<a name="ag.sad.3-treat-pipelines-as-production-resources"></a>
 
  **Category:** FOUNDATIONAL 
 

@@ -1,7 +1,6 @@
 
 
 # [DL.CD.7] Remove manual approvals to practice continuous deployment
-<a name="dl.cd.7-remove-manual-approvals-to-practice-continuous-deployment"></a>
 
  **Category:** OPTIONAL 
 

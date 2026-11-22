@@ -1,7 +1,6 @@
 
 
 # [DL.ADS.6] Use cell-based architectures for granular deployment and release
-<a name="dl.ads.6-utilize-cell-based-architectures-for-granular-deployment-and-release"></a>
 
  **Category:** OPTIONAL 
 

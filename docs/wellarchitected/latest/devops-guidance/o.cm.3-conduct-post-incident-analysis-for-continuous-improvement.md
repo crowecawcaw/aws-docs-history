@@ -1,7 +1,6 @@
 
 
 # [O.CM.3] Conduct post-incident analysis for continuous improvement
-<a name="o.cm.3-conduct-post-incident-analysis-for-continuous-improvement"></a>
 
  **Category:** FOUNDATIONAL 
 

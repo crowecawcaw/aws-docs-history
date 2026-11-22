@@ -1,7 +1,6 @@
 
 
 # [AG.SAD.7] Implement rotation policies for secrets, keys, and certificates
-<a name="ag.sad.7-implement-rotation-policies-for-secrets-keys-and-certificates"></a>
 
  **Category:** RECOMMENDED 
 

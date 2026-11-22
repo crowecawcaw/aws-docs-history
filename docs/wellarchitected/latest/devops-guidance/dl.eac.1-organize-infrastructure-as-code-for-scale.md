@@ -1,7 +1,6 @@
 
 
 # [DL.EAC.1] Organize infrastructure as code for scale
-<a name="dl.eac.1-organize-infrastructure-as-code-for-scale"></a>
 
  **Category:** FOUNDATIONAL 
 

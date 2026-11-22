@@ -1,7 +1,6 @@
 
 
 # [AG.ACG.5] Automate compliance for data regulations and policies
-<a name="ag.acg.5-automate-compliance-for-data-regulations-and-policies"></a>
 
  **Category:** RECOMMENDED 
 

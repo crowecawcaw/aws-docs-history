@@ -1,7 +1,6 @@
 
 
 # [DL.CR.2] Perform peer review for code changes
-<a name="dl.cr.2-perform-peer-review-for-code-changes"></a>
 
  **Category:** FOUNDATIONAL 
 

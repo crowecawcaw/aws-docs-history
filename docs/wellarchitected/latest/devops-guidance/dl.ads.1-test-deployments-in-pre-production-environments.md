@@ -1,7 +1,6 @@
 
 
 # [DL.ADS.1] Test deployments in pre-production environments
-<a name="dl.ads.1-test-deployments-in-pre-production-environments"></a>
 
  **Category:** FOUNDATIONAL 
 

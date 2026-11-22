@@ -1,7 +1,6 @@
 
 
 # [DL.LD.5] Enforce coding standards before commit
-<a name="dl.ld.5-enforce-coding-standards-before-commit"></a>
 
  **Category:** RECOMMENDED 
 

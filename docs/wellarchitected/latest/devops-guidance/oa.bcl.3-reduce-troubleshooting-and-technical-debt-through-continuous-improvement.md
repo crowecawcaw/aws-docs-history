@@ -1,7 +1,6 @@
 
 
 # [OA.BCL.3] Reduce troubleshooting and technical debt through continuous improvement
-<a name="oa.bcl.3-reduce-troubleshooting-and-technical-debt-through-continuous-improvement"></a>
 
  **Category:** FOUNDATIONAL 
 

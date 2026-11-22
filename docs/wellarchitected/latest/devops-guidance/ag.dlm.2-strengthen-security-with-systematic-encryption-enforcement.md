@@ -1,7 +1,6 @@
 
 
 # [AG.DLM.2] Strengthen security with systematic encryption enforcement
-<a name="ag.dlm.2-strengthen-security-with-systematic-encryption-enforcement"></a>
 
  **Category:** FOUNDATIONAL 
 

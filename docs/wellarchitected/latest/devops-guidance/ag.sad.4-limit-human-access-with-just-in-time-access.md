@@ -1,7 +1,6 @@
 
 
 # [AG.SAD.4] Limit human access with just-in-time access
-<a name="ag.sad.4-limit-human-access-with-just-in-time-access"></a>
 
  **Category:** FOUNDATIONAL 
 

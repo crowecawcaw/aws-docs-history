@@ -1,7 +1,6 @@
 
 
 # [DL.EAC.3] Codify data operations
-<a name="dl.eac.3-codify-data-operations"></a>
 
  **Category:** FOUNDATIONAL 
 

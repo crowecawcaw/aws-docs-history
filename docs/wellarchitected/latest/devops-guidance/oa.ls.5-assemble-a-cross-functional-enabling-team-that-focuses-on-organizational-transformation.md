@@ -1,7 +1,6 @@
 
 
 # [OA.LS.5] Assemble a cross-functional enabling team that focuses on organizational transformation
-<a name="oa.ls.5-assemble-a-cross-functional-enabling-team-that-focuses-on-organizational-transformation"></a>
 
  **Category:** RECOMMENDED 
 

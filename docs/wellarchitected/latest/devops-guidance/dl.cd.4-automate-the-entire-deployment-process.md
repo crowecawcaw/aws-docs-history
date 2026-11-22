@@ -1,7 +1,6 @@
 
 
 # [DL.CD.4] Automate the entire deployment process
-<a name="dl.cd.4-automate-the-entire-deployment-process"></a>
 
  **Category:** FOUNDATIONAL 
 

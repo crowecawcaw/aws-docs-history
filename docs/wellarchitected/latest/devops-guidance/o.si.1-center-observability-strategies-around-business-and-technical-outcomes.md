@@ -1,7 +1,6 @@
 
 
 # [O.SI.1] Center observability strategies around business and technical outcomes
-<a name="o.si.1-center-observability-strategies-around-business-and-technical-outcomes"></a>
 
  **Category:** FOUNDATIONAL 
 

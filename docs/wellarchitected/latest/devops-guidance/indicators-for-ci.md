@@ -1,7 +1,6 @@
 
 
 # Indicators for continuous integration
-<a name="indicators-for-ci"></a>
 
 Regularly integrate small code changes into a releasable branch, ensuring fast feedback and early problem detection. Streamline builds and tests using automated pipelines to reduce downstream problems and increasing code quality.
 

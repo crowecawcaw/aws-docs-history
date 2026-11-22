@@ -1,7 +1,6 @@
 
 
 # Indicators for continuous-monitoring
-<a name="indicators-for-continuous-monitoring"></a>
 
 This is the real-time observation and analysis of telemetry data. This capability provides continuous optimization through alert tuning and post-event investigations.
 

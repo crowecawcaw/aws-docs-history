@@ -1,7 +1,6 @@
 
 
 # [OA.BCL.1] Clarify purpose and direction to improve cognitive well-being
-<a name="oa.bcl.1-clarify-purpose-and-direction-to-improve-cognitive-well-being"></a>
 
  **Category:** FOUNDATIONAL 
 

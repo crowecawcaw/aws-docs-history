@@ -1,7 +1,6 @@
 
 
 # [O.DIP.3] Implement distributed tracing for system-wide request tracking
-<a name="o.dip.3-implement-distributed-tracing-for-system-wide-request-tracking"></a>
 
  **Category:** RECOMMENDED 
 

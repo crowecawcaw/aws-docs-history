@@ -1,7 +1,6 @@
 
 
 # [OA.TI.3] Establish mechanisms for teams to gather and manage customer feedback
-<a name="oa.ti.3-establish-mechanisms-for-teams-to-gather-and-manage-customer-feedback"></a>
 
  **Category:** FOUNDATIONAL 
 

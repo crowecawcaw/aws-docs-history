@@ -1,7 +1,6 @@
 
 
 # Indicators for test environment management
-<a name="indicators-for-test-environment-management"></a>
 
 Use testing environments to simulate real-world conditions, ensuring changes are ready for production deployment.
 

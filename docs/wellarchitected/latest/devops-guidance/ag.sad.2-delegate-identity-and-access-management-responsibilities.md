@@ -1,7 +1,6 @@
 
 
 # [AG.SAD.2] Delegate identity and access management responsibilities
-<a name="ag.sad.2-delegate-identity-and-access-management-responsibilities"></a>
 
  **Category:** FOUNDATIONAL 
 

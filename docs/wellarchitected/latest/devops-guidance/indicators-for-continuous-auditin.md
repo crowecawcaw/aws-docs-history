@@ -1,7 +1,6 @@
 
 
 # Indicators for continuous auditing
-<a name="indicators-for-continuous-auditin"></a>
 
 Facilitates ongoing automated assessments of system configurations, activities, and operations against internal policies and regulatory standards. This provides real-time insights into an organization's security posture and enables a swift response to compliance issues.
 

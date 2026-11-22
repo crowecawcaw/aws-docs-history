@@ -1,7 +1,6 @@
 
 
 # [DL.EAC.2] Modernize networks through infrastructure as code
-<a name="dl.eac.2-modernize-networks-through-infrastructure-as-code"></a>
 
  **Category:** FOUNDATIONAL 
 

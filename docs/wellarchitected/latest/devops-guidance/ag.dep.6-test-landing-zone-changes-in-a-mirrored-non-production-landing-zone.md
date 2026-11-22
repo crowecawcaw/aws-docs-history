@@ -1,7 +1,6 @@
 
 
 # [AG.DEP.6] Test landing zone changes in a mirrored non-production landing zone
-<a name="ag.dep.6-test-landing-zone-changes-in-a-mirrored-non-production-landing-zone"></a>
 
  **Category:** RECOMMENDED 
 

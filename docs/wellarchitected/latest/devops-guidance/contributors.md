@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  Contributors to this document include: 
 +  Michael Rhyndress, AWS DevOps Sagas lead, Amazon Web Services 

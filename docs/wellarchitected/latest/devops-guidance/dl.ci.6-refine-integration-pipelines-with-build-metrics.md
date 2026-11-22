@@ -1,7 +1,6 @@
 
 
 # [DL.CI.6] Refine integration pipelines with build metrics
-<a name="dl.ci.6-refine-integration-pipelines-with-build-metrics"></a>
 
  **Category:** RECOMMENDED 
 

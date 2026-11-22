@@ -1,7 +1,6 @@
 
 
 # Indicators for data lifecycle management
-<a name="indicators-for-data-lifecycle-management"></a>
 
 Enforce stringent controls on data through its entire lifecycle to ensure residency, privacy, sovereignty, and security. Scale data-related processes and align them with regulatory compliance, protecting software from disruptions due to data mismanagement.
 

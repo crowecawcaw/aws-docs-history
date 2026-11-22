@@ -1,7 +1,6 @@
 
 
 # Indicators for non-functional testing
-<a name="indicators-for-non-functional-testing"></a>
 
 Evaluate system attributes such as performance, usability, and reliability to ensure software meets operational requirements. This testing dimension focuses on how the system behaves, rather than specific functionalities.
 

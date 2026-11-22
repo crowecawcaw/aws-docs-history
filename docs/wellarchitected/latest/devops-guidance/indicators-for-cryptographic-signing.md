@@ -1,7 +1,6 @@
 
 
 # Indicators for cryptographic signing
-<a name="indicators-for-cryptographic-signing"></a>
 
 Authenticate and verify software component origins and integrity, ensuring a secure software supply chain.
 

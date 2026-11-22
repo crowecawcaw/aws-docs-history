@@ -1,7 +1,6 @@
 
 
 # [DL.CS.1] Implement automated digital attestation signing
-<a name="dl.cs.1-implement-automated-digital-attestation-signing"></a>
 
  **Category:** RECOMMENDED 
 

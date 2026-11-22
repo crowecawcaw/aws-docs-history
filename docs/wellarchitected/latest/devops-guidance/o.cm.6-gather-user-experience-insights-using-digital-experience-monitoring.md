@@ -1,7 +1,6 @@
 
 
 # [O.CM.6] Gather user experience insights using digital experience monitoring
-<a name="o.cm.6-gather-user-experience-insights-using-digital-experience-monitoring"></a>
 
  **Category:** RECOMMENDED 
 

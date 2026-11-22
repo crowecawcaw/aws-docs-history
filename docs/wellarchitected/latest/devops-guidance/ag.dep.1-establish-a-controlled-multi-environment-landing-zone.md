@@ -1,7 +1,6 @@
 
 
 # [AG.DEP.1] Establish a controlled, multi-environment landing zone
-<a name="ag.dep.1-establish-a-controlled-multi-environment-landing-zone"></a>
 
  **Category:** FOUNDATIONAL 
 

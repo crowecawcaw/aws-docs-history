@@ -1,7 +1,6 @@
 
 
 # [DL.CD.1] Deploy changes to production frequently
-<a name="dl.cd.1-deploy-changes-to-production-frequently"></a>
 
  **Category:** FOUNDATIONAL 
 

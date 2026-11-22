@@ -1,7 +1,6 @@
 
 
 # [DL.CR.3] Establish clear completion criteria for code tasks
-<a name="dl.cr.3-establish-clear-completion-criteria-for-code-tasks"></a>
 
  **Category:** FOUNDATIONAL 
 

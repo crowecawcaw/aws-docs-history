@@ -1,7 +1,6 @@
 
 
 # [QA.FT.2] Validate system interactions and data flows with integration tests
-<a name="qa.ft.2-validate-system-interactions-and-data-flows-with-integration-tests"></a>
 
  **Category:** FOUNDATIONAL 
 

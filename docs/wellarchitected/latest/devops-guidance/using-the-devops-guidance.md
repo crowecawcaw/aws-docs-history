@@ -1,7 +1,6 @@
 
 
 # Using the DevOps Guidance
-<a name="using-the-devops-guidance"></a>
 
  To effectively use the DevOps Guidance in conjunction with the AWS Well-Architected Framework, follow these steps: 
 

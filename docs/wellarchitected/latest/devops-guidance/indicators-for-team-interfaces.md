@@ -1,7 +1,6 @@
 
 
 # Indicators for team interfaces
-<a name="indicators-for-team-interfaces"></a>
 
 Implement mechanisms to enhance productivity within and across teams, providing effective communication channels to guide the flow of work.
 

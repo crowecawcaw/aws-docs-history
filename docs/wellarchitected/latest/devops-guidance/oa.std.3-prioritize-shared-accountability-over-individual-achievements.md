@@ -1,7 +1,6 @@
 
 
 # [OA.STD.3] Prioritize shared accountability over individual achievements
-<a name="oa.std.3-prioritize-shared-accountability-over-individual-achievements"></a>
 
  **Category:** FOUNDATIONAL 
 

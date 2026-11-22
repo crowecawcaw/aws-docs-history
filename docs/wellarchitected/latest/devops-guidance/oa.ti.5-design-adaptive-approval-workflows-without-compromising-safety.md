@@ -1,7 +1,6 @@
 
 
 # [OA.TI.5] Design adaptive approval workflows without compromising safety
-<a name="oa.ti.5-design-adaptive-approval-workflows-without-compromising-safety"></a>
 
  **Category:** FOUNDATIONAL 
 

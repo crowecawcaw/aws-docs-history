@@ -1,7 +1,6 @@
 
 
 # Dynamic environment provisioning
-<a name="dynamic-environment-provisioning"></a>
 
 Establish strategies and practices to create, maintain, and manage multiple environments within an organization's landing zone, using automated processes. This approach helps ensure consistency and compliance, enhances security, improves operational efficiency, optimizes resource usage, and allows organizations to adapt to changes faster. 
 

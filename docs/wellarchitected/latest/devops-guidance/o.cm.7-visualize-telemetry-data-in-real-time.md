@@ -1,7 +1,6 @@
 
 
 # [O.CM.7] Visualize telemetry data in real-time
-<a name="o.cm.7-visualize-telemetry-data-in-real-time"></a>
 
  **Category:** RECOMMENDED 
 

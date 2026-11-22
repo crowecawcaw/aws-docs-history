@@ -1,7 +1,6 @@
 
 
 # [O.CM.2] Plan for large scale events
-<a name="o.cm.2-plan-for-large-scale-events"></a>
 
  **Category:** FOUNDATIONAL 
 

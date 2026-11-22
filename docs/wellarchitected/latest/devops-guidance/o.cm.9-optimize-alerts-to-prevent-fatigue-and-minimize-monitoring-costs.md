@@ -1,7 +1,6 @@
 
 
 # [O.CM.9] Optimize alerts to prevent fatigue and minimize monitoring costs
-<a name="o.cm.9-optimize-alerts-to-prevent-fatigue-and-minimize-monitoring-costs"></a>
 
  **Category:** RECOMMENDED 
 

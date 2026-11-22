@@ -1,7 +1,6 @@
 
 
 # Indicators for data testing
-<a name="indicators-for-data-testing"></a>
 
 Validate the integrity, accuracy, and consistency of data processes to help ensure that data operations, from input to storage and retrieval, maintain quality and reliability standards.
 

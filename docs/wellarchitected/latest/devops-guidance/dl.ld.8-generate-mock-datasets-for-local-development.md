@@ -1,7 +1,6 @@
 
 
 # [DL.LD.8] Generate mock datasets for local development
-<a name="dl.ld.8-generate-mock-datasets-for-local-development"></a>
 
  **Category:** OPTIONAL 
 

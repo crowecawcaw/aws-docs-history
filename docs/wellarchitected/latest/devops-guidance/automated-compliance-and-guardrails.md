@@ -1,7 +1,6 @@
 
 
 # Automated compliance and guardrails
-<a name="automated-compliance-and-guardrails"></a>
 
  Integrate risk management, business governance adherence, and application and infrastructure governance mechanisms required to maintaining compliance within dynamic, constantly changing environments. This capability enables automatic enforcement of directive, detective, preventive, and responsive measures, using automated processes and policies. It helps organizations consistently uphold standards and regulations while minimizing the manual overhead traditionally associated with compliance management. 
 

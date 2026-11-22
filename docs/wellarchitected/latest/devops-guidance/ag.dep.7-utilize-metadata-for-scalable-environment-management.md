@@ -1,7 +1,6 @@
 
 
 # [AG.DEP.7] Utilize metadata for scalable environment management
-<a name="ag.dep.7-utilize-metadata-for-scalable-environment-management"></a>
 
  **Category:** OPTIONAL 
 

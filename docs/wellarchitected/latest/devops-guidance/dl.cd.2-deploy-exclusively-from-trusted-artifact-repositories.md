@@ -1,7 +1,6 @@
 
 
 # [DL.CD.2] Deploy exclusively from trusted artifact repositories
-<a name="dl.cd.2-deploy-exclusively-from-trusted-artifact-repositories"></a>
 
  **Category:** FOUNDATIONAL 
 

@@ -1,7 +1,6 @@
 
 
 # Functional testing
-<a name="functional-testing"></a>
 
  Functional testing validates that the system operates according to specified requirements. It is used to consistently verify that components such as user interfaces, APIs, databases, and the source code, work as intended. By examining these components of the system, functional testing helps ensure that each feature behaves as expected, safeguarding both user expectations and the software's integrity. 
 

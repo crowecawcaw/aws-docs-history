@@ -1,7 +1,6 @@
 
 
 # [AG.ACG.4] Strengthen security posture with ubiquitous preventative guardrails
-<a name="ag.acg.4-strengthen-security-posture-with-ubiquitous-preventative-guardrails"></a>
 
  **Category:** FOUNDATIONAL 
 

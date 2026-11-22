@@ -1,7 +1,6 @@
 
 
 # [DL.CR.4] Comprehensive code reviews with an emphasis on business logic
-<a name="dl.cr.4-comprehensive-code-reviews-with-an-emphasis-on-business-logic"></a>
 
  **Category:** FOUNDATIONAL 
 

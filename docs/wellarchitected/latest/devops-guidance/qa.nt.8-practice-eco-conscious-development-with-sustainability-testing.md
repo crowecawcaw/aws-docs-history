@@ -1,7 +1,6 @@
 
 
 # [QA.NT.8] Practice eco-conscious development with sustainability testing
-<a name="qa.nt.8-practice-eco-conscious-development-with-sustainability-testing"></a>
 
  **Category:** OPTIONAL 
 

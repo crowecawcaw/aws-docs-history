@@ -1,7 +1,6 @@
 
 
 # [DL.CI.7] Validate the reproducibility of builds
-<a name="dl.ci.7-validate-the-reproducibility-of-builds"></a>
 
  **Category:** OPTIONAL 
 

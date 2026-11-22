@@ -1,7 +1,6 @@
 
 
 # [OA.LS.3] Drive continued improvement through business reviews
-<a name="oa.ls.3-drive-continued-improvement-through-business-reviews"></a>
 
  **Category:** FOUNDATIONAL 
 

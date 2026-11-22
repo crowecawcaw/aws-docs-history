@@ -1,7 +1,6 @@
 
 
 # DevOps Guidance
-<a name="devops-guidance"></a>
 
 Publication date: **September 20, 2023** ([Document history](document-revisions.md))
 

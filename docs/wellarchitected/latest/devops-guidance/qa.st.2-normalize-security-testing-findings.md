@@ -1,7 +1,6 @@
 
 
 # [QA.ST.2] Normalize security testing findings
-<a name="qa.st.2-normalize-security-testing-findings"></a>
 
  **Category:** FOUNDATIONAL 
 

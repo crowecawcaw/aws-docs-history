@@ -1,7 +1,6 @@
 
 
 # [O.DIP.2] Centralize logs for enhanced security investigations
-<a name="o.dip.2-centralize-logs-for-enhanced-security-investigations"></a>
 
  **Category:** FOUNDATIONAL  
 

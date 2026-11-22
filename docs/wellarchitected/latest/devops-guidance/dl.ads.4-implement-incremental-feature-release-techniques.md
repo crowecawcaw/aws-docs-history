@@ -1,7 +1,6 @@
 
 
 # [DL.ADS.4] Implement Incremental Feature Release Techniques
-<a name="dl.ads.4-implement-incremental-feature-release-techniques"></a>
 
  **Category:** RECOMMENDED 
 

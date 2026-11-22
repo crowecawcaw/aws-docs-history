@@ -1,7 +1,6 @@
 
 
 # [QA.TEM.6] Enhance developer experience through scalable quality assurance platforms
-<a name="qa.tem.6-enhance-developer-experience-through-scalable-quality-assurance-platforms"></a>
 
  **Category:** RECOMMENDED 
 

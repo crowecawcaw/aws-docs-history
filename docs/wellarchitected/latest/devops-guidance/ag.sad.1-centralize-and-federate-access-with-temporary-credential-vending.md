@@ -1,7 +1,6 @@
 
 
 # [AG.SAD.1] Centralize and federate access with temporary credential vending
-<a name="ag.sad.1-centralize-and-federate-access-with-temporary-credential-vending"></a>
 
  **Category:** FOUNDATIONAL 
 

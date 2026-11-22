@@ -1,7 +1,6 @@
 
 
 # [OA.STD.7] Amplify the scale and impact of centralized functions
-<a name="oa.std.7-amplify-the-scale-and-impact-of-centralized-functions"></a>
 
  **Category:** FOUNDATIONAL 
 

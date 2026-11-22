@@ -1,7 +1,6 @@
 
 
 # [DL.EAC.7] Automate compute image generation and distribution
-<a name="dl.eac.7-automate-compute-image-generation-and-distribution"></a>
 
  **Category:** OPTIONAL 
 

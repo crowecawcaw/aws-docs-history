@@ -1,7 +1,6 @@
 
 
 # [O.SI.5] Set and monitor service level objectives against performance standards
-<a name="o.si.5-set-and-monitor-service-level-objectives-against-performance-standards"></a>
 
  **Category:** RECOMMENDED 
 

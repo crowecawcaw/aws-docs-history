@@ -1,7 +1,6 @@
 
 
 # [DL.CD.3] Integrate quality assurance into deployments
-<a name="dl.cd.3-integrate-quality-assurance-into-deployments"></a>
 
  **Category:** FOUNDATIONAL 
 

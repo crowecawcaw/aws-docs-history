@@ -1,7 +1,6 @@
 
 
 # [DL.CR.7] Create consistent and descriptive commit messages using a specification
-<a name="dl.cr.7-create-consistent-and-descriptive-commit-messages-using-a-specification"></a>
 
  **Category:** RECOMMENDED 
 

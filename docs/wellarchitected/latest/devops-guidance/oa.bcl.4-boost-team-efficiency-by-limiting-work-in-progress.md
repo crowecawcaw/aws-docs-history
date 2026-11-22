@@ -1,7 +1,6 @@
 
 
 # [OA.BCL.4] Boost team efficiency by limiting work in progress
-<a name="oa.bcl.4-boost-team-efficiency-by-limiting-work-in-progress"></a>
 
  **Category:** FOUNDATIONAL 
 

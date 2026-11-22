@@ -1,7 +1,6 @@
 
 
 # [AG.SAD.6] Conduct periodic identity and access management reviews
-<a name="ag.sad.6-conduct-periodic-identity-and-access-management-reviews"></a>
 
  **Category:** FOUNDATIONAL 
 

@@ -1,7 +1,6 @@
 
 
 # Indicators for secure access and delegation
-<a name="indicators-for-secure-access-and-delegation"></a>
 
 Establish scalable, fine-grained access controls that balance security with team autonomy. Granting explicit, temporary access based on the principle of least privilege, providing procedures for emergencies, and regularly auditing access controls to align with evolving requirements and threats.
 

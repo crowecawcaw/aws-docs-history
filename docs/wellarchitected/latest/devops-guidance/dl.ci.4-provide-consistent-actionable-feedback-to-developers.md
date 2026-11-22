@@ -1,7 +1,6 @@
 
 
 # [DL.CI.4] Provide consistent, actionable feedback to developers
-<a name="dl.ci.4-provide-consistent-actionable-feedback-to-developers"></a>
 
  **Category:** FOUNDATIONAL 
 

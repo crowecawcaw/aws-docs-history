@@ -1,7 +1,6 @@
 
 
 # [AG.ACG.2] Implement controlled procedures for introducing new services and features
-<a name="ag.acg.2-implement-controlled-procedures-for-introducing-new-services-and-features"></a>
 
  **Category:** FOUNDATIONAL 
 

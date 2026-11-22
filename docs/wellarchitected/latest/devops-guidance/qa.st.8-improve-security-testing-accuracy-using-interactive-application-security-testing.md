@@ -1,7 +1,6 @@
 
 
 # [QA.ST.8] Improve security testing accuracy using interactive application security testing
-<a name="qa.st.8-improve-security-testing-accuracy-using-interactive-application-security-testing"></a>
 
  **Category:** OPTIONAL 
 

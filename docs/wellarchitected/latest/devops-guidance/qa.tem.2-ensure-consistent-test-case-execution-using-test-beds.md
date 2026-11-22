@@ -1,7 +1,6 @@
 
 
 # [QA.TEM.2] Ensure consistent test case execution using test beds
-<a name="qa.tem.2-ensure-consistent-test-case-execution-using-test-beds"></a>
 
  **Category:** FOUNDATIONAL 
 

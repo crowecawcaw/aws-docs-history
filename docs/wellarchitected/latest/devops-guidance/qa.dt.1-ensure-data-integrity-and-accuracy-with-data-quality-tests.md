@@ -1,7 +1,6 @@
 
 
 # [QA.DT.1] Ensure data integrity and accuracy with data quality tests
-<a name="qa.dt.1-ensure-data-integrity-and-accuracy-with-data-quality-tests"></a>
 
  **Category:** RECOMMENDED 
 

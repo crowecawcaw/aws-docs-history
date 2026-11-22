@@ -1,7 +1,6 @@
 
 
 # [DL.LD.3] Commit local changes early and often
-<a name="dl.ld.3-commit-local-changes-early-and-often"></a>
 
  **Category:** FOUNDATIONAL 
 

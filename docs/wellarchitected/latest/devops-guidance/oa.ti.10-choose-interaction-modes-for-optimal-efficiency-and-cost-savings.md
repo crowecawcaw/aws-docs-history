@@ -1,7 +1,6 @@
 
 
 # [OA.TI.10] Choose interaction modes for improved efficiency and cost savings
-<a name="oa.ti.10-choose-interaction-modes-for-optimal-efficiency-and-cost-savings"></a>
 
  **Category:** RECOMMENDED 
 

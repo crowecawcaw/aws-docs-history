@@ -1,7 +1,6 @@
 
 
 # [DL.SCM.4] Grant access only to trusted repositories
-<a name="dl.scm.4-grant-access-only-to-trusted-repositories"></a>
 
  **Category:** FOUNDATIONAL 
 

@@ -1,7 +1,6 @@
 
 
 # [QA.ST.5] Evaluate runtime security with dynamic application security testing
-<a name="qa.st.5-evaluate-runtime-security-with-dynamic-application-security-testing"></a>
 
  **Category:** FOUNDATIONAL 
 

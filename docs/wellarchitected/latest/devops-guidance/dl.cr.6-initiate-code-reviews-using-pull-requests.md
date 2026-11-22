@@ -1,7 +1,6 @@
 
 
 # [DL.CR.6] Initiate code reviews using pull requests
-<a name="dl.cr.6-initiate-code-reviews-using-pull-requests"></a>
 
  **Category:** RECOMMENDED 
 

@@ -1,7 +1,6 @@
 
 
 # [AG.CA.3] Implement systematic exception tracking and review processes
-<a name="ag.ca.3-implement-systematic-exception-tracking-and-review-processes"></a>
 
  **Category:** FOUNDATIONAL 
 

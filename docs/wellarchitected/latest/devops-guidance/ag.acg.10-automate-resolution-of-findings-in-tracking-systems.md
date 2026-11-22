@@ -1,7 +1,6 @@
 
 
 # [AG.ACG.10] Automate resolution of findings in tracking systems
-<a name="ag.acg.10-automate-resolution-of-findings-in-tracking-systems"></a>
 
  **Category:** RECOMMENDED 
 

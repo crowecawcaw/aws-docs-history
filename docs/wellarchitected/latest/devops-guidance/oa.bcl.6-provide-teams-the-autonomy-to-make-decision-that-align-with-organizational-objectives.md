@@ -1,7 +1,6 @@
 
 
 # [OA.BCL.6] Provide teams the autonomy to make decision that align with organizational objectives
-<a name="oa.bcl.6-provide-teams-the-autonomy-to-make-decision-that-align-with-organizational-objectives"></a>
 
  **Category:** FOUNDATIONAL 
 

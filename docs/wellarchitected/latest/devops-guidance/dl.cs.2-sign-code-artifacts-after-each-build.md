@@ -1,7 +1,6 @@
 
 
 # [DL.CS.2] Sign code artifacts after each build
-<a name="dl.cs.2-sign-code-artifacts-after-each-build"></a>
 
  **Category:** RECOMMENDED 
 

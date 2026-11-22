@@ -1,7 +1,6 @@
 
 
 # [OA.TI.6] Prioritize customer needs to deliver optimal business outcomes
-<a name="oa.ti.6-prioritize-customer-needs-to-deliver-optimal-business-outcomes"></a>
 
  **Category:** RECOMMENDED 
 

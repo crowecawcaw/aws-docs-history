@@ -1,7 +1,6 @@
 
 
 # Anti-patterns for continuous integration
-<a name="anti-patterns-for-continuous-integration"></a>
 +  **Infrequent check-in of code**: To detect issues as early as possible, developers should check-in their changes to the code base as often as possible. If developers are committing code infrequently, it can lead to longer feedback loops, and problems may go unnoticed for longer periods of time. 
 +  **Manually building and testing changes**: A key benefit of continuous integration is the ability to automatically build and test code changes. If teams rely on manual testing or building, it will slow down the development process and make it harder to detect issues early on. 
 +  **Having builds run on a preset schedule rather than on commit**: One of the main benefits of continuous integration is that it enables teams to detect issues as soon as possible, which is why builds should be triggered automatically every time changes are committed to the repository. If builds are only run on a preset schedule, it can lead to longer feedback loops and more issues slipping through. 

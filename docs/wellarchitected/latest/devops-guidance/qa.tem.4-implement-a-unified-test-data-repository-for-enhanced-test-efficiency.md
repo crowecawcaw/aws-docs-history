@@ -1,7 +1,6 @@
 
 
 # [QA.TEM.4] Implement a unified test data repository for enhanced test efficiency
-<a name="qa.tem.4-implement-a-unified-test-data-repository-for-enhanced-test-efficiency"></a>
 
  **Category:** RECOMMENDED 
 
