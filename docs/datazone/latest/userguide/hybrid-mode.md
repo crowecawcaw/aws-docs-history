@@ -1,7 +1,6 @@
 
 
 # Amazon DataZone integration with AWS Lake Formation hybrid mode
-<a name="hybrid-mode"></a>
 
 Amazon DataZone is integrated with AWS Lake Formation hybrid mode. This integration enables you to easily publish and share your AWS Glue tables through Amazon DataZone without the need to register them in AWS Lake Formation first. Hybrid mode allows you to start managing permissions on your AWS Glue tables through AWS Lake Formation while continuing to maintain any existing IAM permissions on these tables. 
 
@@ -47,7 +46,7 @@ If your Amazon S3 location is encrypted with an AWS managed key, add the followi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

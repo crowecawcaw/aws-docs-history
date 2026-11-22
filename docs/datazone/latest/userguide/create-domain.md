@@ -1,7 +1,6 @@
 
 
 # Create Amazon DataZone domains
-<a name="create-domain"></a>
 
 **Note**  
 If you are using Amazon DataZone with AWS Identity Center to provide access to SSO users and groups, then currently your Amazon DataZone domain must be in the same AWS Region as your AWS Identity Center instance.
@@ -28,7 +27,7 @@ Complete the following procedure to create an Amazon DataZone domain.
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [

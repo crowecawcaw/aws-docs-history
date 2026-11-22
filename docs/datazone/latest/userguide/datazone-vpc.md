@@ -1,7 +1,6 @@
 
 
 # Using Interface VPC Endpoints for Amazon DataZone
-<a name="datazone-vpc"></a>
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a connection between your Amazon VPC and Amazon DataZone. You can use this connection with Amazon DataZone without crossing the public internet. 
 

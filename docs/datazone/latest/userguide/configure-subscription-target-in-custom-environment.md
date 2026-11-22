@@ -1,7 +1,6 @@
 
 
 # Configure a subscription target in an AWS service environment
-<a name="configure-subscription-target-in-custom-environment"></a>
 
 Complete the following procedure to configure a subscription target in an AWS service environment. 
 

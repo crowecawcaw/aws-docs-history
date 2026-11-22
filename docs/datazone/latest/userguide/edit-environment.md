@@ -1,7 +1,6 @@
 
 
 # Edit an environment
-<a name="edit-environment"></a>
 
 In Amazon DataZone projects, environments are collections of configured resources (for example, an Amazon S3 bucket, an AWS Glue database, or an Amazon Athena workgroup), with a given set of IAM principals (with assigned contributor permissions) who can operate on those resources. For more information, see [Amazon DataZone terminology and concepts](datazone-concepts.md). 
 

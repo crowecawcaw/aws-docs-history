@@ -1,7 +1,6 @@
 
 
 # Publish assets to the Amazon DataZone catalog from the project inventory
-<a name="publishing-data-asset"></a>
 
 You can publish Amazon DataZone assets and their metadata from project inventories into the Amazon DataZone catalog. You can only publish the most recent version of an asset to the catalog.
 

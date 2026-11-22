@@ -1,7 +1,6 @@
 
 
 # Setting up AWS IAM Identity Center for Amazon DataZone
-<a name="sso-setup"></a>
 
 **Note**  
 AWS Identity Center must be enabled in the same AWS Region as your Amazon DataZone domain. Currently, AWS Identity Center can only be enabled in a single AWS Region. 

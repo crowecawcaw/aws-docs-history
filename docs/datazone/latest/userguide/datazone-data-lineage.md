@@ -1,7 +1,6 @@
 
 
 # Data lineage in Amazon DataZone
-<a name="datazone-data-lineage"></a>
 
 Data lineage in Amazon DataZone is an OpenLineage-compatible feature that can help you to capture and visualize lineage events, from OpenLineage-enabled systems or through APIs, to trace data origins, track transformations, and view cross-organizational data consumption. It provides you with an overarching view into your data assets to see the origin of assets and their chain of connections. The lineage data includes information on the activities inside the Amazon DataZone's business data catalog, including information about the catalogued assets, the subscribers of those assets, and the activities that happen outside the business data catalog captured programmatically using the APIs.
 

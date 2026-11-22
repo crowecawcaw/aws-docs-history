@@ -1,7 +1,6 @@
 
 
 # What is new in Amazon DataZone?
-<a name="what-is-new-in-datazone"></a>
 
 This section describes new features and improvements in Amazon DataZone by release date.
 

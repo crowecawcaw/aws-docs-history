@@ -1,7 +1,6 @@
 
 
 # Revoke an existing subscription in Amazon DataZone
-<a name="revoke-subscription"></a>
 
 Amazon DataZone allows you to find, access and consume the assets in the Amazon DataZone catalog. When you find an asset in the catalog that you want to access, you need to *subscribe* to the asset, which creates a subscription request. An approver can then approve or request your request. You might need to revoke a subscription after you have approved it, either because the approval was a mistake, or because the subscriber no longer needs access to the asset.
 

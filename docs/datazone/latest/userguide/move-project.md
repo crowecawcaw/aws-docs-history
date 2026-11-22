@@ -1,7 +1,6 @@
 
 
 # Move project to a different domain unit
-<a name="move-project"></a>
 
 In Amazon DataZone, projects enable a group of users to collaborate on various business use cases that involve publishing, discovering, subscribing to, and consuming data assets in the Amazon DataZone catalog. For more information, see [Amazon DataZone terminology and concepts](datazone-concepts.md). 
 

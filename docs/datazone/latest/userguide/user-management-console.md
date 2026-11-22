@@ -1,7 +1,6 @@
 
 
 # Manage users in the Amazon DataZone console
-<a name="user-management-console"></a>
 
 Your users can access the Amazon DataZone data portal by using either their AWS credentials or single sign-on (SSO) credentials. To manage users in the Amazon DataZone console for an Amazon DataZone domain, you must assume an IAM role in the account with Amazon DataZone management console permissions. [Configure the IAM permissions required to use the Amazon DataZone management console](create-iam-roles.md) to obtain the minimum permissions necessary to manage users in the Amazon DataZone console.
 

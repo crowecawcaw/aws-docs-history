@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AmazonDataZoneEnvironmentRolePermissionsBoundary
-<a name="security-iam-awsmanpol-AmazonDataZoneEnvironmentRolePermissionsBoundary"></a>
 
 **Note**  
 This policy is a *permissions boundary*. A permissions boundary sets the maximum permissions that an identity-based policy can grant to an IAM entity. You should not use and attach Amazon DataZone permissions boundary policies on your own. Amazon DataZone permissions boundary policies should only be attached to Amazon DataZone managed roles. For more information on permissions boundaries, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the IAM User Guide.

@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneS3Manage-<region>-<domainId>
-<a name="AmazonDataZoneS3Manage"></a>
 
 The AmazonDataZoneS3Manage-<region>-<domainId> is used when Amazon DataZone calls AWS Lake Formation to register an Amazon Simple Storage Service (Amazon S3) location. AWS Lake Formation assumes this role when accessing the data in that location. For more information, see [Requirements for roles used to register locations](https://docs.aws.amazon.com/lake-formation/latest/dg/registration-role.html).
 
@@ -12,7 +11,7 @@ This role has the following inline permissions policy attached.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -102,7 +101,7 @@ The AmazonDataZoneS3Manage-<region>-<domainId> has the following trust policy at
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

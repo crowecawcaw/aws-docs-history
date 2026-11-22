@@ -1,7 +1,6 @@
 
 
 # Manage inventory and curate assets in Amazon DataZone
-<a name="update-metadata"></a>
 
 In order to use Amazon DataZone to catalog your data, you must first bring your data (assets) as inventory of your project in Amazon DataZone. Creating inventory for a particular project, makes the assets discoverable only to that project’s members. 
 

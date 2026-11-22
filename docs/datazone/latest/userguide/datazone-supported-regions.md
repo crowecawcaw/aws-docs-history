@@ -1,7 +1,6 @@
 
 
 # Supported Regions for Amazon DataZone
-<a name="datazone-supported-regions"></a>
 
 In the current release, Amazon DataZone is supported in the following AWS regions:
 + US East (Ohio)

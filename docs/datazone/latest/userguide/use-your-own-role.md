@@ -1,7 +1,6 @@
 
 
 # Using existing IAM roles to fulfill Amazon DataZone subscriptions
-<a name="use-your-own-role"></a>
 
 In the current release, Amazon DataZone supports you using your existing IAM roles to get access to the data. To achieve this, you can create a subscription target in the Amazon DataZone environment that you're using to fulfill your subscription. To create a subscription target for an environment in one of the associated AWS accounts, you can use the following steps: 
 

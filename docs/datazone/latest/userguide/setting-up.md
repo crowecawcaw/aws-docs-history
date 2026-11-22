@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon DataZone
-<a name="setting-up"></a>
 
 To set up the Amazon DataZone, you must have an AWS account and set up the required IAM policies and permissions for Amazon DataZone.
 

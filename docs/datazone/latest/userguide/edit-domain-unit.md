@@ -1,7 +1,6 @@
 
 
 # Edit domain units in Amazon DataZone
-<a name="edit-domain-unit"></a>
 
 In Amazon DataZone, domain units enable you to organize your assets and other domain entities under specific business units and teams. For more information, see [Amazon DataZone terminology and concepts](datazone-concepts.md). 
 

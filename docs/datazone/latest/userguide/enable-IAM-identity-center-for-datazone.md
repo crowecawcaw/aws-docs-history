@@ -1,7 +1,6 @@
 
 
 # Enable IAM Identity Center for Amazon DataZone
-<a name="enable-IAM-identity-center-for-datazone"></a>
 
 **Note**  
 To complete this procedure, you must have AWS IAM Identity Center enabled in the same AWS Region as your Amazon DataZone domain.

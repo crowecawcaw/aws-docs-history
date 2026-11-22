@@ -1,7 +1,6 @@
 
 
 # IAM roles for Amazon DataZone
-<a name="iam-roles-datazone"></a>
 
 **Topics**
 + [AmazonDataZoneProvisioningRole-<domainAccountId>](bootstraprole.md)

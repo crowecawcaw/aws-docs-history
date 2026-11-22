@@ -1,7 +1,6 @@
 
 
 # Delete data products in Amazon DataZone
-<a name="delete-data-product"></a>
 
 Amazon DataZone enables data producers to group data assets into well-defined, self-contained packages called data products that are tailored for specific business use-cases. For more information, see [Amazon DataZone terminology and concepts](datazone-concepts.md). 
 

@@ -1,7 +1,6 @@
 
 
 # Create actions in a custom AWS service environment
-<a name="configure-custom-environment-actions"></a>
 
 Complete the following procedure to create actions in a custom AWS service environment. By creating actions in a custom AWS service environment, you're adding deep links to the Amazon DataZone data portal to the analytics tool that are available in this environment.
 

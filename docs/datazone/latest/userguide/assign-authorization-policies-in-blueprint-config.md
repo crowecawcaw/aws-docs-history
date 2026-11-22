@@ -1,7 +1,6 @@
 
 
 # Assign authorization policies within Amazon DataZone blueprint configurations
-<a name="assign-authorization-policies-in-blueprint-config"></a>
 
 Another way to use the authorization mechanism in Amazon DataZone is to apply authorization policies to projects and domain unit owners within Amazon DataZone blueprint configurations. 
 

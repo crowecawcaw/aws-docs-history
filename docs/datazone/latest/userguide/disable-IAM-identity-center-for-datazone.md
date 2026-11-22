@@ -1,7 +1,6 @@
 
 
 # Disable IAM Identity Center for Amazon DataZone
-<a name="disable-IAM-identity-center-for-datazone"></a>
 
 Disabling AWS IAM Identity Center for an Amazon DataZone domain will remove access for all SSO users.
 

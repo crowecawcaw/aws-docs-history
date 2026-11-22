@@ -1,7 +1,6 @@
 
 
 # Temporary Credentials
-<a name="temporarycredentials"></a>
 
 Some AWS services don't work when you sign in using temporary credentials. For additional information, including which AWS services work with temporary credentials, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 

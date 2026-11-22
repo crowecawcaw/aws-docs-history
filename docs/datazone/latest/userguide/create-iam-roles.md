@@ -1,7 +1,6 @@
 
 
 # Configure the IAM permissions required to use the Amazon DataZone management console
-<a name="create-iam-roles"></a>
 
 In order to access and conﬁgure your Amazon DataZone domains, blueprints, and users, and to create the Amazon DataZone data portal, you must use the Amazon DataZone management console.
 
@@ -59,7 +58,7 @@ For best practices information on configuring permissions to allow creation of s
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -120,7 +119,7 @@ For best practices information on configuring permissions to allow creation of s
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -236,7 +235,7 @@ Complete the following procedure to create a custom inline policy to have the ne
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

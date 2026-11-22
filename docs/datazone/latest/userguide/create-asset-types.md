@@ -1,7 +1,6 @@
 
 
 # Create custom asset types in Amazon DataZone
-<a name="create-asset-types"></a>
 
 In Amazon DataZone, assets represent specific types of data resources such as database tables, dashboards, or machine learning models. To provide consistency and standardization when describing catalog assets, an Amazon DataZone domain must have a set of asset types that define how assets are represented in the catalog. An asset type defines the schema for a specific type of asset. An asset type has a set of required and optional nameable metadata form types (for example, govForm or GovernanceFormType). Asset type in Amazon DataZone are versioned. When assets are created, they are validated against the schema defined by their asset type (typically latest version), and if an invalid structure is specified, asset creation fails. 
 

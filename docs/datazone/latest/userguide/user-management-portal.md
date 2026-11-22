@@ -1,7 +1,6 @@
 
 
 # Manage user permissions in the Amazon DataZone data portal
-<a name="user-management-portal"></a>
 
 You can use the Amazon DataZone management portal to configure authentication for IAM users and roles, SSO users and groups, and SAML users. Amazon DataZone assigns a user profile to each user that uses Amazon DataZone.
 

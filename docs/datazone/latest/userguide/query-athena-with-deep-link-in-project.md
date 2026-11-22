@@ -1,7 +1,6 @@
 
 
 # Query data in Amazon Athena or Amazon Redshift in Amazon DataZone
-<a name="query-athena-with-deep-link-in-project"></a>
 
 In Amazon DataZone, once a subscriber has access to an asset in the catalog, they can consume it (query and analyze) using Amazon Athena or Amazon Redshift query editor v2. You must be a project owner or contributor to complete this task. Depending on the blueprints enabled in the project, Amazon DataZone provides links to Amazon Athena and/or Amazon Redshift query editor v2 on the right-hand side pane of the project page in the data portal.
 

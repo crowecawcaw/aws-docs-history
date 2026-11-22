@@ -1,7 +1,6 @@
 
 
 # Request subscription to assets in Amazon DataZone
-<a name="subscribe-to-data-assets-managed-by-datazone"></a>
 
 Amazon DataZone allows you to find, access and consume the assets in the Amazon DataZone catalog. When you find an asset in the catalog that you want to access, you need to *subscribe* to the asset, which creates a subscription request. An approver can then approve or request your request.
 

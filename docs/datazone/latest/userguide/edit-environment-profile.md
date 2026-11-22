@@ -1,7 +1,6 @@
 
 
 # Edit an environment profile
-<a name="edit-environment-profile"></a>
 
 In Amazon DataZone, an environment proﬁle is a template that you can use to create environments. For more information, see [Amazon DataZone terminology and concepts](datazone-concepts.md). To edit an existing environment profiles in an Amazon DataZone domain, you must belong to an Amazon DataZone project. 
 

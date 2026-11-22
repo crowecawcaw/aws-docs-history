@@ -1,7 +1,6 @@
 
 
 # Amazon DataZone data discovery, subscription, and consumption
-<a name="discover-subscribe-consume-data"></a>
 
 In Amazon DataZone, once an asset is published to a domain, subscribers can discover and request a subscription to this asset. The subscription process begins with a subscriber searching for and browsing the catalog to find an asset they want. From the Amazon DataZone portal, they choose to subscribe to the asset by submitting a subscription request that includes justification and the reason for the request. The owner of the asset reviews the request. They can either approve or reject the request. 
 

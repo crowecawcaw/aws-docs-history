@@ -1,7 +1,6 @@
 
 
 # Domain units and authorization policies in Amazon DataZone
-<a name="working-with-domain-units"></a>
 
 Use *domain units* to easily organize your assets and other domain entities under specific business units and teams. To set up secure and efficient data sharing within and across business units of your organization, create domain units within Amazon DataZone and enable selected users within each business unit to login and share their assets to the catalog. Users from anywhere in the enterprise can easily search for assets under those business units and request access to those assets.
 

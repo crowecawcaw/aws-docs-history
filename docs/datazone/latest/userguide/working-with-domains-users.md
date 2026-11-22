@@ -1,7 +1,6 @@
 
 
 # Domains and user access in Amazon DataZone
-<a name="working-with-domains-users"></a>
 
 This section describes how you can create and manage domains and user access in Amazon DataZone. 
 

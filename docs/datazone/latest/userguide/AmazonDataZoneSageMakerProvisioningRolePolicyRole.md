@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneSageMakerProvisioningRolePolicyRole-<domainAccountId>
-<a name="AmazonDataZoneSageMakerProvisioningRolePolicyRole"></a>
 
 The `AmazonDataZoneSageMakerProvisioningRolePolicyRole` role has the `AmazonDataZoneSageMakerProvisioningRolePolicy` and the `AmazonDataZoneRedshiftGlueProvisioningPolicy` attached. This role grants Amazon DataZone permissions required to interoperate with AWS Glue, Amazon Redshift, and Amazon Sagemaker.
 
@@ -12,7 +11,7 @@ The `AmazonDataZoneSageMakerProvisioningRolePolicyRole` role has the following i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -42,7 +41,7 @@ The `AmazonDataZoneSageMakerProvisioningRolePolicyRole` role has the following t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

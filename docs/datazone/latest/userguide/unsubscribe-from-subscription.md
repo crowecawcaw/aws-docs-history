@@ -1,7 +1,6 @@
 
 
 # Unsubscribe from an asset in Amazon DataZone
-<a name="unsubscribe-from-subscription"></a>
 
 Amazon DataZone allows you to find, access and consume the assets in the Amazon DataZone catalog. When you find an asset in the catalog that you want to access, you need to *subscribe* to the asset, which creates a subscription request. An approver can then approve or request your request. You might need to unsubscribe from an asset, either because you subscribed by mistake and were approved, or because you no longer need read access to the asset.
 

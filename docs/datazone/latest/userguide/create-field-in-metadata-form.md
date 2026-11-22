@@ -1,7 +1,6 @@
 
 
 # Create a field in a metadata form in Amazon DataZone
-<a name="create-field-in-metadata-form"></a>
 
 In Amazon DataZone, metadata forms are simple forms to augment additional business context to the asset metadata in the catalog. It serves as an extensible mechanism for data owners to enrich the asset with information that can help data users when they search and find that data. Metadata forms can also serve an mechanism to enforce consistency to all assets being published to the Amazon DataZone catalog. 
 

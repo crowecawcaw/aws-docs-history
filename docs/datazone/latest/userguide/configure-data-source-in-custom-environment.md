@@ -1,7 +1,6 @@
 
 
 # Configure a data source in an AWS service environment
-<a name="configure-data-source-in-custom-environment"></a>
 
 Complete the following procedure to configure a data source in an AWS service environment. 
 

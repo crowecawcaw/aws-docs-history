@@ -1,7 +1,6 @@
 
 
 # Manage domain unit owners in Amazon DataZone
-<a name="add-domain-unit-owners"></a>
 
 In Amazon DataZone, domain units enable you to organize your assets and other domain entities under specific business units and teams. For more information, see [Amazon DataZone terminology and concepts](datazone-concepts.md). 
 

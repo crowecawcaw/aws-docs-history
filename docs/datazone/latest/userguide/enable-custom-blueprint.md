@@ -1,7 +1,6 @@
 
 
 # Enable a custom AWS service blueprint
-<a name="enable-custom-blueprint"></a>
 
 Complete the following procedure to enable a custom AWS service blueprint in your domain. 
 

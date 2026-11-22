@@ -1,7 +1,6 @@
 
 
 # Edit a business glossary in Amazon DataZone
-<a name="edit-business-glossary"></a>
 
 In Amazon DataZone, a business glossary is a collection of business terms (words) that may be associated with assets (data). It provides appropriate vocabularies with a list of business terms and their definitions for business users to ensure the same definitions are used across the organization when analyzing data. Business glossaries are created in the catalog domain and can be applied to assets and columns to help understand key characteristics of that asset or column. One or more glossary terms can be applied. A business glossary can be a flat list of terms where any term in the business glossary can be associated with a sublist of other terms. For more information, see [Amazon DataZone terminology and concepts](datazone-concepts.md). To edit a glossary in your Amazon DataZone domain, you must be the member of the owning project with the right permissions for that domain.
 

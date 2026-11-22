@@ -1,7 +1,6 @@
 
 
 # Restricting access to Amazon DataZone
-<a name="user-management-portal-restricting-programmatic-access"></a>
 
 **Restricting programmatic access to Amazon DataZone** - for IAM users or roles, making programmatic API calls, access can be restricted via IAM policies. If you want to revoke any already issued short term credentials for roles, you can use the [IAM revoke session mechanism](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_revoke-sessions.html) on the role or on the [Service Control Policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html).
 

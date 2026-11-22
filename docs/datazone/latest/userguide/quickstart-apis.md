@@ -1,7 +1,6 @@
 
 
 # Amazon DataZone quickstart with sample scripts
-<a name="quickstart-apis"></a>
 
 You can access Amazon DataZone via the management portal or the Amazon DataZone data portal, or programmatically by using the Amazon DataZone HTTPS API, which lets you issue HTTPS requests directly to the service. This section contains sample scripts that invoke Amazon DataZone APIs that you can use to complete the following common tasks:
 

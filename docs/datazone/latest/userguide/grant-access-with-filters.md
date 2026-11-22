@@ -1,7 +1,6 @@
 
 
 # Grant access with filters in Amazon DataZone
-<a name="grant-access-with-filters"></a>
 
 Amazon DataZone enables fine-grained access control by translating the defined row and column filters into appropriate grants for AWS Lake Formation and Amazon Redshift. Below is an explanation of how Amazon DataZone materializes these filters for both AWS Glue tables and Amazon Redshift.
 

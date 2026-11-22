@@ -1,7 +1,6 @@
 
 
 # Create an environment using a custom AWS service blueprint
-<a name="create-custom-environment"></a>
 
 Complete the following procedure to create an environment using a custom AWS service blueprint.
 
@@ -25,7 +24,7 @@ When you create your custom role, make sure that it trusts `datazone.amazonaws.c
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [

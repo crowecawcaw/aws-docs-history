@@ -1,7 +1,6 @@
 
 
 # Delete an environment profile
-<a name="delete-environment-profile"></a>
 
 In Amazon DataZone, an environment proﬁle is a template that you can use to create environments. The purpose of an environment profile is to simplify environment creation by embedding placement information such as AWS account and region within the profiles. For more information, see [Amazon DataZone terminology and concepts](datazone-concepts.md). To delete environment profiles in an Amazon DataZone domain, you must belong to an Amazon DataZone project. 
 

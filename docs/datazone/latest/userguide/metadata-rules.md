@@ -1,7 +1,6 @@
 
 
 # Metadata enforcement rules for subscription requests
-<a name="metadata-rules"></a>
 
 The metadata enforcement rules for subscription requests feature in Amazon DataZone strengthens data governance by enabling domain unit owners to establish clear metadata requirements for data consumers, streamlining access requests and enhancing data governance. This feature enables organizations to align with organization’s metadata standards, implement custom workflows, and provide a consistent, governed data access experience. 
 

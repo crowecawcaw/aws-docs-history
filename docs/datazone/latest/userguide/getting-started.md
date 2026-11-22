@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon DataZone
-<a name="getting-started"></a>
 
 The information in this section helps you get started using Amazon DataZone. If you are new to Amazon DataZone, start by becoming familiar with the concepts and terminology presented in [Amazon DataZone terminology and concepts](datazone-concepts.md).
 

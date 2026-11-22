@@ -1,7 +1,6 @@
 
 
 # Amazon DataZone projects and environments
-<a name="working-with-projects"></a>
 
 In Amazon DataZone, projects enable a group of users to collaborate on various business use cases that involve publishing, discovering, subscribing to, and consuming data assets in the Amazon DataZone catalog. Each Amazon DataZone project has a set of access controls applied to it so that only authorized individuals, groups, and roles can access the project and the data assets that this project subscribes to, and can use only those tools that are deﬁned by the project permissions. Projects act as an identity principal that receives access grants to underlying resources, enabling Amazon DataZone to operate within an organization’s infrastructure without relying on individual user’s credentials. 
 

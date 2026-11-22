@@ -1,7 +1,6 @@
 
 
 # Create column filters in Amazon DataZone
-<a name="create-column-filter"></a>
 
 Amazon DataZone enables you to create column filters that you can use when approving subscriptions to make sure that the subscriber can only access columns of data as defined in the column filters. To create a column filter, follow the steps below: 
 

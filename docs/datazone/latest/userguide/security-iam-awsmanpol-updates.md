@@ -1,7 +1,6 @@
 
 
 # Amazon DataZone updates to AWS managed policies
-<a name="security-iam-awsmanpol-updates"></a>
 
 View details about updates to AWS managed policies for Amazon DataZone since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed on the Amazon DataZone [Document history](https://docs.aws.amazon.com/datazone/latest/userguide/doc-history.html) page.
 

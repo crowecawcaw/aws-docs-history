@@ -1,7 +1,6 @@
 
 
 # Using machine learning and generative AI in Amazon DataZone
-<a name="autodoc"></a>
 
 **Note**  
 Powered by Amazon Bedrock: AWS implements automated abuse detection. Because the AI recommendations for descriptions functionality in Amazon DataZone is built on Amazon Bedrock, users inherit the controls implemented in Amazon Bedrock to enforce safety, security, and the responsible use of AI.

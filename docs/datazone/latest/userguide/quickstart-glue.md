@@ -1,7 +1,6 @@
 
 
 # Amazon DataZone quickstart with AWS Glue data
-<a name="quickstart-glue"></a>
 
 Complete the following quickstart steps to run through the complete data producer and data consumer workflows in Amazon DataZone with sample AWS Glue data. 
 
@@ -41,7 +40,7 @@ If you want to use an existing Amazon DataZone domain for this workflow, choose 
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [

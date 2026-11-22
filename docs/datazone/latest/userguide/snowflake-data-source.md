@@ -1,7 +1,6 @@
 
 
 # Connect Snowflake as a data source in Amazon DataZone
-<a name="snowflake-data-source"></a>
 
 Amazon DataZone supports Snowflake as a third-party data source. After you connect Snowflake to a Amazon DataZone project, the catalog can index your Snowflake databases and schemas, capture column-level lineage from Snowflake's query history, and let you query Snowflake tables from through federation. This page walks you through creating a Snowflake connection using the AWS CLI.
 
@@ -27,7 +26,7 @@ Amazon DataZone connects to Snowflake using a role you create and grant specific
 
 Run the following statements in Snowflake, replacing the placeholders with your values:
 
-```
+```sql
 CREATE ROLE <role_name>;
 
 -- Metadata: database and schema access
@@ -66,7 +65,7 @@ Create a secret in AWS Secrets Manager, in the same AWS account as your Amazon D
 
 For username and password authentication, use this JSON body:
 
-```
+```json
 {
   "username": "<snowflake_username>",
   "password": "<snowflake_password>"
@@ -75,7 +74,7 @@ For username and password authentication, use this JSON body:
 
 For key-pair authentication, use this JSON body:
 
-```
+```json
 {
   "sfUser": "<snowflake_username>",
   "pem_private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----"
@@ -116,7 +115,7 @@ arn:aws:iam::123456789012:role/datazone_usr_role_a1b2c3dfadsf_58cjkfdsjfd
 
 Run the following AWS CLI command, replacing the placeholders with your values:
 
-```
+```bash
 aws datazone create-connection \
     --domain-identifier <domain_id> \
     --environment-identifier <environment_id> \

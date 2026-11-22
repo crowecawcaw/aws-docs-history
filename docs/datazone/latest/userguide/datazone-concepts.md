@@ -1,7 +1,6 @@
 
 
 # Amazon DataZone terminology and concepts
-<a name="datazone-concepts"></a>
 
 Amazon DataZone is a data management service that makes it faster and easier for you to catalog, discover, share, and govern data stored across AWS, on premises, and third-party sources. With Amazon DataZone, administrators and data stewards who oversee an organization's data assets can manage and govern access to data using fine-grained controls. These controls are designed to ensure access with the right level of privileges and context. Amazon DataZone makes it easier for engineers, data scientists, product managers, analysts, and business users to access data throughout an organization so that they can discover, use, and collaborate to derive data-driven insights.
 

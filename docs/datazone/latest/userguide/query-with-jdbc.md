@@ -1,7 +1,6 @@
 
 
 # Analyze Amazon DataZone subscribed data with external analytics applications via JDBC connection
-<a name="query-with-jdbc"></a>
 
 Amazon DataZone enables data consumers to easily locate and subscribe to data from multiple sources within a single project and analyze this data using Amazon Athena, Amazon Redshift Query Editor, and Amazon SageMaker.
 

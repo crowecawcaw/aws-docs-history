@@ -1,7 +1,6 @@
 
 
 # Metadata enforcement rules for publishing
-<a name="metadata-rules-publishing"></a>
 
 The metadata enforcement rules for publishing in Amazon DataZone strengthen data governance by enabling domain unit owners to establish clear metadata requirements for data producers, streamlining access requests and enhancing data governance.
 

@@ -1,7 +1,6 @@
 
 
 # Edit row or column filters in Amazon DataZone
-<a name="edit-row-column-filter"></a>
 
 To edit a row or a column filter, follow the steps below: 
 

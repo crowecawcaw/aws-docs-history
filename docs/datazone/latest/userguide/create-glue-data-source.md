@@ -1,7 +1,6 @@
 
 
 # Create and run an Amazon DataZone data source for the AWS Glue Data Catalog
-<a name="create-glue-data-source"></a>
 
 In Amazon DataZone, you can create an AWS Glue Data Catalog data source in order to import technical metadata of database tables from AWS Glue. To add a data source for the AWS Glue Data Catalog, the source database must already exist in AWS Glue. 
 

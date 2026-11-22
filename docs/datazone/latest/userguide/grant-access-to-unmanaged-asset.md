@@ -1,7 +1,6 @@
 
 
 # Grant access for approved subscriptions to unmanaged assets in Amazon DataZone
-<a name="grant-access-to-unmanaged-asset"></a>
 
 In Amazon DataZone, subscription requests and approved or granted subscriptions for **read** access to the assets are managed by asset owners. 
 

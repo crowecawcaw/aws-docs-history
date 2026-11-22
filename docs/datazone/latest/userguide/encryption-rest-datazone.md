@@ -1,7 +1,6 @@
 
 
 # Data encryption at rest for Amazon DataZone
-<a name="encryption-rest-datazone"></a>
 
 Encryption of data at rest by default helps reduce the operational overhead and complexity involved in protecting sensitive data. At the same time, it enables you to build secure applications that meet strict encryption compliance and regulatory requirements.
 
@@ -649,7 +648,7 @@ In advanced use cases, when you are working with an AWS Glue catalog that is enc
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

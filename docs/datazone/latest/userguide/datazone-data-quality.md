@@ -1,7 +1,6 @@
 
 
 # Data quality in Amazon DataZone
-<a name="datazone-data-quality"></a>
 
 Data quality metrics in Amazon DataZone help you understand the different quality metrics such as completeness, timeliness, and accuracy of your data sources. Amazon DataZone integrates with AWS Glue Data Quality and offers APIs to integrate data quality metrics from third-party data quality solutions. Data users can see how data quality metrics change over time for their subscribed assets. To author and run the data quality rules, you can use your data quality tool of choice such as AWS Glue data quality. With data quality metrics in Amazon DataZone, data consumers can visualize the data quality scores for the assets and columns, helping build trust in the data they use for decisions. 
 

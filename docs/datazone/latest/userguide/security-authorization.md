@@ -1,7 +1,6 @@
 
 
 # Authorization in Amazon DataZone
-<a name="security-authorization"></a>
 
 Amazon DataZone’s interface consists of a management console within AWS and an off-console web application (data portal).
 

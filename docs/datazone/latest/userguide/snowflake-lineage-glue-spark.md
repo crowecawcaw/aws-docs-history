@@ -1,7 +1,6 @@
 
 
 # Enable Snowflake lineage for AWS Glue Spark jobs
-<a name="snowflake-lineage-glue-spark"></a>
 
 Amazon DataZone can capture column-level lineage from AWS Glue Spark jobs that read from or write to a Snowflake data source. When you enable lineage on the AWS Glue job, the AWS Glue Spark runtime emits lineage events as the job runs and Amazon SageMaker Unified Studio renders them in the lineage view.
 

@@ -1,7 +1,6 @@
 
 
 # Approve or reject a subscription request in Amazon DataZone
-<a name="approve-reject-subscription-request"></a>
 
 Amazon DataZone allows you to find, access and consume the assets in the Amazon DataZone catalog. When you find an asset in the catalog that you want to access, you must *subscribe* to the asset, which creates a subscription request. An approver can then approve or reject your request.
 

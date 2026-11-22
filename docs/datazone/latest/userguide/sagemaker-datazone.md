@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker and when to use Amazon SageMaker vs Amazon DataZone
-<a name="sagemaker-datazone"></a>
 
 [Amazon SageMaker Catalog](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/working-with-business-catalog.html), built on Amazon DataZone, allows users to centrally manage their data assets. You can catalog your data assets, search and discover the data, use built-in generative AI capabilities to create metadata, or you could just ask Amazon Q Developer natural language questions to find your data. Users can consistently define and enforce access policies using a single permission model with [fine-grained access controls](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/fine-grained-access-control.html) centrally in the Amazon SageMaker Unified Studio. You can create business glossary, extend your metadata and build [data products](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/data-products.html) that can be shared with large teams with fine grained access control. You can also view [data quality scores](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/data-quality.html) and discover [data lineage](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/datazone-data-lineage.html) of your data assets.
 

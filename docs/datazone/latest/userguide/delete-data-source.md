@@ -1,7 +1,6 @@
 
 
 # Delete a data source in Amazon DataZone
-<a name="delete-data-source"></a>
 
 After you create an Amazon DataZone data source, you can modify it at any time to change the source details or the data selection criteria.
 

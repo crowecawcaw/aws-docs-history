@@ -1,7 +1,6 @@
 
 
 # Create and run an Amazon DataZone data source for Amazon Redshift
-<a name="create-redshift-data-source"></a>
 
 In Amazon DataZone, you can create an Amazon Redshift data source in order to import technical metadata of database tables and views from the Amazon Redshift data warehouse. To add a Amazon DataZone data source for Amazon Redshift, the source data warehouse must already exist in the Amazon Redshift.
 

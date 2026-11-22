@@ -1,7 +1,6 @@
 
 
 # Create an environment profile
-<a name="create-environment-profile"></a>
 
 In Amazon DataZone, an environment proﬁle is a template that you can use to create environments. The purpose of an environment profile is to simplify environment creation by embedding placement information such as AWS account and region within the profiles. For more information, see [Amazon DataZone terminology and concepts](datazone-concepts.md). To create environment profiles in an Amazon DataZone domain, you must belong to an Amazon DataZone project. All environment profiles are owned by projects and can be used by all authorized users, from any project, to create new environments. 
 

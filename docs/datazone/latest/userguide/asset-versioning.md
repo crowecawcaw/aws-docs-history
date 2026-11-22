@@ -1,7 +1,6 @@
 
 
 # Asset revisions in Amazon DataZone
-<a name="asset-versioning"></a>
 
 Amazon DataZone increments the revision of an asset when you edit its business or technical metadata. These edits include modifying the asset name, description, glossary terms, columns names, metadata forms, and metadata form field values. These changes can result from manual edits, data source job run, or API operations. Amazon DataZone automatically generates a new asset revision any time you make an edit to the asset.
 

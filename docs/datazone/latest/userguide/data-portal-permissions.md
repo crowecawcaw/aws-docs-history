@@ -1,7 +1,6 @@
 
 
 # Configure the IAM permissions required to use the Amazon DataZone data portal
-<a name="data-portal-permissions"></a>
 
 Amazon DataZone data portal (outside the AWS Management Console) is a browser-based web application where users can go to catalog, discover, govern, share, and analyze data in a self-service fashion. The data portal authenticates users with IAM credentials or existing credentials from your identity provider through AWS IAM Identity Center.
 
@@ -39,7 +38,7 @@ Complete the following procedure to attach the required policy to a user, group,
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -100,7 +99,7 @@ If you create your Amazon DataZone domain with your own KMS key for data encrypt
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
