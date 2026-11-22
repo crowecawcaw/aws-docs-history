@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AgentCore payments
-<a name="payments-troubleshooting"></a>
 
 This section provides solutions to common errors when using AWS Amazon Bedrock AgentCore payments.
 
@@ -16,7 +15,7 @@ When creating or updating payment resources, the service returns a `ValidationEx
 |  `roleArn must contain a valid account ID`  | The `roleArn` must be a valid IAM role ARN with a 12-digit account ID. Verify the format: `arn:aws:iam::<accountId>:role/<roleName>`. | 
 |  `roleArn must belong to your account`  | The account ID in `roleArn` must match the caller’s account. Cross-account roles are not supported. | 
 |  `Invalid role ARN: {roleArn}`  | The `roleArn` could not be parsed. Verify the ARN format. | 
-|  `credentialProviderConfigurations list cannot be empty`  | Provide at least one credential provider configuration when creating or updating a payment connector. | 
+|  `credentialProviderConfigurations list cannot be empty`  | Provide exactly one credential provider configuration when you create or update a Stripe (Privy) connector, or a Coinbase CDP connector that uses manual credentials. AWS Billing connectors and Coinbase Quick create connectors don’t take one. | 
 |  `credentialProviderArn is required but not found in the request`  | Each credential provider configuration must include a `credentialProviderArn`. Create one first using [Create a Credential Provider](resource-providers.md). | 
 |  `Connector type '{type}' does not match the provided credentialProviderConfiguration`  | The credential provider configuration variant must match the connector type. For example, a `CoinbaseCDP` connector requires the `coinbaseCDP` configuration, not `stripePrivy`. | 
 
@@ -176,6 +175,32 @@ When you process a payment with the Machine Payments Protocol (MPP), the service
 |  `Insufficient balance in the payer wallet to cover the token transfer and gas fee.`  | The buyer’s wallet does not have enough balance to cover both the payment amount and the network (gas) fee. Fund the wallet with additional USDC. See [Fund the wallet and grant agent permissions](payments-fund-wallet.md). | 
 |  `Access to MPP (Machine Payments Protocol) payment processing is not enabled for this account. Contact AWS Support for access.`  | MPP payment processing is not enabled for your account. Contact AWS Support to request access. | 
 |  `Failed to build MPP payment credential: {reason}`  | The service could not build the payment credential from the challenge. Verify that you forwarded the challenge verbatim. If the error persists, contact AWS Support with the request ID from the `x-amzn-requestid` response header. | 
+
+## AWS Billing errors
+<a name="payments-troubleshooting-aws-billing"></a>
+
+The following table lists common errors when you create an AWS Billing connector or process an AWS Billing payment, and their resolutions. When the service rejects a quote, it consumes no budget.
+
+
+| Error message | Resolution | 
+| --- | --- | 
+|  `The AWS Marketplace service-linked role AWSServiceRoleForMarketplaceAgenticCommerce does not exist in your account. Create it, then retry: …​`  | Create the service-linked role with the command in the message, and then retry `CreatePaymentConnector`. See [AWS Billing service-linked role](payments-prerequisites.md#payments-prereq-aws-billing). | 
+|  `Not authorized to perform iam:GetRole on the AWS Marketplace service-linked role …​`  | Grant the caller `iam:GetRole` on the service-linked role. See [Administrator permissions](payments-iam-roles.md#payments-iam-admin). | 
+|  `Payment manager …​ already has an AWS Billing connector …​`  | A Payment Manager can have at most one AWS Billing connector. Use the existing connector, or delete it before you create a new one. | 
+| A `ValidationException` that names `credentialProviderConfigurations`  |  AWS Billing connectors don’t use a credential provider. Omit `credentialProviderConfigurations`. | 
+|  `Payment manager …​ has no AWS Billing payment connector. Create one to make AWS Billing payments.`  | Add an AWS Billing connector to the Payment Manager, and then retry. See [Create a Payment Manager and Connector](payments-create-manager.md). | 
+|  `Not a valid x402 payload for AWS_BILLING_X402: quoteToken is required. …​`  | Pass the `accepts` entry whose `network` is `aws:base` from the seller’s `402` response, unchanged, as `paymentInput.awsBillingX402.payload`. The entry must include `extra.quoteToken`. You also get this error if you use the AWS Billing instrument ID `aws.agentcorepayments.awsbilling.v1` with a payment input other than `awsBillingX402`. | 
+|  `The AWS_BILLING connector must use paymentInstrumentId aws.agentcorepayments.awsbilling.v1.`  | Set `paymentInstrumentId` to `aws.agentcorepayments.awsbilling.v1` for `AWS_BILLING_X402` payments. | 
+|  `paymentInstrumentId aws.agentcorepayments.awsbilling.v1 is service-managed and is not supported by this operation.`  | The AWS Billing instrument ID is managed by the service and has no stored payment instrument. Use it only with `ProcessPayment`. `GetPaymentInstrument`, `GetPaymentInstrumentBalance`, and `DeletePaymentInstrument` don’t accept it. | 
+|  `awsBillingX402.payload.extra.quoteToken is not a valid AWS Marketplace quote token …​`  | Pass the seller’s `accepts` entry exactly as received. Don’t modify its `extra.quoteToken` value. | 
+|  `quoteToken’s signature does not verify against the seller’s key.`  | The quote token was modified or isn’t from the seller. Request the paid resource again and pass the new quote token unmodified. | 
+|  `quoteToken has expired. Request a new quote from the seller.`  | Request the paid resource again to get a new quote, and then retry with the new `accepts` entry. | 
+|  `awsBillingX402.payload.extra.quoteToken price must be greater than 0 USD.`  | The quote has no charge. Contact the seller. | 
+|  `awsBillingX402.payload.extra.quoteToken price exceeds the maximum allowed payment.`  | A single AWS Billing payment can’t exceed USD $10,000.00. | 
+|  `The product in quoteToken was not found in AWS Marketplace.`  | The product in the quote isn’t available in AWS Marketplace, or isn’t available to your account. Verify the seller and product, or contact the seller. | 
+|  `Failed to assume the payment manager’s role. Check that its trust policy allows AgentCore Payments.`  | Update the Payment Manager’s service role trust policy. See [Trust policy](payments-iam-roles.md#payments-iam-service-role-trust). | 
+|  ` AWS Billing payment was throttled. Please try again.`  | Retry the request with exponential backoff, and use the same `clientToken`. | 
+|  ` AWS Billing payment failed. Please try again.`  | Retry with the same `clientToken`. If the error persists, contact AWS Support. | 
 
 ## Server errors
 <a name="payments-troubleshooting-server"></a>

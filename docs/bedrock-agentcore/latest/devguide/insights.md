@@ -1,43 +1,18 @@
 
 
-# AgentCore insights: Triage agent failures with pattern analysis
-<a name="insights"></a>
+# Insights: Find recurring agent failures
 
-**Insights job creation ends October 16, 2026**  
-Beginning October 16, 2026, Amazon Bedrock AgentCore insights no longer supports creating new batch or recurring insights. Existing recurring insight jobs continue to process sessions and generate reports through October 30, 2026. Beginning October 31, existing recurring insights will also stop generating reports. Historical batch results and recurring insights reports remain available.  
-To analyze failures in a batch evaluation with the new Insights experience, see [Insights](batch-evaluations-insights.md) in the batch evaluation documentation.
+**Legacy Insights preview is deprecated**  
+Amazon Bedrock AgentCore stopped accepting new report-oriented batch and recurring Insights jobs on October 16, 2026. Existing recurring jobs stopped generating reports after October 30, 2026. Historical batch results and recurring reports remain available for now. The legacy Preview experience is deprecated and will be removed in a future release.  
+For current Insights workflows, use [Insights in online evaluation](online-evaluations-insights.md) for ongoing analysis of live agent traffic or [Insights in batch evaluation](batch-evaluations-insights.md) for point-in-time analysis of a selected dataset.
+
+Amazon Bedrock AgentCore Insights identifies recurring failure patterns in live agent traffic. Add the `Builtin.FailureAnalysis` Insight Evaluator to an online evaluation to group related findings at the agent level and update them as the evaluation processes new evidence.
+
+Each pattern is available as an Agent Insight with root causes, suggested fixes, an affected-session count, and sample sessions. The Agent Insights APIs let you list, read, archive, and restore these findings.
+
+Batch evaluations can also use `Builtin.FailureAnalysis`. They produce point-in-time insights for the selected dataset rather than updating findings as new traffic arrives. When the default Agent Insight Store is enabled and active, the Agent Insights APIs provide a common access model for both sources. For a comparison, see [Online and batch sources](insights-how-it-works.md#insights-online-and-batch).
 
 **Note**  
-AgentCore insights is in public preview. Features and APIs may change before general availability.
+Insights uses the inference behavior of AgentCore Evaluations. Depending on the source Region, built-in evaluator requests can be processed in another Region. For the current routing and data-processing behavior, see [Cross region inference](evaluations-cross-region-inference.md).
 
-**Note**  
-When using AgentCore insights in Asia Pacific (Seoul) (ap-northeast-2), Asia Pacific (Mumbai) (ap-south-1), or Asia Pacific (Singapore) (ap-southeast-1), the service uses Bedrock global cross-region inference profiles. Your request may be routed to any of the destination AWS Regions in the profile. This routing can occur even if you have not opted in to those Regions or have Service Control Policies explicitly denying inference in them. Input prompts and output results may be stored in these destination Regions for abuse detection purposes.
-
-Amazon Bedrock AgentCore insights analyzes your agent sessions to identify failure patterns, extract user intents, and summarize execution behavior. Insights extends [AgentCore Evaluations](evaluations.md) by providing triage analysis that goes beyond scoring — it tells you *why* your agent fails and *what* your users are trying to accomplish.
-
-AgentCore insights provides three analysis types:
-+  **Failure analysis:** Identifies failures in agent sessions, categorizes them using a detailed taxonomy (tool errors, hallucinations, incorrect reasoning, repetitive behavior, and more), traces root causes back to specific spans, and provides fix recommendations.
-+  **User intent extraction:** Extracts what users were trying to accomplish in each session, then clusters similar intents together to show you the most common use cases your agent handles.
-+  **Execution summary:** Summarizes the approach the agent took and the outcome for each session, then clusters similar execution patterns to reveal how your agent typically solves problems.
-
-After per-session analysis, the service clusters results across sessions to surface recurring patterns. For failure analysis, this produces a three-level hierarchy: failure categories → subcategories → root cause clusters, each with affected sessions, explanations, and remediation recommendations.
-
-## How insights are triggered
-<a name="insights-trigger-modes"></a>
-
-Insights analysis can be triggered in two ways:
-+  **One time via batch evaluation:** Call `StartBatchEvaluation` with `insights` to run analysis over a time range of sessions. Results are returned through `GetBatchEvaluation`.
-+  **Recurring via clustering schedule:** Configure a `ClusteringConfig` on your online evaluation configuration with one or more frequencies (`DAILY`, `WEEKLY`, or `MONTHLY`). The service automatically triggers batch evaluation jobs on the configured cadence. You can also create a custom report in the recurring schedule to pin to a specific date and time.
-
-Per-session insight analysis runs automatically when insights are configured via CreateOnlineEvaluationConfig, but the clustered results that surface patterns are only generated during batch evaluation jobs.
-
-## From triage to optimization
-<a name="insights-to-optimization"></a>
-
-AgentCore insights works together with [AgentCore optimization](optimization.md) to close the improvement loop. After insights identifies failure patterns and root causes, you can feed those findings into the Recommendations API to generate an improved system prompt that addresses the triaged issues. This turns diagnostic output into actionable configuration changes:
-
-1.  **Triage:** Run insights to identify recurring failure categories and root causes.
-
-1.  **Generate recommendation:** Call `StartRecommendation` with your current system prompt and point it at the same agent traces. The service produces a recommended system prompt with an explanation of what it changed.
-
-1.  **Validate:** Use [A/B testing](ab-testing.md) to compare the original and recommended configurations with live traffic.
+Each AWS account has one default Agent Insight Store in each supported AWS Region. The Store starts disabled. Enable it before Insight Evaluators can add Agent Insights from online or batch evaluations.

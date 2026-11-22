@@ -1,7 +1,6 @@
 
 
 # Stream agent responses
-<a name="response-streaming"></a>
 
 The following Strands Agents example shows how an AgentCore Runtime agent can stream a response back to a client.
 

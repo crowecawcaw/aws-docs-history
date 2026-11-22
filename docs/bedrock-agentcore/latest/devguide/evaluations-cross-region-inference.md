@@ -1,7 +1,6 @@
 
 
 # Cross region inference
-<a name="evaluations-cross-region-inference"></a>
 
 **Important**  
 Starting December 14, 2026, for requests originating in South America (São Paulo) (sa-east-1), AgentCore Evaluations and AgentCore Optimizations, including Insights, may securely transmit data to any commercial AWS Region for processing.

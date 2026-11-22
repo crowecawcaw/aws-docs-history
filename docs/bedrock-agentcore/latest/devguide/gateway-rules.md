@@ -1,7 +1,6 @@
 
 
 # Add rules to a gateway
-<a name="gateway-rules"></a>
 
 Gateway rules let you control traffic routing and override target configurations on your gateway without redeploying targets. You create [configuration bundles](configuration-bundles.md) that override a target’s behavior, then use rules to control which bundle version applies to which traffic. Rules also support routing requests to different targets based on request path or caller identity.
 

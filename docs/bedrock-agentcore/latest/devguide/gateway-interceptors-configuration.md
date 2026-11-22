@@ -1,7 +1,6 @@
 
 
 # Configuration
-<a name="gateway-interceptors-configuration"></a>
 
 Interceptors can be configured with an input parameter called `passRequestHeaders` 
 
@@ -17,7 +16,7 @@ Use caution when setting this to `true` as request headers may contain sensitive
  **payloadFilter**   
 For HTTP targets (AgentCore Runtime and passthrough) and inference targets, which share the `http` interceptor payload shape, an optional filter that excludes fields from the interceptor input payload. Lambda synchronous invocation has a 6 MB limit for the request and response combined, so excluding a large response body keeps the payload within that limit. To exclude the response body, set `payloadFilter.exclude` to a list containing the `RESPONSE_BODY` field:  
 
-```
+```json
 {
   "inputConfiguration": {
     "passRequestHeaders": false,
@@ -39,7 +38,7 @@ The following examples show how to create a gateway with interceptors that have 
 
 1. Add the gateway to your project:
 
-   ```
+   ```bash
    agentcore add gateway \
      --name my-gateway-with-headers \
      --authorizer-type CUSTOM_JWT \
@@ -53,13 +52,13 @@ The following examples show how to create a gateway with interceptors that have 
 
    The project configuration has no interceptor field, so declare the interceptors in `agentcore/cdk/lib/cdk-stack.ts`. Add `aws_bedrockagentcore` and `aws_lambda` to the `aws-cdk-lib` import:
 
-   ```
+   ```typescript
    import { Stack, type StackProps, aws_bedrockagentcore as bedrockagentcore, aws_lambda as lambda } from 'aws-cdk-lib';
    ```
 
    Then add the interceptors after the line that creates the `AgentCoreApplication`:
 
-   ```
+   ```typescript
    const interceptor = lambda.Function.fromFunctionArn(
      this, 'Interceptor',
      'arn:aws:lambda:us-west-2:123456789012:function:my-interceptor-lambda',
@@ -75,13 +74,13 @@ The following examples show how to create a gateway with interceptors that have 
 
    Each interceptor grants the gateway service role `lambda:InvokeFunction` on the function. Deploy the project:
 
-   ```
+   ```bash
    agentcore deploy
    ```
 
 1. Use the following AWS CLI command to create a gateway with interceptors configured to pass request headers. The gateway service role must allow `lambda:InvokeFunction` on the interceptor function:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway \
      --name my-gateway-with-headers \
      --role-arn arn:aws:iam::123456789012:role/my-gateway-service-role \
@@ -108,7 +107,7 @@ The following examples show how to create a gateway with interceptors that have 
 
 1. Use the following Python code with the AWS Python SDK (Boto3) to create a gateway with interceptors configured to pass request headers. The gateway service role must allow `lambda:InvokeFunction` on the interceptor function:
 
-   ```
+   ```python
    import boto3
    
    # Initialize the AgentCore client

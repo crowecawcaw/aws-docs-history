@@ -1,7 +1,6 @@
 
 
 # File system configurations for AgentCore Runtime
-<a name="runtime-filesystem-configurations"></a>
 
 AgentCore Runtime supports persistent file systems through the `filesystemConfigurations` parameter. Each configuration mounts storage at a path you specify. You don’t need custom mount code, privileged containers, or download orchestration.
 
@@ -9,7 +8,7 @@ AgentCore Runtime supports two categories of file system configurations:
 +  **Managed storage** – Service-managed storage where AgentCore handles all storage operations. There are two managed types, one for each compute type:
   +  **Session storage (Preview)** – Per-session storage on microVM runtimes that persists across stop/resume cycles. Isolated per session. No VPC required.
   +  **Capacity provider volumes** – Amazon EBS volumes on Instances runtimes, defined on the capacity provider and mounted by logical name. Persist across session stop/resume.
-+  **Bring-your-own file system** – Attach your own Amazon S3 Files or Amazon EFS access points directly to your agent runtime. Shared across sessions and agents. VPC required. Available on microVM runtimes.
++  **Bring-your-own file system** – Attach your own Amazon S3 Files or Amazon EFS access points, or mount your own Amazon S3 bucket, directly to your agent runtime. Shared across sessions and agents, or scoped to each session with an S3 bucket prefix. S3 Files and EFS require a VPC. Available on microVM runtimes.
 
 The managed type depends on your runtime’s compute type. Use session storage on microVM runtimes and capacity provider volumes on Instances runtimes. On microVM runtimes, you can combine session storage with bring-your-own file systems on a single agent runtime (up to 5 total configurations).
 
@@ -27,6 +26,7 @@ The following table compares the available file system configuration types.
 | Managed | Capacity provider volume | Per-session | Survives stop/resume; retained until you delete the session | Instances only | Yes (configured on the capacity provider) | Scratch space, workspace files, caches, and checkpoints for long-running Instances sessions | 
 | BYO | Amazon S3 Files | Shared – multiple sessions and agents access the same data | Customer-managed (permanent, syncs to S3 bucket) | microVM | Yes | Datasets accessible through both standard file operations and S3 APIs | 
 | BYO | Amazon EFS | Shared – multiple sessions and agents access the same data | Customer-managed (permanent until you delete it) | microVM | Yes | Shared tool libraries, model weights, read-write multi-agent collaboration | 
+| BYO | Amazon S3 bucket | Shared, or per-session with a `{runtimeSessionId}` prefix | Customer-managed (objects stay in your bucket) | microVM (platform version V2) | No | Datasets, generated reports and artifacts, per-session working files | 
 
 ## Quick start
 <a name="_quick_start"></a>
@@ -90,7 +90,20 @@ For the full walkthrough, see [Get started with Instances using the AWS CLI](run
 
 1. Invoke the agent. Your files are available at `/mnt/efs`.
 
-Both S3 Files and EFS require VPC connectivity on the agent runtime.
+#### Amazon S3 bucket
+<a name="_amazon_s3_bucket"></a>
+
+1. Create the agent runtime on platform version V2 (`--platform-version V2`).
+
+1. Grant your execution role `s3:ListBucket` on the bucket.
+
+1. Grant your execution role `s3:GetObject`, `s3:PutObject`, `s3:AbortMultipartUpload`, and `s3:DeleteObject` on the objects under the prefix you mount.
+
+1. Add `--filesystem-configurations '[{"s3BucketMount": {"bucket": "amzn-s3-demo-bucket", "prefix": "sessions/{runtimeSessionId}/", "mountPath": "/mnt/data"}}]'` to your `create-agent-runtime` or `update-agent-runtime` call.
+
+1. Invoke the agent with a `--runtime-session-id`. Files that the session writes to `/mnt/data` are stored under `sessions/<runtimeSessionId>/` in your bucket.
+
+Both S3 Files and EFS require VPC connectivity on the agent runtime. An S3 bucket mount works in public or VPC network mode.
 
 ## How each type works
 <a name="_how_each_type_works"></a>
@@ -152,6 +165,23 @@ When you configure an EFS access point, the following sequence occurs:
 + Concurrent read-write access from multiple sessions and agents
 + Close-to-open consistency
 + Max file size: 47.9 TiB; max directory depth: 1,000 levels
+
+#### Amazon S3 bucket mount flow
+<a name="_amazon_s3_bucket_mount_flow"></a>
+
+When you configure an S3 bucket mount, the following sequence occurs:
+
+1. You configure the agent runtime with the bucket name, an optional prefix, and the mount path.
+
+1. On invocation with a new session ID, AgentCore provisions a microVM and replaces `{runtimeSessionId}` in the prefix with the session ID.
+
+1. Before your agent receives the request, AgentCore mounts the bucket prefix at the mount path with Mountpoint for Amazon S3, using your execution role’s credentials.
+
+1. Your agent reads and writes files at the mount path. Each file maps to an object under the prefix, and the objects are readable through the S3 API.
+
+ **S3 bucket mount semantics** 
+
+An S3 bucket mount supports reading existing objects, writing new files sequentially, replacing a whole file, and deleting files. It doesn’t support in-place edits, appends, hard links, or symbolic links. It also doesn’t support renames on general purpose buckets. For the full list of supported file operations, see [Mountpoint file system behavior](https://github.com/awslabs/mountpoint-s3/blob/main/doc/SEMANTICS.md) on the GitHub website.
 
 ### Managed session storage (Preview)
 <a name="session-storage-how-it-works"></a>
@@ -237,7 +267,7 @@ Before you configure a bring-your-own file system, complete the following prereq
 ### VPC configuration
 <a name="_vpc_configuration"></a>
 
-Your agent runtime must use `networkMode: VPC`. The subnets you specify must overlap with the file system mount target Availability Zones.
+For S3 Files and EFS, your agent runtime must use `networkMode: VPC`. The subnets you specify must overlap with the file system mount target Availability Zones. An S3 bucket mount works in public or VPC network mode. For VPC requirements, see [Bring-your-own file system networking](#file-system-mount-networking-requirements).
 
 ### IAM permissions
 <a name="_iam_permissions"></a>
@@ -246,7 +276,7 @@ Your agent runtime execution role must include permissions to mount the file sys
 
  **IAM permissions for S3 Files** 
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": [
@@ -265,7 +295,7 @@ Your agent runtime execution role must include permissions to mount the file sys
 
  **IAM permissions for EFS** 
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": [
@@ -282,6 +312,18 @@ Your agent runtime execution role must include permissions to mount the file sys
 ```
 
 Omit `ClientWrite` if your agent only needs read access. The `s3files:GetAccessPoint` permission is required for S3 Files access point validation during agent runtime creation.
+
+ **IAM permissions for S3 bucket mounts** 
+
+The mount uses your execution role’s credentials. Grant the following permissions, scoped to the prefix you mount:
++  **List** – `s3:ListBucket` on the bucket, with an `s3:prefix` condition for the prefix.
++  **Read** – `s3:GetObject` on the objects under the prefix.
++  **Write and delete** – `s3:PutObject`, `s3:AbortMultipartUpload`, and `s3:DeleteObject` on the objects under the prefix.
++  **Encrypted bucket** – For a bucket encrypted with an AWS KMS key (SSE-KMS), `kms:Decrypt` to read and `kms:GenerateDataKey` to write, on that key.
++  **Directory bucket** – `s3express:CreateSession` on the bucket, instead of the `s3:` actions.
++  **Bucket in another account** – A bucket policy that grants your execution role the same actions. Also set `s3BucketOwner` to the bucket owner’s account ID.
+
+For an example policy scoped to each session’s prefix, see [Give each session its own prefix](#configure-s3-bucket-mount-per-session).
 
 ### Security groups
 <a name="_security_groups"></a>
@@ -302,7 +344,7 @@ To configure an S3 Files access point, specify the access point ARN and mount pa
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-agent-runtime \
      --agent-runtime-name "data-agent" \
      --role-arn "arn:aws:iam::<account-id>:role/AgentExecutionRole" \
@@ -328,7 +370,7 @@ To configure an S3 Files access point, specify the access point ARN and mount pa
 
 1. Python example using boto3 to create an AgentCore Runtime with an S3 Files access point.
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
@@ -368,7 +410,7 @@ To configure an EFS access point, specify the access point ARN and mount path in
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-agent-runtime \
      --agent-runtime-name "shared-tools-agent" \
      --role-arn "arn:aws:iam::<account-id>:role/AgentExecutionRole" \
@@ -394,7 +436,7 @@ To configure an EFS access point, specify the access point ARN and mount path in
 
 1. Python example using boto3 to create an AgentCore Runtime with an EFS access point.
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
@@ -425,6 +467,170 @@ To configure an EFS access point, specify the access point ARN and mount path in
    )
    ```
 
+### Configure an Amazon S3 bucket mount
+<a name="configure-s3-bucket-mount"></a>
+
+Use `s3BucketMount` to mount an S3 bucket you own. AgentCore Runtime runs Mountpoint for Amazon S3 for you, so your container image doesn’t need a mount client. S3 bucket mounts require platform version V2 and aren’t supported on agent runtimes that use a capacity provider. For more information, see [Platform versions](runtime-how-it-works.md#runtime-platform-versions). They work in public and VPC network mode. In VPC mode, your subnets need a route to Amazon S3, such as an S3 gateway endpoint.
+
+Files under the mount path map to objects in the bucket. Your agent can read objects, write new files, replace whole files, and delete files. For the full list of supported file operations, see [Mountpoint file system behavior](https://github.com/awslabs/mountpoint-s3/blob/main/doc/SEMANTICS.md) on the GitHub website.
+
+#### Give each session its own prefix
+<a name="configure-s3-bucket-mount-per-session"></a>
+
+Include `{runtimeSessionId}` in the prefix. AgentCore Runtime replaces it with the session’s `runtimeSessionId` when the session starts, so each session sees only its own folder.
+
+The following examples create an agent runtime with a per-session S3 bucket mount. Replace `<account-id>` with your AWS account ID, `<region>` with your Region, and {{amzn-s3-demo-bucket}} with your bucket name.
+
+**Example**  
+
+1. 
+
+   ```bash
+   aws bedrock-agentcore-control create-agent-runtime \
+     --agent-runtime-name "report_agent" \
+     --role-arn "arn:aws:iam::<account-id>:role/AgentExecutionRole" \
+     --platform-version V2 \
+     --network-configuration '{"networkMode": "PUBLIC"}' \
+     --agent-runtime-artifact '{
+       "containerConfiguration": {
+         "containerUri": "<account-id>.dkr.ecr.<region>.amazonaws.com/my-agent:latest"
+       }
+     }' \
+     --filesystem-configurations '[{
+       "s3BucketMount": {
+         "bucket": "amzn-s3-demo-bucket",
+         "prefix": "sessions/{runtimeSessionId}/",
+         "mountPath": "/mnt/data"
+       }
+     }]'
+   ```
+
+1. Python example using boto3 to create an AgentCore Runtime with a per-session S3 bucket mount.
+
+   ```python
+   import boto3
+   
+   client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
+   
+   response = client.create_agent_runtime(
+       agentRuntimeName="report_agent",
+       roleArn="arn:aws:iam::<account-id>:role/AgentExecutionRole",
+       platformVersion="V2",
+       networkConfiguration={"networkMode": "PUBLIC"},
+       agentRuntimeArtifact={
+           "containerConfiguration": {
+               "containerUri": "<account-id>.dkr.ecr.<region>.amazonaws.com/my-agent:latest"
+           }
+       },
+       filesystemConfigurations=[
+           {
+               "s3BucketMount": {
+                   "bucket": "amzn-s3-demo-bucket",
+                   "prefix": "sessions/{runtimeSessionId}/",
+                   "mountPath": "/mnt/data"
+               }
+           }
+       ]
+   )
+   ```
+
+When a session with `runtimeSessionId` `session-a-0123456789abcdef0123456789ab` writes `/mnt/data/report.md`, the object is stored at `sessions/session-a-0123456789abcdef0123456789ab/report.md`. A session with ID `session-b-0123456789abcdef0123456789ab` writes to `sessions/session-b-0123456789abcdef0123456789ab/report.md` and can’t see the first session’s files through its mount.
+
+To also enforce the boundary in IAM, use the [session context keys](runtime-sessions.md#runtime-session-isolation) in a bucket policy, an execution role policy, or both.
+
+ **Bucket policy** 
+
+The following bucket policy denies the execution role access outside the invoking session’s prefix. The deny applies even when the execution role policy allows the whole bucket. Requests from the execution role outside an AgentCore Runtime session, such as when you assume the role to inspect the bucket, don’t include `aws:AgentCoreRuntimeSourceSid` and are denied.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyListOutsideOwnSession",
+      "Effect": "Deny",
+      "Principal": {"AWS": "arn:aws:iam::<account-id>:role/AgentExecutionRole"},
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::amzn-s3-demo-bucket",
+      "Condition": {
+        "StringNotLike": {
+          "s3:prefix": [
+            "sessions/${aws:AgentCoreRuntimeSourceSid}/*",
+            "sessions/${aws:AgentCoreRuntimeSourceSid}"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyObjectsOutsideOwnSession",
+      "Effect": "Deny",
+      "Principal": {"AWS": "arn:aws:iam::<account-id>:role/AgentExecutionRole"},
+      "Action": ["s3:GetObject", "s3:PutObject", "s3:AbortMultipartUpload", "s3:DeleteObject"],
+      "NotResource": "arn:aws:s3:::amzn-s3-demo-bucket/sessions/${aws:AgentCoreRuntimeSourceSid}/*"
+    }
+  ]
+}
+```
+
+In this policy:
++  `<account-id>` – Replace with your AWS account ID.
++  {{AgentExecutionRole}} – Replace with the name of your agent runtime’s execution role.
++  {{amzn-s3-demo-bucket}} – Replace with the name of your bucket.
++  `${aws:AgentCoreRuntimeSourceSid}` – Resolves automatically to the invoking session’s `runtimeSessionId`.
+
+The execution role still needs permissions that allow access to the bucket, such as the following execution role policy.
+
+ **Execution role policy** 
+
+The following execution role policy allows each session to list, read, write, and delete only its own prefix. Replace {{amzn-s3-demo-bucket}} with the name of your bucket.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::amzn-s3-demo-bucket",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": [
+            "sessions/${aws:AgentCoreRuntimeSourceSid}/*",
+            "sessions/${aws:AgentCoreRuntimeSourceSid}"
+          ]
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:PutObject", "s3:AbortMultipartUpload", "s3:DeleteObject"],
+      "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/sessions/${aws:AgentCoreRuntimeSourceSid}/*"
+    }
+  ]
+}
+```
+
+When the prefix uses `{runtimeSessionId}`, the session ID must be 33 to 256 characters, start with a letter or digit, and contain only letters, digits, underscores, and hyphens. Otherwise, AgentCore Runtime rejects the request with a `ValidationException`.
+
+#### Share one prefix across sessions
+<a name="configure-s3-bucket-mount-shared"></a>
+
+Use a fixed prefix to give every session of the agent the same files, such as a shared dataset or reference documents. Omit `prefix` to mount the whole bucket. The following file system configuration mounts the `shared/` prefix for every session.
+
+```json
+[{
+  "s3BucketMount": {
+    "bucket": "amzn-s3-demo-bucket",
+    "prefix": "shared/",
+    "mountPath": "/mnt/shared"
+  }
+}]
+```
+
+Grant the execution role `s3:ListBucket` on the bucket and `s3:GetObject` on `arn:aws:s3:::amzn-s3-demo-bucket/shared/*`. Add `s3:PutObject`, `s3:AbortMultipartUpload`, and `s3:DeleteObject` if sessions write to the shared prefix. Mountpoint doesn’t coordinate writes between sessions, so have each session write to its own file names.
+
+To mount a bucket owned by another account, set `s3BucketOwner` to that account ID and grant your execution role access in the bucket policy. To mount a bucket in another Region, set `s3BucketRegion`.
+
 ### Configure managed session storage
 <a name="configure-session-storage"></a>
 
@@ -434,7 +640,7 @@ Add `filesystemConfigurations` with a `sessionStorage` entry when creating or up
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-agent-runtime \
      --agent-runtime-name "coding-agent" \
      --role-arn "arn:aws:iam::111122223333:role/AgentExecutionRole" \
@@ -452,7 +658,7 @@ Add `filesystemConfigurations` with a `sessionStorage` entry when creating or up
 
 1. Python example using boto3 to create an AgentCore Runtime with session storage.
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
@@ -486,7 +692,7 @@ To mount a capacity provider volume, first define the volume on the capacity pro
 
 1. Define the volume on the capacity provider (in `ec2Configuration.volumes`) when you create it, then reference it by `volumeName` on the agent runtime.
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-agent-runtime \
      --agent-runtime-name "instances-agent" \
      --role-arn "arn:aws:iam::111122223333:role/AgentRuntimeRole" \
@@ -508,7 +714,7 @@ To mount a capacity provider volume, first define the volume on the capacity pro
 
 1. Python example using boto3 to create an AgentCore Runtime on Instances with a capacity provider volume.
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
@@ -542,7 +748,7 @@ The `volumeName` must match a volume defined in the capacity provider’s `ec2Co
 
 You can combine managed session storage with bring-your-own file systems on a single microVM agent runtime. The following example configures all three types.
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
@@ -591,7 +797,7 @@ All configured file systems are available at their mount paths when your agent i
 
  **Example: Using session storage across stop/resume cycles** 
 
-```
+```bash
 # First invocation — agent sets up the project
 aws bedrock-agentcore invoke-agent-runtime \
   --agent-runtime-arn "arn:aws:bedrock-agentcore:us-west-2:111122223333:agent-runtime/coding-agent" \
@@ -684,7 +890,7 @@ This example shows a coding agent using Strands Agents with `FileSessionManager`
 
  **Coding agent with session storage** 
 
-```
+```python
 import os
 
 # Enable non-interactive mode for strands tools
@@ -739,7 +945,7 @@ Invoke the agent, stop the session, then resume. Both project files and conversa
 
  **Invoke, stop, and resume cycle** 
 
-```
+```python
 import boto3, json
 
 client = boto3.client("bedrock-agentcore")
@@ -778,7 +984,7 @@ This section covers networking requirements for both managed session storage and
 
 If your agent runtime uses VPC mode with session storage, the agent needs network access to sync with remote storage. Session data is stored in AgentCore S3, so your VPC must allow outbound connectivity to S3. If you are using an S3 Gateway endpoint with a custom policy, you can scope access to your regional session storage bucket as follows:
 
-```
+```json
 "Action": [
     "s3:GetObject",
     "s3:PutObject",
@@ -811,7 +1017,7 @@ Bring-your-own file systems require your VPC networking to meet the following re
 
 To check your EFS mount targets:
 
-```
+```bash
 aws efs describe-mount-targets --file-system-id fs-0123456789abcdef0 --region us-west-2
 ```
 
@@ -826,11 +1032,21 @@ For complete information on EFS mount targets, see [How Amazon EFS works](https:
 
 To check your S3 Files mount targets:
 
-```
+```bash
 aws s3files list-mount-targets --file-system-id fs-0123456789abcdef0 --region us-west-2
 ```
 
 For complete information on S3 Files mounting, see [Mounting S3 file systems](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-mounting.html).
+
+#### Amazon S3 bucket
+<a name="_amazon_s3_bucket_2"></a>
+
+An S3 bucket mount has the following network requirements:
++  **Public network mode** – You don’t need any setup.
++  **VPC network mode** – Your subnets need a route to Amazon S3 in the bucket’s Region, such as an S3 gateway endpoint. The mount doesn’t use port 2049.
++  **Bucket in another Region** – Set `s3BucketRegion` to the bucket’s Region. In VPC mode, your network must also reach Amazon S3 in that Region. A gateway endpoint carries traffic only to its own Region.
+
+For more information, see [Gateway endpoints for Amazon S3](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html).
 
 #### Shared requirements
 <a name="_shared_requirements"></a>
@@ -865,7 +1081,7 @@ When you configure both VPC subnets and file system configurations on an agent r
 
 To identify the Availability Zone ID of your subnets:
 
-```
+```bash
 aws ec2 describe-subnets \
   --subnet-ids subnet-0123456789abcdef0 \
   --query 'Subnets[0].AvailabilityZoneId'
@@ -873,7 +1089,7 @@ aws ec2 describe-subnets \
 
 To identify the Availability Zone of your EFS mount targets:
 
-```
+```bash
 aws efs describe-mount-targets \
   --file-system-id fs-0123456789abcdef0 \
   --query 'MountTargets[*].[AvailabilityZoneId, LifeCycleState]' \
@@ -896,6 +1112,9 @@ When a bring-your-own file system mount fails, `InvokeAgentRuntime` returns HTTP
 | "ResourceNotFound" or "Failed to resolve" | Access point or mount target deleted or unavailable | Verify ARN exists and mount targets are Available | 
 | Mount hangs then fails (\~30s) | Security group blocking port 2049 or no mount target in agent’s Availability Zone | Allow TCP 2049; verify Availability Zone overlap | 
 | "Permission denied" on writes | Missing `ClientWrite` or POSIX UID/GID mismatch | Add write permission or align access point POSIX user | 
+| "S3 mount failed: access denied" | Execution role or bucket policy doesn’t allow `s3:ListBucket` on the mounted prefix, or `s3BucketOwner` doesn’t match the bucket owner | Grant the S3 bucket mount permissions. Check the bucket policy and `s3BucketOwner`. | 
+| "S3 mount failed: the S3 bucket was not found" | Bucket name is wrong, or the bucket was deleted | Fix `bucket` in `s3BucketMount`  | 
+| "S3 mount failed: the mount configuration was rejected" | Bucket is in a different Region than the agent runtime, and `s3BucketRegion` isn’t set | Set `s3BucketRegion` to the bucket’s Region | 
 
 Each mount has a 30-second timeout. All configured file systems mount in parallel – a single failure causes the entire invocation to fail.
 

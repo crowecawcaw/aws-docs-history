@@ -1,7 +1,6 @@
 
 
 # Code examples
-<a name="runtime-bidirectional-streaming-examples"></a>
 
 The following sample applications demonstrate bidirectional streaming on Amazon Bedrock AgentCore Runtime.
 

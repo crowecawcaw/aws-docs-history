@@ -1,7 +1,6 @@
 
 
 # Quotas for Amazon Bedrock AgentCore
-<a name="bedrock-agentcore-limits"></a>
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service. Unless otherwise noted, each quota is Region-specific. You can request increases for some quotas, and other quotas cannot be increased.
 
@@ -18,6 +17,7 @@ To request a quota increase, contact AWS support.
 + [AgentCore Code Interpreter Service Quotas](#code-interpreter-service-limits)
 + [AgentCore Evaluations Service Quotas](#evaluation-service-limits)
 + [AgentCore Batch Evaluation Service Quotas](#optimization-batch-evaluation-limits)
++ [AgentCore Dataset Generation Service Quotas](#dataset-generation-service-limits)
 + [AgentCore AB Testing Service Quotas](#optimization-ab-testing-limits)
 + [AgentCore Recommendations Service Quotas](#optimization-recommendations-limits)
 + [AgentCore Configuration Bundle Service Quotas](#optimization-configuration-bundle-limits)
@@ -55,7 +55,7 @@ The following table describes the resource allocation limits for AgentCore Runti
 | Maximum hardware allocation per session | 2 vCPU/8 GB (default), up to 8 vCPU/32 GB with resource configurations | No | Resource configurations apply to platform version V2. With a resource configuration, a session can burst up to the peak of its size. For more information, see [Resource configurations](runtime-how-it-works.md#runtime-v2-resource-configurations). | 
 | Maximum total size of environment variables per agent | 4 KB | No | Applies to agents on platform versions V1 and V2, for both container and direct code deployments | 
 | Capacity providers per account | 1,000 | No | Applies to the Instances compute type in your account. Counts all capacity providers that you have not deleted, including those being created or deleted. | 
-| Agents per capacity provider session | 20 | No | Applies to the Instances compute type. The maximum number of agents that you can run on a single capacity provider session. | 
+| Agents per capacity provider session | 20 in the `STANDARD` mode, and 1 in the `PRIVILEGED` mode. | No | Applies to the Instances compute type. The maximum number of agents that you can run on a single capacity provider session. For the `PRIVILEGED` limit, see [One agent per session](runtime-instances-privilege-mode.md#runtime-instances-privilege-mode-session-limit). | 
 
 For more information about service quotas and how to request increases, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*.
 
@@ -291,8 +291,8 @@ Amazon Bedrock AgentCore Gateway has the following service quotas. You can reque
 | Concurrent target operations (total of Create/Update/DeleteTarget) on same gateway | 5 | Yes | 
 | tool-call/tool-list rate at gateway level | 200 transactions per second | Yes | 
 | tool-call/tool-list rate at account level | 200 transactions per second | Yes | 
-| tool-call/tool-list concurrent connections at gateway level | 5000 concurrent connections | Yes | 
-| tool-call/tool-list concurrent connections at account level | 5000 concurrent connections | Yes | 
+| tool-call/tool-list concurrent connections at gateway level | 10,000 concurrent connections | Yes | 
+| tool-call/tool-list concurrent connections at account level | 10,000 concurrent connections | Yes | 
 | Search-based tool-call rate | 25 transactions per minute | Yes | 
 | Maximum tool-call/tool-list/tool-search payload size | 6 MB | Yes | 
 | Rate of Web Search Tool requests | 10 transactions per second | Yes | 
@@ -488,8 +488,25 @@ The following table describes the rate quotas for AgentCore Batch Evaluation API
 | --- | --- | --- | --- | 
 | Active evaluations per account | 5 | Yes | Maximum concurrent batch evaluations running | 
 | Maximum batch evaluations per account | 2,000 | No | Total batch evaluations that can exist. To create more, delete existing batch evaluations. | 
-| Sessions per evaluation job | 500 | Yes | Maximum number of sessions per batch evaluation job | 
+| Sessions per evaluation job | 500 | Yes | Maximum number of sessions per batch evaluation job that discovers sessions from CloudWatch Logs | 
 | Evaluators per job | 10 | No | Maximum number of evaluators per batch evaluation job | 
+| Agent response time per turn in an AgentCore-run dataset evaluation | 15 minutes | No | HTTP AgentCore Runtime endpoints only | 
+
+## AgentCore Dataset Generation Service Quotas
+<a name="dataset-generation-service-limits"></a>
+
+The following table describes the service quotas for dataset generation. For more information, see [Dataset generation](dataset-generation.md).
+
+
+| Limit | Value | Adjustable | Notes | 
+| --- | --- | --- | --- | 
+| Concurrent dataset generations per account | 5 | Yes | Generations in `IN_PROGRESS` across all datasets in the account. | 
+| In-progress dataset generations per dataset | 1 | No |  | 
+| Scenarios per dataset generation (`maxScenarios`) | 1,000 | No | The default is 100. The Draft example count plus `maxScenarios` must be 1,000 or less. | 
+| Session IDs per dataset generation | 25 | No | In an `identifiers` selection. | 
+| Trace IDs per dataset generation | 25 | No | In an `identifiers` selection. | 
+| Managed redaction identifiers per dataset generation | 100 | No |  | 
+| Custom redaction identifiers per dataset generation | 10 | No |  | 
 
 ## AgentCore AB Testing Service Quotas
 <a name="optimization-ab-testing-limits"></a>
@@ -647,13 +664,44 @@ The following table describes the quotas for resource-based policies:
 | Quota | Default value | Adjustable | Notes | 
 | --- | --- | --- | --- | 
 | Maximum registries per account per Region | 10 | Yes |  | 
-| Conditions per search filter | 10 | No | Applies to `SearchDiscoverableRegistryRecords` and the registry MCP endpoint search tool. For how conditions are counted, see [Filter rules and limits](registry-search-records.md#registry-search-filter-rules). | 
+| Conditions per search filter | 10 | No | Applies to `SearchDiscoverableRegistryRecords` and the registry MCP endpoint search tools. For how conditions are counted, see [Filter rules and limits](registry-search-records.md#registry-search-filter-rules). | 
 | Values per `$in` search filter operator | 25 | No |  | 
+| Maximum results per page of a search | 50 with `KEYWORD`, 20 with `HYBRID` or `SEMANTIC`  | No | The `maxResults` of `SearchDiscoverableRegistryRecords` and the `search_discoverable_registry_records_paginated` MCP tool. For search types, see [Choose a search type](registry-search-records.md#registry-search-types). | 
+| Maximum results per search | 1,000 with `KEYWORD`, 20 with `HYBRID` or `SEMANTIC`  | No | Across all pages of one search. For more information, see [Page through search results](registry-search-records.md#registry-search-pagination). | 
+| Search pagination token lifetime | 15 minutes | No | From when the service returns the first page of the search. | 
+| Publishers per account | 5 | Yes | The maximum number of Publishers you can create in an AWS account. | 
+| Records associated per Publisher | 20 | Yes | The maximum number of records you can associate with a single Publisher, per account. | 
+
+### Skill package limits
+<a name="registry-skill-package-limits"></a>
+
+The following table describes the limits for skill packages and for skill records that synchronize from Amazon S3 or GitHub. For Region availability, see [Availability](registry-skill-packages.md#registry-skill-packages-availability). For the rules that a package must follow, such as the ZIP format and the compression ratio, see [Skill package format and validation](registry-skill-package-format.md).
+
+
+| Quota | Default value | Adjustable | Notes | 
+| --- | --- | --- | --- | 
+| Maximum compressed size of a skill package | 5 MiB (5,242,880 bytes) | No | Size of the ZIP file, before base64 encoding. Applies to an uploaded package, a package object in Amazon S3, and the package that the registry builds from a GitHub folder. | 
+| Maximum uncompressed size of a skill package | 50 MiB (52,428,800 bytes) | No | Total size of all files in the package. | 
+| Maximum uncompressed size of one file in a skill package | 10 MiB (10,485,760 bytes) | No |  | 
+| Maximum entries in a skill package | 1,000 | No | Files and folders both count. For a GitHub folder, only files count. | 
+| Maximum path depth in a skill package | 8 levels | No | The file name counts as a level. | 
+| Maximum SKILL.md size | 100 KiB (102,400 bytes) | No | Applies to SKILL.md that you write, the SKILL.md in a package, and a SKILL.md synchronized from a source. | 
+| Maximum length of the SKILL.md `name`  | 64 characters | No |  | 
+| Maximum length of the SKILL.md `description`  | 1,024 characters | No |  | 
+| Maximum length of the SKILL.md `compatibility`  | 500 characters | No |  | 
+| Maximum total descriptor size per record | 100 KiB | No | All descriptors of the record together. After a SKILL.md synchronization, the descriptors must fit in 99 KiB. | 
+| Maximum skill source URL length | 2,048 characters | No |  | 
+| Maximum GitHub folder path length | 1 KiB (1,024 bytes) | No | Measured in UTF-8 bytes. Each branch, tag, or path segment can be up to 255 bytes. | 
+| Maximum GitHub repository size for package synchronization | 50 MiB (52,428,800 bytes) | No | Total size of all files in the repository, not only the skill folder. GitHub must also list the whole repository tree in one response. | 
+| GitHub authorization URL lifetime | 10 minutes | No | From when the approval starts. The URL can stop working shortly before the `expiresAt` time in `authorizationData`. For what happens when it expires, see [Timing and pending records](registry-skill-sync-github.md#registry-skill-sync-github-pending). | 
+| Maximum total wait for GitHub authorization after the approval restarts | 30 minutes | No | When another request restarts the approval, waiting records follow the new URL for at most 30 minutes in total. | 
+| Skill package download URL lifetime | Up to 5 minutes | No | Call `GetRegistryRecord` or `BatchGetDiscoverableRegistryRecord` again for a new URL. | 
+| Maximum records per `BatchGetDiscoverableRegistryRecord` request | 100 | No | From one registry. Each record with an approved skill package returns its own download URL. | 
 
 ### Throttling limits
 <a name="registry-throttling-limits"></a>
 
-The following table describes the rate limits for AgentCore Registry APIs after which you will be throttled. You can request increases for some quotas using the Service Quotas console.
+The following table describes the rate limits, in transactions per second (TPS), for AgentCore Registry APIs after which you will be throttled. You can request increases for some quotas using the Service Quotas console.
 
 
 | Limit | Value | Adjustable | Notes | 
@@ -670,6 +718,9 @@ The following table describes the rate limits for AgentCore Registry APIs after 
 | ListRegistryRecords API rate | 10 TPS | Yes | Transactions per second per account | 
 | SubmitRegistryRecordForApproval API rate | 10 TPS | Yes | Transactions per second per account | 
 | UpdateRegistryRecordStatus API rate | 10 TPS | Yes | Transactions per second per account | 
-| SearchDiscoverableRegistryRecords API rate | 10 TPS | Yes | Transactions per second per account | 
+| SearchDiscoverableRegistryRecords API rate | 10 TPS | Yes | Transactions per second per account. Applies to searches with `searchType` `HYBRID` or `SEMANTIC`. | 
+| SearchDiscoverableRegistryRecords API rate with `searchType` `KEYWORD`  | 50 TPS | Yes | Transactions per second per account. Applies to searches whose search type is `KEYWORD`. | 
+| InvokeRegistryMcp API rate | 10 TPS | Yes | Transactions per second per account. Applies to every MCP request except a `KEYWORD` search with the `search_discoverable_registry_records_paginated` tool. | 
+| InvokeRegistryMcp API rate for `KEYWORD` searches | 50 TPS | Yes | Transactions per second per account. Applies to `tools/call` requests of the `search_discoverable_registry_records_paginated` tool that run a `KEYWORD` search. | 
 | ListDiscoverableRegistryRecords API rate | 10 TPS | Yes | Transactions per second per account | 
 | BatchGetDiscoverableRegistryRecord API rate | 10 TPS | Yes | Transactions per second per account | 

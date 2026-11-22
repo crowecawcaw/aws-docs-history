@@ -1,9 +1,17 @@
 
 
 # Start batch evaluation
-<a name="batch-evaluations-start"></a>
 
-Start a batch evaluation to run evaluators against multiple agent sessions. The service discovers sessions from CloudWatch Logs, runs each evaluator against each session, and produces aggregate results.
+Start a batch evaluation to run evaluators against multiple agent sessions. The service can discover sessions that already exist in CloudWatch Logs. It can also create sessions by running a published dataset against an AgentCore Runtime endpoint.
+
+## Choose a session source
+<a name="start-batch-eval-source-choice"></a>
+
+Choose how the job gets the sessions to evaluate:
++  **Evaluate existing sessions.** Set `dataSourceConfig` to the CloudWatch Logs source and, optionally, filter by session ID or time range. The service discovers matching sessions but doesn’t invoke your agent.
++  **Run a published dataset with AgentCore Evaluations.** Set `datasetExecutionConfig` to the dataset version and Runtime endpoint. Set `dataSourceConfig` to that endpoint’s CloudWatch Logs source. AgentCore invokes your agent and evaluates the sessions it creates. See [Run a dataset evaluation with AgentCore Evaluations](batch-evaluations-dataset.md).
+
+To have your own code invoke the agent, see [Choose how to run a dataset evaluation](dataset-evaluations.md#dataset-evaluations-choose). Use that option for a Runtime that uses JWT inbound authorization or a non-HTTP protocol.
 
 ## Code samples
 <a name="start-batch-eval-examples"></a>
@@ -11,7 +19,7 @@ Start a batch evaluation to run evaluators against multiple agent sessions. The 
 **Example**  
 Pass the ID of the deployed Runtime or harness with `--agent`. The CLI reads the Runtime or harness to find its log group and service name, so your credentials need the `ResolveAgentForCli` permissions in [Required IAM permissions](batch-evaluations-prereqs.md#batch-eval-iam-permissions). To skip this lookup, pass the log group and service name with `--data-source-config` instead of `--agent`.  
 
-```
+```bash
 agentcore eval batch-evaluation evaluate \
   --agent <AGENT_ID> \
   --evaluators Builtin.GoalSuccessRate Builtin.Helpfulness Builtin.Faithfulness \
@@ -19,7 +27,7 @@ agentcore eval batch-evaluation evaluate \
 ```
 With optional flags:  
 
-```
+```bash
 # Time window
 agentcore eval batch-evaluation evaluate \
   --agent <AGENT_ID> \
@@ -58,7 +66,7 @@ agentcore eval batch-evaluation evaluate \
 Pass exactly one session source: `--agent`, `--online-eval`, or `--data-source-config`. The `--data-source-config` value is the `dataSourceConfig` object described in [Session source](#start-batch-eval-session-source), and it can’t be combined with `--start-time`, `--end-time`, `--session-ids`, or `--endpoint`. Put those filters in its `filterConfig` instead. The `--output-config` value is the `outputConfig` object described in [Result output](#start-batch-eval-output). Use `--endpoint` with `--agent` to read sessions from a Runtime endpoint other than `DEFAULT`. Use `--description` and `--kms-key-arn` to set the job description and the KMS key that encrypts evaluation data.  
 The `--ground-truth` file holds a JSON array with one entry per session:  
 
-```
+```json
 [
   {
     "sessionId": "session-abc123",
@@ -78,9 +86,9 @@ The `--ground-truth` file holds a JSON array with one entry per session:
   }
 ]
 ```
-The command starts the asynchronous job and returns its ID. Use `agentcore eval batch-evaluation get --id <id>` to retrieve status and results. To replay a dataset against a Runtime before evaluation, use `agentcore eval batch-evaluation simulate`. It replays only predefined scenarios that have scripted `turns`. For simulated scenarios that contain `actor_profile`, use the AgentCore SDK as described in [User simulation](user-simulation.md).
+The command starts the asynchronous job and returns its ID. Use `agentcore eval batch-evaluation get --id <id>` to retrieve status and results. To replay a dataset against a Runtime before evaluation, use `agentcore eval batch-evaluation simulate`. It replays only fixed scenarios that have scripted `turns`. For dynamic scenarios that contain `actor_profile`, use the AgentCore SDK as described in [User simulation](user-simulation.md).
 
-```
+```python
 import boto3
 import uuid
 import time
@@ -122,7 +130,7 @@ print(json.dumps(result, indent=4, default=str))
 ```
 With session ID filtering:  
 
-```
+```python
 response = client.start_batch_evaluation(
     batchEvaluationName=f"targeted_eval_{uuid.uuid4().hex[:8]}",
     evaluators=[
@@ -142,7 +150,7 @@ response = client.start_batch_evaluation(
 ```
 With time range filtering:  
 
-```
+```python
 from datetime import datetime, timedelta, timezone
 
 now = datetime.now(timezone.utc)
@@ -174,7 +182,8 @@ response = client.start_batch_evaluation(
 | Parameter | Type | Required | Description | 
 | --- | --- | --- | --- | 
 |  `batchEvaluationName`  | String | Yes | A name for the batch evaluation job. Pattern: starts with a letter, alphanumeric and underscores, max 48 characters. | 
-|  `dataSourceConfig`  | Object | Yes | Where to find agent sessions. Specify a `cloudWatchLogs` source with your agent’s service name and either exact log group names or log group name prefixes. See [Session source](#start-batch-eval-session-source) below. | 
+|  `dataSourceConfig`  | Object | Yes | Where to find agent sessions. Specify a `cloudWatchLogs` source with your agent’s service name and either exact log group names or log group name prefixes. An AgentCore-run dataset evaluation uses the log source for the Runtime endpoint that AgentCore invokes. See [Session source](#start-batch-eval-session-source) below. | 
+|  `datasetExecutionConfig`  | Object | No | Runs a published dataset version against an AgentCore Runtime endpoint before evaluating the sessions. Contains the dataset ID and optional version, the Runtime endpoint ARN, and an optional request template. See [Run a dataset evaluation with AgentCore Evaluations](batch-evaluations-dataset.md). | 
 |  `evaluators`  | List | Yes | List of evaluators. Each entry has an `evaluatorId` field (for example, `Builtin.GoalSuccessRate`). Maximum 10 evaluators. | 
 |  `evaluationMetadata`  | Object | No | Contains `sessionMetadata`, a list of per-session ground truth and metadata. Maximum 500 entries. | 
 |  `outputConfig`  | Object | No | Optional CloudWatch destination for per-session results and score metrics. Specify a `cloudWatchConfig` to choose the result log group and metrics namespace. See [Result output](#start-batch-eval-output) below. | 
@@ -199,7 +208,7 @@ Specify exactly one of `logGroupNames` or `logGroupNamePrefixes`. In both cases,
 
 If you use `logGroupNamePrefixes` to match Amazon Bedrock AgentCore Runtime log groups, make sure your runtime sends spans to the agent’s own log group. For agents that still use the shared `aws/spans` log group, set `UNIFIED_TRACES_DESTINATION_ENABLED=true` on the runtime. For more information, see [Span destination for agents hosted in Amazon Bedrock AgentCore runtime](observability-configure.md#observability-configure-unified-traces).
 
-```
+```python
 # Match input log groups by prefix instead of exact names
 dataSourceConfig={
     "cloudWatchLogs": {
@@ -234,7 +243,7 @@ By default, batch evaluation results go to a dedicated, service-managed log grou
 
 For `DEDICATED_LOG_GROUP`, set `logGroupName` to write results to a log group you choose. If the log group exists, the service writes to it. If it doesn’t exist, the service creates it. The caller’s credentials must allow `logs:CreateLogGroup`, `logs:CreateLogStream`, and `logs:PutLogEvents` on that log group. The name can’t be under the service-reserved `/aws/bedrock-agentcore/evaluations/` namespace, apart from the service-managed default group.
 
-```
+```python
 # Write results back to the trace source log group
 outputConfig={
     "cloudWatchConfig": {
@@ -256,7 +265,7 @@ outputConfig={
 
 Set `metricsNamespace` to publish score metrics under your own CloudWatch namespace instead of `Bedrock-AgentCore/Evaluations`. The value can’t begin with `AWS/`.
 
-```
+```python
 outputConfig={
     "cloudWatchConfig": {
         "metricsNamespace": "MyTeam/Evaluations"

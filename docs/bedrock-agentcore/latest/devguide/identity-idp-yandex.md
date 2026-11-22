@@ -1,7 +1,6 @@
 
 
 # Yandex
-<a name="identity-idp-yandex"></a>
 
 Yandex can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through Yandex’s OAuth2 service and obtain access tokens for Yandex API resources.
 
@@ -41,7 +40,7 @@ For more details, refer to [Yandex’s OAuth documentation](https://yandex.com/d
 
 To configure Yandex as an outbound resource provider, use the following:
 
-```
+```json
 {
   "name": "Yandex",
   "credentialProviderVendor": "YandexOauth2",

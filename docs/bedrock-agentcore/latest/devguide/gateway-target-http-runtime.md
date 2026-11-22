@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock AgentCore Runtime targets
-<a name="gateway-target-http-runtime"></a>
 
 You can add an Amazon Bedrock AgentCore Runtime agent as a gateway target. The gateway sends traffic directly to the runtime agent without aggregation or protocol translation. Unlike MCP targets that combine tool capabilities into a unified virtual MCP server, the AgentCore Runtime target forwards requests and responses between clients and the runtime agent without modification.
 
@@ -36,7 +35,7 @@ When you create an AgentCore Runtime target, you provide the runtime ARN and an 
 
 The target configuration for an AgentCore Runtime target uses the following structure:
 
-```
+```json
 {
     "http": {
         "agentcoreRuntime": {
@@ -68,7 +67,7 @@ If your runtime agent uses the HTTP protocol and you want to apply guardrails th
 
 If the Runtime and gateway are in the same AgentCore project and you don’t need a schema, add the Runtime target by name. The gateway must be created without `--protocol-type MCP`:
 
-```
+```bash
 agentcore add gateway-target \
   --gateway MyGateway \
   --name MyRuntimeTarget \
@@ -92,7 +91,7 @@ Replace `{gatewayId}` with your gateway ID, `{region}` with the AWS Region, and 
 
 The following example uses curl to invoke an AgentCore Runtime target:
 
-```
+```bash
 curl -X POST https://gateway-id.gateway.bedrock-agentcore.us-west-2.amazonaws.com/my-target/invocations \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer <token>" \
@@ -101,7 +100,7 @@ curl -X POST https://gateway-id.gateway.bedrock-agentcore.us-west-2.amazonaws.co
 
 For a target on a gateway in your AgentCore project, `agentcore invoke --gateway` builds the URL from the target path. Add `--bearer-token` for a `CUSTOM_JWT` gateway. Omit it for an `AWS_IAM` or `NONE` gateway:
 
-```
+```bash
 agentcore invoke --gateway MyGateway \
   --path /MyRuntimeTarget/invocations \
   --payload '{"input": {"prompt": "Hello"}}'
@@ -109,7 +108,7 @@ agentcore invoke --gateway MyGateway \
 
 You can also use the AWS CLI with an endpoint URL override:
 
-```
+```bash
 aws bedrock-agentcore invoke-agent-runtime \
     --endpoint-url https://gateway-id.gateway.bedrock-agentcore.us-west-2.amazonaws.com/my-target \
     --agent-runtime-arn arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/RUNTIME_ID \

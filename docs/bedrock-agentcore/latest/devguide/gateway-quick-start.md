@@ -1,7 +1,6 @@
 
 
 # Get started with AgentCore Gateway
-<a name="gateway-quick-start"></a>
 
 In this quick start guide you’ll learn how to set up a gateway and integrate it into your agents using the AgentCore CLI. For more comprehensive guides and examples, see the [Amazon Bedrock AgentCore Gateway GitHub repository](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/07-centralize-and-govern-your-ai-infrastructure/01-gateway).
 
@@ -36,13 +35,13 @@ Before starting, make sure you have the following:
 
 Install the AgentCore CLI globally:
 
-```
+```bash
 npm install -g @aws/agentcore
 ```
 
 Create a new AgentCore project:
 
-```
+```bash
 agentcore create --name MyGatewayProject --template empty
 cd MyGatewayProject
 ```
@@ -54,7 +53,7 @@ The agent in this tutorial runs on your computer, so the project holds only the 
 
 If you don’t have a Lambda function for this tutorial, create a Python function with the following handler. It returns test data for both tools. For the input that the gateway sends, see [Lambda function input format](gateway-add-target-lambda.md#gateway-building-lambda-input).
 
-```
+```python
 def lambda_handler(event, context):
     tool_name = context.client_context.custom["bedrockAgentCoreToolName"]
     tool = tool_name.split("___", 1)[1]
@@ -67,7 +66,7 @@ def lambda_handler(event, context):
 
 Save the following tool schema as `tools.json` in your project directory:
 
-```
+```json
 [
   {
     "name": "get_weather",
@@ -101,7 +100,7 @@ Save the following tool schema as `tools.json` in your project directory:
 
 Add a gateway and a Lambda function target to your project. Replace `<YOUR_LAMBDA_ARN>` with the ARN of your Lambda function:
 
-```
+```bash
 # Add a gateway with no inbound auth (simplest for getting started)
 agentcore add gateway --name TestGateway --authorizer-type NONE
 
@@ -122,7 +121,7 @@ You can also run `agentcore add gateway` without options to add the gateway in a
 
 To use JWT-based authorization instead, provide the project authorizer configuration for an existing identity provider:
 
-```
+```bash
 agentcore add gateway \
   --name TestGateway \
   --authorizer-type CUSTOM_JWT \
@@ -141,7 +140,7 @@ Create the identity provider and application client before you run this command.
 
 Deploy your project to AWS:
 
-```
+```bash
 agentcore deploy
 ```
 
@@ -152,7 +151,7 @@ The CLI synthesizes a AWS CDK stack and deploys your gateway and its target to A
 
 Retrieve your gateway ARN using the AgentCore CLI. The gateway ID is the last segment of the ARN:
 
-```
+```bash
 agentcore status --json
 ```
 
@@ -160,11 +159,11 @@ Build the gateway URL from the gateway ID and your Region: `https://<gateway-id>
 
 Create a new file called `run_agent.py` and insert the following code. Install the Python dependencies first:
 
-```
+```bash
 pip install strands-agents mcp
 ```
 
-```
+```python
 """
 Agent script to test the Gateway
 Run this after setup: python run_agent.py
@@ -253,13 +252,13 @@ if __name__ == "__main__":
 
 Test your gateway by running the agent and interacting with the tools.
 
-```
+```bash
 python run_agent.py
 ```
 
 If you created the gateway with `CUSTOM_JWT`, get an access token for your application client from your identity provider and set it before you run the script:
 
-```
+```bash
 export GATEWAY_BEARER_TOKEN="<ACCESS_TOKEN>"
 python run_agent.py
 ```
@@ -294,7 +293,7 @@ The following table shows some possible issues and their solutions:
 
 Run the following command in a terminal to check that your gateway is working.
 
-```
+```bash
 # List available tools
 agentcore invoke --gateway TestGateway \
   --path /mcp \
@@ -308,7 +307,7 @@ For a JWT-authorized gateway, add `--bearer-token "$BEARER_TOKEN"` to the invoke
 
 To remove the gateway and its targets from your project and from AWS:
 
-```
+```bash
 agentcore remove gateway --name TestGateway
 agentcore deploy --yes
 ```

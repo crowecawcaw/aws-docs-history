@@ -1,7 +1,6 @@
 
 
 # Validate and test policies
-<a name="policy-validate-policies"></a>
 
 Before deploying policies to production, Policy in AgentCore provides validation capabilities to catch errors and identify potential issues. Validation works differently depending on whether you are generating policies from natural language or creating and updating policies directly.
 

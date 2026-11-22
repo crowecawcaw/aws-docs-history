@@ -1,7 +1,6 @@
 
 
 # Host agent or tools with Amazon Bedrock AgentCore Runtime
-<a name="agents-tools-runtime"></a>
 
 Amazon Bedrock AgentCore Runtime provides a secure, serverless and purpose-built hosting environment for deploying and running AI agents or tools. It offers the following benefits:
 
@@ -61,7 +60,9 @@ A newer platform version, V2, is available. It starts your agent from a snapshot
 + [Deploy AG-UI servers in AgentCore Runtime](runtime-agui.md)
 + [Use isolated sessions for agents](runtime-sessions.md)
 + [File system configurations for AgentCore Runtime](runtime-filesystem-configurations.md)
++ [Configure the privilege mode for Runtime Instances](runtime-instances-privilege-mode.md)
 + [Handle asynchronous and long running agents with Amazon Bedrock AgentCore Runtime](runtime-long-run.md)
++ [Run virtual machines in agents on Runtime Instances](runtime-instances-nested-virtualization.md)
 + [Stream agent responses](response-streaming.md)
 + [Bidirectional streaming](runtime-bidirectional-streaming.md)
 + [Pass custom headers to Amazon Bedrock AgentCore Runtime](runtime-header-allowlist.md)

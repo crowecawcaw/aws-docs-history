@@ -1,7 +1,6 @@
 
 
 # Scope down access to credential providers by workload identity
-<a name="scope-credential-provider-access"></a>
 
 You can use IAM policies to control which workload identities have access to specific credential providers. This enables fine-grained access control, ensuring that only authorized agents can retrieve credentials for particular services.
 
@@ -30,7 +29,7 @@ The following examples demonstrate how to create IAM policies that restrict cred
 
 This policy allows a workload identity to retrieve API keys only from a specific credential provider. The credential provider ARN in the `Resource` block restricts access to that provider.
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -55,7 +54,7 @@ This policy allows a workload identity to retrieve API keys only from a specific
 
 This policy allows a workload identity to retrieve OAuth2 tokens only from a specific OAuth2 credential provider.
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -80,7 +79,7 @@ This policy allows a workload identity to retrieve OAuth2 tokens only from a spe
 
 This policy allows multiple workload identities to retrieve API keys from the same credential provider.
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -108,7 +107,7 @@ This policy allows multiple workload identities to retrieve API keys from the sa
 
 You can explicitly deny a workload identity access to a specific credential provider using a `Deny` statement. Deny statements take precedence over Allow statements, making them useful for creating guardrails.
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -145,7 +144,7 @@ For example, if Agent A should access only Provider X and Agent B should access 
 
  **IAM policy for Agent A (access to Provider X only)** 
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -168,7 +167,7 @@ For example, if Agent A should access only Provider X and Agent B should access 
 
  **IAM policy for Agent B (access to Provider Y only)** 
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [

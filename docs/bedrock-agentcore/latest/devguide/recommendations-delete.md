@@ -1,7 +1,6 @@
 
 
 # Delete recommendation
-<a name="recommendations-delete"></a>
 
 Delete a recommendation and its associated metadata. The recommendation must be in a terminal state (`COMPLETED` or `FAILED`) before it can be deleted.
 
@@ -12,12 +11,12 @@ Deleting a recommendation removes the record from `ListRecommendations`. It does
 
 **Example**  
 
-```
+```bash
 agentcore eval recommendation delete --id MyPromptRec-AB1CD2EF3G
 ```
 The recommendation must be in a terminal state (`COMPLETED` or `FAILED`).
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore", region_name="us-west-2")

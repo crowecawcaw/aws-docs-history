@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon Bedrock AgentCore
-<a name="agentcore-get-started-cli"></a>
 
 This quickstart gets you from zero to a running agent in a few minutes using the AgentCore CLI. You will install the CLI, scaffold a project, test locally, deploy to AWS, and invoke your agent.
 
@@ -35,13 +34,13 @@ This quickstart uses Amazon Bedrock and AgentCore Memory. The CLI’s default re
 ## Step 1: Install the AgentCore CLI
 <a name="agentcore-get-started-cli-install"></a>
 
-```
+```bash
 npm install -g @aws/agentcore
 ```
 
 Verify:
 
-```
+```bash
 agentcore --version
 ```
 
@@ -58,7 +57,7 @@ Run `agentcore` without arguments to browse commands interactively. Type to filt
 ## Step 2: Create your project
 <a name="agentcore-get-started-cli-create"></a>
 
-```
+```bash
 agentcore create \
   --name MyProject \
   --template agent-python-strands
@@ -84,7 +83,7 @@ The `agent-python-strands` template creates a `CodeZip` Runtime. This build type
 
 To create the same Strands agent as a container image instead, use the container template:
 
-```
+```bash
 agentcore create \
   --name MyProject \
   --template agent-python-strands-container
@@ -138,7 +137,7 @@ These are CLI validation rules, not a guarantee of model or endpoint reachabilit
 
 The create command generates the following code-based project:
 
-```
+```text
 MyProject/
 ├── .gitignore
 ├── agentcore/
@@ -173,7 +172,7 @@ Key files:
 ## Step 3: Test locally
 <a name="agentcore-get-started-cli-test"></a>
 
-```
+```bash
 cd MyProject
 agentcore dev --mode browser
 ```
@@ -187,13 +186,13 @@ Without `--mode browser`, `agentcore dev` defaults to headless mode and streams 
 
 Build the deployable artifacts and validate the project before deploying:
 
-```
+```bash
 agentcore build
 ```
 
 Deploy the project:
 
-```
+```bash
 agentcore deploy
 ```
 
@@ -211,14 +210,14 @@ First deploy takes a few minutes while CDK bootstraps your account. Subsequent d
 
 Check status:
 
-```
+```bash
 agentcore status
 ```
 
 ## Step 5: Invoke your deployed agent
 <a name="agentcore-get-started-cli-invoke"></a>
 
-```
+```bash
 agentcore invoke --runtime agent \
   --payload '{"prompt":"Hello, what can you do?"}'
 ```
@@ -232,7 +231,7 @@ To iterate, edit `app/agent/main.py`, test with `agentcore dev --mode browser`, 
 
 For example, `agentcore add runtime` prompts for a name, language, and protocol, and then displays the configuration for review. It registers a Runtime for code that you write yourself. The command creates `app/<name>/README.md` and `app/<name>/AGENTS.md` with the selected protocol contract, but it does not generate application code or dependencies and does not overwrite files already in the directory.
 
-```
+```bash
 agentcore add memory    # Store conversation context
 agentcore add runtime   # Add another Runtime
 agentcore add gateway   # Connect APIs and tools through Gateway
@@ -240,7 +239,7 @@ agentcore add gateway   # Connect APIs and tools through Gateway
 
 To add a Runtime without the wizard, pass its language and protocol:
 
-```
+```bash
 agentcore add runtime \
   --name worker \
   --language python \
@@ -253,7 +252,7 @@ To translate an existing agent from [Agents for Amazon Bedrock](https://docs.aws
 
 Replace `<bedrock-agent-id>` with your agent ID and `<prepared-agent-alias-id>` with your prepared alias ID:
 
-```
+```bash
 agentcore add runtime \
   --name imported_agent \
   --agent-id <bedrock-agent-id> \
@@ -266,19 +265,21 @@ To add another kind of resource without its wizard, pass its options on the comm
 After adding resources, run `agentcore deploy` to provision them.
 
 Deep dives for the capabilities you can attach:
-+  [AgentCore Memory](memory.md) - short-term and long-term memory, retrieval strategies
-+  [AgentCore Gateway](gateway.md) - governed connectivity to APIs and MCP servers
-+  [AgentCore Browser](browser-tool.md) - managed web browsing for agents
-+  [AgentCore Code Interpreter](code-interpreter-tool.md) - sandboxed code execution
-+  [AgentCore Identity](identity.md) - OAuth, API key credential providers, workload identity
-+  [AgentCore Observability](observability.md) - traces, logs, and metrics in CloudWatch
-+  [AgentCore VPC](agentcore-vpc.md) - run agents inside your VPC
-+  [AgentCore Payments](payments.md) - microtransaction payments for agents via x402
++  [AgentCore Memory](memory.md) – short-term and long-term memory, retrieval strategies
++  [AgentCore Gateway](gateway.md) – governed connectivity to APIs and MCP servers
++  [AgentCore Browser](browser-tool.md) – managed web browsing for agents
++  [AgentCore Code Interpreter](code-interpreter-tool.md) – sandboxed code execution
++  [AgentCore Identity](identity.md) – OAuth, API key credential providers, workload identity
++  [AgentCore Observability](observability.md) – traces, logs, and metrics in CloudWatch
++  [AgentCore Evaluations](evaluations.md) – automated assessment of how well your agents and tools perform tasks
++  [AgentCore Optimization](optimization.md) – continuous agent improvement with Insights, recommendations, and A/B tests
++  [AgentCore VPC](agentcore-vpc.md) – run agents inside your VPC
++  [AgentCore Payments](payments.md) – microtransaction payments for agents via x402
 
 ## View logs and traces
 <a name="agentcore-get-started-cli-logs"></a>
 
-```
+```bash
 # Stream Runtime logs
 agentcore logs runtime
 
@@ -316,7 +317,7 @@ For more information, see [Troubleshoot Amazon Bedrock AgentCore Runtime](runtim
 ## Clean up
 <a name="agentcore-get-started-cli-cleanup"></a>
 
-```
+```bash
 agentcore remove all --yes
 agentcore deploy --yes
 ```

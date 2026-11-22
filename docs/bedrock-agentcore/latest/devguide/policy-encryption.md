@@ -1,7 +1,6 @@
 
 
 # Customize your policy engine’s encryption
-<a name="policy-encryption"></a>
 
 Policy in AgentCore provides encryption by default to protect sensitive customer data at rest using AWS owned encryption keys. As an extra layer of protection, Policy in AgentCore allows you to encrypt your policy engines using AWS Key Management Service (AWS KMS) customer managed keys (CMK). This functionality ensures protection of sensitive data via encryption at rest, which helps you:
 + Reduce the operational burden on service’s end to protect sensitive data
@@ -89,7 +88,7 @@ Source context conditions ( `aws:SourceAccount` and `aws:SourceArn` ) are availa
 
 For example, you can add `aws:SourceAccount` and `aws:SourceArn` conditions to the KMS operations and validation statements in your key policy to ensure that these operations only succeed when the request originates from your account and for your policy engine resources:
 
-```
+```json
 {
   "Sid": "Allow Policy for KMS operations with source context",
   "Effect": "Allow",
@@ -130,7 +129,7 @@ Encryption context is a set of key-value pairs that contain additional authentic
 
 Policy in AgentCore uses the following encryption context in all AWS KMS cryptographic operations and can be verified within CloudTrail logs when Policy in AgentCore makes AWS KMS calls on your behalf for encryption and decryption processes:
 
-```
+```json
 {
   "aws:bedrock-agentcore-policy:policy-engine-arn": "arn:aws:bedrock-agentcore:REGION:ACCOUNT_ID:policy-engine/POLICY_ENGINE_ID"
 }
@@ -148,7 +147,7 @@ Replace the following values in the key policy:
  {{111122223333}} with your AWS account ID
  {{us-east-1}} with your AWS Region
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -254,7 +253,7 @@ To encrypt your policy engine, supply the key ARN when you create it:
 
 1. Add the engine with `--encryption-key-arn`, then deploy:
 
-   ```
+   ```bash
    agentcore add policy-engine \
      --name MyPolicyEngine \
      --description "Policy engine with customer-managed encryption" \
@@ -265,7 +264,7 @@ To encrypt your policy engine, supply the key ARN when you create it:
 
 1. Run the following code in a terminal to create the encrypted policy engine using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-policy-engine \
      --name MyPolicyEngine \
      --description "Policy engine with customer-managed encryption" \
@@ -274,7 +273,7 @@ To encrypt your policy engine, supply the key ARN when you create it:
 
 1. Run the following code to create the encrypted policy engine using the AWS SDK for Python:
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -289,7 +288,7 @@ To encrypt your policy engine, supply the key ARN when you create it:
 
 The response includes the policy engine ARN and status:
 
-```
+```json
 {
   "policyEngineId": "MyPolicyEngine-abc123defg",
   "name": "MyPolicyEngine",
@@ -373,7 +372,7 @@ First, list the policy engines in the account, including the key each one uses. 
 
 1. List the engines, then the policies in an affected engine:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control list-policy-engine-summaries
    
    aws bedrock-agentcore-control list-policy-summaries \
@@ -382,7 +381,7 @@ First, list the policy engines in the account, including the key each one uses. 
 
 1. List the engines, then the policies in an affected engine:
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -421,7 +420,7 @@ Once the key works again, the read operations return the policy definitions and 
 
 1. For resources the project manages, remove them and deploy:
 
-   ```
+   ```bash
    agentcore remove policy --engine <engine-name> --name <policy-name> --yes
    agentcore remove policy-engine --name <engine-name> --yes
    agentcore deploy --yes
@@ -429,7 +428,7 @@ Once the key works again, the read operations return the policy definitions and 
 
 1. Delete the policies by ID, then the engine:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control delete-policy \
      --policy-engine-id <policy-engine-id> \
      --policy-id <policy-id>
@@ -440,7 +439,7 @@ Once the key works again, the read operations return the policy definitions and 
 
 1. Delete every policy, waiting for each, then delete the engine:
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')

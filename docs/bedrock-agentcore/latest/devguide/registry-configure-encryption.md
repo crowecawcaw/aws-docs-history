@@ -1,9 +1,10 @@
 
 
 # Configure KMS key for a registry
-<a name="registry-configure-encryption"></a>
 
 The KMS key determines how your registry encrypts data at rest. You can choose between an AWS owned key or a customer managed key that you store in your account and manage through AWS KMS. You can only configure the KMS key during registry creation. You cannot change the KMS key after the registry is created.
+
+The key that you choose also encrypts the registry’s skill packages. Because you can’t change the key later, you can’t move the registry’s skill packages to another key. For more information, see [Data encryption](registry-data-encryption.md).
 
 **Important**  
 You cannot change the KMS key after the registry is created. Make sure that you select the correct key before creating the registry.
@@ -30,7 +31,7 @@ To confirm the encryption type after creation, view the registry details page an
 
 The following example creates a registry with a customer managed key:
 
-```
+```bash
 aws agent-registry-control create-registry \
   --name "MyEncryptedRegistry" \
   --description "Registry with customer managed encryption" \
@@ -40,7 +41,7 @@ aws agent-registry-control create-registry \
 
 To create a registry with the default AWS owned key, omit the `--encryption-configuration` parameter:
 
-```
+```bash
 aws agent-registry-control create-registry \
   --name "MyRegistry" \
   --description "Registry with default encryption" \
@@ -52,7 +53,7 @@ aws agent-registry-control create-registry \
 
 The following Python example creates a registry with a customer managed key:
 
-```
+```python
 import boto3
 
 client = boto3.client('agent-registry-control')
@@ -70,7 +71,7 @@ print(f"Registry ID: {response['registryId']}")
 
 To create a registry with the default AWS owned key, omit the `encryptionConfiguration` parameter:
 
-```
+```python
 import boto3
 
 client = boto3.client('agent-registry-control')
@@ -88,7 +89,7 @@ print(f"Registry ID: {response['registryId']}")
 
 To verify the KMS key configuration of an existing registry, use `GetRegistry`:
 
-```
+```python
 import boto3
 
 client = boto3.client('agent-registry-control')

@@ -1,7 +1,6 @@
 
 
 # Integrating AgentCore payments with Browser Tool
-<a name="payments-browser"></a>
 
 There are two ways your agent can access x402 paid content: via the [Browser Tool](browser-tool.md) or via standard HTTP calls.
 
@@ -22,7 +21,7 @@ This option uses Strands SDK along with the browser tool and payments tool to br
 
 1.  **Retry** — Payment tools inject authorization headers and retry the request in the same browser session.
 
-```
+```python
 from agentcore.payments import PaymentClient
 from agentcore.browser import browser_tool
 
@@ -83,7 +82,7 @@ For direct API calls and headless scenarios, developers can write custom tool lo
 
 1. Tool retries the HTTP request with payment authorization headers.
 
-```
+```python
 @tool
 async def make_payment(method, url, headers, body) -> dict:
     # Make initial HTTP request

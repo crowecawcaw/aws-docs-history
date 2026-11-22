@@ -1,7 +1,6 @@
 
 
 # Understand the AgentCore Runtime service contract
-<a name="runtime-service-contract"></a>
 
 The AgentCore Runtime service contract defines the standardized communication protocol that your agent application must implement to integrate with the Amazon Bedrock agent hosting infrastructure. This contract ensures seamless communication between your custom agent code and AWS's managed hosting environment.
 

@@ -1,7 +1,6 @@
 
 
 # Use MCP sessions with your AgentCore gateway
-<a name="gateway-sessions"></a>
 
 MCP sessions enable stateful interactions between clients and your AgentCore gateway. When sessions are enabled, the gateway generates a unique session identifier during initialization and maintains state across multiple requests, enabling advanced MCP features such as elicitation and sampling.
 
@@ -25,7 +24,7 @@ For gateways with inbound authentication, sessions are bound to the verified use
 
 To enable sessions, specify a `sessionConfiguration` in the `protocolConfiguration.mcp` field when creating or updating your gateway.
 
-```
+```json
 {
   "protocolConfiguration": {
     "mcp": {
@@ -41,7 +40,7 @@ The `sessionTimeoutInSeconds` parameter is optional. If omitted, the default tim
 
 To also enable features that depend on sessions such as elicitation and sampling, you must additionally enable response streaming:
 
-```
+```json
 {
   "protocolConfiguration": {
     "mcp": {
@@ -120,7 +119,7 @@ If an MCP server target’s session expires or is lost before the gateway sessio
 
 1. Send an `initialize` request to start a session:
 
-   ```
+   ```bash
    curl -X POST \
      https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
      -H "Content-Type: application/json" \
@@ -166,7 +165,7 @@ If an MCP server target’s session expires or is lost before the gateway sessio
 
 1. Include the session ID in subsequent requests:
 
-   ```
+   ```bash
    curl -X POST \
      https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
      -H "Content-Type: application/json" \
@@ -188,7 +187,7 @@ If an MCP server target’s session expires or is lost before the gateway sessio
 
 1. 
 
-   ```
+   ```python
    import requests
    import json
    
@@ -232,7 +231,7 @@ If an MCP server target’s session expires or is lost before the gateway sessio
 
 1. 
 
-   ```
+   ```python
    from mcp import ClientSession
    from mcp.client.streamable_http import streamablehttp_client
    import asyncio
@@ -264,7 +263,7 @@ If an MCP server target’s session expires or is lost before the gateway sessio
 
 1. 
 
-   ```
+   ```python
    from mcp.client.streamable_http import streamablehttp_client
    from strands import Agent
    from strands.tools.mcp import MCPClient

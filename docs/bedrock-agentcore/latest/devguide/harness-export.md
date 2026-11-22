@@ -1,7 +1,6 @@
 
 
 # Export harness to code
-<a name="harness-export"></a>
 
 Export harness to code takes a managed harness configuration and generates a runtime agent from it as editable Python source code using the Strands framework. The generated agent is a normal AgentCore runtime agent: you own the code, can modify it freely, and deploy it like any other agent. The generated agent carries over the harness’s model, execution limits, filesystem mounts, and the tools, skills, and memory configuration that export supports. Export records configuration that it cannot map in `EXPORT_NOTES.md`.
 
@@ -37,7 +36,7 @@ Harness features carried into the generated agent:
 ### Command Syntax
 <a name="_command_syntax"></a>
 
-```
+```bash
 agentcore export harness --arn <arn> [options]
 ```
 
@@ -58,7 +57,7 @@ agentcore export harness --arn <arn> [options]
 
 Export into an existing project:
 
-```
+```bash
 # Export a deployed harness into the current project
 agentcore export harness --arn arn:aws:bedrock-agentcore:us-east-1:123456789012:harness/MyHarness-AbCdEf1234
 
@@ -73,7 +72,7 @@ agentcore export harness \
 
 Export by ARN from a directory outside any AgentCore project:
 
-```
+```bash
 agentcore export harness \
   --arn arn:aws:bedrock-agentcore:us-east-1:123456789012:harness/MyHarness-AbCdEf1234 \
   --project-name ExportedHarness \
@@ -88,7 +87,7 @@ The new project’s default deployment target uses the source ARN’s account an
 
 From the destination project root, review the generated code and `EXPORT_NOTES.md`, then build and deploy:
 
-```
+```bash
 agentcore build
 agentcore deploy
 ```

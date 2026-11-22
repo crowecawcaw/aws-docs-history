@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="optimization-prereqs"></a>
 
 Before using AgentCore optimization features, make sure the following are in place.
 
@@ -24,7 +23,7 @@ Recommendations and A/B testing have the same agent requirements as AgentCore Ev
 
 The following IAM policy grants permissions for all three optimization features:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

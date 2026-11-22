@@ -1,7 +1,6 @@
 
 
 # Recommendations
-<a name="optimization-recommendations"></a>
 
 Recommendations use AI to generate optimized agent configurations from real session traces. Instead of manually rewriting prompts or tool descriptions, you point the service at your agent’s traces, specify a target evaluator as the reward signal, and receive an optimized configuration.
 
@@ -88,7 +87,7 @@ The recommendations API uses log group **ARNs** (`logGroupArns`), not log group 
 
   Save the following configuration as `recommendation-config.json`. Replace the log group ARN, service name, and ISO 8601 timestamps with values for your Runtime:
 
-  ```
+  ```json
   {
     "systemPromptRecommendationConfig": {
       "systemPrompt": {
@@ -117,7 +116,7 @@ The recommendations API uses log group **ARNs** (`logGroupArns`), not log group 
   }
   ```
 
-  ```
+  ```bash
   agentcore eval recommendation start \
     --name my-prompt-rec \
     --type SYSTEM_PROMPT_RECOMMENDATION \
@@ -127,7 +126,7 @@ The recommendations API uses log group **ARNs** (`logGroupArns`), not log group 
 ------
 #### [  AWS SDK (boto3) ]
 
-  ```
+  ```python
   from datetime import datetime, timedelta, timezone
   
   now = datetime.now(timezone.utc)
@@ -146,7 +145,7 @@ The recommendations API uses log group **ARNs** (`logGroupArns`), not log group 
 
   With an optional rule filter to select only low-performing sessions:
 
-  ```
+  ```python
   agent_traces = {
       "cloudwatchLogs": {
           "logGroupArns": [
@@ -188,7 +187,7 @@ The recommendations API uses log group **ARNs** (`logGroupArns`), not log group 
 
   If `agent-traces.json` contains a JSON array of session spans, generate `recommendation-config.json` with `jq`:
 
-  ```
+  ```bash
   jq -n --slurpfile spans agent-traces.json '{
     systemPromptRecommendationConfig: {
       systemPrompt: {
@@ -208,7 +207,7 @@ The recommendations API uses log group **ARNs** (`logGroupArns`), not log group 
   }' > recommendation-config.json
   ```
 
-  ```
+  ```bash
   agentcore eval recommendation start \
     --name my-prompt-rec \
     --type SYSTEM_PROMPT_RECOMMENDATION \
@@ -218,7 +217,7 @@ The recommendations API uses log group **ARNs** (`logGroupArns`), not log group 
 ------
 #### [  AWS SDK (boto3) ]
 
-  ```
+  ```python
   import json
   
   with open("agent-traces.json") as f:
@@ -252,7 +251,7 @@ The batch evaluation and online evaluation trace sources are available for syste
 ------
 #### [  AWS SDK (boto3) ]
 
-    ```
+    ```python
     agent_traces = {
         "batchEvaluation": {
             "batchEvaluationArn": "<batch-evaluation-arn>"
@@ -280,7 +279,7 @@ The batch evaluation and online evaluation trace sources are available for syste
 ------
 #### [  AWS SDK (boto3) ]
 
-  ```
+  ```python
   from datetime import datetime, timedelta, timezone
   
   now = datetime.now(timezone.utc)

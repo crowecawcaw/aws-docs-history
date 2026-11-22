@@ -1,7 +1,6 @@
 
 
 # Notion
-<a name="identity-idp-notion"></a>
 
 Notion can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through Notion’s OAuth2 service and obtain access tokens for Notion API resources.
 
@@ -37,7 +36,7 @@ For more details, refer to [Notion’s authorization documentation](https://deve
 
 To configure Notion as an outbound resource provider, use the following:
 
-```
+```json
 {
   "name": "Notion",
   "credentialProviderVendor": "NotionOauth2",

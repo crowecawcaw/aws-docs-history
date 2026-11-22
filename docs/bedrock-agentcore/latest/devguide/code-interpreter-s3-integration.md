@@ -1,7 +1,6 @@
 
 
 # Using Terminal Commands with an execution role
-<a name="code-interpreter-s3-integration"></a>
 
 You can create a custom Code Interpreter tool with an execution role to upload/download files from Amazon S3. This allows your code to interact with S3 buckets for storing and retrieving data.
 
@@ -16,7 +15,7 @@ Before creating a custom Code Interpreter with S3 access, you need to:
 
 1. Create an IAM role with the following trust policy:
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -38,7 +37,7 @@ Before creating a custom Code Interpreter with S3 access, you need to:
 
 1. Add the following permissions to the role:
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -68,7 +67,7 @@ You can implement S3 integration using boto3 (AWS SDK for Python). The following
 **Note**  
 Before running this code, make sure to replace `REGION` and `<awsaccountid>` with your AWS Region and AWS account number.
 
-```
+```python
 import boto3
 import json
 import time

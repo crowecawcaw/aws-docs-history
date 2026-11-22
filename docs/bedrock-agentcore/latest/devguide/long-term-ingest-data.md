@@ -1,7 +1,6 @@
 
 
 # Ingest content into long-term memory
-<a name="long-term-ingest-data"></a>
 
 Use [IngestData](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_IngestData.html) to submit content directly for long-term memory extraction, without persisting it as a short-term memory event.
 
@@ -47,7 +46,7 @@ The `actorId` identifies the entity (for example, an end user or agent) and the 
 
 The following example ingests both conversational and non-conversational content.
 
-```
+```python
 import boto3
 from datetime import datetime
 

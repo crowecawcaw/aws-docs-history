@@ -1,7 +1,6 @@
 
 
 # Delete a consent portal
-<a name="identity-delete-consent-portal"></a>
 
 When you no longer need a consent portal, you can delete it from the AgentCore console or with the AWS CLI. Deleting a consent portal permanently removes it: its consent portal URL no longer serves end users, and any agent flows that depend on it can no longer obtain user consent through the portal. When you delete a consent portal, it transitions to the `DELETING` status and is then permanently removed.
 

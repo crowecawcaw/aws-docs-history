@@ -1,7 +1,6 @@
 
 
 # Getting started with configuration bundles
-<a name="configuration-bundles-getting-started"></a>
 
 This walkthrough takes you from zero to a versioned configuration bundle that your agent reads at runtime. You will create a bundle, update it to produce a new version, read the configuration, and view version history.
 
@@ -23,7 +22,7 @@ Make sure you have:
 
 The following constants are used in the boto3 examples. Replace them with your own values. Use your runtime ARN as the component key in the boto3 examples and in the components files:
 
-```
+```python
 REGION        = "us-west-2"
 BUNDLE_ID     = "myAgentConfig-a1b2c3d4e5"  # from create response
 COMPONENT_ARN = "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/MyAgent-abc123"
@@ -37,7 +36,7 @@ Create a bundle with your agent’s initial configuration. The bundle stores key
 **Example**  
 Save the initial component map as `components.json`. Replace `<component-arn>` with your agent’s Runtime ARN:  
 
-```
+```json
 {
   "<component-arn>": {
     "configuration": {
@@ -50,7 +49,7 @@ Save the initial component map as `components.json`. Replace `<component-arn>` w
 ```
 Create the bundle from the file:  
 
-```
+```bash
 agentcore eval config-bundle create \
   --name myAgentConfig \
   --commit-message "Initial configuration" \
@@ -58,7 +57,7 @@ agentcore eval config-bundle create \
 ```
 The CLI returns the bundle ID and initial version ID.
 
-```
+```python
 import boto3
 import uuid
 
@@ -94,7 +93,7 @@ After running a batch evaluation and identifying that your agent’s responses a
 **Example**  
 Save the complete replacement component map as `components-v2.json`:  
 
-```
+```json
 {
   "<component-arn>": {
     "configuration": {
@@ -107,14 +106,14 @@ Save the complete replacement component map as `components-v2.json`:
 ```
 Create a new immutable version from the file:  
 
-```
+```bash
 agentcore eval config-bundle update \
   --id <configuration-bundle-id> \
   --components file://components-v2.json \
   --commit-message "Reduce verbosity: shorter prompt, lower temperature"
 ```
 
-```
+```python
 response = client.update_configuration_bundle(
     bundleId=bundle_id,
     components={
@@ -145,12 +144,12 @@ Retrieve the current configuration to verify the update took effect.
 
 **Example**  
 
-```
+```bash
 agentcore eval config-bundle get --id <configuration-bundle-id>
 agentcore eval config-bundle version list --id <configuration-bundle-id>
 ```
 
-```
+```python
 response = client.get_configuration_bundle(bundleId=bundle_id)
 
 config = response["components"][COMPONENT_ARN]["configuration"]
@@ -168,7 +167,7 @@ Diff two versions to see exactly what changed:
 **Example**  
 Retrieve each immutable version and compare the returned component maps:  
 
-```
+```bash
 agentcore eval config-bundle get \
   --id <configuration-bundle-id> \
   --version <version-1>
@@ -178,7 +177,7 @@ agentcore eval config-bundle get \
   --version <version-2>
 ```
 
-```
+```python
 # Fetch both versions
 v1 = client.get_configuration_bundle_version(bundleId=bundle_id, versionId=version_id)
 v2 = client.get_configuration_bundle_version(bundleId=bundle_id, versionId=new_version_id)
@@ -209,7 +208,7 @@ The following agent code reads the active configuration bundle at runtime using 
 
 Save this as your agent’s `main.py`:
 
-```
+```python
 """Agent with Configuration Bundle integration — hooks pattern."""
 from strands import Agent, tool
 from strands.models.bedrock import BedrockModel

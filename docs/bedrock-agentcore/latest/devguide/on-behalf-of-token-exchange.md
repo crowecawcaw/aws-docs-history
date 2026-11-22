@@ -1,7 +1,6 @@
 
 
 # On-behalf-of token exchange with AgentCore Identity
-<a name="on-behalf-of-token-exchange"></a>
 
 Amazon Bedrock AgentCore Identity supports On-Behalf-Of (OBO) token exchange, enabling agents and other workloads—such as MCP servers—to exchange an inbound user access token for a new, scoped access token that targets a downstream resource server. As the exchange converts a token issued for one audience directly into a token for a different downstream audience, your agents can access protected resources on behalf of authenticated users without triggering additional consent flows. The exchanged token carries both the agent’s own identity and the original caller’s identity, giving resource servers the signals they need to enforce fine-grained, zero-trust authorization at every hop.
 

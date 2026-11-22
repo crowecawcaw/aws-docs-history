@@ -1,7 +1,6 @@
 
 
 # Configure Amazon Bedrock AgentCore Gateway VPC Egress for Gateway Targets
-<a name="gateway-vpc-egress"></a>
 
 The AgentCore Gateway service provides secure and controlled egress traffic management for your applications, enabling seamless communication with resources within your Virtual Private Cloud (VPC). This document outlines how egress traffic flows through the AgentCore Gateway to reach VPC resources. You’ll learn about the supported gateway target types (Lambda, API Gateway, and MCP servers via AgentCore Runtime), their configuration requirements, and the authentication methods supported for each target type. This guide covers the security considerations, routing mechanisms, and best practices needed to enable proper egress traffic flow while maintaining network isolation and following the principle of least privilege throughout your architecture.
 
@@ -19,7 +18,7 @@ AgentCore Gateway supports connecting to self-hosted MCP servers running inside 
 
 The following example creates a private MCP server target using managed Lattice:
 
-```
+```json
 {
   "name": "my-private-mcp-target",
   "privateEndpoint": {
@@ -63,7 +62,7 @@ For outbound authorization from AgentCore Gateway to AgentCore Runtime, two auth
 
 The following example shows how to create a gateway target with AgentCore Runtime:
 
-```
+```json
 POST /gateways/gatewayIdentifier/targets/ HTTP/1.1
 Content-type: application/json
 
@@ -120,7 +119,7 @@ You can configure Open API targets to reach private endpoints inside your VPC us
 
 The following example creates a private OpenAPI target using managed Lattice:
 
-```
+```json
 {
   "name": "my-private-openapi-target",
   "privateEndpoint": {
@@ -171,7 +170,7 @@ To implement security best practices, configure your API Gateway to restrict inb
 
 The following resource policy restricts API Gateway access to AgentCore Gateway:
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -198,7 +197,7 @@ The following resource policy restricts API Gateway access to AgentCore Gateway:
 
 The following policy grants the gateway permission to invoke the API Gateway:
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -219,7 +218,7 @@ The following policy grants the gateway permission to invoke the API Gateway:
 
 The following trust policy allows AgentCore Gateway to assume the execution role:
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -247,7 +246,7 @@ The following trust policy allows AgentCore Gateway to assume the execution role
 
 API Gateway targets with private endpoints are not natively supported. However, you can export your private API Gateway as an OpenAPI schema and use an Open API target with that schema, configured with a `privateEndpoint` . Set the `routingDomain` to your API Gateway VPC endpoint (VPCE) DNS name, and ensure the OpenAPI schema server URL uses the domain that matches your public TLS certificate.
 
-```
+```json
 {
   "name": "my-private-apigw-target",
   "privateEndpoint": {
@@ -340,7 +339,7 @@ After the gateway fetches and validates the certificate, it encrypts the certifi
 
 The following example creates an MCP server target and references a CA certificate that you store in Amazon S3. The optional `bucketOwnerAccountId` identifies the account that owns the bucket.
 
-```
+```json
 {
   "name": "my-private-mcp-target",
   "privateEndpoint": {
@@ -371,7 +370,7 @@ The following example creates an MCP server target and references a CA certifica
 
 The following example creates an OpenAPI target and references a CA certificate that you store in AWS Secrets Manager.
 
-```
+```json
 {
   "name": "my-private-openapi-target",
   "privateEndpoint": {
@@ -401,7 +400,7 @@ The following example creates an OpenAPI target and references a CA certificate 
 
 To replace the CA certificate on an existing target, call `UpdateGatewayTarget`. You specify the gateway and target identifiers as path parameters ( `PUT /gateways/{gatewayIdentifier}/targets/{targetId}`); the request body contains the target configuration. The following example replaces the certificate with one stored in AWS Secrets Manager.
 
-```
+```json
 {
   "name": "my-private-mcp-target",
   "privateEndpoint": {
@@ -431,7 +430,7 @@ To replace the CA certificate on an existing target, call `UpdateGatewayTarget`.
 
 To remove the CA certificate and revert the target to public-CA trust, call `UpdateGatewayTarget` and omit `certificateConfigurations` from the request. You specify the gateway and target identifiers as path parameters ( `PUT /gateways/{gatewayIdentifier}/targets/{targetId}`); the request body contains the target configuration. The following example removes the certificate by omitting `certificateConfigurations`.
 
-```
+```json
 {
   "name": "my-private-mcp-target",
   "privateEndpoint": {

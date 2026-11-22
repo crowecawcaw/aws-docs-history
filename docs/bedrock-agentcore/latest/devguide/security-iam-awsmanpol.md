@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon Bedrock AgentCore
-<a name="security-iam-awsmanpol"></a>
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
 
@@ -19,6 +18,8 @@ For more information, see [AWS managed policies](https://docs.aws.amazon.com/IAM
 + [AWS managed policy: BedrockAgentCoreRuntimeInstancesServiceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesServiceRolePolicy)
 + [AWS managed policy: BedrockAgentCoreRuntimeInstancesOperatorRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesOperatorRolePolicy)
 + [AWS managed policy: BedrockAgentCoreRuntimeInstancesInstanceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesInstanceRolePolicy)
++ [AWS managed policy: AgentRegistryReadOnlyAccess](#security-iam-awsmanpol-AgentRegistryReadOnlyAccess)
++ [AWS managed policy: AgentRegistryFullAccess](#security-iam-awsmanpol-AgentRegistryFullAccess)
 + [AgentCore updates to AWS managed policies](#security-iam-awsmanpol-updates)
 
 ## AWS managed policy: BedrockAgentCoreFullAccess
@@ -96,7 +97,10 @@ This policy grants permissions that allow access to identity and token managemen
  **Permissions details** 
 
 This policy includes the following permissions:
-+  `bedrock-agentcore` (Amazon Bedrock Agent Core) – Allows the service to get workload access tokens for JWT authentication and user ID-based authentication. Specifically allows `GetWorkloadAccessToken` , `GetWorkloadAccessTokenForJWT` , and `GetWorkloadAccessTokenForUserId` actions on the default workload identity directory and its associated workload identities.
++  `bedrock-agentcore` (Amazon Bedrock AgentCore) – Allows the service to get workload access tokens for JWT authentication and user ID-based authentication. Specifically allows `GetWorkloadAccessToken` , `GetWorkloadAccessTokenForJWT` , and `GetWorkloadAccessTokenForUserId` actions on all resources.
+
+**Note**  
+To deny these actions, use `"Resource": "*"` or `NotResource` in your Deny statements. Deny statements that list only workload identity ARNs might not match every call to these actions.
 
  **Policy contents** 
 
@@ -159,6 +163,74 @@ This policy includes the following permissions:
 
 You can view the complete policy at [BedrockAgentCoreRuntimeInstancesInstanceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/BedrockAgentCoreRuntimeInstancesInstanceRolePolicy.html).
 
+## AWS managed policy: AgentRegistryReadOnlyAccess
+<a name="security-iam-awsmanpol-AgentRegistryReadOnlyAccess"></a>
+
+You can attach [AgentRegistryReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AgentRegistryReadOnlyAccess.html) to your users, groups, and roles.
+
+This policy grants read-only access to AWS Agent Registry registries, registry records, publishers, and publisher associations. It also allows principals to search public records.
+
+ **Permissions details** 
+
+This policy includes the following permissions:
++  `agent-registry` (AWS Agent Registry) – Allows principals to get registries (`GetRegistry`) and to get and list registry records (`GetRegistryRecord`, `ListRegistryRecords`). Also allows principals to list, search, and get discoverable registry records (`ListDiscoverableRegistryRecords`, `SearchDiscoverableRegistryRecords`, `GetDiscoverableRegistryRecord`) and to invoke the registry Model Context Protocol (MCP) endpoint (`InvokeRegistryMcp`). Also allows principals to get publishers (`GetPublisher`) and list publisher associations (`ListPublisherAssociations`). These permissions apply to AWS Agent Registry resources (`arn:aws:agent-registry:*:*:*`).
++  `agent-registry` (AWS Agent Registry) – Allows principals to list registries (`ListRegistries`), list publishers (`ListPublishers`), and list the tags for a resource (`ListTagsForResource`). These permissions apply to all resources (`*`).
++  `agent-discovery` – Allows principals to search public records (`SearchPublicRecords`). This permission applies to all resources (`*`).
+
+ **Policy contents** 
+
+You can view the complete policy at [AgentRegistryReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AgentRegistryReadOnlyAccess.html).
+
+## AWS managed policy: AgentRegistryFullAccess
+<a name="security-iam-awsmanpol-AgentRegistryFullAccess"></a>
+
+You can attach [AgentRegistryFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AgentRegistryFullAccess.html) to your users, groups, and roles.
+
+With this policy, principals have full access to AWS Agent Registry and can search public records. The policy also includes the related AWS Identity and Access Management (IAM), Amazon Bedrock AgentCore, AWS Key Management Service (AWS KMS), and AWS Secrets Manager permissions that AWS Agent Registry features use.
+
+For example, the following AWS CLI command attaches the policy to an IAM role:
+
+```bash
+aws iam attach-role-policy \
+    --role-name MyRegistryAdminRole \
+    --policy-arn arn:aws:iam::aws:policy/AgentRegistryFullAccess
+```
+
+ **Permissions details** 
+
+This policy includes the following permissions:
++  `agent-registry` (AWS Agent Registry) – Principals can perform all AWS Agent Registry actions (`agent-registry:*`) on AWS Agent Registry resources (`arn:aws:agent-registry:*:*:*`).
++  `agent-discovery` – Principals can search public records (`SearchPublicRecords`) on all resources (`*`).
++  `iam` (AWS Identity and Access Management) – Principals can do the following:
+  + Pass any IAM role (`PassRole`, on `arn:aws:iam::*:role/*`) to AWS Agent Registry. The `iam:PassedToService` condition must be `agent-registry.amazonaws.com`.
+  + List roles (`ListRoles`) on all IAM roles.
+  + Create the AWS Agent Registry service-linked role, `AWSServiceRoleForAgentRegistry` (`CreateServiceLinkedRole`). The `iam:AWSServiceName` condition must be `agent-registry.amazonaws.com`.
++  `bedrock-agentcore` (Amazon Bedrock AgentCore) – Principals can do the following:
+  + Create, get, and delete workload identities and get workload access tokens (`CreateWorkloadIdentity`, `GetWorkloadIdentity`, `DeleteWorkloadIdentity`, `GetWorkloadAccessToken`) on workload identity directories (`arn:aws:bedrock-agentcore:*:*:workload-identity-directory/*`).
+  + Get OAuth 2.0 tokens for resources (`GetResourceOauth2Token`), get workload access tokens for a user ID (`GetWorkloadAccessTokenForUserId`), and complete resource token authorization (`CompleteResourceTokenAuth`). These permissions apply to credential providers (`arn:aws:bedrock-agentcore:*:*:credential-provider/*`), workload identity directories (`arn:aws:bedrock-agentcore:*:*:workload-identity-directory/*`), OAuth 2.0 credential providers in token vaults (`arn:aws:bedrock-agentcore:*:*:token-vault/*/oauth2credentialprovider/*`), and the default token vault (`arn:aws:bedrock-agentcore:*:*:token-vault/default`).
+  + List OAuth 2.0 credential providers (`ListOauth2CredentialProviders`) on all Amazon Bedrock AgentCore resources (`arn:aws:bedrock-agentcore:*:*:*`).
++  `kms` (AWS Key Management Service) – Principals can do the following with all AWS KMS keys (`arn:aws:kms:*:*:key/*`):
+  + Decrypt data (`Decrypt`) when Amazon Bedrock AgentCore is in the request’s call chain. The `aws:CalledVia` condition must include `bedrock-agentcore.amazonaws.com`.
+  + Describe keys (`DescribeKey`) when the request comes through AWS Agent Registry. The `kms:ViaService` condition must match `agent-registry.*.amazonaws.com`.
+  + Encrypt, decrypt, re-encrypt, and generate data keys (`Encrypt`, `Decrypt`, `ReEncryptFrom`, `ReEncryptTo`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`) when the request comes through AWS Agent Registry. The `kms:EncryptionContext:aws:agent-registry:registry-arn` encryption context must be an AWS Agent Registry registry ARN.
+  + Create grants (`CreateGrant`) when the request comes through AWS Agent Registry. The `kms:GrantOperations` condition limits each grant to the `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `DescribeKey`, and `CreateGrant` operations. Because `CreateGrant` is among them, a grantee can create further grants.
++  `secretsmanager` (AWS Secrets Manager) – Principals can retrieve secret values (`GetSecretValue`) for all secrets (`arn:aws:secretsmanager:*:*:secret:*`), with no condition.
+
+ **Policy contents** 
+
+You can view the complete policy at [AgentRegistryFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AgentRegistryFullAccess.html).
+
+### Considerations
+<a name="_considerations_2"></a>
+
+Note the following about the scope of this policy:
++  ** `secretsmanager:GetSecretValue` applies to all secrets.** Principals can call `secretsmanager:GetSecretValue` on every secret (`arn:aws:secretsmanager:*:*:secret:*`), not only the secrets that your registries use. Secrets that use the AWS managed key `aws/secretsmanager` need no additional permission. Secrets encrypted with a customer managed key also require `kms:Decrypt` permission on that key.
++  ** `kms:Decrypt` through Amazon Bedrock AgentCore applies to all keys.** When Amazon Bedrock AgentCore is anywhere in a request’s call chain (`aws:CalledVia`), principals can decrypt data with any AWS KMS key whose key policy allows it. This permission has no `kms:ViaService` or encryption context condition.
++  ** `iam:PassRole` applies to all roles.** Principals can pass any IAM role to AWS Agent Registry. The policy doesn’t limit which roles by name or path.
++  ** `GetWorkloadAccessTokenForUserId` applies to all workload identities.** This action issues workload access tokens for a caller-supplied user identifier. It doesn’t verify an identity provider (IdP) token. Principals can also call `GetResourceOauth2Token` on all credential providers, OAuth 2.0 credential providers in any token vault, and the default token vault. As a result, principals can request OAuth 2.0 tokens on behalf of any user identifier.
+
+To narrow these permissions, create a custom policy that grants `secretsmanager:GetSecretValue` only on the secrets that your registries use. If your principals don’t need `GetWorkloadAccessTokenForUserId`, attach a policy that explicitly denies it. For more information, see [Get workload access token](get-workload-access-token.md).
+
 ## AgentCore updates to AWS managed policies
 <a name="security-iam-awsmanpol-updates"></a>
 
@@ -167,9 +239,16 @@ View details about updates to AWS managed policies for AgentCore since this serv
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+|  [BedrockAgentCoreRuntimeIdentityServiceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeIdentityServiceRolePolicy) – Updated policy | Changed the resource scope of the `GetWorkloadAccessToken` , `GetWorkloadAccessTokenForJWT` , and `GetWorkloadAccessTokenForUserId` permissions from the default workload identity directory to all resources (`*`). | November 20, 2026 | 
+|  [AgentRegistryFullAccess](#security-iam-awsmanpol-AgentRegistryFullAccess) – Updated policy | Added the `agent-discovery:SearchPublicRecords` permission to allow principals to search public records. The permission applies to all resources (`*`). This update doesn’t remove any permissions. | November 20, 2026 | 
+|  [AgentRegistryReadOnlyAccess](#security-iam-awsmanpol-AgentRegistryReadOnlyAccess) – Updated policy | Added the `agent-registry:GetPublisher`, `agent-registry:ListPublishers`, and `agent-registry:ListPublisherAssociations` permissions to allow read-only access to AWS Agent Registry publishers and publisher associations. Added the `agent-discovery:SearchPublicRecords` permission to allow principals to search public records. Moved the `agent-registry:ListRegistries` and `agent-registry:ListTagsForResource` permissions to a separate statement. They now apply to all resources (`*`) instead of only AWS Agent Registry resources. This update doesn’t remove any permissions. | November 20, 2026 | 
+|  [AgentRegistryFullAccess](#security-iam-awsmanpol-AgentRegistryFullAccess) – Updated policy | Added the `bedrock-agentcore:GetWorkloadAccessTokenForUserId` and `bedrock-agentcore:CompleteResourceTokenAuth` permissions to support OAuth-based record synchronization. Added the default token vault (`token-vault/default`) to the resources of the OAuth token statement. The statement’s three actions (`GetResourceOauth2Token`, `GetWorkloadAccessTokenForUserId`, `CompleteResourceTokenAuth`) apply to credential providers, workload identity directories, OAuth 2.0 credential providers in token vaults, and the default token vault. This update doesn’t remove any permissions. | November 19, 2026 | 
 |  [BedrockAgentCoreFullAccess](#security-iam-awsmanpol-BedrockAgentCoreFullAccess) – Updated policy | Added the `kms:CreateGrant` permission to allow Amazon Bedrock AgentCore to create AWS KMS grants on customer managed keys that encrypt AgentCore Policy policy engines and their child resources (policies and policy generations). The permission is scoped to policy engine resources using the `kms:ViaService`, `kms:GrantConstraintType`, and `kms:EncryptionContext` conditions. | September 1, 2026 | 
+|  [AgentRegistryFullAccess](#security-iam-awsmanpol-AgentRegistryFullAccess) – Updated policy | Extended the `bedrock-agentcore:GetResourceOauth2Token` permission to workload identity directories and to OAuth 2.0 credential providers in token vaults. Replaced the `kms:Decrypt` permission for requests through AWS Agent Registry with four AWS KMS statements. Added the `kms:Decrypt` permission on all keys for requests that have Amazon Bedrock AgentCore in their call chain (`aws:CalledVia`), without a `kms:ViaService` or encryption context condition. Added the `kms:DescribeKey` permission for requests through AWS Agent Registry. Added the `kms:Encrypt`, `kms:Decrypt`, `kms:ReEncryptFrom`, `kms:ReEncryptTo`, `kms:GenerateDataKey`, and `kms:GenerateDataKeyWithoutPlaintext` permissions for requests through AWS Agent Registry that use a registry encryption context. Added the `kms:CreateGrant` permission for requests through AWS Agent Registry, limited to specific grant operations. This update narrows the `kms:Decrypt` permission for requests through AWS Agent Registry, which now requires a registry encryption context. | August 31, 2026 | 
 |  [BedrockAgentCoreFullAccess](#security-iam-awsmanpol-BedrockAgentCoreFullAccess) – Updated policy | Added the `iam:CreateServiceLinkedRole` permission for the AgentCore Runtime Instances service-linked role. | August 7, 2026 | 
 |  [BedrockAgentCoreRuntimeInstancesOperatorRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesOperatorRolePolicy) – Updated policy | Added additional AgentCore service roles to the `iam:PassRole` permission. | August 7, 2026 | 
+|  [AgentRegistryFullAccess](#security-iam-awsmanpol-AgentRegistryFullAccess) – New policy | Added a new AWS managed policy that grants full access to AWS Agent Registry. | August 6, 2026 | 
+|  [AgentRegistryReadOnlyAccess](#security-iam-awsmanpol-AgentRegistryReadOnlyAccess) – New policy | Added a new AWS managed policy that grants read-only access to AWS Agent Registry registries and registry records. | August 6, 2026 | 
 |  [BedrockAgentCoreRuntimeInstancesServiceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesServiceRolePolicy) – New policy | Added a new AWS managed policy that allows AgentCore to clean up the Amazon EC2 compute resources created for the Instances compute type. | August 6, 2026 | 
 |  [BedrockAgentCoreRuntimeInstancesOperatorRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesOperatorRolePolicy) – New policy | Added a new AWS managed policy that allows AgentCore to create and manage Amazon EC2 compute and associated resources for a capacity provider through the operator role. | August 6, 2026 | 
 |  [BedrockAgentCoreRuntimeInstancesInstanceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeInstancesInstanceRolePolicy) – New policy | Added a new AWS managed policy that serves as the default instance role policy for instances managed by AgentCore Runtime Instances, allowing an instance to write its system logs. | August 6, 2026 | 

@@ -1,7 +1,6 @@
 
 
 # Mount your own file systems in your container
-<a name="runtime-fuse-mounts"></a>
 
 Amazon Bedrock AgentCore Runtime hosts your agent containers. The managed and bring-your-own configurations described earlier mount storage for you. If you’d rather run your own mount client, your container can mount file systems itself at runtime: run a FUSE client over the FUSE (Filesystem in Userspace) device (`/dev/fuse`), loop-mount a disk image over the loopback devices (`/dev/loop*`), or mount an NFS file system such as Amazon S3 Files or Amazon EFS.
 
@@ -19,13 +18,13 @@ The examples that follow show how to set up each option. Each one uses a differe
 ## Mount an Amazon S3 bucket with Mountpoint
 <a name="runtime-fuse-mounts-mountpoint"></a>
 
-Use Mountpoint for Amazon S3 to present an S3 bucket as a directory. You can read and sequentially write (append) objects as files. Mountpoint can’t perform in-place random writes or rename existing objects. For a full POSIX file system, use a loopback mount (the next example).
+Use Mountpoint for Amazon S3 to present an S3 bucket as a directory. You can read objects and write new files sequentially. For the full list of supported file operations, see [Mountpoint file system behavior](https://github.com/awslabs/mountpoint-s3/blob/main/doc/SEMANTICS.md) on the GitHub website. For a full POSIX file system, use a loopback mount (see [Full POSIX storage with a loopback mount](#runtime-fuse-mounts-loopback)). To have AgentCore Runtime run Mountpoint for you, without changes to your container image, see [Configure an Amazon S3 bucket mount](runtime-filesystem-configurations.md#configure-s3-bucket-mount).
 
 In the following example, replace {{amzn-s3-demo-bucket}} with the name of your own bucket, and set the `S3_BUCKET` environment variable to the same bucket when you deploy.
 
 The following Dockerfile bakes Mountpoint into the image and runs the container as root:
 
-```
+```dockerfile
 FROM public.ecr.aws/docker/library/python:3.12-slim
 RUN apt-get update && apt-get install -y --no-install-recommends \
       wget fuse3 ca-certificates && \
@@ -42,7 +41,7 @@ Mounting requires root, so the container runs as `USER 0`. That root stays confi
 
 The agent mounts the bucket on the first invocation, then writes and reads a file through the mount:
 
-```
+```python
 import os
 import subprocess
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
@@ -77,7 +76,7 @@ Mountpoint is one FUSE client. Because the container exposes `/dev/fuse`, you ca
 
 The earlier Mountpoint example grants the whole bucket. To restrict each session to only its own data, use the [session context keys](runtime-sessions.md#runtime-session-isolation) in the execution role policy. Store each session’s objects under a prefix named for its `runtimeSessionId`, such as `sessions/<runtimeSessionId>/`. To write under that prefix through a mount, pass `--prefix sessions/<runtimeSessionId>/` to `mount-s3` so the mount root maps to the session’s own prefix, rather than mounting the whole bucket at the root as the earlier example does. This execution role policy lets a session list, read, and write only its own prefix. Replace {{amzn-s3-demo-bucket}} with your bucket name.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -123,7 +122,7 @@ The image file holds the whole file system, so you can also back up or move a wo
 
 The following Python snippet, run inside your agent as root, creates a 64 MiB `ext4` image, mounts it, and uses it as a full POSIX file system:
 
-```
+```python
 import os
 import subprocess
 
@@ -155,7 +154,7 @@ An NFS mount has three requirements:
 
 The following Dockerfile installs the mount helpers and the NFS client:
 
-```
+```dockerfile
 FROM public.ecr.aws/amazonlinux/amazonlinux:2023
 RUN dnf install -y amazon-efs-utils nfs-utils python3 python3-pip && \
     pip3 install bedrock-agentcore && \
@@ -167,7 +166,7 @@ CMD ["python3", "agent.py"]
 
 The following agent mounts an Amazon EFS file system on the first invocation, then writes and reads a file through the mount. Set the `EFS_FS_ID` environment variable to your file system ID when you deploy:
 
-```
+```python
 import os
 import subprocess
 from bedrock_agentcore.runtime import BedrockAgentCoreApp

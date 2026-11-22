@@ -1,7 +1,6 @@
 
 
 # Runtime selection
-<a name="code-interpreter-runtime-selection"></a>
 
 For a language, you can optionally specify a particular runtime. The following table shows the supported languages and their available runtimes.
 

@@ -1,7 +1,6 @@
 
 
 # Smithy model targets
-<a name="gateway-building-smithy-targets"></a>
 
 Smithy is a language for defining services and software development kits (SDKs). Smithy models provide a more structured approach to defining APIs compared to OpenAPI, and are particularly useful for connecting to AWS services, such as AgentCore Gateway.
 
@@ -76,7 +75,7 @@ Expand a section to see examples of supported and unsupported Smithy model speci
 
 The following example shows a valid Smithy model specification for a weather service:
 
-```
+```smithy
 {
   "smithy": "2.0",
   "metadata": {
@@ -193,7 +192,7 @@ The following example shows a valid Smithy model specification for a weather ser
 
 The following example shows an invalid endpoint rules configuration using Smithy:
 
-```
+```smithy
 @endpointRuleSet({
   "rules": [
     {

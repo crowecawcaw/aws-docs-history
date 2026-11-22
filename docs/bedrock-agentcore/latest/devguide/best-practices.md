@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices"></a>
 
 We recommend these best practices for using AgentCore Memory effectively in your AI agent applications.
 

@@ -1,7 +1,6 @@
 
 
 # Understanding the agent identity directory
-<a name="agent-identity-directory"></a>
 
 The agent identity directory is a centralized collection of all workload identities within your AWS account. It serves as the authoritative registry for managing and organizing agent identities, providing a unified view of all identities whether they were created automatically by AgentCore Runtime and Gateway or manually through the AWS CLI and SDK. For information about creating workload identities, see [Create and manage workload identities](creating-agent-identities.md).
 
@@ -113,7 +112,7 @@ The agent identity directory integrates with IAM to provide fine-grained access 
 
  **Example IAM policy for directory access** 
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [

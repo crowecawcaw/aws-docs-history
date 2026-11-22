@@ -1,7 +1,6 @@
 
 
 # List events
-<a name="short-term-list-events"></a>
 
 The [ListEvents](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_ListEvents.html) operation is valuable for applications that need to reconstruct conversation histories, analyze interaction patterns, or implement memory-based features like conversation summarization and context awareness.
 

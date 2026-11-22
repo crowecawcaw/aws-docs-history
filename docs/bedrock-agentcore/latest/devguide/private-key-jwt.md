@@ -1,7 +1,6 @@
 
 
 # Private Key JWT client authentication
-<a name="private-key-jwt"></a>
 
 With Private Key JWT, AgentCore Identity authenticates to a downstream identity provider’s token endpoint using a signed JWT client assertion, per RFC 7523, Section 2.2, instead of a client secret. The private key never leaves AWS Key Management Service (KMS). AgentCore Identity signs each assertion via `kms:Sign`. Your identity provider possesses the corresponding public key used to authenticate the client assertion and returns an access token.
 
@@ -54,7 +53,7 @@ To use an asymmetric KMS signing key for Private Key JWT, your key must allow Ag
 
 The `kms:ViaService` condition ensures the key can only be used when the request originates through Amazon Bedrock AgentCore Identity. Cross-account keys are supported when the key policy grants `kms:DescribeKey` and `kms:Sign` to the calling identity. Replace the `Principal` ARN with the root ARN of the account that will call AgentCore Identity.
 
-```
+```json
 {
   "Id": "identity-service-cmk-policy",
   "Version": "2012-10-17",
@@ -100,7 +99,7 @@ To configure a credential provider with Private Key JWT client authentication, o
 #### CLI example: Private Key JWT for a Microsoft credential provider
 <a name="_cli_example_private_key_jwt_for_a_microsoft_credential_provider"></a>
 
-```
+```bash
 aws bedrock-agentcore-control create-oauth2-credential-provider \
   --cli-input-json '{
     "name": "microsoft-private-key-jwt",
@@ -134,7 +133,7 @@ aws bedrock-agentcore-control create-oauth2-credential-provider \
 #### CLI example: Private Key JWT for an Okta credential provider with On-behalf-of Token Exchange
 <a name="_cli_example_private_key_jwt_for_an_okta_credential_provider_with_on_behalf_of_token_exchange"></a>
 
-```
+```bash
 aws bedrock-agentcore-control create-oauth2-credential-provider \
   --cli-input-json '{
     "name": "okta-private-key-jwt",

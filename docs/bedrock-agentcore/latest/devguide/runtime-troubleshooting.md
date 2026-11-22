@@ -1,7 +1,6 @@
 
 
 # Troubleshoot AgentCore Runtime
-<a name="runtime-troubleshooting"></a>
 
 This troubleshooting topic helps you identify and resolve common issues when working with AgentCore Runtime. By following these solutions, you can quickly diagnose and fix problems with your agent runtimes.
 
@@ -11,6 +10,7 @@ This troubleshooting topic helps you identify and resolve common issues when wor
 + [My Docker build fails with "403 Forbidden" when pulling Python base images](#troubleshoot-runtime-docker-403)
 + [I get "Unknown service: 'bedrock-agent-core-runtime'" error when using boto3](#troubleshoot-runtime-boto3)
 + [I get "AccessDeniedException" when trying to create an Amazon Bedrock AgentCore Runtime](#troubleshoot-runtime-access-denied)
++ [I get "AccessDeniedException" when I reuse a session ID on V2](#troubleshoot-runtime-session-pinning-access-denied)
 + [My Docker build fails with "exec /bin/sh: exec format error"](#troubleshoot-runtime-exec-format)
 + [What are the requirements for Docker containers used with Amazon Bedrock AgentCore Runtime?](#troubleshoot-runtime-requirements)
 + [My long-running tool gets interrupted after 15 minutes](#troubleshoot-runtime-long-running)
@@ -48,7 +48,7 @@ This troubleshooting topic helps you identify and resolve common issues when wor
 
  **Solution:** Call [UpdateAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.html) with `requireMMDSV2` set to `true` in `metadataConfiguration`:
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
@@ -132,6 +132,22 @@ pip install --upgrade boto3 botocore
 +  **Missing permissions for the caller.** Make sure that the caller’s credentials has `bedrock-agentcore:CreateAgentRuntime`.
 +  **Execution Role cannot be assumed by Amazon Bedrock AgentCore.** Make sure that the execution role follows this guidance on [permissions for Amazon Bedrock AgentCore Runtime execution role](runtime-permissions.md).
 
+## I get "AccessDeniedException" when I reuse a session ID on V2
+<a name="troubleshoot-runtime-session-pinning-access-denied"></a>
+
+ **When this occurs:** When you reuse a `runtimeSessionId` on an agent runtime with platform version V2, through `InvokeAgentRuntime`, `InvokeAgentRuntimeWithWebSocketStream`, `InvokeAgentRuntimeCommand`, `InvokeAgentRuntimeCommandShell`, `StopRuntimeSession`, or `GetAgentCard` 
+
+ **Why this happens:** AgentCore Runtime pins the session to the user who created it, and your request doesn’t match that user. Common causes include the following:
++ A different user reuses the session ID.
++ The same user authenticates with a different method than the one that created the session, for example SigV4 instead of a JWT.
++ A SigV4 request omits the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header for an operation other than `StopRuntimeSession` or `GetAgentCard`.
+
+ **Solution:** 
++ Send the same user identity, with the same authentication method, on every request to the session.
++ If the request is for a different user, use a new, unique `runtimeSessionId` for that user.
+
+For more information, see [Session pinning](runtime-sessions.md#runtime-session-pinning).
+
 ## My Docker build fails with "exec /bin/sh: exec format error"
 <a name="troubleshoot-runtime-exec-format"></a>
 
@@ -163,7 +179,7 @@ For information, see [Handle asynchronous and long-running agents with Amazon Be
 
  **Solution:** Ensure your `/ping` endpoint returns `HealthyBusy` while background work is in progress:
 
-```
+```json
 {"status": "HealthyBusy"}
 ```
 
@@ -178,7 +194,7 @@ If you are using the Bedrock AgentCore SDK, the ping response is handled automat
 
  **Solution:** Update `time_of_last_update` only when the `status` actually changes, or omit it entirely so the platform tracks status changes on its own:
 
-```
+```json
 {"status": "Healthy"}
 ```
 
@@ -195,7 +211,7 @@ If you are using the Bedrock AgentCore SDK, upgrade to the latest version, where
 
  **Solution 1:** For agents using the Bedrock Amazon Bedrock AgentCore SDK, use `context.session_id` from your agent entrypoint
 
-```
+```python
 @app.entrypoint
 def my_agent(payload, context):
     session_id = context.session_id
@@ -495,7 +511,7 @@ To access your updated code, use a new session ID.
 
 For S3 Files, ensure your execution role has:
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": [
@@ -513,7 +529,7 @@ For S3 Files, ensure your execution role has:
 
 For EFS, ensure your execution role has:
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": [
@@ -635,19 +651,19 @@ The following table shows the recommended `minimumMemoryInMiB` value for each co
 
  **When this occurs:** After you create or update a V2 runtime that has a build warmup lifecycle hook, the runtime enters `CREATE_FAILED` or `UPDATE_FAILED`, and `GetAgentRuntime` returns one of the following `failureReason` values:
 
-```
+```text
 A lifecycle hook failed. Check your runtime's logs for which hook failed and why. For troubleshooting, see https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-troubleshooting.html
 ```
 
-```
+```text
 A lifecycle hook didn't finish within its timeoutSeconds. Check your runtime's logs for which hook timed out. For troubleshooting, see https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-troubleshooting.html
 ```
 
- **Why this happens:** A warmup call returned a status code other than `2xx`, AgentCore Runtime couldn’t connect to the hook, or the `memory` and `disk` calls didn’t finish within the 120 seconds that they share. In the second message, `timeoutSeconds` refers to this 120-second warmup time limit, which you can’t change. For more information, see [Build warmup hook](runtime-lifecycle-hooks.md#runtime-lifecycle-hooks-warmup).
+ **Why this happens:** A warmup call returned a status code other than `2xx`, AgentCore Runtime couldn’t connect to the hook, or the `memory` and `disk` calls didn’t finish within the 120 seconds that they share. In the second message, `timeoutSeconds` refers to this 120-second warmup time limit, which you can’t change. For more information, see [Warmup hook](runtime-lifecycle-hooks.md#runtime-lifecycle-hooks-warmup).
 
  **Find the failed call:** Open your runtime’s log group, `/aws/bedrock-agentcore/runtimes/<agentRuntimeId>-DEFAULT`, and look in the log streams whose names start with `build-logs-`. Each warmup line starts with `[LIFECYCLE-HOOK <epoch-milliseconds>]`, followed by `[LIFECYCLE]` for progress or `[ERROR]` for failures. A line can appear more than once for one create or update. For example:
 
-```
+```text
 [LIFECYCLE-HOOK 1718030400000] [LIFECYCLE] warmup hook (memory) started with 120.0 s of the 120 s warmup budget left
 ```
 

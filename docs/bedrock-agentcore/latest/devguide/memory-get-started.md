@@ -1,7 +1,6 @@
 
 
 # Get started with AgentCore Memory
-<a name="memory-get-started"></a>
 
 Amazon Bedrock AgentCore Memory lets you create and manage AgentCore Memory resources that store conversation context for your AI agents. This getting started guides you through installing dependencies and implementing both short-term and long-term memory features. The instructions use the AgentCore CLI.
 
@@ -25,7 +24,7 @@ Before starting, make sure you have:
 
 To get started with Amazon Bedrock AgentCore Memory, install the dependencies, create an AgentCore CLI project, and set up a virtual environment. The following commands can be run directly in the terminal.
 
-```
+```bash
 npm install -g @aws/agentcore
 
 agentcore create --name MemoryQuickstart --template empty
@@ -59,7 +58,7 @@ Create memory with semantic strategy:
 
 1. 
 
-   ```
+   ```bash
    agentcore add memory --name CustomerSupportSemantic --strategies SEMANTIC
    
    agentcore deploy
@@ -78,7 +77,7 @@ Create memory with semantic strategy:
 
 After deployment, run `agentcore status --json` and copy the memory `arn`. The memory ID is the part of the ARN after `memory/`. Then check that the memory status is `ACTIVE`:
 
-```
+```bash
 agentcore status --json
 agentcore memory get --id <memory-id>
 ```
@@ -92,7 +91,7 @@ Writing events to memory has multiple purposes. First, event contents (most comm
 
 The memory resource id, actor id, and session id are required to create an event. In this step, you create three events, simulating messages between an end user and a chat bot. Replace `<your-memory-id>` with the memory ID from Step 1.
 
-```
+```python
 from bedrock_agentcore.memory import MemorySessionManager
 from bedrock_agentcore.memory.constants import ConversationalMessage, MessageRole
 
@@ -134,7 +133,7 @@ session.add_turns(
 
 You can get events (turns) for a specific actor after they’ve been written.
 
-```
+```python
 # Get the last k turns in the session
 turns = session.get_last_k_turns(k=5)
 
@@ -151,7 +150,7 @@ After the events were written to the memory resource, they were analyzed and use
 
 You can list all memory records with:
 
-```
+```python
 # List all memory records
 memory_records = session.list_long_term_memory_records(
     namespace_path="/"
@@ -164,7 +163,7 @@ for record in memory_records:
 
 Or ask for the most relevant information as part of a semantic search:
 
-```
+```python
 # Perform a semantic search
 memory_records = session.search_long_term_memories(
     query="can you summarize the support issue",
@@ -180,7 +179,7 @@ Important information about the user is likely stored is long term memory. Agent
 
 A Python Strands project that you scaffold with `agentcore create --name MyProject --template agent-python-strands` includes `app/agent/memory/session.py`, and its `main.py` already uses it. The module reads the `MEMORY_AGENTMEMORY_ID` environment variable, which belongs to the `agentMemory` memory that the template adds. If the project has no memory with that name, for example because you removed it, add it with the strategies that the template uses by default, and deploy:
 
-```
+```bash
 agentcore add memory --name agentMemory --strategies SEMANTIC,USER_PREFERENCE,SUMMARIZATION,EPISODIC
 agentcore deploy
 ```
@@ -189,20 +188,20 @@ For a Strands agent that the AgentCore CLI did not scaffold with memory, follow 
 
 1. Add a memory resource to your project:
 
-   ```
+   ```bash
    agentcore add memory --name MyMemory --strategies SEMANTIC,SUMMARIZATION
    agentcore deploy
    ```
 
 1. Create the `memory/` directory in your agent:
 
-   ```
+   ```bash
    mkdir -p app/MyAgent/memory
    ```
 
 1. Create `app/MyAgent/memory/session.py` :
 
-   ```
+   ```python
    import os
    from typing import Optional
    from bedrock_agentcore.memory.integrations.strands.config import AgentCoreMemoryConfig, RetrievalConfig
@@ -233,7 +232,7 @@ For a Strands agent that the AgentCore CLI did not scaffold with memory, follow 
 
 1. Update your `main.py` to use the session manager:
 
-   ```
+   ```python
    from memory.session import get_memory_session_manager
    
    @app.entrypoint
@@ -253,7 +252,7 @@ For a Strands agent that the AgentCore CLI did not scaffold with memory, follow 
 
 1. Deploy the updated project:
 
-   ```
+   ```bash
    agentcore deploy
    ```
 
@@ -265,7 +264,7 @@ Each memory resource gets the environment variables `MEMORY_<NAME>_ID` and `MEMO
 
 When you’re done with the memory resource, you can delete it:
 
-```
+```bash
 agentcore remove memory --name CustomerSupportSemantic
 agentcore deploy
 ```

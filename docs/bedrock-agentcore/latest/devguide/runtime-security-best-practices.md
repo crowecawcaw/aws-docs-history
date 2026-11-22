@@ -1,7 +1,6 @@
 
 
 # Security best practices for AgentCore Runtime
-<a name="runtime-security-best-practices"></a>
 
 This topic consolidates security best practices for Amazon Bedrock AgentCore Runtime. Use these recommendations to secure your agent deployments, protect data, and follow the principle of least privilege.
 
@@ -26,7 +25,9 @@ This topic consolidates security best practices for Amazon Bedrock AgentCore Run
 
 Amazon Bedrock AgentCore Runtime provides strong isolation boundaries through dedicated microVMs. Follow these practices to maintain data protection:
 +  **Understand the isolation boundary** — Each user session runs in a dedicated microVM with isolated CPU, memory, and filesystem. Commands and agent code cannot access other customers' workloads or escape the VM boundary. After session completion, the entire microVM is terminated and memory is sanitized.
-+  **Enforce session-to-user mappings in your backend** — AgentCore does not enforce session-to-user mappings. Your client backend must maintain the relationship between users and their session IDs, and implement lifecycle management such as maximum number of sessions per user.
++  **Enforce session-to-user mappings in your backend** — Your client backend must maintain the relationship between users and their session IDs, and manage the session lifecycle for each user, such as the maximum number of sessions for each user. The following applies by platform version and compute type:
+  + For agent runtimes on platform version V1 or on Instances, AgentCore does not enforce session-to-user mappings. You must bind each session to its user in your client backend, and make sure that each user can use only their own session IDs.
+  + For agent runtimes on platform version V2 on microVMs, AgentCore Runtime also pins each session that is created with a user identity to that user. Sessions created without a user identity aren’t pinned. For more information, see [Session pinning](runtime-sessions.md#runtime-session-pinning).
 +  **Be aware of filesystem permission behavior** — When using [persistent file systems](runtime-filesystem-configurations.md), permissions are stored but not enforced within the session. `chmod` and `stat` work correctly, but access checks always succeed because the agent runs as the only user in the microVM.
 +  **Understand credential exposure within the VM** — Any code or actor running inside the microVM can access execution role credentials by calling the metadata endpoint (MMDS). Scope your execution role permissions carefully. For more information, see [Credentials Management](security-credentials-management.md).
 
@@ -39,7 +40,7 @@ Apply the principle of least privilege to all IAM policies associated with your 
 +  **Restrict `InvokeAgentRuntimeForUser` ** — Only trusted principals should have this permission. Scope it to specific runtime resources using IAM resource conditions.
 +  **Deny user-id delegation where not needed** — For runtimes where user-id delegation is not required, explicitly deny the action:
 
-  ```
+  ```json
   {
      "Statement": [
         {
@@ -71,7 +72,7 @@ For complete details, see [Resource-based policies for Amazon Bedrock AgentCore]
 Protect your execution roles from the confused deputy problem by using global condition context keys in trust policies:
 +  **Use `aws:SourceArn` and `aws:SourceAccount` ** — Add these conditions to your execution role trust policy to limit which AgentCore resources can assume the role:
 
-  ```
+  ```json
   {
     "Statement": [
       {
@@ -102,7 +103,7 @@ For more information, see [Cross-service confused deputy prevention](cross-servi
 Validate all input that your agent entrypoint receives before passing it to an agent framework:
 +  **Enforce string type on the prompt field**—The `payload` your entrypoint receives is parsed from arbitrary JSON. A caller can send a non-string value (such as a list or object) in the `prompt` field. If your agent framework accepts non-string content blocks—particularly `toolUse` blocks—the framework might dispatch a tool directly. This bypasses model reasoning, guardrails, and system prompt enforcement. Always validate that the prompt is a string before passing it to the agent:
 
-  ```
+  ```python
   @app.entrypoint
   def invoke(payload, context):
       user_message = payload.get("prompt", "")
@@ -114,7 +115,7 @@ Validate all input that your agent entrypoint receives before passing it to an a
 +  **Reject or strip `toolUse` content blocks**—If your agent accepts structured message arrays (for multi-turn conversation), filter out any `toolUse` content blocks from user-supplied messages. A `toolUse` block in the message history can cause the agent framework’s event loop to execute the named tool immediately without model evaluation.
 +  **Validate payload structure with a schema**—Use Pydantic, Zod, or an equivalent schema library to enforce that the request body conforms to your expected structure. Define `prompt` as `str` (not `Any`) in your schema:
 
-  ```
+  ```python
   from pydantic import BaseModel
   
   class InvocationRequest(BaseModel):
@@ -172,7 +173,7 @@ Secure network access to and from your AgentCore Runtime environments:
 +  **Configure required VPC endpoints for container agents** — For VPC-mode container agents, configure VPC endpoints for ECR (`com.amazonaws.region.ecr.dkr`, `com.amazonaws.region.ecr.api`), S3 (`com.amazonaws.region.s3` gateway endpoint), and CloudWatch Logs (`com.amazonaws.region.logs`). The S3 gateway endpoint eliminates NAT gateway data processing charges for ECR image layer pulls.
 +  **Scope the S3 gateway endpoint policy for container agents** — Restrict the S3 gateway endpoint policy to only the bucket that Amazon ECR uses for image layer storage:
 
-  ```
+  ```json
   {
     "Statement": [
       {
@@ -191,7 +192,7 @@ Secure network access to and from your AgentCore Runtime environments:
   Replace `region` with your AWS Region identifier (for example, `us-east-2`).
 +  **Scope the S3 gateway endpoint policy for direct code deploy agents** — For zip-based deployments, restrict the policy to the internal service-owned code artifact bucket. Add an `aws:PrincipalServiceName` condition to ensure only the AgentCore service principal can access buckets through this endpoint policy:
 
-  ```
+  ```json
   {
     "Statement": [
       {
@@ -215,7 +216,7 @@ Secure network access to and from your AgentCore Runtime environments:
   Replace `region` with your AWS Region identifier (for example, `us-west-2`). The AgentCore code artifact buckets are created in [Account regional namespace general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/gpbucketnamespaces.html#account-regional-gp-buckets). Only AWS can own the actual bucket names used by the service. The `aws:PrincipalServiceName` condition ensures that only the AgentCore service principal can access buckets through this endpoint policy. If you also use [persistent file systems](runtime-filesystem-configurations.md), add the session storage bucket to this policy. For more information, see [Configure AgentCore Runtime for VPC](agentcore-vpc.md).
 +  **Use private subnets with NAT gateways** — Public subnets do not provide internet access for AgentCore Runtime. Always place runtime ENIs in private subnets with a route to a NAT gateway for outbound internet access.
 +  **Transport security** — All connections use TLS 1.2 or higher. WebSocket connections, including `InvokeAgentRuntimeCommandShell`, use WSS (WebSocket Secure) over HTTPS exclusively. Plaintext `ws://` connections are not supported.
-+  **Enforce header limits** — Custom headers are limited to 4KB per value and 20 headers per runtime. The `Authorization` header is reserved for agents with OAuth inbound access.
++  **Enforce header limits** — Custom headers are limited to 10 KB per value and 20 headers per runtime. The `Authorization` header is reserved for agents with OAuth inbound access.
 
 ## Encryption
 <a name="security-bp-encryption"></a>
@@ -255,7 +256,7 @@ Understand the division of security responsibilities between AWS and you:
 + Agent code security and dependency management
 + IAM access controls and resource policies
 + Security of commands executed in runtime sessions
-+ Session-to-user mapping enforcement
++ Session-to-user mapping enforcement. For agent runtimes on platform version V1 or on Instances, this includes binding each session to its user. For platform version V2 on microVMs, see [Session pinning](runtime-sessions.md#runtime-session-pinning).
 + Container image updates (for container deployments) — rebuild with the latest secure base image regularly
 + Input validation and prompt injection prevention — including validating `InvokeHarness` input when using the managed harness (see [Harness shares the AgentCore Runtime trust boundary](#security-bp-harness-trust-boundary))
 + Network configuration (security groups, VPC endpoints, route tables)

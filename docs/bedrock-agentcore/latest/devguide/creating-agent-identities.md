@@ -1,7 +1,6 @@
 
 
 # Create and manage workload identities
-<a name="creating-agent-identities"></a>
 
 You can create agent identities using several methods, including the AWS CLI and the AgentCore SDK, depending on your workflow and integration requirements. AgentCore Identity provides multiple interfaces for identity creation including command-line tools for automation and scripting and programmatic APIs for integration with existing systems. Each creation method supports the full range of identity properties while providing appropriate interfaces for different use cases and user preferences.
 

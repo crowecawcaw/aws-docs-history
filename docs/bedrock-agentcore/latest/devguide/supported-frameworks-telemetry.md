@@ -1,7 +1,6 @@
 
 
 # Telemetry setup and delivery
-<a name="supported-frameworks-telemetry"></a>
 
 Your agent emits spans that Amazon Bedrock AgentCore Evaluations uses to reconstruct each session. For how AgentCore represents sessions, traces, and spans, see [Understand observability for agentic resources in AgentCore](observability-telemetry.md).
 

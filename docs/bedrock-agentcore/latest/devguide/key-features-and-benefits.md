@@ -1,7 +1,6 @@
 
 
 # Features of AgentCore Identity
-<a name="key-features-and-benefits"></a>
 
 AgentCore Identity offers a set of features designed to address the unique challenges of workload identity management and credential security:
 

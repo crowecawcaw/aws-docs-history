@@ -1,7 +1,6 @@
 
 
 # Google
-<a name="identity-idp-google"></a>
 
 Google can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through Google’s OAuth2 service and obtain access tokens for Google API resources.
 
@@ -47,7 +46,7 @@ Use the following procedure to set up a Google OAuth2 application and obtain the
 
 To configure the outbound Google resource provider, use the following:
 
-```
+```json
 {
         "name": "NAME",
         "credentialProviderVendor": "GoogleOauth2",

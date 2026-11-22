@@ -1,7 +1,6 @@
 
 
 # Get started with AgentCore Runtime
-<a name="runtime-getting-started"></a>
 
 You can use the following tutorials to get started with Amazon Bedrock AgentCore Runtime.
 

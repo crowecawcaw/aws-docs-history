@@ -1,7 +1,6 @@
 
 
 # Observability
-<a name="memory-observability"></a>
 
 You can monitor usage metrics for your memory in CloudWatch metrics. Some of the critical metrics are displayed in AgentCore Memory console.
 

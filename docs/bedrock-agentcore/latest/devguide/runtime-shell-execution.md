@@ -1,7 +1,6 @@
 
 
 # Shell execution
-<a name="runtime-shell-execution"></a>
 
 Amazon Bedrock AgentCore Runtime lets you run shell commands inside a running agent’s session. Two modes are available depending on your use case:
 

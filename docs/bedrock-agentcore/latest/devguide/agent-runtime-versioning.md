@@ -1,7 +1,6 @@
 
 
 # AgentCore Runtime versioning and endpoints
-<a name="agent-runtime-versioning"></a>
 
 Amazon Bedrock AgentCore implements automatic versioning for AgentCore Runtimes and lets you manage different configurations using endpoints.
 
@@ -22,7 +21,7 @@ Endpoints provide a way to reference specific versions of your AgentCore Runtime
 
  **Example Updating an endpoint to a New Version** 
 
-```
+```python
 bedrock_agentcore_client = boto3.client('bedrock-agentcore', region_name='us-west-2')
 
 response = bedrock_agentcore_client.update_agent_runtime_endpoint(

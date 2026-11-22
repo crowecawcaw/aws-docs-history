@@ -1,7 +1,6 @@
 
 
 # Get recommendation
-<a name="recommendations-get"></a>
 
 Retrieve the status and results of a recommendation. Poll this operation until the recommendation reaches a terminal state (`COMPLETED` or `FAILED`).
 
@@ -11,17 +10,17 @@ Retrieve the status and results of a recommendation. Poll this operation until t
 **Example**  
 Starting a recommendation is asynchronous. Check its status and retrieve its result by ID:  
 
-```
+```bash
 agentcore eval recommendation get --id <recommendation-id>
 ```
 List all recommendations as JSON:  
 
-```
+```bash
 agentcore eval recommendation list --json
 ```
 Poll until completion and extract the result:  
 
-```
+```python
 import time
 import boto3
 
@@ -66,7 +65,7 @@ elif status == "FAILED":
 ```
 Extract configuration bundle reference for use in A/B testing:  
 
-```
+```python
 result = client.get_recommendation(recommendationId=recommendation_id)
 
 if result["status"] == "COMPLETED":
@@ -135,7 +134,7 @@ Present in `recommendationResult.toolDescriptionRecommendationResult` when type 
 
 Completed system prompt recommendation (inline input):
 
-```
+```json
 {
     "recommendationId": "MyPromptRec-AB1CD2EF3G",
     "recommendationArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:recommendation/MyPromptRec-AB1CD2EF3G",
@@ -156,7 +155,7 @@ Completed system prompt recommendation (inline input):
 
 Completed system prompt recommendation (configuration bundle input):
 
-```
+```json
 {
     "recommendationId": "MyBundleRec-XY9ZW8VQ1R",
     "recommendationArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:recommendation/MyBundleRec-XY9ZW8VQ1R",
@@ -181,7 +180,7 @@ Completed system prompt recommendation (configuration bundle input):
 
 Completed tool description recommendation:
 
-```
+```json
 {
     "recommendationId": "MyToolRec-QR5ST6UV7W",
     "recommendationArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:recommendation/MyToolRec-QR5ST6UV7W",
@@ -212,7 +211,7 @@ Completed tool description recommendation:
 
 Failed recommendation:
 
-```
+```json
 {
     "recommendationId": "MyFailedRec-MN3OP4QR5S",
     "recommendationArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:recommendation/MyFailedRec-MN3OP4QR5S",

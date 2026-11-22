@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="registry-troubleshooting"></a>
 
 **Migration Now Open**  
  AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on October 30, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
@@ -62,6 +61,216 @@ Server responded but content is not supported:
 <a name="registry-troubleshooting-sync-server"></a>
 + "Unknown error" — This is a server side error. Please retry later or contact AWS support for help.
 
+## Skill package and skill synchronization errors
+<a name="registry-troubleshooting-skills"></a>
+
+Errors with skill packages and skill synchronization reach you in one of two ways:
++  **Request errors** — `CreateRegistryRecord` or `UpdateRegistryRecord` fails immediately, usually with a `ValidationException`, and the registry doesn’t make the change.
++  **Status reasons** — AWS Agent Registry accepts the request, and then validates the package or reads the source. If that fails, the record’s status becomes `CREATE_FAILED` or `UPDATE_FAILED`, and its `statusReason` explains why. Call `GetRegistryRecord` to read the status reason. A record in `UPDATE_FAILED` status keeps serving its last package, unless the failed update switched between an uploaded package and a synchronized package. After you fix the cause, update the record again: upload the package again, or set `triggerSynchronization` to `true` to read the source again.
+
+Error messages and status reasons don’t quote the source URL, the bucket, the object key, the repository, or the IAM role.
+
+### Package upload errors
+<a name="registry-troubleshooting-skills-upload"></a>
+
+ `CreateRegistryRecord` and `UpdateRegistryRecord` return these errors for a request that uploads a package (`artifact`):
++ "The skill package is <size> bytes, which exceeds the maximum of <maximum> bytes. Reduce the size of the package and retry." — The package must be at most 5 MiB, measured before base64 encoding. See [Skill package limits](bedrock-agentcore-limits.md#registry-skill-package-limits). A package that is much larger can fail with a generic validation error, or with HTTP status 413, instead of this message.
++ "The skill package is not a ZIP archive. Provide a valid ZIP archive and retry." — The content must be a `.zip` archive. AWS Agent Registry validates the rest of the package after it accepts the request. See [Package validation failures](#registry-troubleshooting-skills-validation).
++ An empty `artifact.content` fails with a `ValidationException` before AWS Agent Registry checks the package.
++ "artifact.sha256 does not match the SHA-256 of the supplied skill package." — If you send `artifact.sha256`, which is optional, it must be the SHA-256 checksum of the package, as 64 lowercase hexadecimal characters.
++ "artifact is supported only on records with recordType SKILL." — Only skill records can have a package.
++ "A request can upload a skill package or synchronize from an s3:// skill source, not both. Send the artifact without triggerSynchronization or a new skill source to upload, or omit the artifact to synchronize." — A record gets its content from one source. For a GitHub source, the message says "a GitHub skill source".
++ "The request body did not arrive in time. Retry the request." (HTTP 408) — The upload was too slow. Retry the request.
+
+### Package validation failures
+<a name="registry-troubleshooting-skills-validation"></a>
+
+ AWS Agent Registry validates every skill package before it serves it, whether you uploaded the package or AWS Agent Registry synchronized it from Amazon S3 or GitHub. When a package fails validation, the record’s `statusReason` starts with `The skill package failed validation.`, followed by up to five of the problems found, separated by semicolons. After the problems, `More problems were found.` follows if there were more than five.
++ A problem that concerns one file or folder in the package ends with `Entry:` and the entry’s path. If the registry uses a customer managed key, the status reason leaves out entry names. When a listed problem concerns an entry, the status reason includes `Entry names are not shown because the registry uses a customer managed key.` 
++ A problem that starts with `The package could not be fully checked:` means that a check couldn’t finish. The registry rejects the package as if the check had failed.
+
+The following are common problems:
++ "The package has no SKILL.md at its root or at the top of a single top-level directory." — Put `SKILL.md` at the root of the archive, or directly inside a single top-level folder.
++ "The package has more than one top-level entry and no SKILL.md at its root." — When `SKILL.md` is inside a top-level folder, the archive must contain only that folder. Remove other top-level files and folders, such as `__MACOSX` folders and `.DS_Store` files that some archive tools add, or put `SKILL.md` at the root of the archive.
++ "The SKILL.md frontmatter name does not match its directory under every spelling of the SKILL.md entry name." — When `SKILL.md` is inside a top-level folder, the folder name must be the `name` in the `SKILL.md` frontmatter.
++ "SKILL.md does not begin with a frontmatter fence." — `SKILL.md` must start with a `---` line, with no byte order mark, blank lines, or spaces before it.
++ "The SKILL.md frontmatter name is not lowercase letters and digits joined by single hyphens." — Change the `name` in the frontmatter, for example to `my-skill`.
++ "The SKILL.md frontmatter description is longer than the specification allows." — Shorten the `description` to 1,024 characters or fewer.
++ "The package is larger than the maximum allowed size of 5 MiB.", "The package’s uncompressed size is larger than the maximum allowed size of 50 MiB.", "The entry’s uncompressed size is larger than the maximum allowed size of 10 MiB.", or "The package contains more entries than allowed." — Reduce the package to within the limits. See [Skill package limits](bedrock-agentcore-limits.md#registry-skill-package-limits).
++ "The entry is a symbolic link, which is not allowed." — A package can contain only regular files and folders.
++ "The entry’s header marks it encrypted, which is not allowed." or "The entry’s header declares a compression method that is not allowed." — Create the archive without encryption, with Deflate compression or no compression.
++ "The package uses ZIP64 end-of-archive records, which are not accepted." — Create the archive without ZIP64 records.
+
+For the complete rules, see [Skill package format and validation](registry-skill-package-format.md).
+
+### Record name errors
+<a name="registry-troubleshooting-skills-name"></a>
+
+A skill synchronization sets the record’s name to the `name` in SKILL.md. For an Amazon S3 or a GitHub source, the record’s `statusReason` can be one of the following:
++ "A record with name '<name>' and version '<version>' already exists in registry <registryId>" — Another record in the registry already has this name at the same record version. If the record has no record version, the message leaves out the version. Rename the skill in its SKILL.md, give one of the records another record version, or delete the other record, and then synchronize again.
++ "Unable to synchronize the skill: its SKILL.md name starts with aws-autodetected-, a prefix reserved for records that auto-detection creates. Give the skill another name in its SKILL.md." — Rename the skill in its SKILL.md, and then synchronize again.
+
+### Amazon S3 synchronization errors
+<a name="registry-troubleshooting-skills-s3"></a>
+
+ `CreateRegistryRecord` and `UpdateRegistryRecord` return these errors for an Amazon S3 source:
++ "The s3:// source URL must name a single object, in the form s3://{bucket}/{key}." — The URL must name one object by bucket name and key. A prefix that ends with `/` or an access point ARN isn’t accepted.
++ "An s3:// agentSkillsDefinition.additionalData.skillMd.source must name a SKILL.md or skill.md object, such as s3://{bucket}/{folder}/SKILL.md." — To synchronize a `.zip` package, set `skillPackage.source` instead.
++ "An s3:// source takes no credential provider, for a public object, or exactly one, of type IAM, with iamCredentialProvider.roleArn set." — Use one IAM credential provider with a role ARN, or none for a public object.
++ "An Amazon S3 skill source with no credential provider is read as a public object, which requires agentSkillsDefinition.additionalData.sourceConfiguration.s3.bucketOwnerAccountId, the AWS account that owns its bucket." — Set `bucketOwnerAccountId`, or add an IAM credential provider.
++ "For an s3:// source, roleArn must be a valid IAM role ARN." or "For an s3:// source, roleArn must be in the same partition as the registry." — Use the ARN of an IAM role in the registry’s partition.
++ "For an s3:// source, iamCredentialProvider.service must be omitted or set to s3." or "For an s3:// source, iamCredentialProvider.region must be omitted or set to <Region>, the registry’s region." — Omit `service` and `region`.
++ "agentSkillsDefinition.additionalData.sourceConfiguration.s3 applies only to an Amazon S3 skill source without repositoryProvider: skillPackage.source when set, otherwise skillMd.source. Remove it for any other source."
++ "agentSkillsDefinition.additionalData.sourceConfiguration must contain exactly one member: s3, for an Amazon S3 skill source."
++ "repositoryProvider <repositoryProvider> can’t be used with an s3:// source; remove agentSkillsDefinition.additionalData.repositoryProvider to use an s3:// source."
++ "Cross-account pass role is not allowed" (`AccessDeniedException`) — The IAM role must be in the caller’s account. If the caller lacks `iam:PassRole` on the role, the request also fails with an `AccessDeniedException`. See [Pass the IAM role of an Amazon S3 source](registry-iam-permissions.md#registry-iam-skills-s3).
+
+The record’s `statusReason` reports these errors:
+
+ **Access denied** 
++ "Unable to assume the provided IAM role. Verify that the role exists and that its trust policy allows the Registry service principal to assume it, with aws:SourceAccount and aws:SourceArn conditions that match this registry record." — The role’s trust policy must allow the `agent-registry.amazonaws.com` service principal. If it uses conditions, `aws:SourceAccount` is the account that owns the registry, and `aws:SourceArn` is the ARN of the registry record, not of the registry. See [Synchronize a skill from Amazon S3](registry-skill-sync-s3.md).
++ "Unable to assume the provided IAM role. AWS STS is not activated in this Region for the role’s account; an administrator of that account must activate it."
++ "Unable to read the S3 source object: access was denied. Verify that the IAM role allows s3:GetObject on the object and that the bucket policy allows the role, which a bucket in another account must do explicitly. Verify that the bucket is owned by the account in bucketOwnerAccountId or, when it is not set, by the IAM role’s account. If the role does not have s3:ListBucket on the bucket, a missing object is also reported as access denied."
++ "Unable to read the S3 source object: access was denied to a request without credentials. Verify that the object is public and that the bucket is owned by the account in bucketOwnerAccountId, or add an IAM credential provider whose role can read it. If the bucket cannot be listed publicly, a missing object is also reported as access denied."
+
+ **Encryption** 
++ "Unable to read the S3 source object: its AWS KMS key could not be used. Verify that the key is enabled and that the IAM role is allowed kms:Decrypt on it through Amazon S3. A key in another account must also allow the role in its key policy. An object encrypted with the AWS managed key aws/s3 cannot be read from another account; encrypt it with SSE-S3 or a customer managed key instead."
++ "Unable to read the S3 source object: it is encrypted with an AWS KMS key, which a request without credentials cannot use. Add an IAM credential provider whose role is allowed to read the object and kms:Decrypt on its key."
++ "Unable to read the S3 source object: objects encrypted with customer-provided keys (SSE-C) are not supported." — Encrypt the object with SSE-S3 or SSE-KMS.
+
+ **Bucket owner** 
++ "Unable to read the S3 source object: a source without an IAM credential provider is read as a public object, which requires bucketOwnerAccountId, the AWS account that owns its bucket. Set bucketOwnerAccountId, or add an IAM credential provider whose role can read the object."
++ For a bucket in another account, set `bucketOwnerAccountId` to the account that owns the bucket. Otherwise, AWS Agent Registry expects the bucket to be owned by the IAM role’s account, and the read fails with the access denied reason.
+
+ **Region and location** 
++ "Unable to read the S3 source object: the bucket must be in the registry’s Region (<Region>)." — Copy the object to a bucket in the registry’s Region.
++ "Unable to read the S3 source object: the bucket or the object does not exist." — Check the bucket name and key in the URL.
++ "Unable to read the S3 source object: objects in archived storage classes are not supported. Restore the object or copy it to a storage class that is not archived."
+
+ **Object content** 
++ "The SKILL.md object in the S3 source exceeds the maximum size of 100 KiB."
++ "The skill package object in the S3 source exceeds the maximum size of 5 MiB."
++ "The skill package object in the S3 source is not a zip archive."
++ "The SKILL.md in the source is not valid UTF-8." — Save `SKILL.md` as UTF-8.
++ "The SKILL.md in the source is too large: together with the record’s other descriptors it must fit within 99 KiB." — Shorten `SKILL.md` or the record’s other descriptors.
+
+ **Temporary errors** 
++ "Unable to read the S3 source object: Amazon S3 is throttling requests to it. Retry the synchronization later. If the bucket is yours, reduce the request rate on the object’s prefix."
++ "Unable to read the S3 source object: Amazon S3 is temporarily unavailable. Retry the synchronization."
+
+ **Other errors** 
++ "Unable to read the S3 source object: Amazon S3 rejected the request."
+
+When a synchronization reads only `SKILL.md`, a `SKILL.md` that breaks a frontmatter rule fails with a single status reason: `agentSkillsDefinition.additionalData.skillMd:`, followed by the first problem, in the same text as for a package. See [Package validation failures](#registry-troubleshooting-skills-validation).
+
+### GitHub synchronization errors
+<a name="registry-troubleshooting-skills-github"></a>
+
+ `CreateRegistryRecord` and `UpdateRegistryRecord` return these errors for a GitHub source:
++ "Invalid GitHub source URL: the URL must have the form https://{host}/{owner}/{repo}/tree/{ref}/{path}" — Use the URL of the folder that contains the skill, such as `https://github.com/octo-org/skills/tree/main/my-skill`. A repository URL or a `/blob/` URL isn’t accepted.
++ "Invalid GitHub source URL: the ref is a commit SHA; use a branch or a tag" — The ref after `/tree/` must be a branch or a tag.
++ "Invalid GitHub source URL: the URL must have no user info", "Invalid GitHub source URL: the URL must have no port other than 443", or "Invalid GitHub source URL: the URL must have no query or fragment" — Remove the user name and password, the port, or the query string and fragment from the URL.
++ "Invalid GitHub source URL: the host must be a DNS name, not an IP address", "Invalid GitHub source URL: the host must be a public DNS name, not a reserved or internal one", or "Invalid GitHub source URL: the host must not be in a domain AWS owns" — Use the public host name of the GitHub host, in a domain that you own. See [Make GitHub Enterprise Server reachable](registry-skill-sync-github.md#registry-skill-sync-github-ghes).
++ "Invalid GitHub source URL: a ref or path segment is longer than 255 bytes in UTF-8" — Shorten the branch or tag name, or the folder names in the path.
++ "A GitHub agentSkillsDefinition.additionalData.skillMd.source must name the folder that contains SKILL.md, in the form https://{host}/{owner}/{repo}/tree/{ref}/{path}. Remove the file name from the URL."
++ "A GitHub source takes exactly one credential provider, of type OAUTH, with oauthCredentialProvider.providerArn set." — Add one `OAUTH` entry to `credentialProviderConfigurations`.
++ "A GitHub source requires credentialProvider.oauthCredentialProvider.grantType AUTHORIZATION\_CODE." — A GitHub source is read with the access that a GitHub user authorizes.
++ "credentialProvider.oauthCredentialProvider.providerArn must be in the registry’s account <account>, Region <Region> and partition <partition>" — Create the credential provider in the registry’s account and Region.
++ "credentialProvider.oauthCredentialProvider.returnUrl must be at most 2048 characters, use the https scheme (or http with the host localhost, 127.0.0.1 or [::1]) written in lowercase, name a public domain or one of those hosts rather than an IP address, and have no user info or fragment" — See the `returnUrl` rules in [Choose where the user returns](registry-skill-sync-github.md#registry-skill-sync-github-return-url).
++ "forceAuthentication is only supported when triggerSynchronization is true" — Set `triggerSynchronization` to `true` in the same request.
++ "forceAuthentication is only supported for a GitHub source whose credential provider has grantType AUTHORIZATION\_CODE" — Use `forceAuthentication` only on a record with a GitHub source.
++ "Setting, synchronizing or re-authorizing (forceAuthentication) a GitHub source whose credential provider uses grantType AUTHORIZATION\_CODE is only supported for a request from the registry owner’s account. Make the request with credentials from the account that owns the registry."
++ "Setting, synchronizing or re-authorizing (forceAuthentication) a GitHub source whose credential provider uses grantType AUTHORIZATION\_CODE is only supported for a request signed by an IAM role or IAM user. Make the request with the credentials of an IAM role or IAM user."
++ "The caller is not authorized to perform <action>, which grantType AUTHORIZATION\_CODE requires: <reason>" — Add the missing permission. See [Permissions for a GitHub source](registry-iam-permissions.md#registry-iam-skills-github).
+
+The record’s `statusReason` reports these errors:
+
+ **Not found or unreadable** 
++ "The repository, branch or tag, or path was not found, or the GitHub credentials can’t read it." — GitHub reports a private repository that the authorizing GitHub user can’t read as not found. Check the URL, and check that the user can read the repository. To read a private repository, the authorization must include the `repo` scope.
++ "Unable to read the GitHub source: no SKILL.md was found in the skill folder at the resolved branch or tag. Check the path in the source URL." — When you synchronize only `SKILL.md` from GitHub, the file must be named exactly `SKILL.md`.
++ "Unable to synchronize the skill package from GitHub: the path in the source URL is not a folder with files in it at the resolved branch or tag."
++ "Unable to synchronize the skill package from GitHub: the skill folder has no SKILL.md at its top level."
++ "Unable to read the GitHub source: the repository has moved, for example after it was renamed or transferred. Update the source URL to the repository’s new location."
++ "Unable to read the GitHub source: the repository is empty. Push a commit to the branch or tag, then synchronize again."
++ "The source host was not found; check the URL."
++ "Unable to read the GitHub source: GitHub denied access because the repository’s organization enforces SAML single sign-on. The authorized GitHub user must authorize the OAuth App’s access to the organization through single sign-on."
++ "Unable to read the GitHub source: GitHub denied access because the repository’s organization restricts OAuth App access and has not approved the OAuth App. An organization owner must approve it."
+
+ **Ambiguous branch or tag** 
++ "The source URL matches more than one branch or tag; rename one of them or use an unambiguous URL." — Branch and tag names can contain slashes, so a URL can match more than one branch or tag, or a branch and a tag can have the same name. To name the ref without ambiguity, start it with `refs/heads/` for a branch or `refs/tags/` for a tag, for example `https://github.com/octo-org/skills/tree/refs/heads/release/2026.10/my-skill`.
+
+ **Authorization pending or expired** 
+
+A record whose status is `CREATE_PENDING_AUTH` or `UPDATE_PENDING_AUTH` is waiting for a GitHub user to authorize access. Open the `authorizationUrl` that the `CreateRegistryRecord` or `UpdateRegistryRecord` response returned in `authorizationData`, or choose **Authorize on GitHub** in the console, before the link expires. The link works once and expires 10 minutes after the approval starts. If the approval is still in progress when the link expires, the record fails. If another request restarts the same approval, the record follows the new link, for at most 30 minutes in total. For the complete flow, see [Synchronize a skill from GitHub](registry-skill-sync-github.md).
+
+While the record waits, `UpdateRegistryRecord` fails with a `ConflictException`, for example: "Registry record cannot be modified while in <status> state: it is waiting for the user to authorize its synchronization. Update the record with triggerSynchronization set to true to get a new authorization URL, or retry after the authorization completes or expires."
+
+The record’s `statusReason` reports these errors:
++ "Unable to synchronize: the authorization expired before it was completed. Update the registry record with triggerSynchronization to get a new authorization URL."
++ "Unable to synchronize: the authorization did not complete, for example because access was denied. Update the registry record with triggerSynchronization to get a new authorization URL."
++ "Unable to synchronize: the authorization was not completed in time. Update the registry record with triggerSynchronization to get a new authorization URL."
++ "Unable to synchronize from GitHub: the GitHub user hasn’t authorized the credential provider, or the authorization has expired. Update the registry record with triggerSynchronization to get an authorization URL, then authorize the credential provider with it."
++ "Unable to read the GitHub source: GitHub rejected the OAuth access token, which may have been revoked or have expired. Update the registry record with triggerSynchronization to authorize the credential provider again. If the synchronization fails with this error again, also set forceAuthentication."
++ "Unable to read the GitHub source: the caller credentials of the create or update request have expired. Update the registry record to synchronize it again."
+
+GitHub also revokes a token without notice when the same GitHub user approves access more than 10 times for the same OAuth App and scopes. For more information, see [Authorize GitHub access](registry-skill-sync-github.md#registry-skill-sync-github-authorization).
+
+If the console can’t complete the authorization because the link is no longer current, failed, or expired, start a new authorization. Update the record with `triggerSynchronization` and `forceAuthentication` set to `true`.
+
+ **Repository or folder too large** 
++ "Unable to synchronize the skill package from GitHub: the repository is too large. Its files must total at most 50 MiB, and GitHub must list all of them in one response."
++ "Unable to synchronize from GitHub: the repository is too large. Its file listing is larger than 40 MiB."
++ "Unable to synchronize the skill package from GitHub: the skill folder has more than 1000 files."
++ "Unable to synchronize the skill package from GitHub: a file in the skill folder exceeds the maximum file size of 10 MiB."
++ "Unable to synchronize the skill package from GitHub: the skill folder’s files exceed the maximum total size of 50 MiB."
++ "Unable to synchronize the skill package from GitHub: a file in the skill folder is nested more than 8 levels deep."
++ "Unable to synchronize the skill package from GitHub: the zipped skill folder exceeds the maximum package size of 5 MiB."
++ "The SKILL.md file in the GitHub source exceeds the maximum size of 100 KiB."
+
+To synchronize a skill from a large repository, move the skill to a smaller repository, or synchronize it from Amazon S3 instead. See [Skill package limits](bedrock-agentcore-limits.md#registry-skill-package-limits).
+
+ **Unsupported folder content** 
++ "Unable to synchronize the skill package from GitHub: Git LFS files aren’t supported. Commit the skill’s files to the repository without Git LFS."
++ "Unable to synchronize the skill package from GitHub: the skill folder contains a symbolic link, a hard link or another entry that isn’t a file or a folder."
++ "Unable to synchronize the skill package from GitHub: the skill folder contains a Git submodule, which isn’t supported."
++ "Unable to synchronize the skill package from GitHub: a file name in the skill folder contains a backslash."
++ "The SKILL.md in the source folder is a symbolic link; replace it with the file itself."
+
+ **Rate limits and temporary errors** 
++ "Unable to read the GitHub source: GitHub is rate limiting requests for the authorized GitHub user. Synchronize again after <time>." — Wait until the time shown, in UTC, and then synchronize again.
++ "Unable to synchronize the skill package from GitHub: GitHub is temporarily throttling archive downloads. Synchronize again later."
++ "Unable to read the GitHub source: GitHub returned a server error. Synchronize again later."
++ "Unable to read the GitHub source: GitHub didn’t respond in time. Synchronize again later."
++ "Unable to synchronize the skill package from GitHub: the repository’s archive couldn’t be downloaded from GitHub. This is usually temporary. Synchronize again later."
+
+ **GitHub Enterprise Server** 
+
+A GitHub Enterprise Server must be reachable from the internet over HTTPS on port 443, under the host name that it’s configured with, with a certificate from a public certificate authority.
++ "Unable to read the GitHub source: the GitHub Enterprise Server’s TLS certificate isn’t trusted. It must be issued by a public certificate authority for the server’s host name."
++ "Unable to read the GitHub source: the GitHub Enterprise Server’s host name resolves to an address that isn’t public. The server must be reachable from the internet."
++ "Unable to read the GitHub source: the GitHub Enterprise Server, or a proxy in front of it, returned an invalid response, such as a sign-in page or a redirect. The source URL must reach the server’s API directly, with no proxy or sign-in page answering in its place."
++ "Unable to synchronize the skill package from GitHub: the GitHub Enterprise Server redirected the archive download to a location other than its own archive host. Use the host name the server is configured with in the source URL."
+
+### Customer managed key errors
+<a name="registry-troubleshooting-skills-kms"></a>
+
+For a registry encrypted with a customer managed key, requests that upload a package, synchronize a skill package, or return a download URL can fail with the following errors. A message can be followed by the AWS KMS error code and, for some errors, the request ID.
++ "Caller lacks access to the KMS key." — The caller needs `kms:GenerateDataKey` to upload or synchronize a package, and `kms:Decrypt` to read a record. See [Permissions for registries encrypted with a customer managed key](registry-iam-permissions.md#registry-iam-skills-kms).
++ "The KMS key is disabled. Enable the key to continue using encryption."
++ "The KMS key is in an invalid state (e.g., pending deletion or pending import)." — If the key is pending deletion, cancel the deletion and enable the key.
++ "The KMS key was not found. Verify the key ARN is correct and the key exists."
+
+Requests that upload a package or return a download URL can also fail with this error:
++ "The KMS key’s policy or grants do not allow Agent Registry to use the key for this registry. Check the key policy, resource control policies and the registry’s grant." — AWS Agent Registry can no longer use the key for the registry.
+
+A failed synchronization reports the key problem in `statusReason`, for example:
++ "Unable to process the registry record because the KMS key associated with the registry is disabled."
++ "Unable to process the registry record because the KMS key associated with the registry could not be accessed."
++ "Unable to process the registry record because the KMS key associated with the registry is in an invalid state (for example, pending deletion or pending import)."
++ "Unable to process the registry record because the KMS key associated with the registry could not be found. It may have been deleted or is not available in this Region."
+
+See [Behavior when a key becomes unavailable](registry-data-encryption.md#registry-encryption-key-unavailable).
+
 ## Auto-detection errors
 <a name="registry-troubleshooting-auto-detection"></a>
 
@@ -96,13 +305,13 @@ An organization-scoped registry is normally owned by one of these accounts:
 
 Ask an administrator with access to those accounts to list registries in the same Region as the failing call, and look for one whose `autoDetectionConfiguration.scope` is `ORGANIZATION`:
 
-```
+```bash
 aws agent-registry-control list-registries --region us-east-1
 ```
 
 From the management account, confirm which account is currently the delegated administrator:
 
-```
+```bash
 aws organizations list-delegated-administrators \
   --service-principal agent-registry.amazonaws.com
 ```
@@ -136,7 +345,7 @@ If a delegated administrator is registered again, the registry’s auto-detectio
 
 To resume auto-detection, the account that owns the affected registry must explicitly set `enabled` back to `true`. Only one organization-scoped registry per Region can have `autoDetection.status` set to `ACTIVE` in an organization, so if multiple registries are eligible, re-enable auto-detection only on the one you want to keep active.
 
-```
+```bash
 aws agent-registry-control update-registry \
   --registry-id <registry-id-or-arn> \
   --auto-detection-configuration '{"optionalValue":{"scope":"ORGANIZATION","enabled":true}}' \

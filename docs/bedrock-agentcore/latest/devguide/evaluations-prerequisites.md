@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="evaluations-prerequisites"></a>
 
 Before you begin using Amazon Bedrock AgentCore Evaluations, ensure you have the necessary AWS permissions and service roles configured.
 

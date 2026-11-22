@@ -1,7 +1,6 @@
 
 
 # AgentCore optimization: Improve agent quality loop with recommendations and A/B tests
-<a name="optimization"></a>
 
 Amazon Bedrock AgentCore optimization provides tools to continuously improve your agent’s performance through data-driven configuration changes. Instead of manually rewriting prompts and testing by hand, you use agent traces to generate improvements and validate them with controlled experiments.
 
@@ -10,7 +9,9 @@ AgentCore optimization builds on [AgentCore Evaluations](evaluations.md) and int
 +  **Configuration bundles:** Versioned, immutable snapshots of agent configuration (system prompts, model IDs, tool descriptions) that decouple agent behavior from code, enabling behavioral changes without requiring redeployment. Configuration bundles are optional; you can also validate changes by deploying to a separate runtime endpoint.
 +  **A/B testing:** Controlled traffic splitting between two variants through AgentCore Gateway, with online evaluation scoring for each session and reporting statistical significance. Variants can be different configuration bundle versions on the same runtime, or different gateway targets pointing to different runtime endpoints.
 
-Together, these capabilities form a continuous improvement loop:
+Use [Insights](insights.md) to identify failure patterns, root causes, and representative sessions. You can then use the corresponding evaluation source or traces as input to Recommendations.
+
+Together, Insights and these optimization capabilities form a continuous improvement loop:
 
 ![AgentCore optimization improvement loop](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/optimization-loop.png)
 
@@ -21,4 +22,4 @@ Together, these capabilities form a continuous improvement loop:
 + [Configuration bundles](configuration-bundles.md)
 + [Recommendations](optimization-recommendations.md)
 + [A/B testing](ab-testing.md)
-+ [AgentCore insights: Triage agent failures with pattern analysis](insights.md)
++ [Insights: Find recurring agent failures](insights.md)

@@ -1,7 +1,6 @@
 
 
 # Key capabilities
-<a name="registry-key-capabilities"></a>
 
 **Migration Now Open**  
  AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on October 30, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
@@ -9,12 +8,12 @@
 ## Flexible resource types
 <a name="registry-flexible-resource-types"></a>
 
-Add records of any type with a flexible structure and custom metadata. AWS Agent Registry directly supports MCP servers, agents, and skills. For MCP Server and Agent records, AWS Agent Registry validates your definitions against the MCP and A2A protocol schemas respectively, ensuring correctness before records are published. You can also register any kind of custom resource — such as agents conforming to protocols other than A2A, APIs, Lambda functions, knowledge bases, or databases — by defining your own metadata schema. This means AWS Agent Registry can serve as a unified catalog for all discoverable resources in your organization, regardless of the underlying technology.
+Add records of any type with a flexible structure and custom metadata. AWS Agent Registry directly supports MCP servers, agents, and skills. For MCP Server and Agent records, AWS Agent Registry validates your definitions against the MCP and A2A protocol schemas respectively, ensuring correctness before records are published. A skill record can carry a full skill package: SKILL.md together with the scripts, references, and other files that the skill uses. You upload the package or synchronize it from Amazon S3 or GitHub, the registry validates it against the Agent Skills specification, and consumers download the approved package. For more information, see [Publish skill packages](registry-skill-packages.md). You can also register any kind of custom resource — such as agents conforming to protocols other than A2A, APIs, Lambda functions, knowledge bases, or databases — by defining your own metadata schema. This means AWS Agent Registry can serve as a unified catalog for all discoverable resources in your organization, regardless of the underlying technology.
 
-## Hybrid search
+## Hybrid, semantic, and keyword search
 <a name="registry-hybrid-search"></a>
 
- AWS Agent Registry combines semantic search with keyword matching to deliver relevant results for any type of query. When you search using natural language — such as "find a tool that can book flights" — semantic search understands the intent and finds conceptually relevant records, even if those exact words don’t appear in the record metadata. When you search using exact terms — such as "weather-api-v2" — keyword search matches the precise text. Both search modalities run simultaneously on every query, with results ranked by a weighted combination of relevance scores. You can further narrow results using metadata filters on fields such as record name, record types, and version.
+By default, AWS Agent Registry combines semantic search with keyword matching to deliver relevant results for any type of query. When you search using natural language — such as "find a tool that can book flights" — semantic search understands the intent and finds conceptually relevant records, even if those exact words don’t appear in the record metadata. When you search using exact terms — such as "weather-api-v2" — keyword search matches the precise text. In this hybrid search, both search modalities run simultaneously on every query, with results ranked by a weighted combination of relevance scores. You can also choose semantic or keyword search alone for a query, and page through the results. You can further narrow results using metadata filters on fields such as record name, record types, and version. For more information, see [Choose a search type](registry-search-records.md#registry-search-types).
 
 ## Governance and curation
 <a name="registry-governance-curation"></a>
@@ -55,6 +54,8 @@ Control plane operations (creating, updating, and managing registries and record
 <a name="registry-record-synchronization"></a>
 
  AWS Agent Registry can synchronize record metadata from external sources, keeping your registry up to date. When you configure a record with a URL pointing to an external MCP server, AWS Agent Registry fetches the latest server (Details like Name, Description) and tool metadata (Tool Names, Tool Descriptions) from that URL and updates the record. Synchronization can be used both to create the record the first time by pulling the metadata from the URL provided, or update an existing record with fresh metadata due to changes in the underlying resource. When Synchronization is used for an existing record, a new revision for the existing record is created. Synchronization supports both OAuth and IAM credential providers for authorization.
+
+Skill records can synchronize their SKILL.md, or a full skill package, from an Amazon S3 object or a GitHub folder. The registry reads an Amazon S3 source with an IAM role that you provide (or without credentials, for a public object), and a GitHub source with the access that a GitHub user approves through an AgentCore Identity credential provider. Skill packages and skill synchronization are available in all commercial Regions where AWS Agent Registry is available. For more information, see [Synchronize a skill from Amazon S3](registry-skill-sync-s3.md) and [Synchronize a skill from GitHub](registry-skill-sync-github.md).
 
 ## CloudTrail integration
 <a name="registry-capability-cloudtrail"></a>

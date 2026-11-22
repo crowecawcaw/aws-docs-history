@@ -1,7 +1,6 @@
 
 
 # Memory terminology
-<a name="memory-terminology"></a>
 
  **AgentCore Memory**   
 The primary, top-level container for your agent’s memory resource. Each AgentCore Memory holds all the events and extracted insights for agents or applications.

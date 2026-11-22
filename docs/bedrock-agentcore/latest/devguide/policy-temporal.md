@@ -1,7 +1,6 @@
 
 
 # Temporal policies
-<a name="policy-temporal"></a>
 
 Policy in Amazon Bedrock AgentCore supports *temporal policies*: policies whose decisions depend on the history of an agent’s actions within a session, not on the current request alone. With them you can enforce rules that span multiple actions, such as requiring an approval before an action, limiting how many times an action runs within a time window, or keeping a running total under a threshold.
 

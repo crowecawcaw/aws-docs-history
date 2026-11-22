@@ -1,7 +1,6 @@
 
 
 # Notifications for pending approvals
-<a name="registry-notifications-approvals"></a>
 
 **Migration Now Open**  
  AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on October 30, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
@@ -19,7 +18,7 @@
 
 **Example**  
 
-```
+```json
 {
  "version":"0",
  "detail-type":"Registry Record State changed to Pending Approval",
@@ -31,7 +30,7 @@
 }
 ```
 
-```
+```json
 {
  "version":"0",
  "detail-type":"Registry Record State changed to Pending Approval",

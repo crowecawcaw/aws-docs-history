@@ -1,7 +1,6 @@
 
 
 # AgentCore payments quick start
-<a name="payments-getting-started"></a>
 
 This tutorial walks you through setting up AgentCore payments and processing your first microtransaction. By the end, your agent will pay for a resource using the x402 protocol on a test network.
 
@@ -38,7 +37,7 @@ Before starting, make sure you have:
 ------
 #### [ Claude Code ]
 
-  ```
+  ```bash
   /plugin marketplace add aws/agent-toolkit-for-aws
   /plugin install aws-agents@agent-toolkit-for-aws
   ```
@@ -48,7 +47,7 @@ Before starting, make sure you have:
 
   The plugin is discovered automatically from the marketplace manifest. To add the marketplace, run the following command:
 
-  ```
+  ```bash
   codex plugin marketplace add aws/agent-toolkit-for-aws
   ```
 
@@ -108,13 +107,13 @@ Before starting, make sure you have:
 
 Install the required packages:
 
-```
+```bash
 pip install boto3 bedrock-agentcore[strands-agents] strands-agents strands-agents-tools
 ```
 
 Verify your credentials are configured:
 
-```
+```bash
 aws sts get-caller-identity
 ```
 
@@ -173,7 +172,7 @@ Store your payment provider credentials as a PaymentCredentialProvider. This kee
 
 **Example**  
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
@@ -193,7 +192,7 @@ CREDENTIAL_PROVIDER_ARN = credential_provider["credentialProviderArn"]
 print(f"Credential provider created: {CREDENTIAL_PROVIDER_ARN}")
 ```
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
@@ -242,7 +241,7 @@ First, create the **Payment Manager** (common to all providers):
 For the full console walkthrough including JWT authorization and custom claims, see [Create a Payment Manager and Connector](payments-create-manager.md).
 If you don’t have an AgentCore CLI project, install the CLI and create a project with a Runtime for Step 6. The Runtime must allow the two payment headers that Step 6 sends. For details, see [Pass custom headers to Amazon Bedrock AgentCore Runtime](runtime-header-allowlist.md):  
 
-```
+```bash
 npm install -g @aws/agentcore
 agentcore create --name PaymentsQuickstart --template empty
 cd PaymentsQuickstart
@@ -262,14 +261,14 @@ cd ../..
 ```
 The `add runtime` command creates the Runtime documentation but doesn’t generate application code. Before your first deployment, save the Runtime entrypoint from Step 6 as `app/MyRuntime/main.py`. Then add the Payment Manager:  
 
-```
+```bash
 agentcore add payment-manager \
   --name MyPaymentManager \
   --default-spend-limit 5.00
 ```
 Add the connector in the provider section below, then run `agentcore deploy`. After the deployment, run `agentcore status --json`. Use the payment-manager `arn` as `PAYMENT_MANAGER_ARN` and the `id` of the payment-connector under its `children` as `PAYMENT_CONNECTOR_ID` in Steps 4 and 5.
 
-```
+```python
 from bedrock_agentcore.payments.client import PaymentClient
 
 payment_client = PaymentClient(region_name="us-west-2")
@@ -285,7 +284,7 @@ PAYMENT_MANAGER_ARN = manager["paymentManagerArn"]
 ```
 Use `PAYMENT_MANAGER_ID` with `payment_client` to create the connector in the provider section below.
 
-```
+```bash
 aws bedrock-agentcore-control create-payment-manager \
   --name "MyPaymentManager" \
   --authorizer-type AWS_IAM \
@@ -294,7 +293,7 @@ aws bedrock-agentcore-control create-payment-manager \
 ```
 Wait for the manager to reach `READY`, then create the connector in the provider section below.
 
-```
+```python
 import time
 
 manager = client.create_payment_manager(
@@ -326,7 +325,7 @@ With Quick create, you do not obtain or store Coinbase credentials. In the conso
 
 1. AgentCore payments provisions the Coinbase CDP API key and Wallet secret and stores them for you. The connector moves from `PENDING_AUTHENTICATION` to `READY`.
 
-```
+```bash
 agentcore add payment-connector \
   --manager MyPaymentManager \
   --name my_coinbase_connector \
@@ -336,7 +335,7 @@ agentcore deploy
 ```
  `agentcore deploy` prints `Authorize payment connector "<name>": <url>`. Open the URL in a browser and authorize through Coinbase. The service then provisions the credentials and the connector reaches `READY`.
 
-```
+```python
 connector = payment_client.create_payment_connector(
     payment_manager_id=PAYMENT_MANAGER_ID,
     name="my_coinbase_connector",
@@ -349,7 +348,7 @@ PAYMENT_CONNECTOR_ID = connector["paymentConnectorId"]
 # then poll get_payment_connector until status == "READY".
 ```
 
-```
+```bash
 aws bedrock-agentcore-control create-payment-connector \
   --payment-manager-id "<PAYMENT_MANAGER_ID>" \
   --name "my_coinbase_connector" \
@@ -360,14 +359,14 @@ aws bedrock-agentcore-control create-payment-connector \
 ```
 The response includes `status: PENDING_AUTHENTICATION` and an `authorizationUrl`. Open the URL in a browser and complete the Coinbase authorization, then poll until the connector is `READY`:  
 
-```
+```bash
 aws bedrock-agentcore-control get-payment-connector \
   --payment-manager-id "<PAYMENT_MANAGER_ID>" \
   --payment-connector-id "<PAYMENT_CONNECTOR_ID>" \
   --region us-west-2
 ```
 
-```
+```python
 connector = client.create_payment_connector(
     paymentManagerId=PAYMENT_MANAGER_ID,
     name="my_coinbase_connector",
@@ -389,7 +388,7 @@ Use Coinbase CDP credentials that you generated yourself (Steps 1–2). Create t
 **Example**  
 Add the credential provider, then add the connector that uses it. Pass each secret as a `file://` path or as `-` to read it from stdin. The CLI rejects inline secret values.  
 
-```
+```bash
 agentcore add credentials payment \
   --name my_coinbase_credentials \
   --provider CoinbaseCDP \
@@ -405,7 +404,7 @@ agentcore add payment-connector \
 agentcore deploy
 ```
 
-```
+```python
 connector = payment_client.create_payment_connector(
     payment_manager_id=PAYMENT_MANAGER_ID,
     name="my_coinbase_connector",
@@ -417,7 +416,7 @@ connector = payment_client.create_payment_connector(
 PAYMENT_CONNECTOR_ID = connector["paymentConnectorId"]
 ```
 
-```
+```bash
 aws bedrock-agentcore-control create-payment-connector \
   --payment-manager-id "<PAYMENT_MANAGER_ID>" \
   --name "my_coinbase_connector" \
@@ -426,7 +425,7 @@ aws bedrock-agentcore-control create-payment-connector \
   --region us-west-2
 ```
 
-```
+```python
 connector = client.create_payment_connector(
     paymentManagerId=PAYMENT_MANAGER_ID,
     name="my_coinbase_connector",
@@ -444,7 +443,7 @@ Stripe (Privy) uses the manual flow only. Create the credential provider from yo
 **Example**  
 Add the credential provider, then add the connector that uses it. Pass each secret as a `file://` path or as `-` to read it from stdin. The CLI rejects inline secret values.  
 
-```
+```bash
 agentcore add credentials payment \
   --name my_privy_credentials \
   --provider StripePrivy \
@@ -461,7 +460,7 @@ agentcore add payment-connector \
 agentcore deploy
 ```
 
-```
+```python
 connector = payment_client.create_payment_connector(
     payment_manager_id=PAYMENT_MANAGER_ID,
     name="my_privy_connector",
@@ -473,7 +472,7 @@ connector = payment_client.create_payment_connector(
 PAYMENT_CONNECTOR_ID = connector["paymentConnectorId"]
 ```
 
-```
+```bash
 aws bedrock-agentcore-control create-payment-connector \
   --payment-manager-id "<PAYMENT_MANAGER_ID>" \
   --name "my_privy_connector" \
@@ -482,7 +481,7 @@ aws bedrock-agentcore-control create-payment-connector \
   --region us-west-2
 ```
 
-```
+```python
 connector = client.create_payment_connector(
     paymentManagerId=PAYMENT_MANAGER_ID,
     name="my_privy_connector",
@@ -501,7 +500,7 @@ A payment instrument is an embedded crypto wallet that your agent uses to pay me
 
 **Example**  
 
-```
+```python
 from bedrock_agentcore.payments import PaymentManager
 
 manager = PaymentManager(
@@ -526,7 +525,7 @@ print(f"Instrument created: {INSTRUMENT_ID}")
 print(f"Fund the wallet at: {REDIRECT_URL}")
 ```
 
-```
+```bash
 aws bedrock-agentcore create-payment-instrument \
     --payment-manager-arn "$PAYMENT_MANAGER_ARN" \
     --payment-connector-id "$PAYMENT_CONNECTOR_ID" \
@@ -543,7 +542,7 @@ aws bedrock-agentcore create-payment-instrument \
 ```
 Save `paymentInstrument.paymentInstrumentId` and `paymentInstrument.paymentInstrumentDetails.embeddedCryptoWallet.redirectUrl` from the response.
 
-```
+```python
 import uuid
 
 dp_client = boto3.client("bedrock-agentcore", region_name="us-west-2",
@@ -584,7 +583,7 @@ After funding, poll the instrument status until it becomes `ACTIVE`:
 
 **Example**  
 
-```
+```python
 instrument = manager.get_payment_instrument(
     user_id="test-user-123",
     payment_instrument_id=INSTRUMENT_ID
@@ -592,14 +591,14 @@ instrument = manager.get_payment_instrument(
 print(f"Status: {instrument['status']}")
 ```
 
-```
+```bash
 aws bedrock-agentcore get-payment-instrument \
     --payment-manager-arn "$PAYMENT_MANAGER_ARN" \
     --payment-instrument-id "$INSTRUMENT_ID" \
     --region us-west-2
 ```
 
-```
+```python
 while True:
     inst_status = dp_client.get_payment_instrument(
         paymentManagerArn=PAYMENT_MANAGER_ARN,
@@ -621,7 +620,7 @@ A payment session is a time-bounded context with optional spending limits. When 
 
 **Example**  
 
-```
+```python
 from bedrock_agentcore.payments import PaymentManager
 
 manager = PaymentManager(
@@ -638,7 +637,7 @@ SESSION_ID = session["paymentSessionId"]
 print(f"Session created: {SESSION_ID} (expires in 60 minutes, $5.00 limit)")
 ```
 
-```
+```bash
 aws bedrock-agentcore create-payment-session \
     --payment-manager-arn "$PAYMENT_MANAGER_ARN" \
     --user-id "test-user-123" \
@@ -648,7 +647,7 @@ aws bedrock-agentcore create-payment-session \
     --region us-west-2
 ```
 
-```
+```python
 session = dp_client.create_payment_session(
     userId="test-user-123",
     paymentManagerArn=PAYMENT_MANAGER_ARN,
@@ -671,13 +670,13 @@ With all resources in place, create a Strands agent that handles x402 payments a
 **Example**  
 Update your Python agent with `AgentCorePaymentsPlugin` using the **AgentCore SDK** example in this step. Deploy the updated agent from your project directory:  
 
-```
+```bash
 agentcore deploy
 ```
 In the entrypoint, replace `os.environ["PAYMENT_MANAGER_ARN"]` with `os.environ["AGENTCORE_PAYMENT_MYPAYMENTMANAGER_MANAGER_ARN"]`. `agentcore deploy` sets this variable on the Python HTTP Runtimes in the project and grants their execution roles payment access to the manager.  
 Set `SESSION_ID` and `INSTRUMENT_ID` to the IDs from the preceding steps. Invoke the agent with these values as request headers. The Runtime passes the headers to the agent only if its request header allowlist includes them, as set up in Step 3. Replace `MyRuntime` with your project’s Runtime name.  
 
-```
+```bash
 agentcore invoke --runtime MyRuntime \
     --payload '{"prompt":"Access the premium endpoint at https://example-x402-merchant.com/paid-api"}' \
     --header "X-Amzn-Bedrock-AgentCore-Runtime-Custom-Payment-Session-Id: $SESSION_ID" \
@@ -687,7 +686,7 @@ These are application-defined headers. The entrypoint in the AgentCore SDK examp
 Add `bedrock-agentcore[strands-agents]` to your agent’s dependencies. If you don’t deploy the Runtime with the AgentCore CLI, set `PAYMENT_MANAGER_ARN` in the Runtime’s environment to the manager ARN from Step 3, and make sure that its execution role can access that manager. The Runtime must also allow the two payment headers in its request header allowlist. This IAM example uses `test-user-123`, the payment user from the preceding steps.  
 The following Runtime entrypoint reads the payment headers and configures a Strands agent for each request. The plugin provides the HTTP request tool and handles its x402 responses.  
 
-```
+```python
 import os
 
 from strands import Agent
@@ -730,7 +729,7 @@ if __name__ == "__main__":
 For standalone Strands agents and payment-error handling, see [Strands Agents](payments-framework-integrations.md#payments-framework-strands). To handle payment proof and retries yourself, see [Process a payment](payments-process-payment.md).
 Call `process-payment` directly with an x402 payload (used when you handle payment orchestration yourself):  
 
-```
+```bash
 aws bedrock-agentcore process-payment \
     --payment-manager-arn "$PAYMENT_MANAGER_ARN" \
     --payment-session-id "$SESSION_ID" \
@@ -756,7 +755,7 @@ aws bedrock-agentcore process-payment \
 For the complete request and response schema, see [ProcessPayment](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_ProcessPayment.html) in the API Reference.
 If your application handles the merchant’s HTTP 402 response directly, call `process_payment` with its payment requirements. Replace the example requirements below with those returned by the merchant.  
 
-```
+```python
 import uuid
 
 payment = dp_client.process_payment(
@@ -792,7 +791,7 @@ After the agent processes a payment, check the session to confirm the transactio
 
 **Example**  
 
-```
+```python
 session = manager.get_payment_session(
     user_id="test-user-123",
     payment_session_id=SESSION_ID
@@ -802,7 +801,7 @@ print(f"Remaining: {available['value']} {available['currency']}")
 ```
 You can also check the instrument balance:  
 
-```
+```python
 balance = manager.get_payment_instrument_balance(
     user_id="test-user-123",
     payment_connector_id=PAYMENT_CONNECTOR_ID,
@@ -814,7 +813,7 @@ token_balance = balance["tokenBalance"]
 print(f"Wallet balance: {token_balance['amount']} {token_balance['token']}")
 ```
 
-```
+```bash
 aws bedrock-agentcore get-payment-session \
     --payment-manager-arn "$PAYMENT_MANAGER_ARN" \
     --payment-session-id "$SESSION_ID" \
@@ -830,7 +829,7 @@ aws bedrock-agentcore get-payment-instrument-balance \
     --region us-west-2
 ```
 
-```
+```python
 from decimal import Decimal
 
 session = dp_client.get_payment_session(
@@ -844,7 +843,7 @@ print(f"Amount spent: {spent} {limit['currency']}")
 ```
 You can also check the instrument balance:  
 
-```
+```python
 balance = dp_client.get_payment_instrument_balance(
     paymentManagerArn=PAYMENT_MANAGER_ARN,
     paymentConnectorId=PAYMENT_CONNECTOR_ID,
@@ -877,14 +876,14 @@ Delete the resources you created during this tutorial:
 
 **Example**  
 
-```
+```bash
 agentcore remove payment-manager --name MyPaymentManager
 agentcore remove credential --name my_coinbase_credentials
 agentcore deploy
 ```
 Removing the payment manager also removes its connectors. If you used the manual flow, remove the credential you added in Step 3 (`my_coinbase_credentials` or `my_privy_credentials`). Quick create adds no credential to your project, so skip that command. The `remove` commands update the local configuration. The follow-up `deploy` tears down the payment infrastructure in your account.
 
-```
+```python
 from bedrock_agentcore.payments.client import PaymentClient
 
 payment_client = PaymentClient(region_name="us-west-2")
@@ -896,7 +895,7 @@ payment_client.delete_payment_manager(
 print("Payment Manager deleted.")
 ```
 
-```
+```bash
 aws bedrock-agentcore delete-payment-instrument \
     --payment-manager-arn "$PAYMENT_MANAGER_ARN" \
     --payment-connector-id "$PAYMENT_CONNECTOR_ID" \
@@ -918,7 +917,7 @@ aws bedrock-agentcore-control delete-payment-credential-provider \
     --region us-west-2
 ```
 
-```
+```python
 # Delete payment instrument
 dp_client.delete_payment_instrument(
     paymentManagerArn=PAYMENT_MANAGER_ARN,

@@ -1,9 +1,8 @@
 
 
 # Configure lifecycle hooks for AgentCore Runtime
-<a name="runtime-lifecycle-hooks"></a>
 
-A lifecycle hook is an endpoint in your container that AgentCore Runtime calls at a specific point in your agent runtime’s lifecycle. Use hooks to run your own code at those points, for example to prepare your agent before sessions start. You configure hooks with the `hooksConfiguration` field of [CreateAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.html) and [UpdateAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.html), grouped by the lifecycle phase that they belong to.
+Lifecycle hooks are an optional, advanced way to run your own code at specific points in your agent runtime’s lifecycle. A lifecycle hook is an endpoint in your container that AgentCore Runtime calls at one of those points, for example to prepare your agent before sessions start so that sessions start faster. You configure hooks with the `hooksConfiguration` field of [CreateAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.html) and [UpdateAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.html), grouped by the lifecycle phase that they belong to.
 
 Lifecycle hooks are available for agent runtimes that use platform version V2 on microVMs. For more information, see [Platform versions](runtime-how-it-works.md#runtime-platform-versions).
 
@@ -44,7 +43,7 @@ Hooks support the `httpPost` action, which sends a `POST` request. You configure
 | Field | Type | Required | Description | 
 | --- | --- | --- | --- | 
 |  `path`  | String | Yes | The path that AgentCore Runtime sends the request to. The path must meet these rules:+  It contains 1–32 characters and matches the pattern `^/[A-Za-z0-9._~/-]*$`. <br />+  It’s in canonical form. It doesn’t end in `/` (except for the path `/` itself), and it doesn’t contain `//`, or `.` or `..` segments. <br />+  It doesn’t conflict with a route that AgentCore Runtime already uses on the same port. For more information, see [Platform routes](#runtime-lifecycle-hooks-routes).  | 
-|  `port`  | Integer | No | The port that AgentCore Runtime sends the request to. The supported range is `8000`–`12000`, inclusive. Choose a port other than the [reserved platform ports](runtime-service-contract.md#runtime-reserved-ports). If you don’t specify a port, the default is your agent’s serving port: `protocolConfiguration.port` if you set it, otherwise the protocol’s default port (`8080` for HTTP and AG-UI, `8000` for MCP, and `9000` for A2A). | 
+|  `port`  | Integer | No | The port that AgentCore Runtime sends the request to. The supported range is `8000`–`12000`, inclusive. Choose a port other than the [reserved platform ports](runtime-service-contract.md#runtime-reserved-ports). If you don’t specify a port, the default is your agent’s serving port: `protocolConfiguration.port` if you set it, otherwise the protocol’s default port (`8080` for HTTP and AG-UI, `8000` for MCP, and `9000` for A2A). Leave `port` unset unless a separate server in your container listens on another port. If no server listens on the port, the hook fails, and so does the create or update. | 
 
 A hook’s route is its HTTP method, path, and port. It can’t match a route that AgentCore Runtime already uses on your agent’s serving port. The following table lists these platform routes.
 
@@ -67,11 +66,11 @@ Hook headers are reserved. AgentCore Runtime drops them from session endpoint re
 ## Configure lifecycle hooks
 <a name="runtime-lifecycle-hooks-configure"></a>
 
-Specify `hooksConfiguration` when you create or update an agent runtime. The following example creates a V2 runtime with a build warmup hook that calls `POST /warmup` on port `8080`. For what the hook does, see [Build warmup hook](#runtime-lifecycle-hooks-warmup). Replace the Region, container image URI, and execution role ARN with your values.
+Specify `hooksConfiguration` when you create or update an agent runtime. The following example creates a V2 runtime with a build warmup hook that calls `POST /warmup` on port `8080`. For what the hook does, see [Warmup hook](#runtime-lifecycle-hooks-warmup). Replace the Region, container image URI, and execution role ARN with your values.
 
 **Example**  
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
@@ -106,7 +105,7 @@ except client.exceptions.ValidationException as e:
     print(f"Validation error: {e}")
 ```
 
-```
+```bash
 aws bedrock-agentcore-control create-agent-runtime \
   --agent-runtime-name "my_agent_runtime" \
   --role-arn "arn:aws:iam::123456789012:role/AgentRuntimeRole" \
@@ -136,24 +135,24 @@ aws bedrock-agentcore-control create-agent-runtime \
 
 | Phase | Hook | When AgentCore Runtime calls it | Use it to | 
 | --- | --- | --- | --- | 
-|  `build`  |  `warmup`  | While it prepares your agent, during `CreateAgentRuntime` and `UpdateAgentRuntime`  | Prepare memory and disk so that sessions start faster. For more information, see [Build warmup hook](#runtime-lifecycle-hooks-warmup). | 
+|  `build`  |  `warmup`  | While it prepares your agent, during `CreateAgentRuntime` and `UpdateAgentRuntime`  | Prepare memory and disk so that sessions start faster. For more information, see [Warmup hook](#runtime-lifecycle-hooks-warmup). | 
 
-### Build warmup hook
+### Warmup hook
 <a name="runtime-lifecycle-hooks-warmup"></a>
 
-AgentCore Runtime calls the build warmup hook while it prepares your agent, during `CreateAgentRuntime` and `UpdateAgentRuntime`, before the runtime reaches `READY`. It makes two calls, in this order, and tells your implementation which call it is:
+AgentCore Runtime calls the build warmup hook while it prepares your agent, during `CreateAgentRuntime` and `UpdateAgentRuntime`, after your agent passes its health check and before the runtime reaches `READY`.
+
+AgentCore Runtime calls the hook twice, first with the warmup type `memory` and then with `disk`. With an HTTP action, it sends the warmup type in the `X-Amzn-Bedrock-AgentCore-Runtime-Warmup-Type` header.
 
 
 | Warmup type | Order | What to do | 
 | --- | --- | --- | 
-|  `memory`  | First, after your agent passes its `/ping` health check | Load into memory what every session needs, such as imports, models, and caches. Each new instance starts with what you load here. | 
-|  `disk`  | Second | Read the files that your agent reads when a session starts. AgentCore Runtime uses these reads to make those files available faster to new sessions. | 
+|  `memory`  | First, after your agent passes its health check | Load into memory what every session needs, such as imports, models, and caches. Each new session starts with what you load here. | 
+|  `disk`  | Second, after the snapshot | Read the files that your agent reads when a session starts. AgentCore Runtime uses these reads to make those files fast for new sessions. | 
 
-With an HTTP action, AgentCore Runtime sends the warmup type in the `X-Amzn-Bedrock-AgentCore-Runtime-Warmup-Type` header, with the value `memory` or `disk`.
+The two calls share a time limit of 120 seconds, which you can’t change. A warmup hook can add up to 120 seconds to the time that `CreateAgentRuntime` and `UpdateAgentRuntime` take to reach `READY`. Each warmup log line can appear more than once for one create or update.
 
-The two calls share a time limit of 120 seconds in total. Because the `memory` call runs first, the `disk` call gets the time that the `memory` call leaves. For example, if the `memory` call takes 50 seconds, the `disk` call has 70 seconds. You can’t change this limit.
-
-A warmup hook can add up to 120 seconds to the time that `CreateAgentRuntime` and `UpdateAgentRuntime` take to reach `READY`. Each warmup log line can appear more than once for one create or update.
+For how to use the warmup hook to make the first requests of new sessions fast, see [Prepare your agent before sessions start](runtime-v2-optimize.md#runtime-v2-optimize-warmup).
 
 #### Write the warmup handler
 <a name="runtime-lifecycle-hooks-warmup-handler"></a>
@@ -161,10 +160,11 @@ A warmup hook can add up to 120 seconds to the time that `CreateAgentRuntime` an
 Your warmup handler runs in your agent’s server, alongside `/ping` and your invocation handler:
 +  **Keep `/ping` responsive.** Your server must keep answering `/ping` while the warmup runs. Don’t block your server’s only thread inside the warmup handler. Run the work in a separate thread or process, or use a server that handles requests concurrently.
 +  **Return `2xx` only after the work is done.** What you’ve loaded when you respond is what sessions start with.
++  **Serve the warmup hook from a single server process.** AgentCore Runtime sends each warmup call to one process. Sessions start with what that process and the processes that it starts hold when the call returns. If your server runs several worker processes, for example `uvicorn --workers 2`, the other workers don’t receive the call.
 
 The following FastAPI application serves `/ping`, `/invocations`, and a warmup hook at `POST /warmup` on port `8080`. It runs the warmup work in a worker thread, so the server keeps answering `/ping`. Replace `load_shared_state` and `STARTUP_FILES` with your agent’s own work and files.
 
-```
+```python
 import asyncio
 
 from fastapi import FastAPI, Request, Response
@@ -221,11 +221,9 @@ async def invoke(request: Request):
 
 If you save the application as `app.py`, start it in your container with the following command:
 
-```
+```bash
 uvicorn app:app --host 0.0.0.0 --port 8080
 ```
-
-For what to put in each call, see [Prepare memory and disk with a lifecycle hook](runtime-v2-optimize.md#runtime-v2-optimize-warmup).
 
 ## View hook logs
 <a name="runtime-lifecycle-hooks-logs"></a>

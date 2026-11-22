@@ -1,7 +1,6 @@
 
 
 # Overview
-<a name="what-is-bedrock-agentcore"></a>
 
 ## What is Amazon Bedrock AgentCore?
 <a name="what-is-bedrock-agentcore-overview"></a>

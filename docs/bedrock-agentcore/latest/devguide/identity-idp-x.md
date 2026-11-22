@@ -1,7 +1,6 @@
 
 
 # X
-<a name="identity-idp-x"></a>
 
 X can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through X’s OAuth2 service and obtain access tokens for X API resources.
 
@@ -56,7 +55,7 @@ For more details, refer to [X’s OAuth 2.0 documentation](https://docs.x.com/fu
 
 To configure X as an outbound resource provider, use the following:
 
-```
+```json
 {
   "name": "X",
   "credentialProviderVendor": "XOauth2",

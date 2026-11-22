@@ -1,7 +1,6 @@
 
 
 # Using browser profiles
-<a name="browser-profiles"></a>
 
 Browser profiles enable you to persist and reuse browser profile data across multiple browser sessions. A browser profile stores session information including cookies and local storage.
 
@@ -27,7 +26,7 @@ Before using browser profiles, ensure you have:
 + Completed the general Browser [Prerequisites](browser-quickstart.md#browser-prerequisites) 
 + IAM permissions to manage profile resources. Add the following permissions to your IAM policy:
 
-  ```
+  ```json
   {
   "Version": "2012-10-17",		 	 	 
       "Statement": [
@@ -47,7 +46,7 @@ Before using browser profiles, ensure you have:
   ```
 + IAM permissions to save and load profiles. Add the following permissions to your IAM policy:
 
-  ```
+  ```json
   {
   "Version": "2012-10-17",		 	 	 
       "Statement": [
@@ -82,7 +81,7 @@ Create a browser profile resource to store session data.
 
 1. To create a browser profile using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-browser-profile \
      --region <Region> \
      --name "profile_demo" \
@@ -91,7 +90,7 @@ Create a browser profile resource to store session data.
 
 1. To create a browser profile using the AWS SDK for Python (Boto3):
 
-   ```
+   ```python
    import boto3
    
    region = "us-west-2"
@@ -108,7 +107,7 @@ Create a browser profile resource to store session data.
 
 1. To create a browser profile using the API:
 
-   ```
+   ```bash
    awscurl -X PUT \
      "https://bedrock-agentcore-control.<Region>.amazonaws.com/browser-profiles" \
      -H "Content-Type: application/json" \
@@ -130,7 +129,7 @@ Start a browser session and perform actions such as login a website. The session
 
 1. To start a browser session using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore start-browser-session \
      --region <Region> \
      --browser-identifier "aws.browser.v1" \
@@ -142,7 +141,7 @@ Start a browser session and perform actions such as login a website. The session
 
 1. To start a browser session using Boto3:
 
-   ```
+   ```python
    import boto3
    
    region = "us-west-2"
@@ -163,7 +162,7 @@ Start a browser session and perform actions such as login a website. The session
 
 1. To start a browser session using the API:
 
-   ```
+   ```bash
    awscurl -X PUT \
      "https://bedrock-agentcore.<Region>.amazonaws.com/browsers/aws.browser.v1/sessions/start" \
      -H "Content-Type: application/json" \
@@ -185,7 +184,7 @@ After performing actions in the browser session, save the current state to your 
 
 1. To save a browser session to a profile using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore save-browser-session-profile \
      --region <Region> \
      --profile-identifier "<ProfileId>" \
@@ -195,7 +194,7 @@ After performing actions in the browser session, save the current state to your 
 
 1. To save a browser session to a profile using Boto3:
 
-   ```
+   ```python
    import boto3
    
    region = "us-west-2"
@@ -212,7 +211,7 @@ After performing actions in the browser session, save the current state to your 
 
 1. To save a browser session to a profile using the API:
 
-   ```
+   ```bash
    awscurl -X PUT \
      "https://bedrock-agentcore.<Region>.amazonaws.com/browser-profiles/<ProfileId>/save" \
      -H "Content-Type: application/json" \
@@ -235,7 +234,7 @@ Start a new browser session using the saved profile. The session will be initial
 
 1. To start a browser session with a profile using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore start-browser-session \
      --region <Region> \
      --browser-identifier "aws.browser.v1" \
@@ -248,7 +247,7 @@ Start a new browser session using the saved profile. The session will be initial
 
 1. To start a browser session with a profile using Boto3:
 
-   ```
+   ```python
    import boto3
    
    region = "us-west-2"
@@ -270,7 +269,7 @@ Start a new browser session using the saved profile. The session will be initial
 
 1. To start a browser session with a profile using the API:
 
-   ```
+   ```bash
    awscurl -X PUT \
      "https://bedrock-agentcore.<Region>.amazonaws.com/browsers/aws.browser.v1/sessions/start" \
      -H "Content-Type: application/json" \
@@ -301,14 +300,14 @@ You can list all browser profiles in your account.
 
 1. To list browser profiles using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control list-browser-profiles \
      --region <Region>
    ```
 
 1. To list browser profiles using Boto3:
 
-   ```
+   ```python
    import boto3
    
    region = "us-west-2"
@@ -325,7 +324,7 @@ You can list all browser profiles in your account.
 
 1. To list browser profiles using the API:
 
-   ```
+   ```bash
    awscurl -X POST \
      "https://bedrock-agentcore-control.<Region>.amazonaws.com/browser-profiles/list" \
      -H "Content-Type: application/json" \
@@ -342,7 +341,7 @@ You can retrieve details about a specific browser profile.
 
 1. To get browser profile details using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control get-browser-profile \
      --region <Region> \
      --profile-id "<ProfileId>"
@@ -350,7 +349,7 @@ You can retrieve details about a specific browser profile.
 
 1. To get browser profile details using Boto3:
 
-   ```
+   ```python
    import boto3
    
    region = "us-west-2"
@@ -369,7 +368,7 @@ You can retrieve details about a specific browser profile.
 
 1. To get browser profile details using the API:
 
-   ```
+   ```bash
    awscurl -X GET \
      "https://bedrock-agentcore-control.<Region>.amazonaws.com/browser-profiles/<ProfileId>" \
      -H "Content-Type: application/json" \
@@ -386,7 +385,7 @@ When you no longer need a browser profile, you can delete it to free up resource
 
 1. To delete a browser profile using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control delete-browser-profile \
      --region <Region> \
      --profile-id "<ProfileId>"
@@ -394,7 +393,7 @@ When you no longer need a browser profile, you can delete it to free up resource
 
 1. To delete a browser profile using Boto3:
 
-   ```
+   ```python
    import boto3
    
    region = "us-west-2"
@@ -409,7 +408,7 @@ When you no longer need a browser profile, you can delete it to free up resource
 
 1. To delete a browser profile using the API:
 
-   ```
+   ```bash
    awscurl -X DELETE \
      "https://bedrock-agentcore-control.<Region>.amazonaws.com/browser-profiles/<ProfileId>" \
      -H "Content-Type: application/json" \

@@ -1,7 +1,6 @@
 
 
 # Manage Policies and Policy Engines
-<a name="manage-policies-engines"></a>
 
 Use these operations to manage your Policy Engines and policies.
 
@@ -28,13 +27,13 @@ Select one of the following methods:
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control list-policy-engines
    ```
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -52,7 +51,7 @@ Select one of the following methods:
 
 Alongside `ListPolicyEngines` and `ListPolicies`, the service offers summaries that return identifiers, names, and status but omit the encrypted content. A policy engine’s summary carries no description, and a policy’s summary carries no `definition`.
 
-```
+```bash
 aws bedrock-agentcore-control list-policy-engine-summaries
 
 aws bedrock-agentcore-control list-policy-summaries \
@@ -70,13 +69,13 @@ Retrieve detailed information about a specific Policy Engine:
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control get-policy-engine --policy-engine-id my_policy_engine-a1b2c3d4e5
    ```
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -102,13 +101,13 @@ View all policies within a specific Policy Engine:
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control list-policies --policy-engine-id my_policy_engine-a1b2c3d4e5
    ```
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -133,13 +132,13 @@ Retrieve detailed information about a specific policy:
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control get-policy --policy-engine-id my_policy_engine-a1b2c3d4e5 --policy-id my_policy-a1b2c3d4e5
    ```
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -172,7 +171,7 @@ If the updated policy is a temporal policy, or the update adds or removes tempor
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control update-policy \
      --policy-id my_policy-a1b2c3d4e5 \
      --policy-engine-id my_policy_engine-a1b2c3d4e5 \
@@ -185,7 +184,7 @@ If the updated policy is a temporal policy, or the update adds or removes tempor
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -217,7 +216,7 @@ Delete a policy from the Policy Engine.
 
 1. For a policy your AgentCore project manages, remove it from the project and deploy:
 
-   ```
+   ```bash
    agentcore remove policy --name my_policy --engine my_policy_engine --yes
    agentcore deploy --yes
    ```
@@ -226,13 +225,13 @@ Delete a policy from the Policy Engine.
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control delete-policy --policy-engine-id my_policy_engine-a1b2c3d4e5 --policy-id my_policy-a1b2c3d4e5
    ```
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -255,7 +254,7 @@ You cannot delete a policy engine that still has policies in it. Delete every po
 
 1. For an engine your AgentCore project manages, remove it from the project and deploy:
 
-   ```
+   ```bash
    agentcore remove policy-engine --name my_policy_engine --yes
    agentcore deploy --yes
    ```
@@ -264,13 +263,13 @@ You cannot delete a policy engine that still has policies in it. Delete every po
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control delete-policy-engine --policy-engine-id my_policy_engine-a1b2c3d4e5
    ```
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')

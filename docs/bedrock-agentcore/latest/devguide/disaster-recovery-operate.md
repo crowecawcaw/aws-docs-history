@@ -1,7 +1,6 @@
 
 
 # Operating disaster recovery: detection, response, and recovery
-<a name="disaster-recovery-operate"></a>
 
 An incident in the [warm standby architecture](disaster-recovery-resiliency.md#architecture-warm-standby) unfolds in three stages. A canary detects the problem. The agent invoker, the request layer you build between clients and AgentCore, contains it. Then you promote the standby with the incident runbook, making it the Region that serves production.
 

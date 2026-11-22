@@ -1,7 +1,6 @@
 
 
 # Authenticate end users to Memory with OAuth
-<a name="memory-gateway-oauth"></a>
 
 The Amazon Bedrock AgentCore Memory data plane authenticates callers with AWS Signature Version 4 (SigV4) only. When your backend or agent calls Memory on behalf of many users, Memory sees only your backend’s IAM role — it cannot verify or enforce which end user a given request is for. Keeping one user’s data separate from another’s depends entirely on your application code setting the correct `actorId` and namespace on each request; nothing at the Memory layer prevents a request handling User A from reading User B’s data.
 

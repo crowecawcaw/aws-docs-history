@@ -1,7 +1,6 @@
 
 
 # MCP targets
-<a name="gateway-targets-mcp"></a>
 
 MCP targets operate in aggregation mode — the gateway acts as an MCP server whose capabilities combine those of all its MCP targets. Clients see a single consolidated `tools/list` response that includes tools from all attached MCP targets. MCP targets support capability synchronization, semantic tool search, and three-legged OAuth (3LO) at the target level.
 

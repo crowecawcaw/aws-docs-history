@@ -1,7 +1,6 @@
 
 
 # Results and output
-<a name="results-and-output"></a>
 
 Online evaluation results are automatically saved to Amazon CloudWatch. By default, the service writes them as JSON log entries to a dedicated CloudWatch log group.
 
@@ -32,7 +31,7 @@ Use `resultDestination` in `outputConfig.cloudWatchConfig` to choose where onlin
 
 When `resultDestination` is `DEDICATED_LOG_GROUP`, you can set `logGroupName` to send results to a log group that you choose. If the log group already exists, the service uses it as-is. If it doesn’t exist, the service creates it, so the evaluation execution role must allow `logs:CreateLogGroup` for that log group. The name can’t use the reserved `/aws/bedrock-agentcore/evaluations/` prefix, except for this configuration’s own service-managed default group.
 
-```
+```python
 # Write results back to the trace source log group
 outputConfig={"cloudWatchConfig": {"resultDestination": "SOURCE_LOG_GROUP"}}
 
@@ -45,7 +44,7 @@ outputConfig={"cloudWatchConfig": {"resultDestination": "DEDICATED_LOG_GROUP", "
 
 Evaluation scores are also published as CloudWatch metrics. By default, the service uses the `Bedrock-AgentCore/Evaluations` namespace. To publish metrics under your own namespace, for example to separate results by team or tenant, set `metricsNamespace` in `outputConfig.cloudWatchConfig`. The value can’t begin with `AWS/`.
 
-```
+```python
 outputConfig={"cloudWatchConfig": {"metricsNamespace": "MyTeam/Evaluations"}}
 ```
 

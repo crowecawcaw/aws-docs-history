@@ -1,7 +1,6 @@
 
 
 # Set up a gateway with a Memory connector target
-<a name="memory-gateway-setup"></a>
 
 To front a Memory resource with a gateway, you create a gateway with an inbound authorizer, then add a target that uses the `agentcore-memory` connector.
 
@@ -21,7 +20,7 @@ The following steps use the AWS CLI. For the input and output shapes of each API
 
    The following example creates a gateway that authenticates end users with OAuth (`CUSTOM_JWT`) — the primary fine-grained access control path. Provide your identity provider’s OpenID Connect (OIDC) or OAuth 2.0 Authorization Server Metadata (RFC 8414) discovery URL and allowed client ids.
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway \
      --name my-memory-gateway \
      --role-arn arn:aws:iam::123456789012:role/my-gateway-execution-role \
@@ -40,7 +39,7 @@ This example uses OAuth inbound, which always uses the `GATEWAY_IAM_ROLE` outbou
 
 1. Add a target to the gateway with [CreateGatewayTarget](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGatewayTarget.html), using the `agentcore-memory` connector as the target configuration. For `--gateway-identifier`, use the `gatewayId` returned by `CreateGateway` in the previous step. Supply the connector id and the `memoryId` of the Memory resource to front. The target’s `credentialProviderConfigurations` set the outbound credential mode; with OAuth inbound this is `GATEWAY_IAM_ROLE`.
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway-target \
      --gateway-identifier <gateway-id> \
      --name my-memory \

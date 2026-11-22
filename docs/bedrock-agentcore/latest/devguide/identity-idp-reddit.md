@@ -1,7 +1,6 @@
 
 
 # Reddit
-<a name="identity-idp-reddit"></a>
 
 Reddit can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through Reddit’s OAuth2 service and obtain access tokens for Reddit API resources.
 
@@ -33,7 +32,7 @@ For more details, refer to [Reddit’s OAuth2 documentation](https://github.com/
 
 To configure Reddit as an outbound resource provider, use the following:
 
-```
+```json
 {
   "name": "Reddit",
   "credentialProviderVendor": "RedditOauth2",

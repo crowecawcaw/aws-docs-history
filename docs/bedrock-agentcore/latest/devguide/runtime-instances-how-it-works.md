@@ -1,7 +1,6 @@
 
 
 # Instances
-<a name="runtime-instances-how-it-works"></a>
 
 When you host an agent on the **Instances** compute type, Amazon Bedrock AgentCore Runtime runs your agent on [Amazon EC2 managed instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.html) that it provisions and operates inside your own AWS account — so you get the hardware selection and pricing benefits of Amazon EC2 without managing instance lifecycle, operating system and runtime patching, scaling, or teardown. A [capacity provider](#runtime-instances-capacity-provider) defines the infrastructure those instances use, and AgentCore handles provisioning, patching, scaling, and teardown on your behalf. Because the instances run in your account, your data stays in your account, your existing account controls apply, and you can use your EC2 pricing agreements such as Savings Plans, Reserved Instances, and On-Demand Capacity Reservations (ODCRs). With Instances, you get persistent compute and can run multiple collaborating agents on a single instance, while retaining visibility and control over the underlying infrastructure.
 
@@ -90,6 +89,7 @@ The following table compares the **microVMs** and **Instances** compute types to
 | GPU access | Not supported | Choose a supported GPU instance type; drivers are provisioned for you | 
 | Pricing | Consumption-based, billed by AgentCore | EC2 instances run in your account; use your Savings Plans and ODCRs | 
 | Lifecycle hooks | Supported on platform version V2. For more information, see [Configure lifecycle hooks for AgentCore Runtime](runtime-lifecycle-hooks.md). | Not supported | 
+| Session pinning | On by default on platform version V2. For more information, see [Session pinning](runtime-sessions.md#runtime-session-pinning). | Not supported. You must bind each session to its user in your client backend. | 
 | Models and frameworks | Any | Any | 
 
 ## Use GPU instance types
@@ -98,10 +98,14 @@ The following table compares the **microVMs** and **Instances** compute types to
 For compute-intensive workloads such as model inference, 3D rendering, and media processing, include a GPU instance type in the allowed instance types of your capacity provider. AgentCore provisions the GPU drivers on the instance, so you don’t configure device paths, GPU indices, or driver versions, and standard container images (for example, CUDA images) work without bundling drivers. Both compute (CUDA) and graphics (such as Vulkan, EGL, and GLX) workloads are supported. When more than one agent runs on the same instance, all agents share access to its GPUs.
 
 The following GPU and accelerator instance families are supported:
-+ NVIDIA GPU families – `g4dn`, `g5`, `g6`, `g6e`, `gr6`, `g6f`, `gr6f`, and `g7e`.
-+  AWS accelerator families – `inf2` (powered by AWS Inferentia2).
++ NVIDIA GPU families – `g4dn`, `g5`, `g6`, `g6e`, `gr6`, `g6f`, `gr6f`, `g7`, and `g7e` 
++  AWS accelerator families – `inf2` (powered by AWS Inferentia2)
+
+You can use an instance type only in the AWS Regions where Amazon EC2 offers it. For example, the `g7` family isn’t available in every Region where Instances is available. To check the instance types in each Region, see [Amazon EC2 instance types by Region](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-regions.html) in the *Amazon EC2 Instance Types* guide.
 
 If you include an accelerator instance type from a family that isn’t supported, `CreateCapacityProvider` fails with a `ValidationException` that names the instance type and lists the supported families. Non-accelerator instance types are unaffected.
+
+To run your own virtual machines or hardware-accelerated emulators in your agents, turn on nested virtualization on the capacity provider. For more information, see [Run virtual machines in agents on Runtime Instances](runtime-instances-nested-virtualization.md).
 
 ## Invocation flow
 <a name="runtime-instances-invocation-flow"></a>
@@ -112,7 +116,7 @@ Invoking an agent runtime backed by a capacity provider follows the same [Invoke
 
 1. If no session exists for that session ID, AgentCore provisions an EC2 instance from the runtime’s capacity provider in your account and launches the agent on it. The first invocation for a session takes longer because it includes instance provisioning.
 
-1. If a session already exists, AgentCore reuses the running instance. Invoking a second runtime that shares the same capacity provider with the same session ID launches that agent alongside the first on the same instance.
+1. If a session already exists, AgentCore reuses the running instance. Invoking a second runtime that shares the same capacity provider with the same session ID launches that agent alongside the first on the same instance. A session that runs an agent in `PRIVILEGED` mode runs only that agent. For more information, see [One agent per session](runtime-instances-privilege-mode.md#runtime-instances-privilege-mode-session-limit).
 
 1. AgentCore proxies the request to the agent and streams the response back to you. Each agent runs with its own IAM credentials derived from its runtime’s execution role.
 

@@ -1,7 +1,6 @@
 
 
 # Atlassian
-<a name="identity-idp-atlassian"></a>
 
 Atlassian can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through Atlassian’s OAuth2 service and obtain access tokens for Atlassian API resources.
 
@@ -35,7 +34,7 @@ For more details, refer to [Atlassian’s OAuth 2.0 (3LO) apps documentation](ht
 
 To configure Atlassian as an outbound resource provider, use the following:
 
-```
+```json
 {
    "name": "NAME",
    "credentialProviderVendor": "AtlassianOAuth2",

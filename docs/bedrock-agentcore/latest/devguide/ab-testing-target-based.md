@@ -1,7 +1,6 @@
 
 
 # Run an A/B test with target-based routing
-<a name="ab-testing-target-based"></a>
 
 Use the target-based routing pattern when the change you are testing involves code changes, a framework upgrade, or an entirely different agent implementation. Target-based routing routes traffic between multiple versions of the same AgentCore Runtime (named endpoints), or between entirely different AgentCore Runtimes. The AgentCore Gateway registers each endpoint as a separate target and routes each session to one endpoint or the other based on the A/B test’s traffic weights.
 
@@ -22,7 +21,7 @@ For a detailed comparison of A/B test patterns, see [Choosing a pattern](ab-test
 
 Create the project with the AgentCore CLI:
 
-```
+```bash
 agentcore create --name ABTestTargetBased --template empty
 cd ABTestTargetBased
 ```
@@ -32,7 +31,7 @@ cd ABTestTargetBased
 
 Add the agent runtime. You will deploy two versions of this runtime — one for control and one for treatment — then create named endpoints to alias each version.
 
-```
+```bash
 agentcore add runtime \
   --name csAgent \
   --language python \
@@ -61,7 +60,7 @@ ABTestTargetBased/
 
 Create `app/csAgent/main.py` with the control version (using Claude Sonnet):
 
-```
+```python
 """Customer support agent — control variant."""
 from strands import Agent, tool
 from strands.models.bedrock import BedrockModel
@@ -114,7 +113,7 @@ if __name__ == "__main__":
 
 Update `app/csAgent/pyproject.toml` dependencies:
 
-```
+```text
 dependencies = [
     "aws-opentelemetry-distro",
     "bedrock-agentcore >= 1.8.0",
@@ -128,23 +127,23 @@ dependencies = [
 
 Deploy the control version (this creates version 1):
 
-```
+```bash
 agentcore deploy
 ```
 
 Now update `main.py` to use a different model for the treatment variant and deploy (this creates version 2):
 
-```
+```python
 MODEL_ID = "global.anthropic.claude-opus-4-6-v1"
 ```
 
-```
+```bash
 agentcore deploy
 ```
 
 Create named endpoints for each version and deploy:
 
-```
+```bash
 agentcore add runtime-endpoint \
   --runtime csAgent \
   --name control \
@@ -166,7 +165,7 @@ You now have:
 
 Verify the runtime is working. The `arn` field for `csAgent` in the `status` output is the Runtime ARN, and the Runtime ID is the last segment of that ARN.
 
-```
+```bash
 agentcore status --json
 
 agentcore invoke --runtime csAgent \
@@ -179,7 +178,7 @@ agentcore invoke --runtime csAgent \
 
 Each endpoint has its own log group (the log group name ends with the endpoint name), so you need one online evaluation config per variant:
 
-```
+```bash
 agentcore eval online-eval create \
   --name controlEvalTb \
   --agent <runtime-id> \
@@ -208,7 +207,7 @@ For more details on evaluator options and configuration, see [Create online eval
 
 A target-based A/B test routes traffic through an AgentCore Gateway, so the gateway and its two targets must already be deployed before you start the test. Add a gateway and register each runtime endpoint as a Runtime target (target type `httpRuntime`), then deploy:
 
-```
+```bash
 agentcore add gateway --name csGateway --authorizer-type AWS_IAM
 
 agentcore add gateway-target \
@@ -237,7 +236,7 @@ Start the A/B test with `agentcore eval ab-test target-based run`. Each variant 
 
 **Example**  
 
-```
+```bash
 agentcore eval ab-test target-based run \
   --name customerSupportTargetTest \
   --gateway <gateway-id> \
@@ -248,7 +247,7 @@ agentcore eval ab-test target-based run \
 ```
 The test starts running by default. Pass `--enable-on-create false` to create it paused. The `--gateway` value is the deployed Gateway ID from Step 5, and each `online-eval` value is an ID returned in Step 4. The command returns the `abTestId` that the lifecycle commands below require. Only one test can be running per Gateway at a time.
 
-```
+```python
 import boto3
 import uuid
 
@@ -369,7 +368,7 @@ Session assignment is **sticky**: once a session ID is assigned to a variant, al
 
 Save the following script as `loadgen.sh` in the project directory. The script sends every request to the `customer-support-control` target path. The A/B test filter intercepts only the control target path, and the Gateway splits that traffic between both variants. Each request uses a new session ID:
 
-```
+```bash
 #!/bin/bash
 PROMPTS=(
   "What is the status of order ORD-1003?"
@@ -398,7 +397,7 @@ done
 
 Run the script:
 
-```
+```bash
 bash loadgen.sh
 ```
 
@@ -410,17 +409,17 @@ Poll the A/B test to monitor results as sample sizes grow. Polling does not affe
 **Example**  
 Get current results (replace `<ab-test-id>` with the ID returned in Step 6):  
 
-```
+```bash
 agentcore eval ab-test get --id <ab-test-id>
 ```
 Get results as JSON:  
 
-```
+```bash
 agentcore eval ab-test get --id <ab-test-id> --json
 ```
 Poll until results reach statistical significance:  
 
-```
+```python
 import boto3
 import time
 
@@ -469,6 +468,8 @@ while True:
 
 **Note**  
 The time it takes for results to appear depends primarily on the session timeout configured in your online evaluation configs. A session is considered complete once no new requests arrive within the timeout window. After a session ends, results typically appear within 15 minutes. Results accumulate as more sessions complete — statistical significance improves with sample size.
+
+<a name="target-based-interpreting"></a>**Interpreting results**
 +  **p-value < 0.05 and positive `percentChange`:** The treatment is significantly better than control. Consider deploying the treatment.
 +  **p-value < 0.05 and negative `percentChange`:** The treatment is significantly worse. Keep the control.
 +  **p-value >= 0.05:** Not enough evidence to conclude a difference. Continue collecting samples or increase traffic to the treatment.
@@ -490,7 +491,7 @@ After stopping the A/B test, route all traffic to the winning variant.
 
 If the control won, no routing change is required. If the treatment won, use the AWS CLI to create a Gateway rule that routes requests for the control path to the treatment target:
 
-```
+```bash
 aws bedrock-agentcore-control create-gateway-rule \
   --gateway-identifier <gateway-id> \
   --priority 100 \
@@ -499,6 +500,8 @@ aws bedrock-agentcore-control create-gateway-rule \
 ```
 
 The rule updates the live Gateway immediately. Save the returned rule ID so that you can update or delete the rule later. The rule is not part of the project, and `agentcore deploy` does not manage it. To change an existing production rule instead, use `aws bedrock-agentcore-control update-gateway-rule --gateway-identifier <gateway-id> --rule-id <rule-id>`. For more rule examples, see [Gateway rules API examples](gateway-rules-examples.md).
+
+<a name="target-based-next-steps"></a>**Next steps**
 
 After routing traffic to the winner:
 +  **Delete the A/B test** to clean up resources. See [Delete an A/B test](ab-testing-manage.md#manage-ab-test-remove).
@@ -514,7 +517,7 @@ When you call `GetABTest`, the response includes a `results` object once the agg
 ### Results structure
 <a name="_results_structure"></a>
 
-```
+```json
 {
   "results": {
     "analysisTimestamp": "2026-04-30T18:45:00Z",

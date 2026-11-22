@@ -1,7 +1,6 @@
 
 
 # Action and resource scoped policies
-<a name="example-policies-action-resource"></a>
 
 The policies in this section are matched on **what is being called** — which action, on which gateway, with which input values — rather than on who is calling. They do not govern which principals may take the action; any caller the gateway authenticates is in scope.
 
@@ -37,7 +36,7 @@ Naming a specific action therefore means knowing the gateway ARN, which you only
 
  **Yes in a string comparison.** Inside a condition, `like` takes a pattern in which `*` matches any run of characters — this is the one place a wildcard applies:
 
-```
+```cedar
 context.input.coverageType like "auto*"
 ```
 
@@ -55,7 +54,7 @@ Grouping related read operations with `action in [ …​ ]` avoids one policy p
 
  **We recommend scoping to the target when you want the whole tool set.** Writing `action in AgentCore::Action::"{{TargetName}}"` covers every tool the target exposes. The trade-off is that a target-scoped policy cannot carry a condition on tool input, because the input differs per tool. For more information, see [Multiple actions](policy-scope.md#policy-action-wildcards).
 
-```
+```cedar
 permit(
   principal,
   action in [
@@ -73,7 +72,7 @@ permit(
 
 An AgentCore Runtime target is authorized as a single action, named for the target and the method and path it is invoked with. It is not one action per tool the agent might use internally. For a runtime target that path is always `/invocations`. Whatever tools the agent calls behind that boundary are outside this policy’s reach, so govern those on their own gateway.
 
-```
+```cedar
 permit(
   principal,
   action == AgentCore::Action::"ClaimsAgent___POST:/invocations",
@@ -88,7 +87,7 @@ permit(
 
 Each inference target is one action, and a gateway has one target per API shape, so a policy must name every path you intend to allow. Naming only one leaves the others denied — or, for a `forbid`, unscreened.
 
-```
+```cedar
 permit(
   principal,
   action in [
@@ -107,7 +106,7 @@ permit(
 
  `model` is a scalar string in every inference envelope, so an ordinary condition reads it directly. This works the same way in Dogwood, because Dogwood accepts every Cedar condition.
 
-```
+```cedar
 permit(
   principal,
   action == AgentCore::Action::"ClaimsChat___POST:/v1/chat/completions",
@@ -135,7 +134,7 @@ To act on what was actually said, write a guardrail whose data path is a JSONPat
 
  **Intent:** Allow filing a claim only for the claim types the business supports.
 
-```
+```cedar
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
@@ -155,7 +154,7 @@ when {
 
 A set literal with `.contains()` reads better than a chain of `||` comparisons as the list grows, and the two forms are equivalent. Note the direction: the set is the receiver and the value is the argument.
 
-```
+```cedar
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
@@ -173,7 +172,7 @@ when {
 
 In a `like` pattern `*` matches any run of characters, so `auto`, `auto-liability`, and `auto-collision` all match. This is the only place in a policy where a wildcard applies — not in action names or resources. For more information, see [Where wildcards work](#example-policies-action-resource-wildcards).
 
-```
+```cedar
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___calculate_premium",
@@ -191,7 +190,7 @@ when {
 
  `policyTermMonths` is an `integer` in the tool schema, so it is a Cedar `Long` and the ordered operators `<`, `⇐`, `>`, and `>=` apply directly.
 
-```
+```cedar
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
@@ -207,7 +206,7 @@ when {
 
  **Intent:** Allow a claim to be filed only for amounts below 1,000.
 
-```
+```cedar
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
@@ -229,7 +228,7 @@ For more information about the operators each numeric type accepts, see [Numeric
 
 A `boolean` parameter is used directly as a condition. To require the opposite, write `!context.input.approved`. Ordered operators do not apply — `context.input.approved > true` fails creation with `expected datetime, or duration, or Long`.
 
-```
+```cedar
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___approve_claim",
@@ -247,7 +246,7 @@ when {
 
 An `object` parameter becomes a Cedar record, a set of named members you reach with a dot. Test each level with `has` before reading it: because `riskFactors` is optional, omitting either guard fails policy creation with `unable to guarantee safety of access to optional attribute`. Records nest to a maximum depth of 64 levels; a deeper `context.input` is rejected at runtime with `Cannot determine input entity type`.
 
-```
+```cedar
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___calculate_premium",
@@ -271,7 +270,7 @@ An optional parameter is one the tool schema does not list as required, so a cal
 
 There are two ways to write this, and they behave differently. **We recommend the `forbid` form shown second**, because it holds no matter which other policies apply. The `permit` form comes first because it is the one readers reach for, and it does not have that property. A `permit` grants access when the field is present:
 
-```
+```cedar
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
@@ -284,7 +283,7 @@ when {
 
 A `forbid` makes the field mandatory no matter which other policies apply:
 
-```
+```cedar
 forbid(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
@@ -317,7 +316,7 @@ These policies are tools for running a gateway rather than expressions of a busi
 
 This denies every request to every gateway attached to the policy engine, overriding all `permit` policies. Adding it takes effect without changing any other policy, and deleting it restores normal operation.
 
-```
+```cedar
 forbid(
   principal,
   action,
@@ -335,7 +334,7 @@ Verify the engine’s enforcement mode before you rely on this policy. If the ga
 
 The tool disappears from `tools/list` for every caller while this policy is in place, so agents stop attempting it rather than calling it and being denied.
 
-```
+```cedar
 forbid(
   principal,
   action == AgentCore::Action::"InsuranceAPI___disburse_payment",
@@ -355,7 +354,7 @@ The two preceding sections separate policies by what they match on. A rule often
 
 One policy can constrain the principal and the input together, and doing so in a single `permit` is what makes the conditions **conjunctive**. Where a parameter is optional, put its `has` test before the read it protects.
 
-```
+```cedar
 permit(
   principal is AgentCore::OAuthUser,
   action == AgentCore::Action::"InsuranceAPI___update_coverage",
@@ -376,7 +375,7 @@ when {
 
 Tiered authority takes one `permit` per tier, each pairing the job title with its own ceiling. Because the two policies are alternatives, a manager is not restricted by the adjuster policy. `amountCents` is an `integer`, so it uses ordinary ordered operators rather than `decimal` methods.
 
-```
+```cedar
 // Adjusters: up to USD $1,000.00.
 permit(
   principal is AgentCore::OAuthUser,

@@ -1,7 +1,6 @@
 
 
 # Memory organization in AgentCore Memory
-<a name="memory-organization"></a>
 
 You can set how short-term and long-term memories are organized in an AgentCore Memory. This lets you isolate memories by session and by actor. For long-term memory, you can also set a namespace to organize the extracted memories for a memory strategy.
 +  **Actor** – Refers to entities such as end users or agent/user combinations. For example, in a coding support chatbot, the actor is usually the developer asking questions. Using the actor ID helps the system know which user the memory belongs to, keeping each user’s data separate and organized.

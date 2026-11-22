@@ -1,7 +1,6 @@
 
 
 # Tagging AgentCore Identity resources
-<a name="identity-tagging"></a>
 
 Amazon Bedrock AgentCore Identity supports comprehensive tagging capabilities across its resource hierarchy to enable better resource management, cost allocation, access control, and operational visibility. For general information about tags, including syntax and usage, see [Tagging AgentCore resources](tagging.md).
 
@@ -17,7 +16,7 @@ Many AWS services support tagging, allowing you to assign the same tag to resour
 
  **Example scenario** : Tag all resources for a customer service application with `Application=customer-service-bot` to easily identify and manage related resources across different AWS services, as shown in the following sample code.
 
-```
+```json
 {
   "name": "customer-service-workload-identity",
   "tags": {
@@ -38,7 +37,7 @@ You can activate cost allocation tags on the AWS Billing and Cost Management das
 
  **Example scenario** : Use `CostCenter=ai-platform` and `Project=bedrock-agents` tags to track how much your AI platform team spends on identity services for the Bedrock agents project, as shown in the following sample code.
 
-```
+```json
 {
   "name": "customer-service-workload-identity",
   "tags": {

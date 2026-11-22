@@ -1,7 +1,6 @@
 
 
 # Session management
-<a name="code-interpreter-session-characteristics"></a>
 
 The AgentCore Code Interpreter sessions have the following characteristics:
 

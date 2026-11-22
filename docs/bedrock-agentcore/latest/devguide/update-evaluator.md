@@ -1,7 +1,6 @@
 
 
 # Update evaluator
-<a name="update-evaluator"></a>
 
 The `UpdateEvaluator` API modifies an existing custom evaluator’s configuration, description, or evaluation level. This asynchronous operation is only allowed on unlocked evaluators.
 
@@ -28,7 +27,7 @@ The following code samples demonstrate how to update evaluators using different 
 
    For an evaluator you created outside a project, update it by ID. Run `agentcore eval evaluator list` to find the evaluator ID.
 
-   ```
+   ```bash
    agentcore eval evaluator llm-as-a-judge update \
      --id <EVALUATOR_ID> \
      --instructions file://updated-instructions.txt \
@@ -39,7 +38,7 @@ If the evaluator is locked by a running online evaluation, pause that configurat
 
 1. 
 
-   ```
+   ```python
    from bedrock_agentcore_starter_toolkit import Evaluation
    
    eval_client = Evaluation()
@@ -52,7 +51,7 @@ If the evaluator is locked by a running online evaluation, pause that configurat
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -65,7 +64,7 @@ If the evaluator is locked by a running online evaluation, pause that configurat
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control update-evaluator \
        --evaluator-id 'evaluator-abc123' \
        --description "Updated custom evaluator description"

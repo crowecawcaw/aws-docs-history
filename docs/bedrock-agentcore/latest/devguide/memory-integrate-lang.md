@@ -1,7 +1,6 @@
 
 
 # Integrate AgentCore Memory with LangChain or LangGraph
-<a name="memory-integrate-lang"></a>
 
  [LangChain and LangGraph](https://www.langchain.com/langgraph) are powerful open-source frameworks for developing agents through a graph-based architecture. They provide a simple interface for defining agent interactions with the user, its tools, and memory.
 
@@ -40,7 +39,7 @@ Requirements you need before integrating AgentCore Memory with LangChain and Lan
 
 The `AgentCoreMemorySaver` in LangGraph handles all the saving and loading of conversational state, execution context, and state variables under the hood through [AgentCore Memory blob types](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_CreateEvent.html#API_CreateEvent_RequestSyntax) . This means that the only setup required is to specify the checkpointer when compiling the agent graph, then providing an `actor_id` and `thread_id` in the [RunnableConfig](https://python.langchain.com/docs/concepts/runnables/#runnableconfig) when invoking the agent. The configuration is shown below and the agent invocation is shown in the next section. If simple conversation persistence is all your application needs, feel free to skip the long term memory section.
 
-```
+```python
 # Import LangGraph and LangChain components
 from langchain.chat_models import init_chat_model
 from langgraph.prebuilt import create_react_agent
@@ -62,7 +61,7 @@ checkpointer = AgentCoreMemorySaver(MEMORY_ID, region_name=REGION)
 
 For long term memory stores in LangGraph, you have more flexibility on how messages are processed. For instance, if the application is only concerned with user preferences, you would only need to store the `HumanMessage` objects in the conversation. For summaries, all types `HumanMessage` , `AIMessage` , and `ToolMessage` would be relevant. There are numerous ways to do this, but a common implementation pattern is using pre and post model hooks, as shown in the example below. For retrieval of memories, you may add a `store.search(query)` call in the pre-model hook and append it to the user’s message so the agent has all the context. Alternatively, the agent could be provided a tool to search for information as needed. All of these implementation patterns are supported and the implementation will vary based on the application.
 
-```
+```python
 from langgraph_checkpoint_aws import (
     AgentCoreMemoryStore
 )
@@ -101,7 +100,7 @@ def pre_model_hook(state, config: RunnableConfig, *, store: BaseStore):
 
 Initialize the LLM and create a LangGraph agent with a memory configuration.
 
-```
+```python
 # Initialize LLM
 llm = init_chat_model(MODEL_ID, model_provider="bedrock_converse", region_name=REGION)
 
@@ -121,7 +120,7 @@ graph = create_react_agent(
 
 Invoke the agent.
 
-```
+```python
 # Specify config at runtime for ACTOR and SESSION
 config = {
     "configurable": {

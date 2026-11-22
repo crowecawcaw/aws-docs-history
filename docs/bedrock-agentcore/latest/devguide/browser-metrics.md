@@ -1,7 +1,6 @@
 
 
 # CloudWatch Metrics
-<a name="browser-metrics"></a>
 
 You can view the following metrics in Amazon CloudWatch:
 + Session counts: The number of browser sessions that have been requested

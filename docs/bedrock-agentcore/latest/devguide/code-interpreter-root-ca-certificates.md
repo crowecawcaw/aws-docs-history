@@ -1,7 +1,6 @@
 
 
 # Configure Root Certificate Authority for Amazon Bedrock AgentCore Code Interpreter
-<a name="code-interpreter-root-ca-certificates"></a>
 
 By default, Amazon Bedrock AgentCore Code Interpreter sessions trust only publicly recognized certificate authorities. If your agents need to access internal services or resources behind a TLS-intercepting proxy that use certificates signed by a private CA, you must provide your custom root CA certificates when starting a session.
 
@@ -33,7 +32,7 @@ Before configuring root CA certificates, ensure you have the following:
 + Your root CA certificates stored as secrets in AWS Secrets Manager. Each secret must contain valid PEM-encoded X.509 certificate
 + IAM permissions to read the certificate secrets from AWS Secrets Manager. Add the following permissions to your IAM policy:
 
-  ```
+  ```json
   {
   "Version": "2012-10-17",		 	 	 
       "Statement": [
@@ -58,7 +57,7 @@ Before you can use a root CA certificate with Amazon Bedrock AgentCore Code Inte
 
 1. 
 
-   ```
+   ```bash
    aws secretsmanager create-secret \
      --name "my-corporate-root-ca" \
      --description "Corporate root CA certificate for AgentCore sessions" \
@@ -68,7 +67,7 @@ Before you can use a root CA certificate with Amazon Bedrock AgentCore Code Inte
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('secretsmanager', region_name='<region>')
@@ -100,7 +99,7 @@ To start a code interpreter session that trusts your custom root CA certificates
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore start-code-interpreter-session \
      --code-interpreter-identifier "aws.codeinterpreter.v1" \
      --name "ci-session-with-custom-ca" \
@@ -117,7 +116,7 @@ To start a code interpreter session that trusts your custom root CA certificates
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore', region_name='<region>')
@@ -142,7 +141,7 @@ To start a code interpreter session that trusts your custom root CA certificates
 
 1. 
 
-   ```
+   ```json
    {
      "name": "ci-session-with-custom-ca",
      "certificates": [
@@ -166,7 +165,7 @@ You can provide multiple root CA certificates in a single code interpreter sessi
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore start-code-interpreter-session \
      --code-interpreter-identifier "aws.codeinterpreter.v1" \
      --name "ci-session-with-multiple-cas" \
@@ -190,7 +189,7 @@ You can provide multiple root CA certificates in a single code interpreter sessi
 
 1. 
 
-   ```
+   ```python
    response = client.start_code_interpreter_session(
        codeInterpreterIdentifier="aws.codeinterpreter.v1",
        name="ci-session-with-multiple-cas",
@@ -224,7 +223,7 @@ This is useful for organization-wide certificates that should be trusted by all 
 
 1. 
 
-   ```
+   ```python
    response = client.create_code_interpreter(
        name="corporate-code-interpreter",
        description="Code interpreter with corporate CA trust",

@@ -1,7 +1,6 @@
 
 
 # Customize a built-in strategy or create your own strategy
-<a name="memory-custom-strategy"></a>
 
 For advanced or domain-specific use cases, you can create a built-in with overrides strategy to gain fine-grained control over the long-term memory process. Built-in with overrides strategies let you override the default behavior of the built-in strategies by providing your own instructions and selecting a specific foundation model for the extraction and consolidation steps.
 

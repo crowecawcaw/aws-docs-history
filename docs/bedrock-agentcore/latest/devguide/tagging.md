@@ -1,7 +1,6 @@
 
 
 # Tagging AgentCore resources
-<a name="tagging"></a>
 
 A *tag* is a label that you assign to an AWS resource. Each tag consists of a *key* and an optional *value* , both of which you define.
 
@@ -40,6 +39,8 @@ The following AgentCore resources support tagging:
 + Batch Evaluation
 + Recommendation
 + AB Test
++ Harness
++ Harness endpoint
 
 ## Tag restrictions
 <a name="tagging-restrictions"></a>
@@ -131,6 +132,8 @@ You can add, edit, or delete tags for AgentCore resources using the console, API
    +  [StartBatchEvaluation](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBatchEvaluation.html) – Include tags in the `tags` parameter.
    +  [StartRecommendation](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartRecommendation.html) – Include tags in the `tags` parameter.
    +  [CreateABTest](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_CreateABTest.html) – Include tags in the `tags` parameter.
+   +  [CreateHarness](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateHarness.html) – Include tags in the `tags` parameter.
+   +  [CreateHarnessEndpoint](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateHarnessEndpoint.html) – Include tags in the `tags` parameter.
 
       **Adding tags to existing resources** 
 

@@ -1,7 +1,6 @@
 
 
 # Encryption at rest for AgentCore Evaluations
-<a name="evaluations-encryption"></a>
 
 **Note**  
 This page covers customer managed key encryption for custom evaluators. For dataset encryption, see [Dataset encryption](datasets-encryption.md).
@@ -46,7 +45,7 @@ The following key policy provides the minimum permissions required for AgentCore
 +  **AllowCallerCryptoOps** – Allows the IAM user or role to encrypt and decrypt, scoped by `kms:ViaService` and encryption context.
 +  **AllowServicePrincipalDecrypt** – Allows the AgentCore service principal to decrypt during online evaluation, scoped by source account and source ARN.
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -113,7 +112,7 @@ To encrypt a custom evaluator, specify the `kmsKeyArn` parameter when calling [C
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore-control create-evaluator \
   --evaluator-name "MyEncryptedEvaluator" \
   --level SESSION \
@@ -136,7 +135,7 @@ aws bedrock-agentcore-control create-evaluator \
   }'
 ```
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-agentcore-control')
@@ -181,7 +180,7 @@ You cannot remove customer managed key encryption from an evaluator once it has 
 
 You can use the encryption context to scope down access to the customer managed key. AgentCore Evaluations includes the following encryption context in all KMS operations:
 
-```
+```json
 {
   "aws:bedrock-agentcore:evaluatorArn": "arn:aws:bedrock-agentcore:us-east-1:111122223333:evaluator/evaluator-id"
 }

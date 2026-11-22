@@ -1,7 +1,6 @@
 
 
 # Create a payment instrument
-<a name="payments-create-instrument"></a>
 
 A payment instrument represents an embedded crypto wallet that an agent uses to pay merchants on behalf of a user. Each instrument is associated with a specific blockchain network. The `ETHEREUM` network value covers Ethereum mainnet and all supported EVM-compatible Layer 2 networks (Base, Arbitrum, and others). For the complete request and response schema, see [CreatePaymentInstrument](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_CreatePaymentInstrument.html) in the API Reference.
 
@@ -10,7 +9,7 @@ You can automate the steps on this page with the AgentCore Payments skill in the
 
 **Example**  
 
-```
+```python
 from bedrock_agentcore.payments import PaymentManager
 
 manager = PaymentManager(
@@ -34,7 +33,7 @@ instrument = manager.create_payment_instrument(
 ```
 For Solana compatible chain, use enum `SOLANA` for network input.
 
-```
+```bash
 aws bedrock-agentcore create-payment-instrument \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
     --payment-connector-id "my-connector-id" \
@@ -51,7 +50,7 @@ aws bedrock-agentcore create-payment-instrument \
 ```
 For Solana compatible chain, use `"network": "SOLANA"`.
 
-```
+```python
 import boto3
 import uuid
 
@@ -87,7 +86,7 @@ Once the payment instrument is created, the end user must fund the instrument an
 
 **Example**  
 
-```
+```python
 instrument = manager.get_payment_instrument(
     user_id="test-user-123",
     payment_instrument_id="payment-instrument-abc123"
@@ -95,7 +94,7 @@ instrument = manager.get_payment_instrument(
 print(f"Status: {instrument['status']}")
 ```
 
-```
+```bash
 aws bedrock-agentcore get-payment-instrument \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
     --payment-instrument-id "payment-instrument-abc123" \
@@ -103,7 +102,7 @@ aws bedrock-agentcore get-payment-instrument \
     --region us-west-2
 ```
 
-```
+```python
 response = dp_client.get_payment_instrument(
     paymentManagerArn=PAYMENT_MANAGER_ARN,
     paymentInstrumentId="payment-instrument-abc123"
@@ -117,7 +116,7 @@ print(f"Status: {instrument['status']}, Network: {instrument['paymentInstrumentD
 
 **Example**  
 
-```
+```python
 instruments = manager.list_payment_instruments(
     user_id="test-user-123"
 )
@@ -125,14 +124,14 @@ for inst in instruments['paymentInstruments']:
     print(f"{inst['paymentInstrumentId']} - {inst['status']}")
 ```
 
-```
+```bash
 aws bedrock-agentcore list-payment-instruments \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
     --user-id "test-user-123" \
     --region us-west-2
 ```
 
-```
+```python
 response = dp_client.list_payment_instruments(
     paymentManagerArn=PAYMENT_MANAGER_ARN,
     userId="test-user-123"
@@ -146,7 +145,7 @@ for inst in response['paymentInstruments']:
 
 **Example**  
 
-```
+```python
 balance = manager.get_payment_instrument_balance(
     user_id="test-user-123",
     payment_connector_id=PAYMENT_CONNECTOR_ID,
@@ -158,7 +157,7 @@ token_balance = balance["tokenBalance"]
 print(f"Balance: {token_balance['amount']} {token_balance['token']} on {token_balance['chain']}")
 ```
 
-```
+```bash
 aws bedrock-agentcore get-payment-instrument-balance \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
     --payment-connector-id "my-connector-id" \
@@ -169,7 +168,7 @@ aws bedrock-agentcore get-payment-instrument-balance \
     --region us-west-2
 ```
 
-```
+```python
 response = dp_client.get_payment_instrument_balance(
     userId="test-user-123",
     paymentManagerArn=PAYMENT_MANAGER_ARN,
@@ -187,7 +186,7 @@ print(f"Balance: {token_balance['amount']} {token_balance['token']} on {token_ba
 
 **Example**  
 
-```
+```python
 manager.delete_payment_instrument(
     user_id="test-user-123",
     payment_connector_id=PAYMENT_CONNECTOR_ID,
@@ -195,7 +194,7 @@ manager.delete_payment_instrument(
 )
 ```
 
-```
+```bash
 aws bedrock-agentcore delete-payment-instrument \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
     --payment-connector-id "my-connector-id" \
@@ -203,7 +202,7 @@ aws bedrock-agentcore delete-payment-instrument \
     --region us-west-2
 ```
 
-```
+```python
 dp_client.delete_payment_instrument(
     paymentManagerArn=PAYMENT_MANAGER_ARN,
     paymentConnectorId=PAYMENT_CONNECTOR_ID,

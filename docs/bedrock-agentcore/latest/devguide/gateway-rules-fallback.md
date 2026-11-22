@@ -1,7 +1,6 @@
 
 
 # Model routing and fallback
-<a name="gateway-rules-fallback"></a>
 
 When you route inference traffic through a gateway, a request can fail when the target that serves the requested model is throttled, out of capacity, or unreachable. With model fallback, you define an ordered chain of alternative destinations, and the gateway automatically tries the next one when the primary fails. Fallback gives you higher availability and more control over cost and model coverage, without each calling client implementing its own fallback logic.
 
@@ -23,7 +22,7 @@ Start with a rule that routes a model to a specific target, without fallback. Us
 
 The following AWS CLI command creates a rule that routes `gpt-5.5` to the `bedrock-mantle` target:
 
-```
+```bash
 aws bedrock-agentcore-control create-gateway-rule \
     --gateway-identifier my-gateway-abc1234567 \
     --priority 100 \
@@ -66,7 +65,7 @@ Once a streaming response has started, the gateway can no longer fall back; the 
 
 The following AWS CLI command creates a rule that routes `gpt-5.5` to `bedrock-mantle` and adds a fallback chain. It tries `gpt-5.5` on `bedrock-mantle` first. If that fails, it tries `gpt-5.5` on `openai`. Only if neither can serve the request does it degrade to `gpt-5.4` on `bedrock-mantle`. The primary falls back on `429` and `5XX`, on a connection error or first-byte timeout, and on an unroutable target, with a 5-second first-byte timeout. The two fallback destinations take the service defaults.
 
-```
+```bash
 aws bedrock-agentcore-control create-gateway-rule \
     --gateway-identifier my-gateway-abc1234567 \
     --priority 100 \

@@ -1,7 +1,6 @@
 
 
 # Web Answer
-<a name="gateway-target-connector-web-answer-tool"></a>
 
 Web Answer on Amazon Bedrock AgentCore takes a natural-language question and returns a synthesized answer with citations to current web sources. It is a managed connector that you add as a target to your AgentCore Gateway. Agents discover it with a standard `tools/list` call and invoke it like any other Model Context Protocol (MCP) tool.
 
@@ -113,7 +112,7 @@ The Gateway needs a service role that allows the AgentCore service to perform ac
 
 Web Answer accepts the following input schema when invoked through `tools/call`. The `filters` and `userLocation` fields are available in connector version `1.1.0` and later. On version `1.0.0`, the schema exposes only `query`.
 
-```
+```json
 {
   "inputSchema": {
     "type": "object",
@@ -191,7 +190,7 @@ Web Answer accepts the following input schema when invoked through `tools/call`.
 
 Web Answer returns an MCP tool result with `content`, `structuredContent`, `isError`, and `_meta` fields:
 
-```
+```json
 {
   "isError": false,
   "content": [

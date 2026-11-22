@@ -1,7 +1,6 @@
 
 
 # Obtain OAuth 2.0 access token
-<a name="identity-authentication"></a>
 
 AgentCore Identity enables developers to obtain OAuth tokens for either user-delegated access or machine-to-machine authentication based on the configured OAuth 2.0 credential providers. The service will orchestrate the authentication process between the user or application to the downstream authorization server, and it will retrieve and store the resulting token. Once the token is available in the AgentCore Identity vault, authorized agents can retrieve it and use it to authorize calls to resource servers. For example, the sample code below will retrieve a token to interact with Google Drive on behalf of an end user. For more information, see [Integrate with Google Drive using OAuth2](identity-getting-started-google.md) for the complete example.
 

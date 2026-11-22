@@ -1,7 +1,6 @@
 
 
 # Get a configuration bundle
-<a name="configuration-bundles-get"></a>
 
 Retrieve a configuration bundle to inspect its metadata or read the full configuration content of a specific version. Two operations are available:
 +  **GetConfigurationBundle** — Returns the latest version of a bundle. If `branchName` is specified, returns the latest version on that branch. If omitted, returns the latest version on the `mainline` branch. Use this to read the current active configuration.
@@ -20,19 +19,19 @@ Retrieve a configuration bundle to inspect its metadata or read the full configu
 **Example**  
 Get the latest version on the `mainline` branch:  
 
-```
+```bash
 agentcore eval config-bundle get --id <configuration-bundle-id>
 ```
 Get the latest version on another branch:  
 
-```
+```bash
 agentcore eval config-bundle get \
   --id <configuration-bundle-id> \
   --branch-name <branch-name>
 ```
 Get a specific immutable version:  
 
-```
+```bash
 agentcore eval config-bundle get \
   --id <configuration-bundle-id> \
   --version <version-id>
@@ -40,7 +39,7 @@ agentcore eval config-bundle get \
 Without `--version`, the command returns the latest version on the branch named by `--branch-name`, which defaults to `mainline`. With `--version`, it returns that exact version and ignores the branch.
 Get bundle metadata and latest version content:  
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
@@ -56,7 +55,7 @@ print(f"Components: {response['components']}")
 ```
 Get a specific historical version:  
 
-```
+```python
 response = client.get_configuration_bundle_version(
     bundleId="myAgentConfig-a1b2c3d4e5",
     versionId="12345678-1234-1234-1234-123456789012"

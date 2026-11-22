@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Amazon Bedrock AgentCore
-<a name="service-linked-roles"></a>
 
 Amazon Bedrock AgentCore uses AWS Identity and Access Management (IAM) service-linked roles. A service-linked role is a unique type of IAM role that is linked directly to AgentCore. Service-linked roles are predefined by AgentCore and include all the permissions that the service requires to call other AWS services on your behalf.
 
@@ -136,10 +135,7 @@ You can view the complete policy at [BedrockAgentCoreRuntimeIdentityServiceRoleP
             "bedrock-agentcore:GetWorkloadAccessTokenForJWT",
             "bedrock-agentcore:GetWorkloadAccessTokenForUserId"
         ],
-        "Resource": [
-            "arn:aws:bedrock-agentcore:*:*:workload-identity-directory/default",
-            "arn:aws:bedrock-agentcore:*:*:workload-identity-directory/default/workload-identity/*"
-        ]
+        "Resource": "*"
     }
 }
 ```

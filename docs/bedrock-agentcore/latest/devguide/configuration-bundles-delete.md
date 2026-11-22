@@ -1,7 +1,6 @@
 
 
 # Delete a configuration bundle
-<a name="configuration-bundles-delete"></a>
 
 Delete a configuration bundle and all of its versions. Deletion is asynchronous — the API returns immediately with a `DELETING` status, and the service removes the bundle and its version history in the background.
 
@@ -13,17 +12,17 @@ You cannot delete a bundle that is referenced by an active A/B test. Stop the A/
 **Example**  
 If you added the bundle with `agentcore add config-bundle`, remove it from the project and deploy. The deployment deletes the bundle and all of its versions:  
 
-```
+```bash
 agentcore remove config-bundle --name myAgentConfig
 agentcore deploy
 ```
 To delete a configuration bundle that your project does not manage, such as one that you created with `agentcore eval config-bundle create`, use its ID:  
 
-```
+```bash
 agentcore eval config-bundle delete --id <configuration-bundle-id>
 ```
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")

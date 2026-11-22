@@ -1,7 +1,6 @@
 
 
 # Cross-region inference in Amazon Bedrock AgentCore Memory, Policy in Amazon Bedrock AgentCore, and AgentCore Evaluations
-<a name="cross-region-inference"></a>
 
 With cross-region inference, Amazon Bedrock AgentCore Memory, Policy in AgentCore, and AgentCore Evaluations will automatically select the optimal region (as described in more detail below) to process your inference request, maximizing available compute resources and model availability, and providing the best customer experience.
 

@@ -1,7 +1,6 @@
 
 
 # List online evaluations
-<a name="list-online-evaluations"></a>
 
 The `ListOnlineEvaluationConfigs` API retrieves a paginated list of all online evaluation configurations in your account and Region. This synchronous operation uses the POST method and returns summary information for each configuration.
 
@@ -16,7 +15,7 @@ The following code samples demonstrate how to list online evaluation configurati
 
 1. 
 
-   ```
+   ```python
    from bedrock_agentcore_starter_toolkit import Evaluation
    
    # Initialize the evaluation client
@@ -34,7 +33,7 @@ The following code samples demonstrate how to list online evaluation configurati
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -44,7 +43,7 @@ The following code samples demonstrate how to list online evaluation configurati
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control list-online-evaluation-configs \
        --max-results 20
    ```

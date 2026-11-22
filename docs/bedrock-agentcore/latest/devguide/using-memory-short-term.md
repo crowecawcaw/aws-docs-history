@@ -1,7 +1,6 @@
 
 
 # Use short-term memory
-<a name="using-memory-short-term"></a>
 
 In your AI agent, you write code to add events to [short-term memory](memory-types.md#short-term-memory) in an AgentCore Memory. These events are stored as short-term memory. They form the foundation for structured information extraction into long-term memory.
 
@@ -12,7 +11,7 @@ The following section discusses short-term memory with the AWS SDK. For examples
 
 The AgentCore CLI provides commands for inspecting deployed memories and their data. Use event commands for short-term memory and record commands for long-term memory.
 
-```
+```bash
 # List memories and inspect one memory
 agentcore memory list
 

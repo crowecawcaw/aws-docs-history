@@ -1,7 +1,6 @@
 
 
 # Strands Agents SDK
-<a name="strands-sdk-memory"></a>
 
 Use the [Strands Agents](https://strandsagents.com/latest/) SDK integration to manage and retrieve AgentCore Memory automatically in conversational agents.
 
@@ -11,14 +10,14 @@ First, create a memory with the semantic, summary, and user preference long-term
 
 1. The AgentCore CLI memory commands must be run inside an existing AgentCore project. If you don’t have one yet, create a project first:
 
-   ```
+   ```bash
    agentcore create --name MemoryProject --template empty
    cd MemoryProject
    ```
 
    Then add memory and deploy:
 
-   ```
+   ```bash
    agentcore add memory --name ComprehensiveAgentMemory \
      --strategies SEMANTIC,SUMMARIZATION,USER_PREFERENCE
    agentcore deploy
@@ -45,7 +44,7 @@ pip install strands-agents
 
  **Add short-term memory** 
 
-```
+```python
 from datetime import datetime
 from strands import Agent
 from bedrock_agentcore.memory import MemoryClient
@@ -93,7 +92,7 @@ agent("What should I buy for lunch today?")
 
  **Add long-term memory with strategies** 
 
-```
+```python
 from bedrock_agentcore.memory import MemoryClient
 from strands import Agent
 from bedrock_agentcore.memory.integrations.strands.config import AgentCoreMemoryConfig, RetrievalConfig
@@ -169,7 +168,7 @@ When using `batch_size > 1` , you **must** use a `with` block or call `close()` 
 
  *Recommended: Context manager* 
 
-```
+```python
 from strands import Agent
 from bedrock_agentcore.memory.integrations.strands.config import AgentCoreMemoryConfig
 from bedrock_agentcore.memory.integrations.strands.session_manager import AgentCoreMemorySessionManager
@@ -196,7 +195,7 @@ with AgentCoreMemorySessionManager(config, region_name='us-east-1') as session_m
 
 If you cannot use a `with` block, call `close()` manually:
 
-```
+```python
 session_manager = AgentCoreMemorySessionManager(config, region_name='us-east-1')
 try:
     agent = Agent(

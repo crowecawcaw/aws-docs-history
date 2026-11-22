@@ -1,7 +1,6 @@
 
 
 # Receive logging messages from your AgentCore gateway
-<a name="gateway-mcp-logging"></a>
 
 MCP server targets can send log messages to clients during tool execution using the `notifications/message` method. These messages provide real-time visibility into what the server is doing, useful for debugging, auditing, and monitoring tool behavior. AgentCore Gateway forwards these log notifications from MCP server targets to your client as Server-Sent Events (SSE) chunks.
 
@@ -46,7 +45,7 @@ Log messages are informational and do not require a response from the client. Th
 **Example**  
 Call a tool and receive log messages in the SSE stream. Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
-```
+```bash
 curl -N -X POST \
   https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
   -H "Content-Type: application/json" \
@@ -86,7 +85,7 @@ data: {"jsonrpc":"2.0","id":"tool-call-1","result":{"content":[{"type":"text","t
 ```
 On version `2026-07-28`, the client opts into log messages for each request by setting `io.modelcontextprotocol/logLevel` in `_meta` (the `logging/setLevel` operation is retired in this version). The server sends `notifications/message` only at or above the requested level. Also include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
-```
+```bash
 curl -N -X POST \
   https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
   -H "Content-Type: application/json" \
@@ -137,7 +136,7 @@ data: {"jsonrpc":"2.0","id":"tool-call-1","result":{"content":[{"type":"text","t
 ```
 Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
-```
+```python
 import requests
 import json
 import sseclient
@@ -174,7 +173,7 @@ for event in client.events():
 ```
 On version `2026-07-28`, opt into log messages by setting `io.modelcontextprotocol/logLevel` in `_meta` (the `logging/setLevel` operation is retired in this version). Also add the `MCP-Protocol-Version`, `Mcp-Method`, and `Mcp-Name` headers and the `_meta` version fields. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
-```
+```python
 import requests
 import json
 import sseclient
@@ -218,7 +217,7 @@ for event in client.events():
         break
 ```
 
-```
+```python
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import asyncio
@@ -253,7 +252,7 @@ asyncio.run(use_logging(
 ))
 ```
 
-```
+```python
 from mcp.client.streamable_http import streamablehttp_client
 from strands import Agent
 from strands.tools.mcp import MCPClient

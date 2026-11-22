@@ -1,7 +1,6 @@
 
 
 # Enable MCP response streaming for your AgentCore gateway
-<a name="gateway-mcp-streaming"></a>
 
 MCP response streaming enables your AgentCore gateway to deliver real-time Server-Sent Events (SSE) to clients during tool execution. Instead of waiting for the entire tool call to complete before returning a response, the gateway streams events as they occur — including progress notifications, log messages, elicitation requests, and sampling requests.
 
@@ -22,7 +21,7 @@ For tools that take seconds or minutes to complete, streaming keeps the client i
 
 To enable response streaming, set `streamingConfiguration.enableResponseStreaming` to `true` in the `protocolConfiguration.mcp` field when creating or updating your gateway:
 
-```
+```json
 {
   "protocolConfiguration": {
     "mcp": {
@@ -35,7 +34,8 @@ To enable response streaming, set `streamingConfiguration.enableResponseStreamin
 ```
 
 **Note**  
-Enabling response streaming introduces a change to the response interceptor input contract. If you use response interceptors, review your interceptor logic to ensure compatibility with streaming responses. See [Response interceptors with streaming enabled](gateway-interceptors-types.md#gateway-interceptors-types-streaming) for details.
+Enabling response streaming introduces a change to the response interceptor input contract. If you use response interceptors, review your interceptor logic to ensure compatibility with streaming responses. See [Response interceptors with streaming enabled](gateway-interceptors-types.md#gateway-interceptors-types-streaming) for details.  
+This setting applies only to MCP targets. For HTTP and inference targets, see [Stream responses through the response interceptor](gateway-interceptors-types.md#gateway-interceptors-types-http-stream).
 
 ## How response streaming works
 <a name="gateway-mcp-streaming-how"></a>
@@ -70,7 +70,7 @@ To receive streaming responses, clients must:
 
 1. Send a tool call request with SSE accept header:
 
-   ```
+   ```bash
    curl -N -X POST \
      https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
      -H "Content-Type: application/json" \
@@ -110,7 +110,7 @@ To receive streaming responses, clients must:
 
 1. 
 
-   ```
+   ```python
    import requests
    import json
    import sseclient
@@ -150,7 +150,7 @@ To receive streaming responses, clients must:
 
 1. 
 
-   ```
+   ```python
    from mcp import ClientSession
    from mcp.client.streamable_http import streamablehttp_client
    import asyncio

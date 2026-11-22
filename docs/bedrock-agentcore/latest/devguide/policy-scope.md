@@ -1,7 +1,6 @@
 
 
 # Policy scope
-<a name="policy-scope"></a>
 
 The scope defines what the policy applies to. Every Cedar policy specifies three components:
 
@@ -11,7 +10,7 @@ The scope defines what the policy applies to. Every Cedar policy specifies three
 + [Action](#policy-action)
 + [Resource](#policy-resource)
 
-```
+```cedar
 permit(
   principal is AgentCore::OAuthUser,    // WHO is making the request
   action == AgentCore::Action::"...",   // WHAT they want to do
@@ -36,7 +35,7 @@ The principal identifies the entity making the authorization request. The princi
 
 When using OAuth authorization, the principal is an `AgentCore::OAuthUser` :
 
-```
+```cedar
 principal is AgentCore::OAuthUser
 ```
 
@@ -52,7 +51,7 @@ Principals are OAuth-authenticated users. Each user has a unique ID from the JWT
 
 When using AWS\_IAM authorization, the principal is an `AgentCore::IamEntity` :
 
-```
+```cedar
 principal is AgentCore::IamEntity
 ```
 
@@ -68,7 +67,7 @@ IAM principals have an `id` attribute containing the caller’s IAM ARN. You can
 
 The action specifies the operation being requested:
 
-```
+```cedar
 action == AgentCore::Action::"RefundTool___process_refund"
 ```
 
@@ -98,7 +97,7 @@ Cedar does **not** support wildcard actions. Each action must be referenced expl
 
 For example, to allow access only to tools whose names start with Read, you can create a Gateway Target called ReadToolsTarget that includes each such tool, and then write a policy like:
 
-```
+```cedar
 permit(
   principal,
   action in AgentCore::Action::"ReadToolsTarget",
@@ -113,7 +112,7 @@ This will permit all tools included in that target depending on the policy’s e
 
 The resource identifies the target of the request:
 
-```
+```cedar
 resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/refund-gateway"
 ```
 
@@ -129,7 +128,7 @@ The AgentCore Gateway is the MCP server that routes tool calls.
 
 When specifying one or more specific actions, you must use specific AgentCore Gateway ARNs:
 
-```
+```cedar
 // Required: Specific Gateway ARN for specific action(s)
 resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/refund-gateway"
 ```
@@ -140,14 +139,14 @@ This applies to:
 
 Use type checks only when matching any action:
 
-```
+```cedar
 // For policies covering any action (not specific tools)
 resource is AgentCore::Gateway
 ```
 
 Examples:
 
-```
+```cedar
 // Blocks all actions
 forbid(principal, action, resource);
 

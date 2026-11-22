@@ -1,7 +1,6 @@
 
 
 # Get online evaluation
-<a name="get-online-evaluations"></a>
 
 The `GetOnlineEvaluationConfig` API retrieves the complete details and current status of an existing online evaluation configuration. This synchronous operation returns the full configuration including data sources, evaluators, execution status, and operational metadata.
 
@@ -28,7 +27,7 @@ The following code samples demonstrate how to get online evaluation configuratio
 
 1. 
 
-   ```
+   ```python
    from bedrock_agentcore_starter_toolkit import Evaluation
    
    # Initialize the evaluation client
@@ -46,7 +45,7 @@ The following code samples demonstrate how to get online evaluation configuratio
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -58,7 +57,7 @@ The following code samples demonstrate how to get online evaluation configuratio
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control get-online-evaluation-config \
        --online-evaluation-config-id your_config_id
    ```

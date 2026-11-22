@@ -1,7 +1,6 @@
 
 
 # IAM Permissions for AgentCore Runtime
-<a name="runtime-permissions"></a>
 
 The following are IAM permissions you need to create an agent in an AgentCore Runtime and the execution role permissions that an agent needs to run in an AgentCore Runtime. You can also use resource-based policies to control access to your runtime resources.
 
@@ -45,7 +44,7 @@ Use broad deployment permissions only for development and testing. For productio
 
 Attach the [BedrockAgentCoreFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.html) policy to the console role. Additionally, add the following permissions for IAM if you want service console to auto-create the execution role.
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [{
@@ -88,7 +87,7 @@ The Amazon Bedrock AgentCore direct deploy execution role is an IAM role that Am
 +  `123456789012` with your AWS account ID
 +  {{agentName}} with the name of your agent. You’ll need to decide the agent name before creating the role and AgentCore Runtime.
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [{
@@ -162,7 +161,7 @@ The AgentCore Runtime execution role is an IAM role that AgentCore Runtime assum
 +  `123456789012` with your AWS account ID
 +  {{agentName}} with the name of your agent. You’ll need to decide the agent name before creating the role and AgentCore Runtime.
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -282,7 +281,7 @@ In the policy, replace:
 
 To add the trust policy to the AgentCore Runtime execution role, go to the AWS Management Console, navigate to the role, choose the **Trust relationships** tab, and choose **Edit trust policy**.
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,43 +1,58 @@
 
 
-# Prerequisites
-<a name="insights-prerequisites"></a>
+# Prerequisites for Insights
 
-Before you begin using AgentCore insights, ensure you have the following:
+Before you use Insights, complete the following prerequisites.
 
-**Topics**
-+ [Requirements](#insights-prereqs-requirements)
-+ [IAM permissions](#insights-prereqs-iam)
-+ [Execution role](#insights-prereqs-execution-role)
+## Configure agent telemetry
+<a name="insights-prereqs-telemetry"></a>
 
-## Requirements
-<a name="insights-prereqs-requirements"></a>
-+  ** AWS Account** with appropriate IAM permissions
-+  **Amazon CloudWatch** access for reading agent session traces and viewing insight results
-+  **Transaction Search** enabled in CloudWatch — see [AgentCore Observability](observability.md) for setup instructions
-+  ** AWS Distro for OpenTelemetry (ADOT) SDK** instrumenting your agent — your agent must emit traces to CloudWatch Logs
-+  **An active agent** with at least one completed session producing traces in CloudWatch Logs
+Your agent must emit supported OpenTelemetry or OpenInference traces to Amazon CloudWatch Logs, and CloudWatch Transaction Search must be enabled. For setup instructions, see [Observe agent applications](observability.md) and [Supported agent frameworks](supported-frameworks.md).
 
-## IAM permissions
+For online evaluation insights, AgentCore uses the `service.name` resource attribute, configured as `serviceName` in the online evaluation data source, as the Agent Insight `applicationName`. Use a consistent service name for traffic that belongs to the same agent.
+
+## Configure an evaluation
+<a name="insights-prereqs-evaluation"></a>
+
+Include `Builtin.FailureAnalysis` in one of the following:
++ An online evaluation configuration, to generate Agent Insights from sampled live traffic and update them as new evidence arrives.
++ A batch evaluation, to generate point-in-time insights from a selected set or time range of sessions.
+
+An online evaluation requires `evaluationExecutionRoleArn`. The role must be able to read the selected CloudWatch log groups and perform the other evaluation operations described in [Prerequisites for AgentCore Evaluations](evaluations-prerequisites.md). The Agent Insight Store itself doesn’t use a customer-provided execution role.
+
+## Enable the Agent Insight Store
+<a name="insights-prereqs-store"></a>
+
+Each account has one default Store per supported Region. The Store starts with `enablementStatus` set to `DISABLED`. Enable it, then use `ListAgentInsightStores` or `GetAgentInsightStore` to confirm that:
++  `enablementStatus` is `ENABLED`.
++  `status` is `ACTIVE`.
+
+If the Store is `INACTIVE`, enable it. If it is `UPDATING`, wait for the current update to finish. If it is `ERROR`, read `failureReason` and correct the reported encryption or cleanup problem. Insight Evaluators can’t write Agent Insights until the Store is enabled and active. For instructions, see [Manage the Agent Insight Store](insights-store.md).
+
+## Grant caller permissions
 <a name="insights-prereqs-iam"></a>
 
-Your IAM user or role needs the following permissions to configure and run insights:
+The following example grants a principal the Agent Insights API permissions and the evaluation permissions used in the examples in this section. Scope the resources and conditions for your environment where the actions support resource-level permissions.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
             "Action": [
+                "bedrock-agentcore:GetAgentInsightStore",
+                "bedrock-agentcore:ListAgentInsightStores",
+                "bedrock-agentcore:UpdateAgentInsightStore",
+                "bedrock-agentcore:GetAgentInsight",
+                "bedrock-agentcore:ListAgentInsights",
+                "bedrock-agentcore:UpdateAgentInsight",
                 "bedrock-agentcore:CreateOnlineEvaluationConfig",
-                "bedrock-agentcore:GetOnlineEvaluationConfig",
-                "bedrock-agentcore:ListOnlineEvaluationConfigs",
-                "bedrock-agentcore:UpdateOnlineEvaluationConfig",
                 "bedrock-agentcore:DeleteOnlineEvaluationConfig",
+                "bedrock-agentcore:GetOnlineEvaluationConfig",
+                "bedrock-agentcore:UpdateOnlineEvaluationConfig",
                 "bedrock-agentcore:StartBatchEvaluation",
-                "bedrock-agentcore:GetBatchEvaluation",
-                "bedrock-agentcore:ListBatchEvaluations"
+                "bedrock-agentcore:GetBatchEvaluation"
             ],
             "Resource": "*"
         }
@@ -45,17 +60,8 @@ Your IAM user or role needs the following permissions to configure and run insig
 }
 ```
 
-If you pass `--agent` to `agentcore eval batch-insights run`, also allow `bedrock-agentcore:GetAgentRuntime` and `bedrock-agentcore:GetHarness`. The CLI reads the Runtime or Harness to find its log group and service name.
+To pass an online evaluation execution role, you also need `iam:PassRole` for that role.
 
-## Execution role
-<a name="insights-prereqs-execution-role"></a>
+If you configure the Store with a customer managed AWS KMS key, you need additional KMS permissions, and the key policy must allow the service principal. See [Encryption at rest for Agent Insights](insights-security.md).
 
-The online evaluation configuration requires an execution role (`evaluationExecutionRoleArn`) that allows the service to:
-+ Read traces from CloudWatch Logs
-+ Invoke Amazon Bedrock models for insight analysis
-+ Store and retrieve insight results
-
-If you have already configured an execution role for AgentCore Evaluations, the same role works for insights. See [Evaluations Prerequisites](evaluations-prerequisites.md) for details on creating this role.
-
-**Note**  
-If you plan to use insights findings to generate optimized configurations through [AgentCore optimization recommendations](optimization-recommendations.md), you also need `bedrock-agentcore:StartRecommendation`, `bedrock-agentcore:GetRecommendation`, `bedrock-agentcore:ListRecommendations`, and `bedrock-agentcore:DeleteRecommendation` permissions. See [Optimization Prerequisites](optimization-prereqs.md) for details.
+The example policy covers the Agent Insights and evaluation operations in this section. To use an Agent Insight to guide a recommendation, also grant the recommendation permissions described in [IAM permissions](optimization-prereqs.md#optimization-prereqs-iam) for AgentCore optimization.

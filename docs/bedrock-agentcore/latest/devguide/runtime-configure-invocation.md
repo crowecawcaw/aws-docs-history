@@ -1,7 +1,6 @@
 
 
 # Configure your agent’s serving port and invocation path
-<a name="runtime-configure-invocation"></a>
 
 Use `protocolConfiguration.port` and `protocolConfiguration.path` to customize your agent server’s serving port and invocation path. You continue to call `InvokeAgentRuntime` with the runtime ARN, session ID, and payload. AgentCore Runtime sends the POST request to the configured destination in your container.
 
@@ -49,7 +48,7 @@ Your server must listen on `0.0.0.0` at the configured serving port.
 
 The following FastAPI application accepts invocations at `/agent/invoke`. Replace the invocation handler with your agent logic.
 
-```
+```python
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -72,7 +71,7 @@ def invoke(request: InvocationRequest):
 
 If you save the application as `app.py`, start it in your container with the following command:
 
-```
+```bash
 uvicorn app:app --host 0.0.0.0 --port 9090
 ```
 
@@ -85,7 +84,7 @@ The following example creates a runtime for the application. Replace the Region,
 
 The image must include your application and its dependencies. It must start the server on port `9090`.
 
-```
+```python
 import boto3
 
 region = "us-west-2"
@@ -116,7 +115,7 @@ This request omits `allowedPorts`. It configures invocation routing without enab
 
 After the runtime reaches `READY` status, invoke it as usual. You can check the status with [GetAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetAgentRuntime.html).
 
-```
+```python
 import json
 import uuid
 

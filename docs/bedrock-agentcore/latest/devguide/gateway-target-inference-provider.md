@@ -1,7 +1,6 @@
 
 
 # Inference provider targets
-<a name="gateway-target-inference-provider"></a>
 
 Inference provider targets give you explicit control over the endpoint, model mappings, and operations for a model provider. Use a provider configuration when you need to customize which models are available, set per-model token limits, configure path rewriting, or connect to a provider that doesn’t have a built-in connector.
 
@@ -18,7 +17,7 @@ Inference provider targets give you explicit control over the endpoint, model ma
 
 The target configuration for an inference provider target uses the following structure:
 
-```
+```json
 {
     "inference": {
         "provider": {
@@ -59,7 +58,7 @@ The target configuration for an inference provider target uses the following str
 
 The following example creates an OpenAI inference target using a provider configuration:
 
-```
+```bash
 aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
     "gatewayIdentifier": "GATEWAY_ID",
     "name": "openai",
@@ -105,7 +104,7 @@ aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
 
 The following example creates a Bedrock inference target with explicit provider configuration and model mapping. The `modelMapping` configuration with `providerPrefix` allows clients to use short model names (like `claude-opus-4-7`) while the gateway translates them to provider-prefixed names (like `anthropic.claude-opus-4-7`):
 
-```
+```bash
 aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
     "gatewayIdentifier": "GATEWAY_ID",
     "name": "bedrock",
@@ -161,7 +160,7 @@ Replace `{path}` with the inference operation path (for example, `v1/chat/comple
 
 Set the gateway’s `/inference/v1` path as the `base_url`:
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI(
@@ -180,7 +179,7 @@ response = client.chat.completions.create(
 
 Set the gateway’s `/inference` path as the `base_url`:
 
-```
+```python
 import anthropic
 
 client = anthropic.Anthropic(
@@ -198,7 +197,7 @@ response = client.messages.create(
 ### Using awscurl
 <a name="_using_awscurl"></a>
 
-```
+```bash
 awscurl --service bedrock-agentcore --region us-west-2 -X POST \
     "https://<gateway-id>.gateway.bedrock-agentcore.us-west-2.amazonaws.com/inference/v1/chat/completions" \
     -H "Content-Type: application/json" \
@@ -210,7 +209,7 @@ awscurl --service bedrock-agentcore --region us-west-2 -X POST \
 
 When multiple targets serve the same model, prefix the model ID with the target name to route to a specific provider:
 
-```
+```python
 # Route explicitly to the "bedrock" target
 response = client.chat.completions.create(
     model="bedrock/claude-opus-4-7",
@@ -236,7 +235,7 @@ To customize or override the target that a model routes to, you can rewrite the 
 
 Streaming follows the OpenAI SSE convention. Set `"stream": true` in the request body, and the gateway passes through the SSE stream from the provider without transformation:
 
-```
+```python
 stream = client.chat.completions.create(
     model="gpt-5.5",
     messages=[{"role": "user", "content": "Write a story."}],

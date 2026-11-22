@@ -1,7 +1,6 @@
 
 
 # Data protection in AWS Agent Registry
-<a name="registry-data-protection"></a>
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS Agent Registry. As described in this model, we are responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. This content includes the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see the [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq) on the AWS website.
 
@@ -23,5 +22,12 @@ To validate record metadata, use patterns such as the following:
 + Install packages only from an allowlist or from a package repository that you control, such as AWS CodeArtifact, and pin each package to a specific version.
 + Download source code only from repository hosts and owners that you allow.
 + Connect only to MCP server endpoints whose URL scheme and domain you allow.
+
+Skill packages that the registry stores need the same care. When the registry accepts a skill package, it validates the archive structure and the SKILL.md format against the Agent Skills specification. It doesn’t check what the scripts and other files in the package do. Before your agent loads a skill package, use patterns such as the following:
++ Verify the downloaded package against the `sha256` value that the registry returns with the download URL, and discard a package that doesn’t match.
++ Review the package’s scripts and other files, or load skills only from registries and publishers that you trust.
++ Run the skill’s scripts with the least privilege that they need.
+
+For information about how to download and verify a package, see [Download a skill package](registry-skill-package-download.md).
 
 **Topics**

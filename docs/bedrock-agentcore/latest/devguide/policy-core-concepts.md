@@ -1,7 +1,6 @@
 
 
 # Core concepts
-<a name="policy-core-concepts"></a>
 
 Before using Policy in Amazon Bedrock AgentCore, it’s important to understand the key concepts and components that work together to provide policy-based governance for your AI agents.
 

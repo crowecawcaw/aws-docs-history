@@ -1,7 +1,6 @@
 
 
 # Get started with AgentCore Code Interpreter
-<a name="code-interpreter-getting-started"></a>
 
 AgentCore Code Interpreter enables your agents to execute Python code in a secure, managed environment. The agent can perform calculations, analyze data, generate visualizations, and validate answers through code execution.
 
@@ -35,7 +34,7 @@ Perform the following steps to configure your AWS credentials and attach the req
 
    Confirm your AWS credentials are configured:
 
-   ```
+   ```bash
    aws sts get-caller-identity
    ```
 **Note**  
@@ -49,7 +48,7 @@ Take note of the user or credentials returned here, as you’ll be using it when
 **Note**  
 Replace `<region>` with your chosen region (for example, `us-west-2` ) and `<account_id>` with your AWS account ID in the policy below:
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",	
        "Statement": [

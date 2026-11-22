@@ -1,7 +1,6 @@
 
 
 # Live View
-<a name="browser-dcv-integration"></a>
 
 Amazon Bedrock AgentCore’s Live View is powered by [AWS DCV](https://docs.aws.amazon.com/dcv/). Each browser session launches a dedicated DCV server that streams the browser interface and enables real-time user interaction.
 
@@ -14,13 +13,13 @@ The BrowserLiveView component requires a SigV4-presigned Live View URL. After st
 
 Install the Amazon Bedrock AgentCore TypeScript SDK:
 
-```
+```bash
 npm install bedrock-agentcore
 ```
 
 Import the BrowserLiveView component and render it with the presigned URL. The component handles WebSocket connection, DCV protocol negotiation, video stream decoding, and frame rendering. It auto-scales to fit its parent container while preserving aspect ratio.
 
-```
+```javascript
 import { BrowserLiveView }
   from 'bedrock-agentcore/browser/live-view'
 

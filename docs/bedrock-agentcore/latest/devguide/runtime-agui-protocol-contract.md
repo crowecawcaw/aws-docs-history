@@ -1,7 +1,6 @@
 
 
 # AG-UI protocol contract
-<a name="runtime-agui-protocol-contract"></a>
 
 The AG-UI protocol contract defines the requirements for implementing agent-to-user interface communication in Amazon Bedrock AgentCore Runtime. This contract specifies the technical requirements, endpoints, and communication patterns that your AG-UI agent must implement.
 
@@ -58,7 +57,7 @@ Amazon Bedrock AgentCore passes request payloads directly to your container with
 
 AG-UI-compliant agents expect a `RunAgentInput` JSON payload. Example:
 
-```
+```json
 {
   "threadId": "thread-123",
   "runId": "run-456",
@@ -128,7 +127,7 @@ Returns a status code indicating your agent’s health:
 +  **Content-Type** : `application/json` 
 +  **HTTP Status Code** : `200` for healthy, appropriate error codes for unhealthy states
 
-```
+```json
 {
   "status": "Healthy"
 }

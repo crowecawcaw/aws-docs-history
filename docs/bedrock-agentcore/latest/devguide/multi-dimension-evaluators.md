@@ -1,7 +1,6 @@
 
 
 # Custom multi-dimension evaluators
-<a name="multi-dimension-evaluators"></a>
 
 A multi-dimension evaluator is a custom LLM-as-a-judge evaluator that rates one target on several named *dimensions* in a single judge call. Each dimension has its own instruction and its own rating scale, and produces its own result.
 
@@ -36,7 +35,7 @@ Multi-dimension evaluators support all three evaluation levels (`TOOL_CALL`, `TR
 
 The following configuration defines a trace-level evaluator with two numerical dimensions and one categorical dimension.
 
-```
+```json
 {
     "llmAsAJudge": {
         "modelConfig": {
@@ -91,7 +90,7 @@ The following configuration defines a trace-level evaluator with two numerical d
 
 Create the evaluator the same way as any custom evaluator. For example, with the AWS SDK for Python (Boto3):
 
-```
+```python
 import json
 import boto3
 
@@ -136,7 +135,7 @@ A multi-dimension evaluator produces one result per dimension for each target it
 
 The following is an excerpt of an `Evaluate` response for the `SupportQuality` evaluator on one trace:
 
-```
+```json
 {
     "evaluationResults": [
         {

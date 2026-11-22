@@ -1,11 +1,10 @@
 
 
 # Diagnostic skill source
-<a name="diagnose-evaluation-skill-source"></a>
 
 The following is the full source of the AgentCore Evaluation Diagnostic Skill. The skill follows the open [Agent Skills](https://agentskills.io) standard. Copy the entire code block and save it as `SKILL.md` inside a new folder named `agentcore-eval-diagnostic/` on your machine, then load the skill folder into your AI coding assistant as described in [Load the skill into your AI coding assistant](diagnose-evaluation-issues.md#load-the-skill).
 
-```
+```markdown
 ---
 name: agentcore-eval-diagnostic
 description: Diagnoses Amazon Bedrock AgentCore Evaluation failures by querying the user's CloudWatch log groups. Use when evaluations return empty results, when the user sees errors like LogEventMissingException or AgentSpanMappingException, or when the user asks why their AgentCore Evaluation is not producing scores.

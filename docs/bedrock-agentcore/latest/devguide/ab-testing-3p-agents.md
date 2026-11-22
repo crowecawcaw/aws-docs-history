@@ -1,7 +1,6 @@
 
 
 # Run an A/B test for agents hosted outside of AgentCore
-<a name="ab-testing-3p-agents"></a>
 
 You can A/B test an agent hosted outside AgentCore Runtime, for example on AWS Lambda, Amazon EKS, or Amazon ECS. AgentCore Gateway routes traffic between variants, online evaluation scores each session, and the service computes per-variant statistical significance. Instrument the agent for observability, register it as an AgentCore Gateway target, and enable Gateway tracing so sessions can be attributed to a variant.
 
@@ -26,7 +25,7 @@ Follow [Enabling observability for agents hosted outside of AgentCore](observabi
 
 For a Lambda-hosted agent, attach the [AWS Lambda Layer for OpenTelemetry](https://aws-otel.github.io/docs/getting-started/lambda#adot-lambda-layer-arns) and set the following environment variables:
 
-```
+```bash
 aws lambda update-function-configuration \
   --function-name <function-name> \
   --region <region> \
@@ -49,7 +48,7 @@ aws lambda update-function-configuration \
 
 A minimal Lambda handler that parses the function URL request and sets the session baggage:
 
-```
+```python
 import base64, json
 from strands import Agent
 from strands.models.bedrock import BedrockModel
@@ -86,7 +85,7 @@ For target-based routing, deploy this twice (control and treatment) with the cha
 
 The agent must be reachable at an HTTP endpoint the AgentCore gateway can call. For the Lambda example, create a function URL with IAM authentication for each function:
 
-```
+```bash
 aws lambda create-function-url-config \
   --function-name cs-agent-control \
   --auth-type AWS_IAM \
@@ -109,13 +108,13 @@ For observability, your agent must also set this same session ID in its trace co
 **Example**  
 If you don’t have an AgentCore CLI project, create one:  
 
-```
+```bash
 agentcore create --name ABTest3p --template empty
 cd ABTest3p
 ```
 In the project directory, save the following as `control-target.json`:  
 
-```
+```json
 {
   "name": "customer-support-control",
   "targetType": "passthrough",
@@ -136,7 +135,7 @@ In the project directory, save the following as `control-target.json`:
 ```
 Add the target:  
 
-```
+```bash
 agentcore add gateway --name cs-3p-abtest-gw --authorizer-type AWS_IAM
 
 agentcore add gateway-target \
@@ -144,7 +143,7 @@ agentcore add gateway-target \
   --target-configuration file://control-target.json
 ```
 
-```
+```bash
 aws bedrock-agentcore-control create-gateway \
   --name cs-3p-abtest-gw \
   --role-arn <gateway-role-arn> \
@@ -179,7 +178,7 @@ aws bedrock-agentcore-control create-gateway-target \
 
 For the AgentCore CLI workflow, create `treatment-target.json` with the treatment name and function URL, then add it with the same command:
 
-```
+```bash
 agentcore add gateway-target \
   --gateway cs-3p-abtest-gw \
   --target-configuration file://treatment-target.json
@@ -187,13 +186,13 @@ agentcore add gateway-target \
 
 The AgentCore CLI creates the Gateway’s execution role. To let the Gateway call both function URLs, grant the role access in `agentcore/cdk/lib/cdk-stack.ts`. Add `aws_lambda` to the `aws-cdk-lib` import:
 
-```
+```typescript
 import { Stack, type StackProps, aws_lambda as lambda } from 'aws-cdk-lib';
 ```
 
 Then add the grants after the line that creates the `AgentCoreApplication`:
 
-```
+```typescript
 const gateway = this.application.gateway('cs-3p-abtest-gw');
 for (const functionName of ['cs-agent-control', 'cs-agent-treatment']) {
   lambda.Function.fromFunctionName(this, functionName, functionName).grantInvokeUrl(gateway);
@@ -204,7 +203,7 @@ for (const functionName of ['cs-agent-control', 'cs-agent-treatment']) {
 
 Deploy the project and run `agentcore status --json`. Read the `arn` field for `cs-3p-abtest-gw`. The Gateway ID is the last segment of that ARN.
 
-```
+```bash
 agentcore deploy
 
 agentcore status --json
@@ -212,7 +211,7 @@ agentcore status --json
 
 The `status` output does not report target state. To wait until both targets report `READY`, list the targets with `agentcore gateway target list`.
 
-```
+```bash
 agentcore gateway target list --gateway-id <gateway-id> --json
 ```
 
@@ -220,7 +219,7 @@ For the AWS CLI workflow, repeat `aws bedrock-agentcore-control create-gateway-t
 
 In the AWS CLI workflow, the role that you pass to `create-gateway` must trust the Gateway service, as described in [Trust permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions-trust). The role must also allow the Gateway to call both function URLs. The following policy grants the same permissions that `grantInvokeUrl` adds in the AgentCore CLI workflow. Replace `123456789012` with your account ID:
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -278,7 +277,7 @@ When you send traffic through the gateway, direct it to the control variant’s 
 **Example**  
 Add one online evaluation config per variant — using the `service.name` and event log group from [Step 1: Instrument your agent for AgentCore observability](#ab-testing-3p-step1-observability) as the data source — then start the test in `target-based` mode:  
 
-```
+```bash
 agentcore eval online-eval create \
   --name cs_control_eval \
   --data-source-config '{"cloudWatchLogs":{"serviceNames":["cs-agent-control"],"logGroupNames":["/aws/bedrock-agentcore/agents/cs-agent-control/runtime-logs"]}}' \
@@ -311,7 +310,7 @@ Create one online evaluation config per variant with `create_online_evaluation_c
 
 The load generator on the target-based page sets `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id`. The Lambda handler and the stickiness configuration on these targets read `x-session-id` instead. Use the following script, which sends a new `x-session-id` for each session and reuses it for every request in that session. Replace `<gateway-id>` with your Gateway ID:
 
-```
+```bash
 #!/bin/bash
 PROMPTS=(
   "What is the status of order ORD-1003?"

@@ -1,7 +1,6 @@
 
 
 # Guardrail policy examples
-<a name="example-policies-guardrails"></a>
 
 The policies in this section decide from a signal that a Bedrock guardrail computes while the request is being authorized. The guardrail reads the content you point it at, returns a confidence score per category, and the policy compares that score against a threshold.
 
@@ -48,7 +47,7 @@ Nor can you index into it. Dogwood has no array-projection operator, so `message
 
 Instead, write the content argument as a **string literal beginning with `$` **, which Policy in AgentCore resolves as a JSONPath:
 
-```
+```cedar
 BedrockGuardrails::ContentFilter(["VIOLENCE"], ["$.messages[*].content"])
 ```
 
@@ -95,7 +94,7 @@ For the text location on each inference API path, see [Text locations for each p
 
 The base permit makes the runtime action reachable; the `forbid` removes access when the guardrail detects a prompt-injection attempt. The runtime target’s `prompt` is a scalar string, so a bare `context.input.prompt` field path works and no JSONPath is needed. The first argument lists the categories to evaluate, the second lists the content, and the result is indexed by category to read that category’s score.
 
-```
+```cedar
 // Base permit: makes the action reachable at all.
 permit(
   principal,
@@ -120,7 +119,7 @@ Content-filter and prompt-attack scores are discrete — one of 0, 0.2, 0.4, 0.6
 
 Screening the outbound side works the same way, against the runtime target’s scalar `completion`:
 
-```
+```cedar
 suppressOutput(
   principal,
   action == AgentCore::Action::"ClaimsAgent___POST:/invocations",
@@ -141,7 +140,7 @@ when guardrails {
 
  `$.messages[*].content` collects every message in the conversation, system and user alike, and `$.choices[*].message.content` collects every completion the model returned. Screening both directions takes three policies in total: the base permit, the inbound `forbid`, and the outbound `suppressOutput`.
 
-```
+```cedar
 // Base permit: makes the action reachable at all.
 permit(
   principal,
@@ -183,7 +182,7 @@ when guardrails {
 
 Three paths appear in the inbound call because `input` is either a bare string or a list of items holding content blocks, and `instructions` carries the system prompt. Whichever shape the caller sent resolves; the others match nothing and contribute nothing. Listing all three is what makes the policy correct for either wire form without your having to know which one arrives.
 
-```
+```cedar
 permit(
   principal,
   action == AgentCore::Action::"ClaimsResponses___POST:/v1/responses",
@@ -224,7 +223,7 @@ Including `$.instructions` matters: the system prompt is a place an injected ins
 
  `$.messages[*].content` covers a message whose content is a plain string, while `$.messages[*].content[*].text` covers one whose content is an array of typed blocks. `$.system` covers the top-level system prompt, which on this API is not a message. On the outbound side, the Anthropic envelope returns content blocks at the top level, so the path is `$.content[*].text` rather than anything under `choices`.
 
-```
+```cedar
 permit(
   principal,
   action == AgentCore::Action::"ClaimsMessages___POST:/v1/messages",
@@ -266,7 +265,7 @@ Take the paths for each API from [Text locations for each path](example-policies
 
 An MCP tool’s arguments are declared in its schema, so a scalar argument such as `description` is reached with a bare field path. `count()` returns the number of categories detected, as a `Long`, so it is compared with an ordinary integer operator rather than a `decimal` method. Any detection at all denies the request.
 
-```
+```cedar
 // Base permit: makes the action reachable at all.
 permit(
   principal,
@@ -292,7 +291,7 @@ Note the category names. `ACCOUNT_NUMBER` is not a valid category; the accepted 
 
 Several scalar fields can go in one call, and the guardrail evaluates all of them together. The base permit shown earlier applies to this variant too:
 
-```
+```cedar
 forbid(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
@@ -316,7 +315,7 @@ when guardrails {
 
  `suppressOutput` runs after the action has been authorized and has produced a result, and it acts on that result rather than on the decision to allow the call. The tool still runs; what the caller receives is suppressed.
 
-```
+```cedar
 // Base permit: makes the action reachable at all.
 permit(
   principal,
@@ -350,7 +349,7 @@ Output-phase evaluation changes how a response is delivered. The gateway holds t
 
 A guardrail call is an ordinary function call, so it composes with Cedar conditions: here a `when` holds the guardrail check and an `unless` exempts a trusted role. Writing `when { …​ }` instead of `when guardrails { …​ }` is equivalent.
 
-```
+```cedar
 // Base permit: makes the action reachable at all.
 permit(
   principal,

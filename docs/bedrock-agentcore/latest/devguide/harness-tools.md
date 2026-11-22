@@ -1,7 +1,6 @@
 
 
 # Tools
-<a name="harness-tools"></a>
 
 Tools are declarative. You list what the agent can call; AgentCore handles invocation, credentials, and results. The harness supports five tool types and managed built-in tools.
 +  ** [Model Context Protocol](https://modelcontextprotocol.io) (MCP) servers:** Connect to any remote MCP endpoint by URL. To authenticate, send request headers, or have the harness sign each request with Signature Version 4 (SigV4) using the harness execution role.
@@ -61,7 +60,7 @@ Before you invoke the harness for less-trusted application users, validate or re
 **Example**  
 Pass `tools` at create, update, or invoke time:  
 
-```
+```python
 tools = [
     # MCP server
     {
@@ -156,7 +155,7 @@ response = client.invoke_harness(
 ```
 Set the harness tools with the `--tools` JSON when you add it to a project. Include only the tool entries that the harness needs:  
 
-```
+```bash
 agentcore add harness \
   --name my_agent \
   --tools '[
@@ -191,7 +190,7 @@ Complete the following steps to set up web search for your harness.
 **Example**  
 Attach the gateway at create time (or pass `tools` on `update_harness` / `invoke_harness`):  
 
-```
+```python
 tools = [
     {
         "type": "agentcore_gateway",
@@ -211,7 +210,7 @@ client.create_harness(
 ```
 The gateway’s tools are now available to the agent. Invoke the harness with a prompt that needs current information:  
 
-```
+```python
 response = client.invoke_harness(
     harnessArn=HARNESS_ARN,
     runtimeSessionId=SESSION_ID,
@@ -220,14 +219,14 @@ response = client.invoke_harness(
 ```
 With the AgentCore CLI, you can declare the gateway and its web-search connector target in the project instead of following the setup page. Deploy the project in `us-east-1`. On the first deploy, `--region us-east-1` sets the Region of the default deployment target.  
 
-```
+```bash
 agentcore add gateway --name wsgw --protocol-type MCP --authorizer-type AWS_IAM
 agentcore add gateway-connector --gateway wsgw --connector web-search --name web-search
 agentcore deploy --region us-east-1
 ```
 Run `agentcore status --json` and copy the `arn` of the `wsgw` gateway. Use it as the `gatewayArn` value in the `--tools` JSON:  
 
-```
+```bash
 # Attach the web-search gateway to your harness
 agentcore add harness \
   --name research_agent \
@@ -258,7 +257,7 @@ Complete the following steps to set up Web Answer for your harness.
 **Example**  
 Attach the gateway at create time (or pass `tools` on `update_harness` / `invoke_harness`):  
 
-```
+```python
 tools = [
     {
         "type": "agentcore_gateway",
@@ -278,7 +277,7 @@ client.create_harness(
 ```
 The Web Answer tool is now available to the agent. Invoke the harness with a question that needs current information:  
 
-```
+```python
 response = client.invoke_harness(
     harnessArn=HARNESS_ARN,
     runtimeSessionId=SESSION_ID,
@@ -296,7 +295,7 @@ Inline functions let you define a tool that executes in your code, not on the ha
 **Example**  
 Pass an inline function tool at invoke time:  
 
-```
+```python
 import json
 
 tools = [{
@@ -376,7 +375,7 @@ Before using an `after_tool_call` event for an inline function as an authorizati
 Consume `response["stream"]` to receive the streamed tool result and any subsequent agent output. If the last `messageStop` has `stopReason` set to `tool_use`, repeat the handoff flow for the next inline function.
 Add an inline function tool to a harness:  
 
-```
+```bash
 agentcore add harness \
   --name my_agent \
   --tools '[{"type":"inline_function","name":"get_weather","config":{"inlineFunction":{"description":"Get the current weather for a city.","inputSchema":{"type":"object","properties":{"city":{"type":"string"}},"required":["city"]}}}}]'

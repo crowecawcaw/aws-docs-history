@@ -1,7 +1,6 @@
 
 
 # Lifecycle hooks
-<a name="harness-lifecycle-hooks"></a>
 
 Lifecycle hooks send an event to an AWS Lambda function, Amazon SNS topic, or Amazon EventBridge event bus at a defined point in the harness agent loop. Use hooks to validate an invocation or tool call, record activity in another system, or start an asynchronous workflow.
 
@@ -60,7 +59,7 @@ Grant the harness execution role permission to call each target. For an example 
 
 The following example configures a Lambda decision hook before each invocation, an SNS notification after each tool call, and an EventBridge notification after each invocation. Define the hooks in `hooks.json`:
 
-```
+```json
 [
   {
     "beforeInvocation": {
@@ -100,14 +99,14 @@ The following example configures a Lambda decision hook before each invocation, 
 **Example**  
 Apply the hooks:  
 
-```
+```bash
 aws bedrock-agentcore-control update-harness \
   --harness-id "MyHarness-UuFdkQoXSL" \
   --hooks file://hooks.json
 ```
 Load and apply the same configuration:  
 
-```
+```python
 import json
 import boto3
 
@@ -131,7 +130,7 @@ A Lambda target receives the hook payload directly. It must return a JSON object
 
 The following handler denies a `before_invocation` event when the target cannot evaluate the complete hook context. Replace this logic with the rules for your application.
 
-```
+```python
 def lambda_handler(event, _context):
     hook_context = event["context"]
 
@@ -151,7 +150,7 @@ For Lambda targets, `timeoutSeconds` defaults to 60 seconds and accepts values f
 **Configure long-running hook connections**  
 A synchronous hook can keep an `InvokeHarness` stream idle until the hook returns or reaches `timeoutSeconds`. Configure the SDK read timeout to exceed the longest expected idle period. For a hook configured for 900 seconds, the following example uses a 1,000-second read timeout to provide additional margin:  
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -174,7 +173,7 @@ When multiple Lambda hooks use the same event type, the harness invokes them con
 
 Every target receives the following common fields:
 
-```
+```json
 {
   "hookEventId": "1234abcd-12ab-34cd-56ef-1234567890ab",
   "name": "validate_request",
@@ -232,7 +231,7 @@ For `before_invocation`, the harness keeps the newest contiguous sequence of com
 
 For other event types, the harness replaces the largest context fields until the context fits. Each replaced field uses the following form:
 
-```
+```json
 {
   "truncated": true,
   "preview": "<prefix of the serialized field>"
@@ -246,7 +245,7 @@ Check truncation markers before using a field. A Lambda target that requires com
 
  `InvokeHarness` emits a `hookEvent` for each configured hook that fires. A Lambda event includes the applied decision and optional reason:
 
-```
+```json
 {
   "hookEvent": {
     "hookEventId": "1234abcd-12ab-34cd-56ef-1234567890ab",

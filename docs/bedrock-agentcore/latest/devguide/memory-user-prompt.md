@@ -1,7 +1,6 @@
 
 
 # System prompt for user preference memory strategy
-<a name="memory-user-prompt"></a>
 
 The user preference strategy includes instructions and output schemas in the default prompts for the extraction and consolidation steps.
 

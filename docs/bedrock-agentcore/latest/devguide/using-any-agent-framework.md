@@ -1,7 +1,6 @@
 
 
 # Use any agent framework
-<a name="using-any-agent-framework"></a>
 
 You can use open source AI frameworks to create an agent or tool. This topic shows examples for a variety of frameworks, including Strands Agents, LangGraph, and Google ADK.
 
@@ -87,7 +86,7 @@ app.run()
 
 For the full example, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/adk](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/adk).
 
-```
+```python
 from google.adk.agents import Agent
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
@@ -148,7 +147,7 @@ app.run()
 
 For the full example, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/openai-agents](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/openai-agents).
 
-```
+```python
 from agents import Agent, Runner, WebSearchTool
 import logging
 import asyncio

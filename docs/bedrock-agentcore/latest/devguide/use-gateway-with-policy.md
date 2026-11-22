@@ -1,7 +1,6 @@
 
 
 # Use an AgentCore Gateway with Policy in AgentCore
-<a name="use-gateway-with-policy"></a>
 
 Follow the gateway authorization and authentication guide to obtain the credentials needed for gateway access.
 
@@ -29,7 +28,7 @@ Select one of the following methods:
 
 1. 
 
-   ```
+   ```bash
    curl -X POST \
      https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
      -H "Content-Type: application/json" \
@@ -43,7 +42,7 @@ Select one of the following methods:
 
 1. 
 
-   ```
+   ```python
    import requests
    import json
    
@@ -82,7 +81,7 @@ Select one of the following methods:
 
 1. 
 
-   ```
+   ```bash
    # Call a tool to test policy enforcement
    curl -X POST \
      https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
@@ -101,7 +100,7 @@ Select one of the following methods:
 
 1. 
 
-   ```
+   ```python
    import requests
    import json
    
@@ -145,7 +144,7 @@ Select one of the following methods:
 
 To enable temporal policy evaluation, include the `x-amzn-bedrock-agentcore-policy-session-id` header in your requests. This groups multiple invocations into a single session for session-aware policy enforcement.
 
-```
+```bash
 curl -X POST \
   https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
   -H "Content-Type: application/json" \
@@ -169,7 +168,7 @@ The Gateway does not generate a session ID on your behalf. You must generate the
 
 When a policy allows the request:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "test-policy",
@@ -187,7 +186,7 @@ When a policy allows the request:
 
 When a policy denies the request:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "test-policy",

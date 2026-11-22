@@ -1,7 +1,6 @@
 
 
 # Configure a consent portal target
-<a name="identity-configure-consent-portal-target"></a>
 
 The consent portal’s **Connections** page lists the resources that an end user can grant your agent consent to access. This list is driven by the **targets** attached to the consent portal’s gateway, so a consent portal whose gateway has no eligible targets shows an empty Connections page. This topic describes how to configure an outbound OAuth2 credential provider and a gateway target so that a connection appears on the consent portal, and how a user connects to it.
 

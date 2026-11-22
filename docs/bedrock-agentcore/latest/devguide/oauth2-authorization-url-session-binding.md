@@ -1,7 +1,6 @@
 
 
 # OAuth 2.0 authorization URL session binding
-<a name="oauth2-authorization-url-session-binding"></a>
 
 AgentCore Identity provides OAuth 2.0 access token retrievals for your agent applications to access third-party application vendors or resources protected by identity providers / authorization servers. If an application or a resource requires a user to authorize explicitly with an OAuth authorization code flow, AgentCore Identity generates an authorization URL for the user to navigate to and consent access. Then, upon user giving consent, AgentCore Identity fetches the access token from the application or resource on behalf of users, and stores it in the AgentCore Identity Token Vault.
 

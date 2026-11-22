@@ -1,7 +1,6 @@
 
 
 # Invoke an AgentCore Runtime agent
-<a name="runtime-invoke-agent"></a>
 
 The [InvokeAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeAgentRuntime.html) operation lets you send requests to specific AgentCore Runtime endpoints identified by their Amazon Resource Name (ARN) and receive streaming responses containing the agent’s output. The API supports session management through session identifiers, enabling you to maintain conversation context across multiple interactions. You can target specific agent endpoints using optional qualifiers.
 

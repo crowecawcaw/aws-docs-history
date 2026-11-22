@@ -1,7 +1,6 @@
 
 
 # AgentCore generate memory observability data
-<a name="observability-memory-metrics"></a>
 
 For the AgentCore memory resource type, AgentCore outputs metrics to Amazon CloudWatch by default. AgentCore also outputs a default set of spans and logs, if you enable these. See [Enabling observability for AgentCore runtime, memory, gateway, built-in tools, and identity resources](observability-configure.md#observability-configure-cloudwatch) to learn more about enabling spans and logs.
 

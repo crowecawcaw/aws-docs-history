@@ -1,7 +1,6 @@
 
 
 # Deploy AG-UI servers in AgentCore Runtime
-<a name="runtime-agui"></a>
 
 Amazon Bedrock AgentCore Runtime lets you deploy and run Agent User Interface (AG-UI) servers in the AgentCore Runtime. This guide walks you through creating, testing, and deploying your first AG-UI server.
 
@@ -77,7 +76,7 @@ AG-UI is supported by multiple agent frameworks. This tutorial uses AWS Strands 
 
 Create an empty project, register a Python AG-UI Runtime with Cognito authorization, and add the dependencies for this example:
 
-```
+```bash
 agentcore create --name AguiProject --template empty
 cd AguiProject
 agentcore add runtime \
@@ -109,7 +108,7 @@ The CLI creates `README.md` and `AGENTS.md` with the AG-UI Runtime contract, but
 
 Create `app/AguiAgent/main.py` with the following implementation. This example uses AWS Strands with AG-UI. The server listens on port `8080`, exposes `/invocations` for AG-UI traffic, and exposes `/ping` for health checks. AgentCore Runtime requires this contract for AG-UI containers.
 
-```
+```python
 # app/AguiAgent/main.py
 import os
 
@@ -189,7 +188,7 @@ Run and test your AG-UI server in a local development environment.
 
 Run your AG-UI server locally from the project directory:
 
-```
+```bash
 agentcore dev
 ```
 
@@ -200,7 +199,7 @@ You should see output indicating the server is running on port `8080`.
 
 Test the SSE endpoint with a properly formatted AG-UI request:
 
-```
+```bash
 curl -N -X POST http://localhost:8080/invocations \
 -H "Content-Type: application/json" \
 -d '{
@@ -226,14 +225,14 @@ Deploy your AG-UI server to AWS using the AgentCore CLI. You configured Cognito 
 
 Build and deploy your agent:
 
-```
+```bash
 agentcore build
 agentcore deploy
 ```
 
 After deployment, get the Runtime ARN:
 
-```
+```bash
 agentcore status --json
 ```
 
@@ -251,13 +250,13 @@ Set the following environment variables:
 
 1. Export bearer token as an environment variable. For bearer token setup, see [Set up Cognito user pool for authentication](#runtime-agui-appendix-a).
 
-   ```
+   ```bash
    export BEARER_TOKEN="<BEARER_TOKEN>"
    ```
 
 1. Export the agent ARN.
 
-   ```
+   ```bash
    export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/AguiProject_default_AguiAgent-xyz123"
    ```
 
@@ -270,13 +269,13 @@ To invoke the AG-UI server programmatically, choose the language that matches yo
 
 1. Install the required packages:
 
-   ```
+   ```bash
    pip install httpx httpx-sse
    ```
 
    Then use the following client code:
 
-   ```
+   ```python
    import asyncio
    import json
    import os
@@ -321,13 +320,13 @@ To invoke the AG-UI server programmatically, choose the language that matches yo
 
 1. Install the required packages:
 
-   ```
+   ```bash
    npm install @ag-ui/client
    ```
 
    Then use the following client code:
 
-   ```
+   ```typescript
    import { HttpAgent, AgentSubscriber } from "@ag-ui/client";
    import { randomUUID } from "crypto";
    

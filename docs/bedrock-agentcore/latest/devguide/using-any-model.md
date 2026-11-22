@@ -1,7 +1,6 @@
 
 
 # Use any foundation model
-<a name="using-any-model"></a>
 
 You can use any foundation model with AgentCore Runtime The following are examples for Amazon Bedrock, Open AI, Gemini and Fireworks AI:
 
@@ -14,7 +13,7 @@ You can use any foundation model with AgentCore Runtime The following are exampl
 ## Amazon Bedrock
 <a name="agent-runtime-model-bedrock"></a>
 
-```
+```python
 import boto3
 from strands.models import BedrockModel
 
@@ -28,7 +27,7 @@ bedrock_model = BedrockModel(
 ## Open AI
 <a name="agent-runtime-model-open-ai"></a>
 
-```
+```python
 from strands.models.openai import OpenAIModel
 model = OpenAIModel(
     client_args={
@@ -49,7 +48,7 @@ agent = Agent(model=model,tools=[python_repl])
 ## Gemini
 <a name="agent-runtime-model-gemini"></a>
 
-```
+```python
 import os
 from langchain.chat_models import init_chat_model
 
@@ -62,7 +61,7 @@ llm = init_chat_model("google_genai:gemini-2.0-flash")
 ## Fireworks AI
 <a name="agent-runtime-model-fireworksai"></a>
 
-```
+```python
 from strands import Agent, tool
 from strands_tools import file_read, file_write
 from strands.models.openai import OpenAIModel

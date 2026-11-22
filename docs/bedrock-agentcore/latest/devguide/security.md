@@ -1,7 +1,6 @@
 
 
 # Security in Amazon Bedrock AgentCore
-<a name="security"></a>
 
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data centers and network architectures that are designed to help meet with the requirements of the most security-sensitive organizations.
 
@@ -16,6 +15,7 @@ This documentation helps you understand how to apply the shared responsibility m
 + [Identity and access management for Amazon Bedrock AgentCore](security-iam.md)
 + [Runtime Instances and capacity providers](runtime-instances.md)
 + [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md)
++ [Resource control policies for Amazon Bedrock AgentCore](resource-control-policies.md)
 + [Compliance validation for Amazon Bedrock AgentCore](compliance-validation.md)
 + [Building custom disaster recovery for Amazon Bedrock AgentCore](disaster-recovery-resiliency.md)
 + [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md)

@@ -1,7 +1,6 @@
 
 
 # Sample use cases
-<a name="registry-use-cases"></a>
 
 **Migration Now Open**  
  AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on October 30, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
@@ -26,7 +25,7 @@ An administrator reviewing the registry notices that a new team is building a tr
 ## Share reusable skills across agents
 <a name="registry-usecase-share-skills"></a>
 
-A team has developed a skill for extracting structured data from PDF documents. They received positive feedback about the effectiveness of this skill, and were asked to broadly share this skill across the organization to boost collective productivity. Instead of reaching out to each team independently, they publish the skill to the registry with detailed markdown documentation and a structured definition. Other agent builders discover the skill through search or by browsing the approved-record catalog, and integrate it into their own agents, accelerating development across the organization.
+A team has developed a skill for extracting structured data from PDF documents. They received positive feedback about the effectiveness of this skill, and were asked to broadly share this skill across the organization to boost collective productivity. Instead of reaching out to each team independently, they publish the skill to the registry with detailed markdown documentation and a structured definition. Because the skill keeps its SKILL.md and extraction scripts in a GitHub repository, they configure the record to synchronize the whole skill folder as a skill package, and trigger synchronization whenever they release a new version. A curator reviews each new package before approving it. Other agent builders discover the skill through search or by browsing the approved-record catalog, download the approved package, verify its checksum, and integrate it into their own agents, accelerating development across the organization.
 
 ## Explore the registry catalog before committing to a search
 <a name="registry-usecase-browse-catalog"></a>

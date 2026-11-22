@@ -1,7 +1,6 @@
 
 
 # Use policies
-<a name="policy-use-policies"></a>
 
 This section explains how to create and manage Cedar policies.
 

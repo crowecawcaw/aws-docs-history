@@ -1,7 +1,6 @@
 
 
 # Receive progress notifications from your AgentCore gateway
-<a name="gateway-mcp-progress"></a>
 
 Progress notifications allow MCP server targets to report incremental progress on long-running tool calls. When a tool call takes time to complete, the server can send `notifications/progress` events to keep the client informed about the operation’s status. AgentCore Gateway forwards these notifications from MCP server targets to your client as Server-Sent Events (SSE) chunks.
 
@@ -30,7 +29,7 @@ Each progress notification includes:
 **Example**  
 Call a tool with a progress token. Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
-```
+```bash
 curl -N -X POST \
   https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
   -H "Content-Type: application/json" \
@@ -72,7 +71,7 @@ data: {"jsonrpc":"2.0","id":"tool-call-1","result":{"content":[{"type":"text","t
 ```
 On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. Keep `progressToken` in `_meta` to opt into progress notifications. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
-```
+```bash
 curl -N -X POST \
   https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
   -H "Content-Type: application/json" \
@@ -122,7 +121,7 @@ data: {"jsonrpc":"2.0","id":"tool-call-1","result":{"content":[{"type":"text","t
 ```
 Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
-```
+```python
 import requests
 import json
 import sseclient
@@ -160,7 +159,7 @@ for event in client.events():
 ```
 On version `2026-07-28`, add the `MCP-Protocol-Version`, `Mcp-Method`, and `Mcp-Name` headers, and include the `_meta` version fields in the request body. Keep `progressToken` in `_meta` to opt into progress notifications. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
-```
+```python
 import requests
 import json
 import sseclient
@@ -204,7 +203,7 @@ for event in client.events():
         break
 ```
 
-```
+```python
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import asyncio
@@ -239,7 +238,7 @@ asyncio.run(use_progress(
 ))
 ```
 
-```
+```python
 from mcp.client.streamable_http import streamablehttp_client
 from strands import Agent
 from strands.tools.mcp import MCPClient

@@ -1,7 +1,6 @@
 
 
 # Deleting an AgentCore Code Interpreter
-<a name="code-interpreter-delete"></a>
 
 When you no longer need a Code Interpreter, you can delete it to free up resources and avoid unnecessary charges.
 
@@ -26,7 +25,7 @@ Deleting a Code Interpreter permanently removes it and all its configuration. Th
 
 1. To delete a Code Interpreter using the AWS CLI, use the `delete-code-interpreter` command:
 
-   ```
+   ```bash
    aws bedrock-agentcore delete-code-interpreter \
      --region <Region> \
      --code-interpreter-id "<your-code-interpreter-id>"
@@ -34,7 +33,7 @@ Deleting a Code Interpreter permanently removes it and all its configuration. Th
 
 1. To delete a Code Interpreter using the AWS SDK for Python, use the `delete_code_interpreter` method:
 
-   ```
+   ```python
    import boto3
    
    # Initialize the boto3 client
@@ -54,7 +53,7 @@ Deleting a Code Interpreter permanently removes it and all its configuration. Th
 
 1. To delete a Code Interpreter instance using the API, use the following call:
 
-   ```
+   ```bash
    # Using awscurl
    awscurl -X DELETE "https://bedrock-agentcore-control.<Region>.amazonaws.com/code-interpreters/<your-code-interpreter-id>" \
    -H "Accept: application/json" \

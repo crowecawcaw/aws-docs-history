@@ -1,7 +1,6 @@
 
 
 # Get started with bidirectional streaming using WebSocket
-<a name="runtime-get-started-websocket"></a>
 
 Amazon Bedrock AgentCore Runtime lets you deploy agents that support WebSocket streaming for real-time bidirectional communication. This guide walks you through creating, testing, and deploying your first bidirectional streaming agent using WebSocket.
 
@@ -68,7 +67,7 @@ Before you start, make sure you have:
 
 Create a code-based Python project from the minimal Runtime template:
 
-```
+```bash
 agentcore create \
   --name WebSocketProject \
   --template agent-python-minimal
@@ -85,7 +84,7 @@ Replace the contents of `app/agent/main.py` with the following code:
 #### Bidirectional streaming agent implementation (main.py)
 <a name="websocket-agent-code"></a>
 
-```
+```python
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
 
 app = BedrockAgentCoreApp()
@@ -123,7 +122,7 @@ if __name__ == "__main__":
 
 Open a terminal window and start your bidirectional streaming agent with the following command:
 
-```
+```bash
 agentcore dev
 ```
 
@@ -137,7 +136,7 @@ In `app/agent/`, create a local WebSocket client named `websocket_agent_client.p
 ##### Local WebSocket client (websocket\_agent\_client.py)
 <a name="websocket-test-client"></a>
 
-```
+```python
 import asyncio
 import websockets
 import json
@@ -162,7 +161,7 @@ if __name__ == "__main__":
 
 Test your bidirectional streaming agent locally. Open another terminal window, and run the client from the `WebSocketProject` directory:
 
-```
+```bash
 cd app/agent
 uv run python websocket_agent_client.py
 ```
@@ -175,7 +174,7 @@ uv run python websocket_agent_client.py
 #### Build and deploy to AWS
 <a name="configure-and-deploy"></a>
 
-```
+```bash
 agentcore deploy
 ```
 
@@ -183,7 +182,7 @@ Optionally, run `agentcore build` first to synthesize and check the project with
 
 Get the deployed Runtime ARN:
 
-```
+```bash
 agentcore status --json
 ```
 
@@ -200,7 +199,7 @@ Save this ARN as you’ll need it to invoke your deployed agent.
 
 Run the Python client examples in this section from the generated application directory. From the `WebSocketProject` directory, run:
 
-```
+```bash
 cd app/agent
 ```
 
@@ -240,7 +239,7 @@ The following example shows how to establish a WebSocket connection and communic
 ##### WebSocket client with SigV4 headers (websocket\_agent\_client\_sigv4\_headers.py)
 <a name="websocket-sigv4-example"></a>
 
-```
+```python
 from bedrock_agentcore.runtime import AgentCoreRuntimeClient
 import websockets
 import asyncio
@@ -282,7 +281,7 @@ if __name__ == "__main__":
 
 Run the client to test your deployed agent:
 
-```
+```bash
 uv run python websocket_agent_client_sigv4_headers.py
 ```
 
@@ -300,7 +299,7 @@ The following example shows how to create a WebSocket URL with SigV4 query param
 ##### WebSocket client with pre-signed URL (websocket\_agent\_client\_sigv4\_presigned\_url.py)
 <a name="websocket-presigned-example"></a>
 
-```
+```python
 from bedrock_agentcore.runtime import AgentCoreRuntimeClient
 import websockets
 import asyncio
@@ -341,7 +340,7 @@ if __name__ == "__main__":
 
 Run the client to test your deployed agent:
 
-```
+```bash
 uv run python websocket_agent_client_sigv4_presigned_url.py
 ```
 
@@ -366,7 +365,7 @@ The following example shows how to establish a WebSocket connection from Python 
 ##### WebSocket client with OAuth authentication (websocket\_agent\_client\_oauth.py)
 <a name="websocket-oauth-example"></a>
 
-```
+```python
 from bedrock_agentcore.runtime import AgentCoreRuntimeClient
 import websockets
 import asyncio
@@ -414,7 +413,7 @@ if __name__ == "__main__":
 
 Run the client to test your deployed agent:
 
-```
+```bash
 uv run python websocket_agent_client_oauth.py
 ```
 
@@ -436,7 +435,7 @@ The following example shows how to establish a WebSocket connection from browser
 ##### Browser WebSocket client with OAuth (index.html)
 <a name="websocket-oauth-browser-example"></a>
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <body>
@@ -492,7 +491,7 @@ To use sessions with WebSocket connections, generate a unique session ID for eac
 
 1. 
 
-   ```
+   ```python
    from bedrock_agentcore.runtime import AgentCoreRuntimeClient
    import websockets
    import asyncio
@@ -527,7 +526,7 @@ To use sessions with WebSocket connections, generate a unique session ID for eac
 
 1. 
 
-   ```
+   ```python
    from bedrock_agentcore.runtime import AgentCoreRuntimeClient
    import websockets
    import asyncio
@@ -563,7 +562,7 @@ To use sessions with WebSocket connections, generate a unique session ID for eac
 
 1. 
 
-   ```
+   ```python
    from bedrock_agentcore.runtime import AgentCoreRuntimeClient
    import websockets
    import asyncio
@@ -637,7 +636,7 @@ wss://bedrock-agentcore.<region>.amazonaws.com/runtimes/<agentRuntimeArn>/ws?X-A
 
 The agent application container will receive these as headers:
 
-```
+```json
 "headers": {
     "x-amzn-bedrock-agentcore-runtime-custom-testheader": "query-param-test-value"
   }

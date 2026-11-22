@@ -1,7 +1,6 @@
 
 
 # AgentCore Python SDK reference
-<a name="agentcore-python-sdk-reference"></a>
 
 This reference documents the public Amazon Bedrock AgentCore Python SDK releases.
 
@@ -89,7 +88,7 @@ If the ARN format is invalid or `shell_id` is outside the allowed character set.
  `RuntimeError`   
 If no AWS credentials are found.
 
-```
+```python
 url, headers = client.connect_shell(
     runtime_arn="arn:aws:bedrock-agentcore:us-west-2:123:runtime/r",
     shell_id="my-debug-shell",
@@ -136,7 +135,7 @@ Client-chosen shell name. Store this value for reconnection. Auto-generated if o
  `ValueError`   
 If `bearer_token` is empty, the ARN is invalid, or `shell_id` contains forbidden characters.
 
-```
+```python
 url, protos = client.connect_shell_oauth(
     runtime_arn="arn:...",
     bearer_token=await get_oauth_token(),
@@ -145,7 +144,7 @@ url, protos = client.connect_shell_oauth(
 ws = await websockets.connect(url, subprotocols=protos)
 ```
 
-```
+```python
 # Backend returns (url, subprotocols); browser does:
 # const ws = new WebSocket(url, subprotocols)
 ```
@@ -190,7 +189,7 @@ If `expires` exceeds the maximum, the ARN is invalid, or `shell_id` contains for
  `RuntimeError`   
 If no AWS credentials are found.
 
-```
+```python
 url = client.connect_shell_presigned(
     runtime_arn="arn:aws:bedrock-agentcore:us-west-2:123:runtime/r",
     shell_id="build-shell",
@@ -319,7 +318,7 @@ If expires exceeds maximum (300 seconds).
  `RuntimeError`   
 If URL generation fails or no credentials found.
 
-```
+```python
 >>> client = AgentCoreRuntimeClient('us-west-2')
 >>> presigned_url = client.generate_presigned_url(
 ...     runtime_arn='arn:aws:bedrock-agentcore:us-west-2:123:runtime/my-runtime',
@@ -361,7 +360,7 @@ If no AWS credentials are found.
  `ValueError`   
 If runtime\_arn format is invalid.
 
-```
+```python
 >>> client = AgentCoreRuntimeClient('us-west-2')
 >>> ws_url, headers = client.generate_ws_connection(
 ...     runtime_arn='arn:aws:bedrock-agentcore:us-west-2:123:runtime/my-runtime',
@@ -403,7 +402,7 @@ Tuple[str, Dict[str, str]]: A tuple containing: - WebSocket URL (wss://…​) w
  `ValueError`   
 If runtime\_arn format is invalid or bearer\_token is empty.
 
-```
+```python
 >>> client = AgentCoreRuntimeClient('us-west-2')
 >>> ws_url, headers = client.generate_ws_connection_oauth(
 ...     runtime_arn='arn:aws:bedrock-agentcore:us-west-2:123:runtime/my-runtime',
@@ -691,7 +690,7 @@ An optional additional task metadata
 
 Task ID for tracking and completion
 
-```
+```python
 task_id = app.add_async_task("file_processing", {"file": "data.csv"})
 # ... do background work ...
 app.complete_async_task(task_id)
@@ -737,7 +736,7 @@ Task ID returned from add\_async\_task
 
 True if task was found and completed, False otherwise
 
-```
+```python
 task_id = app.add_async_task("file_processing")
 # ... do background work ...
 completed = app.complete_async_task(task_id)
@@ -844,7 +843,7 @@ The function to register as WebSocket handler
 
 The decorated function
 
-```
+```python
 @app.websocket
 async def handler(websocket, context):
     await websocket.accept()
@@ -911,7 +910,7 @@ Use this when connecting from a browser relay or any context where an OAuth toke
 
 Attributes: bearer\_token: OAuth bearer token obtained from your identity provider.
 
-```
+```python
 async with client.open_shell(
     runtime_arn,
     auth=OAuthAuth(bearer_token=await get_oauth_token()),
@@ -939,7 +938,7 @@ Use this when you want auth embedded in the URL query string — useful when han
 
 Attributes: expires: Seconds until the presigned URL expires (max 300).
 
-```
+```python
 async with client.open_shell(
     runtime_arn,
     auth=PresignedAuth(expires=120),
@@ -1052,7 +1051,7 @@ Encodes and decodes binary channel-prefix WebSocket frames.
 
 Stateless — a single instance is safe to reuse across frames.
 
-```
+```python
 framer = ShellFramer()
 
 # Decode inbound frame
@@ -3250,7 +3249,7 @@ List of OpenTelemetry Span objects from Strands agent
 
 List of ADOT documents (spans and log records)
 
-```
+```python
 >>> from strands_evals.telemetry import StrandsEvalsTelemetry
 >>> telemetry = StrandsEvalsTelemetry().setup_in_memory_exporter()
 >>> # ... run agent ...
@@ -3285,7 +3284,7 @@ Minimum score for test to pass (default: 0.7)
 
 StrandsEvalsAgentCoreEvaluator instance
 
-```
+```python
 evaluator = create_strands_evaluator("Builtin.Helpfulness")
 dataset = Dataset(cases=cases, evaluator=evaluator)
 report = dataset.run_evaluations(task_fn)
@@ -3325,7 +3324,7 @@ The AWS Region (default: from DEFAULT\_REGION constant)
 
 List of ADOT span and log record dictionaries
 
-```
+```python
 >>> from datetime import datetime, timedelta, timezone
 >>> start_time = datetime.now(timezone.utc) - timedelta(minutes=10)
 >>> end_time = datetime.now(timezone.utc)
@@ -3337,7 +3336,7 @@ List of ADOT span and log record dictionaries
 ... )
 ```
 
-```
+```python
 >>> spans = fetch_spans_from_cloudwatch(
 ...     session_id="abc-123",
 ...     event_log_group="/my-app/agent-events",
@@ -3535,7 +3534,7 @@ If required parameters are missing or invalid
  `ClientError`   
 If any API call fails (with automatic rollback)
 
-```
+```python
 from bedrock_agentcore.payments.client import PaymentClient
 
 payment_client = PaymentClient(region_name="us-east-1")
@@ -3909,7 +3908,7 @@ Key Capabilities: - **Payment Instrument Management**: Create and manage payment
 
 Usage Patterns: 1. **Create Payment Instrument**: Store a payment method for a user 2. **Create Payment Session**: Establish a time-bounded payment context 3. **Process Payment**: Execute a payment with automatic validation
 
-```
+```python
 # Initialize manager
     manager = PaymentManager(
         payment_manager_arn="arn:aws:bedrock-agentcore:us-east-1:123456789012:payment-manager/pm-123",
@@ -4031,7 +4030,7 @@ Dictionary containing paymentInstrumentId and other instrument details
  `PaymentError`   
 If validation fails or API call fails
 
-```
+```python
 response = manager.create_payment_instrument(
     user_id="user-123",
     payment_connector_id="connector-456",
@@ -4109,7 +4108,7 @@ If instrument not found or already deleted
  `PaymentError`   
 If API call fails
 
-```
+```python
 result = manager.delete_payment_instrument(
     payment_instrument_id="payment-instrument-xyz789",
     payment_connector_id="connector-456",
@@ -4151,7 +4150,7 @@ If session not found or already deleted
  `PaymentError`   
 If API call fails
 
-```
+```python
 result = manager.delete_payment_session(
     payment_session_id="payment-session-abc123",
     user_id="user-123",
@@ -4214,7 +4213,7 @@ If session has expired
  `InsufficientBudget`   
 If payment amount exceeds budget
 
-```
+```python
 header = manager.generate_payment_header(
     user_id="user-123",
     payment_instrument_id="instrument-456",

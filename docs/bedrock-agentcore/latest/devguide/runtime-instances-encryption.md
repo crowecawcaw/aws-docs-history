@@ -1,7 +1,6 @@
 
 
 # Encryption at rest for Runtime Instances
-<a name="runtime-instances-encryption"></a>
 
 When you host agents on the **Instances** compute type, your data at rest lives on the Amazon EBS volumes that a capacity provider attaches to your sessions. Amazon EBS creates these volumes in your own AWS account, so EBS encryption protects them.
 
@@ -38,7 +37,7 @@ Two principals need permissions on the key:
 
 Specify `encrypted` and `kmsKeyId` in the volume’s `ebsConfiguration` when you create the capacity provider:
 
-```
+```bash
 aws bedrock-agentcore-control create-capacity-provider \
   --name "my-encrypted-capacity-provider" \
   --permissions-configuration '{"capacityProviderOperatorRoleArn": "arn:aws:iam::111122223333:role/CapacityProviderOperatorRole"}' \

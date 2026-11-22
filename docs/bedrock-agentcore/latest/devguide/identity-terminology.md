@@ -1,7 +1,6 @@
 
 
 # AgentCore Identity terminology
-<a name="identity-terminology"></a>
 
 AgentCore Identity uses specific terminology to describe the components, processes, and relationships involved in workload identity management and credential handling. Understanding these terms will help you better comprehend how the service orchestrates secure authentication and authorization across multiple parties in agent workflows.
 

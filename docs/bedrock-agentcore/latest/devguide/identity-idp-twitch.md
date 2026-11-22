@@ -1,7 +1,6 @@
 
 
 # Twitch
-<a name="identity-idp-twitch"></a>
 
 Twitch can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through Twitch’s OAuth2 service and obtain access tokens for Twitch API resources.
 
@@ -39,7 +38,7 @@ For more details, refer to [Twitch’s app registration documentation](https://d
 
 To configure Twitch as an outbound resource provider, use the following:
 
-```
+```json
 {
   "name": "Twitch",
   "credentialProviderVendor": "TwitchOauth2",

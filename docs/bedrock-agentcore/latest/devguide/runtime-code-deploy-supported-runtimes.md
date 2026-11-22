@@ -1,7 +1,6 @@
 
 
 # Supported language runtimes and deprecation policy
-<a name="runtime-code-deploy-supported-runtimes"></a>
 
 The following table lists the supported AgentCore Runtime direct code deploy language runtimes and projected deprecation dates. After a language environment is deprecated, you’re still able to create and update runtimes for a limited period. The table provides the currently forecasted dates for runtime deprecation, based on the [Runtime deprecation policy](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy) . These dates are provided for planning purposes and are subject to change.
 

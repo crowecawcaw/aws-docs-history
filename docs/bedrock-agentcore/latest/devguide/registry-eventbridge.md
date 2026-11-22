@@ -1,7 +1,6 @@
 
 
 # Notifications (Amazon EventBridge)
-<a name="registry-eventbridge"></a>
 
 **Migration Now Open**  
  AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on October 30, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
@@ -45,3 +44,14 @@
 To receive additional event types across the full registry-record and registry lifecycle, migrate to the `agent-registry` namespace. For migration details, see [Comprehensive registry migration guide](registry-faq.md).
 
 See [Notifications for pending approvals](registry-notifications-approvals.md) for the full event schema and rule setup instructions.
+
+## Skill packages and skill synchronization
+<a name="registry-eventbridge-skills"></a>
+
+Skill packages and skill synchronization add no event types. When a package upload or a synchronization from Amazon S3 or GitHub succeeds and the record version enters `DRAFT`, AWS Agent Registry emits the existing `Registry Record State changed to Draft` event.
+
+ AWS Agent Registry emits no event in the following cases:
++ A record waits for a user to authorize GitHub access, with the status `CREATE_PENDING_AUTH` or `UPDATE_PENDING_AUTH`.
++ A package upload or a synchronization fails, and the record’s status becomes `CREATE_FAILED` or `UPDATE_FAILED`.
+
+To follow these changes, call `GetRegistryRecord` and check the record’s `status` and `statusReason`. For a GitHub source, the `CreateRegistryRecord` or `UpdateRegistryRecord` response also returns `authorizationData` when a user must authorize access. For more information, see [Synchronize a skill from GitHub](registry-skill-sync-github.md) and [Skill package and skill synchronization errors](registry-troubleshooting.md#registry-troubleshooting-skills).

@@ -1,7 +1,6 @@
 
 
 # Configure a custom strategy
-<a name="long-term-configuring-custom-strategies"></a>
 
 For advanced use cases, [built-in with overrides](memory-custom-strategy.md) strategies give you fine-grained control over the memory extraction process. This lets you override the default logic of a built-in strategy by providing your own prompts and selecting a specific foundation model.
 +  **Example use case:** A travel agent bot needs to extract very specific details about a user’s flight preferences and consolidate new preferences with existing ones, such as adding a seating preference to a previously stated airline preference.
@@ -32,7 +31,7 @@ This role requires two policies: a permissions policy and a trust policy.
 
 Start by making sure you have an IAM role with the managed policy [AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy) , or create a policy with the following permissions:
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -79,7 +78,7 @@ Start by making sure you have an IAM role with the managed policy [AmazonBedrock
 
 This role is assumed by the Service to call the model in your AWS account. Use the trust policy below when creating the role or when using the managed policy:
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -118,7 +117,7 @@ Within the configuration for the step to override (for example, [UserPreferenceO
 
 For example, you can send the following request body to override the user preference memory strategy with your own extraction and consolidation prompts, using the anthropic.claude-3-sonnet-20240229-v1:0 model):
 
-```
+```json
 {
     "memoryExecutionRoleArn": "arn:aws:iam::123456789012:role/my-memory-service-role",
     "name": "CustomTravelAgentMemory",
@@ -158,7 +157,7 @@ A `recordExpirySpecification` is not applicable to the self-managed strategy (`s
 
 This example demonstrates how to override both the extraction and consolidation steps for user preferences.
 
-```
+```python
 # Custom instructions for the EXTRACTION step.
 # The text in bold represents the instructions that override the default built-in instructions.
 CUSTOM_EXTRACTION_INSTRUCTIONS = """\

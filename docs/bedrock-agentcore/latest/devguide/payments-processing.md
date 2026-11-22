@@ -1,7 +1,6 @@
 
 
 # Processing payments
-<a name="payments-processing"></a>
 
 After you complete the control plane setup, use the following workflows to create instruments, sessions, and process payments.
 

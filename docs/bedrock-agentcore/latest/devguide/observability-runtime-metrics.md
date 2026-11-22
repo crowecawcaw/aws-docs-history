@@ -1,7 +1,6 @@
 
 
 # AgentCore generated runtime observability data
-<a name="observability-runtime-metrics"></a>
 
 The runtime metrics provided by AgentCore give you visibility into your agent execution activity levels, processing latency, resource utilization, and error rates. AgentCore also provides aggregated metrics for total invocations and sessions.
 

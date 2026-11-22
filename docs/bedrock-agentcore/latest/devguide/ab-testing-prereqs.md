@@ -1,7 +1,6 @@
 
 
 # A/B testing prerequisites
-<a name="ab-testing-prereqs"></a>
 
 Before you create an A/B test, ensure the following resources are in place.
 
@@ -40,7 +39,7 @@ The IAM principal that runs the AWS CLI rule commands (`aws bedrock-agentcore-co
 
 Example trust policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -65,7 +64,7 @@ Example trust policy:
 
 Example permissions policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

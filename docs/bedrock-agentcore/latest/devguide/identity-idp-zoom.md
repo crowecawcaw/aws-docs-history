@@ -1,7 +1,6 @@
 
 
 # Zoom
-<a name="identity-idp-zoom"></a>
 
 Zoom can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through Zoom’s OAuth2 service and obtain access tokens for Zoom API resources.
 
@@ -41,7 +40,7 @@ For more details, refer to [Zoom’s integration documentation](https://develope
 
 To configure Zoom as an outbound resource provider, use the following:
 
-```
+```json
 {
   "name": "Zoom",
   "credentialProviderVendor": "ZoomOauth2",

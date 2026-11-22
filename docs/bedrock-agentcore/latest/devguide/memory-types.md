@@ -1,7 +1,6 @@
 
 
 # Memory types
-<a name="memory-types"></a>
 
 AgentCore Memory offers two types of memory that work together to create intelligent, context-aware AI agents:
 

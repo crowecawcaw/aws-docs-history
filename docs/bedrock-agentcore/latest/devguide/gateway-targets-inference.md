@@ -1,7 +1,6 @@
 
 
 # Inference targets
-<a name="gateway-targets-inference"></a>
 
 You can add inference targets to your gateway to route LLM traffic to model providers. The gateway acts as a unified LLM proxy layer, allowing clients to connect to a single endpoint and route requests to the correct model provider based on the model specified in the request. Inference targets provide model-based routing, credential abstraction, and centralized governance for LLM traffic across multiple providers.
 

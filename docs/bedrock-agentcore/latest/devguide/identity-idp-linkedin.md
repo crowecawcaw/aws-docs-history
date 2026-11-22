@@ -1,7 +1,6 @@
 
 
 # LinkedIn
-<a name="identity-idp-linkedin"></a>
 
 LinkedIn can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through LinkedIn’s OAuth2 service and obtain access tokens for LinkedIn API resources.
 
@@ -31,7 +30,7 @@ For more information about LinkedIn authentication, see [Authentication overview
 
 To configure LinkedIn as an outbound resource provider, use the following configuration:
 
-```
+```json
 {
    "name": "NAME",
    "credentialProviderVendor": "LinkedInOAuth2",

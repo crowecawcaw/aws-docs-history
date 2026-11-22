@@ -1,7 +1,6 @@
 
 
 # Create a Memory connector using the console
-<a name="memory-gateway-connector-console"></a>
 
 You can create a gateway and its `agentcore-memory` connector target in the AWS Management Console. Use the console when you prefer a guided setup that does not require the AWS CLI or SDK. The console configures the same components described in [Set up a gateway with a Memory connector target](memory-gateway-setup.md). These are an inbound authorizer for the gateway and a Memory connector target that fronts your Memory resource.
 

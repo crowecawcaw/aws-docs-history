@@ -1,7 +1,6 @@
 
 
 # Get started with AgentCore Browser
-<a name="browser-quickstart"></a>
 
 AgentCore Browser enables your agents to interact with web pages through a managed Chrome browser. In this guide, you’ll create an AI agent that navigates a website and extracts information — in under 5 minutes.
 
@@ -24,7 +23,7 @@ Before you start, ensure you have:
 + Boto3 installed ( [Boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) )
 +  AWS credentials configured — verify with:
 
-  ```
+  ```bash
   aws sts get-caller-identity
   ```
 
@@ -36,7 +35,7 @@ Before you start, ensure you have:
 
 Attach this policy to your IAM identity. In the IAM Console, find your user or role, choose **Add permissions** > **Create inline policy** , switch to JSON view, and paste:
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -79,7 +78,7 @@ Replace `<Region>` with your actual AWS Region and `<account_id>` with your AWS 
 ## Step 1: Install dependencies
 <a name="browser-strands-install"></a>
 
-```
+```bash
 pip install bedrock-agentcore strands-agents strands-agents-tools playwright nest-asyncio
 ```
 
@@ -91,7 +90,7 @@ Create a file named `browser_agent.py` :
 **Note**  
 Replace `<Region>` with your AWS Region (for example, `us-west-2` ).
 
-```
+```python
 from strands import Agent
 from strands_tools.browser import AgentCoreBrowser
 
@@ -113,7 +112,7 @@ print(response.message["content"][0]["text"])
 ## Step 3: Run the agent
 <a name="browser-strands-run"></a>
 
-```
+```bash
 python browser_agent.py
 ```
 

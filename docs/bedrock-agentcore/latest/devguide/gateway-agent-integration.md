@@ -1,7 +1,6 @@
 
 
 # Create an agent that uses your AgentCore gateway
-<a name="gateway-agent-integration"></a>
 
 After creating and testing your gateway, you can create and connect AI agents to your gateway. An agent connected to your gateway is able to call the tools in the gateway and use a [Amazon Bedrock model](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html) to respond to queries.
 
@@ -11,7 +10,7 @@ To learn how to create an agent, connect it to a gateway, and invoke it to answe
 
 1. 
 
-   ```
+   ```python
    from strands import Agent
    from strands.models import BedrockModel
    from strands.tools.mcp.mcp_client import MCPClient
@@ -61,7 +60,7 @@ To learn how to create an agent, connect it to a gateway, and invoke it to answe
 
 1. 
 
-   ```
+   ```python
    from mcp import ClientSession
    from mcp.client.streamable_http import streamablehttp_client
    
@@ -86,7 +85,7 @@ To learn how to create an agent, connect it to a gateway, and invoke it to answe
 
 1. 
 
-   ```
+   ```bash
    #!/bin/bash
    # Script to add MCP server to Claude
    

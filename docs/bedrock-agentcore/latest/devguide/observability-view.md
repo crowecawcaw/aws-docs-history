@@ -1,7 +1,6 @@
 
 
 # View observability data for your Amazon Bedrock AgentCore agents
-<a name="observability-view"></a>
 
 After implementing observability in your agent, you can view the collected metrics and traces in the AgentCore observability page, the CloudWatch console generative AI observability page and in CloudWatch Logs. Refer to the following sections to learn how to view metrics for your agents.
 

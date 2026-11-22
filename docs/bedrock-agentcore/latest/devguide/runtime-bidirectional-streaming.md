@@ -1,7 +1,6 @@
 
 
 # Bidirectional streaming
-<a name="runtime-bidirectional-streaming"></a>
 
 Amazon Bedrock AgentCore Runtime supports bidirectional streaming, enabling real-time, two-way communication between clients and agents. This is essential for interactive applications such as conversational voice agents where both the client and agent need to send and receive data simultaneously.
 

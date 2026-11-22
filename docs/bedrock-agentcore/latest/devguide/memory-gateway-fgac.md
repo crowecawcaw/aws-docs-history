@@ -1,7 +1,6 @@
 
 
 # Fine-grained access control for Memory
-<a name="memory-gateway-fgac"></a>
 
 With fine-grained access control (FGAC) for Amazon Bedrock AgentCore Memory, you can bind Memory access to an OAuth-authenticated caller’s identity.
 

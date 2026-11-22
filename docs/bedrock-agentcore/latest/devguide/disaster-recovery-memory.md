@@ -1,7 +1,6 @@
 
 
 # Replicating AgentCore Memory across Regions
-<a name="disaster-recovery-memory"></a>
 
 Amazon Bedrock AgentCore Memory (AgentCore Memory) keeps its data in one AWS Region, so the standby Region of the [warm standby architecture](disaster-recovery-resiliency.md#architecture-warm-standby) has none of your agent’s memory unless you replicate it. Choose what to replicate, then check it against the requirements for safe failover and failback.
 

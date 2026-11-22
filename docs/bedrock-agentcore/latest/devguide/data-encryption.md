@@ -1,7 +1,6 @@
 
 
 # Data encryption
-<a name="data-encryption"></a>
 
 ## Encryption at rest
 <a name="encryption-rest"></a>

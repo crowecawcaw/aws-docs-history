@@ -1,7 +1,6 @@
 
 
 # microVMs
-<a name="runtime-how-it-works"></a>
 
 The Amazon Bedrock AgentCore Runtime handles scaling, session management, security isolation, and infrastructure management, allowing you to focus on building intelligent agent experiences rather than operational complexity. By leveraging the features and capabilities described here, you can build, deploy, and manage sophisticated AI agents that deliver value to your users while helping to maintain enterprise-grade security and reliability.
 
@@ -97,6 +96,9 @@ By default, V2 charges based on what your agent actively uses. AgentCore Runtime
 Larger container images  
 With V2, you can use container images up to 10 GB (compressed), compared to 2 GB on V1. For images larger than 2 GB, set a larger `minimumMemoryInMiB`. For more information, see [build disk requirements](runtime-troubleshooting.md#troubleshoot-runtime-insufficient-build-disk).
 
+Session pinning  
+With V2, each session that you create with a user identity is pinned to that user, and AgentCore Runtime rejects requests to that session from other users. Session pinning is on by default for V2 agent runtimes on microVMs, and isn’t available on V1 or on Instances. For more information, see [Session pinning](runtime-sessions.md#runtime-session-pinning).
+
 **Note**  
 Restoring from a snapshot changes how you structure your agent code. To learn how to optimize your agent and get the most out of platform version V2, see [Optimize your agent for AgentCore Runtime V2](runtime-v2-optimize.md).
 
@@ -151,7 +153,7 @@ You set the platform version for each agent runtime. Set it when you create a ru
 
 1. Set `--platform-version V2` on the `create-agent-runtime` command.
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-agent-runtime \
      --agent-runtime-name "my-agent" \
      --role-arn "arn:aws:iam::111122223333:role/AgentExecutionRole" \
@@ -166,7 +168,7 @@ You set the platform version for each agent runtime. Set it when you create a ru
 
 1. To confirm the platform version, call `get-agent-runtime`.
 
-   ```
+   ```bash
    aws bedrock-agentcore-control get-agent-runtime \
      --agent-runtime-id my-agent-ABCDE12345 \
      --query platformVersion
@@ -174,7 +176,7 @@ You set the platform version for each agent runtime. Set it when you create a ru
 
 1. The following example uses boto3 to create an agent runtime on V2.
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
@@ -202,13 +204,13 @@ A V2 create or update operation prepares and snapshots your environment, so it b
 Create and update take minutes  
 On V1, a runtime reaches `READY` in seconds. On V2, preparing the snapshot adds a one-time cost, and create and update run for several minutes before the runtime reaches `READY`.
 
-Your container must report healthy within 120 seconds  
-AgentCore Runtime takes the snapshot on the first healthy `/ping` response, or, if you configure a build warmup hook, after the hook’s `memory` call. Report health from `/ping` only after initialization completes, or do the initialization in the warmup hook, so that the snapshot captures a fully initialized agent. If the runtime does not report healthy within 120 seconds of startup, creation fails with a health check error. For more information, see [Configure lifecycle hooks for AgentCore Runtime](runtime-lifecycle-hooks.md).
+Your agent must pass its health check in time  
+AgentCore Runtime takes the snapshot when your agent’s health check first passes, for example when `GET /ping` returns a successful response. If you configure a build warmup hook, it takes the snapshot after the hook’s `memory` call instead. Report healthy as soon as your server can accept requests, and do your initialization in the warmup hook, so that the snapshot captures a fully initialized agent. If the health check doesn’t pass in time, the create or update fails with a health check error. For more information, see [Prepare your agent before sessions start](runtime-v2-optimize.md#runtime-v2-optimize-warmup).
 
 Poll for a terminal status  
 The `create` and `update` operations return while the runtime is still `CREATING` or `UPDATING`. If you call `update` or `delete` before the runtime reaches a terminal state, the operation returns `ConflictException`. Poll `get_agent_runtime` until the status is `READY` or ends in `FAILED`, and allow several minutes for a V2 runtime to reach `READY`.  
 
-```
+```python
 import time
 
 def wait_until_ready(client, agent_runtime_id):
@@ -281,7 +283,7 @@ To set a resource configuration, include `resourceConfigurations` with one entry
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore-control create-agent-runtime \
   --agent-runtime-name "my-agent" \
   --role-arn "arn:aws:iam::111122223333:role/AgentExecutionRole" \
@@ -295,7 +297,7 @@ aws bedrock-agentcore-control create-agent-runtime \
   --resource-configurations '[{"minimumMemoryInMiB": 4096}]'
 ```
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
@@ -326,7 +328,7 @@ Changes apply to new sessions. Sessions that are already running keep their reso
 
 The following example updates the container image and keeps the current size.
 
-```
+```python
 client.update_agent_runtime(
     agentRuntimeId="my-agent-ABCDE12345",
     roleArn="arn:aws:iam::111122223333:role/AgentExecutionRole",

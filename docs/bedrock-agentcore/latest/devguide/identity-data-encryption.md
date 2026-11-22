@@ -1,7 +1,6 @@
 
 
 # Data encryption
-<a name="identity-data-encryption"></a>
 
 Data encryption typically falls into two categories: encryption at rest and encryption in transit.
 

@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for AWS Agent Registry
-<a name="using-service-linked-role-agent-registry"></a>
 
 **Migration Now Open**  
  AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on October 30, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
@@ -103,7 +102,7 @@ If you delete this service-linked role and then need to create it again, you can
 
 You can also use the IAM console to create a service-linked role with the ** AWS Agent Registry** use case. In the AWS CLI or the AWS API, create a service-linked role with the `agent-registry.amazonaws.com` service name:
 
-```
+```bash
 aws iam create-service-linked-role --aws-service-name "agent-registry.amazonaws.com"
 ```
 

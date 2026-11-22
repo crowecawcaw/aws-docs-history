@@ -1,7 +1,6 @@
 
 
 # Rate limit enforcement
-<a name="gateway-rate-limits-enforcement"></a>
 
 This topic describes how the gateway evaluates and enforces rate limits at runtime, including interaction with other gateway features, throttled response formats, and observability.
 
@@ -60,7 +59,7 @@ When a request is throttled, the gateway returns a protocol-specific error respo
 
  **HTTP protocol:** 
 
-```
+```json
 {
     "error": "Rate limit exceeded",
     "success": false,
@@ -72,7 +71,7 @@ When a request is throttled, the gateway returns a protocol-specific error respo
 
  **MCP protocol (JSON-RPC):** 
 
-```
+```json
 {
     "jsonrpc": "2.0",
     "id": "request-1",
@@ -90,7 +89,7 @@ When a request is throttled, the gateway returns a protocol-specific error respo
 
  **OpenAI-compatible protocol:** 
 
-```
+```json
 {
     "error": {
         "message": "Rate limit exceeded",
@@ -105,7 +104,7 @@ When a request is throttled, the gateway returns a protocol-specific error respo
 
  **Anthropic-compatible protocol:** 
 
-```
+```json
 {
     "type": "error",
     "error": {

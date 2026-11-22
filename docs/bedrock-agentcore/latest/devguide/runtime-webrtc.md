@@ -1,7 +1,6 @@
 
 
 # Bidirectional streaming with WebRTC
-<a name="runtime-webrtc"></a>
 
 With Amazon Bedrock AgentCore Runtime, you can use WebRTC (Web Real-Time Communication) to enable real-time media streaming between clients and agents. WebRTC is useful when building voice agents for browser and mobile applications, where clients use the browser-native WebRTC API or mobile WebRTC SDKs for real-time media. For more information about WebRTC, see [WebRTC API](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) in the MDN Web Docs.
 

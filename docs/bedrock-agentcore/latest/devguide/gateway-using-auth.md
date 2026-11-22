@@ -1,7 +1,6 @@
 
 
 # Authorize and authenticate to an AgentCore gateway and gateway target
-<a name="gateway-using-auth"></a>
 
 To invoke your gateway and gateway target, you’ll need to make sure that the following credentials that you set up while fulfilling the [prerequisites](gateway-prerequisites.md) are recognized during gateway invocation:
 +  [Inbound authorization](gateway-inbound-auth.md) – Authorization and authentication to the gateway.

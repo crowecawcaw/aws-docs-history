@@ -1,7 +1,6 @@
 
 
 # Framework integrations for AgentCore payments
-<a name="payments-framework-integrations"></a>
 
 AgentCore payments integrates with popular agent frameworks to provide automated payment processing. Each framework uses a different integration pattern:
 +  ** [Strands Agents](#payments-framework-strands) ** — Plugin-based integration using hooks
@@ -15,14 +14,14 @@ The AgentCore payments plugin provides automated payment processing for Strands 
 ### Installation
 <a name="payments-framework-strands-install"></a>
 
-```
+```bash
 pip install 'bedrock-agentcore[strands-agents]'
 ```
 
 ### Configure and use the plugin
 <a name="payments-framework-strands-usage"></a>
 
-```
+```python
 from strands import Agent
 from strands_tools import http_request
 from bedrock_agentcore.payments.integrations.config import AgentCorePaymentsPluginConfig
@@ -56,7 +55,7 @@ agent("access https://drvd12nxpcyd5.cloudfront.net/market-recap")
 
 When payment processing fails, the plugin stores the failure and raises an interrupt. Your application should handle these interrupts:
 
-```
+```python
 result = agent("Access the premium endpoint at https://api.example.com/premium")
 while result.stop_reason == "interrupt":
     responses = []
@@ -97,7 +96,7 @@ while result.stop_reason == "interrupt":
 
 To access only payment visibility tools without automatic payment execution (for example, to keep a human or custom logic in the loop before any payment transaction), disable automatic processing:
 
-```
+```python
 config = AgentCorePaymentsPluginConfig(
     payment_manager_arn="arn:aws:bedrock-agentcore:us-east-1:123456789012:payment-manager/pm-abc123",
     user_id="user-123",
@@ -111,7 +110,7 @@ config = AgentCorePaymentsPluginConfig(
 
 You can specify preferred blockchain networks for payment processing:
 
-```
+```python
 config = AgentCorePaymentsPluginConfig(
     payment_manager_arn="arn:aws:bedrock-agentcore:us-east-1:123456789012:payment-manager/pm-abc123",
     user_id="user-123",
@@ -166,14 +165,14 @@ The AgentCore payments middleware provides automated payment processing for Lang
 ### Installation
 <a name="payments-framework-langgraph-install"></a>
 
-```
+```bash
 pip install 'bedrock-agentcore[langgraph]'
 ```
 
 ### Configure and use the middleware
 <a name="payments-framework-langgraph-usage"></a>
 
-```
+```python
 from langchain.agents import create_agent
 from bedrock_agentcore.payments.integrations.langgraph import (
     AgentCorePaymentsConfig,
@@ -222,7 +221,7 @@ The middleware intercepts tool calls and handles the x402 payment flow in six st
 
 Use the `on_payment_error` callback to handle payment failures gracefully:
 
-```
+```python
 from bedrock_agentcore.payments.integrations.langgraph import (
     AgentCorePaymentsConfig,
     AgentCorePaymentsMiddleware,
@@ -259,7 +258,7 @@ The `ErrorResolution` enum provides the following options:
 
 To disable automatic payment processing and require explicit payment approval:
 
-```
+```python
 config = AgentCorePaymentsConfig(
     payment_manager_arn="arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/pm-abc123",
     user_id="test-user-123",
@@ -275,7 +274,7 @@ When `auto_payment` is `False`, the middleware surfaces 402 responses to the age
 
 Restrict which tools can trigger automatic payments:
 
-```
+```python
 config = AgentCorePaymentsConfig(
     payment_manager_arn="arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/pm-abc123",
     user_id="test-user-123",
@@ -293,7 +292,7 @@ Only tool calls from tools in the allowlist trigger automatic payment processing
 
 You can specify preferred blockchain networks for payment processing:
 
-```
+```python
 config = AgentCorePaymentsConfig(
     payment_manager_arn="arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/pm-abc123",
     user_id="test-user-123",
@@ -354,13 +353,13 @@ The LangGraph middleware supports both synchronous and asynchronous execution:
 
  **Synchronous:** 
 
-```
+```python
 result = agent.invoke({"messages": [{"role": "user", "content": "access the paid endpoint"}]})
 ```
 
  **Asynchronous:** 
 
-```
+```python
 result = await agent.ainvoke({"messages": [{"role": "user", "content": "access the paid endpoint"}]})
 ```
 

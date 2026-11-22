@@ -1,7 +1,6 @@
 
 
 # Built-in strategies
-<a name="built-in-strategies"></a>
 
 AgentCore Memory provides built-in strategies to create memories. Each built-in strategy consists of steps to handle memory creation, including the following (different strategies employ different steps):
 +  **Extraction** – Identifies useful insights from short-term memory to place into long-term memory as memory records.

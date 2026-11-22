@@ -1,7 +1,6 @@
 
 
 # AWS CloudTrail integration
-<a name="registry-cloudtrail-integration"></a>
 
 **Migration Now Open**  
  AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on October 30, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
@@ -38,13 +37,16 @@ Supported management events:
 | ListRegistryRecords | Yes | 
 | SubmitRegistryRecordForApproval | No | 
 | UpdateRegistryRecordStatus | No | 
+| CompleteRegistryRecordTokenAuth | No | 
+
+ `CompleteRegistryRecordTokenAuth` is recorded when the AWS Agent Registry console completes a GitHub authorization for a skill record. For more information, see [Synchronize a skill from GitHub](registry-skill-sync-github.md).
 
 Customer free-text fields such as `name`, `description`, `statusReason`, and descriptor `data` are redacted to `HIDDEN_DUE_TO_SECURITY_REASONS`. The `clientToken` (an idempotency token, not a secret) is preserved in clear text.
 
 ### Sample management event — CreateRegistry
 <a name="registry-cloudtrail-sample-management"></a>
 
-```
+```json
 {
   "eventVersion": "1.11",
   "eventSource": "agent-registry.amazonaws.com",
@@ -123,9 +125,9 @@ Additional charges apply for data events. For more information, see [AWS CloudTr
 ### Sample data event — SearchDiscoverableRegistryRecords
 <a name="registry-cloudtrail-sample-data"></a>
 
-Customer free-text fields (`searchQuery`, `filters`) are redacted to `HIDDEN_DUE_TO_SECURITY_REASONS`. Because these are read-only operations, `responseElements` is null and is omitted.
+CloudTrail redacts customer free-text fields (`searchQuery`, `filters`) to `HIDDEN_DUE_TO_SECURITY_REASONS`, and records the `searchType` that you send in clear text. Because these are read-only operations, `responseElements` is null, and CloudTrail omits it.
 
-```
+```json
 {
   "eventVersion": "1.11",
   "eventSource": "agent-registry.amazonaws.com",
@@ -162,7 +164,8 @@ Customer free-text fields (`searchQuery`, `filters`) are redacted to `HIDDEN_DUE
   "requestParameters": {
     "searchQuery": "HIDDEN_DUE_TO_SECURITY_REASONS",
     "registryIds": ["arn:aws:agent-registry:us-east-1:123456789012:registry/EXAMPLEregistry"],
-    "filters": "HIDDEN_DUE_TO_SECURITY_REASONS"
+    "filters": "HIDDEN_DUE_TO_SECURITY_REASONS",
+    "searchType": "KEYWORD"
   },
   "resources": [
     {
@@ -173,6 +176,29 @@ Customer free-text fields (`searchQuery`, `filters`) are redacted to `HIDDEN_DUE
   ]
 }
 ```
+
+## Skill package and skill synchronization events
+<a name="registry-cloudtrail-skills"></a>
+
+CloudTrail events don’t record skill package content or package download URLs:
++ In `CreateRegistryRecord` and `UpdateRegistryRecord` events, the package content (`artifact.content`) is redacted to `HIDDEN_DUE_TO_SECURITY_REASONS`.
++  `GetRegistryRecord` and `BatchGetDiscoverableRegistryRecord` are read-only, so their events have no `responseElements` and don’t record the download URLs that they return.
++ In `InvokeRegistryMcp` events, tool results are redacted, so the download URLs that the batch get tool returns aren’t recorded.
++ For a GitHub source, `CreateRegistryRecord` and `UpdateRegistryRecord` events leave out the `authorizationData` that the response returns, including the authorization URL.
++ The `customParameters` of an OAuth credential provider are redacted to `HIDDEN_DUE_TO_SECURITY_REASONS`.
+
+The following request fields of skill records appear in clear text:
++  `artifact.sha256`, the SHA-256 checksum of an uploaded package.
++ The source URL (`fromUrl.url`) of an Amazon S3 or GitHub skill source, including the bucket name and object key, or the repository, branch or tag, and folder path.
++ The IAM role ARN (`roleArn`) of an Amazon S3 source, and `bucketOwnerAccountId`.
++ The credential provider ARN (`providerArn`), the `scopes`, and the `returnUrl` of a GitHub source.
++  `repositoryProvider`, `triggerSynchronization`, and `forceAuthentication`.
+
+Don’t put sensitive information in bucket names, object keys, repository names, branch or tag names, folder paths, or `returnUrl`.
+
+Skill synchronization also produces events from other services in your account:
++ When AWS Agent Registry reads an Amazon S3 source with an IAM role, CloudTrail records an `AssumeRole` event for the role. The role session name is `AgentCore-RegistryRecord-<recordId>`.
++ For a registry encrypted with a customer managed key, AWS KMS events record the use of your key. For more information, see [Monitoring how AWS Agent Registry uses your key](registry-data-encryption.md#registry-encryption-monitoring).
 
 ## Enabling CloudTrail logging for AWS Agent Registry
 <a name="registry-cloudtrail-enabling"></a>
@@ -216,7 +242,7 @@ Create a trail (if you don’t already have one), then attach an advanced event 
 **Note**  
 The Amazon S3 bucket you use for log delivery must have a bucket policy that grants CloudTrail permission to write log files. If you specify a bucket that was not created through the CloudTrail console, you must attach this policy yourself. For more information, see [Amazon S3 bucket policy for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html) and [Creating a trail with the AWS CLI](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-create-trail.html) in the AWS CloudTrail User Guide.
 
-```
+```bash
 # 1. Create a trail (skip if you already have one; the S3 bucket must already have the
 #    CloudTrail bucket policy attached — see the note above)
 aws cloudtrail create-trail \
@@ -242,7 +268,7 @@ aws cloudtrail start-logging --name my-agent-registry-trail
 
 To narrow the events you log, add more field selectors. For example, to log only a specific registry:
 
-```
+```bash
 aws cloudtrail put-event-selectors \
     --trail-name my-agent-registry-trail \
     --advanced-event-selectors '[

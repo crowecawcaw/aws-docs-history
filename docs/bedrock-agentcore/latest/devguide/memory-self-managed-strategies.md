@@ -1,7 +1,6 @@
 
 
 # Self-managed strategy
-<a name="memory-self-managed-strategies"></a>
 
 A self-managed strategy in Amazon Bedrock AgentCore Memory gives you complete control over your memory extraction and consolidation pipelines. With a self-managed strategy, you can build custom memory processing workflows while leveraging Amazon Bedrock AgentCore for storage and retrieval.
 
@@ -76,7 +75,7 @@ Create an IAM role that Amazon Bedrock AgentCore can assume to access your resou
 
 Use the following trust policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -100,7 +99,7 @@ Use the following trust policy:
 
 Use the following permissions policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -133,7 +132,7 @@ Use the following permissions policy:
 
 If you use encrypted resources, add the following KMS permissions:
 
-```
+```json
 {
     "Sid": "KMSPermissions",
     "Effect": "Allow",
@@ -212,7 +211,7 @@ When trigger conditions are met, Amazon Bedrock AgentCore sends notifications an
 ### SNS notification message
 <a name="sns-notification-message"></a>
 
-```
+```json
 {
   "jobId": "unique-job-identifier",
   "s3PayloadLocation": "s3://bucket/path/to/payload.json",
@@ -224,7 +223,7 @@ When trigger conditions are met, Amazon Bedrock AgentCore sends notifications an
 ### S3 payload structure
 <a name="s3-payload-structure"></a>
 
-```
+```json
 {
   "requestId": "request-identifier",
   "accountId": "123456789012",

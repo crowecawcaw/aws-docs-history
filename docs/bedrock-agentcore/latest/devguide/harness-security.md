@@ -1,7 +1,6 @@
 
 
 # Security and access controls
-<a name="harness-security"></a>
 
 The harness gives you the same security primitives as the rest of AgentCore, wired in by configuration.
 +  **Isolated execution.** Every session runs in its own Firecracker microVM in [AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html). No shared state, no shared filesystem.
@@ -54,7 +53,7 @@ Tools run only as a result of model reasoning. The harness does not accept a [to
 
 The following example shows a request that the harness is configured to reject. The final message contains a `toolUse` block naming the built-in `shell` tool:
 
-```
+```python
 response = client.invoke_harness(
     harnessArn=HARNESS_ARN,
     runtimeSessionId=SESSION_ID,
@@ -122,14 +121,14 @@ By default, harness sessions run on the public network. To access private resour
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore-control create-harness \
   --harness-name "VpcHarness" \
   --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
   --environment '{"agentCoreRuntimeEnvironment": {"networkConfiguration": {"networkMode": "VPC", "networkModeConfig": {"securityGroups": ["sg-0abc1234def56789a"], "subnets": ["subnet-0abc1234def56789a"]}}}}'
 ```
 
-```
+```bash
 agentcore add harness \
   --name internal_agent \
   --network-mode VPC \
@@ -150,7 +149,7 @@ Require callers to present a valid JWT issued by a configured identity provider 
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore-control create-harness \
   --harness-name "OAuthHarness" \
   --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
@@ -158,7 +157,7 @@ aws bedrock-agentcore-control create-harness \
 ```
 Invoke with a Bearer token instead of SigV4 credentials:  
 
-```
+```bash
 curl -X POST "https://bedrock-agentcore.us-west-2.amazonaws.com/harnesses/invoke?harnessArn=${HARNESS_ARN}" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${ID_TOKEN}" \
@@ -166,7 +165,7 @@ curl -X POST "https://bedrock-agentcore.us-west-2.amazonaws.com/harnesses/invoke
   -d '{"messages": [{"role": "user", "content": [{"text": "Hi"}]}]}'
 ```
 
-```
+```bash
 agentcore add harness \
   --name MyJwtHarness \
   --authorizer-type CUSTOM_JWT \
@@ -178,7 +177,7 @@ agentcore deploy
 To invoke the harness with a Bearer token, send the request over HTTPS as shown in the preceding tab.  
 When your identity provider’s discovery endpoint is reachable only over PrivateLink, include a private endpoint in the authorizer JSON. To use a service-managed VPC endpoint:  
 
-```
+```bash
 agentcore add harness \
   --name MyManagedVpcHarness \
   --authorizer-type CUSTOM_JWT \
@@ -189,7 +188,7 @@ agentcore deploy
 ```
 Or point at an existing VPC Lattice resource configuration instead of a managed VPC endpoint:  
 
-```
+```bash
 agentcore add harness \
   --name MyLatticeHarness \
   --authorizer-type CUSTOM_JWT \
@@ -215,7 +214,7 @@ Learn more: [AgentCore Policy](policy.md) · [Policy authoring guide](policy-aut
 
 The harness assumes an IAM execution role you provide. The role’s trust policy must allow the AgentCore service principal to assume it:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [{
@@ -258,7 +257,7 @@ The `GetHarnessEndpoint`, `UpdateHarnessEndpoint`, and `DeleteHarnessEndpoint` a
 
 The following sample covers a harness on the public network, which pulls its managed container image from Amazon ECR Public. A harness in VPC mode pulls the managed image from a private Amazon ECR repository in the harness Region, so its execution role also needs private ECR pull permissions. Add the statements in [VPC mode: managed image pull from private ECR](#harness-vpc-managed-ecr) to the execution role for a VPC-mode harness.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -419,7 +418,7 @@ Below are sample policies you can append to your execution role based on the fea
 
 Add the permissions for each Lambda, SNS, or EventBridge target configured in [Lifecycle hooks](harness-lifecycle-hooks.md).
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -452,7 +451,7 @@ Replace each resource with the exact target ARN from the hook configuration, inc
 
 Add this policy when your harness uses a private ECR image for a custom container.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -482,7 +481,7 @@ Add this policy when your harness runs in VPC mode. In VPC mode, the harness pul
 
 The repository is owned by an AWS service account, so the account in the repository ARN is wildcarded. The pull permissions are scoped to the harness Region.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -510,13 +509,13 @@ Make sure the required VPC endpoints exist in your VPC (see [Network configurati
 
 For a CLI-created execution role, add these supplemental statements in `agentcore/cdk/lib/cdk-stack.ts`. Add the IAM import at the top of the file:
 
-```
+```typescript
 import * as iam from 'aws-cdk-lib/aws-iam';
 ```
 
 After creating `this.application`, use the logical Harness name from your project:
 
-```
+```typescript
 const harness = this.application.harness('my_agent');
 harness.addToPolicy(new iam.PolicyStatement({
   actions: [
@@ -539,7 +538,7 @@ Run `agentcore deploy` from the project root to apply the policy. If the Harness
 
 Add this policy when your harness uses a customer-owned memory instance.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -564,7 +563,7 @@ Add this policy when your harness uses a customer-owned memory instance.
 
 Add this policy when your harness uses a customer-owned custom browser resource.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -591,7 +590,7 @@ Add this policy when your harness uses a customer-owned custom browser resource.
 
 Add this policy when your harness uses a customer-owned custom code interpreter.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -616,7 +615,7 @@ Add this policy when your harness uses a customer-owned custom code interpreter.
 
 Add this policy when your harness uses a gateway configured with SigV4 inbound authentication.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -637,7 +636,7 @@ Add a policy when a `remote_mcp` tool uses `outboundAuth` with `awsIam`. The har
 
 For example, add this policy when the MCP server is an AWS Lambda function URL that uses `AWS_IAM` authentication (`"service": "lambda"`). Callers of these URLs need both `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction`. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) in the * AWS Lambda Developer Guide*.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -672,7 +671,7 @@ For example, add this policy when the MCP server is an AWS Lambda function URL t
 
 Add this policy when your harness fetches a skill from an Amazon S3 source. The execution role lists and downloads the skill objects under the bucket prefix.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -699,7 +698,7 @@ To fetch a skill from a private Git repository, the harness reads a personal acc
 
 Add this policy when your harness uses an API key credential provider for model providers such as OpenAI, Gemini, or LiteLLM.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -734,7 +733,7 @@ Add this policy when your harness uses an API key credential provider for model 
 
 Add this policy when your harness uses an OAuth2 credential provider for OAuth-protected gateway tools.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

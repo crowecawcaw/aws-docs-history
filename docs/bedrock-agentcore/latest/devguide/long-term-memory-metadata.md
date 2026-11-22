@@ -1,7 +1,6 @@
 
 
 # Structured metadata for long-term memories
-<a name="long-term-memory-metadata"></a>
 
 Metadata filtering in Amazon Bedrock AgentCore Memory lets you add structured attributes to your long-term memory records. You can use those attributes to narrow which records are returned during retrieval. Namespaces already isolate memories by primary entity (user, tenant, patient, client). However, within a single namespace, a broad semantic search returns everything that’s close in meaning. With metadata filtering, you can retrieve only results that match specific attribute values. For example, you can retrieve only high-priority records, only records from a particular department, or only records created within a given time range.
 
@@ -54,7 +53,7 @@ The subsequent sections walk through each step in detail.
 
 The following example declares two indexed keys:
 
-```
+```json
 {
   "indexedKeys": [
     { "key": "priority", "type": "STRING" },
@@ -83,7 +82,7 @@ Each entry in the schema defines:
 
 The following example shows a metadata schema entry with validation:
 
-```
+```json
 {
   "metadataSchema": [
     {
@@ -125,7 +124,7 @@ For these keys, set `extractionType` to `STRICTLY_CONSISTENT` in the metadata sc
 
 The following JSON shows a metadata schema with both `STRICTLY_CONSISTENT` and `LLM_INFERRED` extraction types:
 
-```
+```json
 {
   "metadataSchema": [
     {
@@ -162,7 +161,7 @@ When you omit `extractionType`, the default is `LLM_INFERRED`.
 
 The following Python example shows a support session with two deterministic keys (`department` and `priority`):
 
-```
+```python
 # Event 1: high-priority billing inquiry
 agentcore_client.create_event(
     memoryId="mem-support-abc123",
@@ -279,7 +278,7 @@ Before configuring metadata filtering, verify you have:
 
 The following creates a customer-support memory with five indexed keys and a metadata schema. `priority`, `agent_type`, and `sentiment` are defined in the strategy’s metadata schema — the LLM extracts their values from conversation content. Notice that `sentiment` is in the schema but *not* declared as an indexed key: the LLM derives its value from conversations and populates it on records, but it cannot be used in filter expressions. `tags` (`STRINGLIST`), `channel` (`STRING`), and `ticket_id` (`STRING`) are declared as indexed keys but are not in the schema — they are not populated during event-driven extraction but can be supplied via the Batch APIs.
 
-```
+```bash
 aws bedrock-agentcore-control create-memory \
   --name "CustomerSupportMemory" \
   --event-expiry-duration 30 \
@@ -350,7 +349,7 @@ aws bedrock-agentcore-control create-memory \
 
 Use `GetMemory` to confirm that the indexed keys and metadata schema were accepted:
 
-```
+```bash
 aws bedrock-agentcore-control get-memory --memory-id "<memory-id>"
 ```
 
@@ -367,7 +366,7 @@ Attach `stringValue` metadata to events at creation time. The LLM uses the strat
 **Note**  
  `IngestData` accepts the same `metadata` and feeds the same extraction pipeline, so metadata behaves identically to `CreateEvent`. The difference is that `IngestData` does not retain a short-term event.
 
-```
+```bash
 aws bedrock-agentcore create-event \
   --memory-id "<memory-id>" \
   --actor-id "customer-123" \
@@ -393,7 +392,7 @@ Event metadata is not required for schema keys to produce values. When a schema 
 
 Using the same customer support memory from Step 1, the following event has no metadata at all:
 
-```
+```bash
 aws bedrock-agentcore create-event \
   --memory-id "<memory-id>" \
   --actor-id "customer-789" \
@@ -407,7 +406,7 @@ aws bedrock-agentcore create-event \
 
 The LLM analyzes the conversation content and populates all three schema keys on the extracted memory record — `priority`, `agent_type`, and `sentiment` — even though none were provided as event metadata:
 
-```
+```json
 {
   "content": {"text": "Customer reported a production outage caused by a billing hold. Escalated to billing specialist."},
   "metadata": {
@@ -458,7 +457,7 @@ How metadata is handled on batch-created records depends on whether you provide 
 
 The following example creates a record without `memoryStrategyId`, storing all provided metadata:
 
-```
+```bash
 aws bedrock-agentcore batch-create-memory-records \
   --memory-id "<memory-id>" \
   --records '[{
@@ -477,7 +476,7 @@ aws bedrock-agentcore batch-create-memory-records \
 
 To enforce schema consistency, include the `memoryStrategyId`. In this case, only keys present in that strategy’s `memoryRecordSchema` are retained:
 
-```
+```bash
 aws bedrock-agentcore batch-create-memory-records \
   --memory-id "<memory-id>" \
   --records '[{
@@ -501,7 +500,7 @@ In the second example, if the strategy’s schema only defines `priority`, `agen
 
  `BatchUpdateMemoryRecords` follows the same `memoryStrategyId` metadata filtering behavior as `BatchCreateMemoryRecords`. The following example updates an existing record’s content and metadata:
 
-```
+```bash
 aws bedrock-agentcore batch-update-memory-records \
   --memory-id "<memory-id>" \
   --records '[{
@@ -526,7 +525,7 @@ Metadata filters are applied *before* the vector similarity search runs (pre-fil
 
 Every filter is a `{ left, operator, right }` expression:
 
-```
+```json
 {
   "left":     { "metadataKey": "priority" },
   "operator": "EQUALS_TO",
@@ -560,7 +559,7 @@ Note: Event metadata filters on `ListEvents` support only `EXISTS`, `NOT_EXISTS`
 
 On `RetrieveMemoryRecords`, `metadataFilters` is nested inside `searchCriteria`. The following example scopes results to high-priority records from the current year before semantic search matches against "billing issues":
 
-```
+```bash
 aws bedrock-agentcore retrieve-memory-records \
   --memory-id "<memory-id>" \
   --namespace "support/customer-123" \
@@ -591,7 +590,7 @@ Combining a custom metadata filter with a system-generated timestamp compacts th
 
 On `ListMemoryRecords`, `metadataFilters` is a top-level parameter:
 
-```
+```bash
 aws bedrock-agentcore list-memory-records \
   --memory-id "<memory-id>" \
   --namespace "support/customer-123" \
@@ -614,7 +613,7 @@ aws bedrock-agentcore list-memory-records \
 
 This query scopes retrieval to Q3 2026 equities discussions within a specific client namespace:
 
-```
+```json
 {
   "searchQuery": "portfolio rebalancing strategy",
   "topK": 10,
@@ -650,7 +649,7 @@ AgentCore Memory supports schema evolution so you can adapt your metadata config
 
 You can add new indexed keys to a memory at any time:
 
-```
+```bash
 aws bedrock-agentcore-control update-memory \
   --memory-id "<memory-id>" \
   --add-indexed-keys '[
@@ -667,7 +666,7 @@ You can freely add, remove, or update entries in a strategy’s metadata schema.
 
 For example, to add a new `resolution_type` field to an existing strategy:
 
-```
+```bash
 aws bedrock-agentcore-control update-memory \
   --memory-id "<memory-id>" \
   --memory-strategies '{

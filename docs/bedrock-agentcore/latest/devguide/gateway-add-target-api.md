@@ -1,7 +1,6 @@
 
 
 # Add a target using the API
-<a name="gateway-add-target-api"></a>
 
 To add a target using the API, make a [CreateGatewayTarget](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGatewayTarget.html) request with one of the [AgentCore control plane endpoints](https://docs.aws.amazon.com/general/latest/gr/bedrock_agentcore.html#bedrock_agentcore_cp) and define a target configuration that matches the target type.
 

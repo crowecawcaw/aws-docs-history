@@ -1,7 +1,6 @@
 
 
 # Prompt templates
-<a name="prompt-templates-builtin"></a>
 
 Each prompt template contains at least one placeholder, which is replaced with actual trace information before it is sent to the judge model.
 
@@ -48,7 +47,7 @@ When an evaluator’s prompt references `skill_content`, `{context}` renders the
 
 The Goal success rate evaluator assesses whether an AI assistant successfully completed all user goals within a conversation session. This session-level evaluator analyzes the entire conversation to determine if the user’s objectives were met.
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -102,7 +101,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 The Goal success rate with ground truth evaluator assesses whether an AI assistant completed the task by checking the conversation against a provided set of success assertions. This session-level evaluator judges success based on whether the agent’s behavior satisfies each assertion, rather than inferring the user’s goals from the conversation alone.
 
-```
+```text
 You are an evaluator for an LLM-based agent.
 
 CONVERSATION RECORD:
@@ -139,7 +138,7 @@ Do not return any preamble or explanations, return only a pure JSON string.
 
 The Coherence evaluator assesses the logical consistency and cohesion of an AI assistant’s response. This trace-level evaluator examines whether the response maintains internal consistency without contradictions or logical gaps.
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -196,7 +195,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 The Conciseness evaluator measures how efficiently an AI assistant communicates information. This trace-level evaluator assesses whether responses provide the necessary information using minimal words without unnecessary elaboration.
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -239,7 +238,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 The Correctness evaluator assesses the factual accuracy and correctness of an AI assistant’s response to a given task. This trace-level evaluator focuses on whether the content and solution are accurate, regardless of style or presentation.
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -288,7 +287,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 The Correctness with ground truth evaluator assesses whether an AI assistant’s response correctly addresses a user query by comparing it against an expected response. This trace-level evaluator focuses on whether the response conveys the same core factual content as the ground truth, regardless of wording, format, or level of detail.
 
-```
+```text
 You are an evaluator assessing whether an agent's response correctly addresses a user query.
 
 USER QUERY:
@@ -339,7 +338,7 @@ Do not return any preamble or explanations, return only a pure JSON string.
 
 The Faithfulness evaluator assesses whether an AI assistant’s response remains consistent with the conversation history. This trace-level evaluator identifies conflicts between current responses and previous interactions within the same conversation.
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -395,7 +394,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 The Harmfulness evaluator detects potentially harmful content in an AI assistant’s response. This trace-level evaluator identifies harmful information including insults, hate speech, violence, inappropriate sexual content, and stereotyping.
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -440,7 +439,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 The Helpfulness evaluator assesses how effectively an AI assistant’s response helps users progress toward their goals. This trace-level evaluator focuses on the user’s perspective and whether the response moves them closer to achieving their objectives.
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -517,7 +516,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 The Instruction following evaluator assesses whether an AI assistant’s response adheres to all explicit instructions provided in the user’s input. This trace-level evaluator focuses on compliance with specific directives regardless of overall response quality.
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -581,7 +580,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 The Refusal evaluator detects when an AI assistant declines to address or fulfill a user’s request. This trace-level evaluator identifies various forms of refusal, from direct declines to indirect avoidance of the requested task.
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -625,7 +624,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 The Response relevance evaluator assesses how well an AI assistant’s response addresses the specific question or request. This trace-level evaluator measures the focus and relevance of the response to the given input.
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -675,7 +674,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 The Stereotyping evaluator detects bias and stereotypical content in an AI assistant’s response. This trace-level evaluator identifies responses that contain prejudicial assumptions or generalizations about specific groups of people.
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -720,7 +719,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 The Tool parameter accuracy evaluator assesses whether an AI assistant correctly uses contextual information when making tool calls. This tool-level evaluator verifies that tool parameters are accurately derived from the conversation context.
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -786,7 +785,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 The Tool selection accuracy evaluator assesses whether an AI assistant chooses the appropriate tool for a given situation. This tool-level evaluator determines if the selected action is justified and optimal at a specific point in the conversation.
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -850,7 +849,7 @@ The Skill selection accuracy evaluator assesses whether the skill the agent load
 Score labels and their numeric values:
 +  `Yes` (1.0), `No` (0.0)
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context
@@ -907,7 +906,7 @@ The Skill instruction following evaluator assesses how fully the agent followed 
 Score labels and their numeric values:
 +  `Fully Followed` (1.0), `Mostly Followed` (0.75), `Partially Followed` (0.5), `Minimally Followed` (0.25), `Not Followed` (0.0)
 
-```
+```text
 You are an expert evaluator. Evaluate the AI response according to the evaluator-specific task, rubric, and instructions that follow.
 
 ## Evaluation Context

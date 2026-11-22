@@ -1,7 +1,6 @@
 
 
 # Create a payment session
-<a name="payments-create-session"></a>
 
 A payment session is a time-bounded payment context that optionally enforces a spending budget. When the session expires or the budget is reached, further payment requests within that session are denied. For the complete request and response schema, see [CreatePaymentSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_CreatePaymentSession.html) in the API Reference.
 
@@ -10,7 +9,7 @@ You can automate the steps on this page with the AgentCore Payments skill in the
 
 **Example**  
 
-```
+```python
 from bedrock_agentcore.payments import PaymentManager
 
 manager = PaymentManager(
@@ -26,7 +25,7 @@ session = manager.create_payment_session(
 )
 ```
 
-```
+```bash
 aws bedrock-agentcore create-payment-session \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
     --user-id "test-user-123" \
@@ -36,7 +35,7 @@ aws bedrock-agentcore create-payment-session \
     --region us-west-2
 ```
 
-```
+```python
 import boto3
 import uuid
 
@@ -58,7 +57,7 @@ session = dp_client.create_payment_session(
 
 **Example**  
 
-```
+```python
 session = manager.get_payment_session(
     user_id="test-user-123",
     payment_session_id="payment-session-abc123"
@@ -68,14 +67,14 @@ available = session["availableLimits"]["availableSpendAmount"]
 print(f"Remaining: {available['value']} of {limit['value']} {limit['currency']}")
 ```
 
-```
+```bash
 aws bedrock-agentcore get-payment-session \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
     --payment-session-id "payment-session-abc123" \
     --region us-west-2
 ```
 
-```
+```python
 from decimal import Decimal
 
 response = dp_client.get_payment_session(

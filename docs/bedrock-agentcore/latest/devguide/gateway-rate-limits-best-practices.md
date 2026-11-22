@@ -1,7 +1,6 @@
 
 
 # Rate limit best practices
-<a name="gateway-rate-limits-best-practices"></a>
 
 This topic provides guidance on designing, deploying, and operating rate limits effectively on your gateway.
 
@@ -155,7 +154,7 @@ Ensure your gateway has observability enabled. Gateway spans are exported to Clo
 
 Create a metric filter on the `aws/spans` log group to extract throttle events as a custom metric. The following example creates a metric that counts throttled requests per rate limit:
 
-```
+```json
 {
   "filterPattern": "{ $.attributes.aws\\.agentcore\\.gateway\\.throttle\\.customer\\.decision = \"throttled\" }",
   "metricTransformations": [
@@ -181,7 +180,7 @@ After the metric filter is in place, create an alarm that triggers when the thro
 
 1. Run the following command:
 
-   ```
+   ```bash
    aws cloudwatch put-metric-alarm \
        --alarm-name "GatewayRateLimitThrottleSpike" \
        --namespace "AgentCore/Gateway/RateLimits" \
@@ -197,7 +196,7 @@ After the metric filter is in place, create an alarm that triggers when the thro
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    cloudwatch = boto3.client("cloudwatch", region_name="us-west-2")
@@ -223,7 +222,7 @@ After the metric filter is in place, create an alarm that triggers when the thro
 
 Create a CloudWatch dashboard to visualize throttle rates over time. The following widget configuration shows throttle counts grouped by rate limit:
 
-```
+```json
 {
   "metrics": [
     [

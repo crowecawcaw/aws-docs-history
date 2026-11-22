@@ -1,7 +1,6 @@
 
 
 # Use elicitation with your AgentCore gateway
-<a name="gateway-mcp-elicitation"></a>
 
 Elicitation is an MCP feature that allows an MCP server to request additional information from the client during a tool call. When a tool needs user confirmation, authentication, or additional input to proceed, the server sends an elicitation request back to the client. AgentCore Gateway forwards elicitation requests from MCP server targets to your clients, replacing the request `id` with a gateway-generated identifier.
 
@@ -122,7 +121,7 @@ This error occurs when an MCP server target sends an elicitation request but the
 To resolve:
 +  **If you are the MCP server developer**: Add error handling around your elicitation calls. Implement a fallback path when elicitation is not supported:
 
-  ```
+  ```python
   try:
       result = await context.session.create_elicitation(
           message="Confirm this action?",
@@ -135,7 +134,7 @@ To resolve:
   ```
 +  **If you are the gateway client developer**: For version `2025-11-25` and earlier, ensure your client declares elicitation capability during `initialize`:
 
-  ```
+  ```json
   {
     "capabilities": {
       "elicitation": {
@@ -161,7 +160,7 @@ In form mode, the server sends a structured schema for the client to fill out. T
 **Example**  
 On these versions, the client declares the elicitation capability during `initialize`, and the elicitation arrives as an `elicitation/create` request on the open SSE stream. Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
-```
+```python
 import requests
 import json
 import sseclient
@@ -219,7 +218,7 @@ for event in client.events():
 ```
 On version `2026-07-28`, elicitation uses the multi round-trip requests pattern instead of a server-initiated request on the SSE stream. The client declares the elicitation capability in `_meta` on each request. If the tool needs input, the response is an `input_required` result containing `inputRequests` and an opaque `requestState`. The client gathers the input and retries the original request with a new `id`, the `inputResponses`, and the unmodified `requestState`. Sessions and the `initialize` handshake are not used. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
-```
+```python
 import requests
 
 gateway_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
@@ -272,7 +271,7 @@ if result.get("resultType") == "input_required":
 print(f"Tool result: {result}")
 ```
 
-```
+```python
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import asyncio
@@ -306,7 +305,7 @@ asyncio.run(use_elicitation(
 ))
 ```
 
-```
+```python
 from mcp.client.streamable_http import streamablehttp_client
 from mcp.types import ElicitResult
 from strands import Agent
@@ -334,7 +333,7 @@ with mcp_client:
     print(response)
 ```
 
-```
+```python
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain_mcp_adapters.callbacks import Callbacks, CallbackContext
 from langchain.agents import create_agent
@@ -381,7 +380,7 @@ In URL mode, the server sends a URL that the user must visit to complete an acti
 **Example**  
 On these versions, the URL elicitation arrives as an `elicitation/create` request on the open SSE stream within an MCP session. Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
-```
+```python
 import requests
 import json
 import sseclient
@@ -432,7 +431,7 @@ for event in client.events():
 ```
 On version `2026-07-28`, the URL elicitation arrives as an `input_required` result through the multi round-trip requests pattern instead of on the SSE stream. The user completes the action at the URL, then the client retries the original request with a new `id`, the `inputResponses`, and the unmodified `requestState`. Sessions are not used. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
-```
+```python
 import requests
 import webbrowser
 
@@ -489,7 +488,7 @@ if result.get("resultType") == "input_required":
 print(f"Tool result: {result}")
 ```
 
-```
+```python
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import asyncio
@@ -529,7 +528,7 @@ asyncio.run(use_url_elicitation(
 ))
 ```
 
-```
+```python
 from mcp.client.streamable_http import streamablehttp_client
 from mcp.types import ElicitResult
 from strands import Agent
@@ -561,7 +560,7 @@ with mcp_client:
     print(response)
 ```
 
-```
+```python
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain_mcp_adapters.callbacks import Callbacks, CallbackContext
 from langchain.agents import create_agent

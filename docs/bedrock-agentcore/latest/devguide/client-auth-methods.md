@@ -1,7 +1,6 @@
 
 
 # Client authentication methods
-<a name="client-auth-methods"></a>
 
 Client authentication method controls how the OAuth client authenticates with the authorization server’s token endpoint when requesting access tokens.
 
@@ -83,7 +82,7 @@ aws bedrock-agentcore-control create-oauth2-credential-provider \
 ### CLI example: Using `PRIVATE_KEY_JWT` as client authentication method
 <a name="_cli_example_using_private_key_jwt_as_client_authentication_method"></a>
 
-```
+```bash
 aws bedrock-agentcore-control create-oauth2-credential-provider \
   --cli-input-json '{
     "name": "sample-private-key-jwt",

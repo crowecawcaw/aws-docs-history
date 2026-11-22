@@ -1,7 +1,6 @@
 
 
 # Understanding results and output
-<a name="batch-evaluations-results"></a>
 
 Batch evaluation results come in two layers: aggregate summaries in the API response, and per-session detail in CloudWatch Logs.
 
@@ -41,7 +40,7 @@ A multi-dimension evaluator has one entry per dimension. A separate entry for th
 ### Example response
 <a name="batch-eval-example-response"></a>
 
-```
+```json
 {
     "batchEvaluationId": "acme_baseline-a1b2c3d4e5",
     "status": "COMPLETED",
@@ -77,7 +76,7 @@ A multi-dimension evaluator has one entry per dimension. A separate entry for th
 
 The `outputConfig` field in the `GetBatchEvaluation` response specifies a CloudWatch Logs location where per-session, per-evaluator results are written as OpenTelemetry events.
 
-```
+```json
 {
     "outputConfig": {
         "cloudWatchConfig": {
@@ -102,7 +101,7 @@ Each event in the log stream contains per-turn, per-evaluator detail:
 
 To read these events with the AWS SDK, use the CloudWatch Logs API. `agentcore eval batch-evaluation get` reads them for you, as described in [Viewing results from the CLI](#batch-eval-viewing-from-cli).
 
-```
+```python
 import boto3
 
 logs_client = boto3.client("logs", region_name="us-west-2")
@@ -148,7 +147,7 @@ Within a successfully evaluated session, individual evaluators can fail. The `to
 
 A common workflow is to run batch evaluation before and after a change (prompt update, model swap, tool modification) and compare the aggregate scores:
 
-```
+```python
 # After running two batch evaluations
 baseline = client.get_batch_evaluation(batchEvaluationId=baseline_id)
 treatment = client.get_batch_evaluation(batchEvaluationId=treatment_id)
@@ -180,7 +179,7 @@ The AgentCore CLI provides the following commands:
 +  `agentcore eval batch-evaluation list`: Lists batch evaluation jobs.
 +  `agentcore eval batch-evaluation evaluate`: Starts a job and prints its metadata as JSON.
 
-```
+```bash
 # View a single batch evaluation job and its results
 agentcore eval batch-evaluation get \
   --id acme_baseline-a1b2c3d4e5 \

@@ -1,7 +1,6 @@
 
 
 # Creating and managing registry records
-<a name="registry-managing-records"></a>
 
 Registry records represent the individual resources published into a registry. Each record captures metadata that describes the underlying resource — what it is, what it does, and how it can be found. This section covers the supported record types, record lifecycle, and how to create and manage records.
 
@@ -10,4 +9,5 @@ Registry records represent the individual resources published into a registry. E
 + [Record lifecycle](registry-record-lifecycle.md)
 + [Create and manage records](registry-create-manage-records.md)
 + [Synchronize records from external sources](registry-sync-records.md)
++ [Publish skill packages](registry-skill-packages.md)
 + [Set custom metadata values on a record](registry-custom-metadata-values.md)

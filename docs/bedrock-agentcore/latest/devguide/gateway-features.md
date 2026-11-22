@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock AgentCore Gateway features
-<a name="gateway-features"></a>
 
 Amazon Bedrock AgentCore Gateway provides features that you can optionally enable for your gateway. The following table provides a brief description of these features and links to documentation to learn more about the feature:
 

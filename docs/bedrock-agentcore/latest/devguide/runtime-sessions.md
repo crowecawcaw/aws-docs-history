@@ -1,7 +1,6 @@
 
 
 # Use isolated sessions for agents
-<a name="runtime-sessions"></a>
 
 Amazon Bedrock AgentCore Runtime lets you isolate each user session and safely reuse context across multiple invocations in a user session. Session isolation is critical for AI agent workloads due to their unique operational characteristics:
 +  **Complete execution environment separation** : Each session in AgentCore Runtime receives its own dedicated microVM with isolated compute, memory, and filesystem resources. This ensures that the execution environment of one session cannot access data belonging to another session. After session completion, the entire microVM is terminated and memory is sanitized to remove all session data, eliminating cross-session contamination risks.
@@ -10,7 +9,7 @@ Amazon Bedrock AgentCore Runtime lets you isolate each user session and safely r
 +  **Deterministic security for non-deterministic processes** : AI agent behavior can be non-deterministic due to the probabilistic nature of foundation models. AgentCore Runtime provides consistent, deterministic isolation boundaries regardless of agent execution patterns, delivering the predictable security properties required for enterprise deployments.
 
 **Note**  
-Use a unique session ID for each user. AgentCore does not enforce session-to-user mappings - your client backend should maintain the relationship between users and their session IDs. Additionally, your client backend should implement logic for user to session lifecycle management like maximum number of sessions per user. For complete session isolation guidance, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md).
+Use a unique session ID for each user. For agent runtimes on platform version V1 or on Instances, AgentCore does not enforce session-to-user mappings. For agent runtimes on platform version V2 on microVMs, AgentCore Runtime also pins each session that is created with a user identity to that user. For more information, see [Session pinning](#runtime-session-pinning). On every platform version and compute type, your client backend must maintain the relationship between users and their session IDs. Your client backend must also manage the session lifecycle for each user, such as the maximum number of sessions for each user. For complete session isolation guidance, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md).
 
 You can also access application servers in a session through an authenticated session endpoint. Configure `allowedPorts` to select the ports clients can reach. For more information, see [Connect to runtime sessions through a session endpoint](runtime-session-endpoints.md).
 
@@ -18,6 +17,7 @@ You can also access application servers in a session through an authenticated se
 + [Understanding ephemeral context](#ephemeral-context)
 + [Extended conversations and multi-step workflows](#extended-conversations)
 + [AgentCore Runtime session lifecycle](#session-lifecycle)
++ [Session pinning](#runtime-session-pinning)
 + [Session context keys](#runtime-session-isolation)
 + [How to use sessions](#using-sessions)
 + [Session headers by protocol](#session-headers-by-protocol)
@@ -54,6 +54,32 @@ Session state is determined by the compute lifecycle and can be one of the follo
 
 **Note**  
 While the service provisions or tears down a session, a second operation targeting that same session returns a retryable HTTP 409 `RetryableConflictException` (`Session operation in progress, please retry`). This window is brief. Already-running sessions are not affected. Retry with short exponential backoff.
+
+## Session pinning
+<a name="runtime-session-pinning"></a>
+
+On platform version V2, session pinning binds each of your sessions to the user who created it. If another user sends a request with the same `runtimeSessionId`, AgentCore Runtime rejects the request. This prevents one user from reaching another user’s session by reusing or guessing its session ID.
+
+**Important**  
+Session pinning is available only for agent runtimes that use platform version V2 on microVMs. For those agent runtimes, session pinning is turned on by default and you don’t need to configure anything.  
+Session pinning isn’t available for agent runtimes on platform version V1 or on Instances. For those agent runtimes, AgentCore Runtime doesn’t enforce session-to-user mappings. Your client backend must maintain the relationship between users and their session IDs. For more information, see [Platform versions](runtime-how-it-works.md#runtime-platform-versions) and [Security best practices for AgentCore Runtime](runtime-security-best-practices.md).
+
+AgentCore Runtime associates the session with the user identity of the request that creates it. The identity depends on how the caller authenticates:
+
+
+| Inbound authentication | User identity for the session | 
+| --- | --- | 
+| JSON Web Token (JWT) bearer token | The `sub` claim of the validated token, within the token’s issuer (`iss` claim). The same `sub` value from a different issuer is a different user. | 
+|  AWS Signature Version 4 (SigV4) with the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header | The value of the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header. | 
+| SigV4 without the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header | None. The session isn’t pinned. | 
+
+For a pinned session, AgentCore Runtime checks every later request to that session. Each request must carry the same user identity as the request that created the session. It must also use the same authentication method. Otherwise, AgentCore Runtime returns an `AccessDeniedException`.
+
+AgentCore Runtime applies this check to `InvokeAgentRuntime`, `InvokeAgentRuntimeWithWebSocketStream`, `InvokeAgentRuntimeCommand`, `InvokeAgentRuntimeCommandShell`, `StopRuntimeSession`, and `GetAgentCard`.
+
+A SigV4 caller that doesn’t send the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header can still call `StopRuntimeSession` and `GetAgentCard` on a pinned session, so your backend can stop sessions and read agent metadata on behalf of users. A different user is still rejected for these operations.
+
+Session pinning adds a layer of protection and doesn’t replace your own access controls. Your client backend is still responsible for mapping users to their sessions and managing session lifecycle. For more information, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md).
 
 ## Session context keys
 <a name="runtime-session-isolation"></a>

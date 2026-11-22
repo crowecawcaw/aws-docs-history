@@ -1,7 +1,6 @@
 
 
 # GitHub
-<a name="identity-idp-github"></a>
 
 GitHub can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through GitHub’s OAuth2 service and obtain access tokens for GitHub API resources.
 
@@ -43,7 +42,7 @@ For more details, refer to Github’s documentation [Creating an OAuth app](http
 
 To configure the outbound GitHub resource provider, use the following:
 
-```
+```json
 {
         "name": "NAME",
         "credentialProviderVendor": "GithubOauth2",

@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon Bedrock Managed Agents (with OpenAI) on AgentCore Runtime
-<a name="runtime-get-started-bma"></a>
 
 **Note**  
 Amazon Bedrock Managed Agents (with OpenAI) is in preview. Features and APIs may change before general availability.
@@ -36,21 +35,21 @@ The CLI builds the container image with AWS CodeBuild in your account, so you do
 
 1. Install the AgentCore CLI.
 
-   ```
+   ```bash
    npm install -g @aws/agentcore
    agentcore --version
    ```
 
 1. Set your credentials and Region.
 
-   ```
+   ```bash
    export AWS_PROFILE={{your-profile}}
    export AWS_REGION=us-east-1
    ```
 
 1. Create the project from the `environment-python-bma` template.
 
-   ```
+   ```bash
    agentcore create --name {{MyManagedAgent}} --template environment-python-bma
    cd {{MyManagedAgent}}
    ```
@@ -66,7 +65,7 @@ You can also run `agentcore create` with no flags. Choose **code-based**, and th
 ### Project structure
 <a name="runtime-get-started-bma-project-structure"></a>
 
-```
+```text
 MyManagedAgent/
 ├── agentcore/
 │   ├── agentcore.json
@@ -104,7 +103,7 @@ Key files:
 
 1. Replace the constructor’s existing assignment to `this.application` with the following code:
 
-   ```
+   ```typescript
    const applicationProps = {
      ...props.application,
      spec: {
@@ -137,7 +136,7 @@ By default, the Runtime runs without VPC access. Deploy the Runtime in a VPC whe
 
 1. Add the following fields to the `agent` Runtime entry in `agentcore/agentcore.json`:
 
-   ```
+   ```json
    {
      "networkMode": "VPC",
      "networkConfig": {
@@ -161,7 +160,7 @@ The subnets must have a route to the Bedrock Managed Agents endpoint, because th
 
 1. Deploy the Runtime and check its status.
 
-   ```
+   ```bash
    agentcore deploy
    agentcore status --json
    ```
@@ -170,7 +169,7 @@ The subnets must have a route to the Bedrock Managed Agents endpoint, because th
 
 1. Save the `arn` of the `agent` Runtime from the output of `agentcore status --json`.
 
-   ```
+   ```json
    {
      "resourceType": "runtime",
      "name": "agent",
@@ -181,7 +180,7 @@ The subnets must have a route to the Bedrock Managed Agents endpoint, because th
 
 1. Read the session-role ARN. The CDK session-role setup above also produces a CloudFormation output described as `IAM role ARN for Bedrock Managed Agents sessions`. Read it from the deployed stack’s **Outputs** tab, or use the stack name shown during deployment.
 
-   ```
+   ```bash
    aws cloudformation describe-stacks \
      --stack-name {{stack-name}} \
      --query "Stacks[0].Outputs[?Description=='IAM role ARN for Bedrock Managed Agents sessions'].OutputValue" \
@@ -234,7 +233,7 @@ The `provide_token` helper uses your AWS credentials to get a short-lived Amazon
 
 If you add a gateway to the project, give its ARN from the output of `agentcore deploy` with `--gateway`. Use the flag only for a new session. The client adds the gateway as an `mcp` tool with the ARN in `connector_id`. Bedrock Managed Agents calls the gateway with the session role. The gateway must support MCP version `2025-03-26`. If it does not, the agent gets no gateway tools, and Bedrock Managed Agents does not show an error.
 
-```
+```python
 """Send an input to a Bedrock Managed Agents session that uses this project's ACR."""
 
 import argparse
@@ -433,7 +432,7 @@ if __name__ == "__main__":
 
 1. Run the client from the Runtime directory with the following command. Replace {{runtime-arn}} with the ARN of your Runtime.
 
-   ```
+   ```bash
    cd app/agent
    uv run client.py --runtime {{runtime-arn}}
    ```
@@ -449,7 +448,7 @@ To send another input to the same session, add the session ID. The turn uses the
 
 1. Send another input to the same session by adding the session ID. In the following command, replace {{runtime-arn}} with the ARN of your Runtime and {{session-id}} with the ID of your session.
 
-   ```
+   ```bash
    uv run client.py --runtime {{runtime-arn}} --session-id {{session-id}} \
      --input "Run cat acr-report.txt and show the output."
    ```
@@ -464,7 +463,7 @@ A workspace directory on session storage works only on a Runtime that has sessio
 
 1. Add the following fields to the `agent` Runtime entry in `agentcore/agentcore.json`. The `BMA_HOME_DIR` variable moves the home directory of the exec-server to the session storage mounted at `/mnt/home`.
 
-   ```
+   ```json
    {
      "filesystemConfigurations": [
        {
@@ -511,7 +510,7 @@ You can mount an S3 Files access point in the Runtime. Then the skills change wh
 
 1. Add the mount to the entry for the Runtime in `agentcore/agentcore.json`.
 
-   ```
+   ```json
    {
      "filesystemConfigurations": [
        {
@@ -538,7 +537,7 @@ Transaction Search and its span indexing apply to the entire account in the Regi
 
 1. Search the Runtime logs from the last 15 minutes, and list the recent traces.
 
-   ```
+   ```bash
    agentcore logs runtime --since 15m
    agentcore traces runtime list --since 30m
    ```
@@ -550,7 +549,7 @@ Transaction Search and its span indexing apply to the entire account in the Regi
 
 1. Change the lifecycle settings in `agentcore/agentcore.json`. For example, this setting stops an idle session after 10 minutes. The values are in seconds.
 
-   ```
+   ```json
    {
      "lifecycleConfiguration": {
        "idleRuntimeSessionTimeout": 600,
@@ -561,7 +560,7 @@ Transaction Search and its span indexing apply to the entire account in the Regi
 
 1. Set environment variables for the lifecycle server in the `envVars` list of the Runtime entry. For example, this variable turns off the traces and the exec-server logs.
 
-   ```
+   ```json
    {
      "envVars": [
        { "name": "DISABLE_ADOT_OBSERVABILITY", "value": "true" }
@@ -591,7 +590,7 @@ Transaction Search and its span indexing apply to the entire account in the Regi
 
 1. Deploy again.
 
-   ```
+   ```bash
    agentcore deploy
    ```
 
@@ -609,13 +608,13 @@ These steps permanently delete resources and revert account-level settings such 
 
 1. Remove the resources of the project.
 
-   ```
+   ```bash
    agentcore remove all --yes
    ```
 
 1. Deploy to delete the Runtime, its execution role, and the stack.
 
-   ```
+   ```bash
    agentcore deploy --yes
    ```
 
@@ -630,7 +629,7 @@ The deploy does not delete these resources:
 
 1. Delete the session role’s inline policy and the role.
 
-   ```
+   ```bash
    aws iam delete-role-policy --role-name BmaSessionRole-{{region}} --policy-name BmaSession
    aws iam delete-role --role-name BmaSessionRole-{{region}}
    ```
@@ -639,31 +638,31 @@ The deploy does not delete these resources:
 
 1. Find the Runtime log groups. Replace {{project-name}} with the name of your project and {{agent-name}} with the name of your agent. In [Step 1](#runtime-get-started-bma-create), both are `MyManagedAgent`.
 
-   ```
+   ```bash
    aws logs describe-log-groups --log-group-name-prefix /aws/bedrock-agentcore/runtimes/{{project-name}}_{{agent-name}}- --query 'logGroups[].logGroupName'
    ```
 
 1. Find the CodeBuild log groups. Replace {{project-name}} with the same project name as in the previous step, and {{target-name}} with the name of the deploy target in `agentcore/aws-targets.json`; the default is `default`. In the CodeBuild name, each underscore (`_`) in the project name and the target name becomes a hyphen (`-`).
 
-   ```
+   ```bash
    aws logs describe-log-groups --log-group-name-prefix /aws/codebuild/AgentCore-{{project-name}}-{{target-name}}- --query 'logGroups[].logGroupName'
    ```
 
 1. Find the Lambda log groups. This command lists the Lambda log groups of all AgentCore CLI projects in the Region, so identify only the ones for your project.
 
-   ```
+   ```bash
    aws logs describe-log-groups --log-group-name-prefix /aws/lambda/AgentCore- --query 'logGroups[].logGroupName'
    ```
 **Note**  
 The name is shortened, as in the following example, where {{suffix}} is a generated string.  
 
-   ```
+   ```text
    /aws/lambda/AgentCore-MyManagedAgent--ApplicationAgentMyManage-{{suffix}}
    ```
 
 1. Delete each log group that you found for your project. Replace {{log-group-name}} with the name of the log group.
 
-   ```
+   ```bash
    aws logs delete-log-group --log-group-name {{log-group-name}}
    ```
 

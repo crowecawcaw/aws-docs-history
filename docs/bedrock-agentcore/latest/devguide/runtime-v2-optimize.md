@@ -1,129 +1,213 @@
 
 
 # Optimize your agent for Amazon Bedrock AgentCore Runtime V2
-<a name="runtime-v2-optimize"></a>
 
-Amazon Bedrock AgentCore Runtime V2 starts your agent by restoring a snapshot. This changes how you structure your agent code. Work that your agent does at startup is captured in the snapshot and shared by every restored instance. Produce any value that must differ between requests, or that can expire, in your request handler instead. This topic describes how to structure your agent around startup work and per-request work so that it stays correct after each restore. For an overview of platform version V2, see [Platform versions](runtime-how-it-works.md#runtime-platform-versions).
+On platform version V1, AgentCore Runtime starts your container from scratch when a session starts. On platform version V2, AgentCore Runtime prepares your agent once, when you create or update the agent runtime, and takes a snapshot of it. The snapshot includes your agent’s memory and its files. Each session then starts by restoring that snapshot. This has four consequences for how you write your agent:
++  **What your agent holds in memory in the snapshot is ready when a session starts.** Your session code doesn’t have to load it again.
++  **The more your agent holds in memory, the longer each new session takes to start.** A few hundred MiB makes no noticeable difference. Several GiB can add seconds.
++  **Files in the snapshot are slower the first time a session reads them**, such as your code, your Python packages, native libraries, or a headless browser. It’s most noticeable in the first sessions after you create or update your agent.
++  **Values in the snapshot are shared by every session.** A random value, an identifier, or a timestamp that your agent creates before the snapshot is the same in every session.
 
-Your agent has two execution contexts:
+This topic describes how to prepare your agent so that sessions start fast, and how to handle values that must be unique to each request, such as random values, timestamps, and credentials. For an overview of platform version V2, see [Platform versions](runtime-how-it-works.md#runtime-platform-versions).
 
-Startup  
-Code that runs once as your process starts, before AgentCore Runtime takes the snapshot. AgentCore Runtime captures this code in the snapshot, and every instance inherits its results.
+## How AgentCore Runtime prepares your agent
+<a name="runtime-v2-optimize-lifecycle"></a>
 
-Request handling  
-The code in your `/invocations` handler. This code runs on every request on every instance.
+When you create or update an agent runtime, AgentCore Runtime prepares your agent before the runtime reaches `READY`:
 
-Use one rule to decide where code belongs. Compute a value at startup if it stays the same for the life of the snapshot. Compute it in your handler if it varies per request or can expire. AgentCore Runtime takes one snapshot per agent version and uses it until you create or update the agent, so the life of the snapshot is the life of that version.
+1. It starts your container, and your agent starts its server.
 
-## Initialize once at startup
-<a name="_initialize_once_at_startup"></a>
+1. It waits until your agent’s health check passes, for example when `GET /ping` returns a successful response. If the health check doesn’t pass in time, the create or update fails.
 
-Do expensive, reusable work as your process starts, before the snapshot. For example, import dependencies, load model weights, or read static configuration from your deployment bundle. With the AgentCore SDK, do this work at module scope, before you call `app.run()`. Your agent does not listen on port 8080 until `app.run()` runs, so no `/ping` can succeed and no snapshot can be taken until your startup work finishes. The snapshot captures a fully initialized agent by construction, and you do not need to gate `/ping`. Complete initialization within 120 seconds of startup. If your agent does not become healthy in time, the runtime fails its health check. For more information about the `/ping` and `/invocations` endpoints, see [Understand the AgentCore Runtime service contract](runtime-service-contract.md).
+1. It takes a snapshot of your agent, including its memory, its files, and the processes that are still running.
 
-```
-import json, pathlib
+Each session starts from that snapshot. To prepare your agent’s memory before the snapshot and its files after it, configure a build warmup hook. For more information, see [Prepare your agent before sessions start](#runtime-v2-optimize-warmup).
 
-from bedrock_agentcore.runtime import BedrockAgentCoreApp
-
-# Runs once at import, before app.run() starts the server and before the
-# snapshot. Every restored instance inherits these objects.
-MODEL = load_model_weights()
-SETTINGS = json.loads((pathlib.Path(__file__).parent / "agent.json").read_text())
-
-app = BedrockAgentCoreApp()
-
-@app.entrypoint
-def invoke(payload):
-    # Per-request work runs here on every instance.
-    ...
-
-app.run()  # starts listening on 8080; the snapshot is taken after this
-```
-
-If your agent runs its own HTTP server instead of the AgentCore SDK, the snapshot must capture a fully initialized agent. You can do this in one of two ways:
-+ Report a healthy status from `/ping` only after initialization completes.
-+ Report a healthy status as soon as your server starts, and do the initialization in a lifecycle hook’s `memory` call. Sessions start with what that call loads. For more information, see [Prepare memory and disk with a lifecycle hook](#runtime-v2-optimize-warmup).
-
-Read only data at startup that is the same for every instance and does not expire. Handle time-sensitive values, such as short-lived credentials, in your handler.
-
-**Note**  
-Do not compute anything at startup that you change without redeploying. For example, a tool catalog fetched from AgentCore Gateway looks like an ideal startup value because it is slow and expensive to load, but caching it at startup freezes your agent’s tool inventory at the time of the snapshot.
-
-## Prepare memory and disk with a lifecycle hook
+## Prepare your agent before sessions start
 <a name="runtime-v2-optimize-warmup"></a>
 
-While AgentCore Runtime prepares your agent, a build warmup lifecycle hook makes two calls to your hook, first `memory` and then `disk`, and tells your handler which call it is. For example, with an HTTP action, both calls go to the path and port that you configure, and the `X-Amzn-Bedrock-AgentCore-Runtime-Warmup-Type` header identifies the call. In the `memory` call, run initialization that needs your server to be running. In the `disk` call, read the files that your agent reads when a session starts, so that new sessions can use them faster. This helps agents whose sessions start by reading large files, such as a large binary, a heavy set of Python packages, or a headless browser.
+To make sessions start fast, prepare your agent in three steps. Pass the health check quickly, then use a build warmup hook to load what sessions need into memory before the snapshot, and to make the files that sessions read fast after the snapshot. The hook’s `memory` and `disk` calls share 120 seconds. For how to configure the hook, see [Configure lifecycle hooks](runtime-lifecycle-hooks.md#runtime-lifecycle-hooks-configure).
+
+### Step 1: Pass the health check
+<a name="_initialize_once_at_startup"></a>
+
+Before your health check passes, for example before `GET /ping` returns a successful response, do only what your server needs to accept requests, such as your imports and loading static configuration. Then report healthy right away, and do the rest in the warmup hook. If the health check doesn’t pass in time, the create or update fails.
+
+### Step 2: Load what sessions need in the memory call
+<a name="runtime-v2-optimize-memory"></a>
+
+Everything that your process holds when the `memory` call returns is in the snapshot, so every session starts with it. Load your model, data, and clients here. If the `memory` call fails, the create or update fails.
++  **Keep what you load.** The snapshot holds only what your process still references when the `memory` call returns, so keep what you load in global variables. Data that you read and discard, such as a file read only to warm it, isn’t in the snapshot.
++  **Check that your model is really in memory.** Some libraries load only an index of the model file and read the weights on first use. Those first reads then happen in sessions.
++  **Load only what sessions need.** Sessions take longer to start the more memory they restore.
++  **Start programs that keep their own random state in the session.** A program that’s still running when the `memory` call returns, such as a headless browser, starts every session with the same random state, including the keys for its TLS connections. For an example, see [Example – Headless browser agent](#runtime-v2-optimize-example).
+
+### Step 3: Run one session’s work in the disk call
+<a name="runtime-v2-optimize-disk"></a>
+
+Files in the snapshot are slow the first time a session reads them. In the `disk` call, read the files that a session reads when it starts. AgentCore Runtime uses these reads to make those files fast for new sessions. The simplest way to read the right files is to do once what your agent does on its first request. For example, for an agent that uses a browser, open an HTTPS page in the browser. Loading the page reads the files that the browser uses to make connections and display pages. New sessions then don’t wait for those reads. Keep it short, because the `disk` call shares 120 seconds with the `memory` call.
+
+### Example – Headless browser agent
+<a name="runtime-v2-optimize-example"></a>
+
+The following FastAPI application uses a headless browser to return the title of a web page:
++ In the `memory` call, it starts a browser that sessions don’t use. That browser keeps Chromium’s files in memory in the snapshot, so a session launches its own browser in a fraction of a second instead of several seconds. Each session needs its own browser because a browser that’s running at the time of the snapshot has the same random state in every session, including the keys for its TLS connections.
++ In the `disk` call, it opens an HTTPS page, so that the files and the TLS setup that a page load uses are fast for new sessions.
++ Each request opens and closes its own page in the session’s browser. Without the hook, the first request launches the browser, so the application also works without the hook.
+
+In a test with 100 new sessions, the first response in a session took 2.9 seconds at the median and 3.6 seconds at the 90th percentile with the warmup hook, compared with 5.4 and 32.3 seconds without it.
+
+```python
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI, Request
+from playwright.async_api import async_playwright
+
+app = FastAPI()
+playwright = None
+snapshot_browser = None  # keeps Chromium's files in memory in the snapshot; sessions don't use it
+browser = None  # each session launches its own
 
 
-| Warmup type | What it prepares | Use it for | 
-| --- | --- | --- | 
-|  `memory`  | Memory that every session starts with | Initialization that needs your server to run, or that you want to do after `/ping` reports healthy | 
-|  `disk`  | The files that a session reads when it starts | Reading those files, so that new sessions can use them faster | 
+async def get_browser():
+    # Launch this session's own browser. A browser from the snapshot would give
+    # every session the same random numbers, including its TLS keys.
+    global playwright, browser
+    if browser is None or not browser.is_connected():
+        playwright = playwright or await async_playwright().start()
+        browser = await playwright.chromium.launch()
+    return browser
 
-The `memory` and `disk` calls share 120 seconds, and the `memory` call runs first. Do the expensive work in the `memory` call, and keep the `disk` call to the files that one session reads when it starts. For how to configure the hook and write its handler, see [Configure lifecycle hooks for AgentCore Runtime](runtime-lifecycle-hooks.md).
 
-## Keep per-request state fresh
+@asynccontextmanager
+async def open_page(url):
+    # Open the URL in a new page; the page closes when the block ends.
+    page = await (await get_browser()).new_page()
+    try:
+        await page.goto(url)
+        yield page
+    finally:
+        await page.close()
+
+
+@app.get("/ping")
+def ping():
+    return {"status": "Healthy"}
+
+
+@app.post("/warmup")
+async def warmup(request: Request):
+    global playwright, snapshot_browser
+    warmup_type = request.headers.get(
+        "X-Amzn-Bedrock-AgentCore-Runtime-Warmup-Type", ""
+    ).lower()
+    if warmup_type == "memory":
+        # Start a browser that sessions don't use. Its files stay in memory in the
+        # snapshot, so each session launches its own browser quickly.
+        playwright = await async_playwright().start()
+        snapshot_browser = await playwright.chromium.launch()
+    elif warmup_type == "disk":
+        # Open one page, as a session does, so that its files are fast for new sessions.
+        async with open_page("https://example.com"):
+            pass
+    return {"status": "ok"}
+
+
+@app.post("/invocations")
+async def invoke(request: Request):
+    payload = await request.json()
+    async with open_page(payload["url"]) as page:
+        return {"title": await page.title()}
+```
+
+The following Dockerfile installs snapshot-safe OpenSSL, Python, and the browser into an Amazon Linux 2023 container image:
+
+```dockerfile
+FROM --platform=linux/arm64 public.ecr.aws/amazonlinux/amazonlinux:2023
+
+WORKDIR /app
+
+# Swap in snapshot-safe OpenSSL for Python's ssl module, and install Python 3.11.
+RUN dnf swap -y openssl-libs openssl-snapsafe-libs \
+    && dnf install -y python3.11 python3.11-pip && dnf clean all
+# The Playwright driver needs libatomic on ARM64; Chromium needs the rest.
+RUN dnf install -y libatomic alsa-lib at-spi2-atk cups-libs libXcomposite \
+    libXdamage libXrandr libxkbcommon mesa-libgbm nss pango && dnf clean all
+RUN pip3.11 install --no-cache-dir fastapi==0.162.7 uvicorn==0.54.0 playwright==1.65.1
+RUN playwright install chromium
+
+COPY app.py .
+EXPOSE 8080
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
+```
+
+Create the agent runtime on platform version V2 with a build warmup hook that calls `POST /warmup` on port `8080`. For more information, see [Configure lifecycle hooks](runtime-lifecycle-hooks.md#runtime-lifecycle-hooks-configure).
+
+If you don’t configure a build warmup hook, AgentCore Runtime takes the snapshot as soon as your health check passes. Anything that sessions need in memory must then load before your health check passes, and the first requests of new sessions read their files slowly.
+
+## Considerations for code that runs before the snapshot
 <a name="_keep_per_request_state_fresh"></a>
 
-The snapshot is captured once and shared by every restored instance, so any value that your agent generates at startup is identical across instances and fixed at the time of the snapshot. Handle values that the snapshot cannot carry in your `/invocations` handler. The following table describes values to compute in your handler instead of at startup.
+Every session starts from the same snapshot. Any value that your agent creates before the snapshot is the same in every session, and fixed at the time of the snapshot. The following topics describe what to create in your request handler instead.
+
+**Topics**
+
+### Random values, identifiers, and cryptographic libraries
+<a name="_use_snapshot_safe_cryptographic_libraries"></a>
+
+Every session starts with the same copy of your agent’s memory, including the state of its random number generators. Python’s `random` module and JavaScript’s `Math.random()` repeat the same sequence in every session.
++ Generate secrets, keys, tokens, and identifiers in your handler, and get random values from the operating system, for example with Python’s `secrets` or `os.urandom()`, Go’s `crypto/rand`, or by reading `/dev/urandom`.
++ Use a snapshot-safe cryptographic library, which reseeds after a restore, such as AWS-LC or the snapshot-safe OpenSSL. Direct code deployments already use the snapshot-safe OpenSSL. In a container image based on Amazon Linux 2023, install it with the following line in your Dockerfile:
+
+  ```dockerfile
+  RUN dnf swap -y openssl-libs openssl-snapsafe-libs
+  ```
+
+  Other builds of OpenSSL, including ones that libraries bundle, can repeat values across sessions.
++ In Node.js, call `crypto.randomUUID({ disableEntropyCache: true })`. By default, `randomUUID()` caches random data, so a cache filled before the snapshot repeats in every session. If `node -p process.config.variables.node_shared_openssl` prints `false`, your Node.js bundles its own OpenSSL, and all `crypto` random functions can repeat. Read `/dev/urandom` instead.
++ Don’t use the hostname (`localhost`) or PID (`1`) as an identifier. They’re the same in every session.
+
+### Current time and elapsed time
+<a name="runtime-v2-optimize-time"></a>
+
+A timestamp that your agent takes before the snapshot is fixed at the time of the snapshot. Read the current time in your handler.
+
+ `time.monotonic()` doesn’t advance across a restore. A duration measured from a reference taken before the snapshot is wrong without looking wrong, so take the reference timestamp in your handler.
+
+### Credentials, clients, and connections
+<a name="_networking"></a>
+
+Create reusable clients before the snapshot. The socket that a client opens doesn’t survive a restore. However, the setup that the client library caches around it does survive, such as service-model parsing, endpoint resolution, credential resolution, and the connection pool. The first call after a restore re-establishes the connection.
+
+Credentials that your agent loads before the snapshot can expire before a session starts, and they don’t include the session’s context keys. Refresh credentials when they expire. If your policies use session context keys, create AWS SDK clients in your handler from a new boto3 `Session`. For more information, see [Session context keys](runtime-sessions.md#runtime-session-isolation).
+
+Don’t bind outgoing connections to a fixed source port. A socket that was open at the time of the snapshot still holds its port after a restore, so a new connection that binds the same port fails.
+
+The following code creates a reusable Bedrock client before the snapshot and creates session-specific clients in the request handler:
+
+```python
+import boto3
+from fastapi import FastAPI, Request
+
+app = FastAPI()
+
+# Created before the snapshot and reused by every session. Its credentials
+# don't include session context keys.
+bedrock = boto3.client("bedrock-runtime")
 
 
-| To do this | Do it in the handler | Reason | 
-| --- | --- | --- | 
-| Generate random values, identifiers, or tokens | Call `os.urandom()`, `secrets`, or `uuid.uuid4()` on each request. In Node.js, read `/dev/urandom` on each request. |  `os.urandom()` returns fresh entropy only each time you call it after a restore. A value read at startup is copied into the snapshot and is identical on every instance, however good the entropy source was when it was read. The `random` module is likewise seeded at startup, so restored instances repeat the same sequence. In Node.js, the `crypto` module can repeat values across instances even in the handler. For more information, see **Use snapshot-safe cryptographic libraries** on this page. | 
-| Read the current time | Compute it for each request | A timestamp captured at startup is fixed at the time of the snapshot. | 
-| Measure elapsed time | Take the reference timestamp in your handler |  `time.monotonic()` does not advance across a restore, so a duration measured from a startup reference is wrong without looking wrong. | 
-| Use credentials or tokens | Refresh them when they expire | Credentials loaded at startup can expire before an instance starts. | 
-| Identify the instance or worker | Generate an id per request; do not derive it from the host | Every restored instance reports the same hostname (`localhost`) and PID (`1`), so using either as an id collapses metrics, log streams, and lock owners across the fleet. | 
+@app.post("/invocations")
+async def invoke(request: Request):
+    session_id = request.headers["X-Amzn-Bedrock-AgentCore-Runtime-Session-Id"]
 
-Build reusable clients at startup, and compute per-request values on each call.
-
-```
-import os, time
-
-# Build reusable clients at startup, before the snapshot. Exercise them here too
-# (for example, with a warm-up call) so the setup the client caches — endpoint and
-# credential resolution, connection pool — is captured in the snapshot.
-client = build_client()
-warm_up(client)
-
-@app.entrypoint
-def invoke(payload):
-    creds = get_credentials()          # refreshed when expired, not read at startup
-    request_id = os.urandom(16).hex()  # unique per request
-    now = time.time()                  # current time, not snapshot time
+    # Create clients that need session context keys from a new boto3 Session,
+    # so that they load the session's credentials.
+    s3 = boto3.Session().client("s3")
+    state = s3.get_object(Bucket="amzn-s3-demo-source-bucket", Key=f"sessions/{session_id}/state.json")
     # Handle the request.
 ```
 
-## Use snapshot-safe cryptographic libraries
-<a name="_use_snapshot_safe_cryptographic_libraries"></a>
+### Data that can change without an update
+<a name="runtime-v2-optimize-changing-data"></a>
 
-When AgentCore Runtime restores instances from a snapshot, every instance created from that snapshot starts with an identical copy of the memory captured at snapshot time. This includes the internal state of random number generators inside cryptographic libraries, and any keys, tokens, or identifiers your agent created during initialization. Unless that state is refreshed after the restore, instances can produce the same "random" values.
-
- **Current limitation** 
-
-On AgentCore Runtime, snapshot-safe builds of cryptographic libraries don’t reseed after a restore. This applies to both direct code deployments and container deployments.
-
- **Workarounds** 
-+ Generate secrets, keys, tokens, and session identifiers while handling a request, not when your agent starts. This avoids using any values created before AgentCore Runtime takes the snapshot in each instance restored from that snapshot.
-+ Even while handling a request, get random values directly from the operating system, for example Python’s `secrets` or `os.urandom`, Go’s `crypto/rand`, or reading `/dev/urandom`. Don’t use random values from a cryptographic library such as OpenSSL, because they can repeat across instances.
-+ In Node.js, the `crypto` module uses OpenSSL. This includes `crypto.randomBytes()`, `crypto.randomUUID()` (also with `disableEntropyCache: true`), `crypto.randomInt()`, `crypto.getRandomValues()`, and packages built on them, such as `uuid`. Values from these functions can repeat across instances, even when you call them in your handler. To get unique values in Node.js, read bytes from `/dev/urandom`.
-
-## Networking
-<a name="_networking"></a>
-
-Build clients at startup and expect a transparent reconnect  
-The socket you open at startup does not survive a restore, but the setup your client library caches around it — service-model parsing, endpoint resolution, credential resolution, and the connection pool — does. Construct and exercise your clients at startup, and expect the first call after a restore to re-establish the connection transparently.
-
-Do not use the hostname or PID as a unique instance identifier  
-Every restored instance starts from the same snapshot and reports the same hostname and process ID. Generate a unique identifier in each request.
-
-Avoid binding to a fixed source port  
-After a restore, the connection held at snapshot time is re-established, and a fixed source port can collide with that replacement within the instance. Restored instances are separate microVMs with their own network namespaces, so the conflict is within an instance, not across them.
-
-## Cross-account metrics and quotas
-<a name="_cross_account_metrics_and_quotas"></a>
-
-For a cross-account invocation, where a principal in one account invokes an agent runtime owned by another account through a resource-based policy, the CloudWatch metrics and the rate-limit quota usage for the invocation are attributed to the resource owner’s account. The resource owner is the account that owns the agent runtime.
-
-You can also view the metrics that count toward your quota in the [Service Quotas](https://console.aws.amazon.com/servicequotas/home/services/bedrock-agentcore/quotas) console.
+Data that your agent fetches before the snapshot is fixed in the snapshot. Every session uses that copy until you update the agent runtime. Fetch data that can change without an update, such as the list of tools from an AgentCore Gateway, for each session or when it can have changed.

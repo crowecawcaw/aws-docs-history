@@ -1,7 +1,6 @@
 
 
 # Search the web using Amazon Bedrock AgentCore Web Search
-<a name="web-search-api"></a>
 
 Amazon Bedrock AgentCore Web Search lets you search the web from your own code with the `InvokeWebSearch` API. The API returns a ranked list of results. Each result includes a text extract from the page and, when they are available, the page title, URL, and publication time. You call the API with the AWS SDKs or the AWS Command Line Interface (AWS CLI), and you authorize calls with AWS Identity and Access Management (IAM). You don’t create or manage any resources to use it.
 
@@ -9,6 +8,7 @@ Use AgentCore Web Search to give an application, an agent loop that you write yo
 
 **Topics**
 + [Choose between the API and the Gateway connector](#web-search-api-choose)
++ [Free monthly queries](#web-search-api-free-queries)
 + [Regions](#web-search-api-regions)
 + [Quotas](#web-search-api-quotas)
 + [Acceptable use](#web-search-api-acceptable-use)
@@ -32,6 +32,11 @@ The two differ in the following ways:
 +  **Publication time range** – The API bounds the range with `publishedAfter` and `publishedBefore`. The MCP tool bounds it with `from` and `to`. Both treat both bounds as inclusive.
 +  **Dates without a time** – The MCP tool’s `to` date includes that whole day. The AWS SDKs and the AWS CLI send a `publishedBefore` date as midnight Coordinated Universal Time (UTC) at the start of that day.
 +  **Regions** – The connector is also available in AWS GovCloud (US-West). The API isn’t.
+
+## Free monthly queries
+<a name="web-search-api-free-queries"></a>
+
+Web search includes free queries every month, and the Web Search API and the Web Search Tool share them. The free queries apply automatically to every AWS account, in all AWS Regions where the Web Search API is available, except AWS GovCloud (US). For more information about how the free queries work, see [Free monthly queries](gateway-target-connector-web-search-tool.md#gateway-target-connector-web-search-tool-free-queries). For more information about the number of free queries and the price after them, see [Amazon Bedrock AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/).
 
 ## Regions
 <a name="web-search-api-regions"></a>

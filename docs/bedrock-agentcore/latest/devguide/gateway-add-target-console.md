@@ -1,7 +1,6 @@
 
 
 # Add a target using the AWS Management Console
-<a name="gateway-add-target-console"></a>
 
 In the AWS Management Console, you can add gateway targets when you create the gateway. After you’ve created a gateway, you can add targets by doing the following:
 

@@ -1,7 +1,6 @@
 
 
 # Claude Agent SDK
-<a name="supported-frameworks-claude-agent-sdk"></a>
 
 This page explains how to instrument a [Claude Agent SDK](https://docs.claude.com/en/api/agent-sdk/overview) agent, how spans are identified, and how evaluation fields are extracted.
 
@@ -34,7 +33,7 @@ openinference-instrumentation-claude-agent-sdk>=0.1.3
 
  `pyproject.toml`:
 
-```
+```toml
 [project]
 dependencies = [
     "openinference-instrumentation-claude-agent-sdk>=0.1.3",
@@ -93,7 +92,7 @@ These examples are not complete spans. They show representative data from a real
 **Example**  
 The `openinference.span.kind` attribute (`AGENT`) identifies this as an invoke agent span. The span carries the model metadata; the conversation content lives in the correlated event record.  
 
-```
+```json
 {
   "traceId": "6a292d74406894815807e2751e61dd49",
   "spanId": "a63aab3320ed8718",
@@ -117,7 +116,7 @@ The `openinference.span.kind` attribute (`AGENT`) identifies this as an invoke a
 }
 ```
 
-```
+```json
 {
   "spanId": "a63aab3320ed8718",
   "traceId": "6a292d74406894815807e2751e61dd49",
@@ -140,7 +139,7 @@ The `openinference.span.kind` attribute (`AGENT`) identifies this as an invoke a
 ```
 The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute tool span; `tool.name` holds the tool name and `tool.id` the tool call ID. The tool result lives in the correlated event record as Anthropic content blocks, which AgentCore Evaluations unwraps.  
 
-```
+```json
 {
   "traceId": "6a292deb7450b3155895da4f38cb579a",
   "spanId": "909dcb4eb5f851ae",
@@ -165,7 +164,7 @@ The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute t
 }
 ```
 
-```
+```json
 {
   "spanId": "909dcb4eb5f851ae",
   "traceId": "6a292deb7450b3155895da4f38cb579a",
@@ -201,7 +200,7 @@ These examples are not complete spans. They show representative data from a real
 **Example**  
 The `input.value` attribute holds the user prompt, and the `output.value` attribute holds the agent response, both as plain text.  
 
-```
+```json
 {
   "traceId": "561876bb17e9eaeb2f194ee515742b2f",
   "spanId": "3b6815f5b3909a51",
@@ -228,7 +227,7 @@ The `input.value` attribute holds the user prompt, and the `output.value` attrib
 ```
 The `input.value` attribute holds the tool arguments, and the `output.value` attribute holds the tool result as Anthropic content blocks, which AgentCore Evaluations unwraps.  
 
-```
+```json
 {
   "traceId": "7bb7e59a30d03fc0b9da5bf009a3b429",
   "spanId": "d27b488965bbba99",

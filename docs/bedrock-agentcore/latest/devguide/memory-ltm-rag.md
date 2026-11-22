@@ -1,7 +1,6 @@
 
 
 # Compare long-term memory with Retrieval-Augmented Generation
-<a name="memory-ltm-rag"></a>
 
  [Long-term memory](memory-types.md#memory-long-term-memory) in Amazon Bedrock AgentCore Memory serves as persistent storage for session-specific context, enabling agents to maintain continuity and personalization across interactions. Use long-term memory to store user preferences, past decisions, conversation history, and behavioral patterns that help agents adapt and feel personal without repeatedly requesting the same information. This memory type is ideal for tracking who the user is, what has happened in previous sessions, and maintaining state across multi-step workflows.
 

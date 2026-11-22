@@ -1,7 +1,6 @@
 
 
 # Temporal policy examples
-<a name="example-policies-temporal"></a>
 
 The policies in this section decide from what has already happened earlier in the same session. They let you require an approval before a payout, expire a permission that has gone stale, cap a running total, or block an action after a failure. No single request carries enough information to decide any of these.
 

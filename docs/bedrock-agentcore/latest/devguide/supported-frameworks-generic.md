@@ -1,7 +1,6 @@
 
 
 # Generic framework support
-<a name="supported-frameworks-generic"></a>
 
 Amazon Bedrock AgentCore Evaluations reads telemetry through two open standards: the OpenTelemetry generative AI semantic conventions and the OpenInference semantic conventions. Alongside the frameworks that have their own page in this section, the service supports any agent that emits telemetry in one of these two conventions. This is **generic framework support**.
 

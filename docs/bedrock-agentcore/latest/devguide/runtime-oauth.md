@@ -1,7 +1,6 @@
 
 
 # Authenticate and authorize with Inbound Auth and Outbound Auth
-<a name="runtime-oauth"></a>
 
 This section shows you how to implement authentication and authorization for your agent runtime using OAuth and JWT bearer tokens with [AgentCore Identity](identity.md) . You’ll learn how to set up Cognito user pools, configure your agent runtime for JWT authentication (Inbound Auth), and implement OAuth-based access to third-party resources (outbound Auth).
 
@@ -33,7 +32,7 @@ For a consolidated view of all Runtime security recommendations, see [Security b
 +  **Implement audit logging** — Log the relationship between the authenticated IAM principal (from SigV4 context) and the `user-id` value being passed. Use AWS CloudTrail to monitor `InvokeAgentRuntime` calls that include the `runtimeUserId` parameter.
 +  **Deny the header in untrusted contexts** — For runtimes where user-id delegation is not needed, explicitly deny the `bedrock-agentcore:InvokeAgentRuntimeForUser` action in IAM policies to prevent the header from being accepted:
 
-  ```
+  ```json
   {
      "Statement": [
         {
@@ -79,7 +78,7 @@ You can front your AgentCore Runtime with an AgentCore Gateway so that the gatew
 
 But this is only useful if callers can’t reach the runtime directly bypassing the gateway. If your runtime uses the default IAM (SigV4) inbound authorization, you can restrict invocation to the gateway so that traffic reaches the runtime only through it. To achieve this, attach a resource-based policy to the runtime that restricts invocation to your gateway’s execution role. The gateway assumes its service role to sign requests to the runtime, so the gateway role is the principal that invokes the runtime. Allow that role, and add an explicit `Deny` for every other principal so that no other identity can invoke the runtime even with a permissive identity-based policy. For more information about resource-based policies on runtimes, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md).
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -290,7 +289,7 @@ You provide the allowed workloads using either of the following fields. You can 
 
 The following authorizer configuration restricts invocation to a specific AgentCore Gateway by its ARN. Specifying `hostingEnvironments` alone is the simplest way to allow a gateway:
 
-```
+```json
 {
     "authorizerConfiguration": {
         "customJWTAuthorizer": {
@@ -310,7 +309,7 @@ The following authorizer configuration restricts invocation to a specific AgentC
 
 Alternatively, you can identify the gateway by its workload identity name, or specify both fields. When both are present, a request is allowed if it matches an entry in either field. The following `allowedWorkloadConfiguration` snippet allows two different gateways — one identified by its ARN and one by its workload identity name:
 
-```
+```json
 "allowedWorkloadConfiguration": {
     "hostingEnvironments": [
         {
@@ -325,7 +324,7 @@ Alternatively, you can identify the gateway by its workload identity name, or sp
 
 If you use the AgentCore CLI, add the field in `agentcore/cdk/lib/cdk-stack.ts` after you add the Runtime in Step 4 and before you run `agentcore deploy`. Add `CfnResource` to the `aws-cdk-lib` import, and add the override after the line that creates `this.application`. Replace the example ARN with your gateway ARN:
 
-```
+```typescript
 import { CfnResource, Stack, type StackProps } from 'aws-cdk-lib';
 
 // ...
@@ -374,7 +373,7 @@ With your authorizer configuration ready, create and deploy the agent runtime. T
 
 1. Create `app/OAuthAgent/main.py` with a Runtime entrypoint:
 
-   ```
+   ```python
    from bedrock_agentcore.runtime import BedrockAgentCoreApp
    from strands import Agent
    
@@ -755,7 +754,7 @@ In this step you make changes to your agent code so that you can decode and extr
 
 Add PyJWT to the Runtime project’s `pyproject.toml`:
 
-```
+```bash
 cd app/OAuthAgent
 uv add PyJWT
 cd ../..
@@ -765,7 +764,7 @@ cd ../..
 
 In `app/OAuthAgent/main.py`, add `import json` and `import jwt` at the top of the file. Then add the header handling at the start of the existing `invoke` function inside `create_app()`, and keep the rest of the handler unchanged. You can skip validating the token signature here because AgentCore Runtime has already validated the token during inbound authorization.
 
-```
+```python
 import json
 
 import jwt

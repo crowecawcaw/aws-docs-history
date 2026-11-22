@@ -1,7 +1,6 @@
 
 
 # Execute shell commands in AgentCore Runtime sessions
-<a name="runtime-execute-command"></a>
 
 The [InvokeAgentRuntimeCommand](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeAgentRuntimeCommand.html) operation lets you execute shell commands directly inside a running AgentCore Runtime session and stream the output back over HTTP/2. Commands run in the same container, filesystem, and environment as your agent - the same session used by `InvokeAgentRuntime` . This enables workflows where your application uses the agent for reasoning tasks and commands for deterministic operations like running tests, git operations, or environment setup.
 
@@ -45,7 +44,7 @@ Agents created after March 17, 2026 support command execution automatically. If 
 
 1. Run `agentcore runtime exec` with the Runtime ID. The Runtime ID is the last segment of the Runtime ARN. The session ID must be 33 to 100 characters long:
 
-   ```
+   ```bash
    agentcore runtime exec \
      --id <runtime-id> \
      --session-id <session-id> \
@@ -56,7 +55,7 @@ Agents created after March 17, 2026 support command execution automatically. If 
 
 1. The following example shows how to use boto3 to execute a command in a AgentCore Runtime session.
 
-   ```
+   ```python
    import boto3
    import sys
    
@@ -96,7 +95,7 @@ Agents created after March 17, 2026 support command execution automatically. If 
 
 1. The following example shows how to use the AWS SDK for Java to execute a command in a AgentCore Runtime session.
 
-   ```
+   ```java
    import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
    import software.amazon.awssdk.regions.Region;
    import software.amazon.awssdk.services.bedrockagentcore.BedrockAgentCoreAsyncClient;
@@ -155,7 +154,7 @@ Agents created after March 17, 2026 support command execution automatically. If 
 
 1. The following example shows how to use the AWS SDK for JavaScript v3 to execute a command in a AgentCore Runtime session.
 
-   ```
+   ```javascript
    import {
        BedrockAgentCoreClient,
        InvokeAgentRuntimeCommandCommand
@@ -210,7 +209,7 @@ A common pattern is to use `InvokeAgentRuntime` for reasoning and `InvokeAgentRu
 
  **Example End-to-end coding agent workflow** 
 
-```
+```python
 import boto3
 import json
 
@@ -259,49 +258,49 @@ The agent writes the code. The platform runs the commands. Each does what it’s
 Running test suites  
 After the agent writes code, run the project’s test suite as a command. The streaming response lets you detect failures early and feed specific error output back to the agent for iteration.  
 
-```
+```bash
 /bin/bash -c "cd /workspace && npm test 2>&1"
 ```
 
 Git operations  
 Branching, committing, and pushing are deterministic operations. Run them as commands after the agent completes its work, keeping version control logic out of the LLM.  
 
-```
+```bash
 /bin/bash -c "cd /workspace && git add -A && git commit -m 'Fix issue'"
 ```
 
 Dependency installation  
 Bootstrap the environment before invoking the agent -clone repos, install packages, set up build tooling. This preparation runs faster and more reliably as direct commands.  
 
-```
+```bash
 /bin/bash -c "pip install -r requirements.txt"
 ```
 
 Build and compile  
 Compile steps and asset generation -anything with a known command that should run exactly as specified.  
 
-```
+```bash
 /bin/bash -c "cd /workspace && cargo build --release"
 ```
 
 Linting and validation  
 Run code quality checks as a validation gate after the agent writes code, before committing.  
 
-```
+```bash
 /bin/bash -c "cd /workspace && npx eslint src/ --format json"
 ```
 
 Environment inspection  
 Check runtime state, installed packages, available tools -useful for debugging agent failures.  
 
-```
+```bash
 /bin/bash -c "python --version && node --version && git --version"
 ```
 
 Data operations  
 Fetch datasets, upload results, run data transformations -network and compute operations that run faster as direct commands.  
 
-```
+```bash
 /bin/bash -c "aws s3 cp s3://my-bucket/data.csv /workspace/"
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Handle asynchronous and long running agents with Amazon Bedrock AgentCore Runtime
-<a name="runtime-long-run"></a>
 
 Amazon Bedrock AgentCore Runtime can handle asynchronous processing and long running agents. Asynchronous tasks allow your agent to continue processing after responding to the client and handle long-running operations without blocking responses. With async processing, your agent can:
 + Start a task that might take minutes or hours
@@ -22,7 +21,7 @@ The Amazon Bedrock AgentCore SDK supports both synchronous and asynchronous proc
 
 Agent code communicates its processing status using the "/ping" endpoint health status. The `/ping` endpoint must return an HTTP 200 response with the following JSON payload:
 
-```
+```json
 {"status": "HealthyBusy"}
 ```
 

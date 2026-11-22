@@ -1,7 +1,6 @@
 
 
 # Understand the available interfaces for using Amazon Bedrock AgentCore
-<a name="develop-agents"></a>
 
 Amazon Bedrock AgentCore supports various interfaces for developing and deploying your agent code. The simplest approach is to use the AgentCore Python SDK to create your agent code and use the AgentCore CLI to deploy your agent.
 
@@ -22,7 +21,7 @@ The [AgentCore CLI](https://github.com/aws/agentcore-cli) is a Node.js command-l
 
 Install the AgentCore CLI globally with npm:
 
-```
+```bash
 npm install -g @aws/agentcore
 ```
 

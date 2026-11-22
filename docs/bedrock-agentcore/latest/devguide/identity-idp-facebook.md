@@ -1,7 +1,6 @@
 
 
 # Facebook
-<a name="identity-idp-facebook"></a>
 
 Facebook can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through Facebook’s OAuth2 service and obtain access tokens for Facebook API resources.
 
@@ -55,7 +54,7 @@ If you don’t have an existing Facebook app, you will see a different option. C
 
 To configure Facebook as an outbound resource provider, use the following:
 
-```
+```json
 {
   "name": "Facebook",
   "credentialProviderVendor": "FacebookOauth2",

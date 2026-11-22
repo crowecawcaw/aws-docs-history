@@ -1,7 +1,6 @@
 
 
 # Use tasks with your AgentCore gateway
-<a name="gateway-mcp-tasks"></a>
 
 AgentCore Gateway supports the MCP Tasks extension (`io.modelcontextprotocol/tasks`) on protocol version `2026-07-28`, using the polling model. With tasks, a long-running tool on an MCP server target can return a task ID immediately instead of holding the connection open, and the client polls for the result. Without tasks, a synchronous tool call through the gateway is limited by the 15-minute gateway invocation timeout.
 
@@ -88,7 +87,7 @@ This example shows the JSON-RPC bodies for a task through AgentCore Gateway. Sen
 
  **Call the tool, declaring the tasks extension.** 
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "tool-call-1",
@@ -112,7 +111,7 @@ This example shows the JSON-RPC bodies for a task through AgentCore Gateway. Sen
 
 The target returns a task, and the gateway returns it with a gateway task ID.
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "tool-call-1",
@@ -130,7 +129,7 @@ The target returns a task, and the gateway returns it with a gateway task ID.
 
  **Poll with the gateway task ID** until the task reaches a terminal status, declaring the tasks extension again. `tasks/update` and `tasks/cancel` take the same `params.taskId` and `_meta`.
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "poll-9",
@@ -149,7 +148,7 @@ The target returns a task, and the gateway returns it with a gateway task ID.
 }
 ```
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "poll-9",

@@ -1,7 +1,6 @@
 
 
 # Specify long-term memory organization with namespaces
-<a name="specify-long-term-memory-organization"></a>
 
 When you [create](memory-create-a-memory-store.md) an AgentCore Memory, use a namespace to specify where the [long-term memories](memory-types.md#memory-long-term-memory) for a [memory strategy](memory-strategies.md) are logically grouped. Every time a new long-term memory is extracted using the memory strategy, it is saved under the namespace you set. This means that all long-term memories are scoped to their specific namespace, keeping them organized and preventing any mix-ups with other users or sessions. You should use a hierarchical format separated by forward slashes `/`, starting and ending with a slash (for example, `/actors/alice/`). This helps keep memories organized clearly. As needed, you can choose to use the following pre-defined variables within braces in the namespace based on your application’s organization needs:
 +  **actorId** – Identifies who the long-term memory belongs to.
@@ -97,7 +96,7 @@ When you specify both `allowedValues` and `regexPattern`, the service enforces b
 
 The following example shows how to create a memory resource with custom namespace variables and validation:
 
-```
+```bash
 aws bedrock-agentcore-control create-memory \
     --name "MultiTenantAgentMemory" \
     --description "Memory for a multi-tenant AI agent" \
@@ -121,7 +120,7 @@ aws bedrock-agentcore-control create-memory \
 
 When you create an event using the [CreateEvent](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_CreateEvent.html) operation, pass the custom namespace variable values in the `extractionConfig.namespaceVariables` field:
 
-```
+```bash
 aws bedrock-agentcore create-event \
     --memory-id "MultiTenantAgentMemory-n29sh5ka8r" \
     --actor-id "user123" \
@@ -158,7 +157,7 @@ Keep the following constraints in mind:
 + If you omit a key that is still referenced by a strategy’s `namespaceTemplate`, the service throws a `ValidationException`. You must first remove the key from the strategy’s `namespaceTemplate` before you can remove it from `namespaceKeys`.
 + To add a new key, include it alongside all existing keys in the request.
 
-```
+```python
 # Get the current memory configuration
 current = control_client.get_memory(memoryId="MultiTenantAgentMemory-n29sh5ka8r")
 existing_keys = current['memory'].get('namespaceKeys', [])

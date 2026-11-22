@@ -1,7 +1,6 @@
 
 
 # Get workload access token
-<a name="get-workload-access-token"></a>
 
 Understanding what workload access tokens are, how to obtain them, and the security aspects of working with them is essential for building secure agent applications. This section covers the key concepts and implementation patterns you need to know.
 
@@ -105,14 +104,14 @@ Because the platform cannot verify the userId string, you are responsible for en
 +  **Restrict the IAM permission** – Only trusted principals should have the `bedrock-agentcore:GetWorkloadAccessTokenForUserId` permission. Scope this permission to specific workload identity resources. Do not grant it broadly via managed policies or wildcard resource statements.
 +  **Deny `GetWorkloadAccessTokenForUserId` where it is not needed** – For workloads that always have a JWT available, explicitly deny the action in IAM policies to prevent the userId path from being used:
 
-  ```
+  ```json
   {
      "Statement": [
         {
            "Sid": "DenyForUserIdAccess",
            "Effect": "Deny",
            "Action": "bedrock-agentcore:GetWorkloadAccessTokenForUserId",
-           "Resource": "arn:aws:bedrock-agentcore:REGION:ACCOUNT_ID:workload-identity-directory/default"
+           "Resource": "*"
         }
      ]
   }

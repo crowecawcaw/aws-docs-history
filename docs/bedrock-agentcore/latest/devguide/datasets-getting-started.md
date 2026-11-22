@@ -1,18 +1,20 @@
 
 
 # Getting started
-<a name="datasets-getting-started"></a>
 
-This topic provides an end-to-end workflow for creating, populating, and publishing a dataset.
+Datasets let you define reusable test scenarios so that you can evaluate your agent’s behavior consistently as it changes. This topic provides an end-to-end workflow for creating, populating, and publishing a dataset.
 
-## Dataset schemas
+## Scenario types
 <a name="datasets-gs-schema-overview"></a>
 
-Each dataset declares a `schemaType` at creation time. AgentCore validates every example against the declared schema before accepting it. Two schema types are supported:
-+  **AGENTCORE\_EVALUATION\_PREDEFINED\_V1** — For testing agents against pre-written conversation turns. Required fields: `scenario_id`, `turns` (non-empty list; each turn must contain `input`).
-+  **AGENTCORE\_EVALUATION\_SIMULATED\_V1** — For synthetic conversation generation. Required fields: `scenario_id`, `actor_profile` (object with required `context` and `goal`), `input`.
+A dataset is a collection of scenarios. It doesn’t declare a schema type. Each scenario is a fixed scenario or a dynamic scenario, and a single dataset can hold a mix of both. The fields in each scenario determine its type and how it runs. Every scenario has a `scenario_id`, which is the scenario’s **unique identifier** within the dataset.
++  **Fixed scenario** - Contains `turns`, a sequence of one or more pre-written conversation turns that the runner replays exactly as written. A fixed scenario can be single-turn or multi-turn.
++  **Dynamic scenario** - Has no `turns`, and contains `input`, `actor_profile`, or both. An actor drives the conversation based on a persona and goal.
 
-For full schema field definitions, examples, and ground truth mapping, see [Dataset schema](dataset-evaluations-schema.md).
+**Note**  
+If an older client sends a `schemaType` value, AgentCore ignores it.
+
+For field definitions, examples, limits, and ground truth mapping, see [Dataset schema](dataset-evaluations-schema.md).
 
 ## End-to-end workflow
 <a name="datasets-gs-workflow"></a>
@@ -23,16 +25,16 @@ The following example demonstrates the complete dataset lifecycle: create a data
 
 1. 
 
-   Save the following examples as `my_eval_dataset.jsonl`, one JSON object per line:
+   Create a file named `my_eval_dataset.jsonl`, a JSON Lines (JSONL) file. Save the following examples to it, one JSON object per line:
 
-   ```
-   {"scenario_id": "TC-01", "turns": [{"input": "What is my balance?", "expected_response": "Your balance is $50."}], "assertions": ["Response includes a dollar amount"]}
-   {"scenario_id": "TC-02", "turns": [{"input": "Transfer $100", "expected_response": "Transfer complete."}]}
+   ```json
+   {"scenario_id": "TC-01", "turns": [{"input": "What is the weather in Seattle today?", "expected_response": "It is 15°C and cloudy in Seattle today."}, {"input": "Will it rain there tomorrow?", "expected_response": "Yes, rain is expected in Seattle tomorrow."}], "assertions": ["Agent answers the second question about Seattle, the city from the first turn", "Agent used the weather tool for both questions"]}
+   {"scenario_id": "TC-02", "turns": [{"input": "What is 15 + 27?", "expected_response": "15 + 27 = 42"}]}
    ```
 
-   Then run the following commands. They use `jq` to read the dataset ID and version from the JSON output.
+   Then run the following AgentCore CLI commands, which use `jq` to read the dataset ID and version from the JSON output:
 
-   ```
+   ```bash
    # Wait until a dataset version is ACTIVE and has a download URL.
    # Usage: wait_for_dataset DRAFT, or wait_for_dataset <version-number>
    wait_for_dataset() {
@@ -52,7 +54,6 @@ The following example demonstrates the complete dataset lifecycle: create a data
    # 1. Create dataset from a JSONL file and wait for ingestion to finish
    DATASET_ID=$(agentcore eval dataset create \
      --name my_eval_dataset \
-     --schema-type predefined \
      --source file://my_eval_dataset.jsonl | jq -r '.datasetId')
    wait_for_dataset DRAFT
    
@@ -85,7 +86,9 @@ The following example demonstrates the complete dataset lifecycle: create a data
 
 1. 
 
-   ```
+   The following Python code example shows the complete dataset lifecycle using the AgentCore SDK:
+
+   ```python
    from bedrock_agentcore.evaluation import DatasetClient
    
    client = DatasetClient(region_name="us-west-2")
@@ -93,14 +96,25 @@ The following example demonstrates the complete dataset lifecycle: create a data
    # 1. Create dataset (polls until ACTIVE)
    ds = client.create_dataset_and_wait(
        datasetName="my_eval_dataset",
-       schemaType="AGENTCORE_EVALUATION_PREDEFINED_V1",
        source={
            "inlineExamples": {
                "examples": [
                    {
                        "scenario_id": "TC-01",
-                       "turns": [{"input": "What is my balance?", "expected_response": "Your balance is $50."}],
-                       "assertions": ["Response includes a dollar amount"],
+                       "turns": [
+                           {
+                               "input": "What is the weather in Seattle today?",
+                               "expected_response": "It is 15°C and cloudy in Seattle today.",
+                           },
+                           {
+                               "input": "Will it rain there tomorrow?",
+                               "expected_response": "Yes, rain is expected in Seattle tomorrow.",
+                           },
+                       ],
+                       "assertions": [
+                           "Agent answers the second question about Seattle, the city from the first turn",
+                           "Agent used the weather tool for both questions",
+                       ],
                    }
                ]
            }
@@ -115,7 +129,7 @@ The following example demonstrates the complete dataset lifecycle: create a data
        source={
            "inlineExamples": {
                "examples": [
-                   {"scenario_id": "TC-02", "turns": [{"input": "Transfer $100", "expected_response": "Transfer complete."}]}
+                   {"scenario_id": "TC-02", "turns": [{"input": "What is 15 + 27?", "expected_response": "15 + 27 = 42"}]}
                ]
            }
        },
@@ -139,3 +153,5 @@ The following example demonstrates the complete dataset lifecycle: create a data
    # 6. Cleanup
    client.delete_dataset_and_wait(datasetId=dataset_id)
    ```
+
+After you publish a version, choose whether AgentCore or your code invokes the agent. See [Choose how to run a dataset evaluation](dataset-evaluations.md#dataset-evaluations-choose).

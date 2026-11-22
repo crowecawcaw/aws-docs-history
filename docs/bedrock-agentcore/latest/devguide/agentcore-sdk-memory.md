@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock AgentCore SDK
-<a name="agentcore-sdk-memory"></a>
 
 Use the [Amazon Bedrock AgentCore Python SDK](https://github.com/aws/bedrock-agentcore-sdk-python) for a higher-level abstraction that simplifies memory operations and provides convenient methods for common use cases.
 
@@ -13,7 +12,7 @@ pip install bedrock-agentcore
 
  **Add short-term memory** 
 
-```
+```python
 from bedrock_agentcore.memory import MemoryClient
 
 client = MemoryClient(region_name="us-east-1")
@@ -47,7 +46,7 @@ client.create_event(
 
  **Add long-term memory with strategies** 
 
-```
+```python
 from bedrock_agentcore.memory import MemoryClient
 import time
 

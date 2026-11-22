@@ -1,7 +1,6 @@
 
 
 # Create a consent portal with the console
-<a name="identity-create-consent-portal-console"></a>
 
 You can create a consent portal from the AgentCore console. Before you begin, complete the steps in [Consent portal prerequisites](identity-consent-portal-prerequisites.md). In particular, you need the following:
 + An Amazon Bedrock AgentCore Gateway configured with the **Use JSON Web Tokens (JWT)** inbound authentication type.

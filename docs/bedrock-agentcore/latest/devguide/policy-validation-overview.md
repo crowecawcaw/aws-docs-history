@@ -1,7 +1,6 @@
 
 
 # Validation and analysis overview
-<a name="policy-validation-overview"></a>
 
 ## Schema checks
 <a name="policy-schema-checks"></a>

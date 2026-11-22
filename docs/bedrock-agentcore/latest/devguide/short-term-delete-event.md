@@ -1,7 +1,6 @@
 
 
 # Delete an event
-<a name="short-term-delete-event"></a>
 
 The [DeleteEvent](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_DeleteEvent.html) operation removes individual events from your AgentCore Memory. This operation helps maintain data privacy and relevance by letting you selectively remove specific events from a session while preserving the broader context and relationship structure within your application’s memory.
 

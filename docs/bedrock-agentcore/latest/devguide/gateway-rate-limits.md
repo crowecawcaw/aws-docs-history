@@ -1,7 +1,6 @@
 
 
 # Add rate limits to a gateway
-<a name="gateway-rate-limits"></a>
 
 With rate limits, you control how much traffic individual callers, targets, or tools can consume on your gateway. You define dimension keys that determine how traffic is grouped, then set rate entries that specify the allowed throughput for each group.
 

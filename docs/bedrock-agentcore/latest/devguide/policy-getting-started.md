@@ -1,7 +1,6 @@
 
 
 # Getting started with Policy in AgentCore
-<a name="policy-getting-started"></a>
 
 In this tutorial, you use the AgentCore CLI to set up Policy in AgentCore and attach it to an Amazon Bedrock AgentCore Gateway. You create a refund processing tool with Cedar policies that enforce business rules for refund amounts.
 
@@ -32,13 +31,13 @@ During deployment, the AgentCore CLI checks the AWS CDK bootstrap stack. The CLI
 
 Install the AgentCore CLI:
 
-```
+```bash
 npm install -g @aws/agentcore
 ```
 
 Create an empty AgentCore project:
 
-```
+```bash
 agentcore create --name PolicyDemo --template empty
 cd PolicyDemo
 ```
@@ -54,7 +53,7 @@ Use the AgentCore CLI to add a gateway, a Lambda function target, and a policy e
 
 Create a gateway with no inbound authorization for simplicity in this tutorial:
 
-```
+```bash
 agentcore add gateway --name PolicyGateway --authorizer-type NONE
 ```
 
@@ -62,7 +61,7 @@ agentcore add gateway --name PolicyGateway --authorizer-type NONE
 
 Register your Lambda function as a gateway target with a tool schema that defines a refund processing tool. Create a `refund_tools.json` file in your project directory with the following contents:
 
-```
+```json
 [
   {
     "name": "process_refund",
@@ -82,7 +81,7 @@ Register your Lambda function as a gateway target with a tool schema that define
 ]
 ```
 
-```
+```bash
 agentcore add gateway-target \
   --gateway PolicyGateway \
   --target-configuration '{
@@ -101,7 +100,7 @@ Replace `<YOUR_LAMBDA_ARN>` with the ARN of your Lambda function. The `refund_to
 
 Create a policy engine and attach it to the gateway in ENFORCE mode:
 
-```
+```bash
 agentcore add policy-engine --name RefundPolicyEngine \
   --attach-to-gateways PolicyGateway \
   --attach-mode enforce
@@ -143,7 +142,7 @@ Cedar is an open-source policy language developed by AWS for writing authorizati
 
 The following is an example Cedar policy that allows refunds under USD $1000:
 
-```
+```cedar
 permit(principal,
   action == AgentCore::Action::"RefundTarget___process_refund",
   resource == AgentCore::Gateway::"<gateway-arn>")
@@ -173,7 +172,7 @@ The `--attach-to-gateways` and `--attach-mode enforce` flags on `agentcore add p
 
 Deploy all resources to AWS:
 
-```
+```bash
 agentcore deploy
 ```
 
@@ -181,7 +180,7 @@ The AgentCore CLI creates the gateway, registers the Lambda target, and provisio
 
 After deployment completes, you can verify the status of your resources:
 
-```
+```bash
 agentcore status --json
 ```
 
@@ -196,7 +195,7 @@ You can write the Cedar statement yourself, or generate it from a description.
 
 Create a `refund_policy.cedar` file in your project directory. Replace `<gateway-arn>` with the gateway ARN:
 
-```
+```cedar
 permit(principal,
   action == AgentCore::Action::"RefundTarget___process_refund",
   resource == AgentCore::Gateway::"<gateway-arn>")
@@ -209,7 +208,7 @@ when {
 
 Instead of writing the statement, you can generate it from a natural-language description. Policy generation calls an AWS API that uses the schema of the deployed gateway:
 
-```
+```bash
 agentcore gateway policy generate \
   --gateway-id <gateway-arn> \
   --prompt "Only allow RefundTarget refunds under 1000 dollars" \
@@ -222,7 +221,7 @@ Review `refund_policy.cedar` before you add it. If the file has more than one st
 
 Add the policy to the project and deploy again:
 
-```
+```bash
 agentcore add policy --name RefundLimit \
   --engine RefundPolicyEngine \
   --statement file://refund_policy.cedar
@@ -238,7 +237,7 @@ Test the policy by sending requests to the gateway with `agentcore invoke --gate
 
 The refund amount of USD $500 is under the USD $1000 limit, so the policy engine permits the request:
 
-```
+```bash
 agentcore invoke --gateway PolicyGateway \
   --path /mcp \
   --payload '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"RefundTarget___process_refund","arguments":{"amount":500}}}'
@@ -248,7 +247,7 @@ agentcore invoke --gateway PolicyGateway \
 
 The refund amount of USD $2000 exceeds the USD $1000 limit, so the policy engine denies the request:
 
-```
+```bash
 agentcore invoke --gateway PolicyGateway \
   --path /mcp \
   --payload '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"RefundTarget___process_refund","arguments":{"amount":2000}}}'
@@ -284,7 +283,7 @@ If you encounter issues during setup or testing, refer to the following common p
 
 To remove the resources created in this tutorial, remove both the gateway and the policy engine, then redeploy:
 
-```
+```bash
 agentcore remove gateway --name PolicyGateway
 agentcore remove policy-engine --name RefundPolicyEngine
 agentcore deploy --yes

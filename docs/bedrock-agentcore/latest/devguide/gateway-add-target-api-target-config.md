@@ -1,7 +1,6 @@
 
 
 # Define the gateway target configuration
-<a name="gateway-add-target-api-target-config"></a>
 
 The target configuration depends on the target type that you’re adding to the gateway. For more information about supported gateway target types, see [Supported targets for Amazon Bedrock AgentCore gateways](gateway-supported-targets.md).
 
@@ -18,6 +17,7 @@ Select a topic to see examples of adding a target type:
 + [Add a Connector target with Web Search Tool](#gateway-add-target-api-connector-web-search)
 + [Add a Connector target with Web Answer](#gateway-add-target-api-connector-web-answer)
 + [Add a Connector target with AWS Step Functions](#gateway-add-target-api-connector-step-functions)
++ [Add a Connector target with AWS Marketplace](#gateway-add-target-api-connector-aws-marketplace)
 
 ## Add a Lambda target
 <a name="gateway-add-target-api-lambda"></a>
@@ -38,7 +38,7 @@ Select one of the following methods:
 
 1. Add a Lambda function target with a complete target configuration. The tool schema file path is relative to the project:
 
-   ```
+   ```bash
    agentcore add gateway-target \
      --gateway MyGateway \
      --target-configuration '{
@@ -56,7 +56,7 @@ Select one of the following methods:
 
 1. With the AgentCore Python SDK, you can create an AWS Lambda target with default configurations.
 
-   ```
+   ```python
    # Import dependencies
    from bedrock_agentcore_starter_toolkit.operations.gateway.client import GatewayClient
    
@@ -75,7 +75,7 @@ Select one of the following methods:
 
    The following is an example argument you can provide for the `target_payload` . If you omit the `target_payload` argument, this payload is used:
 
-   ```
+   ```json
    {
        "lambdaArn": "<insert your lambda arn>",
        "toolSchema": {
@@ -118,7 +118,7 @@ Select one of the following methods:
 
 1. The following Python code shows how to add a Lambda target using the AWS Python SDK (Boto3):
 
-   ```
+   ```python
    import boto3
    
    # Create the agentcore client
@@ -180,7 +180,7 @@ Select one of the following methods:
 
 1. Add an API Gateway REST API stage as a target with a complete target configuration:
 
-   ```
+   ```bash
    agentcore add gateway-target \
      --gateway MyGateway \
      --target-configuration '{
@@ -211,7 +211,7 @@ Select one of the following methods:
 
 1. The following command uses the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway-target \
        --gateway-identifier "your-gateway-id" \
        --name "SearchAPITarget" \
@@ -251,7 +251,7 @@ Select one of the following methods:
 
 1. The following code uses the AWS Python SDK (Boto3):
 
-   ```
+   ```python
    import boto3
    
    # Create the client
@@ -305,7 +305,7 @@ Select one of the following methods:
 
 1. Add an API key credential to the project, then add an OpenAPI schema target that references it:
 
-   ```
+   ```bash
    printf '%s' "$API_KEY" | agentcore add credentials api-key \
      --name MyApiKey \
      --api-key -
@@ -330,7 +330,7 @@ Select one of the following methods:
 
 1. The following Python code shows how to add an OpenAPI target using the AWS Python SDK (Boto3). The schema has been uploaded to an S3 location whose URI is referenced in the `target_payload` . Outbound authorization for the target is through an API key.
 
-   ```
+   ```python
    import boto3
    
    # Create the client
@@ -374,7 +374,7 @@ Select one of the following methods:
 
 1. Add a Smithy model target and provide the path to the model file:
 
-   ```
+   ```bash
    agentcore add gateway-target \
      --gateway MyGateway \
      --target-configuration '{
@@ -391,7 +391,7 @@ Select one of the following methods:
 
 1. The following Python code shows how to add a Smithy model target using the AWS Python SDK (Boto3):
 
-   ```
+   ```python
    import boto3
    
    # Create the agentcore client
@@ -432,7 +432,7 @@ Select one of the following methods:
 
 1. Add a runtime from your project as a target. Create the gateway without `--protocol-type MCP`. Declare the runtime first, for example with `agentcore add runtime --name MyAgent --language python --protocol HTTP`:
 
-   ```
+   ```bash
    agentcore add gateway-target \
      --gateway MyGateway \
      --name MyRuntimeTarget \
@@ -442,7 +442,7 @@ Select one of the following methods:
 
 1. The following command creates an HTTP runtime target with IAM authorization:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway-target \
        --gateway-identifier "your-gateway-id" \
        --name "MyRuntimeTarget" \
@@ -461,7 +461,7 @@ Select one of the following methods:
 
 1. The following Python code shows how to add an HTTP runtime target using the AWS Python SDK (Boto3):
 
-   ```
+   ```python
    import boto3
    
    agentcore_client = boto3.client('bedrock-agentcore-control')
@@ -505,7 +505,7 @@ Select one of the following methods:
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway-target \
        --gateway-identifier "your-gateway-id" \
        --name "MyMCPTarget" \
@@ -529,7 +529,7 @@ Select one of the following methods:
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    agentcore_client = boto3.client('bedrock-agentcore-control')
@@ -564,7 +564,7 @@ The following example creates an MCP server target with OAuth (client credential
 
 The OAuth application must support the `client_credentials` grant. An application configured only for the authorization code (`code`) grant cannot be used for gateway outbound authorization. For Amazon Cognito, create a resource server scope and configure the app client with `--allowed-o-auth-flows client_credentials` and that custom scope:
 
-```
+```bash
 aws cognito-idp create-user-pool-client \
   --user-pool-id <USER_POOL_ID> \
   --client-name gateway-client \
@@ -581,7 +581,7 @@ Select one of the following methods:
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway-target \
        --gateway-identifier "your-gateway-id" \
        --name "MyMCPTarget" \
@@ -605,7 +605,7 @@ Select one of the following methods:
 
 1. Declare the OAuth credential in the project, then reference it when you add the MCP server target:
 
-   ```
+   ```bash
    printf '%s' "$CLIENT_SECRET" | agentcore add credentials oauth \
      --name MyOauthCredential \
      --vendor CustomOauth2 \
@@ -624,7 +624,7 @@ Select one of the following methods:
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    agentcore_client = boto3.client('bedrock-agentcore-control')
@@ -663,7 +663,7 @@ Select one of the following methods:
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway-target \
        --gateway-identifier "your-gateway-id" \
        --name "MyMCPTarget" \
@@ -689,7 +689,7 @@ Select one of the following methods:
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    agentcore_client = boto3.client('bedrock-agentcore-control')
@@ -740,7 +740,7 @@ The connector supports only managed knowledge bases. Connector targets support o
 
 1. The following Python code shows how to create a Gateway Target with the Amazon Bedrock Managed Knowledge Bases connector configuration using the AWS Python SDK (Boto3):
 
-   ```
+   ```python
    import boto3
    
    gateway_client = boto3.client("bedrock-agentcore-control", region_name="<REGION>")
@@ -788,7 +788,7 @@ The connector supports only managed knowledge bases. Connector targets support o
 
 1. The following command creates a Gateway Target with the Amazon Bedrock Managed Knowledge Bases connector configuration using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway-target \
      --gateway-identifier "<GATEWAY_ID>" \
      --name "managed-kb" \
@@ -834,7 +834,7 @@ The connector supports only managed knowledge bases. Connector targets support o
 
 1. Add a managed knowledge base connector target:
 
-   ```
+   ```bash
    agentcore add gateway-connector \
      --gateway MyGateway \
      --connector bedrock-knowledge-bases \
@@ -849,7 +849,7 @@ After you call `CreateGatewayTarget`, the Gateway validates the configuration as
 
 To customize agentic retrieval — for example, to cap planning iterations or attach a guardrail — add the optional fields to `agenticRetrieveConfiguration`. If you omit them, service-managed defaults apply. For all accepted values, see [Configuration reference](gateway-target-connector-managed-kb.md#gateway-target-connector-managed-kb-config-reference).
 
-```
+```json
 {
   "name": "AgenticRetrieveStream",
   "parameterValues": {
@@ -883,7 +883,7 @@ Bind `knowledgeBaseId` in `parameterValues` and do not expose it.
 
 The following configuration entry binds the knowledge base, sets a default of 10 results, and exposes the query text and result count to the agent:
 
-```
+```json
 {
   "name": "Retrieve",
   "description": "Search the knowledge base for relevant documents.",
@@ -925,7 +925,7 @@ The Gateway signs the backend calls as the `bedrock` service. Include `bedrock:G
 
 Add a policy with the following content to the execution role attached to the Gateway:
 
-```
+```json
 {
   "Version": "2012-10-17", 
   "Statement": [
@@ -953,7 +953,7 @@ Add a policy with the following content to the execution role attached to the Ga
 
 The service role must also trust the AgentCore service so that it can assume the role. Attach the following trust policy, scoping it to your account and Gateway with the `aws:SourceAccount` and `aws:SourceArn` conditions:
 
-```
+```json
 {
   "Version": "2012-10-17", 
   "Statement": [
@@ -993,7 +993,7 @@ You can optionally pin the target to a specific connector version by including `
 
 1. The following Python code shows how to create a Gateway Target with the Web Search Tool connector configuration using the AWS Python SDK (Boto3):
 
-   ```
+   ```python
    import boto3
    
    gateway_client = boto3.client("bedrock-agentcore-control", region_name="<REGION>")
@@ -1017,7 +1017,7 @@ You can optionally pin the target to a specific connector version by including `
 
 1. The following command creates a Gateway Target with the Web Search Tool connector configuration using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway-target \
      --gateway-identifier "<GATEWAY_ID>" \
      --name "web-search-tool" \
@@ -1043,7 +1043,7 @@ You can optionally pin the target to a specific connector version by including `
 
 1. Add a Web Search Tool target:
 
-   ```
+   ```bash
    agentcore add gateway-connector \
      --gateway MyGateway \
      --connector web-search \
@@ -1066,7 +1066,7 @@ The following examples create a Web Search Tool target pinned to version `1.2.0`
 
 1. The following Python code shows how to create a Web Search Tool target with domain filtering using the AWS Python SDK (Boto3):
 
-   ```
+   ```python
    import boto3
    
    gateway_client = boto3.client("bedrock-agentcore-control", region_name="<REGION>")
@@ -1100,7 +1100,7 @@ The following examples create a Web Search Tool target pinned to version `1.2.0`
 
 1. The following command creates a Web Search Tool target with domain filtering using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway-target \
      --gateway-identifier "<GATEWAY_ID>" \
      --name "web-search-tool" \
@@ -1131,7 +1131,7 @@ The following examples create a Web Search Tool target pinned to version `1.2.0`
 
 1. Pass a complete connector configuration to exclude domains:
 
-   ```
+   ```bash
    agentcore add gateway-connector \
      --gateway MyGateway \
      --connector-configuration '{
@@ -1166,7 +1166,7 @@ The Gateway needs a service role that allows the AgentCore service to perform ac
 
 Add a policy with the following content to the service role attached to the Gateway:
 
-```
+```json
 {
   "Version": "2012-10-17", 
   "Statement": [
@@ -1206,7 +1206,7 @@ In the following examples, replace `<GATEWAY_ID>` with the identifier of your ga
 
 1. The following Python code shows how to create a Gateway Target with the Web Answer connector configuration using the AWS Python SDK (Boto3):
 
-   ```
+   ```python
    import boto3
    
    gateway_client = boto3.client("bedrock-agentcore-control", region_name="us-east-1")
@@ -1230,7 +1230,7 @@ In the following examples, replace `<GATEWAY_ID>` with the identifier of your ga
 
 1. The following command creates a Gateway Target with the Web Answer connector configuration using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway-target \
      --gateway-identifier "<GATEWAY_ID>" \
      --name "web-answer-tool" \
@@ -1270,7 +1270,7 @@ The following examples create a Web Answer target with both domain include and e
 
 1. The following Python code shows how to create a Web Answer target with domain filtering using the AWS Python SDK (Boto3):
 
-   ```
+   ```python
    import boto3
    
    gateway_client = boto3.client("bedrock-agentcore-control", region_name="us-east-1")
@@ -1304,7 +1304,7 @@ The following examples create a Web Answer target with both domain include and e
 
 1. The following command creates a Web Answer target with domain filtering using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway-target \
      --gateway-identifier "<GATEWAY_ID>" \
      --name "web-answer-tool" \
@@ -1345,7 +1345,7 @@ The role doesn’t need `bedrock:InvokeModel`. Web Answer runs its own model, an
 
 The following policy grants the permissions that Web Answer requires. Add it to the service role attached to the Gateway, and replace `<ACCOUNT_ID>` with your AWS account ID:
 
-```
+```json
 {
   "Version": "2012-10-17", 
   "Statement": [
@@ -1394,7 +1394,7 @@ The AWS Region of your gateway.
 
 1. The following Python code shows how to create a Gateway Target with the Step Functions connector configuration using the AWS Python SDK (Boto3):
 
-   ```
+   ```python
    import boto3
    
    gateway_client = boto3.client("bedrock-agentcore-control", region_name="<REGION>")
@@ -1427,7 +1427,7 @@ The AWS Region of your gateway.
 
 1. The following command creates a Gateway Target with the Step Functions connector configuration using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway-target \
      --gateway-identifier "<GATEWAY_ID>" \
      --name "orders" \
@@ -1470,7 +1470,7 @@ The AWS Region of your gateway.
 
 1. To add a Step Functions target, run `agentcore add gateway-target` with `--type connector --connector states`:
 
-   ```
+   ```bash
    agentcore add gateway-target \
      --name orders \
      --type connector \
@@ -1501,7 +1501,7 @@ Each statement in the following policy uses the minimal scope that IAM supports 
 
 The following JSON policy grants the permissions for all ten connector operations. Attach it to the Gateway’s service role:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -1560,5 +1560,114 @@ The name of your Standard state machine.
 The AWS Region of your gateway and state machines.
 
 Only the four state-machine operations can be pinned on the target. For the other six, this policy is the only boundary on which executions the agent can inspect, stop, or complete. Don’t grant `states:*` on `Resource: "*"`. If different workflows need different IAM boundaries, use separate Gateways, because all targets on a Gateway share its service role.
+
+The service role’s trust policy must allow the `bedrock-agentcore.amazonaws.com` service principal to assume it, as for any Gateway service role. For more information, see [Trust permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions-trust).
+
+## Add a Connector target with AWS Marketplace
+<a name="gateway-add-target-api-connector-aws-marketplace"></a>
+
+You can add a built-in connector as a target to your gateway. With the AWS Marketplace connector, agents can search AWS Marketplace for x402-enabled products, read listing details, and get a product’s callable endpoint and payment details without any integration code.
+
+For more information about the AWS Marketplace connector, see [AWS Marketplace as Connector Target](gateway-target-connector-aws-marketplace.md).
+
+### Set up an AWS Marketplace target
+<a name="gateway-add-target-api-connector-aws-marketplace-setup"></a>
+
+In `configurations`, list each operation you want to expose as a tool: `SearchListings`, `GetListing`, and `ListFulfillmentOptions`. Each entry needs a `parameterValues` object, which is empty because the connector has no parameters to pin. To give your agent the full search-to-endpoint flow, include all three. `GetListing` is optional. Your agent can go from `SearchListings` directly to `ListFulfillmentOptions`.
+
+Create the gateway in any commercial AWS Region where Amazon Bedrock AgentCore Gateway is available.
+
+You can optionally pin the target to a specific connector version by including `version` in the `source` field. If you omit `version`, the target uses the connector’s current default version. For more information about connector versions, see [Connector versions](gateway-target-connector-versions.md).
+
+In the examples, replace `<GATEWAY_ID>` with the identifier of your gateway.
+
+**Example**  
+
+1. The following Python code shows how to create a Gateway Target with the AWS Marketplace connector configuration using the AWS Python SDK (Boto3):
+
+   ```python
+   import boto3
+   
+   gateway_client = boto3.client("bedrock-agentcore-control", region_name="us-east-1")
+   
+   gateway_client.create_gateway_target(
+       name="marketplace",
+       gatewayIdentifier="<GATEWAY_ID>",
+       targetConfiguration={
+           "mcp": {
+               "connector": {
+                   "source": {"connectorId": "aws-marketplace", "version": "1.0.0"},
+                   "configurations": [
+                       {"name": "SearchListings", "parameterValues": {}},
+                       {"name": "GetListing", "parameterValues": {}},
+                       {"name": "ListFulfillmentOptions", "parameterValues": {}},
+                   ],
+               }
+           }
+       },
+       credentialProviderConfigurations=[
+           {"credentialProviderType": "GATEWAY_IAM_ROLE"}
+       ],
+   )
+   ```
+
+1. The following command creates a Gateway Target with the AWS Marketplace connector configuration using the AWS CLI:
+
+   ```bash
+   aws bedrock-agentcore-control create-gateway-target \
+     --gateway-identifier "<GATEWAY_ID>" \
+     --name "marketplace" \
+     --target-configuration '{
+       "mcp": {
+         "connector": {
+           "source": {
+             "connectorId": "aws-marketplace",
+             "version": "1.0.0"
+           },
+           "configurations": [
+             { "name": "SearchListings", "parameterValues": {} },
+             { "name": "GetListing", "parameterValues": {} },
+             { "name": "ListFulfillmentOptions", "parameterValues": {} }
+           ]
+         }
+       }
+     }' \
+     --credential-provider-configurations '[{"credentialProviderType": "GATEWAY_IAM_ROLE"}]' \
+     --region us-east-1
+   ```
+
+After the target reaches `READY`, call `tools/list` on the Gateway. It returns `marketplace_SearchListings_GetListing`, and `marketplace___ListFulfillmentOptions`.
+
+To change the exposed operations later, call `UpdateGatewayTarget` with the new `configurations` list.
+
+### Configure the Gateway Service Role
+<a name="gateway-add-target-api-connector-aws-marketplace-service-role"></a>
+
+The Gateway needs a service role that allows the AgentCore service to call AWS Marketplace on your behalf. The three operations are authorized on AWS Marketplace catalog resources. Listing operations use listing ARNs, and `ListFulfillmentOptions` uses product ARNs. Catalog ARNs don’t include a Region or an account ID.
+
+The following JSON policy grants the permissions for all three connector operations. Attach it to the Gateway’s service role:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AwsMarketplaceDiscovery",
+      "Effect": "Allow",
+      "Action": [
+        "aws-marketplace:SearchListings",
+        "aws-marketplace:GetListing",
+        "aws-marketplace:ListFulfillmentOptions"
+      ],
+      "Resource": [
+        "arn:aws:aws-marketplace:::catalog/AWSMarketplace/listing/*",
+        "arn:aws:aws-marketplace:::catalog/AWSMarketplace/product/*"
+      ]
+    }
+  ]
+}
+```
+
+If you expose only some operations, remove the actions you don’t use. If the role is missing a permission, the tool call fails with `Access denied. The execution role needs aws-marketplace:SearchListings, aws-marketplace:GetListing and aws-marketplace:ListFulfillmentOptions.` 
 
 The service role’s trust policy must allow the `bedrock-agentcore.amazonaws.com` service principal to assume it, as for any Gateway service role. For more information, see [Trust permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions-trust).

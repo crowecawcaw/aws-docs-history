@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="batch-evaluations-prereqs"></a>
 
 Before you can run batch evaluations, make sure the following are in place.
 
@@ -16,7 +15,7 @@ Set up the following before you run batch evaluations:
 ## AWS credentials and permissions
 <a name="batch-eval-credentials"></a>
 
-Batch evaluation runs under the caller’s credentials. Unlike online evaluation, batch evaluation does not require a separate service execution role. The service uses your IAM identity to access CloudWatch Logs for session discovery and to write evaluation results.
+Batch evaluation runs under the caller’s credentials. Unlike online evaluation, batch evaluation does not require a separate service execution role. The service uses your IAM identity to access CloudWatch Logs for session discovery and to write evaluation results. For a [AgentCore-run dataset evaluation](batch-evaluations-dataset.md), the service also uses your identity to invoke your AgentCore Runtime endpoint.
 
  AWS credentials configured with permissions for the following services:
 +  `bedrock-agentcore`: To start, get, list, stop, and delete batch evaluations
@@ -27,7 +26,7 @@ Batch evaluation runs under the caller’s credentials. Unlike online evaluation
 
 The following IAM policy grants the minimum permissions needed to run batch evaluations:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -71,6 +70,22 @@ The following IAM policy grants the minimum permissions needed to run batch eval
                 "arn:aws:bedrock-agentcore:*:*:runtime/*",
                 "arn:aws:bedrock-agentcore:*:*:dataset/*"
             ]
+        },
+        {
+            "Sid": "StartDatasetBatchEvaluation",
+            "Effect": "Allow",
+            "Action": "bedrock-agentcore:StartBatchEvaluation",
+            "Resource": "arn:aws:bedrock-agentcore:*:*:dataset/*"
+        },
+        {
+            "Sid": "ReadAndInvokeRuntimeEndpoint",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock-agentcore:GetAgentRuntime",
+                "bedrock-agentcore:GetAgentRuntimeEndpoint",
+                "bedrock-agentcore:InvokeAgentRuntime"
+            ],
+            "Resource": "arn:aws:bedrock-agentcore:*:*:runtime/*"
         },
         {
             "Sid": "ReadAgentLogs",
@@ -133,6 +148,12 @@ The `ResolveOnlineEvalForCli` statement is required only when you pass an online
 
 **Note**  
 The `SimulateForCli` statement is required only for `agentcore eval batch-evaluation simulate`. The command invokes the Runtime, which needs `bedrock-agentcore:InvokeAgentRuntime`. If you pass `--bearer-token` for a Runtime that uses JWT authorization, the CLI authenticates with the token and doesn’t need `bedrock-agentcore:InvokeAgentRuntime`. When `--dataset` is a dataset ID, the command also needs `bedrock-agentcore:GetDataset`.
+
+**Note**  
+You need the `StartDatasetBatchEvaluation` and `ReadAndInvokeRuntimeEndpoint` statements only for batch evaluations that use `datasetExecutionConfig`. AgentCore authorizes `StartBatchEvaluation` against the dataset as well as the batch evaluation. The service checks `GetAgentRuntime` and `GetAgentRuntimeEndpoint` when the job starts, and calls `InvokeAgentRuntime` with your credentials for each turn. To scope these statements to one dataset and one Runtime endpoint, grant the runtime actions on both the Runtime ARN and the endpoint ARN. For an example, see [Permissions for AgentCore-run dataset evaluations](batch-evaluations-dataset.md#batch-dataset-permissions).
+
+**Note**  
+If the dataset for an AgentCore-run dataset evaluation is encrypted with a customer managed key, the calling identity also needs `kms:Decrypt` on that key, and the key policy must allow the AgentCore service principal to decrypt the dataset. See [Dataset encryption](datasets-encryption.md).
 
 **Note**  
 The `WriteEvaluationLogs` statement lets the service create the evaluation-results log group and log streams and write results under your credentials. You must grant `logs:DescribeLogGroups` on `Resource` `*` because this action doesn’t support resource-level permissions.

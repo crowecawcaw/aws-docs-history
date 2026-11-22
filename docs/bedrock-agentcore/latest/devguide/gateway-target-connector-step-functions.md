@@ -1,7 +1,6 @@
 
 
 # AWS Step Functions as Connector Target
-<a name="gateway-target-connector-step-functions"></a>
 
  AWS Step Functions is a workflow service that coordinates AWS services, your own code, and HTTP APIs as a series of steps called a state machine. Step Functions provides built-in retries and error handling, and it passes data between steps. For Standard workflows, it also records every step in an execution history. To learn more, see [What is Step Functions?](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) in the * AWS Step Functions Developer Guide*.
 
@@ -102,7 +101,7 @@ After you create the target, your agent discovers the tools with `tools/list` an
 
 The following JSON-RPC request starts a workflow on the pinned state machine. The agent passes only the input:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -118,7 +117,7 @@ The following JSON-RPC request starts a workflow on the pinned state machine. Th
 
 The result contains the `executionArn`. To check on the execution, the agent passes that ARN to `DescribeExecution`. By default, the response contains metadata only. The following JSON-RPC request sets `includedData` to `ALL_DATA` to include the execution’s input and output:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": 2,
@@ -135,7 +134,7 @@ The result contains the `executionArn`. To check on the execution, the agent pas
 
 The following JSON-RPC request resumes a workflow that’s waiting on a task token. The agent passes the token it received and the task output:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": 3,
@@ -178,7 +177,7 @@ For the shape of each field and of the responses, see the corresponding operatio
 
 Each tool returns an MCP `tools/call` result wrapped in a JSON-RPC envelope. The `text` field contains the serialized Step Functions API response:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": 1,

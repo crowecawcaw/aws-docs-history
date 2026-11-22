@@ -1,7 +1,6 @@
 
 
 # Configure KMS key for Token Vault on Console
-<a name="console-configuration-encryption"></a>
 
 The KMS key configuration determines how your token vault encrypts data at rest. You can choose between an AWS owned key or a customer managed key (stored in your account and managed through AWS KMS).
 

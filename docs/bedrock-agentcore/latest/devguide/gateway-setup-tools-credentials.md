@@ -1,7 +1,6 @@
 
 
 # Set up dependencies and credentials to create, maintain, and use gateway resources
-<a name="gateway-setup-tools-credentials"></a>
 
 The AgentCore Gateway service involves the following main processes:
 +  **Creation and maintenance of gateway resources** – You can create gateway and gateway target resources through the Amazon Bedrock AgentCore Control Plane service.
@@ -56,7 +55,7 @@ The AWS Command Line Interface (CLI) lets you interact with the AWS API in a com
 The AgentCore CLI is a Node.js command-line tool for interacting with the AgentCore API. Refer to the following resources in the [AgentCore CLI repository](https://github.com/aws/agentcore-cli).
 +  **Installation** – To install the AgentCore CLI, run the following command:
 
-  ```
+  ```bash
   npm install -g @aws/agentcore
   ```
 +  **Authentication** – To access your AWS credentials and configure them for the AgentCore CLI, follow the steps at [Using IAM Identity Center to authenticate AWS SDK and Tools](https://docs.aws.amazon.com/sdkref/latest/guide/access-sso.html).

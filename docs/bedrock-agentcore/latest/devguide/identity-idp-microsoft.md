@@ -1,7 +1,6 @@
 
 
 # Microsoft
-<a name="identity-idp-microsoft"></a>
 
 Microsoft Entra ID can be configured as an identity provider for accessing AgentCore Gateway and Runtime, or an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate and authorize agent users with Microsoft Entra ID as the identity provider and authorization server, or your agents to obtain credentials to access resources authorized by Microsoft Entra ID.
 
@@ -80,7 +79,7 @@ For more details, refer to [Quickstart: Register an application](https://learn.m
 
 To configure the outbound Microsoft resource provider, use the following:
 
-```
+```json
 {
         "name": "NAME",
         "credentialProviderVendor": "MicrosoftOAuth2",

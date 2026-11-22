@@ -1,7 +1,6 @@
 
 
 # Build your first authenticated agent
-<a name="identity-getting-started-cognito"></a>
 
 This getting started tutorial walks you through building a complete authenticated agent from the ground up using Amazon Bedrock AgentCore Identity and will help you get started with implementing identity features in your agent applications. You’ll learn how to set up your development environment, create authentication infrastructure with Cognito, deploy your agent to AgentCore Runtime, and test the full authentication workflow.
 
@@ -36,7 +35,7 @@ This tutorial requires that you have an OAuth 2.0 authorization server. If you d
 
 Make a folder for this guide, create a Python virtual environment, and install the AgentCore SDK and the AWS Python SDK (boto3).
 
-```
+```bash
 mkdir agentcore-identity-quickstart
 cd agentcore-identity-quickstart
 python3 -m venv .venv
@@ -56,7 +55,7 @@ Deleting the Cognito user pool AgentCoreIdentityQuickStartPool will delete the a
 
 You may choose to save this script as create\_cognito.sh and execute it from your command line, or paste the script into your command line.
 
-```
+```bash
 #!/bin/bash
 
 REGION=$(aws configure get region)
@@ -145,7 +144,7 @@ This credential provider will be used by your agent’s code to get access token
 
 1. Create the credential provider directly. The command returns the callback URL that you need in the next step. The AgentCore CLI accepts secrets from a file or standard input, not as inline arguments.
 
-   ```
+   ```bash
    OAUTH2_CALLBACK_URL=$(printf '%s' "$CLIENT_SECRET" | agentcore identity oauth2-credential-provider create \
      --name AgentCoreIdentityQuickStartProvider \
      --vendor CustomOauth2 \
@@ -159,7 +158,7 @@ This credential provider will be used by your agent’s code to get access token
 
 1. 
 
-   ```
+   ```bash
    #!/bin/bash
    # ISSUER_URL must be the full URL, including .well-known/openid-configuration
    OAUTH2_CREDENTIAL_PROVIDER_RESPONSE=$(aws bedrock-agentcore-control create-oauth2-credential-provider \
@@ -188,7 +187,7 @@ To prevent unauthorized redirects, add the callback URL retrieved from [CreateOa
 
 If you are using the previous script to create an authorization server with Cognito, copy the EXPORT statements from the output into your terminal to set the environment variables and update the Cognito user pool client with the OAuth2 credential provider callback URL.
 
-```
+```bash
 #!/bin/bash
 aws cognito-idp update-user-pool-client \
     --user-pool-id $USER_POOL_ID \
@@ -213,13 +212,13 @@ Create a file named `agentcoreidentityquickstart.py` , and save this code.
 
 The `callback_url` passed to `requires_access_token` is the URL in your application that completes the session-binding flow. For local testing, this tutorial uses the callback server that you create after the agent code. Set its URL:
 
-```
+```bash
 export SESSION_BINDING_CALLBACK_URL="http://localhost:8081/oauth2/callback"
 ```
 
 For production, use your application’s HTTPS callback endpoint instead.
 
-```
+```python
 """
 AgentCore Identity Outbound Token Agent
 
@@ -316,7 +315,7 @@ After the user signs in, AgentCore Identity redirects the browser to `SESSION_BI
 
 Create a file named `oauth2_callback_server.py` in the `agentcore-identity-quickstart` folder, and save this code:
 
-```
+```python
 """
 Local OAuth 2.0 callback server for the AgentCore Identity quick start.
 
@@ -369,7 +368,7 @@ The AgentCore CLI creates the agent’s execution role during deployment. The cr
 
 From your terminal, install the AgentCore CLI, create an empty project, and register a Python HTTP Runtime:
 
-```
+```bash
 npm install -g @aws/agentcore
 agentcore create --name IdentityQuickstart --template empty
 cd IdentityQuickstart
@@ -384,13 +383,13 @@ agentcore add runtime \
 
 Copy your agent script into the Runtime directory as its entrypoint:
 
-```
+```bash
 cp ../agentcoreidentityquickstart.py app/IdentityAgent/main.py
 ```
 
 Initialize the Python project and add the Runtime dependencies:
 
-```
+```bash
 cd app/IdentityAgent
 uv init --bare
 uv add \
@@ -405,7 +404,7 @@ cd ../..
 
 Create the policy document that allows the agent to get tokens from the token vault and read the client secret. This script gets your account and Region from the AWS CLI:
 
-```
+```bash
 #!/bin/bash
 
 AWS_ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
@@ -437,7 +436,7 @@ EOF
 ### Deploy the project
 <a name="identity-quick-start-deploy-project"></a>
 
-```
+```bash
 agentcore deploy
 ```
 
@@ -448,7 +447,7 @@ The CLI synthesizes a AWS CDK stack and deploys your agent to AgentCore Runtime 
 
 AgentCore Identity redirects only to return URLs that are registered on the agent’s workload identity. AgentCore Runtime creates this workload identity when you deploy the agent. Register `SESSION_BINDING_CALLBACK_URL` on it. Your AWS credentials need permission for `bedrock-agentcore:UpdateWorkloadIdentity`:
 
-```
+```bash
 RUNTIME_ARN=$(agentcore status --json \
   | jq -r '.resources[] | select(.resourceType == "runtime" and .name == "IdentityAgent") | .arn')
 
@@ -467,14 +466,14 @@ aws bedrock-agentcore-control update-workload-identity \
 
 In a separate terminal, start the callback server from the `agentcore-identity-quickstart` folder:
 
-```
+```bash
 source .venv/bin/activate
 python oauth2_callback_server.py
 ```
 
 Invoke the agent with your IAM credentials. Pass `--user-id` and `--session-id` when using IAM authentication.
 
-```
+```bash
 agentcore invoke --runtime IdentityAgent \
   --payload '"TestPayload"' \
   --user-id "SampleUserID" \
@@ -498,7 +497,7 @@ If you interrupt an invocation without completing authorization, you may need to
 
 If you see errors, stream the Runtime’s CloudWatch logs:
 
-```
+```bash
 agentcore logs runtime --name IdentityAgent --tail
 ```
 

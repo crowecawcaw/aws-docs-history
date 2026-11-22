@@ -1,7 +1,6 @@
 
 
 # Breaking changes
-<a name="agentcore-cli-migration-breaking-changes"></a>
 
 AgentCore CLI v1 keeps project workflows at the top level, groups evaluation workflows under `agentcore eval`, and adds resource commands that work with individual resources outside your project. It has the following breaking changes:
 + Project workflows keep their top-level command paths, such as `agentcore create`, `agentcore add`, `agentcore dev`, `agentcore deploy`, `agentcore invoke`, and `agentcore status`. Use `build` instead of `package` or `validate`. Logs remain under `agentcore logs`, with separate `runtime` and `harness` subcommands.
@@ -41,7 +40,7 @@ Don’t add an `AGENTCORE_` prefix to these names when updating v0 agent code. I
 
  `agentcore create` keeps the same command path in v1. Its project-specific flags are `--name`, `--template`, `--skip-install`, and `--skip-git`. Instead of combining `--language`, `--framework`, `--build`, and `--protocol`, choose a complete `--template` to create a project with a runtime.
 
-```
+```bash
 agentcore create --name {{Demo}} --template agent-python-strands # old: agentcore create --name Demo --language Python --framework Strands
 ```
 
@@ -71,7 +70,7 @@ Advanced runtime options, such as `--network-mode`, `--subnets`, `--idle-timeout
 
 To create a project with a harness, create an empty project and add the harness:
 
-```
+```bash
 agentcore create --name {{CustomerSupport}} --template empty
 cd {{CustomerSupport}}
 agentcore add harness --name {{Assistant}} # old: agentcore create --name CustomerSupport --defaults
@@ -91,7 +90,7 @@ The `agent` resource is now called `runtime`. Use `agentcore add runtime`.
 
 To simplify the flags, AgentCore CLI v1 groups related settings into configuration objects:
 
-```
+```bash
 agentcore add runtime --name {{ConfiguredAssistant}} \
   --language python \
   --protocol HTTP \
@@ -130,7 +129,7 @@ The old command uses `--build Container`. To preserve that build type, add a `Do
 
  `agentcore add runtime-endpoint` keeps the same command path in v1. The endpoint-name flag changes from `--endpoint` to `--name`.
 
-```
+```bash
 agentcore add runtime-endpoint --runtime {{Assistant}} --name {{prod}} --version {{1}} # old: agentcore add runtime-endpoint --runtime Assistant --endpoint prod --version 1
 ```
 
@@ -139,7 +138,7 @@ agentcore add runtime-endpoint --runtime {{Assistant}} --name {{prod}} --version
 
  `agentcore add harness` keeps the same command path in v1.
 
-```
+```bash
 agentcore add harness --name {{Helper}} \
   --model '{"provider":"bedrock","modelId":"global.anthropic.claude-sonnet-4-6"}' \
   --memory '{"mode":"disabled"}' --timeout-seconds 120 # old: agentcore add harness --name Helper --model-provider bedrock --model-id global.anthropic.claude-sonnet-4-6 --no-memory --timeout 120
@@ -154,7 +153,7 @@ AgentCore CLI v1 doesn’t have a command to add an individual tool to a harness
 
 The following `harness.yaml` example defines a code interpreter tool and a remote MCP tool:
 
-```
+```yaml
 tools:
   - name: code_interpreter
     type: agentcore_code_interpreter
@@ -176,7 +175,7 @@ AgentCore CLI v1 doesn’t have a command to add an individual skill to a harnes
 
 The following `harness.yaml` example defines two skills, one from a local path and one from an Amazon S3 location:
 
-```
+```yaml
 skills:
   - path: /opt/skills/research
   - s3:
@@ -191,7 +190,7 @@ skills:
 
  `agentcore add memory` keeps the same command path in v1.
 
-```
+```bash
 agentcore add memory --name {{Facts}} --event-expiry-duration 30 \
   --strategies SEMANTIC,SUMMARIZATION # old: agentcore add memory --name Facts --expiry 30 --strategies SEMANTIC,SUMMARIZATION
 ```
@@ -201,7 +200,7 @@ agentcore add memory --name {{Facts}} --event-expiry-duration 30 \
 
 Use `agentcore add credentials`. The credential type is now selected with a subcommand instead of the `--type` option.
 
-```
+```bash
 agentcore add credentials api-key --name {{ExternalApi}} # old: agentcore add credential --name ExternalApi --type api-key
 ```
 
@@ -218,7 +217,7 @@ The CLI reads existing v0 encrypted secrets and encrypts local project secrets a
 
  `agentcore add gateway` keeps the same command path in v1. Semantic search is no longer enabled by default. To enable it, pass `--enable-semantic-search`:
 
-```
+```bash
 agentcore add gateway --name {{Tools}} --protocol-type MCP \
   --enable-semantic-search --authorizer-type AWS_IAM
 ```
@@ -230,7 +229,7 @@ agentcore add gateway --name {{Tools}} --protocol-type MCP \
 
  `agentcore add gateway-target` keeps the same command path in v1. The common MCP and runtime workflows now use shortcuts instead of a type flag:
 
-```
+```bash
 agentcore add gateway-target --gateway {{Tools}} --name {{RemoteTools}} \
   --endpoint {{https://example.com/mcp}} # old: agentcore add gateway-target ... --type mcp-server --endpoint https://example.com/mcp
 ```
@@ -250,7 +249,7 @@ For web search, `--exclude-domains` moves to full connector JSON at `configurati
 
 To retain a log-only rollout:
 
-```
+```bash
 agentcore add policy-engine --name {{Guardrails}} \
   --attach-to-gateways {{Api}} --attach-mode log-only # old: agentcore add policy-engine --name Guardrails --attach-to-gateways Api
 ```
@@ -262,13 +261,13 @@ The attachment now rejects nonexistent gateways. Name, description, and encrypti
 
  `agentcore add policy` keeps the same command path in v1. A policy file moves from `--source PATH` to `--statement file://PATH`.
 
-```
+```bash
 --statement {{file://policies/allow.cedar}} # old: --source policies/allow.cedar
 ```
 
  `agentcore add policy` doesn’t generate policies or accept form-policy options. To generate a Cedar policy from a natural-language description, run `agentcore gateway policy generate` against the deployed Gateway. Save the generated statement to a file, then add it with `agentcore add policy`.
 
-```
+```bash
 agentcore gateway policy generate --gateway-id {{gateway-id}} \
   --prompt {{'Allow refunds under 100 USD'}} # old: agentcore add policy --generate ...
 
@@ -283,7 +282,7 @@ Validation and enforcement values become lowercase and hyphenated. The CLI infer
 
  `agentcore add payment-manager` keeps the same command path in v1. Disable automatic payment with a negative flag rather than a boolean argument:
 
-```
+```bash
 agentcore add payment-manager --name {{Checkout}} --no-auto-payment # old: agentcore add payment-manager --name Checkout --auto-payment false
 ```
 
@@ -305,7 +304,7 @@ Coinbase and StripePrivy manual connectors remain available. Choose credential n
 
 The evaluator type becomes a child command: `agentcore add evaluator llm-as-a-judge` or `agentcore add evaluator code-based`. LLM evaluator creation now requires a rating scale.
 
-```
+```bash
 agentcore add evaluator llm-as-a-judge --name {{Helpful}} \
   --level SESSION --model global.anthropic.claude-sonnet-4-6 \
   --instructions 'Evaluate whether the assistant helped the user. Context: {context}' \
@@ -321,7 +320,7 @@ Choose the judge model provider with `--model-provider` (`Bedrock` or `OpenRespo
 
  `agentcore add online-eval` keeps the same command path in v1. Select the Runtime with `--agent` instead of `-r, --runtime`, and pass evaluator names, `Builtin.*` IDs, or ARNs to `--evaluators` instead of `--evaluator` or `--evaluator-arn`. `--enable-on-create` takes `true` or `false` and defaults to `true`. To add the config paused, pass `--enable-on-create false`.
 
-```
+```bash
 agentcore add online-eval --name {{QualityMonitor}} --agent {{customer_support}} \
   --evaluators Builtin.Helpfulness --sampling-rate 10 # old: agentcore add online-eval --name QualityMonitor -r customer_support -e Builtin.Helpfulness --sampling-rate 10
 ```
@@ -336,7 +335,7 @@ Use `agentcore add online-insight`. Select the Runtime with `--agent` instead of
 
  `agentcore add config-bundle` keeps the same command path in v1.
 
-```
+```bash
 agentcore add config-bundle --name {{AssistantConfig}} --branch-name {{mainline}} \
   --components {{file://./bundle-components.json}}
 
@@ -349,7 +348,7 @@ If you omit `--branch-name`, the bundle uses the `mainline` branch. `--component
 ## `agentcore add dataset`
 <a name="breaking-changes_agentcore-add-dataset"></a>
 
-```
+```bash
 agentcore eval dataset create --name {{OrdersRegression}} \
   --source {{file://./datasets/orders.jsonl}} \
   --schema-type predefined # old: agentcore add dataset --name OrdersRegression --schema-type AGENTCORE_EVALUATION_PREDEFINED_V1
@@ -360,7 +359,7 @@ agentcore eval dataset create --name {{OrdersRegression}} \
 
 Knowledge bases are no longer managed by AgentCore CLI. Use the AWS CLI instead:
 
-```
+```bash
 aws bedrock-agent create-knowledge-base \
   --cli-input-json {{file://./knowledge-base.json}}
 ```
@@ -370,13 +369,13 @@ aws bedrock-agent create-knowledge-base \
 
  `agentcore dev` keeps the same command path in v1.
 
-```
+```bash
 agentcore dev --agent {{customer_support}} # old: agentcore dev --runtime customer_support
 ```
 
 In v0, `agentcore dev` also accepted a prompt to send to a running development server. In v1, use `agentcore invoke --runtime` with `--local`. As in v0, the development server must be running, so start it with `agentcore dev --agent customer_support` in another terminal first.
 
-```
+```bash
 agentcore invoke --runtime {{customer_support}} --local --payload '{"prompt":"Summarize open support tickets"}' # old: agentcore dev 'Summarize open support tickets'
 ```
 
@@ -387,7 +386,7 @@ Use `--mode browser` to open Agent Inspector. For Harnesses, `dev` deploys the s
 
 Use `agentcore build`.
 
-```
+```bash
 agentcore build # old: agentcore package
 ```
 
@@ -398,7 +397,7 @@ The `--runtime` and `--directory` options are not available in v1.
 
  `agentcore deploy` keeps the same command path in v1. It doesn’t ask for confirmation before a deployment, so you don’t need v0’s `-y`. The v1 `--yes` option has a different purpose. It confirms removing the deployed stack when the project declares no resources.
 
-```
+```bash
 agentcore deploy --target {{default}} # old: agentcore deploy --target prod -y
 ```
 
@@ -408,7 +407,7 @@ New projects don’t define deployment targets. The first `agentcore deploy` cre
 
  `--diff` showed the CDK diff without deploying. In v1, run the CDK command from the generated project:
 
-```
+```bash
 cd agentcore/cdk
 npm run cdk -- diff
 ```
@@ -418,11 +417,11 @@ npm run cdk -- diff
 
  `agentcore remove` keeps the same command path in v1.
 
-```
+```bash
 agentcore remove runtime --name {{customer_support}} # old: agentcore remove agent --name customer_support
 ```
 
-```
+```bash
 agentcore remove all --yes # old: agentcore remove all -y
 ```
 
@@ -433,19 +432,19 @@ agentcore remove all --yes # old: agentcore remove all -y
 
 For a Runtime, send the request body as JSON with `--payload`. The `--prompt` option applies only to harnesses.
 
-```
+```bash
 agentcore invoke --runtime {{customer_support}} --payload '{"prompt":"Which orders are delayed?"}' # old: agentcore invoke --runtime customer_support --prompt 'Which orders are delayed?'
 ```
 
 For a harness, `--prompt` works the same as in v0. Omit it to start interactive chat, and use `--session-id` to continue a session. Pass `--user-id` when the Harness needs an end-user identity for user-scoped credentials.
 
-```
+```bash
 agentcore invoke --harness {{release_checks}} --prompt 'Run the pre-deployment checks' # old: agentcore invoke --harness release_checks --prompt 'Run the pre-deployment checks'
 ```
 
 For a Gateway, set the request path relative to the Gateway origin with `--path`, and send the request body with `--payload`. The `--gateway-target-name` option isn’t available in v1.
 
-```
+```bash
 agentcore invoke --gateway {{orders_gateway}} --path {{order_tools/invocations}} --payload '{"prompt":"Track order A12345"}' # old: agentcore invoke --gateway orders_gateway --gateway-target-name order_tools --prompt 'Track order A12345'
 ```
 
@@ -456,13 +455,13 @@ Use `agentcore logs runtime` or `agentcore logs harness`.
 
 To tail a runtime, run:
 
-```
+```bash
 agentcore logs runtime --name {{customer_support}} --tail # old: agentcore logs --runtime customer_support
 ```
 
 For a Harness, use:
 
-```
+```bash
 agentcore logs harness --name {{release_checks}} --tail
 ```
 
@@ -475,7 +474,7 @@ agentcore logs harness --name {{release_checks}} --tail
 
 To see the status for a specific target, run:
 
-```
+```bash
 agentcore status --target {{default}} # old: agentcore status --target prod
 ```
 
@@ -493,17 +492,17 @@ The exported agent is always a CodeZip Runtime. A container image or Dockerfile 
 
 Use `agentcore runtime shell` for an interactive Runtime shell, `agentcore runtime exec` to run one command in a Runtime, or `agentcore harness exec` for harnesses.
 
-```
+```bash
 agentcore runtime shell --id {{checkout-AbCdEf1234}} # old: agentcore exec --runtime checkout --it
 ```
 
 The shell command prints the runtime session ID, shell ID, and a complete reconnect command. Press Ctrl\+] to detach without ending the remote shell. Use the printed command to reconnect, including both `--session-id` and `--shell-id`. Enter `exit` or press Ctrl\+D to close the shell.
 
-```
+```bash
 agentcore runtime exec --id {{checkout-AbCdEf1234}} --command 'ls /tmp' # old: agentcore exec --runtime checkout 'ls /tmp'
 ```
 
-```
+```bash
 agentcore harness exec --id {{ReleaseChecks-AbCdEf1234}} --command 'pytest tests/integration -q' # old: agentcore exec --harness ReleaseChecks 'pytest tests/integration -q'
 ```
 
@@ -512,11 +511,11 @@ agentcore harness exec --id {{ReleaseChecks-AbCdEf1234}} --command 'pytest tests
 
 Use `agentcore traces runtime`.
 
-```
+```bash
 agentcore traces runtime list --name {{checkout}} # old: agentcore traces list --runtime checkout
 ```
 
-```
+```bash
 agentcore traces runtime get {{abc123def456}} --name {{checkout}} --output {{./traces/abc123def456.json}} # old: agentcore traces get abc123def456 --runtime checkout --output ./traces/abc123def456.json
 ```
 
@@ -527,7 +526,7 @@ agentcore traces runtime get {{abc123def456}} --name {{checkout}} --output {{./t
 
 To evaluate historical sessions, use `agentcore eval batch-evaluation evaluate`.
 
-```
+```bash
 agentcore eval batch-evaluation evaluate \
   --agent {{checkout-AbCdEf1234}} \
   --session-ids {{12345678-1234-1234-1234-123456789012}} \
@@ -537,7 +536,7 @@ agentcore eval batch-evaluation evaluate \
 
 To run a dataset, use `agentcore eval batch-evaluation simulate`. Use the dataset ID returned by `agentcore eval dataset create`, not the v0 project dataset name.
 
-```
+```bash
 agentcore eval batch-evaluation simulate \
   --runtime-id {{checkout-AbCdEf1234}} \
   --payload-template '{"prompt":"{input}"}' \
@@ -557,7 +556,7 @@ Use `agentcore eval batch-insights run`.
 
 Use `agentcore eval recommendation start`.
 
-```
+```bash
 agentcore eval recommendation start \
   --name improve-customer-support \
   --type SYSTEM_PROMPT_RECOMMENDATION \
@@ -595,7 +594,7 @@ agentcore eval recommendation start \
 
 Use `agentcore eval ab-test config-based run` for configuration bundles:
 
-```
+```bash
 agentcore eval ab-test config-based run \
   --name {{customer_support_test}} \
   --gateway {{gateway-id}} \
@@ -623,7 +622,7 @@ agentcore eval ab-test config-based run \
 
 Use `agentcore eval ab-test target-based run` for Gateway targets:
 
-```
+```bash
 agentcore eval ab-test target-based run \
   --name {{customer_support_target_test}} \
   --gateway {{gateway-id}} \
@@ -654,7 +653,7 @@ agentcore eval ab-test target-based run \
 
 For a target-based A/B test:
 
-```
+```bash
 agentcore eval ab-test stop --id <ab-test-id>
 
 aws bedrock-agentcore-control create-gateway-rule \
@@ -668,7 +667,7 @@ aws bedrock-agentcore-control create-gateway-rule \
 
 For a configuration-bundle A/B test:
 
-```
+```bash
 agentcore eval ab-test stop --id <ab-test-id>
 
 aws bedrock-agentcore-control create-gateway-rule \
@@ -689,7 +688,7 @@ These commands update the live Gateway immediately. The rule is not part of the 
 
 To evaluate historical sessions, use `agentcore eval ondemand evaluate`.
 
-```
+```bash
 agentcore eval ondemand evaluate \
   --agent {{checkout-AbCdEf1234}} \
   --session-ids {{12345678-1234-1234-1234-123456789012}} \
@@ -698,7 +697,7 @@ agentcore eval ondemand evaluate \
 
 To run a dataset, use `agentcore eval ondemand simulate`. Use the dataset ID returned by `agentcore eval dataset create`, not the v0 project dataset name.
 
-```
+```bash
 agentcore eval ondemand simulate \
   --runtime-id {{checkout-AbCdEf1234}} \
   --payload-template '{"prompt":"{input}"}' \
@@ -737,7 +736,7 @@ To find an online evaluation or online insight config ID, run `agentcore eval on
 
 Use `agentcore eval batch-evaluation stop`.
 
-```
+```bash
 agentcore eval batch-evaluation stop --id {{batch-evaluation-id}} # old: agentcore stop batch-evaluation -i batch-evaluation-id
 ```
 
@@ -748,7 +747,7 @@ Use `agentcore eval dataset`.
 
 To download a dataset version, use:
 
-```
+```bash
 agentcore eval dataset get \
   --id {{dataset-orders-abc123}} \
   --version {{3}} \
@@ -757,13 +756,13 @@ agentcore eval dataset get \
 
 To publish the current draft, use:
 
-```
+```bash
 agentcore eval dataset publish --id {{dataset-orders-abc123}} # old: agentcore dataset publish-version --name orders-regression --json
 ```
 
 To delete a published version, use:
 
-```
+```bash
 agentcore eval dataset delete --id {{dataset-orders-abc123}} --version {{2}} # old: agentcore dataset remove-version 2 --name orders-regression --json
 ```
 
@@ -774,13 +773,13 @@ Use `agentcore eval config-bundle`. The new commands use the bundle ID instead o
 
 To list bundle versions, use:
 
-```
+```bash
 agentcore eval config-bundle version list --id {{CustomerSupport-AbCdEf1234}} # old: agentcore config-bundle versions --name customer-support
 ```
 
 To create a version on a branch, use:
 
-```
+```bash
 agentcore eval config-bundle update \
   --id {{CustomerSupport-AbCdEf1234}} \
   --components {{file://config/customer-support.json}} \
@@ -800,11 +799,11 @@ Selecting a parent version with `--from` isn’t available in v1. The v1 command
 
  `agentcore config` keeps the same command path in v1, but its output is JSON.
 
-```
+```bash
 agentcore config telemetry.enabled # old: agentcore config telemetry.enabled
 ```
 
-```
+```bash
 agentcore config telemetry.enabled false # old: agentcore config telemetry.enabled false
 ```
 
@@ -813,7 +812,7 @@ agentcore config telemetry.enabled false # old: agentcore config telemetry.enabl
 
 Use `agentcore config telemetry.enabled`.
 
-```
+```bash
 agentcore config telemetry.enabled # old: agentcore telemetry status
 ```
 
@@ -822,7 +821,7 @@ agentcore config telemetry.enabled # old: agentcore telemetry status
 
 Use `agentcore update`.
 
-```
+```bash
 agentcore update # old: agentcore update cli
 ```
 

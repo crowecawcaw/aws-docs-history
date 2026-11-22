@@ -1,7 +1,6 @@
 
 
 # Manage batch evaluations
-<a name="batch-evaluations-manage"></a>
 
 After you start a batch evaluation, you can check its status and results, list your batch evaluations, stop a running job, and delete a job that you no longer need.
 
@@ -24,18 +23,18 @@ Terminal states are `COMPLETED`, `COMPLETED_WITH_ERRORS`, `FAILED`, and `STOPPED
 **Example**  
 The following AgentCore CLI command starts a job and waits for it to reach a terminal state:  
 
-```
+```bash
 agentcore run batch-evaluation -r MyAgent -e Builtin.Correctness --wait
 ```
 Without `--wait`, the command starts the job and returns immediately. To check a job later, run the following command. Replace `<batch-evaluation-id>` with the ID that the previous command prints:  
 
-```
+```bash
 agentcore view batch-evaluation <batch-evaluation-id>
 ```
 Add `--json` for machine-readable output.
 The following Python code polls a batch evaluation until it reaches a terminal state and then prints the results. Replace `batch_eval_id` with your batch evaluation ID.  
 
-```
+```python
 import time
 import boto3
 
@@ -72,12 +71,12 @@ List the batch evaluations in your account. The results are paginated. For the A
 **Example**  
 The following AgentCore CLI command lists your batch evaluations. The CLI refreshes running jobs from the service.  
 
-```
+```bash
 agentcore batch-evaluations history --json
 ```
 The following Python code lists all of your batch evaluations. It uses the `nextToken` value from each response to retrieve the next page.  
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore", region_name="us-west-2")
@@ -112,12 +111,12 @@ If the job is not in a state that can be stopped, such as a job that already com
 **Example**  
 The following AgentCore CLI command stops a batch evaluation. Replace `<batch-evaluation-id>` with your batch evaluation ID.  
 
-```
+```bash
 agentcore stop batch-evaluation -i <batch-evaluation-id>
 ```
 The following Python code stops a batch evaluation. Replace `batch_eval_id` with your batch evaluation ID.  
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore", region_name="us-west-2")
@@ -135,12 +134,12 @@ Delete a batch evaluation and its metadata. The job must be in a terminal state 
 **Example**  
 The following AgentCore CLI command archives a batch evaluation, which deletes its record from the service and clears the local history. Replace `<batch-evaluation-id>` with your batch evaluation ID.  
 
-```
+```bash
 agentcore archive batch-evaluation -i <batch-evaluation-id>
 ```
 The following Python code deletes a batch evaluation. Replace `batch_eval_id` with your batch evaluation ID.  
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore", region_name="us-west-2")

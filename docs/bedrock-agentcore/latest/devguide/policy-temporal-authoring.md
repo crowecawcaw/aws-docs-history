@@ -1,7 +1,6 @@
 
 
 # Authoring temporal policies
-<a name="policy-temporal-authoring"></a>
 
 You author a temporal policy in the Dogwood policy language and add it to a policy engine, the same way you create any other policy for Policy in AgentCore. A temporal policy is a `permit` or `forbid` rule whose session-aware conditions are placed in a `temporal` block; the principal, action, and resource the rule applies to are written using the standard `(principal, action, resource)` scope, the same as any other policy. The following sections show how to create a temporal policy and walk through common patterns you can express.
 
@@ -21,7 +20,7 @@ The following example creates a temporal policy on a policy engine:
 
 1. Save the statement to a file — for example `disburse_only_approved.dw`:
 
-   ```
+   ```cedar
    permit (
      principal,
      action == AgentCore::Action::"InsuranceAPI___disburse_payment",
@@ -37,7 +36,7 @@ The following example creates a temporal policy on a policy engine:
 
 1. Add the policy to the project configuration and deploy:
 
-   ```
+   ```bash
    agentcore add policy --name DisburseOnlyApprovedClaim \
      --engine insurance_pe \
      --source disburse_only_approved.dw
@@ -49,7 +48,7 @@ The following example creates a temporal policy on a policy engine:
 
 1. Run the following code in a terminal to create the temporal policy using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-policy \
      --policy-engine-id insurance_pe-a1b2c3d4e5 \
      --name DisburseOnlyApprovedClaim \
@@ -63,7 +62,7 @@ The following example creates a temporal policy on a policy engine:
 
 1. Run the following code to create the temporal policy using the AWS SDK for Python:
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client("bedrock-agentcore-control")
@@ -97,7 +96,7 @@ The following example creates a temporal policy on a policy engine:
 
 This temporal policy depends on an authorized `approve_claim` request. Without a plain permit for that prerequisite action, deny-by-default prevents the request from running and no `response` event is recorded. Create a separate policy containing the following statement:
 
-```
+```cedar
 permit (
   principal,
   action == AgentCore::Action::"InsuranceAPI___approve_claim",

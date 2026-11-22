@@ -1,7 +1,6 @@
 
 
-# Batch dataset runner
-<a name="dataset-evaluations-batch"></a>
+# Run with the SDK batch dataset runner
 
 The `BatchEvaluationRunner` delegates span collection and evaluation entirely to the service via the `StartBatchEvaluation` and `GetBatchEvaluation` APIs. After invoking your agent for each scenario, the runner submits a batch job and polls until it completes, returning aggregate results.
 
@@ -25,7 +24,7 @@ The runner processes scenarios in four phases:
 
 The runner requires an agent invoker, a callable that invokes your agent for a single turn. The invoker is framework-agnostic: you can call your agent via boto3 `invoke_agent_runtime`, a direct function call, HTTP request, or any other method.
 
-```
+```python
 import json
 import boto3
 from bedrock_agentcore.evaluation import AgentInvokerInput, AgentInvokerOutput
@@ -67,7 +66,7 @@ def agent_invoker(invoker_input: AgentInvokerInput) -> AgentInvokerOutput:
 
 The following example loads a dataset from a JSON file and runs the batch evaluation. For the dataset format, see [Dataset schema](dataset-evaluations-schema.md).
 
-```
+```python
 from bedrock_agentcore.evaluation import (
     BatchEvaluationRunner,
     BatchEvaluationRunConfig,
@@ -132,7 +131,7 @@ if result.evaluation_results:
 
 The aggregate results show averages across all sessions. To see per-session, per-evaluator scores, fetch the evaluation events from CloudWatch:
 
-```
+```python
 if result.output_data_config:
     events = runner.fetch_evaluation_events(result)
     print(f"\nEvaluation events: {len(events)}")
@@ -148,7 +147,7 @@ if result.output_data_config:
 ## Configuration reference
 <a name="batch-ds-config-reference"></a>
 
-```
+```python
 BatchEvaluationRunConfig(
     batch_evaluation_name="my-batch-eval",   # Job name
     evaluator_config=BatchEvaluatorConfig(
@@ -161,7 +160,7 @@ BatchEvaluationRunConfig(
     ),
     polling_timeout_seconds=1800,            # Max wait for job completion (default: 1800)
     polling_interval_seconds=30,             # Poll interval (default: 30)
-    simulation_config=None,                  # Set SimulationConfig for simulated scenarios
+    simulation_config=None,                  # Set SimulationConfig for dynamic scenarios
 )
 ```
 
@@ -175,7 +174,7 @@ BatchEvaluationRunConfig(
 |  `data_source.ingestion_delay_seconds`  | 180 | Seconds to wait after invocation for CloudWatch to ingest spans. | 
 |  `polling_timeout_seconds`  | 1800 | Maximum seconds to wait for the batch job to complete. | 
 |  `polling_interval_seconds`  | 30 | Seconds between poll requests. | 
-|  `simulation_config`  | None | Configuration for simulated scenarios. Set `SimulationConfig(model_id="…​")` when the dataset contains `SimulatedScenario` instances. See [User simulation](user-simulation.md). | 
+|  `simulation_config`  | None | Configuration for dynamic scenarios. Set `SimulationConfig(model_id="…​")` when the dataset contains `SimulatedScenario` instances. See [User simulation](user-simulation.md). | 
 
 ## Result structure
 <a name="batch-ds-result-structure"></a>

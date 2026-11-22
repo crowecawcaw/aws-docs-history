@@ -1,7 +1,6 @@
 
 
 # Coinbase Bazaar via AgentCore Gateway
-<a name="payments-connect-bazaar"></a>
 
 AgentCore Gateway lets you connect to paid MCP servers and API endpoints. You can add the Coinbase x402 Bazaar MCP server as a target in a Gateway to discover 10,000\+ existing paid MCP tools that support x402 microtransactions.
 + Server URL — `https://api.cdp.coinbase.com/platform/v2/x402/discovery/mcp` 
@@ -27,7 +26,7 @@ AgentCore Gateway lets you connect to paid MCP servers and API endpoints. You ca
 1. Skip **Outbound Auth configurations**. "No Authorization" is the only supported option and is selected by default.
 The Gateway must already be in your project. To add one, run `agentcore add gateway --name MyGateway`. This command creates a Gateway with no inbound authorization. The agent examples on this page send an `Authorization: Bearer` header, which only a Gateway with `CUSTOM_JWT` inbound authorization needs. For a Gateway with no inbound authorization, remove that header. To set up `CUSTOM_JWT`, see [Set up inbound authorization for your gateway](gateway-inbound-auth.md).  
 
-```
+```bash
 agentcore add gateway-target \
   --gateway MyGateway \
   --name CoinbaseTarget \
@@ -36,7 +35,7 @@ agentcore add gateway-target \
 agentcore deploy
 ```
 
-```
+```python
 import boto3
 
 agentcore_client = boto3.client('bedrock-agentcore-control')
@@ -56,7 +55,7 @@ target = agentcore_client.create_gateway_target(
 ```
 Use the Coinbase x402 Bazaar Gateway Target with your agent:  
 
-```
+```python
 from strands import Agent
 from strands.models import BedrockModel
 from strands.tools.mcp.mcp_client import MCPClient
@@ -95,7 +94,7 @@ with mcp_client:
 ```
 Use the Coinbase x402 Bazaar Gateway Target with your LangGraph agent:  
 
-```
+```python
 import asyncio
 from langchain.agents import create_agent
 from langchain_openai import ChatOpenAI

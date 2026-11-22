@@ -1,7 +1,6 @@
 
 
 # Set customer managed key policy
-<a name="registry-kms-key-policy"></a>
 
 To use a customer managed key with AWS Agent Registry, you must configure both an IAM policy for the calling principal and a KMS key policy that allows the service to perform encryption and decryption operations.
 
@@ -17,7 +16,7 @@ Before creating a registry with a customer managed key, ensure the following:
 
 To interact with an encrypted registry, you must have the following permissions on the KMS key:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -71,10 +70,13 @@ In addition to the persona statements, add the [Policy statement for the service
 **Note**  
 If your role both writes and reads record descriptors (for example, a publisher who also retrieves records), grant both encrypt and decrypt permissions as shown in [Policy statement for publisher](#registry-encryption-key-policy-publisher).
 
+**Note**  
+Skill packages need no additional key policy statement. Amazon S3 uses your key for the registry’s skill packages through the grant that AWS Agent Registry creates when you create the registry. The persona statements on this page already include what publishers and consumers need for skill packages, and whoever downloads a package with a download URL needs no KMS permission. For more information, see [Data encryption](registry-data-encryption.md).
+
 ### Policy statement for administrator
 <a name="registry-encryption-key-policy-admin"></a>
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -144,7 +146,7 @@ If your role both writes and reads record descriptors (for example, a publisher 
 ### Policy statement for publisher
 <a name="registry-encryption-key-policy-publisher"></a>
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -172,12 +174,12 @@ If your role both writes and reads record descriptors (for example, a publisher 
   ]
 }
 ```
-+  **AllowRegistryPublisherCryptoOps** — Allows publishers and approvers to encrypt and decrypt record descriptors. Required for `CreateRegistryRecord` and `UpdateRegistryRecord`.
++  **AllowRegistryPublisherCryptoOps** — Allows publishers and approvers to encrypt and decrypt record descriptors. Required for `CreateRegistryRecord` and `UpdateRegistryRecord`. `kms:GenerateDataKey` is also required to upload a skill package or to synchronize a skill package from Amazon S3 or GitHub. AWS Agent Registry checks it with a `GenerateDataKey` dry-run request that carries the registry’s encryption context, so the statement’s encryption context condition applies.
 
 ### Policy statement for consumer
 <a name="registry-encryption-key-policy-consumer"></a>
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -199,7 +201,7 @@ If your role both writes and reads record descriptors (for example, a publisher 
   ]
 }
 ```
-+  **AllowRegistryConsumerDecrypt** — Allows consumers to decrypt record descriptors. Required for `GetRegistryRecord` and `SearchDiscoverableRegistryRecords`.
++  **AllowRegistryConsumerDecrypt** — Allows consumers to decrypt record descriptors. Required for `GetRegistryRecord`, `BatchGetDiscoverableRegistryRecord`, and `SearchDiscoverableRegistryRecords`. A consumer that signs requests with IAM credentials also needs `kms:Decrypt` to receive a skill package’s download URL from `GetRegistryRecord`, `BatchGetDiscoverableRegistryRecord`, or the batch get tool on the registry’s MCP endpoint.
 
 ### Policy statement for the service-linked role
 <a name="registry-encryption-key-policy-slr"></a>
@@ -210,7 +212,7 @@ Adding this statement requires two ordered steps:
 
 1.  **Create the service-linked role in your account first.** AWS Agent Registry does not create the role for you — you must create it yourself before adding the KMS key policy statement. Use the AWS CLI:
 
-   ```
+   ```bash
    aws iam create-service-linked-role --aws-service-name agent-registry.amazonaws.com
    ```
 
@@ -220,7 +222,7 @@ Adding this statement requires two ordered steps:
 
 Scope the statement to the registries in your account using an encryption context wildcard.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -255,7 +257,7 @@ Scope the statement to the registries in your account using an encryption contex
 
 Add this statement if you share a customer-managed-key-encrypted registry with other accounts in your AWS Organization by using AWS Resource Access Manager (AWS RAM). It grants any principal in your organization the ability to decrypt record descriptors from a registry shared with them. If you do not share the registry via AWS RAM, this statement is not required.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

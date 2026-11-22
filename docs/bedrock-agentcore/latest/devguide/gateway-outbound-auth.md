@@ -1,7 +1,6 @@
 
 
 # Set up outbound authorization for your gateway
-<a name="gateway-outbound-auth"></a>
 
 Outbound authorization lets Amazon Bedrock AgentCore gateways securely access gateway targets on behalf of users that were authenticated and authorized during inbound authorization.
 
@@ -88,7 +87,7 @@ The shape of the JSON object that the `oauth2ProviderConfigInput` field maps to 
 
 1. (If you’re using a custom gateway service role) Attach the following identity-based policy to your gateway service role:
 
-   ```
+   ```json
    {
    "Version": "2012-10-17",		 	 	 
        "Statement": [
@@ -141,7 +140,7 @@ The following examples show you how to set authorization through an OAuth client
 
 1. Run the credential command inside an existing AgentCore project. If you don’t have one yet, create a project with `agentcore create --name <ProjectName>`.
 
-   ```
+   ```bash
    printf '%s' "$CLIENT_SECRET" | agentcore add credentials oauth \
      --name oauth-credential-provider \
      --vendor CustomOauth2 \
@@ -155,7 +154,7 @@ The following examples show you how to set authorization through an OAuth client
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-oauth2-credential-provider \
      --name oauth-credential-provider \
      --credential-provider-vendor CustomOauth2 \
@@ -172,7 +171,7 @@ The following examples show you how to set authorization through an OAuth client
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client("bedrock-agentcore-control")
@@ -216,7 +215,7 @@ To set up outbound authorization with an API key, you use the AgentCore Identity
 
 1. (If you’re using a custom gateway service role) Attach the following identity-based policy to your gateway service role:
 
-   ```
+   ```json
    {
    "Version": "2012-10-17",		 	 	 
        "Statement": [
@@ -269,7 +268,7 @@ The following examples show you how to set an API key for your gateway target:
 
 1. Run the credential command inside an existing AgentCore project. If you don’t have one yet, create a project with `agentcore create --name <ProjectName>`.
 
-   ```
+   ```bash
    printf '%s' "$API_KEY" | agentcore add credentials api-key \
      --name api-key-credential-provider \
      --api-key -
@@ -280,7 +279,7 @@ The following examples show you how to set an API key for your gateway target:
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-api-key-credential-provider \
      --name api-key-credential-provider \
      --api-key <API_KEY_VALUE>
@@ -288,7 +287,7 @@ The following examples show you how to set an API key for your gateway target:
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client("bedrock-agentcore-control")

@@ -1,7 +1,6 @@
 
 
 # Guardrails in policies
-<a name="policy-guardrails-in-policies"></a>
 
 This section explains how to put guardrails in policies, so that a policy’s decision depends on whether request or response content holds unsafe material. The content check itself is performed by a *guardrail*, which Policy in AgentCore calls during evaluation. Today guardrails are backed by [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html).
 
@@ -81,7 +80,7 @@ The gateway’s execution role needs `bedrock:InvokeGuardrailChecks` in addition
 
 Policy in AgentCore uses [forward access session (FAS)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html) credentials derived from the gateway’s execution role to call the Bedrock Guardrails API on your behalf, which is why the permission belongs on that role.
 
-```
+```json
 {
   "Version": "2012-10-17", 
   "Statement": [
@@ -127,7 +126,7 @@ To put a guardrail in a policy, you can either author the policy as code or desc
 
  **Example guardrail definition** 
 
-```
+```cedar
 suppressOutput (principal, action == AgentCore::Action::"<TargetName>___<METHOD>:<uri>", resource == AgentCore::Gateway::"<gateway-arn>")
 when guardrails {
     BedrockGuardrails::ContentFilter(["HATE"],[context.output.message])["HATE"]
@@ -152,7 +151,7 @@ The interactive wizard is the easiest way to add a guardrail, because it builds 
 
 1. Run `agentcore add policy` with no flags:
 
-   ```
+   ```bash
    agentcore add policy
    ```
 
@@ -160,13 +159,13 @@ The interactive wizard is the easiest way to add a guardrail, because it builds 
 
 1. Deploy the project:
 
-   ```
+   ```bash
    agentcore deploy --yes
    ```
 
    To script the same thing non-interactively, pass the form flags — `--form-category`, `--form-filters`, `--form-effect`, and `--form-data-path`. Supplying any of them skips the wizard. To supply a statement you wrote yourself, save it to a file and pass `--source`:
 
-   ```
+   ```bash
    agentcore add policy --name BlockViolentReason \
      --engine my_policy_engine \
      --source block_violent_reason.dw \
@@ -177,7 +176,7 @@ The interactive wizard is the easiest way to add a guardrail, because it builds 
 
 1. Run the following AWS CLI command in a terminal to create the policy:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-policy \
      --policy-engine-id my_policy_engine-a1b2c3d4e5 \
      --name BlockViolentReason \
@@ -191,7 +190,7 @@ The interactive wizard is the easiest way to add a guardrail, because it builds 
 
 1. Run the following Python code to create the policy using the AWS SDK for Python:
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client("bedrock-agentcore-control")

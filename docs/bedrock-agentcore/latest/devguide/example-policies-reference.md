@@ -1,7 +1,6 @@
 
 
 # Resource configuration for examples
-<a name="example-policies-reference"></a>
 
 The examples in this section are written against one illustrative gateway rather than against a gateway you already have. Nothing here exists in your account. `InsuranceAPI`, `ClaimsAgent`, and the three `Claims*` inference targets are invented names for an insurance-claims application, chosen so every example can share one set of tools, parameter types, and principals. Substitute your own gateway ARN, target names, and tool names when you adapt an example.
 
@@ -137,7 +136,7 @@ For an inference target, `context.input` holds the request body of the API the c
  `ClaimsChat___POST:/v1/chat/completions`   
 OpenAI Chat Completions. The conversation is an array of message objects; a system prompt is a message with `role: system`.  
 
-```
+```json
 {
   "model": "openai.gpt-oss-120b-1:0",
   "messages": [
@@ -151,7 +150,7 @@ OpenAI Chat Completions. The conversation is an array of message objects; a syst
  `ClaimsResponses___POST:/v1/responses`   
 OpenAI Responses. The prompt is a single `input` member, which may be a bare string **or** a list of items each holding a `content` array. The system prompt is a separate `instructions` member.  
 
-```
+```json
 {
   "model": "openai.gpt-oss-120b-1:0",
   "instructions": "You are a claims assistant.",
@@ -163,7 +162,7 @@ OpenAI Responses. The prompt is a single `input` member, which may be a bare str
  `ClaimsMessages___POST:/v1/messages`   
 Anthropic Messages. The conversation is a `messages` array whose `content` may be a string or an array of typed blocks. The system prompt is a top-level `system` member, not a message.  
 
-```
+```json
 {
   "model": "anthropic.claude-sonnet-4-5-20250929-v1:0",
   "max_tokens": 1024,

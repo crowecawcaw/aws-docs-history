@@ -1,7 +1,6 @@
 
 
 # Specify the authorization type and credentials to access the gateway target
-<a name="gateway-building-adding-targets-authorization"></a>
 
 In the [CreateGatewayTarget](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGatewayTarget.html) request body, you specify the credential provider configuration in the `credentialProviderConfigurations` array. The configuration depends on the outbound authorization type that you set up. For reference information about the API structure for the credential provider configuration, see [CredentialProviderConfiguration](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CredentialProviderConfiguration.html) . For more information on outbound authorization, see [Set up outbound authorization for your gateway](gateway-outbound-auth.md).
 
@@ -23,7 +22,7 @@ If you’re using IAM authorization through an AgentCore Gateway service role fo
 
 The `iamCredentialProvider` configuration is not needed because the target service name is already known to the AgentCore Gateway service. Use only the `credentialProviderType` configuration, as shown in the following example:
 
-```
+```json
 {
     "credentialProviderType": "GATEWAY_IAM_ROLE"
 }
@@ -33,7 +32,7 @@ The `iamCredentialProvider` configuration is not needed because the target servi
 
 For MCP server and OpenAPI targets, you must also provide an `iamCredentialProvider` with the service name used for [AWS Signature Version 4 (Sig V4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) signing. The `service` field is required. The `region` field is optional and defaults to the gateway’s Region.
 
-```
+```json
 {
     "credentialProviderType": "GATEWAY_IAM_ROLE",
     "credentialProvider": {
@@ -69,7 +68,7 @@ Select one of the following methods:
 
 1. Specify the `grantType` as `CLIENT_CREDENTIALS` , as in the following example:
 
-   ```
+   ```json
    {
        "credentialProviderType": "OAUTH",
        "credentialProvider": {
@@ -90,7 +89,7 @@ Select one of the following methods:
 
 1. Specify the `grantType` as `AUTHORIZATION_CODE` and include, in the `defaultReturnUrl` field, the URL to which to redirect the end user’s browser after obtaining the authorization code, as in the following example:
 
-   ```
+   ```json
    {
        "credentialProviderType": "OAUTH",
        "credentialProvider": {
@@ -114,7 +113,7 @@ Select one of the following methods:
 
 1. Specify the `grantType` as `TOKEN_EXCHANGE`. The gateway exchanges the inbound user’s access token for a target-scoped token via the credential provider. Include any IdP-specific parameters in `customParameters`. For more information about configuring the credential provider, see [On-behalf-of token exchange](on-behalf-of-token-exchange.md).
 
-   ```
+   ```json
    {
        "credentialProviderType": "OAUTH",
        "credentialProvider": {
@@ -140,7 +139,7 @@ The `customParameters` field passes values directly to the identity provider’s
 
 If you set up API key authorization, you specify the `credentialProviderType` as `API_KEY` . In the object that the `credentialProvider` field maps to, map an `apiKeyCredentialProvider` field name to an [ApiKeyCredentialProvider](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ApiKeyCredentialProvider.html) object and provide the values based on your outbound authorization setup. The following JSON shows the structure:
 
-```
+```json
 {
     "credentialProviderType": "API_KEY",
     "credentialProvider": {
@@ -162,7 +161,7 @@ If you want the gateway to use the IAM identity and permissions of the caller to
 **Note**  
  `CALLER_IAM_CREDENTIALS` is only available for gateways that have `AWS_IAM` or `AUTHENTICATE_ONLY` as the authorizer type.
 
-```
+```json
 {
     "credentialProviderType": "CALLER_IAM_CREDENTIALS"
 }
@@ -176,7 +175,7 @@ If you want the gateway to pass the bearer token from the incoming request direc
 **Note**  
  `JWT_PASSTHROUGH` is only available for HTTP targets (passthrough and AgentCore Runtime).
 
-```
+```json
 {
     "credentialProviderType": "JWT_PASSTHROUGH"
 }

@@ -1,21 +1,95 @@
 
 
 # Search for registry records
-<a name="registry-search-records"></a>
 
 **Migration Now Open**  
  AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on October 30, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
 
-As a consumer, you can search a registry’s approved records using the `SearchDiscoverableRegistryRecords` data-plane API. The API accepts a natural language query, applies hybrid search that combines semantic understanding with keyword matching, and returns ranked results limited to records whose latest revision has status **Approved**. Records in **Draft**, **Pending approval**, **Rejected**, or **Deprecated** status are not returned. To browse the catalog without a query, use `ListDiscoverableRegistryRecords` and `BatchGetDiscoverableRegistryRecord` instead — see [Browse approved records](registry-browse-records.md).
+As a consumer, you can search a registry’s approved records using the `SearchDiscoverableRegistryRecords` data-plane API. The API accepts a natural language query or exact terms, ranks records with the search type that you choose (keyword, semantic, or hybrid search, which combines the two), and returns results limited to records whose latest revision has status **Approved**. You can page through the results with `nextToken`. Records in **Draft**, **Pending approval**, **Rejected**, or **Deprecated** status are not returned. To browse the catalog without a query, use `ListDiscoverableRegistryRecords` and `BatchGetDiscoverableRegistryRecord` instead — see [Browse approved records](registry-browse-records.md).
 
-You can also invoke the discovery data-plane APIs through the registry’s MCP endpoint (`InvokeRegistryMcp`) using any MCP-compatible client. The endpoint exposes `SearchDiscoverableRegistryRecords`, `ListDiscoverableRegistryRecords`, and `BatchGetDiscoverableRegistryRecord` as MCP tools that you can call directly.
+You can also invoke the discovery data-plane APIs through the registry’s MCP endpoint (`InvokeRegistryMcp`) using any MCP-compatible client. You can call `SearchDiscoverableRegistryRecords`, `ListDiscoverableRegistryRecords`, and `BatchGetDiscoverableRegistryRecord` directly as MCP tools. Its `search_discoverable_registry_records_paginated` tool takes the same search type and pagination options as the API. For more information, see [Search with a search type and page through results](registry-mcp-endpoint.md#registry-mcp-search-paginated).
 
 ## Request Parameters
 <a name="registry-search-parameters"></a>
-+  **searchQuery** (required): Can be any natural language query from 1–256 characters
++  **searchQuery** (required): A natural language query or exact terms, from 0–256 characters. If you specify an empty string, the search returns the records that match `filters`, most recently updated first, up to the result limit for the search type.
 +  **registryIds** (required): Which Registry to conduct the Search in. Supports exactly one registry ARN or ID
-+  **maxResults** (optional): How many records are returned in the Search response. Can take any value between 1–20 and defaults to 10
++  **searchType** (optional): How the service ranks records against the query: `HYBRID`, `SEMANTIC`, or `KEYWORD`. If you omit it, the service uses the default search type, `HYBRID`, and reports it in the response. For more information, see [Choose a search type](#registry-search-types).
++  **maxResults** (optional): How many records one page of results holds: 1–50 when `searchType` is `KEYWORD`, and 1–20 when it is `HYBRID` or `SEMANTIC`. Defaults to 10.
++  **nextToken** (optional): The pagination token from a previous response, to get the next page of results. For more information, see [Page through search results](#registry-search-pagination).
 +  **filters** (optional) — Metadata filter expression
+
+**Note**  
+ `searchType` and `nextToken` are available in the AWS Agent Registry namespace (`agent-registry`).
+
+## Response
+<a name="registry-search-response"></a>
++  **registryRecords**: The matching records, most relevant first.
++  **searchType**: The search type that the service used, including the default when you omit `searchType` in the request.
++  **nextToken**: Present when more results might be available. It’s absent when there are no more results, or when the search has returned the maximum number of results for its search type.
+
+## Choose a search type
+<a name="registry-search-types"></a>
+
+The `searchType` parameter sets how AWS Agent Registry ranks records against your query. The following table describes each search type.
+
+
+| Search type | How it ranks records | Use it when | 
+| --- | --- | --- | 
+|  `KEYWORD`  | Matches the query terms against the record name, description, descriptors, and custom metadata text values. Returns up to 1,000 results, in pages of up to 50. | You know the name or exact terms, such as a record name or a tool name, or you want to list and filter records. | 
+|  `SEMANTIC`  | Ranks records by semantic similarity to the query, and returns the most similar records, up to `maxResults`, even when none of them closely matches the query. Returns up to 20 results. | You describe a task in natural language, and the words in your query might not appear in the record. | 
+|  `HYBRID` (default) | Combines keyword ranking and semantic ranking. Returns up to 20 results. | Your query combines names and intent, or you aren’t sure which search type works best. | 
+
+To list and filter records with `KEYWORD`, leave `searchQuery` empty and set `filters` on any supported field, such as `name`, `recordType`, `recordVersion`, or a custom metadata field. The search returns every matching record, most recently updated first, up to 1,000 results. For an example, see [Page through search results](#registry-search-pagination).
+
+The response reports the search type that ran in its `searchType` field, including the default when you omit `searchType`. Read the search type from the response rather than assume `HYBRID`. If AWS Agent Registry becomes available in an AWS Region where semantic search isn’t available, `KEYWORD` is the default search type in that Region, and a request that sets `HYBRID` or `SEMANTIC` there returns a `ValidationException`.
+
+Searches with `KEYWORD` count toward their own request rate quota, which is higher than the quota for `HYBRID` and `SEMANTIC` searches. For the quotas, see [Throttling limits](bedrock-agentcore-limits.md#registry-throttling-limits).
+
+## Page through search results
+<a name="registry-search-pagination"></a>
+
+When more results might be available, the response includes `nextToken`. To get the next page, send the request again with the same `searchQuery`, `registryIds`, `filters`, and `searchType`, and add `nextToken`. If you omitted `searchType` for the first page, omit it for the later pages too.
+
+Follow these rules when you page through results:
++ If `searchQuery`, `registryIds`, `filters`, or `searchType` differ from the first page, the request fails with a `ValidationException` whose field list names `nextToken`. Repeat the search without `nextToken` to start again.
++ A pagination token expires 15 minutes after the service returns the first page.
++ A page can hold fewer records than `maxResults`, even none, while the response still includes `nextToken`. Keep requesting pages until the response doesn’t include `nextToken`.
++ A search returns at most 1,000 results across all pages when `searchType` is `KEYWORD`, and at most 20 results when it is `HYBRID` or `SEMANTIC`. For a relevance search, the first page usually holds the best matches. To retrieve more records, refine the query or the filters, or use `ListDiscoverableRegistryRecords` to list every record. For more information, see [Browse approved records](registry-browse-records.md).
+
+To list the records that match a filter, most recently updated first, send an empty `searchQuery` with `filters` and set `searchType` to `KEYWORD`. You can filter on any supported field, including custom metadata fields. A listing like this returns up to 1,000 records across its pages. The following example lists every MCP record in a registry.
+
+In the following example, replace `<registryARN>` with the ARN of your registry.
+
+```json
+{
+  "registryIds": ["<registryARN>"],
+  "searchQuery": "",
+  "searchType": "KEYWORD",
+  "maxResults": 50,
+  "filters": {
+    "recordType": { "$eq": "MCP" }
+  }
+}
+```
+
+The AWS SDKs provide a paginator for `SearchDiscoverableRegistryRecords`. The following Python example pages through a `KEYWORD` search, 50 records at a time. Replace `<registryARN>` with the ARN of your registry.
+
+```python
+import boto3
+
+client = boto3.client('agent-registry')
+
+paginator = client.get_paginator('search_discoverable_registry_records')
+for page in paginator.paginate(
+    registryIds=['<registryARN>'],
+    searchQuery='weather',
+    searchType='KEYWORD',
+    PaginationConfig={'PageSize': 50}
+):
+    print(f"Search type: {page['searchType']}")
+    for record in page['registryRecords']:
+        print(f"{record['name']} - {record['recordType']}")
+```
 
 ## Metadata filters
 <a name="registry-search-metadata-filters"></a>
@@ -74,26 +148,29 @@ Console search is available only for registries that use IAM-based inbound autho
 
 **Example**  
 
-```
+```bash
 aws agent-registry search-discoverable-registry-records \
   --search-query "weather" \
+  --search-type KEYWORD \
   --registry-ids "<registryARN>" \
   --region us-east-1
 ```
 
-```
+```bash
 aws bedrock-agentcore search-registry-records \
   --search-query "weather" \
   --registry-ids "<registryARN>" \
   --region us-east-1
 ```
 
+In the `agent-registry` namespace, the AWS CLI pages through the results for you and returns every result, up to the result limit for the search type. To get only the first page, add `--no-paginate`. To set the number of records in each page, add `--page-size`, and to cap the total number of records, add `--max-items`. For more information, see [Using the AWS CLI pagination options](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-pagination.html) in the * AWS Command Line Interface User Guide*.
+
 ## AWS SDK (Registry with IAM based Inbound Authorization)
 <a name="registry-search-sdk-iam"></a>
 
 **Example**  
 
-```
+```python
 import boto3
 
 client = boto3.client('agent-registry')
@@ -101,13 +178,15 @@ client = boto3.client('agent-registry')
 response = client.search_discoverable_registry_records(
     registryIds=['<registryARN>'],
     searchQuery='weather',
+    searchType='KEYWORD',
     maxResults=10
 )
+print(f"Search type: {response['searchType']}")
 for record in response['registryRecords']:
     print(f"{record.get('displayName', record['name'])} ({record['name']}) - {record['recordType']} - {record['status']}")
 ```
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-agentcore')
@@ -126,7 +205,7 @@ for record in response['registryRecords']:
 
 First obtain a bearer token:
 
-```
+```bash
 SECRET_HASH=$(echo -n "<username><appClientId>" | openssl dgst -sha256 -hmac "<appClientSecret>" -binary | base64)
 
 aws cognito-idp initiate-auth \
@@ -140,14 +219,14 @@ Then search with the bearer token:
 
 **Example**  
 
-```
+```bash
 curl -X POST "https://agent-registry.<region>.api.aws/discoverable-records-search" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <accessToken>" \
-  -d '{"registryIds": ["<registryARN>"], "searchQuery": "weather", "maxResults": 10}'
+  -d '{"registryIds": ["<registryARN>"], "searchQuery": "weather", "searchType": "KEYWORD", "maxResults": 10}'
 ```
 
-```
+```bash
 curl -X POST "https://bedrock-agentcore.<region>.amazonaws.com/registry-records/search" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <accessToken>" \
@@ -180,7 +259,7 @@ For general guidance on configuring retry behavior in AWS SDKs, see [Retry behav
 ## How record attributes affect search relevance
 <a name="registry-search-relevance"></a>
 
- AWS Agent Registry uses hybrid search that combines semantic understanding with keyword matching to return relevant results. If a record you expect to find does not appear in search results, understanding which record attributes influence search can help.
+By default, AWS Agent Registry uses hybrid search, which combines semantic understanding with keyword matching to return relevant results. You can instead choose keyword or semantic search alone with `searchType`. For more information, see [Choose a search type](#registry-search-types). If a record you expect to find does not appear in search results, understanding which record attributes influence search can help.
 
 ### Which record attributes are used for search
 <a name="registry-search-attributes"></a>
@@ -195,25 +274,25 @@ The following attributes from your registry record are used to determine search 
 ### How search queries are processed
 <a name="registry-search-query-processing"></a>
 
-When you call `SearchDiscoverableRegistryRecords`, AWS Agent Registry runs two searches in parallel against the same set of indexed records and merges the results:
+When you call `SearchDiscoverableRegistryRecords` with `searchType` set to `HYBRID`, the default, AWS Agent Registry runs two searches in parallel against the same set of indexed records. It then merges the results. With `SEMANTIC`, it runs only the semantic search, and with `KEYWORD`, only the keyword search:
 +  **Semantic search** — Your query is converted into a vector representation and compared against the vector representations of indexed records. This finds conceptually related records even when the exact words in your query don’t appear in the record. For example, a query for "book a flight" can match a record named "travel-reservation-service."
 +  **Keyword search** — Your query is matched against the text content of record fields using traditional keyword relevance. This is effective for exact name lookups and specific technical terms. For example, a query for "weather-api-v2" matches records containing that exact text.
 
-If you include metadata filters in your request, the filters are applied to both searches before results are scored and ranked. This means filters reduce the candidate set that both semantic and keyword search operate on, rather than filtering results after ranking.
+If you include metadata filters in your request, the filters are applied to each search that runs before results are scored and ranked. This means filters reduce the candidate set that the search operates on, rather than filtering results after ranking.
 
 ### How results are ranked
 <a name="registry-search-ranking"></a>
 
-Results from both semantic and keyword search are combined into a single ranked list and returned in order of relevance, with the most relevant record first. Each result’s final position is determined by its relevance across both searches — a record that ranks highly in both semantic and keyword results will appear higher than a record that ranks highly in only one. Within keyword search, the record name has the strongest influence on ranking, followed by the description and descriptor content, which contribute equally. Because both search modes always run and contribute to the final ranking, how you write your query affects which records surface. The following guidance can help you get better results depending on your intent.
+Results are returned in order of relevance, with the most relevant record first. In a `HYBRID` search, the results from semantic and keyword search are combined into a single ranked list. Each result’s final position depends on its relevance across both searches. A record that ranks highly in both semantic and keyword results appears higher than one that ranks highly in only one. Within keyword search, the record name most strongly affects how results rank, followed equally by the description and descriptor content. Because both search modes run and contribute to the final ranking of a `HYBRID` search, how you write your query affects which records surface. The following guidance can help you get better results depending on your intent.
 
 ### Writing effective search queries
 <a name="registry-search-effective-queries"></a>
 
- **When you know the exact name or identifier** , use a short, specific query. Keyword search matches exact text against record names, descriptions, and descriptor content. Short queries like "weather-api-v2" or "pdf-processing" are effective for finding records by name.
+ **When you know the exact name or identifier** , use a short, specific query, and consider setting `searchType` to `KEYWORD`. Keyword search matches exact text against record names, descriptions, and descriptor content. Short queries like "weather-api-v2" or "pdf-processing" are effective for finding records by name.
 
- **When you’re exploring by capability or use case** , use a natural language description of what you need. Semantic search understands conceptual intent, so queries like "find a tool that can book flights" or "extract structured data from PDF documents" can match relevant records even if those exact words don’t appear in the record metadata.
+ **When you’re exploring by capability or use case** , use a natural language description of what you need, and consider setting `searchType` to `SEMANTIC`. Semantic search understands conceptual intent, so queries like "find a tool that can book flights" or "extract structured data from PDF documents" can match relevant records even if those exact words don’t appear in the record metadata.
 
- **Avoid mixing filter-like constraints with descriptive intent in the same query.** A query like "find all MCP servers for weather forecasts" sends the entire sentence through both semantic and keyword search. The semantic component interprets the full sentence as a conceptual intent, which can surface records that are conceptually related but don’t match the specific attribute you intended to constrain. Instead, use metadata filters for attribute-based constraints and keep the query focused on the topic. See [When to use metadata filters versus query text](#registry-search-filters-vs-query).
+ **Avoid mixing filter-like constraints with descriptive intent in the same query.** In a `HYBRID` search, a query like "find all MCP servers for weather forecasts" sends the entire sentence through both semantic and keyword search. The semantic component interprets the full sentence as a conceptual intent, which can surface records that are conceptually related but don’t match the specific attribute you intended to constrain. Instead, use metadata filters for attribute-based constraints and keep the query focused on the topic. See [When to use metadata filters versus query text](#registry-search-filters-vs-query).
 
 ### Writing discoverable records
 <a name="registry-search-discoverable-records"></a>
@@ -226,7 +305,7 @@ Results from both semantic and keyword search are combined into a single ranked 
 
 Use metadata filters when your intent is to constrain results by a known attribute such as record type, name, or version. Do not embed filter-like constraints in the query text itself. For example, if you want to find all MCP servers related to weather, use a metadata filter for the record type and a query for the topic:
 
-```
+```json
 {
   "searchQuery": "weather forecast",
   "filters": {
@@ -247,7 +326,7 @@ Filters support `$eq` (equals), `$ne` (not equals), and `$in` (matches any value
 
 For example, to search for weather-related MCP servers only:
 
-```
+```json
 {
   "searchQuery": "weather forecast",
   "filters": {
@@ -258,7 +337,7 @@ For example, to search for weather-related MCP servers only:
 
 To exclude a specific resource type:
 
-```
+```json
 {
   "searchQuery": "<your query>",
   "filters": {
@@ -269,7 +348,7 @@ To exclude a specific resource type:
 
 To match any of several versions:
 
-```
+```json
 {
   "filters": {
     "recordVersion": { "$in": ["1.0", "1.1", "2.0"] }
@@ -279,7 +358,7 @@ To match any of several versions:
 
 To match records by a custom metadata field:
 
-```
+```json
 {
   "filters": {
     "customMetadata.humanInLoop": { "$eq": true }
@@ -289,7 +368,7 @@ To match records by a custom metadata field:
 
 To combine a custom metadata filter with a base field filter:
 
-```
+```json
 {
   "filters": {
     "$and": [
@@ -302,7 +381,7 @@ To combine a custom metadata filter with a base field filter:
 
 To match records that meet either of two conditions, use `$or` with one condition in each object:
 
-```
+```json
 {
   "filters": {
     "$or": [

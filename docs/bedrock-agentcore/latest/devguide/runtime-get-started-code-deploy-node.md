@@ -1,7 +1,6 @@
 
 
 # Direct code deployment for Node.js
-<a name="runtime-get-started-code-deploy-node"></a>
 
 With direct code deployment, you package your Node.js agent code and its dependencies in a .zip file archive and deploy it to AgentCore Runtime. Your agent still needs to follow [AgentCore Runtime requirements](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-service-contract.html) : have an entrypoint `.js` file that implements `/invocations` POST and `/ping` GET server endpoints.
 
@@ -43,7 +42,7 @@ npm install -D @types/express @types/node typescript
 ```
 Create a file named `src/app.ts` :  
 
-```
+```typescript
 import express, { Request, Response } from "express";
 import { Agent, tool } from "@strands-agents/sdk";
 import z from "zod";
@@ -97,7 +96,7 @@ The compiled output in `dist/app.js` is what you deploy. When creating the agent
 This example uses the built-in `node:http` module with no external dependencies.  
 Create a file named `app.js` :  
 
-```
+```javascript
 const http = require("node:http");
 const PORT = 8080;
 
@@ -221,7 +220,7 @@ If you don’t grant AgentCore Runtime the permissions it needs to access direct
 
 A ZIP archive containing Linux **arm64** dependencies needs to be uploaded to S3 as a pre-requisite to Create Agent Runtime. The below code requires the specified S3 bucket to already exist. To create a bucket, see [Creating a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket-s3.html) in the Amazon S3 User Guide. The following TypeScript code will upload the .zip file archive to S3 and create an Amazon Bedrock AgentCore runtime.
 
-```
+```typescript
 import { readFileSync } from "node:fs";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import {
@@ -273,7 +272,7 @@ console.log(`Status: ${response.status}`);
 
 To enable OTEL auto-instrumentation, include `node_modules/@aws/aws-distro-opentelemetry-node-autoinstrumentation/` in your ZIP and use the `opentelemetry-instrument` prefix in the entry point:
 
-```
+```typescript
 entryPoint: ["opentelemetry-instrument", "dist/app.js"],
 ```
 
@@ -284,7 +283,7 @@ To invoke an agent on Amazon Bedrock AgentCore Runtime programmatically, see [In
 
 Following TypeScript code will update an AgentCore Runtime. Upload the new deployment package to S3, then call `UpdateAgentRuntimeCommand` :
 
-```
+```typescript
 import { readFileSync } from "node:fs";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import {
@@ -332,7 +331,7 @@ console.log(`Status: ${response.status}`);
 
 To stop the running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, use the following code:
 
-```
+```typescript
 import {
     BedrockAgentCoreClient,
     StopRuntimeSessionCommand,
@@ -350,7 +349,7 @@ console.log("Session stopped successfully!");
 
 Following TypeScript code will delete an Amazon Bedrock AgentCore runtime and the .zip archive file in S3.
 
-```
+```typescript
 import { S3Client, DeleteObjectCommand } from "@aws-sdk/client-s3";
 import {
     BedrockAgentCoreControlClient,
@@ -493,7 +492,7 @@ If your `package.json` includes an `engines.node` field, AgentCore Runtime valid
 
 For example, the following `engines` declarations are compatible with Node.js 22:
 
-```
+```json
 { "engines": { "node": ">=18" } }
 { "engines": { "node": ">=14 <18 || >=20" } }
 { "engines": { "node": "22" } }
@@ -501,7 +500,7 @@ For example, the following `engines` declarations are compatible with Node.js 22
 
 The following declarations are incompatible and will cause agent creation to fail:
 
-```
+```json
 { "engines": { "node": "<18" } }
 { "engines": { "node": ">=14 <18" } }
 ```

@@ -1,7 +1,6 @@
 
 
 # Batch evaluation encryption
-<a name="batch-evaluations-encryption"></a>
 
 When you specify a `kmsKeyArn` on a batch evaluation, the service encrypts all output artifacts stored in S3 using S3 server-side encryption with KMS (SSE-KMS). This includes the data source configuration, session metadata, evaluation results, and insight results (for example from `Builtin.FailureAnalysis`).
 
@@ -28,7 +27,7 @@ The following key policy provides the minimum permissions required for batch eva
 +  **AllowCallerCryptoOps** – Allows the IAM user or role to encrypt and decrypt, scoped by encryption context.
 +  **AllowServicePrincipalAccess** – Allows the AgentCore service principal to encrypt and decrypt batch evaluation data, scoped by source account, source ARN, and encryption context.
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -95,7 +94,7 @@ The policy contains the following statements:
 
 You can use the encryption context to scope down access to the customer managed key. AgentCore Evaluations includes the following encryption context in all KMS operations:
 
-```
+```json
 {
   "aws:bedrock-agentcore:batchEvaluationArn": "arn:aws:bedrock-agentcore:us-east-1:111122223333:batch-evaluate/batch-evaluation-id"
 }
@@ -111,7 +110,7 @@ Specify the `kmsKeyArn` parameter when calling `StartBatchEvaluation`:
 **Example**  
 With the AgentCore CLI, use `--kms-key-arn` to specify a KMS key for encrypting batch evaluation results.  
 
-```
+```bash
 agentcore eval batch-evaluation evaluate \
   --agent <AGENT_ID> \
   --evaluators Builtin.Correctness \
@@ -119,7 +118,7 @@ agentcore eval batch-evaluation evaluate \
   --kms-key-arn arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 ```
 
-```
+```bash
 aws bedrock-agentcore start-batch-evaluation \
   --batch-evaluation-name "MyEncryptedBatchEval" \
   --kms-key-arn "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" \
@@ -138,7 +137,7 @@ aws bedrock-agentcore start-batch-evaluation \
   }'
 ```
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-agentcore')

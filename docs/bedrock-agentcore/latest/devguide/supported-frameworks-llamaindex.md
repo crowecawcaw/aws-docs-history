@@ -1,7 +1,6 @@
 
 
 # LlamaIndex
-<a name="supported-frameworks-llamaindex"></a>
 
 This page explains how to instrument a [LlamaIndex](https://docs.llamaindex.ai/) agent, how spans are identified, and how evaluation fields are extracted. It closes with [best practices](#llamaindex-best-practices) for structuring a LlamaIndex agent so that it can be evaluated reliably.
 
@@ -34,7 +33,7 @@ opentelemetry-instrumentation-llamaindex>=0.61.0
 ```
  `pyproject.toml`:  
 
-```
+```toml
 [project]
 dependencies = [
     "opentelemetry-instrumentation-llamaindex>=0.61.0",
@@ -49,7 +48,7 @@ openinference-instrumentation-llama-index>=4.4.1
 ```
  `pyproject.toml`:  
 
-```
+```toml
 [project]
 dependencies = [
     "openinference-instrumentation-llama-index>=4.4.1",
@@ -124,7 +123,7 @@ These examples are not complete spans. They show representative data from a real
 **Example**  
 The `traceloop.span.kind` attribute (`workflow`) identifies this as an invoke agent span. The workflow span carries no conversation content; AgentCore Evaluations reconstructs the user prompt and agent response from the child spans.  
 
-```
+```json
 {
   "traceId": "6a01eef11066751d68f90def0da1f80a",
   "spanId": "ba1833fa7f097041",
@@ -146,7 +145,7 @@ The `traceloop.span.kind` attribute (`workflow`) identifies this as an invoke ag
 ```
 The `traceloop.span.kind` attribute (`task`) with a `traceloop.entity.name` ending in `Tool.task` identifies this as an execute tool span. The correlated event record carries the tool arguments (wrapped in `kwargs`) and the tool result (wrapped in `blocks`), along with the tool name.  
 
-```
+```json
 {
   "traceId": "6a01eefa5c52f3d86a35038f35f5ba30",
   "spanId": "5b332f3cd15ace04",
@@ -167,7 +166,7 @@ The `traceloop.span.kind` attribute (`task`) with a `traceloop.entity.name` endi
 }
 ```
 
-```
+```json
 {
   "spanId": "5b332f3cd15ace04",
   "traceId": "6a01eefa5c52f3d86a35038f35f5ba30",
@@ -191,7 +190,7 @@ The `traceloop.span.kind` attribute (`task`) with a `traceloop.entity.name` endi
 The `traceloop.span.kind` attribute (`task`), with a `traceloop.entity.name` that does not end in `Tool.task`, identifies this as an inference span. A LlamaIndex agent produces several of these spans per turn. In each one, the content is packed into `body.output` (there is no `body.input`), as a serialized JSON string. AgentCore Evaluations reads the **user prompt** from the chat-history string (a `{"input": […​]}` object) on the first inference span, and the **agent response** from the model-result string (a `{"result": {"response": …​}}` object) on the last inference span.  
 The following is the inference span itself.  
 
-```
+```json
 {
   "traceId": "6a01eef11066751d68f90def0da1f80a",
   "spanId": "d9a1f0c7b3e64a20",
@@ -213,7 +212,7 @@ The following is the inference span itself.
 ```
 On the first inference span, the event record’s `body.output` content is the chat history. The user prompt is the `user`-role text inside the nested `input` array.  
 
-```
+```json
 {
   "spanId": "d9a1f0c7b3e64a20",
   "traceId": "6a01eef11066751d68f90def0da1f80a",
@@ -233,7 +232,7 @@ On the first inference span, the event record’s `body.output` content is the c
 ```
 On the last inference span, the event record’s `body.output` content is the model result. The agent response is the `assistant`-role text inside the nested `result.response` object.  
 
-```
+```json
 {
   "spanId": "826bc829697a9610",
   "traceId": "6a01eef11066751d68f90def0da1f80a",
@@ -258,7 +257,7 @@ On the last inference span, the event record’s `body.output` content is the mo
 **Example**  
 The `openinference.span.kind` attribute (`CHAIN`) on the root workflow span identifies this as an invoke agent span. The span carries no usable conversation content; AgentCore Evaluations reconstructs the user prompt and agent response from the inference spans.  
 
-```
+```json
 {
   "traceId": "6a387ee61078243c1cc455ed45c6c313",
   "spanId": "0a7990d804132a9b",
@@ -281,7 +280,7 @@ The `openinference.span.kind` attribute (`CHAIN`) on the root workflow span iden
 ```
 The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute tool span; `tool.name` holds the tool name. The tool arguments and result live in the correlated event record, wrapped in `kwargs` and `blocks` respectively.  
 
-```
+```json
 {
   "traceId": "6a387ef07b8f4f3732fab45d3c0b51ff",
   "spanId": "ab105c12cc40048f",
@@ -303,7 +302,7 @@ The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute t
 }
 ```
 
-```
+```json
 {
   "spanId": "ab105c12cc40048f",
   "traceId": "6a387ef07b8f4f3732fab45d3c0b51ff",
@@ -326,7 +325,7 @@ The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute t
 ```
 The `openinference.span.kind` attribute (`LLM`) identifies this as an inference span. Message roles are on the span attributes; the content lives in the correlated event record. ADOT flattens the input roles to `user`, so AgentCore Evaluations uses the last plain-text input message as the user prompt. LlamaIndex emits a duplicate `assistant:`-prefixed output message, which AgentCore Evaluations skips in favor of the clean copy.  
 
-```
+```json
 {
   "traceId": "6a387ee61078243c1cc455ed45c6c313",
   "spanId": "1221a062c7f90a8e",
@@ -351,7 +350,7 @@ The `openinference.span.kind` attribute (`LLM`) identifies this as an inference 
 }
 ```
 
-```
+```json
 {
   "spanId": "1221a062c7f90a8e",
   "traceId": "6a387ee61078243c1cc455ed45c6c313",
@@ -390,7 +389,7 @@ These examples are not complete spans. They show representative data from a real
 **Example**  
 The `traceloop.entity.input` attribute holds the tool arguments (wrapped in `kwargs`), and the `traceloop.entity.output` attribute holds the tool result (wrapped in `blocks`).  
 
-```
+```json
 {
   "traceId": "6a4de7c376913db82e6f0f336a16731d",
   "spanId": "b64c37adefae74f0",
@@ -414,7 +413,7 @@ The `traceloop.entity.input` attribute holds the tool arguments (wrapped in `kwa
 ```
 The `traceloop.entity.output` attribute holds the chat history, from which AgentCore Evaluations reads the user prompt. The response comes from the model result on the last inference span.  
 
-```
+```json
 {
   "traceId": "6a4de7b85e61747e6b568a1f4768e89d",
   "spanId": "31ea3d5882dac680",
@@ -442,7 +441,7 @@ The `traceloop.entity.output` attribute holds the chat history, from which Agent
 **Example**  
 The `input.value` attribute holds the tool arguments (wrapped in `kwargs`), and the `output.value` attribute holds the tool result (wrapped in `blocks`).  
 
-```
+```json
 {
   "traceId": "6a387ef07b8f4f3732fab45d3c0b51ff",
   "spanId": "d5a1c9e70b46f312",
@@ -466,7 +465,7 @@ The `input.value` attribute holds the tool arguments (wrapped in `kwargs`), and 
 ```
 The message content is inline on the indexed attributes. The `llm.input_messages.*` attributes hold the system prompt and user prompt, and the `llm.output_messages.*` attributes hold the model output, from which AgentCore Evaluations extracts the text after `Answer:` as the agent response.  
 
-```
+```json
 {
   "traceId": "6a387ee61078243c1cc455ed45c6c313",
   "spanId": "c9f0a2b41d773e88",

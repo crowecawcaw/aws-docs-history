@@ -1,7 +1,6 @@
 
 
 # AWS SDK
-<a name="aws-sdk-memory"></a>
 
 Use the AWS SDK to directly interact with AgentCore Memory fine-grained control over memory operations. The following examples show how to access the AWS SDK with the [SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html).
 
@@ -13,7 +12,7 @@ pip install boto3
 
  **Add short-term memory** 
 
-```
+```python
 import boto3
 from datetime import datetime
 
@@ -69,7 +68,7 @@ event = data_client.create_event(
 
  **Add long-term memory with strategies** 
 
-```
+```python
 import boto3
 import time
 from datetime import datetime

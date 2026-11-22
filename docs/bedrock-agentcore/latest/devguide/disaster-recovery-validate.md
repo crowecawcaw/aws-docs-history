@@ -1,7 +1,6 @@
 
 
 # Validating disaster recovery: checklist, go-live ramp, and failback
-<a name="disaster-recovery-validate"></a>
 
 Before you rely on the standby Region of the [warm standby architecture](disaster-recovery-resiliency.md#architecture-warm-standby), set it up, prove failover with a 14-day go-live ramp, and plan failback.
 

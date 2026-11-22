@@ -1,7 +1,6 @@
 
 
 # AgentCore generated built-in tools observability data
-<a name="observability-tool-metrics"></a>
 
 **Topics**
 + [Observability tools metrics](#observability-tools-metrics-one)

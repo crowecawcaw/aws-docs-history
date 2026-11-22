@@ -1,7 +1,6 @@
 
 
 # Create a policy
-<a name="policy-create-policies"></a>
 
 Policy in Amazon Bedrock AgentCore uses Cedar as its authorization language to control access to tools and resources. This guide explains how to understand Cedar policies and write authorization requirements in natural language that can be automatically converted to Cedar. Natural language policy generation requires a deployed AgentCore Gateway and policy engine.
 

@@ -1,7 +1,6 @@
 
 
 # Header propagation with Gateway
-<a name="gateway-headers"></a>
 
 ## What is header and query parameter propagation
 <a name="gateway-headers-overview"></a>
@@ -141,7 +140,7 @@ You can configure header and query parameters at the target level when creating 
 
 Configure header propagation by adding `allowedRequestHeaders` , `allowedResponseHeaders` , and `allowedQueryParameters` fields to your target’s `metadataConfiguration` :
 
-```
+```json
 {
     "name": "my-target",
     "description": "my target description",
@@ -177,7 +176,7 @@ Configure header propagation by adding `allowedRequestHeaders` , `allowedRespons
 
 Using the Python SDK:
 
-```
+```python
 import boto3
 
 # Initialize the client
@@ -203,6 +202,11 @@ response = client.create_gateway_target(
 )
 ```
 
+### Propagation to Lambda targets
+<a name="gateway-headers-lambda-targets"></a>
+
+For Lambda targets, the gateway delivers propagated request headers and query parameters in the Lambda client context as `bedrockAgentCorePropagatedHeaders` and `bedrockAgentCorePropagatedQueryParameters`. By default, each field is a nested JSON object. If your Lambda function uses a strongly typed runtime (such as Java), set `propagatedHeadersEncoding` to `JSON_STRING` in the Lambda target configuration so that the gateway delivers these fields as JSON strings. For more information, see [Propagated headers and query parameters encoding](gateway-add-target-lambda.md#gateway-lambda-propagated-headers-encoding).
+
 ## Header propagation from interceptor lambda
 <a name="gateway-headers-interceptor-propagation"></a>
 
@@ -226,7 +230,7 @@ Interceptor lambdas can influence header propagation in the following ways:
 
 Configure your interceptor lambda to return headers that should be propagated to the target:
 
-```
+```python
 import json
 import boto3
 

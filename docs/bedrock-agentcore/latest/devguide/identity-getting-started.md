@@ -1,7 +1,6 @@
 
 
 # Get started with AgentCore Identity
-<a name="identity-getting-started"></a>
 
 If you’re building AI agents that need to access external services like Google Drive, Slack, or GitHub, Amazon Bedrock AgentCore Identity provides the secure authentication infrastructure you need. This section offers two practical getting started tutorials that demonstrate how to implement identity features in your agents. Depending on your specific business needs, you can start with a complete end-to-end agent deployment, or focus on OAuth2 integration patterns with Google Drive to understand the core authentication flows.
 

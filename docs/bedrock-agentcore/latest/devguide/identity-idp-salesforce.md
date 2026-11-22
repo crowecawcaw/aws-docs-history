@@ -1,7 +1,6 @@
 
 
 # Salesforce
-<a name="identity-idp-salesforce"></a>
 
 Salesforce can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through Salesforce’s OAuth2 service and obtain access tokens for Salesforce API resources.
 
@@ -39,7 +38,7 @@ For more details, refer to Salesforce’s documentation [Define an OpenID Connec
 
 To configure the outbound Salesforce resource provider, use the following:
 
-```
+```json
 {
         "name": "NAME",
         "credentialProviderVendor": "SalesforceOauth2",

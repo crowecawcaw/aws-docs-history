@@ -1,7 +1,6 @@
 
 
 # AgentCore generated payments observability data
-<a name="observability-payments-metrics"></a>
 
 AgentCore payments automatically generates spans and metrics for every data plane API call. This data is available in Amazon CloudWatch and AWS X-Ray.
 

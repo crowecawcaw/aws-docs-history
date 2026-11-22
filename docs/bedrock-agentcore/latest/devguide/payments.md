@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock AgentCore payments: Enable secure microtransaction payments for AI agents
-<a name="payments"></a>
 
 ## What is AWS Amazon Bedrock AgentCore payments?
 <a name="payments-what-is"></a>
@@ -34,6 +33,7 @@ Amazon Bedrock AgentCore payments provides the following capabilities to simplif
 +  **Orchestrating Payments** — With AgentCore payments, you can orchestrate payments using open HTTP-native standards, including the x402 protocol and the Machine Payments Protocol (MPP). Both protocols use the HTTP 402 Payment Required status code for programmatic payments. AgentCore payments manages the complete lifecycle on the agent side, from receiving the merchant’s payment request, through transaction signing by using the configured wallet provider, to returning the payment proof that the agent submits back to the merchant. It handles multi-step flows and exceptions automatically, enabling real-time agent-to-merchant microtransactions that would be cost-prohibitive with traditional payment methods (which impose minimum fees).
 +  **Payment limits** — Built-in payment limits help developers to establish granular budget controls at both user and agent levels. Each PaymentSession has a configurable budget limit (maxSpendAmount, currency) and an expiry time. When the session expires or the budget is reached, further payment requests are denied. If a payment signing fails after budget deduction, the budget does not deduct the failed payment.
 +  **Third-party wallet integration** — The service offers secure wallet integration with two providers: CoinbaseCDP and Stripe(Privy) for embedded stablecoin wallet operations. Sensitive credentials such as API keys and wallet secrets are stored via AgentCore Identity. AgentCore helps developers limit which agents can access wallet resources.
++  ** AWS Billing for AWS Marketplace products** — With an AWS Billing connector, agents can pay AWS Marketplace sellers that accept x402 payments, and they don’t need a crypto wallet. AWS bills the charges to your AWS account, and the charges appear on your AWS bill.
 +  **Endpoint discoverability** — AgentCore payments offers a ready-to-use Coinbase x402 Bazaar MCP server, which exposes 10,000\+ pay-per-use x402 endpoints through the AgentCore Gateway. Developers can browse and search for x402-enabled services and add them as targets in a Gateway via the console or CLI.
 +  **Observability** —  End-to-end observability through Amazon CloudWatch provides visibility across the entire payment lifecycle. Customers can access vended logs (application logs published automatically to your CloudWatch log group) and vended spans (trace records viewable in AWS X-Ray) for every data plane API call, helping developers to monitor transaction success rates, track spending patterns, and diagnose errors.
 

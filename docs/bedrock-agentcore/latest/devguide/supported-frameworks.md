@@ -1,7 +1,6 @@
 
 
 # Supported agent frameworks
-<a name="supported-frameworks"></a>
 
 Amazon Bedrock AgentCore Evaluations evaluates agents built with several agent frameworks. What an agent emits as telemetry, and how that telemetry is structured, depends on the **agent framework** you build with and the **instrumentation library** you use to record it.
 
@@ -20,16 +19,19 @@ AgentCore Evaluations supports the following frameworks and instrumentation libr
 | Strands Agents | Built-in (Strands Agents SDK) | TypeScript |  `strands-agents`  |  `@strands-agents/sdk` `>= 1.5.0`  | 
 | LangGraph | OpenTelemetry (`opentelemetry-instrumentation-langchain`) | Python |  `opentelemetry.instrumentation.langchain`  |  `>= 0.55.0`  | 
 | LangGraph | OpenInference (`openinference-instrumentation-langchain`) | Python |  `openinference.instrumentation.langchain`  |  `>= 0.1.62`  | 
+| LangGraph | OpenTelemetry, ADOT-native | Python |  `amazon.opentelemetry.distro.instrumentation.langchain`  |  `aws-opentelemetry-distro` `>= 0.18.0`  | 
 | LangGraph | OpenTelemetry, ADOT-native | TypeScript |  `@aws/aws-distro-opentelemetry-instrumentation-langchain`  |  `>= 0.12.0`  | 
 | LangGraph | OpenTelemetry (`@traceloop/instrumentation-langchain`) | TypeScript |  `@traceloop/instrumentation-langchain`  |  `>= 0.27.0`  | 
 | LangGraph | OpenInference (`@arizeai/openinference-instrumentation-langchain`) | TypeScript |  `@arizeai/openinference-instrumentation-langchain`  |  `>= 4.0.14`  | 
 | OpenAI Agents | OpenTelemetry (`opentelemetry-instrumentation-openai-agents`) | Python |  `opentelemetry.instrumentation.openai_agents`  |  `>= 0.61.0`  | 
 | OpenAI Agents | OpenInference (`openinference-instrumentation-openai-agents`) | Python |  `openinference.instrumentation.openai_agents`  |  `>= 1.5.0`  | 
+| OpenAI Agents | OpenTelemetry, ADOT-native | Python |  `amazon.opentelemetry.distro.instrumentation.openai_agents`  |  `aws-opentelemetry-distro` `>= 0.20.0`  | 
 | OpenAI Agents | OpenTelemetry, ADOT-native | TypeScript |  `@aws/aws-distro-opentelemetry-instrumentation-openai-agents`  |  `>= 0.12.0`  | 
 | OpenAI Agents | OpenInference (`@arizeai/openinference-instrumentation-openai-agents`) | TypeScript |  `@arizeai/openinference-instrumentation-openai-agents`  |  `>= 0.2.2`  | 
 | Vercel AI SDK | OpenTelemetry, ADOT-native | TypeScript |  `@aws/aws-distro-opentelemetry-instrumentation-vercel-ai`  |  `>= 0.12.0`  | 
 | LlamaIndex | OpenTelemetry (`opentelemetry-instrumentation-llamaindex`) | Python |  `opentelemetry.instrumentation.llamaindex`  |  `>= 0.61.0`  | 
 | LlamaIndex | OpenInference (`openinference-instrumentation-llama-index`) | Python |  `openinference.instrumentation.llama_index`  |  `>= 4.4.1`  | 
+| LlamaIndex | OpenTelemetry, ADOT-native | Python |  `amazon.opentelemetry.distro.instrumentation.llama_index`  |  `aws-opentelemetry-distro` `>= 0.18.0`  | 
 | Google ADK | OpenInference (`openinference-instrumentation-google-adk`) | Python |  `openinference.instrumentation.google_adk`  |  `>= 0.1.13`  | 
 | Claude Agent SDK | OpenInference (`openinference-instrumentation-claude-agent-sdk`) | Python |  `openinference.instrumentation.claude_agent_sdk`  |  `>= 0.1.3`  | 
 

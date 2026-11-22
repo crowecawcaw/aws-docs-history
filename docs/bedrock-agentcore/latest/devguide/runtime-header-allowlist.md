@@ -1,16 +1,15 @@
 
 
 # Pass custom headers to Amazon Bedrock AgentCore Runtime
-<a name="runtime-header-allowlist"></a>
 
-Custom headers let you pass contextual information from your application directly to your agent code without cluttering the main request payload. You can pass any valid HTTP header that is not in the [restricted headers](#runtime-header-restrictions) list, including webhook signatures like `X-Custom-Signature`, API keys like `X-Api-Key`, trace context, or session identifiers. You can also pass the `Authorization` header for JWT-based authentication when your agent is configured with a custom JWT authorizer. Headers prefixed with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-` continue to be supported for backward compatibility. Up to 20 headers can be configured per runtime, and each header value is limited to 4KB.
+Custom headers let you pass contextual information from your application directly to your agent code without cluttering the main request payload. You can pass any valid HTTP header that is not in the [restricted headers](#runtime-header-restrictions) list, including webhook signatures like `X-Custom-Signature`, API keys like `X-Api-Key`, trace context, or session identifiers. You can also pass the `Authorization` header for JWT-based authentication when your agent is configured with a custom JWT authorizer. Headers prefixed with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-` continue to be supported for backward compatibility. Up to 20 headers can be configured per runtime, and each header value is limited to 10 KB.
 
 Amazon Bedrock AgentCore Runtime lets you pass headers in a request to your agent code provided the headers meet the following criteria:
 + Header name is a valid HTTP header (alphanumeric characters, hyphens, and underscores) and is not in the [restricted headers](#runtime-header-restrictions) list.
 + Headers starting with `x-amz-` are not allowed (these are reserved for AWS SigV4 signing).
 + Headers starting with `x-amzn-` are not allowed, except for headers prefixed with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-` .
 + The `Authorization` header requires the agent runtime to be configured with a `customJWTAuthorizer` for OAuth-based inbound access.
-+ Header value is not greater than 4KB in size.
++ Header value is not greater than 10 KB in size.
 + Up to 20 headers can be configured per runtime.
 + Header names are case-insensitive and duplicates (by case-insensitive comparison) are not allowed.
 
@@ -50,7 +49,7 @@ In addition to the restricted headers listed above:
 
 Create an empty AgentCore project, then add an agent with the request header allowlist:
 
-```
+```bash
 agentcore create --name MyHeaderProject --template empty
 cd MyHeaderProject
 agentcore add runtime \
@@ -65,7 +64,7 @@ agentcore add runtime \
 
 Initialize the Python project and add its dependencies:
 
-```
+```bash
 cd app/MyHeaderAgent
 uv init --bare
 uv add \
@@ -78,7 +77,7 @@ cd ../..
 
 Create `app/MyHeaderAgent/main.py` to access the custom headers from the request context:
 
-```
+```python
 import json
 from bedrock_agentcore.runtime import BedrockAgentCoreApp, RequestContext
 from strands import Agent
@@ -115,7 +114,7 @@ The `agentcore add runtime` command in Step 1 stores the allowlist in the Runtim
 
 Deploy your agent:
 
-```
+```bash
 agentcore deploy
 ```
 
@@ -134,7 +133,7 @@ Pass custom headers when invoking your agent so that your agent code can access 
 
 1. Use `--header` to pass a custom header with `agentcore invoke`:
 
-   ```
+   ```bash
    agentcore invoke --runtime MyHeaderAgent \
      --payload '{"prompt":"Tell me a joke"}' \
      --header "X-Custom-Signature: sha256=abc123def456"
@@ -142,7 +141,7 @@ Pass custom headers when invoking your agent so that your agent code can access 
 
    You can pass multiple headers by repeating `--header`:
 
-   ```
+   ```bash
    agentcore invoke --runtime MyHeaderAgent \
      --payload '{"prompt":"Tell me a joke"}' \
      --header "X-Custom-Signature: sha256=abc123def456" \
@@ -152,7 +151,7 @@ Pass custom headers when invoking your agent so that your agent code can access 
 
 1. Use boto3 with event handlers to add custom headers to your agent invocation. For more details on botocore events, see [botocore events documentation](https://botocore.amazonaws.com/v1/documentation/api/latest/topics/events.html).
 
-   ```
+   ```python
    import json
    import boto3
    
@@ -194,7 +193,7 @@ To pass the JWT token used for OAuth-based inbound access to your agent, configu
 
 1. To use JWT authentication, run the following command instead of the `agentcore add runtime` command in Step 1:
 
-   ```
+   ```bash
    agentcore add runtime \
      --name MyHeaderAgent \
      --language python \
@@ -211,7 +210,7 @@ To pass the JWT token used for OAuth-based inbound access to your agent, configu
 
    Deploy to apply the configuration:
 
-   ```
+   ```bash
    agentcore deploy
    ```
 
@@ -219,7 +218,7 @@ To pass the JWT token used for OAuth-based inbound access to your agent, configu
 
    When you invoke the agent in Step 3, also pass a JWT from your identity provider with `--bearer-token`. Replace `<access-token>` with the token:
 
-   ```
+   ```bash
    agentcore invoke --runtime MyHeaderAgent \
      --bearer-token "<access-token>" \
      --payload '{"prompt":"Tell me a joke"}' \

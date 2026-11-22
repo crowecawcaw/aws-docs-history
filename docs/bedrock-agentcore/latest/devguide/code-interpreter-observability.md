@@ -1,7 +1,6 @@
 
 
 # Observability
-<a name="code-interpreter-observability"></a>
 
 The AgentCore Code Interpreter provides the following observability features:
 

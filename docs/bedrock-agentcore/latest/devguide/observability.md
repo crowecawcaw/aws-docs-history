@@ -1,7 +1,6 @@
 
 
 # Observability, audit logging, and tracing for your agents
-<a name="observability"></a>
 
 With Amazon Bedrock AgentCore, you can trace and audit your agents in production across three pillars: tracing and telemetry, metrics and monitoring, and audit logging.
 

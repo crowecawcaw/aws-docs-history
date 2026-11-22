@@ -1,7 +1,6 @@
 
 
 # Prerequisites for using the Amazon Bedrock AgentCore gateway service
-<a name="gateway-prerequisites"></a>
 
 To interact with the AgentCore Gateway service, you’ll need to complete the following prerequisites:
 

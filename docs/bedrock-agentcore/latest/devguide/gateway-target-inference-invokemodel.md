@@ -1,7 +1,6 @@
 
 
 # Use the Amazon Bedrock InvokeModel API with inference targets
-<a name="gateway-target-inference-invokemodel"></a>
 
 Amazon Bedrock AgentCore Gateway inference targets support the Amazon Bedrock `InvokeModel` and `InvokeModelWithResponseStream` application programming interface (API) wire format on the aggregated `/inference` endpoint. With this support, you can keep your existing Amazon Bedrock SDK integration and reach any model provider through one governed endpoint. You don’t need to rewrite client code for each provider. The gateway supports `InvokeModel` in two directions:
 + A client that uses the Amazon Bedrock SDK (for example, the Boto3 `bedrock-runtime` client) can send `InvokeModel` requests to the gateway. The gateway forwards them to a Bedrock target unchanged, or translates them to a non-Bedrock provider (such as OpenAI or Anthropic) when the `InvokeModel` body already matches that provider’s payload schema. For the supported translations, see [Request routing and translation](#gateway-target-inference-invokemodel-how).
@@ -77,7 +76,7 @@ You can create a target for the native `InvokeModel` API in one of two ways.
 
 The following command creates a Bedrock Runtime target by using the connector. Replace `GATEWAY_ID` with your gateway’s identifier:
 
-```
+```bash
 aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
     "gatewayIdentifier": "GATEWAY_ID",
     "name": "bedrock",
@@ -100,7 +99,7 @@ aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
 
 The following command creates a Bedrock Runtime target by using a provider configuration. Replace `GATEWAY_ID` with your gateway’s identifier and `<region>` with your AWS Region:
 
-```
+```bash
 aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
     "gatewayIdentifier": "GATEWAY_ID",
     "name": "bedrock",
@@ -149,7 +148,7 @@ To call the gateway with the Amazon Bedrock SDK, set the client’s `endpoint_ur
 
 In the following example, replace `<gateway-id>` with your gateway’s identifier and `<region>` with your AWS Region:
 
-```
+```python
 import boto3
 import json
 
@@ -180,7 +179,7 @@ On a translated route, always set `contentType="application/json"` on the `Invok
 
 For streaming, use `invoke_model_with_response_stream`. The gateway delivers the response to the SDK as a native Amazon Bedrock event-stream, so the SDK’s built-in response-stream iterator (iterating `response["body"]`) works whether the target served the response natively or the gateway re-framed it from SSE.
 
-```
+```python
 response = client.invoke_model_with_response_stream(
     modelId="us.anthropic.claude-sonnet-5-5",
     body=body,
@@ -196,7 +195,7 @@ for event in response["body"]:
 
 An OpenAI SDK or Anthropic SDK client can name an Amazon Bedrock model ID that a Bedrock Runtime target serves. The gateway calls the native `InvokeModel` API and returns the response in the client’s dialect, re-framing a streamed event-stream response back into SSE.
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI(
@@ -212,7 +211,7 @@ response = client.chat.completions.create(
 
 The Anthropic SDK works the same way against a model that the target serves through the Anthropic Messages API:
 
-```
+```python
 from anthropic import Anthropic
 
 client = Anthropic(
@@ -232,12 +231,12 @@ response = client.messages.create(
 
 Amazon Bedrock models that a Bedrock Runtime target discovers appear in the aggregated list-models response, with each model ID prefixed by the target name:
 
-```
+```bash
 awscurl --service bedrock-agentcore --region <region> \
     "https://<gateway-id>.gateway.bedrock-agentcore.<region>.amazonaws.com/inference/v1/models"
 ```
 
-```
+```json
 {
     "data": [
         {"id": "bedrock/anthropic.claude-sonnet-5-5", "object": "model", "owned_by": "system"},

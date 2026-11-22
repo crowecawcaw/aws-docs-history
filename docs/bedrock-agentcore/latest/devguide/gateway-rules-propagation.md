@@ -1,7 +1,6 @@
 
 
 # Configuration bundle propagation and observability
-<a name="gateway-rules-propagation"></a>
 
 When the gateway resolves a configuration bundle through rules, it propagates the bundle to downstream services through OpenTelemetry (OTel) baggage headers. This enables end-to-end configuration management across your gateway and agent architecture.
 
@@ -35,7 +34,7 @@ For example, if a configuration bundle overrides a target’s tool description, 
 
 To apply these overrides, the gateway calls `GetConfigurationBundleVersion` to read the bundle contents. Add this permission to the gateway’s execution role:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

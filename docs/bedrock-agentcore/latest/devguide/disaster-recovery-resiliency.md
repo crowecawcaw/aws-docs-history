@@ -1,7 +1,6 @@
 
 
 # Building custom disaster recovery for Amazon Bedrock AgentCore
-<a name="disaster-recovery-resiliency"></a>
 
  [Amazon Bedrock AgentCore](what-is-bedrock-agentcore.md) provides managed serverless hosting for AI agents. The [Amazon Bedrock SLA](https://aws.amazon.com/bedrock/sla/) applies to AgentCore, but it measures availability in each AWS Region separately. Recovery across Regions is yours to design and operate.
 

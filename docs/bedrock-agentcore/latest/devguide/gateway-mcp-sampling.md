@@ -1,7 +1,6 @@
 
 
 # Use sampling with your AgentCore gateway
-<a name="gateway-mcp-sampling"></a>
 
 Sampling is an MCP feature that allows an MCP server to request an LLM completion from the client during a tool call. This enables servers to leverage AI capabilities without needing direct access to a language model — the client handles the model invocation and returns the result. AgentCore Gateway forwards sampling requests from MCP server targets to your clients, replacing the request `id` with a gateway-generated identifier.
 
@@ -91,7 +90,7 @@ To resolve:
 **Important**  
 You **must** include `related_request_id=ctx.request_context.request_id` in your `create_message` call. This is required for the gateway to correctly associate the sampling request with the originating tool call. Without it, sampling will not work.
 
-  ```
+  ```python
   try:
       result = await ctx.session.create_message(
           messages=[{"role": "user", "content": {"type": "text", "text": "Summarize this document"}}],
@@ -105,7 +104,7 @@ You **must** include `related_request_id=ctx.request_context.request_id` in your
   ```
 +  **If you are the gateway client developer**: For version `2025-11-25` and earlier, ensure your client declares sampling capability during `initialize`. For version `2026-07-28` and later, declare it for each request in the `_meta` field (`io.modelcontextprotocol/clientCapabilities`). The following example shows the `initialize` declaration:
 
-  ```
+  ```json
   {
     "capabilities": {
       "sampling": {}
@@ -122,7 +121,7 @@ To handle sampling requests from your gateway, use the Python requests package o
 **Example**  
 On these versions, the client declares the sampling capability during `initialize`, and the sampling request arrives as a `sampling/createMessage` request on the open SSE stream. Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
-```
+```python
 import requests
 import json
 import sseclient
@@ -185,7 +184,7 @@ for event in client.events():
 ```
 On version `2026-07-28`, sampling uses the multi round-trip requests pattern instead of a server-initiated request on the SSE stream. The client declares the sampling capability in `_meta` on each request. If the tool needs a completion, the response is an `input_required` result containing a `sampling/createMessage` request in `inputRequests` and an opaque `requestState`. The client invokes its model and retries the original request with a new `id`, the `inputResponses`, and the unmodified `requestState`. Sessions and the `initialize` handshake are not used. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
-```
+```python
 import requests
 
 gateway_url = "https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp"
@@ -244,7 +243,7 @@ if result.get("resultType") == "input_required":
 print(f"Tool result: {result}")
 ```
 
-```
+```python
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import asyncio

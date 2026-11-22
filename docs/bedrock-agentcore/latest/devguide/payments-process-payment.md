@@ -1,19 +1,21 @@
 
 
 # Process a payment
-<a name="payments-process-payment"></a>
 
-To process a payment, you need two resources:
-+  **Payment instrument** — An embedded crypto wallet with Coinbase or Stripe. See [Create a payment instrument](payments-create-instrument.md).
+To process a wallet payment (`CRYPTO_X402` or `MPP`), you need two resources:
++  **Payment instrument** — An embedded crypto wallet with Coinbase or Stripe. See [Create a payment instrument](payments-create-instrument.md). AWS Billing payments use the service-managed instrument ID `aws.agentcorepayments.awsbilling.v1` instead; you don’t create it.
 +  **Payment session** — A time-bounded session that optionally enforces a spending budget. See [Create a payment session](payments-create-session.md).
 
 After both exist, call `ProcessPayment` with the payment session ID, payment instrument ID, and a payment payload. The service validates the request, checks the budget, signs the transaction on the appropriate blockchain, and returns a signed payment result. For the complete request and response schema, see [ProcessPayment](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_ProcessPayment.html) in the API Reference.
 
-AgentCore payments supports two payment protocols, which you select with the `paymentType` parameter:
+An AWS Billing payment needs only a payment session and an AWS Billing connector. You pass the service-managed payment instrument ID `aws.agentcorepayments.awsbilling.v1`, and the service returns a payment token instead of a signed transaction.
+
+AgentCore payments supports the following payment types, which you select with the `paymentType` parameter:
 +  `CRYPTO_X402` — The x402 protocol. Provide the merchant’s x402 payment payload in `paymentInput.cryptoX402`, and the agent retries the request with the signed proof in the `X-PAYMENT` header.
 +  `MPP` — The Machine Payments Protocol (MPP). Forward the merchant’s `WWW-Authenticate: Payment` challenge in `paymentInput.mpp`, and the agent retries the request with the returned credential in the `Authorization` header.
++  `AWS_BILLING_X402` — Pays an AWS Marketplace seller’s x402 quote and bills the charge to your AWS account. Provide the seller’s `aws:base` x402 payment requirement in `paymentInput.awsBillingX402`, and set `paymentInstrumentId` to `aws.agentcorepayments.awsbilling.v1`. The Payment Manager must have an AWS Billing connector.
 
-Choose the `paymentType` that matches the protocol the merchant used in its `402 Payment Required` response. For x402 request and response details, see [Pay an x402 payment request](#payments-process-payment-x402). For MPP request and response details, see [Pay an MPP challenge](#payments-process-payment-mpp).
+Choose the `paymentType` that matches the protocol the merchant used in its `402 Payment Required` response. For x402 request and response details, see [Pay an x402 payment request](#payments-process-payment-x402). For MPP request and response details, see [Pay an MPP challenge](#payments-process-payment-mpp). For AWS Billing, see [Pay with AWS Billing](#payments-process-payment-aws-billing).
 
 **Tip**  
 You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, and credential provider with the AgentCore CLI, create a payment instrument and session using the AgentCore SDK, and add a process payment tool to your agent. For details, see the [quickstart](payments-getting-started.md) and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main).
@@ -24,7 +26,7 @@ Choose how to process a payment:
 Invoke a payment-enabled Runtime with `agentcore invoke --runtime <name>`, passing the existing payment session and instrument IDs through `--header`. Your agent reads these application-defined headers and passes their values to `AgentCorePaymentsPluginConfig`. For the Python entrypoint and CLI commands, see [Process a payment with a Strands agent](payments-getting-started.md#payments-getting-started-step6).
 Use the `PaymentManager` class to generate payment headers manually within any agent framework:  
 
-```
+```python
 import uuid
 from bedrock_agentcore.payments import PaymentManager
 
@@ -50,7 +52,7 @@ payment_proof_headers = manager.generate_payment_header(
  `payment_proof_headers` contains the payment proof header. Include this header when retrying the request to the paid endpoint. You can also call the `process_payment` method of `PaymentManager` for more control over inputs.
 The following example processes an x402 payment by passing the merchant’s payload in `paymentInput.cryptoX402`:  
 
-```
+```bash
 aws bedrock-agentcore process-payment \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
     --payment-session-id "payment-session-abc123" \
@@ -76,7 +78,7 @@ aws bedrock-agentcore process-payment \
 To learn how to build the `paymentInput` for each protocol, including the MPP ` AWS ` CLI example, see [Pay an x402 payment request](#payments-process-payment-x402) and [Pay an MPP challenge](#payments-process-payment-mpp).
 The following example processes an x402 payment by calling `process_payment` with the merchant’s payload in `paymentInput.cryptoX402`:  
 
-```
+```python
 import uuid
 
 payment = dp_client.process_payment(
@@ -104,7 +106,7 @@ payment = dp_client.process_payment(
 ```
 Response:  
 
-```
+```json
 {
     "processPaymentId": "12345678-1234-1234-1234-123456789012",
     "paymentManagerArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager-a1b2c3d4e5",
@@ -129,12 +131,12 @@ To learn how to build the `paymentInput` for each protocol, including the MPP ` 
 The AgentCore payments plugin provides automated payment processing for Strands Agents. It supports the [x402 Payment Required](https://www.x402.org/) protocol, enabling agents to automatically handle HTTP 402 responses.  
  **Installation:**   
 
-```
+```bash
 pip install 'bedrock-agentcore[strands-agents]'
 ```
  **Configure and use the plugin:**   
 
-```
+```python
 from strands import Agent
 from strands_tools import http_request
 from bedrock_agentcore.payments.integrations.config import AgentCorePaymentsPluginConfig
@@ -166,12 +168,12 @@ The AgentCore payments plugin intercepts x402 payment requests automatically, pr
 The AgentCore payments middleware provides automated payment processing for LangGraph agents. It supports the [x402 Payment Required](https://www.x402.org/) protocol, enabling agents to automatically handle HTTP 402 responses.  
  **Installation:**   
 
-```
+```bash
 pip install 'bedrock-agentcore[langgraph]'
 ```
  **Configure and use the middleware:**   
 
-```
+```python
 from langchain.agents import create_agent
 from bedrock_agentcore.payments.integrations.langgraph import (
     AgentCorePaymentsConfig,
@@ -238,7 +240,7 @@ The following example processes an `upto` payment and grants an allowance of 1 U
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore process-payment \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
     --payment-session-id "payment-session-abc123" \
@@ -263,7 +265,7 @@ aws bedrock-agentcore process-payment \
     --region us-west-2
 ```
 
-```
+```python
 import uuid
 
 payment = dp_client.process_payment(
@@ -322,7 +324,7 @@ The following example processes an MPP challenge. Set `--payment-type "MPP"` and
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore process-payment \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
     --payment-session-id "payment-session-abc123" \
@@ -340,7 +342,7 @@ aws bedrock-agentcore process-payment \
     --region us-west-2
 ```
 
-```
+```python
 import uuid
 
 payment = dp_client.process_payment(
@@ -363,7 +365,7 @@ payment = dp_client.process_payment(
 ```
 Response:  
 
-```
+```json
 {
     "processPaymentId": "12345678-1234-1234-1234-123456789012",
     "paymentManagerArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager-a1b2c3d4e5",
@@ -417,6 +419,107 @@ The `evm` method needs no fee consent, because the facilitator broadcasts the tr
 + MPP challenges are short-lived. If the challenge has expired, AgentCore payments returns a `ValidationException` and consumes no budget. Request the paid resource again to obtain a fresh challenge, then retry.
 
 For MPP challenge validation errors and their resolutions, see [MPP challenge errors](payments-troubleshooting.md#payments-troubleshooting-mpp).
+
+## Pay with AWS Billing
+<a name="payments-process-payment-aws-billing"></a>
+
+When an AWS Marketplace seller responds with `402 Payment Required`, its response includes a signed quote for the purchase. With AWS Billing, you forward the seller’s x402 payment requirement, which carries the quote, to AgentCore payments. AgentCore payments checks the session budget and returns a payment token. AWS bills the charge to the AWS account that owns the Payment Manager, and the charge appears on your AWS bill. You don’t need a crypto wallet. For information about how AWS bills are paid, see [Managing your AWS payments](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-payments.html) in the * AWS Billing User Guide*.
+
+Before you begin, add an AWS Billing connector to the Payment Manager. For instructions on creating a connector, see [Create a Payment Manager and Connector](payments-create-manager.md).
+
+### Request and response
+<a name="_request_and_response_3"></a>
+
+Set `paymentType` to `AWS_BILLING_X402` and `paymentInstrumentId` to `aws.agentcorepayments.awsbilling.v1`, and provide the following fields in `paymentInput.awsBillingX402`:
++  `version` — The x402 protocol version of the seller’s `402` response, from its `x402Version` field, for example `"2"`. Required.
++  `payload` — The seller’s x402 payment requirement for AWS Billing. Pass the entry in the `402` response’s `accepts` list whose `network` is `aws:base`, unchanged, as a JSON object. The entry must include the seller-signed quote token in `extra.quoteToken`. Any change to the quote token invalidates its signature. Required.
++  `options.dpopJwk` — An ephemeral elliptic curve public key, in JSON Web Key (JWK) format, for Demonstrating Proof of Possession (DPoP), as defined in RFC 9449. When you provide it, the payment token is bound to this key. Supported curves are `P-256`, `P-384`, and `P-521`. Optional.
+
+The response returns the following fields in `paymentOutput.awsBillingX402`:
++  `version` — The x402 protocol version, the same value as the request’s `version`.
++  `paymentToken` — The payment token, a signed JSON Web Token (JWT). The token is valid for 5 minutes after it’s issued. Treat the token as a credential, and don’t log it.
+
+To complete the purchase, within 5 minutes of receiving the payment token, retry the original request to the seller with an x402 version 2 `PAYMENT-SIGNATURE` header. The header value is the base64-encoded JSON object `{"x402Version": 2, "resource": …​, "accepted": …​, "payload": {"paymentToken": …​}}`, where:
++  `resource` is the `resource` object from the seller’s `402` response.
++  `accepted` is the entry that you passed as `payload`, copied unchanged.
++  `payload.paymentToken` is the payment token that `ProcessPayment` returned.
+
+Demonstrating Proof of Possession (DPoP) is optional. It binds the payment token to a key pair that your agent holds, so a token that’s copied from logs or intercepted in transit can’t be used without the private key. To use it, generate an ephemeral elliptic curve key pair for the purchase, and pass the public key as `options.dpopJwk`. For more information, see [OAuth 2.0 DPoP](https://oauth.net/2/dpop/) on the OAuth website and the internet standard, [RFC 9449: OAuth 2.0 Demonstrating Proof of Possession (DPoP)](https://datatracker.ietf.org/doc/html/rfc9449).
+
+If you provided `options.dpopJwk`, the payment token is bound to that key. Sign a DPoP proof for the retried request with the matching private key, and send it with the request. DPoP proofs are bound to the request URL.
+
+The response returns `paymentInstrumentId` as `aws.agentcorepayments.awsbilling.v1`. A `status` of `PROOF_GENERATED` indicates that the payment token is included in `paymentOutput`.
+
+The service-managed instrument ID is available for every Payment Manager that has an AWS Billing connector, and it’s scoped to that Payment Manager. You don’t create it, and you can’t use a different instrument ID for AWS Billing. `GetPaymentInstrument`, `GetPaymentInstrumentBalance`, and `DeletePaymentInstrument` return a `ValidationException` for this ID.
+
+Use the same `clientToken` when you retry a `ProcessPayment` call for the same quote. Within 8 hours of the original call, a retry with the same `clientToken` returns the original response and charges the session budget once. Reusing a `clientToken` with a different quote returns a `ConflictException`.
+
+The following example pays an AWS Marketplace quote. Replace the `payload` value with the `aws:base` entry from the `accepts` list of the seller’s `402` response, unchanged:
+
+**Example**  
+
+```bash
+aws bedrock-agentcore process-payment \
+    --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
+    --payment-session-id "payment-session-abc123" \
+    --payment-instrument-id "aws.agentcorepayments.awsbilling.v1" \
+    --payment-type "AWS_BILLING_X402" \
+    --payment-input '{
+        "awsBillingX402": {
+            "version": "2",
+            "payload": {
+                "scheme": "exact",
+                "network": "aws:base",
+                "amount": "<amount-from-the-seller>",
+                "asset": "iso4217:USD",
+                "payTo": "<pay-to-from-the-seller>",
+                "maxTimeoutSeconds": 300,
+                "extra": { "quoteToken": "<quote-token-from-the-seller>" }
+            }
+        }
+    }' \
+    --client-token "$(uuidgen)" \
+    --region us-west-2
+```
+
+```python
+import base64
+import json
+import uuid
+
+# The seller's 402 response carries its payment requirement as base64 JSON in the
+# PAYMENT-REQUIRED header, or as the JSON body.
+header = response.headers.get("PAYMENT-REQUIRED")
+payment_required = json.loads(base64.b64decode(header)) if header else response.json()
+aws_billing_entry = next(
+    entry for entry in payment_required["accepts"] if entry["network"] == "aws:base"
+)
+
+payment = dp_client.process_payment(
+    userId="test-user-123",
+    paymentManagerArn=PAYMENT_MANAGER_ARN,
+    paymentSessionId=SESSION_ID,
+    paymentInstrumentId="aws.agentcorepayments.awsbilling.v1",
+    paymentType="AWS_BILLING_X402",
+    paymentInput={
+        "awsBillingX402": {
+            "version": str(payment_required["x402Version"]),
+            "payload": aws_billing_entry,  # pass the entry unchanged
+        }
+    },
+    clientToken=str(uuid.uuid4()),
+)
+
+payment_token = payment["paymentOutput"]["awsBillingX402"]["paymentToken"]
+```
+
+### Limitations
+<a name="_limitations_3"></a>
++ A single AWS Billing payment must be greater than USD $0.00 and can’t exceed USD $10,000.00.
++ Quotes expire. If the quote has expired, request the paid resource again to get a new quote, and then retry with the new `accepts` entry.
++ A Payment Manager can have at most one AWS Billing connector.
+
+For AWS Billing errors and their resolutions, see [AWS Billing errors](payments-troubleshooting.md#payments-troubleshooting-aws-billing).
 
 ## Framework integrations
 <a name="_framework_integrations"></a>

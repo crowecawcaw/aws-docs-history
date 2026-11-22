@@ -1,9 +1,8 @@
 
 
 # Dataset encryption
-<a name="datasets-encryption"></a>
 
-When you specify a `kmsKeyArn` on a dataset, the service encrypts all stored examples using S3 server-side encryption with KMS (SSE-KMS). This includes examples in the Draft and all published versions.
+When you specify a `kmsKeyArn` on a dataset, AgentCore Evaluations encrypts all stored examples using Amazon S3 server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS). This includes examples in the Draft and all published versions.
 
 The `kmsKeyArn` is immutable after dataset creation — you cannot change or remove it.
 
@@ -12,7 +11,7 @@ The `kmsKeyArn` is immutable after dataset creation — you cannot change or rem
 
 Dataset encryption uses S3 SSE-KMS. When the service writes or reads dataset content in S3, S3 calls KMS on behalf of the service to encrypt or decrypt the data. The service principal (`bedrock-agentcore.amazonaws.com`) must have KMS permissions in the key policy.
 
-At API time, the service validates that the caller has KMS permissions using a dry-run check (Forward Access Sessions). This catches permission issues immediately rather than failing asynchronously during ingestion.
+At API time, the service validates the caller’s KMS permissions using a dry-run check (Forward Access Sessions). This catches permission issues immediately rather than failing asynchronously during ingestion.
 
 AgentCore Evaluations supports only symmetric encryption KMS keys. The KMS key must be in the same AWS Region as the dataset.
 
@@ -23,7 +22,7 @@ The following key policy grants the minimum permissions required for dataset enc
 +  **AllowCallerAccess** — Grants the IAM user or role that calls `CreateDataset` permission to validate and use the key. The service performs a dry-run check at API time to verify the caller has KMS access. Replace {{111122223333}} with your account ID and {{MyDatasetRole}} with the IAM role or user that manages datasets.
 +  **AllowAgentCoreDatasetAccess** — Grants the AgentCore service principal permission to encrypt and decrypt dataset content in S3.
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -70,7 +69,7 @@ You can add conditions to restrict when the key can be used. For datasets, the s
 
 The following policy splits permissions into write (conditioned) and read (unconditioned):
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -137,26 +136,24 @@ Specify the `kmsKeyArn` parameter when calling `CreateDataset`:
 
 1. 
 
-   To create an encrypted dataset, pass `--kms-key-arn` with the JSONL source. Replace the KMS key ARN with your own key ARN.
+   The following AgentCore CLI command creates an encrypted dataset by passing `--kms-key-arn` with the JSONL source. Replace the KMS key ARN with your own key ARN.
 
-   ```
+   ```bash
    agentcore eval dataset create \
      --name encrypted_dataset \
-     --schema-type predefined \
      --source file://encrypted_dataset.jsonl \
      --kms-key-arn "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
    ```
 
 1. 
 
-   ```
+   ```python
    from bedrock_agentcore.evaluation import DatasetClient
    
    client = DatasetClient(region_name="us-east-1")
    
    ds = client.create_dataset_and_wait(
        datasetName="encrypted_dataset",
-       schemaType="AGENTCORE_EVALUATION_PREDEFINED_V1",
        kmsKeyArn="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
        source={
            "inlineExamples": {
@@ -170,14 +167,13 @@ Specify the `kmsKeyArn` parameter when calling `CreateDataset`:
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
    
    response = client.create_dataset(
        datasetName='encrypted_dataset',
-       schemaType='AGENTCORE_EVALUATION_PREDEFINED_V1',
        kmsKeyArn='arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab',
        source={
            'inlineExamples': {
@@ -191,10 +187,9 @@ Specify the `kmsKeyArn` parameter when calling `CreateDataset`:
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-dataset \
        --dataset-name "encrypted_dataset" \
-       --schema-type AGENTCORE_EVALUATION_PREDEFINED_V1 \
        --kms-key-arn "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" \
        --source '{"inlineExamples": {"examples": [{"scenario_id": "TC-01", "turns": [{"input": "Hello"}]}]}}'
    ```

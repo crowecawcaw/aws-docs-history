@@ -1,7 +1,6 @@
 
 
 # Policy authoring guide
-<a name="policy-authoring-guide"></a>
 
 This section is the central collection of example policies for Policy in Amazon Bedrock AgentCore. Every example uses the single gateway described in [Resource configuration for examples](example-policies-reference.md). You can therefore read any two examples side by side, and combine them on one policy engine without renaming actions or adjusting a schema.
 

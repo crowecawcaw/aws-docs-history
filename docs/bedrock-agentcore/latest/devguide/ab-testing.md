@@ -1,7 +1,6 @@
 
 
 # A/B testing
-<a name="ab-testing"></a>
 
 A/B testing splits live production traffic between two variants and continuously evaluates performance with statistical significance. The AgentCore Gateway handles traffic routing; your agent code does not change.
 
@@ -36,9 +35,15 @@ An A/B test follows this flow:
 
 A/B tests support two variant configuration patterns:
 
+<a name="ab-testing-target-pattern"></a>**Target-based variants**
+
 Use when the change includes code changes, a framework upgrade, or when you want to compare entirely different agent implementations. Each variant routes to a different AgentCore Gateway target pointing to a different runtime endpoint.
 
+<a name="ab-testing-config-bundle-pattern"></a>**Configuration bundle variants**
+
 Use when the change is purely configuration (system prompt, model ID, or tool descriptions). Both variants run on the same AgentCore Runtime with different configuration bundle versions. Your runtime receives the assigned bundle reference through W3C baggage headers, a standard mechanism for passing context between services, and uses the AgentCore SDK to retrieve the configuration.
+
+<a name="ab-testing-pattern-comparison"></a>**Choosing a pattern**
 
 
 | Aspect | Target-based variants | Configuration bundle variants | 

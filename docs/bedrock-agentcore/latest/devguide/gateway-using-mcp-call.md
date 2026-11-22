@@ -1,13 +1,12 @@
 
 
 # Call a tool in a AgentCore gateway
-<a name="gateway-using-mcp-call"></a>
 
 To call a specific tool, make a POST request to the gateway’s MCP endpoint. Specify `tools/call` as the method in the request body, along with the name of the tool and its arguments. The request format depends on the MCP protocol version:
 
 **Example**  
 
-```
+```http
 POST /mcp HTTP/1.1
 Host: ${GatewayEndpoint}
 Accept: application/json, text/event-stream
@@ -19,7 +18,7 @@ ${RequestBody}
 ```
 On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` and `Mcp-Name` request-metadata headers, and the `_meta` version fields in the body.  
 
-```
+```http
 POST /mcp HTTP/1.1
 Host: ${GatewayEndpoint}
 Accept: application/json, text/event-stream
@@ -51,7 +50,7 @@ To see examples of calling tools in the gateway, select one of the following met
 **Example**  
 The following curl request shows an example request to call a tool called `searchProducts` through a gateway with the ID `mygateway-abcdefghij`. Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
-```
+```bash
 curl -X POST \
   https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
   -H "Accept: application/json, text/event-stream" \
@@ -78,7 +77,7 @@ curl -X POST \
 ```
 On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
-```
+```bash
 curl -X POST \
   https://mygateway-abcdefghij.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp \
   -H "Accept: application/json, text/event-stream" \
@@ -115,7 +114,7 @@ curl -X POST \
 ```
 Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
-```
+```python
 import requests
 import json
 
@@ -153,7 +152,7 @@ print(json.dumps(result, indent=2))
 ```
 On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
-```
+```python
 import requests
 import json
 
@@ -197,7 +196,7 @@ result = call_tool(
 print(json.dumps(result, indent=2))
 ```
 
-```
+```python
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import asyncio
@@ -257,7 +256,7 @@ if __name__ == "__main__":
 ```
 NOTE: This is for invoking an agent.  
 
-```
+```python
 from strands.tools.mcp.mcp_client import MCPClient
 from mcp.client.streamable_http import streamablehttp_client
 
@@ -281,7 +280,7 @@ run_agent(url, token)
 ```
 NOTE: This is for invoking an agent.  
 
-```
+```python
 import asyncio
 
 from langgraph.prebuilt import create_react_agent

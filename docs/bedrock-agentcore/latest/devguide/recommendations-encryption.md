@@ -1,7 +1,6 @@
 
 
 # Recommendation encryption
-<a name="recommendations-encryption"></a>
 
 When you specify a `kmsKeyArn` on a recommendation, the service encrypts the **recommendation configuration** and **recommendation result** using envelope encryption with the AWS Encryption SDK. All other recommendation metadata (name, type, status) remains encrypted with the AWS owned key.
 
@@ -26,7 +25,7 @@ The following key policy provides the minimum permissions required for recommend
 +  **AllowCallerCryptoOps** – Allows the IAM user or role to encrypt and decrypt, scoped by encryption context.
 +  **AllowServicePrincipalAccess** – Allows the AgentCore service principal to encrypt and decrypt recommendation data during the asynchronous recommendation workflow, scoped by source account and source ARN.
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -90,7 +89,7 @@ The policy contains the following statements:
 
 You can use the encryption context to scope down access to the customer managed key. AgentCore optimizations includes the following encryption context in all KMS operations:
 
-```
+```json
 {
   "aws:bedrock-agentcore:recommendationArn": "arn:aws:bedrock-agentcore:us-east-1:111122223333:recommendation/recommendation-id"
 }
@@ -106,7 +105,7 @@ Specify the `kmsKeyArn` parameter when calling `StartRecommendation`:
 **Example**  
 Create `recommendation-config.json` as shown in [Start a system prompt recommendation](recommendations-system-prompt.md).  
 
-```
+```bash
 agentcore eval recommendation start \
   --name MyEncryptedRecommendation \
   --type SYSTEM_PROMPT_RECOMMENDATION \
@@ -114,7 +113,7 @@ agentcore eval recommendation start \
   --kms-key-arn arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 ```
 
-```
+```bash
 aws bedrock-agentcore start-recommendation \
   --name "MyEncryptedRecommendation" \
   --type SYSTEM_PROMPT_RECOMMENDATION \
@@ -139,7 +138,7 @@ aws bedrock-agentcore start-recommendation \
   }'
 ```
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-agentcore')

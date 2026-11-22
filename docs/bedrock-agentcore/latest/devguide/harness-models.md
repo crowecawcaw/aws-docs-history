@@ -1,7 +1,6 @@
 
 
 # Models and instructions
-<a name="harness-models"></a>
 
 Define a harness once with defaults for model, system prompt, tools, memory, and execution limits. Override any of those on a single invocation when you want to experiment. The harness resource stays unchanged; only that call uses the overrides.
 
@@ -10,7 +9,7 @@ This is the core of the config-based model: **reusable configuration on the harn
 **Example**  
 Defaults on `create-harness`:  
 
-```
+```bash
 aws bedrock-agentcore-control create-harness \
   --harness-name "research_agent" \
   --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
@@ -19,7 +18,7 @@ aws bedrock-agentcore-control create-harness \
 ```
 Overrides per invocation:  
 
-```
+```python
 response = client.invoke_harness(
     harnessArn=HARNESS_ARN,
     runtimeSessionId=SESSION_ID,
@@ -36,7 +35,7 @@ response = client.invoke_harness(
 To change defaults permanently, use `update-harness`.
 Set defaults when you create or update the harness:  
 
-```
+```bash
 # Create an empty project if one does not already exist
 agentcore create --name ResearchAgentProject --template empty
 cd ResearchAgentProject
@@ -52,7 +51,7 @@ agentcore deploy
 ```
 Invoke the deployed harness:  
 
-```
+```bash
 agentcore invoke --harness researcher \
   --prompt "Summarize this research paper"
 ```
@@ -85,7 +84,7 @@ To set the API format, edit `app/<name>/harness.yaml` after the project is creat
 
 For a project Harness, the CLI can manage the model key alongside the Harness. Supply a key file or stdin when creating the project:
 
-```
+```bash
 agentcore create --name OpenAIHarness \
   --model-provider open_ai \
   --api-key file://./openai-key.txt
@@ -93,7 +92,7 @@ agentcore create --name OpenAIHarness \
 
 Or add a Harness to an existing project and pipe the key to `--api-key -`:
 
-```
+```bash
 printf '%s' "$OPENAI_API_KEY" | agentcore add harness \
   --name openai \
   --model '{"provider":"open_ai","modelId":"gpt-5.4"}' \
@@ -105,7 +104,7 @@ The CLI declares a named project credential, stores the key in `agentcore/.env.l
 
 To reuse a project credential that you declared with `agentcore add credentials api-key`, set `apiKeyCredentialName` to its logical name in `--model`. You do not need an earlier credential-only deployment or to copy a deployed ARN:
 
-```
+```bash
 agentcore add harness \
   --name shared_key \
   --model '{"provider":"open_ai","modelId":"gpt-5.4","apiKeyCredentialName":"my-openai-key"}'
@@ -139,7 +138,7 @@ For model support, cache behavior, and pricing details, see [Prompt caching for 
 
 When you omit `systemPrompt` or `truncation`, the harness uses AgentCore’s current recommended instructions and context-management policy. These managed defaults can change as the harness improves. To keep either setting fixed, configure it explicitly on the harness or invocation.
 
-```
+```text
 You are an agent. Keep working until the task is fully resolved before ending your turn. Only stop to ask the user when you are blocked on a decision or information that is genuinely theirs to provide.
 
 # Acting
@@ -171,14 +170,14 @@ Store third-party API keys in [AgentCore Identity’s](https://docs.aws.amazon.c
 **Example**  
 Register an API key with [AgentCore Identity](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html):  
 
-```
+```bash
 aws bedrock-agentcore-control create-api-key-credential-provider \
   --name my-openai-key \
   --api-key "$OPENAI_API_KEY"
 ```
 Switch providers across turns of the same session:  
 
-```
+```python
 # Turn 1: Bedrock (native Converse API)
 response = client.invoke_harness(
     harnessArn=HARNESS_ARN,
@@ -217,7 +216,7 @@ response = client.invoke_harness(
 ```
 To route a direct OpenAI request through an OpenAI-compatible gateway, proxy, self-hosted endpoint, or regional endpoint, set `apiBase`. The harness sends the API key referenced by `apiKeyArn` to this endpoint, so use only trusted endpoints. If you omit `apiBase`, the harness uses the default OpenAI endpoint.  
 
-```
+```python
 response = client.invoke_harness(
     harnessArn=HARNESS_ARN,
     runtimeSessionId=SESSION_ID,
@@ -234,14 +233,14 @@ response = client.invoke_harness(
 ```
 Add an API key to [AgentCore Identity](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html):  
 
-```
+```bash
 printf '%s' "$OPENAI_API_KEY" | agentcore add credentials api-key \
   --name my-openai-key \
   --api-key -
 ```
 From the AgentCore project directory that you created earlier, add a second harness that uses the Responses format. Then deploy the project. This harness calls Amazon Bedrock with the execution role and does not use the API key. The OpenAI harness in [Select the model API format](#harness-model-api-format) uses it.  
 
-```
+```bash
 agentcore add harness \
   --name my_agent \
   --model '{"provider":"bedrock","modelId":"openai.gpt-oss-120b","apiFormat":"responses"}'
@@ -249,7 +248,7 @@ agentcore deploy
 ```
 Invoke with Bedrock Mantle:  
 
-```
+```bash
 SESSION_ID="$(uuidgen)"
 
 # Turn 1: Bedrock Mantle (Responses format)
@@ -285,7 +284,7 @@ Parameters in `additionalParams` can alter provider behavior including endpoint 
 **Example**  
 Set the API format in the `--model` JSON when you add the harness:  
 
-```
+```bash
 # Bedrock model through the OpenAI-compatible Responses API (bedrock-mantle endpoint)
 agentcore add harness \
   --name mantle_api \
@@ -294,7 +293,7 @@ agentcore deploy
 ```
 For OpenAI, reference the `my-openai-key` project credential that you added earlier with `apiKeyCredentialName`. Deployment resolves the provider ARN and grants the generated role access. Alternatively, use `apiKeyArn` for an existing provider, or supply a key file or stdin as described in [Configure project model credentials](#harness-model-credentials):  
 
-```
+```bash
 # OpenAI model using the Chat Completions API
 agentcore add harness \
   --name openai \
@@ -312,7 +311,7 @@ To use Amazon Bedrock Guardrails with the harness, configure `bedrockModelConfig
 
 The following Python example calls `InvokeHarness` with a guardrail configuration. Replace {{HARNESS\_ARN}} with your harness ARN and {{SESSION\_ID}} with a unique runtime session ID.
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore")
@@ -338,7 +337,7 @@ response = client.invoke_harness(
 
 For the baseline model permissions, see the [execution role policy](harness-security.md#harness-execution-role-policy). Add the following JSON statement to the harness execution role policy:
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "bedrock:ApplyGuardrail",
@@ -366,7 +365,7 @@ Providers that authenticate with an API key (such as Google or Anthropic) requir
 **Example**  
 Configure a LiteLLM model:  
 
-```
+```python
 response = client.invoke_harness(
     harnessArn=HARNESS_ARN,
     runtimeSessionId=SESSION_ID,
@@ -381,7 +380,7 @@ response = client.invoke_harness(
 ```
 Configure a LiteLLM model in the `--model` JSON:  
 
-```
+```bash
 agentcore add harness \
   --name gemini \
   --model '{"provider":"lite_llm","modelId":"gemini/gemini-2.5-pro","apiKeyArn":"arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-gemini-key"}'
@@ -389,7 +388,7 @@ agentcore deploy
 ```
 Reach an OpenAI-compatible gateway with `apiBase`, and pass provider-specific values with `additionalParams`:  
 
-```
+```bash
 agentcore add harness \
   --name proxy_agent \
   --model '{"provider":"lite_llm","modelId":"openai/gpt-5.4","apiBase":"https://my-llm-gateway.example.com/v1","apiKeyArn":"arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-gateway-key","additionalParams":{"timeout":30}}'

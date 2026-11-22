@@ -1,7 +1,6 @@
 
 
 # Deploy MCP servers in AgentCore Runtime
-<a name="runtime-mcp"></a>
 
 Amazon Bedrock AgentCore Runtime lets you deploy and run Model Context Protocol (MCP) servers in the AgentCore Runtime. This guide walks you through creating, testing, and deploying your first MCP server.
 
@@ -54,7 +53,7 @@ Before you deploy an MCP server, make sure you have the following:
 
 First, run the following `pip` command to install MCP Python SDK v2, which supports MCP protocol version `2026-07-28` and earlier versions:
 
-```
+```bash
 pip install "mcp>=2.3,<3"
 ```
 
@@ -63,7 +62,7 @@ pip install "mcp>=2.3,<3"
 
 Create a new file called `my_mcp_server.py` :
 
-```
+```python
 # my_mcp_server.py
 
 from mcp.server import MCPServer
@@ -120,7 +119,7 @@ How elicitation (multi-turn interactions) and sampling (LLM-generated content) w
 
 Run your MCP server locally:
 
-```
+```bash
 python my_mcp_server.py
 ```
 
@@ -131,7 +130,7 @@ You should see output indicating the server is running on port `8000`.
 
 From a new terminal, create a new file `my_mcp_client.py` and execute it using `python my_mcp_client.py`. This client uses MCP Python SDK v2, which you installed in [Install required packages](#runtime-mcp-install-packages).
 
-```
+```python
 # my_mcp_client.py
 
 import asyncio
@@ -173,7 +172,7 @@ Starting **October 7, 2025** , Amazon Bedrock AgentCore uses a Service-Linked Ro
 
 After setting up authentication, scaffold a new project with MCP protocol:
 
-```
+```bash
 export REGION=us-west-2 # Set your desired Region
 agentcore create --name MCPServerProject --template empty
 
@@ -202,14 +201,14 @@ The commands create a CUSTOM\_JWT Runtime configuration, copy your server to the
 
 Build and deploy your server:
 
-```
+```bash
 agentcore build
 agentcore deploy
 ```
 
 After deployment, get the agent runtime Amazon Resource Name (ARN):
 
-```
+```bash
 agentcore status --json
 ```
 
@@ -226,7 +225,7 @@ To deploy your MCP server as a container image, store the image in Amazon Elasti
 
 Create a `Dockerfile` next to `my_mcp_server.py`:
 
-```
+```dockerfile
 FROM --platform=linux/arm64 python:3.12-slim
 WORKDIR /app
 RUN pip install --no-cache-dir "mcp>=2.3,<3"
@@ -237,7 +236,7 @@ CMD ["python", "my_mcp_server.py"]
 
 Build the image for ARM64 and push it to Amazon ECR:
 
-```
+```bash
 export REGION=us-west-2 # Set your desired Region
 export ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 export EXECUTION_ROLE_ARN=arn:aws:iam::111122223333:role/AgentRuntimeRole # Replace with your execution role ARN
@@ -254,7 +253,7 @@ docker buildx build --platform linux/arm64 \
 
 Create the agent runtime with the MCP protocol and the Amazon Cognito authorizer that you set up in [Set up Cognito user pool for authentication](#runtime-mcp-appendix-a). The command uses `$POOL_ID` and `$CLIENT_ID`, which the setup script sets when you run it with `source`, and the `$REGION`, `$ACCOUNT_ID`, and `$EXECUTION_ROLE_ARN` values that you exported earlier:
 
-```
+```bash
 export AGENT_RUNTIME_ID=$(aws bedrock-agentcore-control create-agent-runtime \
   --agent-runtime-name my_mcp_server \
   --agent-runtime-artifact "{\"containerConfiguration\":{\"containerUri\":\"$ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/my-mcp-server:latest\"}}" \
@@ -268,7 +267,7 @@ export AGENT_RUNTIME_ID=$(aws bedrock-agentcore-control create-agent-runtime \
 
 The agent runtime starts with the status `CREATING`. Before you invoke the server, wait until the status is `READY`:
 
-```
+```bash
 aws bedrock-agentcore-control get-agent-runtime \
   --agent-runtime-id $AGENT_RUNTIME_ID \
   --region $REGION \
@@ -292,7 +291,7 @@ If you pass in an `Accept` header, it must follow the [MCP](https://modelcontext
 
 Create a new file `my_mcp_client_remote.py` and execute it using `python my_mcp_client_remote.py`. This client uses MCP Python SDK v2, which you installed in [Install required packages](#runtime-mcp-install-packages).
 
-```
+```python
 import asyncio
 import os
 import sys
@@ -372,7 +371,7 @@ For more information, see [Auth0 Dynamic Client Registration documentation](http
 
 After setting up authentication, scaffold a new project with MCP protocol:
 
-```
+```bash
 agentcore create --name MCPServerProject --template empty
 
 cd MCPServerProject
@@ -400,14 +399,14 @@ Replace `<AUTH0_DISCOVERY_URL>` with your Auth0 discovery URL and `<AUTH0_API_ID
 
 Build and deploy your server:
 
-```
+```bash
 agentcore build
 agentcore deploy
 ```
 
 After deployment, get the agent runtime ARN:
 
-```
+```bash
 agentcore status --json
 ```
 
@@ -429,7 +428,7 @@ The code adds a User-Agent header to every request that the MCP client sends, in
 #### MCP Python Auth0 Client Code
 <a name="runtime-mcp-auth0-client-code"></a>
 
-```
+```python
 #!/usr/bin/env python3
 """
 MCP client with OAuth authentication support for Auth0.
@@ -900,19 +899,19 @@ To use the client:
 
 1. Set required environment variables:
 
-   ```
+   ```bash
    export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/MCPServerProject_default_MCPServer-xyz123"
    ```
 
 1. Set Auth0-specific environment variable (required only for Auth0):
 
-   ```
+   ```bash
    export AUTH0_API_IDENTIFIER="your-api-identifier"
    ```
 
 1. Run the client:
 
-   ```
+   ```bash
    python mcp_auth0_client.py
    ```
 
@@ -933,7 +932,7 @@ Create a new file `setup_cognito.sh` and add the following content.
 **Note**  
 The following script is only meant as an example. You should customize the user pool settings and user credentials as needed for your application. Do not use this script directly in production environments.
 
-```
+```bash
 #!/bin/bash
 
 # Create User Pool and capture Pool ID directly
@@ -984,7 +983,7 @@ Open a terminal window and set the following environment variables:
 +  {{COGNITO\_USERNAME}} – the user name for the new user
 +  {{COGNITO\_PASSWORD}} – the password for the new user
 
-```
+```bash
 export REGION=us-west-2 # Set your desired Region
 export COGNITO_USERNAME="user-name"
 export COGNITO_PASSWORD="password"
@@ -1008,7 +1007,7 @@ The MCP Inspector is a visual tool for testing MCP servers. To use it, you need:
 
 Install and run the MCP Inspector:
 
-```
+```bash
 npx @modelcontextprotocol/inspector
 ```
 
@@ -1035,7 +1034,7 @@ To use the Inspector:
 
 You can also test your deployed server using the MCP Inspector. First, URL-encode your agent ARN:
 
-```
+```bash
 export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/MCPServerProject_default_MCPServer-xyz123"
 echo -n $AGENT_ARN | jq -sRr '@uri'
 ```
@@ -1050,7 +1049,7 @@ Then connect with the MCP Inspector:
 
 1. Start the MCP Inspector:
 
-   ```
+   ```bash
    npx @modelcontextprotocol/inspector
    ```
 

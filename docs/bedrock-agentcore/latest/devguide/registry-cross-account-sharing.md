@@ -1,7 +1,6 @@
 
 
 # Sharing a registry across accounts with AWS RAM
-<a name="registry-cross-account-sharing"></a>
 
 You can share an AWS Agent Registry registry with other AWS accounts using AWS Resource Access Manager (RAM). With RAM sharing, accounts outside your own can discover, publish to, or administer records in your registry—without owning the registry itself.
 
@@ -44,7 +43,7 @@ Before you share a registry, make sure you meet the following requirements:
 ## RAM managed permissions for AWS Agent Registry
 <a name="registry-cross-account-managed-permissions"></a>
 
-When you share a registry, you attach an AWS RAM managed permission that controls which actions the consumer account can perform. AWS Agent Registry provides four managed permissions: one default and three role-based. These let you grant the minimum access needed for each use case.
+When you share a registry, you attach an AWS RAM managed permission that controls which actions the consumer account can perform. AWS Agent Registry provides four managed permissions for sharing a registry and one for sharing a Publisher. These let you grant the minimum access needed for each use case.
 
 ### AWSRAMDefaultPermissionAgentRegistryReadOnly
 <a name="registry-cross-account-permission-readonly"></a>
@@ -57,7 +56,7 @@ This permission grants the following actions to the consumer account:
 +  `agent-registry:GetRegistry`—View registry configuration and metadata.
 +  `agent-registry:GetRegistryRecord`—Read individual record details (control plane).
 +  `agent-registry:ListRegistryRecords`—List all records in the registry (control plane).
-+  `agent-registry:SearchDiscoverableRegistryRecords`—Search approved records using hybrid search.
++  `agent-registry:SearchDiscoverableRegistryRecords`—Search approved records using hybrid, semantic, or keyword search.
 +  `agent-registry:GetDiscoverableRegistryRecord`—Get full details of an approved record (data plane).
 +  `agent-registry:ListDiscoverableRegistryRecords`—List approved records (data plane).
 +  `agent-registry:ListTagsForResource`—List the tags attached to the registry or a record. Read-only; it does not grant the ability to add or remove tags.
@@ -79,6 +78,9 @@ This permission grants the following actions to the consumer account:
 <a name="registry-cross-account-permission-publisher"></a>
 
 This permission grants everything the Consumer permission grants, plus control-plane access to create, update, delete, and submit records for approval. Use this permission for the **publisher** persona—builders in a shared account who contribute resources to a centrally owned registry.
+
+**Note**  
+ *Publisher* in `AWSRAMPermissionAgentRegistryForPublisher` refers to the builder persona, not the Publisher construct used for public discovery. This managed permission grants record-authoring access to a registry. It is unrelated to sharing a verified Publisher identifier. For the Publisher construct, see [Publishers](registry-publishers.md). To share a Publisher across accounts, use the `AWSRAMPermissionAgentDiscoveryForPublisher` managed permission; see [Sharing Publishers with AWS Resource Access Manager](#registry-cross-account-publisher-sharing).
 
  **Use case:** Share a registry with a team that needs to publish MCP servers, agents, or tools into your catalog. The publisher can manage their own records and discover others, but cannot approve or reject records.
 
@@ -117,6 +119,18 @@ This permission grants the following actions to the consumer account:
 +  `agent-registry:ListDiscoverableRegistryRecords`—List approved records.
 +  `agent-registry:InvokeRegistryMcp`—Invoke the registry’s MCP endpoint.
 +  `agent-registry:ListTagsForResource`—List the tags attached to the registry or a record. Read-only; it does not grant the ability to add or remove tags.
+
+### AWSRAMPermissionAgentDiscoveryForPublisher
+<a name="registry-cross-account-permission-discovery-publisher"></a>
+
+This is the default and only managed permission for the `agent-registry:Publisher` resource type. When you share a Publisher without specifying a permission, AWS RAM attaches this permission automatically. It lets an account that you share with view the Publisher and associate its own registry records with it. For details, see [Sharing Publishers with AWS Resource Access Manager](#registry-cross-account-publisher-sharing).
+
+This permission grants the following actions to the account that you share with:
++  `agent-registry:GetPublisher`—View a summary of the shared Publisher.
++  `agent-registry:ListPublishers`—List the Publishers shared with the account.
++  `agent-registry:AssociatePublisher`—Associate the account’s own registry records with the Publisher.
++  `agent-registry:DisassociatePublisher`—Disassociate the account’s own registry records from the Publisher.
++  `agent-registry:ListPublisherAssociations`—List the account’s own associations with the Publisher.
 
 ### Choosing a managed permission
 <a name="registry-cross-account-choosing-permission"></a>
@@ -179,7 +193,7 @@ The **Registry sharing** table shows the association. For external shares, the *
 
 Use the `create-resource-share` command to create a RAM resource share with the registry ARN and the consumer account ID:
 
-```
+```bash
 aws ram create-resource-share \
   --name "my-registry-share" \
   --resource-arns "arn:aws:agent-registry:us-east-1:111122223333:registry/MyRegistryId" \
@@ -197,7 +211,7 @@ Replace the following:
 
 Verify the share is active:
 
-```
+```bash
 aws ram get-resource-share-associations \
   --association-type RESOURCE \
   --resource-arns "arn:aws:agent-registry:us-east-1:111122223333:registry/MyRegistryId"
@@ -229,14 +243,14 @@ After you accept, the shared registry appears in the consumer’s registry list.
 
 Find the pending invitation:
 
-```
+```bash
 aws ram get-resource-share-invitations \
   --query 'resourceShareInvitations[?status==`PENDING`]'
 ```
 
 Accept the invitation using the invitation ARN from the response:
 
-```
+```bash
 aws ram accept-resource-share-invitation \
   --resource-share-invitation-arn "arn:aws:ram:us-east-1:111122223333:resource-share-invitation/12345678-abcd-efgh-ijkl-123456789012"
 ```
@@ -260,14 +274,14 @@ If you do not want to access a shared registry, you can reject the invitation. R
 
 Find the pending invitation:
 
-```
+```bash
 aws ram get-resource-share-invitations \
   --query 'resourceShareInvitations[?status==`PENDING`]'
 ```
 
 Reject the invitation:
 
-```
+```bash
 aws ram reject-resource-share-invitation \
   --resource-share-invitation-arn "arn:aws:ram:us-east-1:111122223333:resource-share-invitation/12345678-abcd-efgh-ijkl-123456789012"
 ```
@@ -282,7 +296,7 @@ After the share is active (either through accepting an invitation or automatic o
 
  **Example: Discover records as a consumer** 
 
-```
+```bash
 # List approved records in the shared registry
 aws agent-registry list-discoverable-registry-records \
   --registry-id "arn:aws:agent-registry:us-east-1:111122223333:registry/MyRegistryId"
@@ -299,7 +313,7 @@ aws agent-registry batch-get-discoverable-registry-record \
 
  **Example: Publish a record as a publisher** 
 
-```
+```bash
 aws agent-registry-control create-registry-record \
   --registry-id "arn:aws:agent-registry:us-east-1:111122223333:registry/MyRegistryId" \
   --name "my-mcp-server" \
@@ -334,7 +348,7 @@ The consumer immediately loses access to the registry. There might be a short pr
 
 Use `disassociate-resource-share` to remove a consumer account from the share:
 
-```
+```bash
 aws ram disassociate-resource-share \
   --resource-share-arn "arn:aws:ram:us-east-1:111122223333:resource-share/12345678-1234-1234-1234-123456789012" \
   --principals "444455556666"
@@ -342,7 +356,7 @@ aws ram disassociate-resource-share \
 
 Verify the principal is disassociated:
 
-```
+```bash
 aws ram get-resource-share-associations \
   --association-type PRINCIPAL \
   --resource-share-arns "arn:aws:ram:us-east-1:111122223333:resource-share/12345678-1234-1234-1234-123456789012"
@@ -350,7 +364,7 @@ aws ram get-resource-share-associations \
 
 To delete the entire resource share (removing all consumer accounts at once):
 
-```
+```bash
 aws ram delete-resource-share \
   --resource-share-arn "arn:aws:ram:us-east-1:111122223333:resource-share/12345678-1234-1234-1234-123456789012"
 ```
@@ -385,7 +399,7 @@ If you need to keep records from other accounts entirely out of a consumer’s v
 
 The following customer-managed RAM permission allows a consumer to read, update, and delete only records where the creator account matches the consumer’s own account:
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": [
@@ -409,7 +423,7 @@ The `${aws:PrincipalAccount}` policy variable resolves dynamically at evaluation
 
 The following customer-managed RAM permission allows a consumer to read only records whose source resource resides in the consumer’s own account—useful when records are auto-detected from resources owned by the consumer:
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": [
@@ -425,6 +439,61 @@ The following customer-managed RAM permission allows a consumer to read only rec
 ```
 
 For instructions on creating a customer-managed RAM permission, see [Creating a customer-managed permission](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-create-permission.html) in the * AWS RAM User Guide*.
+
+## Sharing Publishers with AWS Resource Access Manager
+<a name="registry-cross-account-publisher-sharing"></a>
+
+You can share a Publisher that you own with other AWS accounts by using AWS Resource Access Manager (AWS RAM). An account that you share with can view the Publisher and associate its own registry records with it. You keep ownership and full control of the Publisher.
+
+**Important**  
+Publishers are global resources. You can create a Publisher from any AWS Region. However, you must create and manage Publisher resource shares in the US East (N. Virginia) Region (`us-east-1`).
+
+### How sharing works
+<a name="registry-cross-account-publisher-sharing-how"></a>
+
+To share a Publisher, you create a resource share in AWS RAM, attach a managed permission, and invite the accounts you want to share with. Complete the following steps as the Publisher owner.
+
+1. Open AWS RAM in the US East (N. Virginia) Region (`us-east-1`). Create a resource share, add your Publisher, and choose the accounts to share it with.
+
+1. Attach the AWS managed permission `AWSRAMPermissionAgentDiscoveryForPublisher`. This permission grants each account that you share with the following actions on the Publisher:
+   +  `agent-registry:GetPublisher` 
+   +  `agent-registry:ListPublishers` 
+   +  `agent-registry:AssociatePublisher` 
+   +  `agent-registry:DisassociatePublisher` 
+   +  `agent-registry:ListPublisherAssociations` 
+
+     For more information about registry sharing permissions, see [RAM managed permissions for AWS Agent Registry](#registry-cross-account-managed-permissions).
+
+1. Ask each account that you share with to accept the invitation in `us-east-1`.
+
+1. After the share is active, those accounts can use the Publisher in any AWS Region.
+
+### What accounts you share with can do
+<a name="registry-cross-account-publisher-sharing-consumer"></a>
+
+An account that you share with can view your Publisher and associate its own registry records with it. It cannot see other accounts' associations or your Publisher’s tags. The following table describes how each action behaves for an account that you share with.
+
+
+| Action | Behavior for an account you share with | 
+| --- | --- | 
+|  `ListPublishers`  | Returns the Publishers that the account owns first, and then the active Publishers shared with it. | 
+|  `GetPublisher`  | Returns a summary of the shared Publisher. | 
+|  `AssociatePublisher` / `DisassociatePublisher`  | Associates or disassociates the account’s own registry records with the shared Publisher. | 
+|  `ListPublisherAssociations`  | With a Publisher ARN, returns only the account’s own associations with the shared Publisher. Associations that other accounts make are never visible. | 
+|  `ListTagsForResource`  | Not available. A Publisher’s tags are visible only to its owner, because tags can contain sensitive information. | 
+
+### What the Publisher owner sees
+<a name="registry-cross-account-publisher-sharing-owner"></a>
+
+As the Publisher owner, you can see every association with your Publisher, but not the content of the records that other accounts associate. The following points describe what you can and cannot access:
++  `ListPublisherAssociations` on your Publisher returns every association, including the associations that accounts you share with make. Each association includes the record’s ARN and its status.
++ You cannot read the content of a record that another account associates with your Publisher, because that record stays in the other account’s registry. A call such as `GetRegistryRecord` on that record returns `AccessDeniedException`.
++ To give you read access, the other account can share its registry with you through AWS RAM. This share exposes every record in that registry, not only the records associated with your Publisher.
+
+### Stop sharing a Publisher
+<a name="registry-cross-account-publisher-sharing-stop"></a>
+
+When you remove an account from the resource share, or delete the share, that account loses access to the Publisher. AWS RAM also removes the account’s associations with the Publisher. You manage the share in the US East (N. Virginia) Region (`us-east-1`).
 
 ## Troubleshooting
 <a name="registry-cross-account-troubleshooting"></a>

@@ -1,12 +1,144 @@
 
 
 # Release notes for Amazon Bedrock AgentCore
-<a name="release-notes"></a>
 
 We recommend subscribing to the RSS feed so updates to these notes are delivered to your Inbox.
 
 ## November 2026
 <a name="_november_2026"></a>
+
+### Identity: Runtime identity service-linked role policy updated
+<a name="_identity_runtime_identity_service_linked_role_policy_updated_2"></a>
+
+Amazon Bedrock AgentCore updated the `BedrockAgentCoreRuntimeIdentityServiceRolePolicy` AWS managed policy to change the resource scope of the `GetWorkloadAccessToken` , `GetWorkloadAccessTokenForJWT` , and `GetWorkloadAccessTokenForUserId` permissions to all resources. For more information, see [AgentCore updates to AWS managed policies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Gateway: Stream responses through response interceptors
+<a name="_gateway_stream_responses_through_response_interceptors_2"></a>
+
+Before, a response interceptor on an HTTP or inference target received the whole response, so a client got no model output until the model finished. With the new `STREAM` response interception mode, Amazon Bedrock AgentCore Gateway invokes your interceptor Lambda function for each batch of Server-Sent Events or AWS event stream events, and sends each batch to the client after your function returns. Your function can redact, change, or drop the content of each event, for example to remove sensitive data from model output while it streams.
+
+To turn it on, set `responseInterceptionMode` to `STREAM` in the gateway’s interceptor configuration, and set `responseStreamingConfiguration.maxEventsPerInvocation` to the most events that your function receives in one invocation. Responses that aren’t streamed stay buffered.
+
+To learn more, see [Stream responses through the response interceptor](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-interceptors-types.html#gateway-interceptors-types-http-stream) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Runtime: Instances supports Amazon EC2 G7 instances
+<a name="_runtime_instances_supports_amazon_ec2_g7_instances_2"></a>
+
+Amazon Bedrock AgentCore Runtime (AgentCore Runtime) now supports Amazon EC2 G7 instances, with NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs, on Instances. Instances is the compute type of AgentCore Runtime that runs your agents on Amazon EC2 instances in your account. To use G7, add the G7 instance types, from `g7.2xlarge` to `g7.48xlarge`, to the allowed instance types of your capacity provider. AgentCore Runtime provisions the GPU drivers, so standard container images can run GPU workloads such as 3D rendering and model inference.
+
+G7 instances on Instances are available in the following AWS Regions:
++ US East (N. Virginia), US East (Ohio), and US West (Oregon)
++ Europe (Frankfurt), Europe (London), and Europe (Stockholm)
++ Asia Pacific (Mumbai) and Asia Pacific (Sydney)
+
+For more information, see [Use GPU instance types](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-instances-how-it-works.html#runtime-instances-gpu) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Runtime: Run virtual machines in agents on Instances
+<a name="_runtime_run_virtual_machines_in_agents_on_instances_2"></a>
+
+Nested virtualization is a new capability of Instances, the compute type of Amazon Bedrock AgentCore Runtime that runs your agents on Amazon Elastic Compute Cloud (Amazon EC2) instances in your account. With nested virtualization, you can give your agents hardware virtualization with Kernel-based Virtual Machine (KVM), so they can run their own virtual machines inside a session.
+
+Use nested virtualization when your agents need tools that run in a virtual machine. For example, your agents can run Android emulators to build and test mobile apps. They can also run lightweight virtual machines to sandbox the code that they run.
+
+Nested virtualization is available on supported instance types in all AWS Regions where Instances is available.
+
+To learn more, see [Run virtual machines in agents on Runtime Instances](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-instances-nested-virtualization.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### AWS Agent Registry: Search types and search pagination
+<a name="shared_aws_agent_registry_search_types_and_search_pagination"></a>
+
+ AWS Agent Registry search now takes a `searchType` parameter. Choose the search type that fits what you know about the record you need: its exact name, or only a description of the task. Valid values:
++  `KEYWORD` – Matches exact terms, such as a record or tool name.
++  `SEMANTIC` – Matches the meaning of a natural language description.
++  `HYBRID` – Combines keyword and semantic matching. This is the default.
+
+Each response includes the search type that ran.
+
+ AWS Agent Registry now returns a `nextToken` when more search results might be available. A keyword search returns up to 1,000 results in pages of up to 50, and has a higher request rate quota. A hybrid or semantic search returns up to 20 results. To list and filter records, send an empty query with `KEYWORD` and filters on any supported field, including custom metadata. The registry Model Context Protocol (MCP) endpoint adds the `search_discoverable_registry_records_paginated` tool, which takes the same search type and paging options.
+
+For more information about searching registry records and the Registry MCP endpoint, see [Search for registry records](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-search-records.html) and [Using the Registry MCP endpoint](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-mcp-endpoint.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### AWS Agent Registry: Skill packages and skill sync from Amazon S3 and GitHub
+<a name="shared_aws_agent_registry_skill_packages_and_skill_sync_from_amazon_s3_and_github"></a>
+
+ AWS Agent Registry now stores and serves skill packages. A skill package is a `.zip` archive that contains the skill’s `SKILL.md` and the files that the skill uses, such as scripts and references. The `SKILL.md` follows the [Agent Skills specification](https://agentskills.io/specification) on the Agent Skills website. You can upload a package when you create or update a skill record, or have the registry synchronize the skill from an object in Amazon S3 or a folder in a GitHub repository on GitHub.com, GHE.com, or a GitHub Enterprise Server that is reachable from the internet. A GitHub user authorizes access to the repository through an AgentCore Identity OAuth 2.0 credential provider. AWS Agent Registry validates every package before it serves it. Consumers receive a download URL and a SHA-256 checksum for the package with `GetRegistryRecord`, `BatchGetDiscoverableRegistryRecord`, or the registry’s MCP endpoint. Registries that use a customer managed key encrypt their skill packages with that key. Skill packages and skill synchronization are available in all commercial AWS Regions where AWS Agent Registry is available.
+
+For more information, see [Publish skill packages](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-skill-packages.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Resource control policies for Amazon Bedrock AgentCore
+<a name="_resource_control_policies_for_amazon_bedrock_agentcore_2"></a>
+
+You can now use AWS Organizations resource control policies (RCPs) to set organization-wide limits on access to your Amazon Bedrock AgentCore resources. You attach an RCP to the organization root, an organizational unit (OU), or an account. The RCP applies to requests to resources in the member accounts below it, including requests from outside your organization. Use RCPs to set the same guardrails on all of your AgentCore resources without changing each resource.
+
+For more information, see [Resource control policies for Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/resource-control-policies.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Gateway: JWT claim condition keys for gateway invocations
+<a name="_gateway_jwt_claim_condition_keys_for_gateway_invocations_2"></a>
+
+RCPs apply to Amazon Bedrock AgentCore Gateway invocations for every inbound authorization type. For gateways that use JSON Web Token (JWT) inbound authorization, new `bedrock-agentcore:InboundJwtClaim/*` condition keys filter `InvokeGateway` requests by JWT claims. The keys cover the `iss`, `sub`, `aud`, `scope`, and `client_id` claims. Use these keys in RCPs and resource-based policies.
+
+For more information, see [Gateway invocation condition keys](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/security-gateway-condition-keys.html#gateway-invocation-condition-keys) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Runtime: Run agents with elevated privileges on Instances
+<a name="_runtime_run_agents_with_elevated_privileges_on_instances_2"></a>
+
+With Amazon Bedrock AgentCore Runtime, you can now run agents with elevated privileges on the Instances compute type.
+
+By default, agents run without elevated privileges. Before you run agents with elevated privileges, review the security considerations in [Privilege mode](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-instances-security.html#runtime-instances-privilege-mode-security).
+
+To learn more, see [Configure the privilege mode for Runtime Instances](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-instances-privilege-mode.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Gateway: Discover and call products from AWS Marketplace with the AWS Marketplace connector
+<a name="gateway_discover_and_call_products_from_shared_aws_marketplace_with_the_shared_aws_marketplace_connector"></a>
+
+Amazon Bedrock AgentCore Gateway now includes a built-in AWS Marketplace connector in all commercial AWS Regions where AgentCore Gateway is available. Add a target with `connectorId: "aws-marketplace"` and your agent gets three read-only MCP tools: `SearchListings` to search AWS Marketplace, `GetListing` to read listing details, and `ListFulfillmentOptions` to get a product’s callable endpoint and payment details. `SearchListings` returns only x402-enabled listings. The Gateway authenticates to AWS Marketplace with the gateway service role, so you don’t write integration code or define tool schemas. For more information, see [AWS Marketplace as Connector Target](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-aws-marketplace.html).
+
+### Runtime: Mount your own Amazon S3 bucket
+<a name="_runtime_mount_your_own_amazon_s3_bucket_2"></a>
+
+You can now mount your own Amazon S3 bucket into your Amazon Bedrock AgentCore Runtime agent with the `s3BucketMount` file system configuration. AgentCore Runtime runs Mountpoint for Amazon S3 for you, so your container needs no mount client.
+
+To give each session its own folder in the bucket, include `{runtimeSessionId}` in the prefix. To share data across sessions, use a fixed prefix. This capability is available on platform version V2 agent runtimes.
+
+For more information, see [Configure an Amazon S3 bucket mount](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html#configure-s3-bucket-mount) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Evaluations: Run a dataset evaluation with AgentCore Evaluations
+<a name="_evaluations_run_a_dataset_evaluation_with_agentcore_evaluations_2"></a>
+
+You can now use Amazon Bedrock AgentCore Evaluations to run a published dataset against an AgentCore Runtime endpoint. This feature is in public preview. One managed batch evaluation job runs every scenario and evaluates the sessions. AgentCore invokes your agent, supports fixed and dynamic scenarios, and returns aggregate results with per-session detail in CloudWatch Logs.
+
+For more information, see [Run a dataset evaluation with AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/batch-evaluations-dataset.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Evaluations: Dataset generation and scenario-based datasets (Preview)
+<a name="_evaluations_dataset_generation_and_scenario_based_datasets_preview_2"></a>
+
+Dataset evaluation and dataset generation in Amazon Bedrock AgentCore Evaluations are in public preview. Datasets no longer declare a schema type. A single dataset can hold both fixed scenarios and dynamic scenarios. The list operations for datasets, versions, and examples can filter by the fields that an example has, so you can find the fixed or dynamic scenarios in a dataset.
+
+Dataset generation creates scenarios from your agent’s traces. You start a generation against a dataset, and the service reads observed sessions from your traces, turns them into fixed or dynamic scenarios, and adds them to the dataset’s Draft for you to review and publish.
+
+To learn more, see [Dataset generation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/dataset-generation.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Evaluations: Insights
+<a name="_evaluations_insights_2"></a>
+
+Insights is a capability of Amazon Bedrock AgentCore Evaluations that groups related failures in sampled live traffic and explains their root causes. Use it when multiple sessions fail for the same underlying reason and you need to identify patterns without manually comparing each session.
+
+Add the `Builtin.FailureAnalysis` Insight Evaluator to an online evaluation to generate Insights. We aggregate these patterns at the agent level by `serviceName` and update them as the evaluation processes new evidence. Batch evaluations can use the same evaluator to generate point-in-time insights for the selected dataset. After you enable the default Agent Insight Store, the Agent Insights APIs surface findings from both sources.
+
+Each insight includes generated root causes and suggested fixes. It also includes the number of affected sessions and sample sessions that you can inspect in your traces.
+
+You have one default Agent Insight Store in each supported Region. The Store starts disabled and uses an AWS owned key. Enable it before an Insight Evaluator can add Agent Insights. You can disable it later or encrypt it with a customer managed AWS KMS key. You can also archive or restore individual Agent Insights.
+
+For more information, see [Insights](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/insights.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Web search: Free monthly queries
+<a name="_web_search_free_monthly_queries_2"></a>
+
+With the Web Search Tool and the Web Search API, your agents can search the web for current information. Amazon Bedrock AgentCore now includes the first 5,000 web search queries each month at no charge for every AWS account. You can build and test agents that search the web without paying for your first queries.
+
+The free queries apply automatically and reset every month. All accounts in an organization share them, across all AWS Regions where web search is available, except AWS GovCloud (US). After you use the free queries, standard pricing applies. For more information about pricing, see [Amazon Bedrock AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/).
+
+To learn more, see [Free monthly queries](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-web-search-tool.html#gateway-target-connector-web-search-tool-free-queries) in the *Amazon Bedrock AgentCore Developer Guide*.
 
 ### Runtime: Instances now available in six more AWS Regions
 <a name="runtime_instances_now_available_in_six_more_shared_aws_regions"></a>
@@ -68,6 +200,13 @@ For more information, see [Models and instructions](https://docs.aws.amazon.com/
 Amazon Bedrock AgentCore Runtime agents on platform version V2 can now use resource configurations to set a committed baseline of vCPU and memory on the agent runtime, from 0.25 vCPU and 1 GB of memory to 2 vCPU and 8 GB of memory. During peak activity, your agent can burst up to 4 times the baseline, up to 8 vCPU and 32 GB of memory per session. You pay for the baseline until the session is terminated and for usage above the baseline per second, both at the committed baseline rate, which is lower than the consumption rate. Agent runtimes without a resource configuration continue to use default consumption-based pricing.
 
 For more information, see [Resource configurations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-v2-resource-configurations) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Gateway: Advertise a custom domain for gateways behind a proxy
+<a name="_gateway_advertise_a_custom_domain_for_gateways_behind_a_proxy_2"></a>
+
+Amazon Bedrock AgentCore Gateway now supports a `domainOverride` setting for gateways that use JSON Web Token (JWT) inbound authorization. When clients reach your gateway through your own proxy or custom domain, the gateway can advertise that domain in its OAuth discovery responses. This domain replaces the default gateway endpoint. You configure a default domain and, optionally, alternate domains. Your proxy chooses which configured domain applies to each request by setting the `x-amzn-bedrock-agentcore-gateway-domain` header.
+
+For more information, see [Advertise a custom domain for gateways behind a proxy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-inbound-auth.html#gateway-inbound-auth-jwt-domain-override) in the *Amazon Bedrock AgentCore Developer Guide*.
 
 ### Web Search: Search the web from your code with the InvokeWebSearch API
 <a name="_web_search_search_the_web_from_your_code_with_the_invokewebsearch_api_2"></a>

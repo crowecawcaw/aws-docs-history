@@ -1,7 +1,6 @@
 
 
 # AgentCore generated identity observability data
-<a name="observability-identity-metrics"></a>
 
 This document described observability data emitted by the Bedrock AgentCore Identity Service. This data provides visibility into the performance, usage, and operational health of the service, allowing you to monitor authorization activities for your AI agents and workloads.
 

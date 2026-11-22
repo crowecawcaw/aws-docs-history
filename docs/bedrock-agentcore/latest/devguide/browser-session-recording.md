@@ -1,7 +1,6 @@
 
 
 # Session Recording and Replay
-<a name="browser-session-recording"></a>
 
 Browser session recording and replay provides comprehensive observability for debugging, auditing, or training purposes. When you create a browser with session recording enabled, Amazon Bedrock AgentCore automatically captures browser interactions and stores them in your specified Amazon S3 bucket for later analysis.
 
@@ -29,7 +28,7 @@ To enable session recording, you need an IAM execution role with permissions to 
 
 The execution role requires additional permissions beyond the standard browser permissions:
 
-```
+```json
 {
     "Sid": "S3Permissions",
     "Effect": "Allow",
@@ -72,7 +71,7 @@ When creating your browser tool, ensure you:
 
 Example using Python SDK:
 
-```
+```python
 import boto3
 import uuid
 
@@ -106,7 +105,7 @@ print(f"Recordings will be stored at: s3://{bucket}/browser-recordings/")
 
 Use your recording-enabled browser with any automation framework. All browser interactions will be automatically recorded. Example using Strands:
 
-```
+```python
 from strands import Agent
 from strands_tools.browser import AgentCoreBrowser
 
@@ -198,7 +197,7 @@ Access live view and recording insights programmatically using the Amazon Bedroc
 
 Connect to live browser sessions using the browser client and viewer server:
 
-```
+```python
 import time
 from rich.console import Console
 from bedrock_agentcore.tools.browser_client import browser_session
@@ -237,7 +236,7 @@ if __name__ == "__main__":
 
 Access recording data directly from Amazon S3 for custom analysis workflows:
 
-```
+```python
 import boto3
 
 s3_client = boto3.client('s3', region_name='us-west-2')

@@ -1,12 +1,11 @@
 
 
 # Failure analysis evaluator
-<a name="builtin-failure-analysis"></a>
 
 The failure analysis evaluator (`Builtin.FailureAnalysis`) tells you what went wrong in your agent sessions, where it happened, and why. It finds each failure, locates it at a span, determines the root cause, and recommends what to change. It then groups similar failures across sessions into *failure insights*, so that you can fix patterns instead of individual sessions.
 
 **Note**  
-The failure analysis evaluator is one of the [Insight evaluators](insight-evaluators.md). Currently, only the batch evaluation APIs support it. For how to run it, see [Insights in batch evaluation](batch-evaluations-insights.md).
+The failure analysis evaluator is one of the [Insight evaluators](insight-evaluators.md). You can use it in online and batch evaluations. Online evaluations generate [Insights](online-evaluations-insights.md). Batch evaluations return point-in-time grouped findings in `insightResults`. When the default Agent Insight Store is enabled and active, the Agent Insights APIs surface findings from both sources.
 
 ## How it works
 <a name="builtin-failure-analysis-how-it-works"></a>
@@ -24,9 +23,13 @@ The evaluator reads the spans of your sessions from your CloudWatch Logs data so
 ## Failure insights
 <a name="builtin-failure-analysis-results"></a>
 
-When you run the evaluator in a batch evaluation, the service returns failure insights in the `insightResults` field of the `GetBatchEvaluation` response. The following example shows one failure insight in a readable form.
+When you run the evaluator in an online evaluation and the default Agent Insight Store is enabled and active, AgentCore continuously groups related findings for the agent identified by `serviceName`. These Agent Insights can update as the evaluation processes more traffic.
 
-```
+When you run the evaluator in a batch evaluation, the service returns failure insights in the `insightResults` field of the `GetBatchEvaluation` response. These results describe the selected sessions in that batch evaluation and don’t update continuously. When the default Agent Insight Store is enabled and active, batch-generated insights are also available through the Agent Insights APIs. For more information, see [How Insights works](insights-how-it-works.md).
+
+The following example shows one failure insight in a readable form.
+
+```text
 Failure insight: Tool calls fail because of permission and quota errors
   Affects 3 sessions
   Tool calls that change the state of a service fail because the caller
@@ -111,7 +114,7 @@ Keep the following in mind when you use the failure analysis evaluator:
 +  **Evaluator judgment:** Every result is the judgment of the evaluator, not a comparison with ground truth or expected answers. Review the findings and the suggested fixes before you act on them.
 +  **Advice only:** The evaluator does not change your agent. A suggested fix is a recommendation that you apply yourself.
 +  **Failures only:** The evaluator does not score quality or goal success. A session without failures receives the label `No Failures Found` and adds nothing to the insights.
-+  **No history:** Each run stands alone. The evaluator does not compare runs.
++  **Point-in-time batch results:** The `insightResults` of each batch evaluation describe that run, don’t compare it with another run, and don’t update after the evaluation completes. When the default Agent Insight Store is enabled and active, you can also access batch-generated findings through the Agent Insights APIs by filtering on `batchEvaluationId`.
 +  **Sessions without spans:** A session that has no spans from supported instrumentation in the selected time range fails with the message `No spans were found for the session`.
 +  **Large sessions:** The evaluator analyzes very large sessions in parts, so coverage of an extremely large session can be partial. For multi-agent sessions, it analyzes the spans of all agents in the session together.
-+  **Insight generation errors:** If the service cannot generate the insights, the evaluation ends with the status `COMPLETED_WITH_ERRORS`, the `insightResults` field is not present, and the `errorDetails` field contains the message `Insight generation failed for the Builtin.FailureAnalysis evaluator.` The session results and the results of the other evaluators are still returned.
++  **Batch insight generation errors:** If the service cannot generate the batch `insightResults`, it ends the evaluation with the status `COMPLETED_WITH_ERRORS`. The response omits `insightResults`, and `errorDetails` contains `Insight generation failed for the Builtin.FailureAnalysis evaluator.` The service still returns the session results and results from other evaluators.

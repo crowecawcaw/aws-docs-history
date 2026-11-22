@@ -1,7 +1,6 @@
 
 
 # Observability and cost controls
-<a name="harness-operations"></a>
 
 This page covers monitoring your harness, controlling execution costs, and managing resource tags.
 
@@ -51,7 +50,7 @@ The following table describes the capabilities that can incur charges when you u
 
 Runtime billing uses per-second active consumption rather than provisioned instance time:
 
-```
+```text
 CPU cost = consumed vCPU-seconds / 3,600 * vCPU-hour rate
 Memory cost = sum of peak GB consumed in each second / 3,600 * GB-hour rate
 ```
@@ -64,7 +63,7 @@ Don’t estimate CPU cost from wall-clock invocation or session duration alone. 
 + Use [AgentCore Observability](observability.md) traces, CloudWatch Logs, and X-Ray APIs to identify model calls, tool calls, memory operations, and their duration. Observability explains activity but is not a billing report.
 + Use AWS Cost Explorer or the AWS Cost and Usage Report for billed usage. Activate your harness tags as cost allocation tags to filter supported charges.
 
-Harness tags propagate to the managed Runtime, Runtime endpoint, and managed Memory created for the harness. Tag separately created resources, such as Gateway, EFS, S3, or a bring-your-own Memory resource, independently.
+AgentCore copies the tags that you specify in `CreateHarness` to the managed Runtime, Runtime endpoint, and managed Memory when it creates them. Later tag changes on the harness don’t update tags on these resources, so include cost allocation tags in `CreateHarness`. For details, see [Tags](#harness-tags). Tag separately created resources, such as Gateway, EFS, S3, or a bring-your-own Memory resource, independently.
 
 ## Control cost with limits
 <a name="harness-limits"></a>
@@ -80,7 +79,7 @@ All limits are optional; omit them to use service defaults. Because harness is b
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore-control update-harness \
   --harness-id "MyHarness-UuFdkQoXSL" \
   --max-iterations 50 \
@@ -90,7 +89,7 @@ aws bedrock-agentcore-control update-harness \
 Or override on a single invocation by passing `maxIterations`, `timeoutSeconds`, or `maxTokens` in `invoke_harness`.
 Set defaults:  
 
-```
+```bash
 agentcore add harness \
   --name bounded_agent \
   --max-iterations 50 \
@@ -109,7 +108,7 @@ Apply tags to your harness for cost allocation and access control.
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore-control create-harness \
   --harness-name "MyHarness" \
   --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
@@ -117,14 +116,19 @@ aws bedrock-agentcore-control create-harness \
 ```
 Set tags when you add the harness:  
 
-```
+```bash
 agentcore add harness \
   --name MyHarness \
   --tags '{"team":"platform","environment":"staging"}'
 agentcore deploy
 ```
 
-Harness tags propagate to the managed Runtime, Runtime endpoint, and managed Memory created for the harness. Separately created resources retain their own tags.
+AgentCore copies tags to the resources that it creates for a harness only when it creates them:
++ The managed Runtime, its `DEFAULT` Runtime endpoint, and the managed Memory get the tags that you specify in `CreateHarness`.
++ A harness endpoint that you create with `CreateHarnessEndpoint`, and the Runtime endpoint that AgentCore creates for it, get only the tags that you specify in that request, not the harness tags.
++ AgentCore doesn’t copy tag keys that begin with `aws:`, such as the `aws:cloudformation:*` tags that AWS CloudFormation adds, to the managed Runtime, Runtime endpoints, or Memory.
+
+Tags that you later add or remove on the harness with `TagResource` or `UntagResource` apply to the harness only. `UpdateHarness` and `UpdateHarnessEndpoint` don’t change tags on existing managed resources. Separately created resources retain their own tags.
 
 ## Related topics
 <a name="_related_topics"></a>

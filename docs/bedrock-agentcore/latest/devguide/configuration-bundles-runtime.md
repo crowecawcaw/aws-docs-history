@@ -1,7 +1,6 @@
 
 
 # Use configuration bundles at runtime
-<a name="configuration-bundles-runtime"></a>
 
 Your agent reads configuration from a bundle at runtime to apply dynamic settings without redeploying code. The gateway and runtime pass the bundle reference through W3C baggage headers, a standard mechanism for passing context between services. Your agent reads the configuration from the current request context without needing to know which bundle version is active.
 
@@ -21,7 +20,7 @@ The baggage contains two keys:
 
 You can also pass baggage manually when invoking the agent directly (for example, during testing):
 
-```
+```python
 import boto3
 import json
 import uuid
@@ -53,7 +52,7 @@ In production, you do not need to construct baggage manually. The gateway handle
 
 The `BedrockAgentCoreContext` class (from the `bedrock-agentcore` SDK) provides a `get_config_bundle()` method that returns the configuration for the current request. The `BedrockAgentCoreApp` automatically parses the baggage headers, resolves the bundle version from the control plane API, and caches the result.
 
-```
+```python
 from bedrock_agentcore.runtime import BedrockAgentCoreContext
 
 # Returns the configuration dict for your component, or {} if no bundle is in context
@@ -67,7 +66,7 @@ model_id = config.get("model_id", "global.anthropic.claude-sonnet-4-5-20250929-v
 
 You can also inspect the raw bundle reference:
 
-```
+```python
 ref = BedrockAgentCoreContext.get_config_bundle_ref()
 if ref:
     print(f"Bundle ID: {ref.bundle_id}")
@@ -80,7 +79,7 @@ if ref:
 
 The recommended pattern for Strands agents is to use a `BeforeModelCallEvent` hook that dynamically updates the agent’s system prompt before every model call. The agent is created once at module level, and the hook modifies it per-request:
 
-```
+```python
 from strands import Agent
 from strands.models.bedrock import BedrockModel
 from strands.hooks.events import BeforeModelCallEvent
@@ -122,7 +121,7 @@ The `BeforeModelCallEvent` hook fires before every LLM call, so configuration bu
 
 If you need to apply more configuration fields (model ID, temperature, tools), build a fresh agent per request instead of using a hook:
 
-```
+```python
 from strands import Agent
 from strands.models.bedrock import BedrockModel
 from bedrock_agentcore.runtime import BedrockAgentCoreApp, BedrockAgentCoreContext
@@ -166,7 +165,7 @@ if __name__ == "__main__":
 
 For LangGraph agents, read the configuration bundle at the start of each invocation and pass the values to your graph:
 
-```
+```python
 from langchain_aws import ChatBedrock
 from langgraph.graph import StateGraph, MessagesState, START, END
 from bedrock_agentcore.runtime import BedrockAgentCoreApp, BedrockAgentCoreContext
@@ -213,7 +212,7 @@ if __name__ == "__main__":
 
 For agents built with Google’s Agent Development Kit (ADK), read the configuration bundle when constructing the agent, then run the agent with an ADK `Runner`:
 
-```
+```python
 import uuid
 
 from google.adk.agents import LlmAgent
@@ -274,7 +273,7 @@ if __name__ == "__main__":
 
 For agents using the OpenAI SDK with the OpenAI-compatible Amazon Bedrock endpoint, read the configuration bundle to set the model and system prompt. The client authenticates with a short-lived Amazon Bedrock bearer token from the `aws-bedrock-token-generator` package, and the Runtime execution role needs the `bedrock-mantle:CreateInference` permission. This endpoint serves OpenAI-compatible models such as `openai.gpt-oss-120b`:
 
-```
+```python
 import os
 
 from aws_bedrock_token_generator import provide_token
@@ -319,7 +318,7 @@ Always provide default values when reading from the bundle configuration. This e
 
  `get_config_bundle()` returns an empty dict when no bundle reference is present. If the underlying API call fails, the exception propagates. Wrap the call in a try/except for graceful degradation:
 
-```
+```python
 from bedrock_agentcore.runtime import BedrockAgentCoreContext
 
 DEFAULT_SYSTEM_PROMPT = "You are a helpful customer support assistant."

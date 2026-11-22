@@ -1,7 +1,6 @@
 
 
 # Tutorial: Build, deploy, and operate an agent
-<a name="agentcore-cli-get-started"></a>
 
 In this tutorial, you build, deploy, and operate a production AI agent from your terminal. You start with one project and progressively add memory, tools, policy controls, evaluations, and operational workflows across seven sections. Complete the sections in order because each section builds on the resources and code from the previous section.
 
@@ -26,20 +25,20 @@ Docker isn’t required. The `agent-python-strands` template used in this tutori
 ### Install the CLI
 <a name="_install_the_cli"></a>
 
-```
+```bash
 npm install -g @aws/agentcore
 ```
 
 Set the AWS Region that every section uses.
 
-```
+```bash
 export AWS_REGION=us-west-2
 ```
 
 ### Verify the installation
 <a name="_verify_the_installation"></a>
 
-```
+```bash
 agentcore --version
 ```
 
@@ -62,7 +61,7 @@ Create a Strands agent, run it locally, and deploy it to your AWS account.
 
 Create a project from the Python Strands template.
 
-```
+```bash
 agentcore create --name TripPlanner --template agent-python-strands
 cd TripPlanner
 ```
@@ -74,20 +73,20 @@ The `app/agent/` directory contains your application code. The `agentcore/agentc
 
 Start the local development server. The server reloads when you change the application files.
 
-```
+```bash
 agentcore dev
 ```
 
 From a second terminal, invoke the local agent. The reply streams as server-sent events from an Amazon Bedrock model invocation.
 
-```
+```bash
 agentcore invoke --runtime agent --local \
   --payload '{"prompt":"Plan two days in Lisbon in one paragraph."}'
 ```
 
 The response resembles the following:
 
-```
+```text
 data: {"event": {"contentBlockDelta": {"delta": {"text": "Start your"}, ...}}}
 ...
 data: {"event": {"messageStop": {"stopReason": "end_turn"}}}
@@ -98,13 +97,13 @@ data: {"event": {"messageStop": {"stopReason": "end_turn"}}}
 
 Stop the development server with `Ctrl+C`, and then deploy the project. The first deployment bootstraps AWS CDK and can take several minutes.
 
-```
+```bash
 agentcore deploy
 ```
 
 The output resembles the following:
 
-```
+```text
 Created default deployment target: account 123456789012, region us-west-2
 Deploying AgentCore-TripPlanner-default
 Deployed project 'TripPlanner' to target 'default'
@@ -112,7 +111,7 @@ Deployed project 'TripPlanner' to target 'default'
 
 Invoke the deployed Runtime.
 
-```
+```bash
 agentcore invoke --runtime agent \
   --payload '{"prompt":"Plan two days in Lisbon in one paragraph."}'
 ```
@@ -120,13 +119,13 @@ agentcore invoke --runtime agent \
 ### Verify the deployment
 <a name="_verify_the_deployment"></a>
 
-```
+```bash
 agentcore status --json
 ```
 
 The response includes the deployed Runtime and Memory:
 
-```
+```json
 {
   "projectName": "TripPlanner",
   "target": "default",
@@ -178,7 +177,7 @@ Configure the agent to remember a preference from one session and apply it in a 
 
 The template retrieves only memories that have a relevance score of at least `0.5`. Short preference statements can score lower. In `app/agent/memory/session.py`, replace the `retrieval_config` value with the following configuration. It lowers the threshold to `0.3` and points the summaries lookup to the namespace that the Memory writes.
 
-```
+```python
 retrieval_config = {
     f"/users/{actor_id}/facts": RetrievalConfig(top_k=3, relevance_score=0.3),
     f"/users/{actor_id}/preferences": RetrievalConfig(top_k=3, relevance_score=0.3),
@@ -189,7 +188,7 @@ retrieval_config = {
 
 Deploy the change.
 
-```
+```bash
 agentcore deploy
 ```
 
@@ -198,7 +197,7 @@ agentcore deploy
 
 Tell the agent about the traveler’s preferences. Runtime session IDs must contain at least 33 characters.
 
-```
+```bash
 agentcore invoke --runtime agent \
   --session-id trip-planner-preference-session-0001 \
   --payload '{"prompt":"I am Dana. I always want a window seat and I only eat vegetarian food."}'
@@ -206,7 +205,7 @@ agentcore invoke --runtime agent \
 
 Long-term memory extraction runs after the session and can take a few minutes. List the preference records to confirm that extraction finished. The Memory ID is the final segment of the Memory ARN shown by `agentcore status`.
 
-```
+```bash
 agentcore memory record list \
   --id {{memory-id}} \
   --namespace /users/default/preferences
@@ -214,7 +213,7 @@ agentcore memory record list \
 
 If the list is empty, wait a minute and run the command again. When extraction finishes, the response resembles the following:
 
-```
+```json
 {
   "memoryRecordSummaries": [
     {
@@ -238,7 +237,7 @@ The actor is `default` because the requests in this tutorial don’t include an 
 
 Start a new session and ask the agent to apply the preferences without repeating them.
 
-```
+```bash
 agentcore invoke --runtime agent \
   --session-id trip-planner-memory-recall-session-0002 \
   --payload '{"prompt":"I am flying to Porto next week. Which seat should I book and where should I eat?"}'
@@ -246,7 +245,7 @@ agentcore invoke --runtime agent \
 
 The reply streams as server-sent events. The text of the reply uses the preferences from the previous session and resembles the following:
 
-```
+```text
 Book a window seat. You've indicated you always prefer a window seat ...
 Look for vegetarian restaurants ...
 ```
@@ -286,7 +285,7 @@ Connect the agent to an external API through AgentCore Gateway, with the API key
 
 Add a Gateway that uses AWS Identity and Access Management (IAM) authorization. AgentCore Gateway provides a managed Model Context Protocol (MCP) server. During deployment, the CLI grants the Runtime permission to call it.
 
-```
+```bash
 agentcore add gateway --name tools --authorizer-type AWS_IAM
 ```
 
@@ -295,7 +294,7 @@ agentcore add gateway --name tools --authorizer-type AWS_IAM
 
 NASA accepts `DEMO_KEY` for its Astronomy Picture of the Day API without registration. The CLI rejects inline secret values, so pass the key on standard input.
 
-```
+```bash
 printf 'DEMO_KEY' | agentcore add credentials api-key \
   --name nasa \
   --api-key -
@@ -306,7 +305,7 @@ printf 'DEMO_KEY' | agentcore add credentials api-key \
 
 Create `schemas/nasa-apod.json` with the following OpenAPI schema. Each OpenAPI operation becomes a tool. The `operationId` becomes the tool name, and the operation description helps the model decide when to use it.
 
-```
+```json
 {
   "openapi": "3.0.3",
   "info": {
@@ -351,7 +350,7 @@ Keep the `date` property as a string. The next section writes an authorization p
 
 Add the API as a target. The target uses the `nasa` credential that you stored earlier and sends the key in the `x-api-key` header.
 
-```
+```bash
 agentcore add gateway-target \
   --gateway tools \
   --target-configuration \
@@ -363,7 +362,7 @@ agentcore add gateway-target \
 
 Deployment sets `AGENTCORE_GATEWAY_TOOLS_URL` on the Runtime. Create `app/agent/gateway_client.py` with the following client, which signs each MCP request with the Runtime’s AWS credentials.
 
-```
+```python
 import os
 
 import httpx
@@ -416,7 +415,7 @@ def get_gateway_client() -> MCPClient | None:
 
 Import the client in `app/agent/main.py`.
 
-```
+```python
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
 from model.load import load_model
 from parse import parse_payload
@@ -426,7 +425,7 @@ from gateway_client import get_gateway_client
 
 Register the Gateway next to the template’s example tool.
 
-```
+```python
 tools.append(add_numbers)
 
 gateway = get_gateway_client()
@@ -439,13 +438,13 @@ def _make_conversation_manager():
 
 Deploy the changes.
 
-```
+```bash
 agentcore deploy
 ```
 
 Ask the agent for information that requires the external API.
 
-```
+```bash
 agentcore invoke --runtime agent \
   --session-id trip-planner-gateway-tools-session-0003 \
   --payload '{"prompt":"What is the NASA astronomy picture of the day? Provide the title and a one-sentence description."}'
@@ -453,7 +452,7 @@ agentcore invoke --runtime agent \
 
 The streamed response includes a tool invocation and the model’s answer:
 
-```
+```text
 data: {"event": {"contentBlockStart": {"start": {"toolUse": {"name": "nasa___getAstronomyPictureOfTheDay", ...}}}}}
 ...
 data: {"event": {"contentBlockDelta": {"delta": {"text": "The title is ..."}}}}
@@ -464,7 +463,7 @@ data: {"event": {"contentBlockDelta": {"delta": {"text": "The title is ..."}}}}
 
 Call the MCP `tools/list` method on the Gateway directly.
 
-```
+```bash
 agentcore invoke --gateway tools \
   --path /mcp \
   --payload '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
@@ -472,7 +471,7 @@ agentcore invoke --gateway tools \
 
 The response lists the NASA tool:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -492,7 +491,7 @@ Run `agentcore invoke --gateway tools` without `--payload` to open a JSON consol
 
 If Amazon Web Search is available in your account, you can add it as a second tool:
 
-```
+```bash
 agentcore add gateway-connector \
   --gateway tools \
   --name search \
@@ -540,7 +539,7 @@ Use a Cedar policy to decide which tool calls the Gateway executes without chang
 
 Add a Policy Engine to the Gateway. In `enforce` mode, every tool call is denied unless a policy permits it.
 
-```
+```bash
 agentcore add policy-engine \
   --name guard \
   --attach-to-gateways tools
@@ -555,7 +554,7 @@ The `context.input` value contains the tool arguments, which are typed from the 
 
 Tool-specific policies must identify the Gateway resource. Copy the Gateway ARN from `agentcore status` and replace the example ARN.
 
-```
+```text
 permit (
     principal,
     action == AgentCore::Action::"nasa___getAstronomyPictureOfTheDay",
@@ -571,7 +570,7 @@ when {
 
 Add the policy to the project, and then deploy it.
 
-```
+```bash
 agentcore add policy \
   --engine guard \
   --name RecentPicturesOnly \
@@ -589,7 +588,7 @@ If you change a target schema and its policy together, deploy the schema first. 
 
 Ask for one picture that the policy denies and one that it permits.
 
-```
+```bash
 agentcore invoke --runtime agent \
   --session-id trip-planner-tool-policy-session-0004 \
   --payload '{"prompt":"Show me the NASA picture for 1999-12-31, then for 2024-07-04. Provide one sentence for each."}'
@@ -597,7 +596,7 @@ agentcore invoke --runtime agent \
 
 The reply streams as server-sent events. The text of the reply resembles the following:
 
-```
+```text
 I was unable to retrieve the picture for 1999-12-31 due to a policy restriction,
 but here's the one from 2024-07-04:
 A Beautiful Trifid: The Trifid Nebula (M20) ...
@@ -608,7 +607,7 @@ A Beautiful Trifid: The Trifid Nebula (M20) ...
 
 Call the Gateway directly to inspect the denial.
 
-```
+```bash
 agentcore invoke --gateway tools \
   --path /mcp \
   --payload '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"nasa___getAstronomyPictureOfTheDay","arguments":{"date":"1999-12-31"}}}'
@@ -616,7 +615,7 @@ agentcore invoke --gateway tools \
 
 The Gateway returns a denied-by-default error:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -629,7 +628,7 @@ The Gateway returns a denied-by-default error:
 
 You can also draft a policy from a natural-language prompt. Replace `gateway-arn` with the Gateway ARN from `agentcore status`.
 
-```
+```bash
 agentcore gateway policy generate \
   --gateway-id {{gateway-arn}} \
   --prompt "Permit the NASA picture tool only for dates from 2000 through 2099."
@@ -652,7 +651,7 @@ Create an LLM-as-a-judge evaluator that scores the agent’s sessions against cr
 
 Add an evaluator with instructions and a rating scale. The service replaces `{context}` with the session transcript.
 
-```
+```bash
 agentcore add evaluator llm-as-a-judge \
   --name TripQuality \
   --level SESSION \
@@ -666,7 +665,7 @@ agentcore add evaluator llm-as-a-judge \
 
 Create an online evaluation that samples every live Runtime session and runs the custom evaluator and the built-in helpfulness evaluator after each session becomes inactive.
 
-```
+```bash
 agentcore add online-eval \
   --name TripMonitor \
   --agent agent \
@@ -678,7 +677,7 @@ agentcore deploy
 
 Generate a session to score.
 
-```
+```bash
 agentcore invoke --runtime agent \
   --session-id trip-planner-evaluation-session-0005 \
   --payload '{"prompt":"I am going to Kyoto for three days in November. Plan each day for me."}'
@@ -691,7 +690,7 @@ Traces can take about a minute to become searchable. To score the session immedi
 
 The Runtime, evaluator, and online evaluation IDs are the final segments of the ARNs shown by `agentcore status`.
 
-```
+```bash
 agentcore eval ondemand evaluate \
   --agent {{runtime-id}} \
   --evaluators {{evaluator-id}} Builtin.Helpfulness \
@@ -701,7 +700,7 @@ agentcore eval ondemand evaluate \
 
 The response resembles the following:
 
-```
+```json
 {
   "sessionsEvaluated": 1,
   "results": [
@@ -725,7 +724,7 @@ The custom evaluator marks the session down for vegetarian recommendations that 
 
 Use the following command to view the online evaluation status and the CloudWatch log group where results appear:
 
-```
+```bash
 agentcore eval online-eval get --id {{online-evaluation-id}}
 ```
 
@@ -771,13 +770,13 @@ Inspect the deployed agent’s traces and logs, open a shell in its Runtime, and
 
 Every invocation produces one trace. List recent traces.
 
-```
+```bash
 agentcore traces runtime list --since 2h
 ```
 
 The response resembles the following:
 
-```
+```text
 TRACE ID                          TIMESTAMP             SESSION ID
 6aa17cf501b3bb917bca787834a9b759  2026-09-09 15:36:34Z  trip-planner-evaluation-session-0005
 6aa17be2059d2dd11a5a73cc69dc9a97  2026-09-09 15:31:59Z  trip-planner-tool-policy-session-0004
@@ -785,7 +784,7 @@ TRACE ID                          TIMESTAMP             SESSION ID
 
 Download a trace to inspect the model input and tool calls.
 
-```
+```bash
 agentcore traces runtime get {{trace-id}}
 ```
 
@@ -794,7 +793,7 @@ agentcore traces runtime get {{trace-id}}
 
 Search recent error logs or stream new log records.
 
-```
+```bash
 agentcore logs runtime --since 1h --level error
 
 agentcore logs runtime --tail
@@ -807,13 +806,13 @@ For local development, `agentcore dev --mode browser` opens the Agent Inspector,
 
 Replace `runtime-id` with the final segment of the Runtime ARN shown by `agentcore status`.
 
-```
+```bash
 agentcore runtime shell --id {{runtime-id}}
 ```
 
 From the shell, you can inspect the running process and call the Runtime health endpoint:
 
-```
+```text
 [agentcore-runtime-user@localhost /]$ ps -eo pid,args | grep main.py
     341 /opt/aws/agentcore-runtime/python/versions/3.14.2/bin/python /var/task/main.py
 [agentcore-runtime-user@localhost /]$ curl -s localhost:8080/ping
@@ -875,14 +874,14 @@ Use the Identity menu to inspect credential provider operations:
 
 Remove every resource from the project specification, and deploy the empty specification. The CLI removes the stack and its deployed resources. Your local application code, schemas, and policies remain on disk.
 
-```
+```bash
 agentcore remove all --yes
 agentcore deploy --yes
 ```
 
 The output resembles the following:
 
-```
+```text
 Removing stack AgentCore-TripPlanner-default
 Removed project 'TripPlanner' from target 'default'
 ```

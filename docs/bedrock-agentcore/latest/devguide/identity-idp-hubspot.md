@@ -1,7 +1,6 @@
 
 
 # HubSpot
-<a name="identity-idp-hubspot"></a>
 
 HubSpot can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through HubSpot’s OAuth2 service and obtain access tokens for HubSpot API resources.
 
@@ -42,7 +41,7 @@ For more details, refer to [HubSpot’s OAuth quickstart guide](https://develope
 
 To configure HubSpot as an outbound resource provider, use the following:
 
-```
+```json
 {
   "name": "Hubspot",
   "credentialProviderVendor": "HubspotOauth2",

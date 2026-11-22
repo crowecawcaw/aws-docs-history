@@ -1,7 +1,6 @@
 
 
 # Using AgentCore Code Interpreter directly
-<a name="code-interpreter-using-directly"></a>
 
 The following sections show you how to use the Amazon Bedrock AgentCore Code Interpreter directly without an agent framework. This is especially useful when you want to execute specific code snippets programmatically. Before you go through the examples in this section, see [Prerequisites](code-interpreter-getting-started.md#code-interpreter-prerequisites).
 
@@ -18,7 +17,7 @@ Amazon Bedrock AgentCore provides two ways to interact with AgentCore Code Inter
 
 Create a project folder (if you didn’t create one before) and install the required packages:
 
-```
+```bash
 mkdir agentcore-tools-quickstart
 cd agentcore-tools-quickstart
 python3 -m venv .venv
@@ -29,7 +28,7 @@ On Windows, use: `.venv\Scripts\activate`
 
 Install the required packages:
 
-```
+```bash
 pip install bedrock-agentcore boto3
 ```
 
@@ -49,7 +48,7 @@ Replace `<Region>` with your actual AWS Region (for example, `us-east-1` or `us-
 
 1. Create a file named `direct_code_execution_sdk.py` and add the following code:
 
-   ```
+   ```python
    from bedrock_agentcore.tools.code_interpreter_client import CodeInterpreter
    import json
    
@@ -85,7 +84,7 @@ Replace `<Region>` with your actual AWS Region (for example, `us-east-1` or `us-
 
      Execute the following command:
 
-     ```
+     ```bash
      python direct_code_execution_sdk.py
      ```
 
@@ -95,7 +94,7 @@ Replace `<Region>` with your actual AWS Region (for example, `us-east-1` or `us-
 
 1. Create a file named `direct_code_execution_boto3.py` and add the following code:
 
-   ```
+   ```python
    import boto3
    import json
    
@@ -163,7 +162,7 @@ Replace `<Region>` with your actual AWS Region (for example, `us-east-1` or `us-
 
      Execute the following command:
 
-     ```
+     ```bash
      python direct_code_execution_boto3.py
      ```
 

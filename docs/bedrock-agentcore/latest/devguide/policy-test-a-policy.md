@@ -1,7 +1,6 @@
 
 
 # Test a policy in LOG\_ONLY mode
-<a name="policy-test-a-policy"></a>
 
 Using the policy-level enforcement mode, you can toggle between `ACTIVE` and `LOG_ONLY` to answer the question: "What would this policy do to my traffic if it was applied?" Per policy `LOG_ONLY` mode lets you test a policy on real traffic without affecting authorization decisions. The policy evaluates every request as if it were enforced, but only writes results to logs. Nothing is blocked or permitted as a result of a policy whose enforcement mode is `LOG_ONLY`. Once you trust the results, promote it to `ACTIVE`.
 
@@ -75,7 +74,7 @@ You can set the `enforcementMode` field on a policy when you create or update th
 
 1. Save the statement to `log_only_violence.dw`, then add it with `LOG_ONLY` enforcement and deploy:
 
-   ```
+   ```bash
    agentcore add policy --name LogOnlyViolenceFilter \
      --engine my_policy_engine \
      --source log_only_violence.dw \
@@ -87,7 +86,7 @@ You can set the `enforcementMode` field on a policy when you create or update th
 
 1. Run the following code in a terminal to create the policy in `LOG_ONLY` mode using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-policy \
      --policy-engine-id my_policy_engine-a1b2c3d4e5 \
      --name LogOnlyViolenceFilter \
@@ -98,7 +97,7 @@ You can set the `enforcementMode` field on a policy when you create or update th
 
 1. Run the following code to create the policy in `LOG_ONLY` mode using the AWS SDK for Python:
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -134,7 +133,7 @@ ListPolicies returns `enforcementMode` in each policy summary, so you can see at
 
 1. Show the deployed policies the project manages and their state:
 
-   ```
+   ```bash
    agentcore status
    ```
 
@@ -142,7 +141,7 @@ ListPolicies returns `enforcementMode` in each policy summary, so you can see at
 
 1. Run the following code in a terminal to list policies and their enforcement modes using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control list-policies \
      --policy-engine-id my_policy_engine-a1b2c3d4e5 \
      --query 'policies[].{name:name,enforcementMode:enforcementMode,status:status}'
@@ -150,7 +149,7 @@ ListPolicies returns `enforcementMode` in each policy summary, so you can see at
 
 1. Run the following code to list policies and their enforcement modes using the AWS SDK for Python:
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -163,7 +162,7 @@ ListPolicies returns `enforcementMode` in each policy summary, so you can see at
 
  **response** 
 
-```
+```json
 [
   { "name": "LogOnlyViolenceFilter", "enforcementMode": "LOG_ONLY", "status": "ACTIVE" },
   { "name": "RefundLimit",           "enforcementMode": "ACTIVE",   "status": "ACTIVE" }
@@ -203,7 +202,7 @@ When you are confident in a `LOG_ONLY` policy, promote it to enforcement with `U
 
 1. Change the policy’s enforcement mode in the project and deploy:
 
-   ```
+   ```bash
    agentcore add policy --name LogOnlyViolenceFilter \
      --engine my_policy_engine \
      --source log_only_violence.dw \
@@ -215,7 +214,7 @@ When you are confident in a `LOG_ONLY` policy, promote it to enforcement with `U
 
 1. Run the following code in a terminal to promote the policy using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control update-policy \
      --policy-engine-id my_policy_engine-a1b2c3d4e5 \
      --policy-id LogOnlyViolenceFilter-a1b2c3d4e5 \
@@ -224,7 +223,7 @@ When you are confident in a `LOG_ONLY` policy, promote it to enforcement with `U
 
 1. Run the following code to promote the policy using the AWS SDK for Python:
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -255,7 +254,7 @@ Analyze the scores against ground truth. If you have a labeled test set (prompts
 
 1. Edit the threshold in `log_only_violence.dw`, then re-add the policy with `ACTIVE` enforcement and deploy:
 
-   ```
+   ```bash
    agentcore add policy --name LogOnlyViolenceFilter \
      --engine my_policy_engine \
      --source log_only_violence.dw \
@@ -267,7 +266,7 @@ Analyze the scores against ground truth. If you have a labeled test set (prompts
 
 1. Run the following code in a terminal to update the threshold and promote the policy using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control update-policy \
      --policy-engine-id my_policy_engine-a1b2c3d4e5 \
      --policy-id LogOnlyViolenceFilter-a1b2c3d4e5 \
@@ -277,7 +276,7 @@ Analyze the scores against ground truth. If you have a labeled test set (prompts
 
 1. Run the following code to update the threshold and promote the policy using the AWS SDK for Python:
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')

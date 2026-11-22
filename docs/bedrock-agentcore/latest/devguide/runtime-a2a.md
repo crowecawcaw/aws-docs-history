@@ -1,7 +1,6 @@
 
 
 # Deploy A2A servers in AgentCore Runtime
-<a name="runtime-a2a"></a>
 
 Amazon Bedrock AgentCore Runtime lets you deploy and run Agent-to-Agent (A2A) servers in the AgentCore Runtime. This guide walks you through creating, testing, and deploying your first A2A server.
 
@@ -77,7 +76,7 @@ This example uses Strands with the A2A protocol.
 
 Run the following command:
 
-```
+```bash
 agentcore create --name A2AProject --template empty
 cd A2AProject
 agentcore add runtime \
@@ -103,7 +102,7 @@ The CLI registers a Python A2A Runtime with Cognito authorization and creates `R
 
 Create `app/A2AAgent/main.py` with the following A2A server:
 
-```
+```python
 from strands import Agent, tool
 from strands.multiagent.a2a.executor import StrandsA2AExecutor
 from bedrock_agentcore.runtime import serve_a2a
@@ -153,7 +152,7 @@ Run and test your A2A server in a local development environment.
 
 Start your A2A server locally using the AgentCore CLI:
 
-```
+```bash
 agentcore dev --mode browser
 ```
 
@@ -164,7 +163,7 @@ You should see output indicating the server is running on port `9000`.
 #### Invoke agent
 <a name="runtime-a2a-invoke-agent"></a>
 
-```
+```bash
 curl -X POST http://localhost:9000/ \
 -H "Content-Type: application/json" \
 -d '{
@@ -191,7 +190,7 @@ curl -X POST http://localhost:9000/ \
 
 You can test the agent card endpoint locally:
 
-```
+```bash
 curl http://localhost:9000/.well-known/agent-card.json | jq .
 ```
 
@@ -205,14 +204,14 @@ You can also test your deployed server using the A2A Inspector as described in [
 
 Build and deploy your agent:
 
-```
+```bash
 agentcore build
 agentcore deploy
 ```
 
 After deployment, get the Runtime ARN:
 
-```
+```bash
 agentcore status --json
 ```
 
@@ -230,20 +229,20 @@ Set the following environment variables:
 
 1. Export bearer token as an environment variable. For bearer token setup, see [Bearer token setup](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-mcp.html#runtime-mcp-appendix).
 
-   ```
+   ```bash
    export BEARER_TOKEN="<BEARER_TOKEN>"
    ```
 
 1. Export the agent ARN.
 
-   ```
+   ```bash
    export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/A2AProject_default_A2AAgent-xyz123"
    ```
 
 #### Retrieve agent card
 <a name="retrieve-agent-card"></a>
 
-```
+```python
 import os
 import json
 import requests
@@ -301,7 +300,7 @@ if __name__ == "__main__":
 
 After you get the URL from the Agent Card, export `AGENTCORE_RUNTIME_URL` as an environment variable:
 
-```
+```bash
 export AGENTCORE_RUNTIME_URL="https://bedrock-agentcore.us-west-2.amazonaws.com/runtimes/<ARN>/invocations/"
 ```
 
@@ -312,7 +311,7 @@ Create client code to invoke your deployed Amazon Bedrock AgentCore A2A server a
 
 Create a new file `my_a2a_client_remote.py` to invoke your deployed A2A server:
 
-```
+```python
 import asyncio
 import logging
 import os

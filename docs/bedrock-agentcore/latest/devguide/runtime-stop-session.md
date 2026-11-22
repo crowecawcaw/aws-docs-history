@@ -1,7 +1,6 @@
 
 
 # Stop a running session
-<a name="runtime-stop-session"></a>
 
 The `StopRuntimeSession` operation lets you immediately terminate active agent AgentCore Runtime sessions for proper resource cleanup and session lifecycle management.
 
@@ -28,7 +27,7 @@ To use [StopRuntimeSession](https://docs.aws.amazon.com/bedrock-agentcore/latest
 
    Python example using boto3 to stop a AgentCore Runtime session.
 
-   ```
+   ```python
    import boto3
    
    # Initialize the AgentCore client
@@ -55,7 +54,7 @@ To use [StopRuntimeSession](https://docs.aws.amazon.com/bedrock-agentcore/latest
 
 1. For applications using OAuth authentication, make direct HTTPS requests:
 
-   ```
+   ```python
    import requests
    import urllib.parse
    
@@ -104,7 +103,7 @@ To use [StopRuntimeSession](https://docs.aws.amazon.com/bedrock-agentcore/latest
 
 Expected response format for successful `StopRuntimeSession` operations.
 
-```
+```json
 {
     "ResponseMetadata": {
         "RequestId": "12345678-1234-1234-1234-123456789012",
@@ -135,7 +134,7 @@ The service returns `RetryableConflictException` (HTTP 409) when your `StopRunti
 ### Session lifecycle management
 <a name="session-lifecycle-management"></a>
 
-```
+```python
 class SessionManager:
     def __init__(self, client, agent_arn):
         self.client = client

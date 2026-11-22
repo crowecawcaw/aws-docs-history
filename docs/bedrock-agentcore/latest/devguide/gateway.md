@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock AgentCore Gateway: A secure AI gateway for agents, tools, and models
-<a name="gateway"></a>
 
 Amazon Bedrock AgentCore Gateway is a fully managed AI gateway that provides a single, secure entry point for agentic traffic—connecting agents to tools, to other agents, and to large language models (LLMs). Rather than serving only as an MCP tool gateway, Gateway routes and secures any agentic traffic through one endpoint: it converts APIs, Lambda functions, and existing services into Model Context Protocol (MCP)-compatible tools; fronts other agents and HTTP services through passthrough targets (including Agent-to-Agent (A2A) traffic); and routes inference requests across multiple model providers through a unified, model-based routing endpoint. Gateway supports OpenAPI, Smithy, and Lambda as tool input types, and is the only solution that provides both comprehensive ingress authentication and egress authentication in a fully managed service. Gateway also provides 1-click integration with several popular tools such as Salesforce, Slack, Jira, Asana, and Zendesk. Gateway eliminates weeks of custom code development, infrastructure provisioning, and security implementation so developers can focus on building innovative agent applications.
 

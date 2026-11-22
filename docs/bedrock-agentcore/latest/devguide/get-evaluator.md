@@ -1,7 +1,6 @@
 
 
 # Get evaluator
-<a name="get-evaluator"></a>
 
 The `GetEvaluator` API retrieves complete details of a specific custom or built-in evaluator including its configuration, status, and lock state.
 
@@ -22,7 +21,7 @@ The following code samples demonstrate how to get evaluator details using differ
 
 1. 
 
-   ```
+   ```python
    from bedrock_agentcore_starter_toolkit import Evaluation
    
    eval_client = Evaluation()
@@ -32,7 +31,7 @@ The following code samples demonstrate how to get evaluator details using differ
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -42,7 +41,7 @@ The following code samples demonstrate how to get evaluator details using differ
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control get-evaluator \
        --evaluator-id 'your_evaluator_id'
    ```

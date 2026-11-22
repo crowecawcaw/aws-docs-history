@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="datasets-prereqs"></a>
 
 Before you can manage datasets, make sure the following are in place.
 
@@ -15,7 +14,7 @@ Before you can manage datasets, make sure the following are in place.
 
 The following IAM policy grants the minimum permissions needed to manage datasets:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

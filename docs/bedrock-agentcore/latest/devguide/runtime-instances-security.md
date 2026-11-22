@@ -1,7 +1,6 @@
 
 
 # Security model and permissions for Runtime Instances
-<a name="runtime-instances-security"></a>
 
 When you host agents on the **Instances** compute type, your agents run on Amazon EC2 instances in your own AWS account. This changes the shared responsibility model compared to the serverless microVM compute type: the instances run in your account and VPC, your agents run with the permissions of the runtime execution role, and the data on them stays in your account. This topic describes the security model for Instances, the permissions involved, and the practices you should follow for multi-tenant deployments.
 
@@ -10,6 +9,7 @@ This topic complements the Runtime-wide guidance in [Security best practices for
 **Topics**
 + [Security model](#runtime-instances-security-model)
 + [Required permissions](#runtime-instances-security-permissions)
++ [Privilege mode](#runtime-instances-privilege-mode-security)
 + [Session routing and multi-tenant isolation](#runtime-instances-session-routing)
 + [Auditing and monitoring](#runtime-instances-monitoring)
 + [Best practices](#runtime-instances-security-best-practices)
@@ -31,6 +31,32 @@ Hosting agents on Instances involves the following roles, in addition to the age
 +  **Infrastructure role** — AgentCore assumes this role to provision and manage EC2 instances in your account on your behalf — launching, tagging, and configuring networking for instances and their network interfaces. Because this role grants AgentCore permission to manage compute in your account, scope it to the least privilege your workloads require, and use IAM conditions to restrict it to specific VPCs, subnets, or instance types where appropriate.
 
 For the role configuration steps, see [Get started with Instances](runtime-instances-getting-started.md).
+
+## Privilege mode
+<a name="runtime-instances-privilege-mode-security"></a>
+
+By default, agents on Instances run without elevated privileges, in `STANDARD` mode. You can configure an agent runtime to run its agents with elevated privileges, in `PRIVILEGED` mode. On Linux, a privileged agent runs as root. For the configuration steps, see [Configure the privilege mode for Runtime Instances](runtime-instances-privilege-mode.md).
+
+The privilege mode doesn’t change the security boundary. The Amazon EC2 instance remains the isolation unit, and one instance serves one session in your account. A session that runs a privileged agent runs only that agent, so a privileged agent doesn’t share its instance with other agents. For more information, see [One agent per session](runtime-instances-privilege-mode.md#runtime-instances-privilege-mode-session-limit).
+
+A privileged agent has elevated privileges on its own instance only. It gets no additional access to AgentCore, to other sessions, or to other AWS accounts.
+
+Under the shared responsibility model, you are responsible for what a privileged agent does on its instance. A privileged agent can do the following:
++ Read every file and every credential on the instance.
++ Stop or modify any process on the instance, including the AgentCore components that manage the session and collect its logs and metrics. Logs, metrics, and status from that instance might then be incomplete.
++ Change or leave its resource limits, such as its memory limit.
++ Change the network configuration of the instance.
+
+AgentCore can still stop the session and terminate its instance, regardless of what runs on it.
+
+A session that a privileged agent started stays privileged for its whole lifetime. AgentCore doesn’t run other agents in that session, even after you change the agent runtime to `STANDARD`. To run the agent without elevated privileges, use a new session.
+
+The privilege mode doesn’t change how AgentCore encrypts your data at rest or in transit. For encryption at rest, see [Encryption at rest for Runtime Instances](runtime-instances-encryption.md).
+
+### Control who can run agents with elevated privileges
+<a name="runtime-instances-privilege-mode-iam"></a>
+
+Setting the privilege mode uses the same IAM actions as the rest of the agent runtime configuration: `bedrock-agentcore:CreateAgentRuntime` and `bedrock-agentcore:UpdateAgentRuntime`. Any principal that can call these actions can configure an agent runtime to run its agents with elevated privileges. Grant these actions only to principals that you trust with that decision.
 
 ## Session routing and multi-tenant isolation
 <a name="runtime-instances-session-routing"></a>
@@ -59,6 +85,7 @@ For high-security multi-tenant deployments, use distinct IAM principals per end 
 
 Use auditing to detect session-routing reconnaissance and anomalous access:
 +  **Correlate principal and session ID** — AWS CloudTrail records both the authenticated principal and the target `sessionId` in the same `InvokeAgentRuntime` event. Use this to detect a principal routing to a session that was created by a different principal.
++  **Monitor privilege mode changes** — CloudTrail records every `CreateAgentRuntime` and `UpdateAgentRuntime` call. Review these events for agent runtimes with `privilegeMode` set to `PRIVILEGED`.
 +  **Apply the Runtime-wide auditing practices** — Enable CloudTrail and VPC Flow Logs, correlate logs using request IDs, and set up metric filters and alarms as described in [Auditing and monitoring](runtime-security-best-practices.md#security-bp-auditing).
 
 ## Best practices
@@ -67,6 +94,7 @@ Use auditing to detect session-routing reconnaissance and anomalous access:
 +  **Apply least privilege to every role** — Scope the agent runtime execution role and the infrastructure role to only the actions and resources each one needs.
 +  **Bind sessions to users in your backend** — For any deployment where one principal serves multiple end users, enforce session-to-user binding in your application layer.
 +  **Prefer per-user or per-tenant principals** — Where feasible, invoke through distinct IAM principals so IAM enforces session scoping.
++  **Use elevated privileges only when needed** — Keep the default `STANDARD` mode unless an agent needs full operating system access. Restrict who can set `PRIVILEGED`.
 +  **Monitor for cross-principal routing** — Use CloudTrail to detect routing anomalies, such as a principal routing to a session created by a different principal.
 
 For Runtime-wide security guidance that also applies to Instances, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md).

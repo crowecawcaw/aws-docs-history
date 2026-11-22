@@ -1,7 +1,6 @@
 
 
 # Fine-grained access control for Amazon Bedrock AgentCore Gateway
-<a name="gateway-fine-grained-access-control"></a>
 
 Amazon Bedrock AgentCore Gateway provides fine-grained access control capabilities that allow you to control which users and agents can access specific tools and resources. You can implement access control through gateway interceptors for custom logic, or use resource-based policies for standard AWS-style access control. For information about resource-based policies, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md).
 

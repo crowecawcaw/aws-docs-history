@@ -1,7 +1,6 @@
 
 
 # Update API key
-<a name="identity-update-api-key"></a>
 
 You can update an existing API key to replace the key value when your external service provider rotates credentials. Updating the API key ensures your agents continue to have access to the external service with the current authentication information.
 

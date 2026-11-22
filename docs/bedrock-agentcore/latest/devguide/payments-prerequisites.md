@@ -1,7 +1,6 @@
 
 
 # Prerequisites for AgentCore payments
-<a name="payments-prerequisites"></a>
 
 Complete the prerequisites on this page before you use AgentCore payments.
 
@@ -13,7 +12,7 @@ You can automate the steps on this page with the AgentCore Payments skill in the
 
 You need an AWS account with credentials configured. To configure credentials, install and use the AWS Command Line Interface by following the steps at [Getting started with the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-```
+```bash
 # Verify installation
 aws --version  # Should show version 2.x
 ```
@@ -34,7 +33,7 @@ For more information on how to set up and use the AWS SDK, see [AWS Builder Tool
 ## Payment provider credentials
 <a name="payments-prereq-provider-credentials"></a>
 
-AgentCore payments connects to external payment providers for cryptocurrency wallet operations. You must obtain credentials from at least one supported provider before creating a PaymentConnector.
+AgentCore payments connects to external payment providers for cryptocurrency wallet operations. To use a wallet provider, you must obtain credentials from at least one supported provider before creating a PaymentConnector. AWS Billing doesn’t use provider credentials; instead, it requires a service-linked role. For more information, see [AWS Billing service-linked role](#payments-prereq-aws-billing).
 
 ### Coinbase CDP credentials
 <a name="payments-prereq-coinbase"></a>
@@ -122,7 +121,7 @@ Create a separate Privy app that is used exclusively for AgentCore payments. Thi
 
 When you store your Privy `App Secret` in AgentCore Identity as a PaymentCredentialProvider, ensure that only the AgentCore payments service role can retrieve the secret. Do not grant access to the underlying secret in AWS Secrets Manager to any other IAM principals. The following resource policy on the secret restricts access to the AgentCore service role:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -170,6 +169,21 @@ To rotate credentials:
 Plan for a brief overlap period where both old and new credentials are active. This prevents downtime during rotation.
 
 After you obtain credentials from your provider, you store them in AgentCore Identity as a PaymentCredentialProvider. For instructions, see [Configure payment credential providers](resource-providers.md). For the complete request and response schema, see [CreatePaymentCredentialProvider](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.html) in the API Reference.
+
+### AWS Billing service-linked role
+<a name="payments-prereq-aws-billing"></a>
+
+To create an AWS Billing connector, your AWS account must have the AWS Marketplace service-linked role `AWSServiceRoleForMarketplaceAgenticCommerce`. For more information about this role, see [Service-linked role for Amazon Bedrock AgentCore payments](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-service-linked-role-agentic-commerce.html) in the * AWS Marketplace Buyer Guide*. AWS Marketplace uses this role to bill AWS Marketplace purchases that your agents make to your AWS account. You create the role once per account.
+
+To create the role with the AWS CLI, run the following command:
+
+```bash
+aws iam create-service-linked-role --aws-service-name agentcore-payments.marketplace.amazonaws.com
+```
+
+If the role already exists, the command returns an error that says the role name has been taken. In that case, you don’t need to take any action. The identity that creates the role needs the `iam:CreateServiceLinkedRole` permission. The identity that creates the connector needs the `iam:GetRole` permission on the role. For more information, see [Administrator permissions](payments-iam-roles.md#payments-iam-admin).
+
+If the role is missing when you create an AWS Billing connector, `CreatePaymentConnector` fails with a `ValidationException` that includes the command to create the role.
 
 ## (Optional) Identity provider for JWT authorization
 <a name="payments-prereq-jwt"></a>

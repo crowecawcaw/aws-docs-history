@@ -1,7 +1,6 @@
 
 
 # Direct code deployment for Python
-<a name="runtime-get-started-code-deploy-python"></a>
 
 With direct code deployment, you package your Python agent code and its dependencies in a .zip file archive and deploy it to AgentCore Runtime. Your agent still needs to follow [AgentCore Runtime requirements](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-service-contract.html) : have an entrypoint .py file that either uses the `@app.entrypoint` annotation from [Amazon Bedrock AgentCore Python SDK](https://github.com/aws/bedrock-agentcore-sdk-python) or implements `/invocations` POST and `/ping` GET server endpoints.
 
@@ -22,7 +21,7 @@ Before you begin, ensure you have:
 
 Your project should contain the files that you will add to the deployment package:
 
-```
+```text
 my-agent/
 ├── main.py
 └── pyproject.toml
@@ -30,13 +29,13 @@ my-agent/
 
 Run the agent locally using the command for your application. For an entry point that starts its server from `main.py`, run:
 
-```
+```bash
 uv run main.py
 ```
 
 In another terminal, test the `/invocations` endpoint:
 
-```
+```bash
 curl -X POST http://localhost:8080/invocations \
   -H "Content-Type: application/json" \
   -d '{"prompt": "Hello!"}'
@@ -60,14 +59,14 @@ Package and deploy your agent using one of the following methods:
 
 1. For a CLI-managed `CodeZip` project, the AgentCore CLI packages and deploys the project for you. To deploy your existing agent with the AgentCore CLI, create a project from the minimal template:
 
-   ```
+   ```bash
    agentcore create --name DirectDeployProject --template agent-python-minimal
    cd DirectDeployProject
    ```
 
    Copy your `main.py` and `pyproject.toml` into `app/agent/`, replacing the generated files. Then deploy the project:
 
-   ```
+   ```bash
    agentcore deploy
    ```
 
@@ -75,7 +74,7 @@ Package and deploy your agent using one of the following methods:
 
    Invoke the deployed Runtime:
 
-   ```
+   ```bash
    agentcore invoke --runtime agent \
      --payload '{"prompt":"Hello!"}'
    ```
@@ -115,7 +114,7 @@ The AgentCore Runtime needs permission to read the files in your deployment pack
 
    A ZIP archive containing Linux **arm64** dependencies needs to be uploaded to S3 as a pre-requisite to Create Agent Runtime. The below code requires the specified S3 bucket to already exist. To create a bucket, see [create\_bucket](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/create_bucket.html) in the Boto3 documentation. Following boto3 code will upload .zip file archive to a s3 and create Amazon Bedrock AgentCore runtime.
 
-   ```
+   ```python
    import boto3
    
    account_id = "your aws account id"
@@ -195,13 +194,13 @@ Stop your runtime session, update, or cleanup your agent using one of the follow
 
 1. Deploy the project again to update the Runtime:
 
-   ```
+   ```bash
    agentcore deploy
    ```
 
    To delete the project’s deployed resources, remove the resources from the project and deploy the updated configuration:
 
-   ```
+   ```bash
    agentcore remove all --yes
    agentcore deploy --yes
    ```
@@ -210,7 +209,7 @@ Stop your runtime session, update, or cleanup your agent using one of the follow
 
 1. Following boto3 code will update an AgentCore Runtime.
 
-   ```
+   ```python
    import boto3
    
    account_id = "your aws account id"
@@ -253,7 +252,7 @@ Stop your runtime session, update, or cleanup your agent using one of the follow
 
    To stop the running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, use the following boto3 code:
 
-   ```
+   ```python
    import boto3
    
    agent_core_client = boto3.client('bedrock-agentcore', region_name='us-west-2')
@@ -266,7 +265,7 @@ Stop your runtime session, update, or cleanup your agent using one of the follow
 
    Following boto3 code will delete Amazon Bedrock AgentCore runtime and .zip archive file in s3.
 
-   ```
+   ```python
    import boto3
    
    account_id = "your aws account id"
@@ -312,7 +311,7 @@ When you use an `import` statement in your code, the Python runtime searches the
 
 You can see the full search path for your AgentCore Runtime agent by adding the following code snippet.
 
-```
+```python
 import sys
 search_path = sys.path
 print(search_path)
@@ -320,7 +319,7 @@ print(search_path)
 
 You can also add dependencies in a separate folder inside your .zip package. For example, you might add a version of the Boto3 SDK to a folder in your .zip package called `common` . When your .zip package is decompressed and mounted, this folder is placed inside the `/var/task` directory. To use a dependency from a folder in your .zip deployment package in your code, use an `import from` statement. For example, to use a version of Boto3 from a folder named `common` in your .zip package, use the following statement.
 
-```
+```python
 from common import boto3
 ```
 

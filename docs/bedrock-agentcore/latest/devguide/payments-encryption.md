@@ -1,7 +1,6 @@
 
 
 # Encryption at rest for AgentCore payments
-<a name="payments-encryption"></a>
 
 Amazon Bedrock AgentCore payments encrypts all customer data at rest by default. You don’t need to perform any additional configuration to protect your data. AgentCore payments also provides advanced encryption mechanisms that give you more control over how your data is protected.
 
@@ -79,7 +78,7 @@ The execution role you provide in `roleArn` must have permission to call `kms:Ge
 
 The following is a least-privilege key policy example for use with AgentCore payments. It contains four statements:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -167,7 +166,7 @@ To encrypt a payment manager with a customer managed key, specify the `kmsKeyArn
 
  ** AWS CLI:** 
 
-```
+```bash
 aws bedrock-agentcore-payments create-payment-manager \
     --name "MyPaymentManager" \
     --role-arn "arn:aws:iam::111122223333:role/PaymentManagerExecutionRole" \
@@ -200,7 +199,7 @@ AgentCore payments includes the following encryption context on every `kms:Gener
 
 You can add a `kms:EncryptionContext` condition to your key policy to restrict usage to specific payment managers:
 
-```
+```json
 "Condition": {
   "StringEquals": {
     "kms:EncryptionContext:aws:payments-manager:arn": "arn:aws:bedrock-agentcore:us-west-2:111122223333:payment-manager/pm-abc123"
@@ -210,7 +209,7 @@ You can add a `kms:EncryptionContext` condition to your key policy to restrict u
 
 Or use a wildcard to allow all payment managers in the account:
 
-```
+```json
 "Condition": {
   "StringLike": {
     "kms:EncryptionContext:aws:payments-manager:arn": "arn:aws:bedrock-agentcore:us-west-2:111122223333:payment-manager/*"
@@ -222,7 +221,7 @@ Or use a wildcard to allow all payment managers in the account:
 
 The `kms:ViaService` condition key limits use of the KMS key to requests that originate from AgentCore payments and are routed through Forward Access Sessions (FAS). Add the following condition to restrict the caller’s FAS statement:
 
-```
+```json
 "Condition": {
   "StringEquals": {
     "kms:ViaService": "bedrock-agentcore.us-west-2.amazonaws.com"

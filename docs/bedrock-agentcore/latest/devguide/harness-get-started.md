@@ -1,7 +1,6 @@
 
 
 # Get started
-<a name="harness-get-started"></a>
 
 You can use the harness through the [AgentCore CLI](https://github.com/aws/agentcore-cli) or directly with AWS SDKs such as `boto3`. The CLI is the fastest path for most developers; SDKs are for programmatic use from your own application.
 
@@ -17,20 +16,20 @@ You can use the harness through the [AgentCore CLI](https://github.com/aws/agent
 **Example**  
 Create the harness with a name and execution role:  
 
-```
+```bash
 aws bedrock-agentcore-control create-harness \
   --harness-name "MyHarness" \
   --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole"
 ```
 Poll `get-harness` until `"status": "READY"`. Note the `arn` in the response.  
 
-```
+```bash
 aws bedrock-agentcore-control get-harness \
   --harness-id "MyHarness-XyZ1234567"
 ```
 Invoke from Python. If you don’t specify a model, the harness uses the current AgentCore recommended model for your partition. In commercial AWS Regions, the current default is Anthropic Claude Opus 5 on Amazon Bedrock (`global.anthropic.claude-opus-5`):  
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore", region_name="us-west-2")
@@ -54,13 +53,13 @@ for event in response["stream"]:
 ```
 Create a harness project. The CLI sets the harness model to Anthropic Claude Sonnet 5.5 on Amazon Bedrock (`global.anthropic.claude-sonnet-5-5`):  
 
-```
+```bash
 agentcore create --name MyResearchAgent
 cd MyResearchAgent
 ```
 Deploy and invoke:  
 
-```
+```bash
 agentcore deploy
 agentcore invoke --harness MyResearchAgent \
   --session-id "$(uuidgen)" \
@@ -69,14 +68,14 @@ agentcore invoke --harness MyResearchAgent \
 With `--prompt`, the CLI collects the response stream and prints the completed transcript and session information as JSON. Reuse the same `--session-id` across invocations to continue the conversation in the same environment.  
 Omit `--prompt` to open interactive chat, where the response appears incrementally:  
 
-```
+```bash
 agentcore invoke --harness MyResearchAgent --session-id "$(uuidgen)"
 ```
 For project names of up to 15 characters, the harness has the same name as the project. For longer names, run `agentcore status` to see the harness name.  
 To add another harness to an existing project, use `agentcore add harness`.
 Run `agentcore create` without flags to launch the interactive wizard:  
 
-```
+```bash
 agentcore create
 ```
 Enter a project name, choose **config-based**, choose a model provider and model, and confirm the configuration. The wizard scaffolds the default harness project.  
@@ -85,7 +84,7 @@ Enter a project name, choose **config-based**, choose a model provider and model
 
 After creation, change to the generated project directory and run:  
 
-```
+```bash
 agentcore deploy
 agentcore invoke
 ```
@@ -111,7 +110,7 @@ Use `--user-id` when your application needs to send an end-user identifier with 
 
 For a project Harness:
 
-```
+```bash
 agentcore invoke --harness MyResearchAgent \
   --user-id user-123 \
   --session-id "$(uuidgen)" \
@@ -120,7 +119,7 @@ agentcore invoke --harness MyResearchAgent \
 
 For a deployed Harness by ID, no project is required. The same option works in interactive chat when you omit `--prompt`:
 
-```
+```bash
 agentcore harness invoke --id <harness-id> \
   --user-id user-123 \
   --session-id "$(uuidgen)"
@@ -133,19 +132,19 @@ For a Harness project, `agentcore dev --mode browser` deploys the project and op
 
 Run this command from the project root:
 
-```
+```bash
 agentcore dev --mode browser
 ```
 
 To use the deployed configuration without deploying again:
 
-```
+```bash
 agentcore dev --mode browser --skip-deploy
 ```
 
 Use `--target` to select an entry in `agentcore/aws-targets.json`, and `--ui-port` to choose the local Inspector port. In a project containing both Runtimes and Harnesses, use `--agent` to select one:
 
-```
+```bash
 agentcore dev --agent MyResearchAgent \
   --mode browser \
   --target default \

@@ -1,7 +1,6 @@
 
 
 # Add a target using the CLI
-<a name="gateway-add-target-cli"></a>
 
 You can use the AgentCore CLI to add targets to a gateway in the current project.
 
@@ -9,7 +8,7 @@ Run `agentcore add gateway-target` without options to choose a gateway and add a
 
 Add an external MCP server target:
 
-```
+```bash
 agentcore add gateway-target \
   --gateway MyGateway \
   --name MyMCPTarget \
@@ -19,7 +18,7 @@ agentcore deploy
 
 Add a Lambda function target:
 
-```
+```bash
 agentcore add gateway-target \
   --gateway MyGateway \
   --target-configuration '{
@@ -35,7 +34,7 @@ agentcore deploy
 
 Add an OpenAPI schema target that authenticates with an API key. The target references a credential declared in the project:
 
-```
+```bash
 printf '%s' "$API_KEY" | agentcore add credentials api-key \
   --name MyApiKey \
   --api-key -
@@ -59,7 +58,7 @@ agentcore deploy
 
 Add a Connector target with Web Search Tool:
 
-```
+```bash
 agentcore add gateway-connector \
   --gateway MyGateway \
   --connector web-search \

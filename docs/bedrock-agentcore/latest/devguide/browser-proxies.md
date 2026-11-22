@@ -1,7 +1,6 @@
 
 
 # Using browser proxies
-<a name="browser-proxies"></a>
 
 Amazon Bedrock AgentCore Browser supports routing browser traffic through your own external proxy servers. This enables organizations to:
 +  **Achieve IP stability** by routing traffic through proxies with known egress IPs, eliminating re-authentication cycles caused by rotating AWS IP addresses
@@ -51,7 +50,7 @@ This section shows the simplest configuration to route browser traffic through a
 
 If your proxy requires authentication, create a secret in AWS Secrets Manager:
 
-```
+```bash
 aws secretsmanager create-secret \
   --name "my-proxy-credentials" \
   --secret-string '{"username":"<your-username>","password":"<your-password>"}'
@@ -72,7 +71,7 @@ Characters not allowed: colon ( `:` ), newlines, spaces, quotes.
 
 Add this policy to the IAM identity that will create browser sessions:
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -94,7 +93,7 @@ You can create a browser session with proxy configuration using the AWS CLI, SDK
 
 1. To start a browser session with a proxy using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore start-browser-session \
      --browser-identifier "aws.browser.v1" \
      --name "my-proxy-session" \
@@ -115,7 +114,7 @@ You can create a browser session with proxy configuration using the AWS CLI, SDK
 
    For proxies using IP allowlisting instead of credentials, omit the `credentials` field:
 
-   ```
+   ```bash
    aws bedrock-agentcore start-browser-session \
      --browser-identifier "aws.browser.v1" \
      --name "my-proxy-session" \
@@ -131,7 +130,7 @@ You can create a browser session with proxy configuration using the AWS CLI, SDK
 
 1. To start a browser session with a proxy using the AWS SDK for Python (Boto3):
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore', region_name='region')
@@ -158,7 +157,7 @@ You can create a browser session with proxy configuration using the AWS CLI, SDK
 
    For proxies using IP allowlisting instead of credentials, omit the `credentials` field:
 
-   ```
+   ```python
    proxyConfiguration={
        "proxies": [{
            "externalProxy": {
@@ -171,7 +170,7 @@ You can create a browser session with proxy configuration using the AWS CLI, SDK
 
 1. To start a browser session with a proxy using the API:
 
-   ```
+   ```bash
    PUT /browsers/aws.browser.v1/sessions/start HTTP/1.1
    Host: bedrock-agentcore.region.amazonaws.com
    Content-Type: application/json
@@ -207,7 +206,7 @@ Use `domainPatterns` to route specific domains through designated proxies:
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore start-browser-session \
      --browser-identifier "aws.browser.v1" \
      --name "domain-routing-session" \
@@ -232,7 +231,7 @@ Use `domainPatterns` to route specific domains through designated proxies:
 
 1. 
 
-   ```
+   ```python
    proxyConfiguration={
        "proxies": [
            {
@@ -254,7 +253,7 @@ Use `domainPatterns` to route specific domains through designated proxies:
 
 1. 
 
-   ```
+   ```json
    {
      "proxyConfiguration": {
        "proxies": [
@@ -299,7 +298,7 @@ Use `bypass.domainPatterns` for domains that should connect directly without any
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore start-browser-session \
      --browser-identifier "aws.browser.v1" \
      --name "bypass-session" \
@@ -318,7 +317,7 @@ Use `bypass.domainPatterns` for domains that should connect directly without any
 
 1. 
 
-   ```
+   ```python
    proxyConfiguration={
        "proxies": [{
            "externalProxy": {
@@ -334,7 +333,7 @@ Use `bypass.domainPatterns` for domains that should connect directly without any
 
 1. 
 
-   ```
+   ```json
    {
      "proxyConfiguration": {
        "proxies": [{
@@ -373,7 +372,7 @@ The following examples show a full proxy configuration with domain patterns, byp
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore start-browser-session \
      --browser-identifier "aws.browser.v1" \
      --name "proxy-session" \
@@ -398,7 +397,7 @@ The following examples show a full proxy configuration with domain patterns, byp
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore', region_name='region')
@@ -429,7 +428,7 @@ The following examples show a full proxy configuration with domain patterns, byp
 
 1. 
 
-   ```
+   ```bash
    PUT /browsers/aws.browser.v1/sessions/start HTTP/1.1
    Host: bedrock-agentcore.region.amazonaws.com
    Content-Type: application/json
@@ -502,7 +501,7 @@ If the credentials secret is in a different AWS account, configure the following
 
  **Secret resource policy** (in the account owning the secret):
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
     "Statement": [{
@@ -516,7 +515,7 @@ If the credentials secret is in a different AWS account, configure the following
 
  **KMS key policy** (if using a customer-managed KMS key):
 
-```
+```json
 {
     "Effect": "Allow",
     "Principal": {"AWS": "arn:aws:iam::caller-account-id:root"},

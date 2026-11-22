@@ -1,7 +1,6 @@
 
 
 # Configure Amazon Bedrock AgentCore lifecycle settings
-<a name="runtime-lifecycle-settings"></a>
 
 The `LifecycleConfiguration` input parameter to [CreateAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.html) lets you manage the lifecycle of runtime sessions and resources in Amazon Bedrock AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.
 
@@ -60,7 +59,7 @@ When `LifecycleConfiguration` is not provided or contains null values, the platf
 
 You can specify a lifecycle configuration when you create an AgentCore Runtime.
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
@@ -93,7 +92,7 @@ except Exception as e:
 
 You can update lifecycle configuration for an existing AgentCore Runtime.
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
@@ -130,7 +129,7 @@ except Exception as e:
 
 You can get lifecycle configuration for an existing AgentCore Runtime.
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
@@ -169,7 +168,7 @@ The lifecycle configuration includes validation rules and constraints to prevent
 ### Common validation errors
 <a name="common-validation-errors"></a>
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
@@ -197,7 +196,7 @@ except client.exceptions.ValidationException as e:
 ### Validation helper function
 <a name="validation-helper-function"></a>
 
-```
+```python
 MICROVM_MAX_SECONDS = 28800     # 8 hours
 INSTANCES_MAX_SECONDS = 1209600  # 14 days
 MIN_SECONDS = 60
@@ -237,7 +236,7 @@ else:
 
 The lifecycle configuration settings you define are applied to each individual runtime session. When you invoke an agent with a specific `runtimeSessionId` , AgentCore Runtime provisions a dedicated microVM for that session. The lifecycle timeouts ( `idleRuntimeSessionTimeout` and `maxLifetime` ) govern the lifecycle of that specific microVM instance.
 
-```
+```python
 import boto3
 import json
 import uuid

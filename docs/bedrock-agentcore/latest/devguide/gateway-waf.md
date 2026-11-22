@@ -1,7 +1,6 @@
 
 
 # Protecting your gateway with AWS WAF
-<a name="gateway-waf"></a>
 
 You can use AWS WAF with Amazon Bedrock AgentCore Gateway to protect your gateway from web exploits, bot traffic, and volumetric attacks. AWS WAF provides an inline security layer that evaluates all inbound requests before they reach your targets.
 
@@ -46,7 +45,7 @@ You can associate a web ACL with your gateway by using the AWS WAF console or th
 
 To associate a web ACL with your gateway by using the AWS CLI, run the following command:
 
-```
+```bash
 aws wafv2 associate-web-acl \
     --web-acl-arn arn:aws:wafv2:us-east-1:123456789012:regional/webacl/my-web-acl/a1b2c3d4-5678-90ab-cdef-example11111 \
     --resource-arn arn:aws:bedrock-agentcore:us-east-1:123456789012:gateway/my-gateway-id
@@ -61,7 +60,7 @@ To remove AWS WAF protection from your gateway, disassociate the web ACL. You mu
 
 To disassociate a web ACL from your gateway by using the AWS CLI, run the following command:
 
-```
+```bash
 aws wafv2 disassociate-web-acl \
     --resource-arn arn:aws:bedrock-agentcore:us-east-1:123456789012:gateway/my-gateway-id
 ```
@@ -81,7 +80,7 @@ The gateway allows the request through to the target without AWS WAF evaluation.
 
 To configure the failure mode, use the `UpdateGateway` API with the `wafConfiguration` parameter:
 
-```
+```bash
 aws bedrock-agentcore-control update-gateway \
     --gateway-identifier my-gateway-id \
     --name my-gateway \

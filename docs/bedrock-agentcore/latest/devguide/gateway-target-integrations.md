@@ -1,7 +1,6 @@
 
 
 # Built-in templates from integration providers as targets
-<a name="gateway-target-integrations"></a>
 
 Amazon Bedrock AgentCore lets you add open source templates from the following integration providers as targets in your gateway:
 + Amazon

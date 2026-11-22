@@ -1,7 +1,6 @@
 
 
 # OpenAPI schema targets
-<a name="gateway-schema-openapi"></a>
 
 OpenAPI (formerly known as Swagger) is a widely used standard for describing RESTful APIs. Gateway supports OpenAPI 3.0 specifications for defining API targets.
 
@@ -61,7 +60,7 @@ AgentCore Gateway automatically validates region parameters and blocks requests 
 
 Example of a secure server URL configuration:
 
-```
+```json
 {
   "servers": [
     {
@@ -73,7 +72,7 @@ Example of a secure server URL configuration:
 
 If dynamic parameters are necessary, use fully qualified domains with minimal placeholders and enum restrictions:
 
-```
+```json
 {
   "servers": [
     {
@@ -148,7 +147,7 @@ Following shows an example of a supported OpenAPI specification
 
 Example of a supported OpenAPI specification:
 
-```
+```json
 {
   "openapi": "3.0.0",
   "info": {
@@ -232,7 +231,7 @@ Example of a supported OpenAPI specification:
 
 Following shows another example of a supported OpenAPI specification.
 
-```
+```json
 {
   "openapi": "3.0.0",
   "info": {
@@ -319,7 +318,7 @@ Following shows another example of a supported OpenAPI specification.
 
 The following shows an example of an unsupported schema with oneOf:
 
-```
+```json
 {
   "oneOf": [
     {"$ref": "#/components/schemas/Pencil"},

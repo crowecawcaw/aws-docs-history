@@ -1,7 +1,6 @@
 
 
 # Interactive shells (terminals)
-<a name="harness-command-shell"></a>
 
 The `InvokeAgentRuntimeCommandShell` operation opens a persistent, interactive terminal inside a running AgentCore harness session over WebSocket. The API identifies this harness session with a runtime session ID. Unlike one-shot command execution, an interactive shell maintains its environment variables, working directory, command history, and running processes across inputs.
 
@@ -41,13 +40,13 @@ For more information about the complete harness permissions model, see [Required
 
 Use the Harness ID, not its managed Runtime ID. This resource command does not require an AgentCore project:
 
-```
+```bash
 agentcore harness shell --id <harness-id>
 ```
 
 Without `--qualifier`, the CLI prompts you to choose an endpoint. To select an endpoint and an existing Harness session directly:
 
-```
+```bash
 agentcore harness shell \
   --id <harness-id> \
   --qualifier DEFAULT \
@@ -57,7 +56,7 @@ agentcore harness shell \
 
 The CLI signs IAM-authorized requests with your AWS credentials. For a Harness configured with `CUSTOM_JWT`, supply a token accepted by its inbound authorizer:
 
-```
+```bash
 agentcore harness shell \
   --id <harness-id> \
   --qualifier DEFAULT \
@@ -66,7 +65,7 @@ agentcore harness shell \
 
 After connecting, the CLI prints the runtime session ID, shell ID, and a complete reconnect command. Press `Ctrl+]` to detach the local terminal while keeping the remote shell running:
 
-```
+```text
 Connected
 Session ID: <runtime-session-id>
 Shell ID: <shell-id>
@@ -76,7 +75,7 @@ To reconnect: agentcore harness shell --id <harness-id> --qualifier DEFAULT --se
 
 Run the printed command to reconnect to the same Harness shell:
 
-```
+```bash
 agentcore harness shell \
   --id <harness-id> \
   --qualifier DEFAULT \
@@ -94,13 +93,13 @@ The command requires an interactive terminal on stdin and stdout and does not su
 
 Open a WebSocket connection to the following URL:
 
-```
+```text
 wss://bedrock-agentcore.<region>.amazonaws.com/runtimes/<url-encoded-harness-arn>/ws/shells
 ```
 
 Use the harness ARN, not the ARN of its managed Runtime. URL-encode the complete harness ARN before putting it in the path. A harness ARN has the following format:
 
-```
+```text
 arn:aws:bedrock-agentcore:<region>:<accountId>:harness/<harnessId>
 ```
 
@@ -122,11 +121,11 @@ The WebSocket upgrade timeout applies only until the service returns `101 Switch
 
 The following Python example uses a generic WebSocket client and `botocore` only to sign the upgrade request. It doesn’t use an AgentCore SDK shell helper.
 
-```
+```bash
 pip install "boto3>=1.34" "websockets>=15"
 ```
 
-```
+```python
 import asyncio
 import json
 import urllib.parse
@@ -242,7 +241,7 @@ Text frames aren’t part of the protocol. The service ignores isolated text fra
 
 The first `STATUS` frame confirms the connection and includes metadata similar to the following:
 
-```
+```json
 {
   "kind": "Status",
   "apiVersion": "v1",
@@ -261,7 +260,7 @@ When the shell exits with a nonzero status, the final `STATUS` frame includes an
 
 Store both the runtime session ID and the shell ID. To reconnect, use the same runtime session ID header and add the URL-encoded shell ID as a query parameter:
 
-```
+```text
 wss://bedrock-agentcore.<region>.amazonaws.com/runtimes/<url-encoded-harness-arn>/ws/shells?shellId=<shell-id>
 ```
 

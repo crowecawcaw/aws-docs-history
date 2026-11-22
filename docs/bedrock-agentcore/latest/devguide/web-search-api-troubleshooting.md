@@ -1,7 +1,6 @@
 
 
 # Troubleshoot AgentCore Web Search
-<a name="web-search-api-troubleshooting"></a>
 
 ## Errors
 <a name="web-search-api-errors"></a>

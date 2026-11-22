@@ -1,7 +1,6 @@
 
 
 # Encrypt your AgentCore gateway with a customer-managed KMS key
-<a name="gateway-encryption"></a>
 
 By default, Gateway encrypts your data at rest using a service-managed AWS Key Management Service key. However, you can optionally provide your own customer managed KMS key for encrypting data at rest when you:
 + Create a gateway.
@@ -37,7 +36,7 @@ Before encrypting your gateway, ensure that you have fulfilled the following pre
 
 The following example policy provides the necessary permissions to encrypt a gateway and use an encrypted gateway. The fourth statement also allows CloudWatch Logs logging of key usage for the encrypted gateway. The policy contains condition keys to conform to security best practices.
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -164,7 +163,7 @@ If you don’t see your KMS key, go over the [Prerequisites for encrypting your 
 
      The following example shows an example CLI request to create a gateway with a AWS KMS key specified using the `kms-key-arn` argument:
 
-     ```
+     ```bash
      aws bedrock-agentcore-control create-gateway \
        --name "MyGateway" \
        --role-arn "arn:aws:iam::123456789012:role/GatewayRole" \
@@ -185,7 +184,7 @@ If you don’t see your KMS key, go over the [Prerequisites for encrypting your 
 
      The following example shows an example Boto3 request to create a gateway with a AWS KMS key specified using the `kmsKeyArn` argument:
 
-     ```
+     ```python
      import boto3
      # Create client
      agentcore_client = boto3.client('bedrock-agentcore-control')

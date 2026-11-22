@@ -1,7 +1,6 @@
 
 
 # Access AgentCore Memory through a gateway
-<a name="memory-gateway-connector"></a>
 
 By default, an application calls the Amazon Bedrock AgentCore Memory data plane directly, and each request is authenticated with AWS Signature Version 4 (SigV4). You can control this access with both IAM identity-based and resource-based policies. This works well when your backend service calls Memory on behalf of all users and does not need to enforce per-user isolation at the Memory layer.
 

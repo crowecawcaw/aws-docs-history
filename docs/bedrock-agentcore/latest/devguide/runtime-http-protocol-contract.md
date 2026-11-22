@@ -1,7 +1,6 @@
 
 
 # HTTP protocol contract
-<a name="runtime-http-protocol-contract"></a>
 
 Understand the requirements for implementing the HTTP protocol in your agent application. Use the HTTP protocol to create direct REST API endpoints for traditional request/response patterns and WebSocket endpoints for real-time bidirectional streaming connections.
 
@@ -48,7 +47,7 @@ The `/invocations` endpoint serves several key purposes:
 
  **Example Request format** 
 
-```
+```json
 Content-Type: application/json
 
 {

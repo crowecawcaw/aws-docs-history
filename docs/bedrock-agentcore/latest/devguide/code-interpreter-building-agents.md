@@ -1,7 +1,6 @@
 
 
 # Run code in Code Interpreter from Agents
-<a name="code-interpreter-building-agents"></a>
 
 You can build agents that use the Code Interpreter tool to execute code and analyze data. This section demonstrates how to build agents using different frameworks.
 
@@ -13,7 +12,7 @@ You can build agents that use the Code Interpreter tool to execute code and anal
 
    Run the following commands to install the required packages:
 
-   ```
+   ```bash
    pip install strands-agents
    pip install bedrock-agentcore
    ```
@@ -22,7 +21,7 @@ You can build agents that use the Code Interpreter tool to execute code and anal
 
    The following Python code shows how to write an agent using Strands with the Code Interpreter tool:
 
-   ```
+   ```python
    # strands_ci_agent.py
    
    import json
@@ -112,7 +111,7 @@ You can build agents that use the Code Interpreter tool to execute code and anal
 
    Run the following commands to install the required packages:
 
-   ```
+   ```bash
    pip install langchain
    pip install langchain_aws
    pip install bedrock-agentcore
@@ -122,7 +121,7 @@ You can build agents that use the Code Interpreter tool to execute code and anal
 
    The following Python code shows how to write an agent using LangChain with the Code Interpreter tool:
 
-   ```
+   ```python
    # langchain_ci_agent.py
    
    #Please ensure that the latest Bedrock-AgentCore and Boto SDKs are installed

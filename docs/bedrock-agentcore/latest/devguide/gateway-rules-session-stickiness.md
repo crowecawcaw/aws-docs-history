@@ -1,7 +1,6 @@
 
 
 # Session stickiness for weighted rules
-<a name="gateway-rules-session-stickiness"></a>
 
 When you use weighted rules for A/B testing or canary deployments, you want each session to receive a consistent experience across multiple requests. Without session stickiness, a session could receive different configuration bundles or route to different targets on each request. Routing to a different target means a new agent runtime with no context from previous requests, which breaks the user experience.
 
@@ -37,7 +36,7 @@ When a target has a `stickinessConfiguration`, the gateway resolves the session 
 
 The following example creates a passthrough target with a `stickinessConfiguration` that extracts the session ID from a custom `x-session-id` header and expires session affinity after 8 hours (28800 seconds):
 
-```
+```bash
 aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
     "gatewayIdentifier": "GATEWAY_ID",
     "name": "my-passthrough-target",

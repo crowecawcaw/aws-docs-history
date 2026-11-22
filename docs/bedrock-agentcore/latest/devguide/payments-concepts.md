@@ -1,7 +1,6 @@
 
 
 # Core concepts for AgentCore payments
-<a name="payments-concepts"></a>
 
 ## Key personas
 <a name="_key_personas"></a>
@@ -35,11 +34,13 @@ How you organize your PaymentManagers depends on your needs. For example, separa
 ### PaymentConnector
 <a name="_paymentconnector"></a>
 
-A PaymentConnector integrates your PaymentManager with an external payment provider. Each connector references a credential provider stored in AgentCore Identity, ensuring that sensitive credentials such as API keys and wallet secrets are never passed directly to the Payments API. Credentials are stored in AWS Secrets Manager through AgentCore Identity and referenced by ARN. A PaymentConnector belongs to exactly one PaymentManager, and a single PaymentManager can have multiple connectors (for example, one for Coinbase and another for Stripe). AgentCore payments supports the following connector types:
+A PaymentConnector integrates your PaymentManager with a payment provider. Each wallet connector, Coinbase CDP or Stripe (Privy), references a credential provider stored in AgentCore Identity, ensuring that sensitive credentials such as API keys and wallet secrets are never passed directly to the Payments API. Credentials are stored in AWS Secrets Manager through AgentCore Identity and referenced by ARN. A PaymentConnector belongs to exactly one PaymentManager, and a single PaymentManager can have multiple connectors (for example, one for Coinbase and another for Stripe). An AWS Billing connector doesn’t reference a credential provider. Instead, it uses the AWS Marketplace service-linked role in your account, so you don’t store any provider credentials. AgentCore payments supports the following connector types:
 
 1.  ** [CoinbaseCDP](https://docs.cdp.coinbase.com/wallets/non-custodial-wallets/overview) ** — Connects to the Coinbase Developer Platform for crypto wallet operations.
 
 1.  ** [StripePrivy](https://docs.privy.io/wallets/overview/embedded) ** — Connects to Stripe with Privy wallet infrastructure.
+
+1.  **AwsBilling** — Pays AWS Marketplace sellers and bills the charges to the AWS account that owns the PaymentManager. An AWS Billing connector uses the AWS Marketplace service-linked role in your account instead of a credential provider. It doesn’t use payment instruments that you create. Instead, it uses the service-managed instrument ID `aws.agentcorepayments.awsbilling.v1`. A PaymentManager can have at most one AWS Billing connector. For more information, see [Pay with AWS Billing](payments-process-payment.md#payments-process-payment-aws-billing).
 
 ### PaymentSession
 <a name="_paymentsession"></a>
@@ -51,10 +52,12 @@ A PaymentSession is a scoped payment context that tracks spending for a single a
 
 A PaymentInstrument represents an embedded crypto wallet that an agent uses to pay merchants on behalf of a user. Each instrument is associated with a specific blockchain network and has one of the following statuses: `INITIATED`, `ACTIVE`, `FAILED`, or `DELETED`. Because the same wallet address cannot be used across chains, developers maintain separate instruments for each supported network (for example, Ethereum and Solana). The only supported instrument type is `EMBEDDED_CRYPTO_WALLET`.
 
+ AWS Billing payments use a service-managed instrument instead of a wallet, and the charges appear on your AWS bill. For information about how AWS bills are paid, see [Managing your AWS payments](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-payments.html) in the * AWS Billing User Guide*. Pass the instrument ID `aws.agentcorepayments.awsbilling.v1`, which is available for every PaymentManager that has an AWS Billing connector. You don’t create or delete this instrument.
+
 ### PaymentCredentialProvider
 <a name="_paymentcredentialprovider"></a>
 
-A PaymentCredentialProvider is a specialized credential provider in AgentCore Identity designed for cryptocurrency payment protocols. It securely stores vendor-specific credentials (such as Coinbase CDP API keys and wallet secrets, or Privy app credentials and authorization keys) in AWS Secrets Manager. At runtime, the Payments service retrieves authentication tokens through the AgentCore Identity `GetResourcePaymentToken` data plane API. Each PaymentConnector maintains a 1:1 mapping with a PaymentCredentialProvider.
+A PaymentCredentialProvider is a specialized credential provider in AgentCore Identity designed for cryptocurrency payment protocols. It securely stores vendor-specific credentials (such as Coinbase CDP API keys and wallet secrets, or Privy app credentials and authorization keys) in AWS Secrets Manager. At runtime, the Payments service retrieves authentication tokens through the AgentCore Identity `GetResourcePaymentToken` data plane API. Each Coinbase CDP or Stripe (Privy) PaymentConnector maintains a 1:1 mapping with a PaymentCredentialProvider. AWS Billing connectors don’t use one.
 
 ### x402 protocol
 <a name="_x402_protocol"></a>

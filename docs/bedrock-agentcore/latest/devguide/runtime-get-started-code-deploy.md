@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon Bedrock AgentCore Runtime direct code deployment
-<a name="runtime-get-started-code-deploy"></a>
 
 With direct code deployment, you package your agent code and its dependencies in a .zip file archive and deploy it to AgentCore Runtime. Your agent still needs to follow [AgentCore Runtime requirements](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-service-contract.html).
 

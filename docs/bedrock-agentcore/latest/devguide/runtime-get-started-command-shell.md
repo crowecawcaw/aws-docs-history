@@ -1,7 +1,6 @@
 
 
 # Interactive Shells (Terminals)
-<a name="runtime-get-started-command-shell"></a>
 
 The `InvokeAgentRuntimeCommandShell` operation opens a persistent, interactive terminal session inside a running AgentCore Runtime session over WebSocket. Unlike one-shot command execution, shell sessions maintain state — environment variables, working directory, and command history carry across inputs. This enables debugging, environment inspection, and building terminal experiences in your application.
 
@@ -45,13 +44,13 @@ The CLI provides a built-in interactive terminal experience. Pass a Runtime ID, 
 
 For an environment managed by a Harness, use `agentcore harness shell --id <harness-id>` instead of the managed Runtime’s ID. See [Open a Harness shell with the AgentCore CLI](harness-command-shell.md#harness-command-shell-cli).
 
-```
+```bash
 agentcore runtime shell --id <runtime-id>
 ```
 
 Without `--qualifier`, the CLI prompts you to choose an endpoint. To select an endpoint directly:
 
-```
+```bash
 agentcore runtime shell \
   --id <runtime-id> \
   --qualifier DEFAULT \
@@ -60,7 +59,7 @@ agentcore runtime shell \
 
 Use `--session-id` to open the shell in a specific Runtime session:
 
-```
+```bash
 agentcore runtime shell \
   --id <runtime-id> \
   --qualifier DEFAULT \
@@ -69,7 +68,7 @@ agentcore runtime shell \
 
 After connecting, the CLI prints the Runtime session ID, shell ID, and a complete reconnect command. Press `Ctrl+]` to detach the local terminal while keeping the remote shell running:
 
-```
+```text
 Connected
 Session ID: <runtime-session-id>
 Shell ID: <shell-id>
@@ -79,7 +78,7 @@ To reconnect: agentcore runtime shell --id <runtime-id> --qualifier DEFAULT --se
 
 Run the printed command to reconnect to the same shell. When constructing the command yourself, `--shell-id` requires `--session-id`:
 
-```
+```bash
 agentcore runtime shell \
   --id <runtime-id> \
   --qualifier DEFAULT \
@@ -90,7 +89,7 @@ agentcore runtime shell \
 
 For a Runtime configured with CUSTOM\_JWT authorization, also pass its bearer token:
 
-```
+```bash
 agentcore runtime shell \
   --id <runtime-id> \
   --qualifier DEFAULT \
@@ -103,7 +102,7 @@ Enter `exit` or press `Ctrl+D` to close the remote shell permanently. Press `Ctr
 
 To run a single command without opening a shell, use `agentcore runtime exec`:
 
-```
+```bash
 agentcore runtime exec \
   --id <runtime-id> \
   --command "ls -la /tmp"
@@ -116,7 +115,7 @@ For additional CLI examples, see [AgentCore samples](https://github.com/awslabs/
 
 Install the Python SDK:
 
-```
+```bash
 pip install bedrock-agentcore
 ```
 
@@ -124,7 +123,7 @@ pip install bedrock-agentcore
 
 1. The following example shows how to open a shell session using default AWS credentials.
 
-   ```
+   ```python
    import asyncio
    from bedrock_agentcore.runtime import AgentCoreRuntimeClient, ShellChannel
    
@@ -150,7 +149,7 @@ pip install bedrock-agentcore
 
 1. The following example shows how to open a shell session using a pre-signed URL.
 
-   ```
+   ```python
    import asyncio
    from bedrock_agentcore.runtime import AgentCoreRuntimeClient, PresignedAuth, ShellChannel
    
@@ -171,7 +170,7 @@ pip install bedrock-agentcore
 
 1. The following example shows how to open a shell session using an OAuth bearer token.
 
-   ```
+   ```python
    import asyncio
    from bedrock_agentcore.runtime import AgentCoreRuntimeClient, OAuthAuth, ShellChannel
    
@@ -196,7 +195,7 @@ pip install bedrock-agentcore
 
 A common pattern is to use `shellId` to reconnect to a shell after a disconnect, preserving all session state.
 
-```
+```python
 import asyncio
 
 from bedrock_agentcore.runtime import AgentCoreRuntimeClient
@@ -233,7 +232,7 @@ if __name__ == "__main__":
 
 The SDK can also automatically reconnect when the WebSocket connection drops. Use `ReconnectConfig` to enable this:
 
-```
+```python
 import asyncio
 from bedrock_agentcore.runtime import AgentCoreRuntimeClient, ReconnectConfig, ShellChannel
 
@@ -264,21 +263,21 @@ For additional SDK examples, see [AgentCore samples](https://github.com/awslabs/
 Interactive debugging  
 Open a shell to inspect your agent’s runtime environment — check installed packages, read log files, examine the filesystem, or test commands before adding them to your agent code.  
 
-```
+```bash
 python --version && pip list | head -20
 ```
 
 Environment inspection  
 Verify environment variables, network connectivity, available tools, and filesystem state. Useful when diagnosing agent failures or validating deployment configuration.  
 
-```
+```bash
 env | grep AWS && curl -s http://169.254.169.254/latest/meta-data/
 ```
 
 Coding agent terminal access  
 AI coding agents use interactive shells (terminals) as their execution environment. When a coding agent needs to run code, install packages, or run tests, it opens a shell session to the AgentCore Runtime and executes commands directly — the same way a developer would use a terminal. For example, Claude Code, Amazon Kiro, and OpenAI Codex each connect to a shell session where they can iteratively write code, run it, observe output, and fix errors in a loop. The persistent state means the agent can run a sequence of commands without losing context between steps.  
 
-```
+```python
 # A coding agent opens a shell and iterates on code
 async with client.open_shell(runtime_arn, shell_id="agent-workspace") as shell:
     await shell.send("cd /workspace && git clone https://github.com/user/repo.git\n")
@@ -290,7 +289,7 @@ async with client.open_shell(runtime_arn, shell_id="agent-workspace") as shell:
 Long-running processes  
 Start processes that outlive a single HTTP request. Use reconnection to check on progress or provide additional input over time.  
 
-```
+```bash
 nohup python train.py > /tmp/train.log 2>&1 &
 ```
 

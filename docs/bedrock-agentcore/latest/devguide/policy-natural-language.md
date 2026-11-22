@@ -1,7 +1,6 @@
 
 
 # Writing policies in natural language
-<a name="policy-natural-language"></a>
 
 Policy in AgentCore will automatically select the optimal region within your geography to process your inference requests made through Policy authoring service. This maximizes available compute resources, model availability, and delivers the best customer experience. Your data will remain stored only in the region where the request originated, however, input prompts and output results may be processed outside that region. All data will be transmitted encrypted across Amazon’s secure network.
 
@@ -49,7 +48,7 @@ Allow principal with username "refund-agent" to process refunds when the refund 
 
  **Converts to Cedar:** 
 
-```
+```cedar
 permit(
   principal is AgentCore::OAuthUser,
   action == AgentCore::Action::"RefundTool___process_refund",
@@ -101,7 +100,7 @@ Forbid policies ensure that specific actions cannot be mistakenly permitted. Eve
 
  **Example scenario:** 
 
-```
+```cedar
 // Broad permit policy - allows all users to view model results
 permit(
   principal is AgentCore::OAuthUser,

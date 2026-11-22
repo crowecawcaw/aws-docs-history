@@ -1,7 +1,6 @@
 
 
 # AgentCore TypeScript SDK reference
-<a name="agentcore-typescript-sdk-reference"></a>
 
 This reference documents the public Amazon Bedrock AgentCore TypeScript SDK releases.
 
@@ -26,7 +25,7 @@ Hosts agents on Amazon Bedrock AgentCore runtime.
 
 Provides health check and invocation endpoints for deploying agent handlers. The server supports JSON and Server-Sent Events (SSE) response modes.
 
-```
+```typescript
 const app = new BedrockAgentCoreApp({
   invocationHandler: {
     requestSchema: z.object({ message: z.string() }),
@@ -165,7 +164,7 @@ RuntimeClient
 
 Generates WebSocket authentication for Amazon Bedrock AgentCore runtime.
 
-```
+```typescript
 const client = new RuntimeClient({ region: 'us-west-2' })
 
 // Generate WebSocket connection with SigV4 headers
@@ -214,7 +213,7 @@ Generate a WebSocket URL and OAuth subprotocols for a shell connection. Low-leve
  `params` `ConnectShellOAuthParams`   
 The connection parameters.
 
-```
+```typescript
 const { url, subprotocols } = await client.connectShellOAuth({ runtimeArn, shellId, sessionId, bearerToken })
 const ws = new WebSocket(url, subprotocols)
 ```
@@ -233,7 +232,7 @@ Generate a presigned WebSocket URL for a shell connection. Auth is embedded in t
  `params` `ConnectShellPresignedParams`   
 The connection parameters.
 
-```
+```typescript
 const { url } = await client.connectShellPresigned({ runtimeArn, shellId, sessionId, expires: 120 })
 const ws = new WebSocket(url)
 ```
@@ -252,7 +251,7 @@ Generate a SigV4-signed WebSocket URL and headers for a shell connection. Low-le
  `params` `ConnectShellSigV4Params`   
 The connection parameters.
 
-```
+```typescript
 const { url, headers } = await client.connectShellSigV4({ runtimeArn, shellId, sessionId })
 const ws = new WebSocket(url, { headers })
 ```
@@ -288,7 +287,7 @@ Error if runtime ARN format is invalid
  `Error`   
 Error if AWS credentials are not available
 
-```
+```typescript
 const client = new RuntimeClient({ region: 'us-west-2' })
 
 // Basic presigned URL
@@ -334,7 +333,7 @@ Error if runtime ARN format is invalid
  `Error`   
 Error if AWS credentials are not available
 
-```
+```typescript
 const client = new RuntimeClient({ region: 'us-west-2' })
 
 // With auto-generated session ID
@@ -378,7 +377,7 @@ Error if bearer token is empty
  `Error`   
 Error if runtime ARN format is invalid
 
-```
+```typescript
 const client = new RuntimeClient({ region: 'us-west-2' })
 
 // With OAuth bearer token
@@ -410,7 +409,7 @@ For lower-level control (custom WebSocket handling, browser relay), use the `con
  `params` `OpenShellParams`   
 The connection parameters.
 
-```
+```typescript
 const shell = await client.openShell({ runtimeArn })
 try {
   await shell.send('echo hello\n')
@@ -422,7 +421,7 @@ try {
 }
 ```
 
-```
+```typescript
 const shell = await client.openShell({
   runtimeArn,
   shellId: 'debug',
@@ -443,7 +442,7 @@ Get the current request context.
 
  `undefined | RequestContext` — The RequestContext if called within a request scope (inside runWithContext), undefined otherwise (for example, during app initialization or outside request handlers)
 
-```
+```typescript
 import { getContext } from 'bedrock-agentcore/context'
 
 const handler = async (request, context) => {
@@ -596,7 +595,7 @@ Async iterator — yields inbound ShellFrames, reconnecting on drop if configure
 
 The loop exits silently (no throw) in three cases: shell exit, kicked by a new client, or reconnect budget exhausted. Check `exitCode`, `kicked`, and `bytesDropped` after the loop to distinguish them:
 
-```
+```typescript
 for await (const frame of shell) { ... }
 if (shell.kicked) { ... }          // another client took over
 if (shell.exitCode !== null) { ... } // shell process exited
@@ -779,7 +778,7 @@ OAuth2 configuration
 
  `<TParams extends […​unknown[], string], TReturn>(fn: (…​args: TParams) ⇒ Promise<TReturn>) ⇒ (…​args: InitParams<TParams>) ⇒ Promise<TReturn>` — Function wrapper that injects token as last parameter
 
-```
+```typescript
 const myTool = withAccessToken({
   workloadIdentityToken: token,
   providerName: 'github',
@@ -811,7 +810,7 @@ API key configuration
 
  `<TParams extends […​unknown[], string], TReturn>(fn: (…​args: TParams) ⇒ Promise<TReturn>) ⇒ (…​args: InitParams<TParams>) ⇒ Promise<TReturn>` — Function wrapper that injects API key as last parameter
 
-```
+```typescript
 const myTool = withApiKey({
   workloadIdentityToken: token,
   providerName: 'openai'
@@ -839,7 +838,7 @@ Provides a client interface for Amazon Bedrock AgentCore Code Interpreter.
 
 Executes Python, JavaScript, and TypeScript code in isolated sandbox environments with file system access and shell commands. Each instance manages one session, which starts automatically on first use and can be managed with startSession or stopSession.
 
-```
+```typescript
 const interpreter = new CodeInterpreter({ region: 'us-east-1' })
 
 // Execute code (auto-creates session)
@@ -883,7 +882,7 @@ Execution parameters
 
  `Promise<string>` — Execution result with output or error
 
-```
+```typescript
 // Auto-creates default session
 const result = await interpreter.executeCode({
   code: 'print("Hello")',
@@ -909,7 +908,7 @@ Command parameters
 
  `Promise<string>` — Command result with output or error
 
-```
+```typescript
 const result = await interpreter.executeCommand({
   command: 'ls -la'
 })
@@ -933,7 +932,7 @@ The optional parameters specifying which session to query
 
  `Promise<GetSessionResponse>` — Detailed session information
 
-```
+```typescript
 // Get current active session details
 const sessionInfo = await interpreter.getSession()
 console.log(`Session status: ${sessionInfo.status}`)
@@ -962,7 +961,7 @@ List parameters
 
  `Promise<string>` — List result with file information or error
 
-```
+```typescript
 const result = await interpreter.listFiles({ path: '/tmp' })
 ```
 
@@ -984,7 +983,7 @@ The optional filtering and pagination parameters
 
  `Promise<ListSessionsResponse>` — List of session summaries with optional pagination token
 
-```
+```typescript
 // List all active sessions
 const response = await interpreter.listSessions({ status: 'READY' })
 for (const session of response.items) {
@@ -1019,7 +1018,7 @@ Read parameters
 
  `Promise<string>` — Read result with file contents or errors
 
-```
+```typescript
 const result = await interpreter.readFiles({
   paths: ['data.txt', 'output.json']
 })
@@ -1043,7 +1042,7 @@ Remove parameters
 
  `Promise<string>` — Remove result with removed file paths or errors
 
-```
+```typescript
 await interpreter.removeFiles({
   paths: ['temp.txt', 'cache.json']
 })
@@ -1067,7 +1066,7 @@ Session configuration
 
  `Promise<SessionInfo>` — Session information including AWS-assigned session ID
 
-```
+```typescript
 const session = await interpreter.startSession({
   sessionName: 'data-analysis',
   description: 'Processing customer data',
@@ -1084,7 +1083,7 @@ stopSession(): Promise<void>
 
 Stop the active code interpreter session. Gracefully handles non-existent sessions without throwing errors.
 
-```
+```typescript
 await interpreter.stopSession()
 ```
 
@@ -1106,7 +1105,7 @@ Write parameters
 
  `Promise<string>` — Write result with written file paths or errors
 
-```
+```typescript
 await interpreter.writeFiles({
   files: [
     { path: 'script.py', content: 'print("Hello")' },
@@ -1133,7 +1132,7 @@ CodeInterpreter instance
 
  `InvokableTool<{ code: string; language: "python" | "javascript" | "typescript" }, string>` — Strands SDK tool for code execution
 
-```
+```typescript
 import { createExecuteCodeTool } from 'bedrock-agentcore/experimental/code-interpreter/strands'
 import { CodeInterpreter } from 'bedrock-agentcore/code-interpreter'
 
@@ -1165,7 +1164,7 @@ CodeInterpreter instance
 
  `InvokableTool<{ command: string }, string>` — Strands SDK tool for command execution
 
-```
+```typescript
 import { createExecuteCommandTool } from 'bedrock-agentcore/experimental/code-interpreter/strands'
 import { CodeInterpreter } from 'bedrock-agentcore/code-interpreter'
 
@@ -1197,7 +1196,7 @@ CodeInterpreter instance
 
  `InvokableTool<{ files?: { content: string; path: string }[]; operation: "remove" | "write" | "read" | "list"; path: string; paths?: string[] }, string>` — Strands SDK tool for file operations
 
-```
+```typescript
 import { createFileOperationsTool } from 'bedrock-agentcore/experimental/code-interpreter/strands'
 import { CodeInterpreter } from 'bedrock-agentcore/code-interpreter'
 
@@ -1222,7 +1221,7 @@ CodeInterpreterTools - All-in-one CodeInterpreter integration for Strands SDK
 
 Provides three ready-to-use tools and session management in a single class.
 
-```
+```typescript
 import { CodeInterpreterTools } from 'bedrock-agentcore/experimental/code-interpreter/strands'
 import { Agent, BedrockModel } from '@strands-agents/sdk'
 
@@ -1321,7 +1320,7 @@ CodeInterpreter instance
 
  `Tool<{ code: string; language: "python" | "javascript" | "typescript" }, string>` — Vercel AI SDK tool for code execution
 
-```
+```typescript
 import { createExecuteCodeTool } from 'bedrock-agentcore/code-interpreter/vercel-ai'
 import { CodeInterpreter } from 'bedrock-agentcore/code-interpreter'
 
@@ -1353,7 +1352,7 @@ CodeInterpreter instance
 
  `Tool<{ command: string }, string>` — Vercel AI SDK tool for command execution
 
-```
+```typescript
 import { createExecuteCommandTool } from 'bedrock-agentcore/code-interpreter/vercel-ai'
 import { CodeInterpreter } from 'bedrock-agentcore/code-interpreter'
 
@@ -1385,7 +1384,7 @@ CodeInterpreter instance
 
  `Tool<{ files?: { content: string; path: string }[]; operation: "remove" | "write" | "read" | "list"; path: string; paths?: string[] }, string>` — Vercel AI SDK tool for file operations
 
-```
+```typescript
 import { createFileOperationsTool } from 'bedrock-agentcore/code-interpreter/vercel-ai'
 import { CodeInterpreter } from 'bedrock-agentcore/code-interpreter'
 
@@ -1410,7 +1409,7 @@ CodeInterpreterTools - All-in-one CodeInterpreter integration for Vercel AI SDK
 
 Provides three ready-to-use tools and session management in a single class.
 
-```
+```typescript
 import { CodeInterpreterTools } from 'bedrock-agentcore/code-interpreter/vercel-ai'
 import { ToolLoopAgent } from 'ai'
 import { bedrock } from '@ai-sdk/amazon-bedrock'

@@ -1,7 +1,6 @@
 
 
 # Setting up custom domain names for Gateway endpoints
-<a name="gateway-custom-domains"></a>
 
 By default, Gateway endpoints are provided with an AWS-managed domain name in the format `<gateway-id>.gateway.bedrock-agentcore.<region>.amazonaws.com` . For production environments or to create a more user-friendly experience, you may want to use a custom domain name for your gateway endpoint. This section guides you through setting up a custom domain name using Amazon CloudFront as a reverse proxy.
 
@@ -33,7 +32,7 @@ The following steps will guide you through setting up these components using AWS
 
 First, create a Route 53 hosted zone for your custom domain:
 
-```
+```typescript
 import { RemovalPolicy } from 'aws-cdk-lib';
 import { PublicHostedZone } from 'aws-cdk-lib/aws-route53';
 
@@ -53,7 +52,7 @@ We apply a removal policy of `RETAIN` to prevent accidental deletion of the host
 
 Next, create an SSL/TLS certificate for your custom domain using AWS Certificate Manager (ACM) with DNS validation:
 
-```
+```typescript
 import { RemovalPolicy } from 'aws-cdk-lib';
 import { Certificate, CertificateValidation } from 'aws-cdk-lib/aws-certificatemanager';
 
@@ -71,7 +70,7 @@ DNS validation automatically creates the necessary validation records in your Ro
 
 Create a CloudFront distribution to act as a reverse proxy for your Gateway endpoint:
 
-```
+```typescript
 import {
   AllowedMethods,
   CachePolicy,
@@ -109,7 +108,7 @@ Replace `<mymcpserver>` with your gateway ID and `<region>` with your AWS Region
 
 Create a Route 53 A record that points your custom domain to the CloudFront distribution:
 
-```
+```typescript
 import { ARecord, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 
@@ -127,7 +126,7 @@ This creates an alias record that maps your custom domain to the CloudFront dist
 
 Deploy your CDK stack to create the resources:
 
-```
+```bash
 cdk deploy
 ```
 
@@ -143,7 +142,7 @@ After deploying your infrastructure, verify that your custom domain is properly 
 
 Use the `dig` command to verify that your custom domain resolves to the CloudFront distribution:
 
-```
+```bash
 dig my.example.com
 ```
 
@@ -154,7 +153,7 @@ The output should show that your domain resolves to CloudFront’s IP addresses.
 
 Use `curl` to verify that the SSL certificate is properly configured:
 
-```
+```bash
 curl -v https://my.example.com
 ```
 
@@ -170,7 +169,7 @@ Once your custom domain is set up and verified, you can configure your MCP clien
 
 For Cursor, update your configuration file:
 
-```
+```json
 {
   "mcpServers": {
     "my-mcp-server": {
@@ -185,7 +184,7 @@ For Cursor, update your configuration file:
 
 For MCP clients that don’t natively support streamable HTTP:
 
-```
+```json
 {
   "mcpServers": {
     "my-mcp-server": {
@@ -228,7 +227,7 @@ To resolve this issue, you can implement a Lambda@Edge function that intercepts 
 
   After implementing this solution, the OAuth protected resource endpoint will return the correct custom domain:
 
-  ```
+  ```bash
   curl https://my-custom-domain.com/.well-known/oauth-protected-resource
   {
     "authorization_servers": ["https://my-org.okta.com/oauth2/default"],

@@ -1,7 +1,6 @@
 
 
 # Slack
-<a name="identity-idp-slack"></a>
 
 Slack can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through Slack’s OAuth2 service and obtain access tokens for Slack API resources.
 
@@ -29,7 +28,7 @@ For more details, refer to Slack’s documentation [Sign in with Slack](https://
 
 To configure the outbound Slack resource provider, use the following:
 
-```
+```json
 {
         "name": "NAME",
         "credentialProviderVendor": "SlackOauth2",

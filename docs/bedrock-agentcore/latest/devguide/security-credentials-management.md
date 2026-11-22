@@ -1,7 +1,6 @@
 
 
 # Understanding Credentials Management in Amazon Bedrock AgentCore
-<a name="security-credentials-management"></a>
 
 ## MicroVM Metadata Service (MMDS)
 <a name="mmds"></a>

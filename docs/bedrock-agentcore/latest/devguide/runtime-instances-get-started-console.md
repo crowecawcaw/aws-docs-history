@@ -1,7 +1,6 @@
 
 
 # Get started with Instances using the console
-<a name="runtime-instances-get-started-console"></a>
 
 This tutorial walks through hosting an agent on the **Instances** compute type using the AWS Management Console. You first create a [capacity provider](runtime-instances-how-it-works.md#runtime-instances-capacity-provider) that defines the EC2 infrastructure, then create an agent runtime that uses it, and finally invoke and monitor the agent.
 

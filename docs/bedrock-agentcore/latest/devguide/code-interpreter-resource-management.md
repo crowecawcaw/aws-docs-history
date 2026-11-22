@@ -1,7 +1,6 @@
 
 
 # Resource management
-<a name="code-interpreter-resource-management"></a>
 
 The AgentCore Code Interpreter provides two types of resources:
 

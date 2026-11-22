@@ -1,7 +1,6 @@
 
 
 # AgentCore generated gateway observability data
-<a name="observability-gateway-metrics"></a>
 
 The following sections describe the gateway metrics, logs, and spans output by AgentCore to Amazon CloudWatch. These metrics aren’t available on the CloudWatch generative AI observability page. Gateway metrics are batched at one minute intervals. To learn more about viewing gateway metrics, see [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md).
 
@@ -83,7 +82,7 @@ You can use the [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/la
 
 The following example shows you how to create an alarm for high error rates using the AWS CLI:
 
-```
+```bash
 aws cloudwatch put-metric-alarm \
   --alarm-name "HighErrorRate" \
   --alarm-description "Alarm when error rate exceeds 5%" \
@@ -112,6 +111,10 @@ AgentCore logs the following information for gateway resources:
 + Error messages for Target configurations
 + MCP Requests with missing or incorrect authorization headers
 + MCP Requests with incorrect request parameters (tools, method)
++ Detailed error messages that weren’t returned to the caller because debugging messages are turned off. For more information, see [Turn on debugging messages](gateway-debug-messages.md).
++ For a response interceptor in `STREAM` mode:
+  + A later batch returned a status code, content type, or headers, which were ignored because the client already had them
+  + A streamed response failed after the status code was sent, with the error type. For more information, see [Stream responses through the response interceptor](gateway-interceptors-types.md#gateway-interceptors-types-http-stream).
 
 **Policy decisions aren’t logged**  
 Gateway application logs don’t include policy authorization decisions. When a policy denies a tool call, the gateway doesn’t invoke the target. The gateway doesn’t log a request or response record for that call. A missing record doesn’t mean that the policy wasn’t evaluated. To monitor policy decisions, use the policy metrics and spans described in [AgentCore generated policy observability data](observability-policy-metrics.md).

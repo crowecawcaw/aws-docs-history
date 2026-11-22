@@ -1,7 +1,6 @@
 
 
 # Configure Amazon Bedrock AgentCore Runtime and tools for VPC
-<a name="agentcore-vpc"></a>
 
 You can configure Amazon Bedrock AgentCore Runtime and built-in tools (Code Interpreter and Browser Tool) to connect to resources in your Amazon Virtual Private Cloud (VPC). By configuring VPC connectivity, you enable secure access to private resources such as databases, internal APIs, and services within your VPC.
 
@@ -92,7 +91,7 @@ AgentCore uses the service-linked role `AWSServiceRoleForBedrockAgentCoreNetwork
 
 If you need to create this role manually, your IAM entity needs the following permissions:
 
-```
+```json
 {
     "Action": "iam:CreateServiceLinkedRole",
     "Effect": "Allow",
@@ -394,7 +393,7 @@ Replace {{sg-mounttarget}} with the security group ID of your EFS or S3 Files mo
 
  ** AWS CLI – Add outbound rule to agent runtime security group:** 
 
-```
+```bash
 aws ec2 authorize-security-group-egress \
   --group-id sg-0123456789abcdef0 \
   --protocol tcp \
@@ -404,7 +403,7 @@ aws ec2 authorize-security-group-egress \
 
  ** AWS CLI – Add inbound rule to mount target security group:** 
 
-```
+```bash
 aws ec2 authorize-security-group-ingress \
   --group-id sg-0987654321fedcba0 \
   --protocol tcp \
@@ -434,7 +433,7 @@ For container agents, AgentCore periodically refreshes your container image from
 
     The S3 gateway endpoint uses an IAM policy document to limit access to the service. To follow the principle of least privilege, scope the S3 gateway endpoint policy to only the Amazon S3 bucket that Amazon ECR uses to store image layers. The following policy restricts access to the ECR layer storage bucket for your region:
 
-    ```
+    ```json
     {
       "Statement": [
         {
@@ -456,7 +455,7 @@ For container agents, AgentCore periodically refreshes your container image from
 
     For agents deployed using direct code deployment (zip-based), AgentCore stores your code artifacts in an internal service-owned S3 bucket. Scope the S3 gateway endpoint policy to only the code artifact bucket for your region:
 
-    ```
+    ```json
     {
       "Statement": [
         {
@@ -594,7 +593,7 @@ When a file system mount fails, the `InvokeAgentRuntime` API returns HTTP status
 
 Verify the outbound rule on your agent runtime security group:
 
-```
+```bash
 aws ec2 describe-security-groups \
   --group-ids sg-0123456789abcdef0 \
   --query 'SecurityGroups[0].IpPermissionsEgress[?ToPort==`2049`]'
@@ -602,7 +601,7 @@ aws ec2 describe-security-groups \
 
 Verify the inbound rule on your mount target security group:
 
-```
+```bash
 aws ec2 describe-security-groups \
   --group-ids sg-0987654321fedcba0 \
   --query 'SecurityGroups[0].IpPermissions[?ToPort==`2049`]'
@@ -614,7 +613,7 @@ If either query returns empty results, add the missing rule as shown in [Example
 
 The agent runtime might be placed in an Availability Zone where no mount target exists. Verify overlap:
 
-```
+```bash
 # Get agent runtime subnet AZs
 aws ec2 describe-subnets \
   --subnet-ids subnet-0123456789abcdef0 subnet-0123456789abcdef1 \
@@ -632,7 +631,7 @@ aws efs describe-mount-targets \
 
 Verify the route table associated with your agent runtime subnets includes the local VPC route:
 
-```
+```bash
 aws ec2 describe-route-tables \
   --filters "Name=association.subnet-id,Values=subnet-0123456789abcdef0" \
   --query 'RouteTables[0].Routes[?DestinationCidrBlock]'
@@ -649,7 +648,7 @@ aws ec2 describe-route-tables \
 
 Verify DNS settings on your VPC:
 
-```
+```bash
 aws ec2 describe-vpc-attribute \
   --vpc-id vpc-0123456789abcdef0 \
   --attribute enableDnsSupport
@@ -661,14 +660,14 @@ aws ec2 describe-vpc-attribute \
 
 Both must return `true`. If not, enable them:
 
-```
+```bash
 aws ec2 modify-vpc-attribute --vpc-id vpc-0123456789abcdef0 --enable-dns-support
 aws ec2 modify-vpc-attribute --vpc-id vpc-0123456789abcdef0 --enable-dns-hostnames
 ```
 
  **2. Mount target not in Available state** – The mount target might still be creating or might have been deleted.
 
-```
+```bash
 # For EFS
 aws efs describe-mount-targets --file-system-id fs-0123456789abcdef0
 
@@ -692,7 +691,7 @@ In rare cases, S3 Files mounts might fail with a transient `ResourceNotFound` er
 
  **Solution:** Either create mount targets in all Availability Zones where your agent runtime subnets are located (recommended), or remove agent runtime subnets that are in Availability Zones without mount targets.
 
-```
+```bash
 # List all EFS mount target AZs
 aws efs describe-mount-targets \
   --file-system-id fs-0123456789abcdef0 \

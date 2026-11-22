@@ -1,7 +1,6 @@
 
 
 # Configure a consent portal
-<a name="identity-consent-portal"></a>
 
 A consent portal is a hosted, AWS-managed portal that authenticates your end users to an OpenID Connect (OIDC) identity provider (IdP) and gathers their consent before your agent accesses a downstream resource on their behalf. Each consent portal attaches to a single Amazon Bedrock AgentCore Gateway (its source) and uses an OAuth2 credential provider to reference the same IdP that the gateway’s inbound JWT authorizer trusts. The portal keeps the OAuth flow server-side: the browser never holds a token.
 

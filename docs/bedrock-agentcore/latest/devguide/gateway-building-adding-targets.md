@@ -1,7 +1,6 @@
 
 
 # Add targets to an existing AgentCore gateway
-<a name="gateway-building-adding-targets"></a>
 
 After creating a gateway, you can add targets, which define the tools that your gateway will host. AgentCore Gateway supports multiple target type that are detailed in the following topics. Each target can have its own credential provider attached, enabling you to securely control access targets. By adding targets, your gateway becomes a single MCP URL that enables access to all of the relevant tools for an agent.
 

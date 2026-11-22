@@ -1,7 +1,6 @@
 
 
 # Evaluation types
-<a name="evaluations-types"></a>
 
 AgentCore Evaluations provides three evaluation types, which differ in when and how the evaluation is performed:
 

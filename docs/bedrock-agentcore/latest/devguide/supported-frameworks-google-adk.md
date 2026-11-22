@@ -1,7 +1,6 @@
 
 
 # Google ADK
-<a name="supported-frameworks-google-adk"></a>
 
 This page explains how to instrument a [Google Agent Development Kit (ADK)](https://google.github.io/adk-docs/) agent, how spans are identified, and how evaluation fields are extracted.
 
@@ -34,7 +33,7 @@ openinference-instrumentation-google-adk>=0.1.13
 
  `pyproject.toml`:
 
-```
+```toml
 [project]
 dependencies = [
     "openinference-instrumentation-google-adk>=0.1.13",
@@ -95,7 +94,7 @@ These examples are not complete spans. They show representative data from a real
 **Example**  
 The `openinference.span.kind` attribute (`CHAIN`) on the outer `invocation` span identifies this as an invoke agent span. The span carries no conversation content; it lives in the correlated event record.  
 
-```
+```json
 {
   "traceId": "6a387ee61078243c1cc455ed45c6c313",
   "spanId": "70f2e87a30c34420",
@@ -119,7 +118,7 @@ The `openinference.span.kind` attribute (`CHAIN`) on the outer `invocation` span
 ```
 The correlated event record carries the conversation. The user prompt is nested under `new_message.parts`, and the agent response is nested under `content.parts`.  
 
-```
+```json
 {
   "spanId": "70f2e87a30c34420",
   "traceId": "6a387ee61078243c1cc455ed45c6c313",
@@ -148,7 +147,7 @@ The correlated event record carries the conversation. The user prompt is nested 
 ```
 The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute tool span; `tool.name` holds the tool name. The tool arguments and result live in the correlated event record.  
 
-```
+```json
 {
   "traceId": "6a387ef07b8f4f3732fab45d3c0b51ff",
   "spanId": "9028a8dd94943456",
@@ -174,7 +173,7 @@ The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute t
 }
 ```
 
-```
+```json
 {
   "spanId": "9028a8dd94943456",
   "traceId": "6a387ef07b8f4f3732fab45d3c0b51ff",
@@ -200,7 +199,7 @@ The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute t
 ```
 The `openinference.span.kind` attribute (`LLM`) on the `call_llm` span identifies this as an inference span. It carries the model metadata and, in the indexed `llm.input_messages.*` and `llm.output_messages.*` attributes, the messages for the model call.  
 
-```
+```json
 {
   "traceId": "6a387ee61078243c1cc455ed45c6c313",
   "spanId": "1c4e5f8a2b9d0e73",
@@ -239,7 +238,7 @@ These examples are not complete spans. They show representative data from a real
 **Example**  
 The `input.value` attribute holds the user prompt (nested under `new_message.parts`), and the `output.value` attribute holds the agent response (nested under `content.parts`).  
 
-```
+```json
 {
   "traceId": "6a4de7b85e61747e6b568a1f4768e89d",
   "spanId": "31ea3d5882dac680",
@@ -264,7 +263,7 @@ The `input.value` attribute holds the user prompt (nested under `new_message.par
 ```
 The `input.value` attribute holds the tool arguments, and the `output.value` attribute holds the tool result.  
 
-```
+```json
 {
   "traceId": "6a4de7c376913db82e6f0f336a16731d",
   "spanId": "b64c37adefae74f0",
@@ -292,7 +291,7 @@ The `input.value` attribute holds the tool arguments, and the `output.value` att
 ```
 The `openinference.span.kind` attribute (`LLM`) on the `call_llm` span identifies this as an inference span. The messages for the model call are inline on the indexed `llm.input_messages.*` and `llm.output_messages.*` attributes.  
 
-```
+```json
 {
   "traceId": "6a4de7b85e61747e6b568a1f4768e89d",
   "spanId": "2d5f6a9b3c0e1f84",

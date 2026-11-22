@@ -1,7 +1,6 @@
 
 
 # Save and retrieve insights
-<a name="long-term-saving-and-retrieving-insights"></a>
 
 Once you have configured an AgentCore Memory with at least one long-term memory strategy and the strategy is ACTIVE, the service will automatically begin processing conversational data to extract and store insights. This process involves two distinct steps: saving the raw conversation and then retrieving the structured insights after they have been processed.
 
@@ -17,7 +16,7 @@ The following example shows how to save a multi-turn conversation to a memory re
 
  **Example Save a conversation as a series of events** 
 
-```
+```python
 #'memory_id' is the ID of your memory resource with an active summary strategy.
 
 from bedrock_agentcore.memory.session import MemorySessionManager
@@ -66,7 +65,7 @@ The following example demonstrates how to wait for processing and then retrieve 
 
  **Example Wait and retrieve a session summary** 
 
-```
+```python
 # 'session' is an existing session object that you created when adding the coversation turns
 # session should be created on a memory resource with an active summary strategy.
 

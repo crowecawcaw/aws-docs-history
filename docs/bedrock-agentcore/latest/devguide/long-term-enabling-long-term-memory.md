@@ -1,7 +1,6 @@
 
 
 # Enable long-term memory
-<a name="long-term-enabling-long-term-memory"></a>
 
 You can enable long-term memory in two ways: by adding strategies when you first [create an AgentCore Memory](memory-create-a-memory-store.md) , or by updating an existing resource to include them.
 
@@ -14,7 +13,7 @@ The most direct method is to include strategies when you create a new AgentCore 
 
 1. 
 
-   ```
+   ```bash
    agentcore add memory --name ShoppingMemory --strategies USER_PREFERENCE
    agentcore deploy
    ```
@@ -41,7 +40,7 @@ The AgentCore CLI supports creating and managing memory resources. To update mem
 
  **Example Add a Session Summary strategy to an existing AgentCore Memory** 
 
-```
+```python
 import boto3
 
 # Initialize the Boto3 client for control plane operations

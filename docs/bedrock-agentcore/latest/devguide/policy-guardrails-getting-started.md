@@ -1,7 +1,6 @@
 
 
 # Getting started with guardrails
-<a name="policy-guardrails-getting-started"></a>
 
 Guardrails let you add content filtering to your agent’s gateway. When a guardrail detects content your policy forbids, such as violent content, the gateway blocks the request before it reaches your agent.
 
@@ -31,20 +30,20 @@ During deployment, the AgentCore CLI checks the AWS CDK bootstrap stack. The CLI
 
 Install the AgentCore CLI:
 
-```
+```bash
 npm install -g @aws/agentcore
 ```
 
 Verify the installation:
 
-```
+```bash
 agentcore --version
 ```
 
 ## Step 1: Create a project
 <a name="policy-guardrails-getting-started-create"></a>
 
-```
+```bash
 agentcore create --name MyAgent --template empty
 cd MyAgent
 agentcore add runtime --name MyAgent --language python --protocol HTTP
@@ -60,7 +59,7 @@ cd ../..
 
 Create `app/MyAgent/main.py` with a simple HTTP Runtime entrypoint:
 
-```
+```python
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
 from strands import Agent
 
@@ -84,7 +83,7 @@ if __name__ == "__main__":
 
 1. 
 
-   ```
+   ```bash
    # Policy engine
    agentcore add policy-engine --name MyPolicyEngine
    
@@ -97,7 +96,7 @@ if __name__ == "__main__":
 
 1. Create the policy engine:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-policy-engine --name MyPolicyEngine
    ```
 
@@ -105,7 +104,7 @@ if __name__ == "__main__":
 
 1. Create the policy engine:
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -121,7 +120,7 @@ if __name__ == "__main__":
 
 Step 4 connects the gateway to the Runtime through a target that you create with the AWS CLI. The AgentCore CLI grants the gateway’s execution role permissions only for targets in the project, so grant the role access to the Runtime and to the target’s schema in `agentcore/cdk/lib/cdk-stack.ts`. Add the following after the line that creates the `AgentCoreApplication`, and replace `<BUCKET_NAME>` with the name of the bucket for the schema:
 
-```
+```typescript
 const gateway = this.application.gateway('MyGateway');
 const runtime = this.application.runtime('MyAgent');
 gateway.grant(
@@ -134,7 +133,7 @@ gateway.grant(['s3:GetObject'], ['arn:aws:s3:::<BUCKET_NAME>/agent-schema.yaml']
 ## Step 3: Deploy infrastructure first
 <a name="policy-guardrails-getting-started-deploy-infra"></a>
 
-```
+```bash
 agentcore deploy
 ```
 
@@ -145,7 +144,7 @@ The `agentcore deploy` command deploys the Runtime, gateway, and policy engine, 
 
 An HTTP Runtime target must have an API schema before a policy can reference request fields such as `context.input.prompt`. Save the following schema as `agent-schema.yaml`:
 
-```
+```yaml
 openapi: 3.0.0
 info:
   title: Agent invocation
@@ -172,7 +171,7 @@ paths:
 
 Upload the schema to Amazon S3:
 
-```
+```bash
 export SCHEMA_BUCKET="<BUCKET_NAME>"
 export SCHEMA_S3_URI="s3://$SCHEMA_BUCKET/agent-schema.yaml"
 aws s3 cp agent-schema.yaml "$SCHEMA_S3_URI"
@@ -180,7 +179,7 @@ aws s3 cp agent-schema.yaml "$SCHEMA_S3_URI"
 
 Create the target with the AWS CLI so that it uses the schema. Set the identifiers from `agentcore status --json`, then create the target:
 
-```
+```bash
 export GATEWAY_ID="<GATEWAY_ID>"
 export RUNTIME_ARN="<RUNTIME_ARN>"
 
@@ -221,7 +220,7 @@ Wait until the target status is `READY` before adding the policy. The target is 
 
 1. Create a Cedar statement for the guardrail:
 
-   ```
+   ```cedar
    forbid (principal,
      action == AgentCore::Action::"MyTarget___POST:/invocations",
      resource == AgentCore::Gateway::"<gateway-arn>")
@@ -234,7 +233,7 @@ Wait until the target status is `READY` before adding the policy. The target is 
    ```
 Save the statement as `block_violence.cedar`, replacing `<gateway-arn>` with the gateway ARN from `agentcore status --json`. Then add it to the project:  
 
-```
+```bash
 agentcore add policy --name BlockViolence \
   --engine MyPolicyEngine \
   --statement file://block_violence.cedar \
@@ -246,7 +245,7 @@ agentcore add policy --name BlockViolence \
 
 1. On this surface, you write the statement yourself and must name the deployed gateway’s ARN. AgentCore rejects a statement that names a specific action unless the resource is also a specific gateway. Take the ARN from `agentcore project status --json` or `get-gateway`:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-policy \
      --policy-engine-id MyPolicyEngine-a1b2c3d4e5 \
      --name BlockViolence \
@@ -262,7 +261,7 @@ agentcore add policy --name BlockViolence \
 
 1. Create the same policy using the AWS SDK for Python:
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -304,7 +303,7 @@ Because a policy engine in ENFORCE mode denies all actions unless explicitly per
 
 1. 
 
-   ```
+   ```bash
    agentcore add policy \
      --name allowallBlockViolence \
      --engine MyPolicyEngine \
@@ -315,7 +314,7 @@ Because a policy engine in ENFORCE mode denies all actions unless explicitly per
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-policy \
      --policy-engine-id MyPolicyEngine-a1b2c3d4e5 \
      --name allowallBlockViolence \
@@ -330,7 +329,7 @@ Because a policy engine in ENFORCE mode denies all actions unless explicitly per
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -354,7 +353,7 @@ Because a policy engine in ENFORCE mode denies all actions unless explicitly per
 ## Step 6: Deploy the policies
 <a name="policy-guardrails-getting-started-deploy-policy"></a>
 
-```
+```bash
 agentcore deploy
 ```
 
@@ -363,7 +362,7 @@ This step is specific to the AgentCore CLI: `agentcore add` only edits the proje
 ## Step 7: Invoke through the gateway
 <a name="policy-guardrails-getting-started-invoke"></a>
 
-```
+```bash
 # Tripping prompt - should be blocked
 agentcore invoke --gateway MyGateway \
   --path /MyTarget/invocations \
@@ -412,14 +411,14 @@ Expected blocked result (`forbid` \+ `ACTIVE`):
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control delete-gateway-target \
      --gateway-identifier "$GATEWAY_ID" \
      --target-id "$TARGET_ID"
    ```
 Wait until `agentcore gateway target get` fails to find the target. Delete the lines that you added to `agentcore/cdk/lib/cdk-stack.ts` in Step 2, because they refer to the gateway and Runtime that the next commands remove. Then remove the project resources:  
 
-```
+```bash
 agentcore remove all --yes
 agentcore deploy --yes
 ```  
@@ -429,7 +428,7 @@ agentcore deploy --yes
 
 1. Delete the policies, then the engine. An engine that still contains policies cannot be deleted:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control delete-policy \
      --policy-engine-id MyPolicyEngine-a1b2c3d4e5 --policy-id BlockViolence-a1b2c3d4e5
    aws bedrock-agentcore-control delete-policy \
@@ -441,7 +440,7 @@ agentcore deploy --yes
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')

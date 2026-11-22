@@ -1,7 +1,6 @@
 
 
 # MCP protocol contract
-<a name="runtime-mcp-protocol-contract"></a>
 
 Understand the requirements for implementing the Model Context Protocol (MCP) in Amazon Bedrock AgentCore Runtime so that agents can call tools and agent servers. These requirements apply to MCP servers on both compute types, microVMs and [Instances](runtime-instances-how-it-works.md).
 
@@ -156,7 +155,7 @@ For version `2026-07-28` and later, `ResourceNotFoundException` returns JSON-RPC
 
 Example error response:
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "id": "req-001",

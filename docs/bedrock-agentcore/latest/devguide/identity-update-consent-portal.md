@@ -1,7 +1,6 @@
 
 
 # Update a consent portal
-<a name="identity-update-consent-portal"></a>
 
 You can update an existing consent portal from the AgentCore console or with the AWS CLI. You can change the execution role, the IdP credential configurations (the identity provider credential provider, scopes, and audiences), and the description. The consent portal name and the attached gateway are set when you create the portal and can’t be changed.
 

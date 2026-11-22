@@ -1,7 +1,6 @@
 
 
 # Create evaluator
-<a name="create-evaluator"></a>
 
 The `CreateEvaluator` API creates a new custom evaluator that defines how to assess specific aspects of your agent’s behavior. This asynchronous operation returns immediately while the evaluator is being provisioned. The API returns the evaluator ARN, ID, creation timestamp, and initial status. Once created, the evaluator can be referenced in online evaluation configurations.
 
@@ -71,7 +70,7 @@ The following code samples demonstrate how to create custom evaluators using dif
 ### Custom evaluator config sample JSON - custom\_evaluator\_config.json
 <a name="custom-evaluator-config-sample"></a>
 
-```
+```json
 {
     "llmAsAJudge":{
         "modelConfig": {
@@ -119,7 +118,7 @@ The following code samples demonstrate how to create custom evaluators using dif
 
 The preceding example runs the judge model on the Amazon Bedrock Runtime endpoint with `bedrockEvaluatorModelConfig`. To run it on the Amazon Bedrock Mantle endpoint instead, replace the `bedrockEvaluatorModelConfig` object inside `modelConfig` with a `responsesEvaluatorModelConfig` object:
 
-```
+```json
 {
     "responsesEvaluatorModelConfig": {
         "modelId": "openai.gpt-oss-120b",
@@ -136,7 +135,7 @@ Using either configuration, you can create the custom evaluator through the API 
 
 1. 
 
-   ```
+   ```bash
    agentcore add evaluator llm-as-a-judge \
      --name "your_custom_evaluator_name" \
      --level TRACE \
@@ -151,7 +150,7 @@ Run this from inside an AgentCore project directory created with `agentcore crea
 
 1. 
 
-   ```
+   ```python
    import json
    from bedrock_agentcore_starter_toolkit import Evaluation
    
@@ -172,7 +171,7 @@ Run this from inside an AgentCore project directory created with `agentcore crea
 
 1. 
 
-   ```
+   ```python
    import boto3
    import json
    
@@ -192,7 +191,7 @@ Run this from inside an AgentCore project directory created with `agentcore crea
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-evaluator \
        --evaluator-name 'your_custom_evaluator_name' \
        --level TRACE \
@@ -210,7 +209,7 @@ The following examples show how to create custom evaluators that use ground trut
 
    Save the following as `trajectory_compliance_config.json` :
 
-   ```
+   ```json
    {
      "llmAsAJudge": {
        "instructions": "You are evaluating whether an AI agent followed the expected tool-use trajectory.\n\nExpected trajectory (ordered list of tool names):\n{expected_tool_trajectory}\n\nActual trajectory (ordered list of tool names the agent used):\n{actual_tool_trajectory}\n\nFull session context:\n{context}\n\nAvailable tools:\n{available_tools}\n\nCompare the expected and actual trajectories. Consider whether the agent called the right tools in the right order. Minor deviations (e.g., an extra logging tool call) are acceptable if the core trajectory is preserved.",
@@ -233,7 +232,7 @@ The following examples show how to create custom evaluators that use ground trut
 
    Create the evaluator:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-evaluator \
      --evaluator-name 'TrajectoryCompliance' \
      --level SESSION \
@@ -245,7 +244,7 @@ The following examples show how to create custom evaluators that use ground trut
 
    Save the following as `assertion_checker_config.json` :
 
-   ```
+   ```json
    {
      "llmAsAJudge": {
        "instructions": "You are a quality assurance judge for an AI agent session.\n\nSession context (full conversation history):\n{context}\n\nAvailable tools:\n{available_tools}\n\nAssertions to verify:\n{assertions}\n\nFor each assertion, determine if the session satisfies it. The overall verdict should be PASS only if ALL assertions are satisfied. If any assertion fails, the verdict is FAIL. If the session data is insufficient to determine, verdict is INCONCLUSIVE.",
@@ -268,7 +267,7 @@ The following examples show how to create custom evaluators that use ground trut
 
    Create the evaluator:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-evaluator \
      --evaluator-name 'AssertionChecker' \
      --level SESSION \
@@ -280,7 +279,7 @@ The following examples show how to create custom evaluators that use ground trut
 
    Save the following as `response_similarity_config.json` :
 
-   ```
+   ```json
    {
      "llmAsAJudge": {
        "instructions": "Compare the agent's actual response to the expected response.\n\nConversation context:\n{context}\n\nAgent's actual response:\n{assistant_turn}\n\nExpected response:\n{expected_response}\n\nEvaluate semantic similarity. The agent does not need to match word-for-word, but the meaning, key facts, and intent should align. Penalize missing critical information or contradictions.",
@@ -304,7 +303,7 @@ The following examples show how to create custom evaluators that use ground trut
 
    Create the evaluator:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-evaluator \
      --evaluator-name 'ResponseSimilarity' \
      --level TRACE \

@@ -1,7 +1,6 @@
 
 
 # Security in Amazon Bedrock AgentCore payments
-<a name="payments-security-best-practices"></a>
 
 The following best practices can help you prevent security incidents when using Amazon Bedrock AgentCore payments. Preventative controls stop unsafe actions before they happen. Detective controls surface unexpected activity so you can respond to it.
 
@@ -85,7 +84,7 @@ Rotation is synchronous. The operation finishes the rotation before it returns a
 
 The response returns the connector’s identifiers, its `status` (which is `READY` after a successful rotation), and `lastUpdatedAt`:
 
-```
+```json
 {
   "paymentManagerId": "<paymentManagerId>",
   "paymentConnectorId": "<paymentConnectorId>",
@@ -120,7 +119,7 @@ Rotate the API key as routine maintenance. Amazon Bedrock AgentCore registers th
 1. Choose **Rotate**. The console displays a message that rotation can take up to one minute. When rotation finishes, a success message confirms that the API secrets were rotated.
 Confirm that the connector is eligible, and note its current `credentialsUpdatedAt` value:  
 
-```
+```bash
 aws bedrock-agentcore-control get-payment-connector \
   --payment-manager-id <paymentManagerId> \
   --payment-connector-id <paymentConnectorId> \
@@ -128,7 +127,7 @@ aws bedrock-agentcore-control get-payment-connector \
 ```
 Rotate the API key:  
 
-```
+```bash
 aws bedrock-agentcore-control rotate-payment-connector-credentials \
   --payment-manager-id <paymentManagerId> \
   --payment-connector-id <paymentConnectorId> \
@@ -137,7 +136,7 @@ aws bedrock-agentcore-control rotate-payment-connector-credentials \
 ```
 After checking [connector eligibility](#payments-rotate-eligibility), rotate its service-managed API key:  
 
-```
+```bash
 agentcore payment connector rotate-credentials \
   --manager-id <paymentManagerId> \
   --connector-id <paymentConnectorId> \
@@ -146,7 +145,7 @@ agentcore payment connector rotate-credentials \
 ```
  `--secrets` selects credential kinds, not new secret values. The service creates the replacement.
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-east-1")
@@ -195,7 +194,7 @@ Expect up to one minute of downtime for the `ProcessPayment` API while the Walle
 
 1. Choose **Rotate**. The console displays a message that rotation can take up to one minute. When rotation finishes, a success message confirms that the Wallet secret was rotated.
 
-```
+```bash
 aws bedrock-agentcore-control rotate-payment-connector-credentials \
   --payment-manager-id <paymentManagerId> \
   --payment-connector-id <paymentConnectorId> \
@@ -204,7 +203,7 @@ aws bedrock-agentcore-control rotate-payment-connector-credentials \
 ```
 Confirm that payments succeed after the rotation, because the Wallet secret signs every wallet write operation.
 
-```
+```bash
 agentcore payment connector rotate-credentials \
   --manager-id <paymentManagerId> \
   --connector-id <paymentConnectorId> \
@@ -213,7 +212,7 @@ agentcore payment connector rotate-credentials \
 ```
 The same eligibility and downtime requirements apply. Confirm that payments succeed after the rotation.
 
-```
+```python
 response = client.rotate_payment_connector_credentials(
     paymentManagerId="<paymentManagerId>",
     paymentConnectorId="<paymentConnectorId>",
@@ -235,7 +234,7 @@ To keep the two rotations independent, send a separate request for each secret. 
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore-control rotate-payment-connector-credentials \
   --payment-manager-id <paymentManagerId> \
   --payment-connector-id <paymentConnectorId> \
@@ -243,7 +242,7 @@ aws bedrock-agentcore-control rotate-payment-connector-credentials \
   --region us-east-1
 ```
 
-```
+```bash
 agentcore payment connector rotate-credentials \
   --manager-id <paymentManagerId> \
   --connector-id <paymentConnectorId> \
@@ -252,7 +251,7 @@ agentcore payment connector rotate-credentials \
 ```
 Pass the credential kinds as space-separated values. You can add `--client-token <token>` for idempotent retries; reuse that token only when retrying the same request.
 
-```
+```python
 response = client.rotate_payment_connector_credentials(
     paymentManagerId="<paymentManagerId>",
     paymentConnectorId="<paymentConnectorId>",

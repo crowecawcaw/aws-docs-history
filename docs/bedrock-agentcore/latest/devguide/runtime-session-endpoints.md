@@ -1,7 +1,6 @@
 
 
 # Connect to runtime sessions through a session endpoint
-<a name="runtime-session-endpoints"></a>
 
 With session endpoints, you can connect to application servers running inside an Amazon Bedrock AgentCore Runtime session. A session endpoint is an authenticated HTTPS URL that addresses one runtime session. Use it to:
 + View a web preview.
@@ -80,7 +79,7 @@ The example allows the default HTTP serving port `8080`, web application ports `
 
 Replace the Region, image URI, and execution role ARN with your values. Use an AWS SDK version that supports `allowedPorts` and the serving port and invocation path settings.
 
-```
+```python
 import boto3
 
 region = "us-west-2"
@@ -115,7 +114,7 @@ You can also combine `allowedPorts` with a custom `protocolConfiguration.port` o
 
 After the runtime reaches `READY` status, invoke it to establish a session. For a runtime with session endpoints enabled, the response can include this header:
 
-```
+```text
 X-Amzn-Bedrock-AgentCore-Runtime-Session-Endpoint-Url
 ```
 
@@ -132,7 +131,7 @@ The header is optional. Runtime omits it when session endpoints aren’t enabled
 
 The following IAM-authenticated example invokes the runtime and reads the URL. It uses `sessionEndpointUrl` when your SDK exposes it, and otherwise reads the raw header. You can read the URL before consuming the response body.
 
-```
+```python
 import json
 import uuid
 
@@ -170,7 +169,7 @@ An unprefixed session endpoint URL uses the agent’s configured serving port. I
 
 To select another port, prefix the first hostname label with the port number and two hyphens (`--`). Keep the session endpoint identifier and the service domain from the returned URL.
 
-```
+```text
 https://<session-endpoint-id>.<service-domain>/application/path
 https://8081--<session-endpoint-id>.<service-domain>/application/path
 https://10000--<session-endpoint-id>.<service-domain>/package.Service/Method
@@ -184,7 +183,7 @@ You can allow only additional application ports and omit the serving port from t
 
 For the example runtime, construct a preview URL for port `8081` as follows:
 
-```
+```python
 from urllib.parse import urlsplit, urlunsplit
 
 parts = urlsplit(session_endpoint_url)
@@ -207,7 +206,7 @@ IAM callers need `bedrock-agentcore:InvokeAgentRuntimeProxy` permission for the 
 
 The following policy grants those two actions for one runtime and its `DEFAULT` endpoint. Replace the resource ARNs with your runtime and endpoint ARNs. Attach the policy to the calling identity.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -238,7 +237,7 @@ The following example uses Boto3 credentials and `requests` to make a signed GET
 
 For requests without a body, such as this GET request, send `Content-Length: 0` so that the application server receives an explicitly empty body. The example sets the header before signing.
 
-```
+```python
 import boto3
 import requests
 from botocore.auth import SigV4Auth
@@ -276,7 +275,7 @@ For a runtime configured with an inbound OAuth authorizer, send a valid bearer t
 
 Set `PREVIEW_URL` to the URL for your application’s allowed port and `ACCESS_TOKEN` to your OAuth access token.
 
-```
+```bash
 curl --request GET \
   --header "Authorization: Bearer ${ACCESS_TOKEN}" \
   "${PREVIEW_URL}"
@@ -305,7 +304,7 @@ Omit this header for an HTTP/1.1 application server or a WebSocket upgrade. When
 
 These connections use your application’s routes. For example, a WebSocket server on port `8081` with a `/live` route is addressed as follows:
 
-```
+```text
 wss://8081--<session-endpoint-id>.<service-domain>/live
 ```
 
@@ -314,7 +313,7 @@ wss://8081--<session-endpoint-id>.<service-domain>/live
 
 Runtime relays application responses using the application’s status, body, and protocol. Platform proxy errors have an HTTP status, an empty body, and the following attribution header:
 
-```
+```text
 X-Amzn-Bedrock-AgentCore-Runtime-Error
 ```
 

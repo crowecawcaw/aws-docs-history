@@ -1,7 +1,6 @@
 
 
 # OneLogin
-<a name="identity-idp-onelogin"></a>
 
 OneLogin can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through OneLogin’s OAuth2 service and obtain access tokens for OneLogin API resources.
 
@@ -37,7 +36,7 @@ Use the following procedure to set up a OneLogin OAuth2 application and obtain t
 
 To configure OneLogin as an outbound resource provider use the following:
 
-```
+```json
 {
   "name": "OneLogin",
   "credentialProviderVendor": "OneLoginOauth2",

@@ -1,7 +1,6 @@
 
 
 # Stateful MCP server features
-<a name="mcp-stateful-features"></a>
 
 The Model Context Protocol (MCP) provides a standardized way for AI applications to interact with external data and capabilities. This guide shows how to build an MCP server that uses resources, prompts, tools, elicitation, sampling, and progress notifications, and how to test it locally and on Amazon Bedrock AgentCore.
 
@@ -63,7 +62,7 @@ Create a file called `travel_server.py` with the following code. This travel boo
 ### travel\_server.py - Complete MCP Server
 <a name="mcp-stateful-server-code"></a>
 
-```
+```python
 """
 Travel Booking Agent - Stateful MCP Server
 Demonstrates all MCP features in a real-world travel booking workflow:
@@ -333,7 +332,7 @@ Create a file called `test_client.py` with the following code. This client tests
 ### test\_client.py - Complete Test Client
 <a name="mcp-stateful-client-code"></a>
 
-```
+```python
 """
 Travel Booking Agent - Test Client
 Tests all MCP features: Elicitation, Sampling, Progress, Resources, Prompts

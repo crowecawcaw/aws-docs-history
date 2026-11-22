@@ -1,7 +1,6 @@
 
 
 # Monitor AgentCore resources across accounts
-<a name="observability-cross-account"></a>
 
 You can use Amazon CloudWatch cross-account observability to monitor Amazon Bedrock AgentCore resources across multiple AWS accounts from a single monitoring account. This enables you to view agent metrics, traces, sessions, and resource data from source accounts without switching between accounts.
 
@@ -63,7 +62,7 @@ You can scope the sink policy in one of the following ways:
 
 Replace `<your-org-id>` with your AWS Organizations organization ID (for example, `o-a1b2c3d4e5`).
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: OAM Sink for cross-account AgentCore Observability (organization-wide)
 
@@ -101,7 +100,7 @@ Outputs:
 
 Replace `<source-account-id-1>` and `<source-account-id-2>` with the AWS account IDs of your source accounts.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: OAM Sink for cross-account AgentCore Observability (specific accounts)
 
@@ -141,7 +140,7 @@ Outputs:
 
 In each source account, create an OAM link to the monitoring account’s sink. Replace `<sink-arn-from-monitoring-account>` with the sink ARN from the previous step.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: OAM Link for cross-account AgentCore Observability
 

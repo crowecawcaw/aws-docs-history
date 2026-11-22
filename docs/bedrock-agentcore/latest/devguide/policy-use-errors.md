@@ -1,7 +1,6 @@
 
 
 # Errors
-<a name="policy-use-errors"></a>
 
 Policy in AgentCore operations can return the following types of errors:
 

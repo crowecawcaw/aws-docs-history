@@ -1,7 +1,6 @@
 
 
 # Create gateway with Policy Engine
-<a name="create-gateway-with-policy"></a>
 
 This section provides examples of creating a gateway with a policy engine associated for policy enforcement.
 
@@ -15,13 +14,13 @@ Select one of the following methods:
 
 1. In an AgentCore project, add the policy engine:
 
-   ```
+   ```bash
    agentcore add policy-engine --name my_policy_engine
    ```
 
 1. Add a gateway and name the policy engine it should enforce:
 
-   ```
+   ```bash
    agentcore add gateway --name my-gateway \
      --protocol-type MCP \
      --authorizer-type CUSTOM_JWT \
@@ -33,7 +32,7 @@ Select one of the following methods:
 
 1. Deploy to create both resources in your account:
 
-   ```
+   ```bash
    agentcore deploy
    ```
 
@@ -41,7 +40,7 @@ Select one of the following methods:
 
 1. Run the following code in a terminal to create a gateway with a Policy Engine using the AWS CLI:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-gateway \
      --name my-gateway \
      --role-arn arn:aws:iam::123456789012:role/my-gateway-service-role \
@@ -63,7 +62,7 @@ Select one of the following methods:
 
 1. The following Python code shows how to create a gateway with a Policy Engine using the AWS Python SDK (Boto3):
 
-   ```
+   ```python
    import boto3
    
    gateway_client = boto3.client('bedrock-agentcore-control')

@@ -1,7 +1,6 @@
 
 
 # Create a consent portal with the AWS CLI
-<a name="identity-create-consent-portal"></a>
 
 You create a consent portal with the `create-consent-portal` command. After you create the portal, poll its status until it becomes `ACTIVE` to retrieve the `portalUrl`. Before you begin, complete the steps in [Consent portal prerequisites](identity-consent-portal-prerequisites.md). To create a consent portal with the console instead, see [Create a consent portal with the console](identity-create-consent-portal-console.md).
 

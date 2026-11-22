@@ -1,7 +1,6 @@
 
 
 # Create an Amazon Bedrock AgentCore gateway
-<a name="gateway-create"></a>
 
 This guide walks you through the process of creating and configuring an Amazon Bedrock AgentCore Gateway. The Gateway serves as a unified entry point for agents to access tools and resources through the Model Context Protocol (MCP) and creating it is the first step in building your tool integration platform. When you create a gateway, you create a managed service that handles authentication and invokes callable endpoints as tools.
 

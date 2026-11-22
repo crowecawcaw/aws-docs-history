@@ -1,11 +1,12 @@
 
 
 # Create online evaluation
-<a name="create-online-evaluations"></a>
 
 The `CreateOnlineEvaluationConfig` API creates a new online evaluation configuration that continuously monitors your agent’s performance using live traffic. This asynchronous operation tells the service to evaluate agent traces as they are generated during normal operation.
 
 To create an online evaluation, provide a unique configuration name, choose what to monitor, select up to 25 evaluators, and provide an IAM service role ARN for execution. The data source can be CloudWatch Logs, selected by exact log group names or log group name prefixes, or an agent endpoint. The required `enableOnCreate` parameter controls the initial `executionStatus`: `true` starts the configuration in `ENABLED`, and `false` starts it in `DISABLED`.
+
+To continuously find recurring failure patterns, include `Builtin.FailureAnalysis` in `evaluators`. The Insight Evaluator writes session-level failure analysis results. When the default Agent Insight Store is enabled and active, the evaluator also generates Agent Insights that are aggregated at the agent level by `serviceName`. The Agent Insights APIs represent this value as `applicationName`. For the complete workflow, see [Insights in online evaluation](online-evaluations-insights.md).
 
 **Topics**
 + [Execution status control](#execution-status-control)
@@ -25,7 +26,7 @@ For a configuration you added with `agentcore add online-eval`, set `enableOnCre
 
 For a configuration created outside a project, control execution status with the following commands. They take the configuration ID. Run `agentcore eval online-eval list` to find it.
 
-```
+```bash
 # Pause a running online evaluation
 agentcore eval online-eval pause --id <ONLINE_EVAL_ID>
 
@@ -44,7 +45,7 @@ In either case, set `serviceNames` so the service can identify your agent’s tr
 
 If you use `logGroupNamePrefixes` to match Amazon Bedrock AgentCore Runtime log groups, make sure your runtime sends spans to the agent’s own log group. For agents that still use the shared `aws/spans` log group, set `UNIFIED_TRACES_DESTINATION_ENABLED=true` on the runtime. For more information, see [Span destination for agents hosted in Amazon Bedrock AgentCore runtime](observability-configure.md#observability-configure-unified-traces).
 
-```
+```python
 # Match input log groups by prefix instead of exact names
 dataSourceConfig={
     "cloudWatchLogs": {
@@ -72,7 +73,7 @@ The following code samples demonstrate how to create online evaluation configura
 
 1. 
 
-   ```
+   ```bash
    # Create online evaluation configuration
    agentcore add online-eval \
      --name "your_config_name" \
@@ -88,7 +89,7 @@ Run this from inside an AgentCore project directory created with `agentcore crea
 
 1. 
 
-   ```
+   ```python
    from bedrock_agentcore_starter_toolkit import Evaluation
    
    # Initialize the evaluation client
@@ -120,7 +121,7 @@ Run this from inside an AgentCore project directory created with `agentcore crea
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    # Your input log group that contains agent traces
@@ -154,7 +155,7 @@ Run this from inside an AgentCore project directory created with `agentcore crea
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-online-evaluation-config \
        --online-evaluation-config-name "strands_healthcare_agent_1" \
        --description "Continuous evaluation of a healthcare agent" \

@@ -1,7 +1,6 @@
 
 
 # Connect to private identity providers
-<a name="identity-private-idp"></a>
 
 Amazon Bedrock AgentCore Identity supports connecting to OAuth 2.0 identity providers (IdPs) hosted inside your AWS VPC, such as self-hosted Keycloak, PingFederate, or other OIDC-compliant authorization servers, without exposing them to the public internet. This enables you to use private IdPs for both inbound JWT authorization with AgentCore Runtime and AgentCore Gateway as well as outbound OAuth2 credential providers.
 
@@ -30,7 +29,7 @@ To configure inbound JWT authorization with a private IdP, include the `privateE
 
  **Example: CreateAgentRuntime with private IdP for inbound auth** 
 
-```
+```json
 {
   "agentRuntimeName": "my-runtime",
   "authorizerConfiguration": {
@@ -62,7 +61,7 @@ To configure inbound JWT authorization with a private IdP, include the `privateE
 
  **Example: CreateGateway with private IdP for inbound auth** 
 
-```
+```json
 {
   "name": "my-gateway",
   "authorizerConfiguration": {
@@ -96,7 +95,7 @@ For self-managed Lattice, replace `managedVpcResource` with `selfManagedLatticeR
 
  **Example: CreateAgentRuntime with self-managed Lattice for inbound auth** 
 
-```
+```json
 {
   "agentRuntimeName": "my-runtime",
   "authorizerConfiguration": {
@@ -120,7 +119,7 @@ For self-managed Lattice, replace `managedVpcResource` with `selfManagedLatticeR
 
  **Example: CreateGateway with self-managed Lattice for inbound auth** 
 
-```
+```json
 {
   "name": "my-gateway",
   "authorizerConfiguration": {
@@ -154,7 +153,7 @@ To configure an outbound OAuth credential provider with a private IdP, include t
 
  **Example: Create an OAuth credential provider with a private IdP** 
 
-```
+```json
 {
   "name": "my-private-idp-provider",
   "credentialProviderVendor": "CustomOauth2",
@@ -189,7 +188,7 @@ To configure an outbound OAuth credential provider with a private IdP, include t
 
 For self-managed Lattice, replace `managedVpcResource` with `selfManagedLatticeResource`:
 
-```
+```json
 {
   "name": "my-private-idp-provider",
   "credentialProviderVendor": "CustomOauth2",
@@ -287,7 +286,7 @@ The service-linked role used to manage private networking does not replace these
 
 The following `CreateOauth2CredentialProvider` request configures a custom OAuth provider with a self-managed private endpoint and a CA certificate stored in Amazon S3. Replace the example identifiers and client credentials with your own values. For managed connectivity, use the `managedVpcResource` configuration shown in [Configure outbound credential provider with a private IdP](#private-idp-outbound-config).
 
-```
+```json
 {
   "name": "my-private-idp-provider",
   "credentialProviderVendor": "CustomOauth2",
@@ -322,7 +321,7 @@ The following `CreateOauth2CredentialProvider` request configures a custom OAuth
 
 For a Secrets Manager source, replace the `certificateConfigurations` value with the following list:
 
-```
+```json
 [
   {
     "secretsManager": {

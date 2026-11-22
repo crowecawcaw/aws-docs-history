@@ -1,7 +1,6 @@
 
 
 # Redrive failed ingestions
-<a name="long-term-redrive"></a>
 
 Extraction from short-term memory to long-term memory is usually automatic. If extraction from short-term memory to long-term memory is unsuccessful for any reason, AgentCore Memory attempts to address the issue. If issues persist, developer intervention may be needed and the failed jobs are moved to a dedicated queue for your memory resource. One example is if your account is ingesting to long-term memory at a greater rate than what is allowed. In this case, you should wait until traffic is lower and manually redrive the impacted jobs.
 

@@ -1,7 +1,6 @@
 
 
 # Memory strategies
-<a name="memory-strategies"></a>
 
 In AgentCore Memory, you can add memory strategies to your memory resource. These strategies determine what types of information to extract from raw conversations. Strategies are configurations that intelligently capture and persist key concepts from interactions, sent as events in the [CreateEvent](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_CreateEvent.html) operation. You can add strategies to the memory resource as part of [CreateMemory](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateMemory.html) or [UpdateMemory](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.html) operations. Once enabled, these strategies are automatically executed on raw conversation events associated with that memory resource to extract long-term memories.
 

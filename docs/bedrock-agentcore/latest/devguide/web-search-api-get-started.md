@@ -1,7 +1,6 @@
 
 
 # Get started with AgentCore Web Search
-<a name="web-search-api-get-started"></a>
 
 To search the web with AgentCore Web Search, grant a principal permission to call the `InvokeWebSearch` API, and then call it with the AWS SDKs or the AWS Command Line Interface (AWS CLI).
 
@@ -19,7 +18,7 @@ Before you call the API, make sure that you have the following:
 
 To call the API, an AWS Identity and Access Management (IAM) principal needs the `bedrock-agentcore:InvokeWebSearch` permission on the AWS managed web search tool. The tool’s Amazon Resource Name (ARN) has the following form:
 
-```
+```text
 arn:aws:bedrock-agentcore:<Region>:aws:tool/web-search.v1
 ```
 
@@ -27,7 +26,7 @@ The account field of the ARN is the literal value `aws`, because AWS owns the to
 
 The following identity-based policy allows a principal to call the API in one Region. Replace `<Region>` with the code of a Region from [Regions](web-search-api.md#web-search-api-regions). To allow calls in every Region, use `*` in place of the Region code.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -50,7 +49,7 @@ The following AWS SDK for Python (Boto3) and AWS CLI examples search for recent 
 
 **Example**  
 
-```
+```python
 import boto3
 from botocore.exceptions import ClientError
 
@@ -80,7 +79,7 @@ for result in response["results"]:
     print(result["text"])
 ```
 
-```
+```bash
 aws bedrock-agentcore invoke-web-search \
   --region us-east-1 \
   --web-search-id web-search.v1 \

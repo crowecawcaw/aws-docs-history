@@ -1,7 +1,6 @@
 
 
 # CyberArk
-<a name="identity-idp-cyberark"></a>
 
 CyberArk can be configured as an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate users through CyberArk’s OAuth2 service and obtain access tokens for CyberArk API resources.
 
@@ -39,7 +38,7 @@ For more details, refer to [CyberArk’s OpenID Connect documentation](https://d
 
 To configure CyberArk as an outbound resource provider, use the following:
 
-```
+```json
 {
   "name": "CyberArk",
   "credentialProviderVendor": "CyberArkOauth2",

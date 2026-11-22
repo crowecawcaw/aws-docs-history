@@ -1,7 +1,6 @@
 
 
 # Using interceptors with Gateway
-<a name="gateway-interceptors"></a>
 
 Configuring interceptors on your gateway allows you to run custom code during each invocation of your gateway. This section provides guidance on implementing and configuring interceptors for your Gateway.
 

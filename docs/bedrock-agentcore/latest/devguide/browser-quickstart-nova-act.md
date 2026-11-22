@@ -1,7 +1,6 @@
 
 
 # Using AgentCore Browser with Nova Act
-<a name="browser-quickstart-nova-act"></a>
 
 You can build a browser agent using Nova Act to automate web interactions:
 
@@ -9,7 +8,7 @@ You can build a browser agent using Nova Act to automate web interactions:
 
 Create a project folder (if you have not already):
 
-```
+```bash
 mkdir agentcore-browser-quickstart
 cd agentcore-browser-quickstart
 python3 -m venv .venv
@@ -21,7 +20,7 @@ On Windows, use: `.venv\Scripts\activate`
 
 Install the required packages:
 
-```
+```bash
 pip install bedrock-agentcore nova-act rich boto3
 ```
 
@@ -41,7 +40,7 @@ Create a file named `nova_act_browser_agent.py` and add the following code:
 
 The following Python code shows how to write a browser agent using Nova Act. For information about obtaining the API key for Nova Act, see [Amazon Nova Act documentation](https://nova.amazon.com/act).
 
-```
+```python
 from bedrock_agentcore.tools.browser_client import browser_session
 from nova_act import NovaAct
 from rich.console import Console
@@ -93,7 +92,7 @@ if __name__ == "__main__":
 
 Execute the script (Replace with your Nova Act API key in the command):
 
-```
+```bash
 python nova_act_browser_agent.py --prompt "What are the common usecases of Bedrock AgentCore?" --starting-page "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html" --nova-act-key "your-nova-act-API-key"
 ```
 

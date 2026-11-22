@@ -1,7 +1,6 @@
 
 
 # Core concepts for Amazon Bedrock AgentCore Gateway
-<a name="gateway-core-concepts"></a>
 
 Amazon Bedrock AgentCore Gateway provides a standardized, secure entry point for agentic traffic, letting AI agents discover and interact with tools, other agents, and large language models (LLMs). Understanding the core concepts of Gateway will help you design and implement effective integration strategies for your AI agents.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Cognito
-<a name="identity-idp-cognito"></a>
 
 Amazon Cognito can be configured as an identity provider for accessing AgentCore Gateway and Runtime, or an AgentCore Identity credential provider for outbound resource access. This allows your agents to authenticate and authorize agent users with Cognito as the identity provider and authorization server, or your agents to obtain credentials to access resources authorized by Cognito.
 
@@ -20,7 +19,7 @@ Use the following procedure to create a Cognito user pool as an inbound identity
 **Note**  
 The following script is only meant as an example. You should customize the user pool settings and user credentials as needed for your application. Do not use this script directly in production environments.
 
-   ```
+   ```bash
    #!/bin/bash
    
    # Create User Pool and capture Pool ID directly
@@ -69,7 +68,7 @@ The following script is only meant as an example. You should customize the user 
 
 1. Run the script to create the Cognito resources:
 
-   ```
+   ```bash
    source setup_cognito.sh
    ```
 
@@ -90,7 +89,7 @@ Use the following procedure to create a Cognito user pool as an inbound identity
 
 1. Create a user pool:
 
-   ```
+   ```bash
    aws cognito-idp create-user-pool \
      --region us-west-2 \
      --pool-name "gateway-user-pool"
@@ -98,7 +97,7 @@ Use the following procedure to create a Cognito user pool as an inbound identity
 
 1. Record the user pool ID from the response or retrieve it using:
 
-   ```
+   ```bash
    aws cognito-idp list-user-pools \
      --region us-west-2 \
      --max-results 60
@@ -106,7 +105,7 @@ Use the following procedure to create a Cognito user pool as an inbound identity
 
 1. Create a resource server for the user pool:
 
-   ```
+   ```bash
    aws cognito-idp create-resource-server \
      --region us-west-2 \
      --user-pool-id <UserPoolId> \
@@ -117,7 +116,7 @@ Use the following procedure to create a Cognito user pool as an inbound identity
 
 1. Create a client for the user pool:
 
-   ```
+   ```bash
    aws cognito-idp create-user-pool-client \
      --region us-west-2 \
      --user-pool-id <UserPoolId> \
@@ -133,7 +132,7 @@ Use the following procedure to create a Cognito user pool as an inbound identity
 
 1. If needed, create a domain for your user pool:
 
-   ```
+   ```bash
    aws cognito-idp create-user-pool-domain \
      --domain <UserPoolIdWithoutUnderscore> \
      --user-pool-id <UserPoolId> \
@@ -186,7 +185,7 @@ For more details, refer to [Configure an app client](https://docs.aws.amazon.com
 
 To configure Cognito user pools as an outbound resource provider, use the following configuration:
 
-```
+```json
 {
   "name": "Cognito",
   "credentialProviderVendor": "CognitoOauth2",

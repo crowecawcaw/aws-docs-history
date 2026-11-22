@@ -1,7 +1,6 @@
 
 
 # Set up Vercel AI SDK telemetry for AgentCore Evaluations
-<a name="supported-frameworks-vercel-ai"></a>
 
 This page explains how to instrument a [Vercel AI SDK](https://sdk.vercel.ai/) agent, how spans are identified, and how evaluation fields are extracted. The Vercel AI SDK is a TypeScript-only framework, so all support on this page applies to TypeScript agents.
 
@@ -27,7 +26,7 @@ Instrument a Vercel AI SDK agent with the AWS Distro for OpenTelemetry (ADOT). A
 
  `package.json`:
 
-```
+```json
 {
   "dependencies": {
     "@aws/aws-distro-opentelemetry-node-autoinstrumentation": "^0.12.0"
@@ -79,7 +78,7 @@ These examples are not complete spans. They show representative data from a real
 **Example**  
 The `gen_ai.operation.name` attribute (`invoke_agent`) identifies this as an invoke agent span. The `gen_ai.input.messages` attribute holds the system prompt and conversation in the object-dict shape, and `gen_ai.output.messages` holds the agent response in the parts-list shape.  
 
-```
+```json
 {
   "traceId": "6a6bd3b14c8d91ed1e70a3906b551618",
   "spanId": "fa0dce44446e3d24",
@@ -104,7 +103,7 @@ The `gen_ai.operation.name` attribute (`invoke_agent`) identifies this as an inv
 ```
 The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an execute tool span; `gen_ai.tool.name` holds the tool name. The `gen_ai.tool.call.arguments` attribute holds the tool arguments, and the `gen_ai.tool.call.result` attribute holds the tool result.  
 
-```
+```json
 {
   "traceId": "6a6bd3b14c8d91ed1e70a3906b551618",
   "spanId": "b64c37adefae74f0",
@@ -130,7 +129,7 @@ The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an exe
 ```
 The `gen_ai.operation.name` attribute (`chat`) identifies this as an inference span. It carries the model metadata and, in `gen_ai.tool.definitions`, the list of tools available to the agent. The conversation messages for the model call are in `gen_ai.input.messages` (object-dict shape) and `gen_ai.output.messages` (parts-list shape).  
 
-```
+```json
 {
   "traceId": "6a6bd3b14c8d91ed1e70a3906b551618",
   "spanId": "1865614ca1b88dfb",

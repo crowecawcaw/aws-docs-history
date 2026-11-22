@@ -1,7 +1,6 @@
 
 
 # VPC and AWS PrivateLink with AWS Agent Registry
-<a name="registry-privatelink"></a>
 
 You can use AWS PrivateLink to create a private connection between your VPC and AWS Agent Registry. You can access AWS Agent Registry as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don’t need public IP addresses to access AWS Agent Registry.
 
@@ -17,6 +16,9 @@ Before you set up an interface endpoint for AWS Agent Registry, review [Consider
  AWS Agent Registry provides two AWS PrivateLink endpoints:
 +  **Control plane endpoint**: `com.amazonaws.region.agent-registry-control` — for registry and record management (create, update, delete operations, and so on).
 +  **Data plane endpoint**: `com.amazonaws.region.agent-registry` — for record discovery and the registry MCP endpoint (search, InvokeRegistryMcp, and so on).
+
+**Note**  
+ AWS PrivateLink is not supported for the public discovery data-plane endpoint (`agent-discovery`) used for cross-organization search at general availability. Reach the public search endpoint (`SearchPublicRecords`) over its public AWS-authenticated endpoint. For more information, see [Search publicly discoverable records](registry-public-search.md).
 
 For a list of AWS Regions in which AWS Agent Registry interface endpoints are available, see [Supported AWS Regions](agentcore-regions.md). Interface endpoints are available in every Region where AWS Agent Registry is available.
 
@@ -57,7 +59,7 @@ The following examples show endpoint policies for each AWS Agent Registry endpoi
 
 1. The following endpoint policy allows a specific IAM principal to manage registries and their records through the control plane endpoint.
 
-   ```
+   ```json
    {
       "Statement": [
          {
@@ -89,7 +91,7 @@ The following examples show endpoint policies for each AWS Agent Registry endpoi
 
     **Read-only access to registry metadata** 
 
-   ```
+   ```json
    {
       "Statement": [
          {
@@ -113,7 +115,7 @@ The following examples show endpoint policies for each AWS Agent Registry endpoi
 
     **Scope access to a single registry** 
 
-   ```
+   ```json
    {
       "Statement": [
          {
@@ -144,7 +146,7 @@ The following examples show endpoint policies for each AWS Agent Registry endpoi
 
 1. The following endpoint policy allows a specific IAM principal to search and browse approved records in one registry through the data plane endpoint.
 
-   ```
+   ```json
    {
       "Statement": [
          {
@@ -170,7 +172,7 @@ The following examples show endpoint policies for each AWS Agent Registry endpoi
 
     **Mixed SigV4 and JWT authorization** 
 
-   ```
+   ```json
    {
       "Statement": [
          {
@@ -209,7 +211,7 @@ The following examples show endpoint policies for each AWS Agent Registry endpoi
 
 1. The following endpoint policy allows any authenticated caller to invoke the registry MCP endpoint on a JWT-authorized registry. Because the MCP endpoint on a JWT-authorized registry is authenticated by bearer token rather than SigV4, set `Principal` to \*.
 
-   ```
+   ```json
    {
       "Statement": [
          {

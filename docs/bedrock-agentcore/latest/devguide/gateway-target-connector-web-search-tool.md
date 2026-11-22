@@ -1,7 +1,6 @@
 
 
 # Web Search Tool
-<a name="gateway-target-connector-web-search-tool"></a>
 
 AI agents are transforming how organizations interact with information, but they face a fundamental limitation: their knowledge is frozen at training time. When a user asks about today’s stock prices or a software release that shipped an hour ago, an agent relying solely on its training data cannot provide accurate answers.
 
@@ -28,6 +27,7 @@ The following sections walk through the key capabilities, the architecture of th
 + [Configure the Gateway Service Role](#gateway-target-connector-web-search-tool-service-role)
 + [Input schema](#gateway-target-connector-web-search-tool-input-schema)
 + [Response format](#gateway-target-connector-web-search-tool-response-format)
++ [Free monthly queries](#gateway-target-connector-web-search-tool-free-queries)
 + [Availability](#gateway-target-connector-web-search-tool-availability)
 + [Acceptable use](#gateway-target-connector-web-search-tool-acceptable-use)
 
@@ -132,14 +132,14 @@ To create the gateway and the Web Search Tool target, complete the following ste
 
 1. Create an AgentCore CLI project without an agent. Run the following AgentCore CLI commands:
 
-   ```
+   ```bash
    agentcore create --name WebSearchClaude --project-name WebSearchClaude --no-agent
    cd WebSearchClaude
    ```
 
 1. Add a gateway that uses your app client for JWT inbound authorization. In the following command, replace `<region>` with your Region code, `<user-pool-id>` with your user pool ID, and `<app-client-id>` with your app client ID. Then run the following AgentCore CLI command:
 
-   ```
+   ```bash
    agentcore add gateway --name web-search-claude --protocol-type MCP --authorizer-type CUSTOM_JWT \
      --discovery-url https://cognito-idp.<region>.amazonaws.com/<user-pool-id>/.well-known/openid-configuration \
      --allowed-clients <app-client-id> --no-semantic-search
@@ -149,7 +149,7 @@ To create the gateway and the Web Search Tool target, complete the following ste
 
 1. Add the Web Search Tool target. Run the following AgentCore CLI command:
 
-   ```
+   ```bash
    agentcore add gateway-target --name amazon-web-search --gateway web-search-claude --type connector --connector web-search
    ```
 
@@ -157,7 +157,7 @@ To create the gateway and the Web Search Tool target, complete the following ste
 
 1. Deploy the project. Run the following AgentCore CLI command:
 
-   ```
+   ```bash
    agentcore deploy -y
    ```
 
@@ -208,7 +208,7 @@ The Gateway needs a service role that allows the AgentCore service to perform ac
 
 The Web Search Tool accepts the following input schema when invoked through `tools/call`. The `filters` field is available only when the target is pinned to connector version `1.2.0` or later. On earlier versions, the schema exposes only `query` and `maxResults`.
 
-```
+```json
 {
   "inputSchema": {
     "type": "object",
@@ -279,7 +279,7 @@ The Web Search Tool accepts the following input schema when invoked through `too
 
 The Web Search Tool returns results in the following MCP-compliant format:
 
-```
+```json
 {
   "isError": false,
   "content": [
@@ -298,6 +298,21 @@ The Web Search Tool returns results in the following MCP-compliant format:
 |  `url`  | string | No | URL of the source webpage | 
 |  `title`  | string | No | Title of the source webpage | 
 |  `publishedDate`  | string | No | Publication date of the result | 
+
+## Free monthly queries
+<a name="gateway-target-connector-web-search-tool-free-queries"></a>
+
+With web search, you get free queries every month. For more information about the number of free queries and the price after them, see [Amazon Bedrock AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/).
++ The free queries apply automatically to every AWS account. You don’t need to turn anything on.
++ The Web Search Tool and the Web Search API share the free queries.
++ The free queries are shared across all AWS Regions where web search is available, except AWS GovCloud (US). For example, queries that your agents make in US East (N. Virginia) and Europe (Ireland) count against the same monthly amount.
++ If your account is in an organization in AWS Organizations, all accounts in the organization share the free queries, as with the AWS Free Tier.
++ The free queries reset at the start of each calendar month (UTC). Unused free queries don’t carry over.
++ After you use the free queries, the rest of the month’s queries are billed at standard pricing. Your agents keep working. AgentCore doesn’t throttle, pause, or stop requests.
+
+To see your usage, open the [AWS Billing and Cost Management console](https://console.aws.amazon.com/billing/home). Free queries show no charge. To get notified before you’re charged, create a zero-spend budget in AWS Budgets. For instructions on creating a zero-spend budget, see [Using a budget template (simplified)](https://docs.aws.amazon.com/cost-management/latest/userguide/budget-templates.html) in the * AWS Cost Management User Guide*.
+
+ AWS may limit free usage for any account to prevent fraud or abuse.
 
 ## Availability
 <a name="gateway-target-connector-web-search-tool-availability"></a>

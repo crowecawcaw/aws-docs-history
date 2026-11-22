@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon Bedrock AgentCore identity and access
-<a name="security_iam_troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with AgentCore and IAM.
 
@@ -57,7 +56,7 @@ User: arn:aws:iam::123456789012:assumed-role/MyConsoleRole/user is not authorize
 To resolve this issue, do one of the following:
 +  **Add an inline policy:** Add a policy to your IAM user or role that grants the necessary permissions for the console to create execution roles on your behalf:
 
-  ```
+  ```json
   {
   "Version": "2012-10-17",		 	 	 
     "Statement": [

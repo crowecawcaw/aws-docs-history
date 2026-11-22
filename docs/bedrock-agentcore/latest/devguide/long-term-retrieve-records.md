@@ -1,7 +1,6 @@
 
 
 # Retrieve memory records
-<a name="long-term-retrieve-records"></a>
 
 You can retrieve extracted memories using the [RetrieveMemoryRecords](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_RetrieveMemoryRecords.html) API. This operation lets you search extracted memory records based on semantic queries, making it easy to find relevant information from your agent’s memory.
 

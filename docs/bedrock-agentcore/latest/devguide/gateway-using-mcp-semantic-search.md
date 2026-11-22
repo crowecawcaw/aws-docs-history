@@ -1,7 +1,6 @@
 
 
 # Search for tools in your AgentCore gateway with a natural language query
-<a name="gateway-using-mcp-semantic-search"></a>
 
 If you enabled semantic search for your gateway when you created it, you can call the `x_amz_bedrock_agentcore_search` tool to search for tools in your gateway with a natural language query. Semantic search is particularly useful when you have many tools and need to find the most appropriate ones for your use case. To learn how to enable semantic search during gateway creation, see [Create an Amazon Bedrock AgentCore gateway](gateway-create.md).
 
@@ -36,7 +35,7 @@ To search for a tool using this AgentCore tool, make the following POST request 
 
 **Example**  
 
-```
+```http
 POST /mcp HTTP/1.1
 Host: ${GatewayEndpoint}
 Accept: application/json, text/event-stream
@@ -58,7 +57,7 @@ MCP-Protocol-Version: ${McpProtocolVersion}
 ```
 On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` and `Mcp-Name` request-metadata headers, and the `_meta` version fields in the body.  
 
-```
+```http
 POST /mcp HTTP/1.1
 Host: ${GatewayEndpoint}
 Accept: application/json, text/event-stream
@@ -109,7 +108,7 @@ To see examples of using natural language queries to find tools in the gateway, 
 **Example**  
 Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
-```
+```python
 import requests
 import json
 
@@ -143,7 +142,7 @@ print(json.dumps(results, indent=2))
 ```
 On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
-```
+```python
 import requests
 import json
 
@@ -183,7 +182,7 @@ results = search_tools(gateway_url, access_token, "find order information")
 print(json.dumps(results, indent=2))
 ```
 
-```
+```python
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import asyncio
@@ -242,7 +241,7 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-```
+```python
 from strands.tools.mcp.mcp_client import MCPClient
 from mcp.client.streamable_http import streamablehttp_client
 
@@ -284,7 +283,7 @@ token = {AccessToken}
 run_agent(url, token)
 ```
 
-```
+```python
 import asyncio
 
 from langchain_mcp_adapters.client import MultiServerMCPClient

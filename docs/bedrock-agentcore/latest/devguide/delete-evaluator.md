@@ -1,7 +1,6 @@
 
 
 # Delete evaluator
-<a name="delete-evaluator"></a>
 
 The `DeleteEvaluator` API permanently removes a custom evaluator and all its configuration data. This asynchronous operation is irreversible.
 
@@ -26,7 +25,7 @@ The following code samples demonstrate how to delete evaluators using different 
 
    If you added the evaluator with `agentcore add evaluator`, remove it from the project and deploy:
 
-   ```
+   ```bash
    agentcore remove evaluator --name <EVALUATOR_NAME>
    agentcore deploy
    ```
@@ -35,7 +34,7 @@ The following code samples demonstrate how to delete evaluators using different 
 
    To delete an evaluator that is not part of a project, delete it by ID:
 
-   ```
+   ```bash
    agentcore eval evaluator delete --id <EVALUATOR_ID>
    ```
 **Note**  
@@ -43,7 +42,7 @@ If the evaluator is referenced by an online evaluation configuration, you must f
 
 1. 
 
-   ```
+   ```python
    from bedrock_agentcore_starter_toolkit import Evaluation
    
    eval_client = Evaluation()
@@ -53,7 +52,7 @@ If the evaluator is referenced by an online evaluation configuration, you must f
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -63,7 +62,7 @@ If the evaluator is referenced by an online evaluation configuration, you must f
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control delete-evaluator \
        --evaluator-id 'your_evaluator_id'
    ```

@@ -1,7 +1,6 @@
 
 
 # Policy examples for Memory
-<a name="memory-gateway-fgac-policy-examples"></a>
 
 This page provides Cedar policy patterns that are specific to Amazon Bedrock AgentCore Memory — isolating a caller to their own actor, their own namespace, and a chosen set of Memory operations. For the Memory action ids and `context.input` fields these policies reference, see [Memory actions and request attributes](memory-gateway-fgac.md#memory-gateway-fgac-reference). For the generic Cedar model and a broader library of patterns (OAuth scope and role checks, IAM principal matching, `forbid` with `unless`, and input validation), see [Policy scope](policy-scope.md) and [Policy authoring guide](policy-authoring-guide.md).
 

@@ -1,7 +1,6 @@
 
 
 # Episodic memory strategy
-<a name="episodic-memory-strategy"></a>
 
  **Episodic memory** captures meaningful slices of user and system interactions so applications can recall context in a way that feels focused and relevant. Instead of storing every raw event, it identifies important moments, summarizes them into compact records, and organizes them so the system can retrieve what matters without noise. This creates a more adaptive and intelligent experience by allowing models to understand how context has evolved over time.
 

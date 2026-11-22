@@ -1,7 +1,6 @@
 
 
 # Using browser enterprise policies
-<a name="browser-enterprise-policies"></a>
 
 Enterprise policies allow you to control browser behavior using the [Chromium enterprise policy](https://www.chromium.org/administrators/linux-quick-start/) mechanism. You provide policy files as JSON in your Amazon S3 bucket, and the service applies them to browser sessions automatically.
 
@@ -26,7 +25,7 @@ Before using enterprise policies, ensure you have:
 + An Amazon S3 bucket in the same region as your browser to store policy JSON files
 + IAM permissions to access the Amazon S3 bucket containing your policy files. Add the following permissions to your IAM policy:
 
-  ```
+  ```json
   {
   "Version": "2012-10-17",		 	 	 
       "Statement": [
@@ -55,7 +54,7 @@ Create JSON files containing the policies you want to apply. Each file should co
 
 This file disables autofill and password saving:
 
-```
+```json
 {
     "AutofillAddressEnabled": false,
     "AutofillCreditCardEnabled": false,
@@ -67,7 +66,7 @@ This file disables autofill and password saving:
 
 This file is used to set policies at session level:
 
-```
+```json
 {
     "BookmarkBarEnabled": true,
     "SpellCheckServiceEnabled": false,
@@ -77,7 +76,7 @@ This file is used to set policies at session level:
 
 Upload the policy files to your Amazon S3 bucket:
 
-```
+```bash
 aws s3 cp managed-policies.json s3://my-policy-bucket/policies/managed-policies.json
 aws s3 cp recommended-policies.json s3://my-policy-bucket/policies/recommended-policies.json
 ```
@@ -94,7 +93,7 @@ To enforce enterprise policies that cannot be overridden, create a custom browse
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-browser \
      --region <Region> \
      --name "my-managed-browser" \
@@ -113,7 +112,7 @@ To enforce enterprise policies that cannot be overridden, create a custom browse
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    region = "us-west-2"
@@ -140,7 +139,7 @@ To enforce enterprise policies that cannot be overridden, create a custom browse
 
 1. 
 
-   ```
+   ```bash
    awscurl -X PUT \
      "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers" \
      -H "Content-Type: application/json" \
@@ -174,7 +173,7 @@ For the default browser, set `browserIdentifier` to `aws.browser.v1`.
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore start-browser-session \
      --region <Region> \
      --browser-identifier "<BrowserId>" \
@@ -195,7 +194,7 @@ For the default browser, set `browserIdentifier` to `aws.browser.v1`.
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    region = "us-west-2"
@@ -223,7 +222,7 @@ For the default browser, set `browserIdentifier` to `aws.browser.v1`.
 
 1. 
 
-   ```
+   ```bash
    awscurl -X PUT \
      "https://bedrock-agentcore.<Region>.amazonaws.com/browsers/<BrowserId>/sessions/start" \
      -H "Content-Type: application/json" \

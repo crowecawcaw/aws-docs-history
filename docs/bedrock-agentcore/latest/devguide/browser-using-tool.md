@@ -1,7 +1,6 @@
 
 
 # Using Browser Tool
-<a name="browser-using-tool"></a>
 
 ## Creating an AgentCore Browser
 <a name="browser-create"></a>
@@ -30,7 +29,7 @@ You can create a Browser Tool using the Amazon Bedrock AgentCore console, AWS CL
 
 1. To create a Browser Tool using the AWS CLI, use the `create-browser` command:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-browser \
      --region <Region> \
      --name "my-browser" \
@@ -54,7 +53,7 @@ You can create a Browser Tool using the Amazon Bedrock AgentCore console, AWS CL
 
    The following shows the request syntax:
 
-   ```
+   ```json
    response = cp_client.create_browser(
        name="my_custom_browser",
        description="Test browser for development",
@@ -75,7 +74,7 @@ You can create a Browser Tool using the Amazon Bedrock AgentCore console, AWS CL
 
 1. To create a new browser instance using the API, use the following call:
 
-   ```
+   ```bash
    # Using awscurl
    awscurl -X PUT \
      "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers" \
@@ -119,7 +118,7 @@ You can get information about the Browser tool in your account and view their de
 
 1. To get information about a Browser tool using the AWS CLI, use the `get-browser` command:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control get-browser \
      --region <Region> \
      --browser-id "<your-browser-id>"
@@ -131,7 +130,7 @@ You can get information about the Browser tool in your account and view their de
 
    The following shows the request syntax:
 
-   ```
+   ```json
    response = cp_client.get_browser(
        browserId="<your-browser-id>"
    )
@@ -139,7 +138,7 @@ You can get information about the Browser tool in your account and view their de
 
 1. To get the browser tool using the API, use the following call:
 
-   ```
+   ```bash
    # Using awscurl
    awscurl -X GET \
      "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers/<your-browser-id>" \
@@ -168,14 +167,14 @@ You can list all browser tools in your account to view their details, status, an
 
 1. To list browser tools using the AWS CLI, use the `list-browsers` command:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control list-browsers \
      --region <Region>
    ```
 
    You can filter the results by type:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control list-browsers \
      --region <Region> \
      --type SYSTEM
@@ -183,7 +182,7 @@ You can list all browser tools in your account to view their details, status, an
 
    You can also limit the number of results and use pagination:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control list-browsers \
      --region <Region> \
      --max-results 10 \
@@ -196,13 +195,13 @@ You can list all browser tools in your account to view their details, status, an
 
    The following shows the request syntax:
 
-   ```
+   ```json
    response = cp_client.list_browsers(type="CUSTOM")
    ```
 
 1. To list browser tools using the API, use the following call:
 
-   ```
+   ```bash
    # Using awscurl
    awscurl -X POST \
      "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers" \
@@ -214,7 +213,7 @@ You can list all browser tools in your account to view their details, status, an
 
    You can filter the results by type:
 
-   ```
+   ```bash
    awscurl -X POST \
      "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers?type=SYSTEM" \
      -H "Content-Type: application/json" \
@@ -225,7 +224,7 @@ You can list all browser tools in your account to view their details, status, an
 
    You can also limit the number of results and use pagination:
 
-   ```
+   ```bash
    awscurl -X POST \
      "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers?maxResults=1&nextToken=<your-pagination-token>" \
      -H "Content-Type: application/json" \
@@ -257,7 +256,7 @@ You cannot delete a browser tool that has active sessions. Stop all sessions bef
 
 1. To delete a Browser tool using the AWS CLI, use the `delete-browser` command:
 
-   ```
+   ```bash
    aws bedrock-agentcore-control delete-browser \
      --region <Region> \
      --browser-id "<your-browser-id>"
@@ -269,7 +268,7 @@ You cannot delete a browser tool that has active sessions. Stop all sessions bef
 
    The following shows the request syntax:
 
-   ```
+   ```json
    response = cp_client.delete_browser(
        browserId="<your-browser-id>"
        )
@@ -277,7 +276,7 @@ You cannot delete a browser tool that has active sessions. Stop all sessions bef
 
 1. To delete a browser tool using the API, use the following call:
 
-   ```
+   ```bash
    # Using awscurl
    awscurl -X DELETE \
      "https://bedrock-agentcore-control.<Region>.amazonaws.com/browsers/<your-browser-id>" \

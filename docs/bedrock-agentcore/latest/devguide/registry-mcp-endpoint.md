@@ -1,7 +1,6 @@
 
 
 # Using the Registry MCP endpoint
-<a name="registry-mcp-endpoint"></a>
 
 **Migration Now Open**  
  AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on October 30, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
@@ -12,7 +11,7 @@
 Each registry exposes an MCP-compatible endpoint following the [2025-11-25 specification](https://modelcontextprotocol.io/specification/2025-11-25) on the Model Context Protocol website. The endpoint supports tool listing and tool invocation for searching registry records.
 
 **Important**  
-The MCP endpoint returns record metadata as publishers provide it. Before your agent installs a package, downloads from a repository, or connects to an endpoint that a returned record references, validate it. For more information, see [Validate record metadata before you act on it](registry-data-protection.md#registry-consumer-validation).
+The MCP endpoint returns record metadata as publishers provide it. Before your agent installs a package, downloads from a repository, connects to an endpoint that a returned record references, or loads a skill package, validate it. For more information, see [Validate record metadata before you act on it](registry-data-protection.md#registry-consumer-validation).
 
 **Example**  
 
@@ -25,7 +24,8 @@ https://bedrock-agentcore.<region>.amazonaws.com/registry/<registryId>/mcp
 ```
 
 In the `agent-registry` namespace, the MCP endpoint exposes all three discovery data-plane APIs as MCP tools:
-+  `search_discoverable_registry_records` — Natural language search for approved records.
++  `search_discoverable_registry_records_paginated` — Search for approved records with a choice of search type, and page through the results.
++  `search_discoverable_registry_records` — Natural language search for approved records that returns one page of results.
 +  `list_discoverable_registry_records` — Paginated listing of approved records.
 +  `batch_get_discoverable_registry_record` — Bulk retrieval of full record content by record ID.
 
@@ -34,10 +34,40 @@ In the `bedrock-agentcore` namespace, only the `search_registry_records` tool is
 **Example**  
 
 ```
+Tool name: search_discoverable_registry_records_paginated
+
+Description:
+Searches discoverable registry records and returns a JSON object: registryRecords (best match first), searchType (the
+search type that ran, also when you omit searchType) and, when more results may be available, nextToken. Use this
+instead of search_discoverable_registry_records, which returns one page as a bare array without the search type or
+paging. For the next page, call again with the same arguments plus nextToken. A page can hold fewer records than
+maxResults, even none, while nextToken is present, so keep paging until nextToken is absent. A search returns at most
+20 results in total with HYBRID or SEMANTIC and at most 1000 with KEYWORD. For a relevance search the first page is
+usually enough; refine searchQuery or filter rather than paging through many pages. To list the records that match a
+filter, most recently updated first, leave searchQuery empty, set filter and set searchType to KEYWORD.
+
+Parameters:
+- searchQuery: string - Search query: exact words such as a name, or a natural language description. Leave empty and
+  set filter to list the records that match the filter; with searchType KEYWORD that lists up to 1000.
+- searchType: string - How records are ranked against searchQuery. KEYWORD matches exact words, such as a record or
+  tool name. SEMANTIC matches meaning, for a natural language description of a task. HYBRID (the default) combines
+  both. Valid values: HYBRID, SEMANTIC, KEYWORD.
+- maxResults: integer - Maximum number of results per page (default 10): up to 50 with searchType KEYWORD, up to 20
+  with HYBRID or SEMANTIC
+- filter: object - Optional metadata filter, with the same operators and fields as the filter of
+  search_discoverable_registry_records.
+- nextToken: string - Pagination token from a prior response of this tool. Pass it with the same arguments to get the
+  next page.
+
+---
+
 Tool name: search_discoverable_registry_records
 
 Description:
-Searches for approved registry records using natural language queries. Returns metadata for matching records.
+Searches discoverable registry records using natural language queries. Returns metadata for matching records. Returns
+one page (up to 20 records) as a JSON array, without the search type it used or a token for more results. To page
+through results, choose the search type, or see which search type ran, use
+search_discoverable_registry_records_paginated.
 
 Parameters:
 - searchQuery (required): string - Natural language search query
@@ -93,9 +123,59 @@ Parameters:
   {"descriptorType": {"$eq": "MCP"}}
 ```
 
-The `filter` parameter of `search_discoverable_registry_records` follows the same rules and limits as the `SearchDiscoverableRegistryRecords` API. See [Filter rules and limits](registry-search-records.md#registry-search-filter-rules). When a filter breaks these rules, the tool returns a result with `isError` set to `true` and the generic text `Error: Invalid request parameters` in its content. This text doesn’t name the rule that the filter broke.
+For a SKILL record whose approved revision has a skill package, each record in the `registryRecords` list of the `batch_get_discoverable_registry_record` result also contains `artifact`, with `downloadUrl` (a presigned URL that is valid for up to 5 minutes) and `sha256` (the package checksum to verify the download against). The `search_discoverable_registry_records_paginated`, `search_discoverable_registry_records`, and `list_discoverable_registry_records` tools don’t return `artifact`. For more information, see [Download a skill package](registry-skill-package-download.md).
+
+The `filter` parameter of `search_discoverable_registry_records_paginated` and `search_discoverable_registry_records` follows the same rules and limits as the `SearchDiscoverableRegistryRecords` API. See [Filter rules and limits](registry-search-records.md#registry-search-filter-rules). When a filter breaks these rules, the tool returns a result with `isError` set to `true` and the generic text `Error: Invalid request parameters` in its content. This text doesn’t name the rule that the filter broke.
 
 You can connect to registry from an existing MCP client, such as Kiro, Claude, etc.
+
+## Search with a search type and page through results
+<a name="registry-mcp-search-paginated"></a>
+
+The `search_discoverable_registry_records_paginated` tool runs the same search as the `SearchDiscoverableRegistryRecords` API, with the same search types, page sizes, and result limits. For more information, see [Choose a search type](registry-search-records.md#registry-search-types) and [Page through search results](registry-search-records.md#registry-search-pagination). Unlike `search_discoverable_registry_records`, it doesn’t require `searchQuery`: leave the query empty and set `filter` to list the records that match the filter.
+
+The tool returns its result as a JSON object in the text content of the tool result:
+
+```json
+{
+  "registryRecords": [ ... ],
+  "searchType": "HYBRID",
+  "nextToken": "<token>"
+}
+```
++  `registryRecords` — The matching records, best match first, with the same fields as the `search_discoverable_registry_records` result.
++  `searchType` — The search type that ran, including the default when you omit `searchType`.
++  `nextToken` — Present when more results might be available. To get the next page, call the tool again with the same arguments and add `nextToken`. A page can hold fewer records than `maxResults`, even none, while `nextToken` is present.
+
+A `nextToken` works only with the tool that returned it, and only with the same `searchQuery`, `searchType`, and `filter`. It expires 15 minutes after the first page. The tool doesn’t accept a `nextToken` from the `SearchDiscoverableRegistryRecords` API, and the API doesn’t accept one from the tool.
+
+If AWS Agent Registry becomes available in an AWS Region where semantic search isn’t available, the tool’s `searchType` parameter in that Region lists only `KEYWORD`, which is also the default there.
+
+When the tool can’t run the search with the arguments you passed, it returns a result with `isError` set to `true` and a message that explains how to correct the call:
++  `nextToken is invalid or expired. Repeat the search without nextToken.` — The token has expired, or the arguments differ from the ones that returned it.
++  `searchType must be one of HYBRID, SEMANTIC, KEYWORD` — The `searchType` value isn’t valid.
++  `maxResults must be between 1 and 20 for searchType HYBRID` (or `SEMANTIC`) — The page size is above 20 for a `HYBRID` or `SEMANTIC` search.
+
+A `maxResults` that isn’t an integer from 1 to 50, for any search type, is refused before the search runs: the tool returns a JSON-RPC error with code `-32602` (invalid params) instead of a tool result.
+
+The following request lists the MCP records in a registry, 50 at a time, most recently updated first:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "tools/call",
+  "params": {
+    "name": "search_discoverable_registry_records_paginated",
+    "arguments": {
+      "searchQuery": "",
+      "searchType": "KEYWORD",
+      "maxResults": 50,
+      "filter": { "recordType": { "$eq": "MCP" } }
+    }
+  }
+}
+```
 
 ## Connect to OAuth-based registry MCP endpoint from an existing MCP client
 <a name="registry-mcp-connect-oauth"></a>
@@ -123,14 +203,14 @@ Once you obtained the access token, you can validate it:
 
 **Example**  
 
-```
+```bash
 curl -s -X POST "https://agent-registry.<region>.api.aws/registry/<registryId>/mcp" \
   -H "Authorization: Bearer ${ACCESS_TOKEN}" \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_discoverable_registry_records","arguments":{"searchQuery":"weather"}}}'
 ```
 
-```
+```bash
 curl -s -X POST "https://bedrock-agentcore.<region>.amazonaws.com/registry/<registryId>/mcp" \
   -H "Authorization: Bearer ${ACCESS_TOKEN}" \
   -H "Content-Type: application/json" \
@@ -155,7 +235,7 @@ In most IDEs, you can configure authorization header bearer token in an mcp conf
 
 **Example**  
 
-```
+```json
 {
   "mcpServers": {
     "my-registry": {
@@ -169,7 +249,7 @@ In most IDEs, you can configure authorization header bearer token in an mcp conf
 }
 ```
 
-```
+```json
 {
   "mcpServers": {
     "my-registry": {
@@ -192,7 +272,7 @@ Once you have the client ID, make sure you allowlist it in registry:
 
 **Example**  
 
-```
+```bash
 aws agent-registry-control update-registry \
   --registry-id <registryId> \
   --discovery-configuration '{
@@ -207,7 +287,7 @@ aws agent-registry-control update-registry \
   }'
 ```
 
-```
+```bash
 aws bedrock-agentcore-control update-registry \
   --registry-id <registryId> \
   --authorizer-configuration '{
@@ -224,7 +304,7 @@ Then you can configure your MCP client if it supports specifying clientId. An ex
 
 **Example**  
 
-```
+```json
 {
   "mcpServers": {
     "pre-registered-registry": {
@@ -239,7 +319,7 @@ Then you can configure your MCP client if it supports specifying clientId. An ex
 }
 ```
 
-```
+```json
 {
   "mcpServers": {
     "pre-registered-registry": {
@@ -264,7 +344,7 @@ Most MCP client applications support dynamic client registration. In this case, 
 
 **Example**  
 
-```
+```bash
 aws agent-registry-control update-registry \
   --registry-id <registryId> \
   --discovery-configuration '{
@@ -279,7 +359,7 @@ aws agent-registry-control update-registry \
   }'
 ```
 
-```
+```bash
 aws bedrock-agentcore-control update-registry \
   --registry-id <registryId> \
   --authorizer-configuration '{
@@ -296,7 +376,7 @@ Then you can configure your MCP client simply using an url:
 
 **Example**  
 
-```
+```json
 {
   "mcpServers": {
     "dcr-registry": {
@@ -307,7 +387,7 @@ Then you can configure your MCP client simply using an url:
 }
 ```
 
-```
+```json
 {
   "mcpServers": {
     "dcr-registry": {
@@ -333,7 +413,7 @@ For MCP initialization and tool listing:
 
 **Example**  
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "agent-registry:InvokeRegistryMcp",
@@ -341,7 +421,7 @@ For MCP initialization and tool listing:
 }
 ```
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "bedrock-agentcore:InvokeRegistryMcp",
@@ -349,11 +429,11 @@ For MCP initialization and tool listing:
 }
 ```
 
-For searching via MCP tool invocation, you also need:
+For searching via MCP tool invocation, with either `search_discoverable_registry_records_paginated` or `search_discoverable_registry_records`, you also need:
 
 **Example**  
 
-```
+```json
 {
     "Effect": "Allow",
     "Action":
@@ -365,7 +445,7 @@ For searching via MCP tool invocation, you also need:
 }
 ```
 
-```
+```json
 {
     "Effect": "Allow",
     "Action":
@@ -381,7 +461,7 @@ You can verify permission with command:
 
 **Example**  
 
-```
+```bash
 curl -s -X POST "https://agent-registry.<region>.api.aws/registry/<registryId>/mcp" \
   -H "Content-Type: application/json" \
   -H "X-Amz-Security-Token: ${AWS_SESSION_TOKEN}" \
@@ -390,7 +470,7 @@ curl -s -X POST "https://agent-registry.<region>.api.aws/registry/<registryId>/m
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_discoverable_registry_records","arguments":{"searchQuery":"weather"}}}'
 ```
 
-```
+```bash
 curl -s -X POST "https://bedrock-agentcore.<region>.amazonaws.com/registry/<registryId>/mcp" \
   -H "Content-Type: application/json" \
   -H "X-Amz-Security-Token: ${AWS_SESSION_TOKEN}" \
@@ -406,7 +486,7 @@ You can use [mcp-proxy-for-aws](https://github.com/aws/mcp-proxy-for-aws) on the
 
 **Example**  
 
-```
+```json
 {
   "mcpServers": {
     "iam-based-registry": {
@@ -428,7 +508,7 @@ You can use [mcp-proxy-for-aws](https://github.com/aws/mcp-proxy-for-aws) on the
 }
 ```
 
-```
+```json
 {
   "mcpServers": {
     "iam-based-registry": {

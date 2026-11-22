@@ -1,7 +1,6 @@
 
 
 # Set up LangGraph telemetry for AgentCore Evaluations
-<a name="supported-frameworks-langgraph"></a>
 
 This page explains how to instrument a [LangGraph](https://langchain-ai.github.io/langgraph/) agent, how spans are identified, and how evaluation fields are extracted. AgentCore Evaluations supports LangGraph agents built in Python and TypeScript; this page covers each language separately, in [Python agent support](#langgraph-python) and [TypeScript agent support](#langgraph-typescript). It closes with [best practices](#langgraph-best-practices) for structuring a LangGraph agent so that it can be evaluated reliably.
 
@@ -45,7 +44,7 @@ opentelemetry-instrumentation-langchain>=0.55.0
 ```
  `pyproject.toml`:  
 
-```
+```toml
 [project]
 dependencies = [
     "opentelemetry-instrumentation-langchain>=0.55.0",
@@ -59,7 +58,7 @@ openinference-instrumentation-langchain>=0.1.62
 ```
  `pyproject.toml`:  
 
-```
+```toml
 [project]
 dependencies = [
     "openinference-instrumentation-langchain>=0.1.62",
@@ -137,7 +136,7 @@ These examples are not complete spans. They show representative data from a real
 **Example**  
 The `traceloop.span.kind` attribute (`workflow`) identifies this as an invoke agent span; recent library versions also set `gen_ai.operation.name` = `invoke_agent`.  
 
-```
+```json
 {
   "traceId": "6a01eef11066751d68f90def0da1f80a",
   "spanId": "ba1833fa7f097041",
@@ -166,7 +165,7 @@ The `traceloop.span.kind` attribute (`workflow`) identifies this as an invoke ag
 ```
 The correlated event record carries the conversation. Each message’s `content` is the serialized LangChain graph state. The input wraps the state under an `inputs` key. The output wraps it under an `outputs` key, with each message as a LangChain constructor object. The user prompt is the human message and the agent response is the AI message inside that serialized state.  
 
-```
+```json
 {
   "spanId": "ba1833fa7f097041",
   "traceId": "6a01eef11066751d68f90def0da1f80a",
@@ -195,7 +194,7 @@ The correlated event record carries the conversation. Each message’s `content`
 ```
 The `traceloop.span.kind` attribute (`tool`) identifies this as an execute tool span; `gen_ai.tool.name` holds the tool name and `gen_ai.operation.name` = `execute_tool`.  
 
-```
+```json
 {
   "traceId": "6a01eefa5c52f3d86a35038f35f5ba30",
   "spanId": "5b332f3cd15ace04",
@@ -226,7 +225,7 @@ The `traceloop.span.kind` attribute (`tool`) identifies this as an execute tool 
 ```
 The correlated event record carries the tool input (arguments) and output (result, serialized as a LangChain `ToolMessage`).  
 
-```
+```json
 {
   "spanId": "5b332f3cd15ace04",
   "traceId": "6a01eefa5c52f3d86a35038f35f5ba30",
@@ -260,7 +259,7 @@ With the OpenInference library, the span type is carried in the `openinference.s
 **Example**  
 The `openinference.span.kind` attribute (`CHAIN`, or `AGENT` when the graph is compiled with a name) identifies this as an invoke agent span.  
 
-```
+```json
 {
   "traceId": "6a387ee61078243c1cc455ed45c6c313",
   "spanId": "0a7990d804132a9b",
@@ -288,7 +287,7 @@ The `openinference.span.kind` attribute (`CHAIN`, or `AGENT` when the graph is c
 ```
 The correlated event record carries the conversation. The user prompt is the human-role message and the agent response is the AI-role message in the serialized messages.  
 
-```
+```json
 {
   "spanId": "0a7990d804132a9b",
   "traceId": "6a387ee61078243c1cc455ed45c6c313",
@@ -317,7 +316,7 @@ The correlated event record carries the conversation. The user prompt is the hum
 ```
 The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute tool span; `tool.name` holds the tool name.  
 
-```
+```json
 {
   "traceId": "6a387ef07b8f4f3732fab45d3c0b51ff",
   "spanId": "ab105c12cc40048f",
@@ -346,7 +345,7 @@ The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute t
 ```
 The correlated event record carries the tool input (arguments) and output (result, serialized as a LangChain `ToolMessage`).  
 
-```
+```json
 {
   "spanId": "ab105c12cc40048f",
   "traceId": "6a387ef07b8f4f3732fab45d3c0b51ff",
@@ -388,7 +387,7 @@ These examples are not complete spans. They show representative data from a real
 **Example**  
 The `gen_ai.task.input` attribute holds the user prompt, and the `gen_ai.task.output` attribute holds the serialized state with the agent response. Both are the serialized LangChain graph state.  
 
-```
+```json
 {
   "traceId": "6a4de7b85e61747e6b568a1f4768e89d",
   "spanId": "31ea3d5882dac680",
@@ -413,7 +412,7 @@ The `gen_ai.task.input` attribute holds the user prompt, and the `gen_ai.task.ou
 ```
 The `gen_ai.tool.call.arguments` attribute holds the tool arguments, and the `gen_ai.tool.call.result` attribute holds the tool result, serialized as a LangChain `ToolMessage`.  
 
-```
+```json
 {
   "traceId": "6a4de7c376913db82e6f0f336a16731d",
   "spanId": "b64c37adefae74f0",
@@ -444,7 +443,7 @@ The `gen_ai.tool.call.arguments` attribute holds the tool arguments, and the `ge
 **Example**  
 The `input.value` attribute holds the user prompt, and the `output.value` attribute holds the serialized state with the agent response.  
 
-```
+```json
 {
   "traceId": "6a387ee61078243c1cc455ed45c6c313",
   "spanId": "b8c0b67876b78b91",
@@ -467,7 +466,7 @@ The `input.value` attribute holds the user prompt, and the `output.value` attrib
 ```
 The `input.value` attribute holds the tool arguments, and the `output.value` attribute holds the tool result, serialized as a LangChain `ToolMessage`.  
 
-```
+```json
 {
   "traceId": "6a387ef07b8f4f3732fab45d3c0b51ff",
   "spanId": "58752612d9b22ae1",
@@ -505,7 +504,7 @@ Add the instrumentation library for the path you want to your TypeScript depende
 For TypeScript agents on ADOT, add the AWS Distro Node autoinstrumentation package (`@aws/aws-distro-opentelemetry-node-autoinstrumentation`) to your dependencies. It includes the built-in LangChain instrumentation, which activates at startup and emits the scope name `@aws/aws-distro-opentelemetry-instrumentation-langchain`.  
  `package.json`:  
 
-```
+```json
 {
   "dependencies": {
     "@aws/aws-distro-opentelemetry-node-autoinstrumentation": "^0.12.0"
@@ -515,7 +514,7 @@ For TypeScript agents on ADOT, add the AWS Distro Node autoinstrumentation packa
 Add the Traceloop LangChain instrumentation (`@traceloop/instrumentation-langchain`) to your dependencies. The scope name emitted is `@traceloop/instrumentation-langchain`.  
  `package.json`:  
 
-```
+```json
 {
   "dependencies": {
     "@traceloop/instrumentation-langchain": "^0.27.0"
@@ -525,7 +524,7 @@ Add the Traceloop LangChain instrumentation (`@traceloop/instrumentation-langcha
 Add `@arizeai/openinference-instrumentation-langchain` to your dependencies. The scope name emitted is `@arizeai/openinference-instrumentation-langchain`.  
  `package.json`:  
 
-```
+```json
 {
   "dependencies": {
     "@arizeai/openinference-instrumentation-langchain": "^4.0.14"
@@ -568,7 +567,7 @@ With the ADOT-native library (from the AWS Distro Node autoinstrumentation packa
 **Example**  
 The `gen_ai.operation.name` attribute (`invoke_agent`) identifies this as an invoke agent span. The span carries the agent name and model but no conversation content.  
 
-```
+```json
 {
   "traceId": "6a6bd0a1c8d91ed1e70a3906b551618",
   "spanId": "ba1833fa7f097041",
@@ -592,7 +591,7 @@ The `gen_ai.operation.name` attribute (`invoke_agent`) identifies this as an inv
 ```
 The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an execute tool span; `gen_ai.tool.name` holds the tool name. The `gen_ai.tool.call.arguments` and `gen_ai.tool.call.result` attributes hold the tool arguments and result.  
 
-```
+```json
 {
   "traceId": "6a6bd0a25c52f3d86a35038f35f5ba30",
   "spanId": "5b332f3cd15ace04",
@@ -617,7 +616,7 @@ The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an exe
 ```
 The `gen_ai.operation.name` attribute (`chat`) identifies this as an inference span. The `gen_ai.input.messages` and `gen_ai.output.messages` attributes hold the conversation in the parts-format, and `gen_ai.system_instructions` holds the system prompt.  
 
-```
+```json
 {
   "traceId": "6a6bd0a1c8d91ed1e70a3906b551618",
   "spanId": "7c1f9a2b4d6e8a03",
@@ -650,7 +649,7 @@ With the OpenTelemetry JS library from Traceloop (`@traceloop/instrumentation-la
 **Example**  
 The `traceloop.span.kind` attribute (`workflow`) identifies this as an invoke agent span. The `traceloop.entity.input` and `traceloop.entity.output` attributes hold the serialized LangChain state, from which the user prompt (human message) and agent response (AI message) are parsed.  
 
-```
+```json
 {
   "traceId": "6a6bd0b1c8d91ed1e70a3906b551618",
   "spanId": "ba1833fa7f097041",
@@ -676,7 +675,7 @@ The `traceloop.span.kind` attribute (`workflow`) identifies this as an invoke ag
 ```
 The `traceloop.span.kind` attribute (`task`) identifies this as an execute tool span. The `traceloop.entity.input` and `traceloop.entity.output` attributes hold the tool arguments and result.  
 
-```
+```json
 {
   "traceId": "6a6bd0b25c52f3d86a35038f35f5ba30",
   "spanId": "5b332f3cd15ace04",
@@ -707,7 +706,7 @@ With the OpenInference JS library (`@arizeai/openinference-instrumentation-langc
 **Example**  
 The `openinference.span.kind` attribute (`CHAIN`) identifies this as an invoke agent span. The `input.value` and `output.value` attributes hold the serialized LangChain state.  
 
-```
+```json
 {
   "traceId": "6a6bd0c1c8d91ed1e70a3906b551618",
   "spanId": "0a7990d804132a9b",
@@ -730,7 +729,7 @@ The `openinference.span.kind` attribute (`CHAIN`) identifies this as an invoke a
 ```
 The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute tool span; `tool.name` holds the tool name. The `input.value` and `output.value` attributes hold the tool arguments and result (serialized as a LangChain `ToolMessage`).  
 
-```
+```json
 {
   "traceId": "6a6bd0c25c52f3d86a35038f35f5ba30",
   "spanId": "ab105c12cc40048f",
@@ -754,7 +753,7 @@ The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute t
 ```
 The `openinference.span.kind` attribute (`LLM`) identifies this as an inference span. The `llm.input_messages.*` attributes hold the system prompt and user prompt, and the `llm.output_messages.*` attributes hold the agent response.  
 
-```
+```json
 {
   "traceId": "6a6bd0c1c8d91ed1e70a3906b551618",
   "spanId": "1221a062c7f90a8e",
@@ -792,14 +791,14 @@ How you build and invoke a LangGraph agent affects what appears in its telemetry
 There are two common ways to build a LangGraph agent:
 +  **Prebuilt `create_agent` **: the quickest way to get started. It produces a single invoke agent span per turn, with the conversation passed through LangGraph’s built-in execution loop. Use this when you want a standard reason-act agent without custom control flow.
 
-  ```
+  ```python
   from langchain.agents import create_agent
   
   agent = create_agent(model=model, tools=[search_flights, book_flight])
   ```
 +  **Custom `StateGraph` **: gives you full control over nodes, edges, and conditional routing. Each node execution becomes its own span, so traces are more granular. Use this when you need custom orchestration.
 
-  ```
+  ```python
   from langgraph.graph import StateGraph, START, END
   from typing_extensions import TypedDict
   
@@ -829,19 +828,19 @@ The evaluation service reconstructs the conversation from the agent’s input an
 When you invoke a LangGraph agent, you add the user message to the graph’s `messages` state. LangGraph accepts the message in three interchangeable formats, and AgentCore Evaluations supports all of them. Each produces spans and event records that the service can read.
 +  **Tuple**: a `(role, content)` pair:
 
-  ```
+  ```python
   agent.invoke({"messages": [("user", user_message)]}, config=config)
   ```
 +  **LangChain message object**: a `HumanMessage` (or other message class):
 
-  ```
+  ```python
   from langchain_core.messages import HumanMessage
   
   agent.invoke({"messages": [HumanMessage(content=user_message)]}, config=config)
   ```
 +  **Dictionary**: a `{"role", "content"}` dictionary:
 
-  ```
+  ```python
   agent.invoke({"messages": [{"role": "user", "content": user_message}]}, config=config)
   ```
 

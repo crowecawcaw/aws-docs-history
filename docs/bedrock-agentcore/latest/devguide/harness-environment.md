@@ -1,7 +1,6 @@
 
 
 # Environment and filesystem
-<a name="harness-environment"></a>
 
 Every harness session runs in an isolated microVM with its own filesystem and shell. This page covers configuring the execution environment (default or custom container), running commands directly on the VM, setting environment variables, and mounting persistent filesystems.
 
@@ -20,7 +19,7 @@ Use it to:
 
 **Example**  
 
-```
+```python
 response = client.invoke_agent_runtime_command(
     agentRuntimeArn=HARNESS_ARN,
     runtimeSessionId=SESSION_ID,
@@ -39,7 +38,7 @@ for event in response["stream"]:
         print(f"\n[exit code: {chunk['contentStop']['exitCode']}]")
 ```
 
-```
+```bash
 # The harness ID is the part of the harness ARN after "harness/"
 HARNESS_ID="<harness-id>"
 SESSION_ID="$(uuidgen)"
@@ -88,7 +87,7 @@ The harness overrides your container’s `ENTRYPOINT` and `CMD` to keep it runni
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore-control create-harness \
   --harness-name "CodingAgent" \
   --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
@@ -98,7 +97,7 @@ aws bedrock-agentcore-control create-harness \
 The execution role needs ECR pull permissions. See the [execution role policy](harness-security.md#harness-execution-role-policy) for details.
 Scaffold a harness with a Dockerfile. The Dockerfile must exist before you run `agentcore add harness`. The CLI copies it to `app/<name>/Dockerfile`.  
 
-```
+```bash
 agentcore create --name CodingAgentProject --template empty
 cd CodingAgentProject
 # Create ./Dockerfile before you add the harness
@@ -110,7 +109,7 @@ agentcore deploy
 At deploy, AWS CodeBuild builds the image in your account, pushes it to ECR, and attaches it to the harness. This cloud build does not require a local Docker daemon.  
 Or reference a pre-built image:  
 
-```
+```bash
 agentcore add harness \
   --name node_agent \
   --container-uri public.ecr.aws/docker/library/node:slim
@@ -124,7 +123,7 @@ Set environment variables that are passed to the runtime container. Environment 
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore-control create-harness \
   --harness-name "MyHarness" \
   --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
@@ -132,7 +131,7 @@ aws bedrock-agentcore-control create-harness \
 ```
 Set environment variables when you add the harness:  
 
-```
+```bash
 agentcore add harness \
   --name MyHarness \
   --environment-variables '{"MY_API_URL":"https://api.example.com","LOG_LEVEL":"debug"}'
@@ -158,13 +157,13 @@ Files written to the mount path persist across stop/resume cycles when you invok
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore-control update-harness \
   --harness-id "MyHarness-UuFdkQoXSL" \
   --environment '{"agentCoreRuntimeEnvironment": {"filesystemConfigurations": [{"sessionStorage": {"mountPath": "/mnt/data/"}}]}}'
 ```
 
-```
+```bash
 agentcore add harness \
   --name my_agent \
   --session-storage-path /mnt/data/
@@ -178,7 +177,7 @@ Attach an EFS access point ARN at a mount path under `/mnt`. Data persists in yo
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore-control create-harness \
   --harness-name "SharedToolsAgent" \
   --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
@@ -204,7 +203,7 @@ aws bedrock-agentcore-control create-harness \
 ```
 Attach an EFS access point with `--efs-access-points`. EFS requires VPC network mode:  
 
-```
+```bash
 agentcore add harness \
   --name shared_tools \
   --network-mode VPC \
@@ -221,7 +220,7 @@ Attach an S3 Files access point ARN at a mount path under `/mnt`. Files at the m
 
 **Example**  
 
-```
+```bash
 aws bedrock-agentcore-control create-harness \
   --harness-name "DataAgent" \
   --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
@@ -247,7 +246,7 @@ aws bedrock-agentcore-control create-harness \
 ```
 Attach an S3 Files access point with `--s3-access-points`. S3 Files requires VPC network mode:  
 
-```
+```bash
 agentcore add harness \
   --name data_agent \
   --network-mode VPC \

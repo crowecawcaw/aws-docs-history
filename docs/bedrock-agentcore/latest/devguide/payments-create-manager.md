@@ -1,7 +1,6 @@
 
 
 # Create a Payment Manager and Connector
-<a name="payments-create-manager"></a>
 
 A Payment Manager is the top-level resource that coordinates payment operations for your AWS account. When you create a Payment Manager, you specify an authorizer type and an IAM role, and the service provisions a corresponding workload identity in AgentCore Identity.
 
@@ -16,6 +15,9 @@ Before you begin, ensure you have:
 
 **Important**  
 To create a Coinbase payment connector, your account must have an active AWS Marketplace subscription to the [Coinbase Wallets for AgentCore Payments](https://aws.amazon.com/marketplace/pp/prodview-ia2zd5puqyi7g) listing. With this subscription, your Coinbase wallet usage charges are consolidated into your monthly AWS bill based on Coinbase’s [pricing](https://docs.cdp.coinbase.com/wallets/pricing) on the Coinbase website. There are no additional charges or obligations for the subscription. If the subscription is missing, `CreatePaymentConnector` fails with a `SubscriptionRequiredException` (HTTP 403). This requirement applies only to Coinbase; other providers, such as Stripe (Privy), are not affected. For more information, see [Subscribe to Coinbase Wallets for AgentCore Payments in AWS Marketplace](payments-marketplace-subscription.md).
+
+**Note**  
+To create an AWS Billing connector, your AWS account must have the AWS Marketplace service-linked role `AWSServiceRoleForMarketplaceAgenticCommerce`. For more information about this role, see [Service-linked role for Amazon Bedrock AgentCore payments](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-service-linked-role-agentic-commerce.html) in the * AWS Marketplace Buyer Guide*. The identity that creates the connector needs the `iam:GetRole` permission on the role. An AWS Billing connector doesn’t use a credential provider, so you don’t create a payment auth for it. A Payment Manager can have at most one AWS Billing connector. For more information, see [AWS Billing service-linked role](payments-prerequisites.md#payments-prereq-aws-billing).
 
 ## Create a Payment Manager
 <a name="payments-create-manager-create"></a>
@@ -70,7 +72,18 @@ Payment connectors store the credentials and configuration needed to connect wit
 
 1. (Optional) Choose **Description** to expand the section, and then enter a description for the connector.
 
-1. In the **Payment auth** section, if you want to reuse a payment auth (payment credential provider) previously created in [AgentCore Identity](resource-providers.md#payment-credential-provider), select an existing payment auth from the dropdown; or choose **create a new one** to create a new payment auth. If you choose to create a new one, see **Create payment auth**.
+1. For **Payment type**, choose **Stablecoin wallets for paid external APIs & content** to use Coinbase or Stripe (Privy), or choose ** AWS billing for AWS Marketplace** to use AWS Billing.
+
+   When you enable AWS Billing, agents can make AWS Marketplace purchases on your behalf, without your approval, up to the session spending limit. Charges appear on your AWS bill.
+
+   If you choose ** AWS billing for AWS Marketplace**, skip the **Payment auth** step, because the connector doesn’t use a payment auth. Instead, the console checks whether your AWS account has the AWS Marketplace service-linked role:
+   + If the role exists, the console shows it under **Service-linked role**.
+   + If the role doesn’t exist, choose **Create role** to create it. You create the role once for your account.
+   + If the console shows **Additional permissions required**, ask your administrator for the permissions in [Administrator permissions](payments-iam-roles.md#payments-iam-admin), or ask them to create the role for you. For more information, see [AWS Billing service-linked role](payments-prerequisites.md#payments-prereq-aws-billing).
+
+1. If you chose a stablecoin wallet payment type, in the **Payment auth** section, do one of the following:
+   + To reuse a payment auth (payment credential provider) that you previously created in [AgentCore Identity](resource-providers.md#payment-credential-provider), choose an existing payment auth from the dropdown list.
+   + To create a payment auth, choose **create a new one**, and then see **Create payment auth**.
 
 1. (Optional) To add additional connectors, choose **\+ Add connector** and repeat the steps above.
 
@@ -133,7 +146,7 @@ The AgentCore CLI can declare a Payment Manager and add a connector from an Agen
 To use wizards, run `agentcore add payment-manager` in a terminal to open the payment manager wizard. Run `agentcore add credentials payment` to enter provider credentials in a wizard. Then run `agentcore add payment-connector` to add a Quick create connector or reuse a payment credential. Run `agentcore deploy` afterward.  
 To use flags instead, first add the Payment Manager:  
 
-```
+```bash
 agentcore add payment-manager \
   --name MyPaymentManager \
   --default-spend-limit 10.00
@@ -142,7 +155,7 @@ Then add a connector. Use Quick create for Coinbase, or add your own Coinbase or
  **Coinbase, Quick create (recommended):**   
 Quick create provisions the Coinbase credential provider for you, so you do not pass any API keys:  
 
-```
+```bash
 agentcore add payment-connector \
   --manager MyPaymentManager \
   --name CoinbaseConnector \
@@ -154,7 +167,7 @@ agentcore deploy
  **Coinbase, manual setup:**   
 Add a payment credential with your Coinbase CDP keys, then add a connector that uses it. Pass each secret as a `file://` path or as `-` to read it from stdin. The CLI rejects inline secret values.  
 
-```
+```bash
 agentcore add credentials payment \
   --name CoinbaseCreds \
   --provider CoinbaseCDP \
@@ -171,7 +184,7 @@ agentcore deploy
 ```
  **Stripe (Privy), manual setup:**   
 
-```
+```bash
 agentcore add credentials payment \
   --name PrivyCreds \
   --provider StripePrivy \
@@ -191,7 +204,7 @@ The AgentCore SDK supports Coinbase **Quick create** (shown first) and manual pr
  **Coinbase, Quick create (recommended):**   
 With Quick create, you create the connector with an empty `credential_provider_configurations` list and `provision_mode="QUICK_CREATE"`. The connector returns status `PENDING_AUTHENTICATION` and an authorization URL. After you authorize through Coinbase, the service provisions the credential provider and the connector reaches `READY`.  
 
-```
+```python
 import time
 import webbrowser
 
@@ -234,7 +247,7 @@ while True:
 The authorization URL is valid for about 10 minutes. If it expires, the connector transitions to `AUTHENTICATION_EXPIRED` and you re-create it.  
  **Coinbase CDP with IAM authorization:**   
 
-```
+```python
 from bedrock_agentcore.payments.client import PaymentClient
 
 payment_client = PaymentClient(region_name="us-east-1")
@@ -274,7 +287,7 @@ print(f"Connector ID: {payment_connector_id}")
 ```
  **Coinbase CDP with JWT authorization:**   
 
-```
+```python
 from bedrock_agentcore.payments.client import PaymentClient
 from bedrock_agentcore.services.identity import IdentityClient
 
@@ -324,7 +337,7 @@ provider_arn = provider["credentialProviderArn"]
 ```
  **Stripe (Privy) with IAM authorization:**   
 
-```
+```python
 from bedrock_agentcore.payments.client import PaymentClient
 
 payment_client = PaymentClient(region_name="us-east-1")
@@ -357,7 +370,7 @@ provider_arn = response["credentialProvider"]["credentialProviderArn"]
 ```
  **Stripe (Privy) with JWT authorization:**   
 
-```
+```python
 from bedrock_agentcore.payments.client import PaymentClient
 from bedrock_agentcore.services.identity import IdentityClient
 
@@ -408,7 +421,7 @@ provider_arn = provider["credentialProviderArn"]
 ```
 Create a Payment Manager with IAM authorization:  
 
-```
+```bash
 aws bedrock-agentcore-control create-payment-manager \
   --name "MyPaymentManager" \
   --authorizer-type AWS_IAM \
@@ -417,7 +430,7 @@ aws bedrock-agentcore-control create-payment-manager \
 ```
 Create a Payment Manager with JWT authorization:  
 
-```
+```bash
 aws bedrock-agentcore-control create-payment-manager \
   --name "MyPaymentManager" \
   --authorizer-type CUSTOM_JWT \
@@ -435,7 +448,7 @@ The Payment Manager status starts as `CREATING` and transitions to `READY` when 
  **Coinbase, Quick create (recommended):**   
 With Quick create, you create the connector with an empty credential-provider-configurations list and `--provision-mode QUICK_CREATE`. You do not create a credential provider first.  
 
-```
+```bash
 aws bedrock-agentcore-control create-payment-connector \
   --payment-manager-id <paymentManagerId> \
   --name "CoinbaseConnector" \
@@ -450,7 +463,7 @@ The credentials that Quick create provisions are service-managed, so you can rep
 After the Payment Manager is ready, [create a payment credential provider](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/resource-providers.html#payment-credential-provider):  
 The following example creates a payment credential provider for Coinbase CDP:  
 
-```
+```bash
 aws bedrock-agentcore-control create-payment-credential-provider \
   --name "coinbase-provider" \
   --credential-provider-vendor CoinbaseCDP \
@@ -465,7 +478,7 @@ aws bedrock-agentcore-control create-payment-credential-provider \
 ```
 The following example creates a payment credential provider for Stripe Privy:  
 
-```
+```bash
 aws bedrock-agentcore-control create-payment-credential-provider \
   --name "stripe-privy-provider" \
   --credential-provider-vendor StripePrivy \
@@ -481,7 +494,7 @@ aws bedrock-agentcore-control create-payment-credential-provider \
 ```
 After the credential provider is ready, create a connector:  
 
-```
+```bash
 aws bedrock-agentcore-control create-payment-connector \
   --payment-manager-id <paymentManagerId> \
   --name "CoinbaseConnector" \
@@ -493,9 +506,20 @@ aws bedrock-agentcore-control create-payment-connector \
   }]' \
   --region us-east-1
 ```
+ ** AWS Billing:** An AWS Billing connector uses the AWS Marketplace service-linked role in your account instead of a credential provider. Create the service-linked role before you create the connector. For more information, see [AWS Billing service-linked role](payments-prerequisites.md#payments-prereq-aws-billing).  
+The following AWS CLI command creates an AWS Billing connector. Replace `<paymentManagerId>` with your Payment Manager ID. Omit `--credential-provider-configurations`. The service binds the AWS Marketplace service-linked role for you.  
+
+```bash
+aws bedrock-agentcore-control create-payment-connector \
+  --payment-manager-id <paymentManagerId> \
+  --name "AwsBillingConnector" \
+  --type AwsBilling \
+  --region us-east-1
+```
+In the response, `credentialProviderConfigurations` shows the role that the service bound: a single `awsBilling` entry whose `iamRoleArn` is the ARN of the service-linked role in your account. You can’t supply this entry in the request. If the request includes it, `CreatePaymentConnector` returns a `ValidationException`.
 Create a Payment Manager with IAM authorization:  
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-east-1")
@@ -511,7 +535,7 @@ print(f"Payment Manager ID: {payment_manager['paymentManagerId']}")
 ```
 Create a Payment Manager with JWT authorization:  
 
-```
+```python
 payment_manager = client.create_payment_manager(
     name="MyPaymentManager",
     authorizerType="CUSTOM_JWT",
@@ -539,7 +563,7 @@ payment_manager = client.create_payment_manager(
  **Coinbase, Quick create (recommended):**   
 With Quick create, you create the connector with an empty `credentialProviderConfigurations` list and `provisionMode="QUICK_CREATE"`. You do not create a credential provider first.  
 
-```
+```python
 # Create a Coinbase connector with Quick create
 connector = client.create_payment_connector(
     paymentManagerId=payment_manager["paymentManagerId"],
@@ -558,7 +582,7 @@ The credentials that Quick create provisions are service-managed, so you can rep
 After the Payment Manager reaches `READY` status, create a payment credential provider:  
 The following example configures a provider for Coinbase CDP:  
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-east-1")
@@ -577,7 +601,7 @@ coinbase_provider = client.create_payment_credential_provider(
 ```
 The following example configures a provider for Stripe Privy:  
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-agentcore-control", region_name="us-east-1")
@@ -597,7 +621,7 @@ stripe_privy_provider = client.create_payment_credential_provider(
 ```
 After creating payment credential provider, create a connector:  
 
-```
+```python
 # Create PaymentConnector for Coinbase CDP
 payment_connector = client.create_payment_connector(
     paymentManagerId=payment_manager["paymentManagerId"],
@@ -616,7 +640,7 @@ print(f"Connector ID: {payment_connector['paymentConnectorId']}")
 ```
 For Stripe (Privy), use the `stripePrivy` configuration variant:  
 
-```
+```python
 # Create PaymentConnector for Stripe (Privy)
 payment_connector = client.create_payment_connector(
     paymentManagerId=payment_manager["paymentManagerId"],
@@ -630,6 +654,18 @@ payment_connector = client.create_payment_connector(
         }
     ]
 )
+```
+For AWS Billing, omit `credentialProviderConfigurations`. The service uses the AWS Marketplace service-linked role in your account:  
+
+```python
+# Create PaymentConnector for AWS Billing
+payment_connector = client.create_payment_connector(
+    paymentManagerId=payment_manager["paymentManagerId"],
+    name="AwsBillingConnector",
+    type="AwsBilling"
+)
+
+print(f"Connector ID: {payment_connector['paymentConnectorId']}")
 ```
 
 ## Lifecycle states
@@ -671,12 +707,12 @@ A Payment Connector transitions through the following states. The `PENDING_AUTHE
 
 **Example**  
 
-```
+```bash
 agentcore payment manager get --id <paymentManagerId>
 ```
 For a Payment Manager in your project, run `agentcore status --json`. The Payment Manager ID is the last segment of its `arn`, and the connector IDs are under its `children`.
 
-```
+```python
 from bedrock_agentcore.payments.client import PaymentClient
 
 payment_client = PaymentClient(region_name="us-east-1")
@@ -686,13 +722,13 @@ response = payment_client.get_payment_manager(
 print(f"Status: {response['status']}")
 ```
 
-```
+```bash
 aws bedrock-agentcore-control get-payment-manager \
   --payment-manager-id <paymentManagerId> \
   --region us-east-1
 ```
 
-```
+```python
 response = client.get_payment_manager(
     paymentManagerId="<paymentManagerId>"
 )
@@ -704,11 +740,11 @@ print(f"Status: {response['status']}")
 
 **Example**  
 
-```
+```bash
 agentcore payment manager list
 ```
 
-```
+```python
 from bedrock_agentcore.payments.client import PaymentClient
 
 payment_client = PaymentClient(region_name="us-east-1")
@@ -717,12 +753,12 @@ for pm in response['paymentManagers']:
     print(f"{pm['name']} - {pm['status']}")
 ```
 
-```
+```bash
 aws bedrock-agentcore-control list-payment-managers \
   --region us-east-1
 ```
 
-```
+```python
 response = client.list_payment_managers()
 for pm in response['paymentManagers']:
     print(f"{pm['name']} - {pm['status']}")
@@ -733,14 +769,14 @@ for pm in response['paymentManagers']:
 
 **Example**  
 
-```
+```bash
 agentcore remove payment-manager --name MyPaymentManager
 agentcore remove credential --name CoinbaseCreds
 agentcore deploy
 ```
 Removing the Payment Manager also removes its connectors. If you added a payment credential for a manual connector, remove it too (`CoinbaseCreds` or `PrivyCreds`). Quick create adds no credential to your project, so skip that command. The `remove` commands update local configuration. The follow-up `deploy` tears down the payment infrastructure in your account.
 
-```
+```python
 from bedrock_agentcore.payments.client import PaymentClient
 
 payment_client = PaymentClient(region_name="us-east-1")
@@ -749,13 +785,13 @@ payment_client.delete_payment_manager(
 )
 ```
 
-```
+```bash
 aws bedrock-agentcore-control delete-payment-manager \
   --payment-manager-id <paymentManagerId> \
   --region us-east-1
 ```
 
-```
+```python
 client.delete_payment_manager(
     paymentManagerId="<paymentManagerId>"
 )

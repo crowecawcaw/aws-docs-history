@@ -1,7 +1,6 @@
 
 
 # Custom code-based evaluator
-<a name="code-based-evaluators"></a>
 
 Custom code-based evaluators let you use your own AWS Lambda function to programmatically evaluate agent performance, instead of using an LLM as a judge. This gives you full control over the evaluation logic — you can implement deterministic checks, call external APIs, run regex matching, compute custom metrics, or apply any business-specific rules.
 
@@ -18,7 +17,7 @@ To use custom code-based evaluators, you need:
 
 Your service execution role needs the following additional permission to invoke Lambda functions for code-based evaluation:
 
-```
+```json
 {
     "Sid": "LambdaInvokeStatement",
     "Effect": "Allow",
@@ -41,7 +40,7 @@ The maximum runtime timeout for the Lambda function is 5 minutes (300 seconds). 
 
 Your Lambda function receives a JSON payload with the following structure:
 
-```
+```json
 {
     "schemaVersion": "1.0",
     "evaluatorId": "my-evaluator-abc1234567",
@@ -79,7 +78,7 @@ Your Lambda function must return a JSON object matching one of two formats:
 
  **Success response** 
 
-```
+```json
 {
     "label": "PASS",
     "value": 1.0,
@@ -96,7 +95,7 @@ Your Lambda function must return a JSON object matching one of two formats:
 
  **Error response** 
 
-```
+```json
 {
     "errorCode": "VALIDATION_FAILED",
     "errorMessage": "Input spans missing required tool call attributes."
@@ -118,7 +117,7 @@ The `CreateEvaluator` API creates a code-based evaluator by specifying a Lambda 
 
  **Code-based evaluator configuration:** 
 
-```
+```json
 {
     "codeBased": {
         "lambdaConfig": {
@@ -141,7 +140,7 @@ The following code samples demonstrate how to create code-based evaluators using
 
 1. 
 
-   ```
+   ```bash
    agentcore add evaluator code-based \
      --name "MyCodeEvaluator" \
      --level TRACE \
@@ -152,7 +151,7 @@ The following code samples demonstrate how to create code-based evaluators using
 
    To have the CLI create the Lambda function for you, omit `--lambda-arn`. The CLI scaffolds the function code in `app/<name>/lambda_function.py`, and `agentcore deploy` creates the function. Use `--timeout-seconds` (1-300, default 60) to set its timeout. `--timeout-seconds` cannot be combined with `--lambda-arn`.
 
-   ```
+   ```bash
    agentcore add evaluator code-based \
      --name "MyManagedEvaluator" \
      --level TRACE \
@@ -163,7 +162,7 @@ Run these commands from inside an AgentCore project directory created with `agen
 
 1. 
 
-   ```
+   ```python
    from bedrock_agentcore.evaluation.code_based_evaluators import (
        EvaluatorInput,
        EvaluatorOutput,
@@ -198,7 +197,7 @@ Run these commands from inside an AgentCore project directory created with `agen
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -222,7 +221,7 @@ Run these commands from inside an AgentCore project directory created with `agen
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-evaluator \
        --evaluator-name 'MyCodeEvaluator' \
        --level TRACE \
@@ -245,7 +244,7 @@ Once created, use the custom code-based evaluator with the `Evaluate` API the sa
 
 1. 
 
-   ```
+   ```bash
    agentcore eval ondemand evaluate \
      --agent "your-runtime-id" \
      --session-ids "your_session_id" \
@@ -254,7 +253,7 @@ Once created, use the custom code-based evaluator with the `Evaluate` API the sa
 
 1. 
 
-   ```
+   ```python
    from bedrock_agentcore.evaluation.client import EvaluationClient
    
    client = EvaluationClient(
@@ -272,7 +271,7 @@ Once created, use the custom code-based evaluator with the `Evaluate` API the sa
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore')
@@ -292,7 +291,7 @@ Once created, use the custom code-based evaluator with the `Evaluate` API the sa
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore evaluate \
        --cli-input-json file://session_span_logs.json
    ```
@@ -302,7 +301,7 @@ Once created, use the custom code-based evaluator with the `Evaluate` API the sa
 
 You can target specific traces or spans, just like with LLM-based evaluators:
 
-```
+```python
 # Trace-level evaluation
 response = client.evaluate(
     evaluatorId="code-based-evaluator-id",
@@ -342,7 +341,7 @@ You can use a custom code-based evaluator in an online evaluation configuration 
 
 1. 
 
-   ```
+   ```bash
    agentcore add online-eval \
      --name "your_config_name" \
      --agent "your_runtime_name" \
@@ -357,7 +356,7 @@ Run this from inside an AgentCore project directory created with `agentcore crea
 
 1. 
 
-   ```
+   ```python
    from bedrock_agentcore_starter_toolkit import Evaluation
    
    eval_client = Evaluation()
@@ -375,7 +374,7 @@ Run this from inside an AgentCore project directory created with `agentcore crea
 
 1. 
 
-   ```
+   ```python
    import boto3
    
    client = boto3.client('bedrock-agentcore-control')
@@ -399,7 +398,7 @@ Run this from inside an AgentCore project directory created with `agentcore crea
 
 1. 
 
-   ```
+   ```bash
    aws bedrock-agentcore-control create-online-evaluation-config \
        --online-evaluation-config-name "my_online_eval_config" \
        --rule '{"samplingConfig": {"samplingPercentage": 100.0}}' \

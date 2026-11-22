@@ -1,7 +1,6 @@
 
 
 # FusionAuth
-<a name="identity-idp-fusionauth"></a>
 
 FusionAuth can be configured as an outbound resource credential provider for AgentCore Identity. This allows your agents to authenticate users through FusionAuth’s OAuth2 service and obtain access tokens for FusionAuth API resources.
 
@@ -39,7 +38,7 @@ For more details, refer to [FusionAuth’s OAuth documentation](https://fusionau
 
 To configure FusionAuth as an outbound resource provider, use the following:
 
-```
+```json
 {
   "name": "FusionAuth",
   "credentialProviderVendor": "FusionAuthOauth2",
