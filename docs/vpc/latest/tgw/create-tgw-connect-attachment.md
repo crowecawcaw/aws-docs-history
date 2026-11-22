@@ -1,7 +1,6 @@
 
 
 # Create a Connect attachment in AWS Transit Gateway
-<a name="create-tgw-connect-attachment"></a>
 
 To create a Connect attachment, you must specify an existing attachment as the transport attachment. You can specify a VPC attachment or a Direct Connect attachment as the transport attachment.
 

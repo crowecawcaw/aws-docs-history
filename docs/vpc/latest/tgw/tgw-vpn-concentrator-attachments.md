@@ -1,7 +1,6 @@
 
 
 # VPN Concentrator attachments in AWS Transit Gateway
-<a name="tgw-vpn-concentrator-attachments"></a>
 
 AWS Site-to-Site VPN Concentrator is a new feature that simplifies multi-site connectivity for distributed enterprises. VPN Concentrator is suitable for customers who need to connect 25\+ remote sites to AWS, with each site needing low bandwidth (under 100 Mbps).
 

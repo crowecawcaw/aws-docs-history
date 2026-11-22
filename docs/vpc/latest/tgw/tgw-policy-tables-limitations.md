@@ -1,7 +1,6 @@
 
 
 # Transit gateway policy table limitations in AWS Transit Gateway
-<a name="tgw-policy-tables-limitations"></a>
 
 The following limitations apply to transit gateway policy tables at launch.
 + **TGW-to-Cloud WAN (CWAN) peering attachments** — PBR is not supported for customer-managed entries on these attachments. Traffic on CWAN peering attachments is controlled exclusively by system-managed entries, which have higher priority and are read-only. You can add customer entries to the same policy table for use with other attachment types.

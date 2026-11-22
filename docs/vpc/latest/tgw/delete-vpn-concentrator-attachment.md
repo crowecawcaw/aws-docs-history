@@ -1,7 +1,6 @@
 
 
 # Delete a VPN Concentrator attachment in AWS Transit Gateway
-<a name="delete-vpn-concentrator-attachment"></a>
 
 **Prerequisites**
 + All VPN connections on the VPN Concentrator must be deleted before you can delete the Concentrator attachment.

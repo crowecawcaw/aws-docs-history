@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create an AWS Transit Gateway using the AWS command line
-<a name="tgw-getting-started-cli"></a>
 
 In this tutorial, you'll learn how to use the AWS CLI to create a transit gateway and connect two VPCs to it. You'll create the transit gateway, attach both VPCs, and then configure the necessary routes to enable communication between the transit gateway and your VPCs.
 
@@ -31,7 +30,7 @@ Before you begin, make sure you have:
 
 When you create a transit gateway, AWS creates a default transit gateway route table and uses it as the default association route table and the default propagation route table. The following shows an example `create-transit-gateway` request in the `us-west-2` Region. Additional `options` were passed in the request. For more information about the `create-transit-gateway` command, including a list of the options you can pass in the request, see [create-transit-gateway](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-transit-gateway).
 
-```
+```bash
 aws ec2 create-transit-gateway \
   --description "My Transit Gateway" \
   --region us-west-2
@@ -39,7 +38,7 @@ aws ec2 create-transit-gateway \
 
 The response then shows that the transit gateway was created. In the response, the `Options` that are returned are all default values.
 
-```
+```json
 {
     "TransitGateway": {
         "TransitGatewayId": "tgw-1234567890abcdef0",
@@ -74,7 +73,7 @@ When you create a transit gateway, it's placed in a `pending` state. The state w
 
 For more information about the `describe-transit-gateways` command, see [describe-transit-gateways](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-transit-gateways).
 
-```
+```bash
 aws ec2 describe-transit-gateways \
   --transit-gateway-ids tgw-1234567890abcdef0 \
   --filters Name=state,Values=available
@@ -82,7 +81,7 @@ aws ec2 describe-transit-gateways \
 
 Wait until the transit gateway state changes from `pending` to `available` before proceeding. In the following response, the `State` has changed to `available`.
 
-```
+```json
 {
     "TransitGateways": [
         {
@@ -126,7 +125,7 @@ For more information about the `create-transit-vpc attachment` command, see [cre
 
 For the first VPC run the following using the first `vpc_id` and `subnet-ids`:
 
-```
+```bash
 aws ec2 create-transit-gateway-vpc-attachment \
   --transit-gateway-id tgw-1234567890abcdef0 \
   --vpc-id vpc-1234567890abcdef0 \
@@ -135,7 +134,7 @@ aws ec2 create-transit-gateway-vpc-attachment \
 
 The response shows the successful attachment. The attachment is created in a `pending` state. There's no need to change this state as it changes to an `available` state automatically. This might take several minutes.
 
-```
+```json
 {
     "TransitGatewayVpcAttachment": {
         "TransitGatewayAttachmentId": "tgw-attach-1234567890abcdef0",
@@ -160,7 +159,7 @@ The response shows the successful attachment. The attachment is created in a `pe
 
 For the second VPC, run the same command as above using the second `vpc_id` and `subnet-ids`:
 
-```
+```bash
 aws ec2 create-transit-gateway-vpc-attachment \
   --transit-gateway-id tgw-1234567890abcdef0 \
   --vpc-id vpc-abcdef1234567890 \
@@ -169,7 +168,7 @@ aws ec2 create-transit-gateway-vpc-attachment \
 
 The response for this command also shows a successful attachment, with the attachment currently in a `pending` state.
 
-```
+```json
 {
     {
     "TransitGatewayVpcAttachment": {
@@ -200,14 +199,14 @@ Transit gateway attachments are created in a initial `pending` state. You won't 
 
 Run the following command to check the status. In this example, optional `Name` and `Values` filters fields are passed in the request:
 
-```
+```bash
 aws ec2 describe-transit-gateway-vpc-attachments \
   --filters Name=transit-gateway-id,Values=tgw-1234567890abcdef0
 ```
 
 The following response shows that both attachments in an `available` state:
 
-```
+```json
 {
     "TransitGatewayVpcAttachments": [
         {
@@ -261,7 +260,7 @@ For more information about `create-route` command, see [create-route](https://do
 
 For the first VPC's route table run the following command:
 
-```
+```bash
 aws ec2 create-route \
   --route-table-id rtb-1234567890abcdef0 \
   --destination-cidr-block 10.2.0.0/16 \
@@ -270,7 +269,7 @@ aws ec2 create-route \
 
 For the second VPC's route table run the following command. This route uses a `route-table-id` and `destination-cidr-block` different from the first VPC. However, since you're only using a single transit gateway, the same `transit-gateway-id` is used.
 
-```
+```bash
 aws ec2 create-route \
   --route-table-id rtb-abcdef1234567890 \
   --destination-cidr-block 10.1.0.0/16 \
@@ -279,7 +278,7 @@ aws ec2 create-route \
 
 The response returns `true` for each route, indicating the routes were created.
 
-```
+```json
 {
     "Return": true
 }
@@ -297,7 +296,7 @@ You can confirm that the transit gateway was successfully created by connecting 
 
 1. Ping the private IP address of the EC2 instance in the second VPC:
 
-   ```
+   ```bash
    ping 10.2.0.50
    ```
 **Note**  
@@ -317,14 +316,14 @@ You'll stop incurring charges once you delete all of the transit gateway attachm
 
    For the first attachment, run the following command:
 
-   ```
+   ```bash
    aws ec2 delete-transit-gateway-vpc-attachment \
      --transit-gateway-attachment-id tgw-attach-1234567890abcdef0
    ```
 
     The delete response for the first VPC attachment returns the following: 
 
-   ```
+   ```json
    {
        "TransitGatewayVpcAttachment": {
            "TransitGatewayAttachmentId": "tgw-attach-1234567890abcdef0",
@@ -339,14 +338,14 @@ You'll stop incurring charges once you delete all of the transit gateway attachm
 
    Run the `delete-transit-gateway-vpc-attachment` command for the second attachment:
 
-   ```
+   ```bash
    aws ec2 delete-transit-gateway-vpc-attachment \
      --transit-gateway-attachment-id tgw-attach-abcdef1234567890
    ```
 
    The delete response for the second VPC attachment returns the following:
 
-   ```
+   ```json
    The response returns: 
    {
        "TransitGatewayVpcAttachment": {
@@ -364,14 +363,14 @@ You'll stop incurring charges once you delete all of the transit gateway attachm
 
    The following example deletes `My Transit Gateway` which you created in the first step above:
 
-   ```
+   ```bash
    aws ec2 delete-transit-gateway \
      --transit-gateway-id tgw-1234567890abcdef0
    ```
 
    The following shows the response to the request, which includes the deleted transit gateway ID and name, along with the original options set for the transit gateway when it was created. 
 
-   ```
+   ```json
    {
        "TransitGateway": {
            "TransitGatewayId": "tgw-1234567890abcdef0",

@@ -1,7 +1,6 @@
 
 
 # Create an AWS Transit Gateway Flow Logs record that publishes to Amazon S3
-<a name="flowlog-s3-create"></a>
 
 After you have created and configured your Amazon S3 bucket, you can create flow logs for transit gateways. You can create an Amazon S3 flow log using either the Amazon VPC Console or the AWS CLI.
 

@@ -1,7 +1,6 @@
 
 
 # Associate a transit gateway route table in AWS Transit Gateway
-<a name="associate-tgw-route-table"></a>
 
 You can associate a transit gateway route table with a transit gateway attachment.
 

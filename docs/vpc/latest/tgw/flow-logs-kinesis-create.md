@@ -1,7 +1,6 @@
 
 
 # Create an AWS Transit Gateway Flow Logs record that publishes to Amazon Data Firehose
-<a name="flow-logs-kinesis-create"></a>
 
 Create a Transit Gateway Flow Log that publishes to Amazon Data Firehose. Before you can create the flow log, ensure that you've set up the source and destination IAM account roles for cross-account delivery and that you've created the Firehose delivery stream. See [Amazon Data Firehose Flow Logs](flow-logs-kinesis.md) for more information. You can create a Firehose flow log using either the Amazon VPC Console or the AWS CLI.
 

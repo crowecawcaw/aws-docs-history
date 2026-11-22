@@ -1,7 +1,6 @@
 
 
 # Update AWS Transit Gateway security group inbound rules
-<a name="tgw-sg-updates-update"></a>
 
 You can update any of the inbound security group rules associated with a transit gateway. You can update security group rules using either the Amazon VPC Console console or by using the command-line or API. For more information about security group referencing, see [Security group referencing](tgw-vpc-attachments.md#vpc-attachment-security).
 

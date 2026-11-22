@@ -1,7 +1,6 @@
 
 
 # Create a static source multicast domain in AWS Transit Gateway
-<a name="create-tgw-domain"></a>
 
 If you have not already done so, review the available multicast domain attributes. For more information, see [Multicast domains in AWS Transit Gateway](multicast-domains-about.md).
 

@@ -1,7 +1,6 @@
 
 
 # Flexible cost allocation
-<a name="metering-policy"></a>
 
 By default, transit gateway uses a sender-based cost allocation model where data processing charges are allocated to the account that owns the source attachment. You can create custom metering policies that define which accounts should be charged based on traffic flow properties such as attachment types, specific attachment IDs, or network addresses.
 

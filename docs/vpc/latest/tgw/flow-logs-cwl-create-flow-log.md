@@ -1,7 +1,6 @@
 
 
 # Create an AWS Transit Gateway Flow Logs record that publishes to Amazon CloudWatch Logs
-<a name="flow-logs-cwl-create-flow-log"></a>
 
 You can create flow logs for transit gateways. If you perform these steps as an IAM user, ensure that you have permissions to use the `iam:PassRole` action. For more information, see [Permissions for IAM users to pass a role](flow-logs-cwl.md#flow-logs-iam-user).
 

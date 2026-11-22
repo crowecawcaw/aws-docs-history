@@ -1,7 +1,6 @@
 
 
 # Policy table concepts in AWS Transit Gateway
-<a name="tgw-policy-tables-concepts"></a>
 
 This topic describes the key concepts for transit gateway policy tables and Policy-Based Routing (PBR).
 

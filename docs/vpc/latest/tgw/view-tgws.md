@@ -1,7 +1,6 @@
 
 
 # View transit gateway information in AWS Transit Gateway
-<a name="view-tgws"></a>
 
 View any of your transit gateways.
 

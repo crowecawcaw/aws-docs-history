@@ -1,7 +1,6 @@
 
 
 # Add a route to a transit gateway route table using AWS Transit Gateway
-<a name="tgw-peering-add-route"></a>
 
 To route traffic between the peered transit gateways, you must add a static route to the transit gateway route table that points to the transit gateway peering attachment. The owner of the accepter transit gateway must also add a static route to their transit gateway's route table.
 

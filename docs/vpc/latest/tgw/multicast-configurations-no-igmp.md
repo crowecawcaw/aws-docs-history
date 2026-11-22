@@ -1,7 +1,6 @@
 
 
 # Example: Manage static source configurations in AWS Transit Gateway
-<a name="multicast-configurations-no-igmp"></a>
 
 This example statically adds multicast sources to a group. Hosts do not use the IGMP protocol to join or leave multicast groups. You need to statically add the group members that receive the multicast traffic.
 

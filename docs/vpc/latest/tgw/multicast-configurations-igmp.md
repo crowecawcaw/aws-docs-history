@@ -1,7 +1,6 @@
 
 
 # Example: Manage IGMP configurations using AWS Transit Gateway
-<a name="multicast-configurations-igmp"></a>
 
 This example shows at least one host that uses the IGMP protocol for multicast traffic. AWS automatically creates the multicast group when it receives an IGMP `JOIN` message from an instance, and then adds the instance as a member in this group. You can also statically add non-IGMP hosts as members to a group using the AWS CLI. Any instances that are in subnets associated with the multicast domain can send traffic, and the group members receive the multicast traffic.
 

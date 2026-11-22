@@ -1,7 +1,6 @@
 
 
 # Edit an AWS Transit Gateway metering policy
-<a name="metering-policy-edit"></a>
 
 Edit existing metering policies to modify middlebox attachment configurations. Policy modifications take effect at the next billing hour and apply to all future traffic flows through your transit gateway.
 

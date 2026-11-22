@@ -1,7 +1,6 @@
 
 
 # Disassociate a subnet from a multicast domain in AWS Transit Gateway
-<a name="remove-subnet-association"></a>
 
 Use the following procedure to disassociate subnets from a multicast domain.
 

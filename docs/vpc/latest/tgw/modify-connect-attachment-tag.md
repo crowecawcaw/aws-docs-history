@@ -1,7 +1,6 @@
 
 
 # Modify Connect attachment and Connect peer tags in AWS Transit Gateway
-<a name="modify-connect-attachment-tag"></a>
 
 You can modify the tags for your Connect attachment.
 

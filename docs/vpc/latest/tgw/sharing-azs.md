@@ -1,7 +1,6 @@
 
 
 # Share resources across Availability Zones in AWS Transit Gateway
-<a name="sharing-azs"></a>
 
 To ensure that resources are distributed across the Availability Zones for a Region, AWS Transit Gateway independently map s Availability Zones to names for each account. This could lead to Availability Zone naming differences across accounts. For example, the Availability Zone `us-east-1a` for your AWS account might not have the same location as `us-east-1a` for another AWS account.
 

@@ -1,7 +1,6 @@
 
 
 # Modify a VPC attachment in AWS Transit Gateway
-<a name="modify-vpc-attachment"></a>
 
 **To modify your VPC attachments using the console**
 

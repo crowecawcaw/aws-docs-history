@@ -1,7 +1,6 @@
 
 
 # Work with AWS Transit Gateway
-<a name="working-with-transit-gateways"></a>
 
 You can work with transit gateways using the Amazon VPC console or the AWS CLI. For information about enabling and managing Encryption support for your transit gateway, see [Encryption Support for AWS Transit Gateway](tgw-encryption-support.md).
 

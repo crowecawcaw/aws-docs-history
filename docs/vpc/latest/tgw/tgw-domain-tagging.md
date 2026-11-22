@@ -1,7 +1,6 @@
 
 
 # Add tags to a multicast domain in AWS Transit Gateway
-<a name="tgw-domain-tagging"></a>
 
 Add tags to your resources to help organize and identify them, such as by purpose, owner, or environment. You can add multiple tags to each multicast domain. Tag keys must be unique for each multicast domain. If you add a tag with a key that is already associated with the multicast domain, it updates the value of that tag. For more information, see [Tagging your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html).
 

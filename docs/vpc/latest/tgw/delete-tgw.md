@@ -1,7 +1,6 @@
 
 
 # Delete a transit gateway in AWS Transit Gateway
-<a name="delete-tgw"></a>
 
 You can't delete a transit gateway with existing attachments. You need to delete all attachments before you can delete a transit gateway.
 

@@ -1,7 +1,6 @@
 
 
 # Create a VPC attachment in AWS Transit Gateway
-<a name="create-vpc-attachment"></a>
 
 **To create a VPC attachment using the console**
 

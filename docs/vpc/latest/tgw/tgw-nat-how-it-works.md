@@ -1,7 +1,6 @@
 
 
 # How 1:1 NAT works in AWS Transit Gateway
-<a name="tgw-nat-how-it-works"></a>
 
 You apply NAT configuration at the attachment level. For each attachment, you define one or more rules. Each rule specifies a `MatchSourceCidr`, the source IP range of traffic arriving on that attachment, and a `NatCidr`, the range those source addresses are translated to.
 

@@ -1,7 +1,6 @@
 
 
 # Register sources with a multicast group in AWS Transit Gateway
-<a name="add-source-multicast-group"></a>
 
 **Note**  
 This procedure is only required when you have set the **Static sources support** attribute to **enable**.

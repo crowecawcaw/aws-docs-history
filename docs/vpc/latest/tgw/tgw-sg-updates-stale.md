@@ -1,7 +1,6 @@
 
 
 # Remove stale AWS Transit Gateway security group rules
-<a name="tgw-sg-updates-stale"></a>
 
 A stale security group rule is a rule that references a deleted security group in the same VPC or in VPC attached to the same transit gateway. When a security group rule becomes stale, it's not automatically removed from your security group—you must manually remove it.
 

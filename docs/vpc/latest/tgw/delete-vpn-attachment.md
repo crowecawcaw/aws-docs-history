@@ -1,7 +1,6 @@
 
 
 # Delete a VPN attachment in AWS Transit Gateway
-<a name="delete-vpn-attachment"></a>
 
 **To delete a VPN attachment using the console**
 

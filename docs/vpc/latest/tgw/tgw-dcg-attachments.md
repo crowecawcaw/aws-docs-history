@@ -1,7 +1,6 @@
 
 
 # Transit gateway attachments to a Direct Connect gateway in AWS Transit Gateway
-<a name="tgw-dcg-attachments"></a>
 
 Attach a transit gateway to a Direct Connect gateway using a transit virtual interface. This configuration offers the following benefits. You can:
 + Manage a single connection for multiple VPCs or VPNs that are in the same Region.

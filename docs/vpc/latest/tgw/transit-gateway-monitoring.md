@@ -1,7 +1,6 @@
 
 
 # Metrics and events in AWS Transit Gateway
-<a name="transit-gateway-monitoring"></a>
 
 You can use the following features to monitor your transit gateways, analyze traffic patterns, and troubleshoot issues with your transit gateways.
 

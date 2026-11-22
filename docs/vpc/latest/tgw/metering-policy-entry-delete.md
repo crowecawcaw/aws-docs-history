@@ -1,7 +1,6 @@
 
 
 # Delete an AWS Transit Gateway metering policy entry
-<a name="metering-policy-entry-delete"></a>
 
 Delete metering policy entries when specific cost allocation rules are no longer required for your network traffic flows. Entry deletion helps simplify policy management by removing outdated or unnecessary rules while maintaining the overall policy structure. When you delete an entry, traffic that previously matched the deleted rule will be evaluated against remaining entries in rule number order, or fall back to the default policy behavior if no other entries match.
 

@@ -1,7 +1,6 @@
 
 
 # Create an AWS Transit Gateway metering policy entry
-<a name="create-metering-policy-entry"></a>
 
 By default, all flows are metered to the source attachment owner. To meter specific flows to different accounts, create individual policy entries that define which account gets charged based on traffic flow properties.
 

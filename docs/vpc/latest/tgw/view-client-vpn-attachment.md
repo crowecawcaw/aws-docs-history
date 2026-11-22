@@ -1,7 +1,6 @@
 
 
 # View a Client VPN attachment in AWS Transit Gateway
-<a name="view-client-vpn-attachment"></a>
 
 **To view your Client VPN attachments using the console**
 

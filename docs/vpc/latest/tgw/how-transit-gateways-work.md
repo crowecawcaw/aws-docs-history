@@ -1,7 +1,6 @@
 
 
 # How AWS Transit Gateway works
-<a name="how-transit-gateways-work"></a>
 
 In AWS Transit Gateway, a transit gateway acts as a Regional virtual router for traffic flowing between your virtual private clouds (VPCs) and on-premises networks. A transit gateway scales elastically based on the volume of network traffic. Routing through a transit gateway operates at layer 3, where the packets are sent to a specific next-hop attachment, based on the destination IP addresses.
 
@@ -197,31 +196,27 @@ The following example shows a transit gateway route table. If you prefer the Dir
 ## Network function attachments
 <a name="nf-attachment-overview"></a>
 
- A network function attachment is a resource that connects a network security function — for example, an AWS Network Firewall attachment — directly to your transit gateway. It eliminates the need to manually create and manage inspection VPCs. 
-
-With a network function attachment: 
-+ AWS automatically creates and manages the underlying infrastructure 
-+ Traffic can be inspected as it flows through your transit gateway
-+ Security policies are applied consistently across your network 
-+ You can direct traffic through the firewall using simple routing rules
-+ The attachment works across multiple Availability Zones for high availability 
-
- This integration simplifies network security by allowing you to attach firewalls directly to your transit gateway rather than creating complex routing configurations and managing separate endpoints through separate VPCs. 
+A network function attachment connects your transit gateway to a network security function. Transit Gateway supports network function attachments for AWS Network Firewall and Gateway Load Balancer. You route traffic to either attachment type by using static transit gateway routes.
 
 ### AWS Network Firewall integration
 <a name="nf-attachment-nfw"></a>
 
-AWS Network Firewall integration allows you to connect a firewall in the form of a group of Gateway Load Balancer Endpoints, one per Availability Zone, in a service-managed buffer VPC. A Network Firewall attachment is created with appliance mode automatically enabled. This eliminates the need to explicitly manage inspection VPCs. 
+AWS Network Firewall integration allows you to connect a firewall in the form of a group of Gateway Load Balancer Endpoints, one per Availability Zone, in a service-managed buffer VPC. A Network Firewall attachment is created with appliance mode automatically enabled. This eliminates the need to explicitly manage inspection VPCs.
 
 With Network Firewall integration, you no longer need to create and manage inspection VPCs for your Network Firewall deployments. Instead of selecting a VPC and subnets when creating your firewall, you directly select the Transit Gateway, and AWS automatically provisions and manages all the necessary resources behind the scenes. You'll see a new transit gateway network function attachment rather than an individual firewall endpoint.
 
-For cross-account scenarios, the Transit Gateway can be RAM-shared from the Transit Gateway owner to the Network Firewall owner account, allowing either account to manage the firewall attachment. Once your firewall and attachment are ready, you can simply modify your Transit Gateway route tables to send traffic to the attachment for inspection.
+For cross-account scenarios, the Transit Gateway can be RAM-shared from the Transit Gateway owner to the Network Firewall owner account, allowing either account to manage the firewall attachment. Once your firewall and attachment are ready, you can modify your Transit Gateway route tables to send traffic to the attachment for inspection.
 
 **Note**  
 Transit Gateway supports only static routing on Network Firewall attachments.
-Third-party firewalls are not supported.
+Other firewall appliances are not supported by the AWS Network Firewall integration.
 
-For more information about firewalls and attachments see [Transit gateway network function attachments](tgw-nf-fw.md).
+### Gateway Load Balancer integration
+<a name="nf-attachment-gwlb"></a>
+
+A network function attachment of type Gateway Load Balancer connects your transit gateway to a Gateway Load Balancer VPC endpoint service that fronts a firewall deployment. You create the attachment in Transit Gateway and select the endpoint service and Availability Zones. Transit Gateway creates one Gateway Load Balancer endpoint in each selected Availability Zone and enables appliance mode automatically. For more information, see [Manage a network function attachment of type Gateway Load Balancer](manage-nf-attachment-gwlb.md).
+
+For more information, see [AWS Transit Gateway network function attachments](tgw-nf-fw.md).
 
 ## Example transit gateway scenarios
 <a name="TGW_Scenarios"></a>

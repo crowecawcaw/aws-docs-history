@@ -1,7 +1,6 @@
 
 
 # Example: Manage static group member configurations in AWS Transit Gateway
-<a name="multicast-configurations-no-igmp-source"></a>
 
 This example shows statically adding multicast members to a group. Hosts cannot use the IGMP protocol to join or leave multicast groups. Any instances that are in subnets associated with the multicast domain can send multicast traffic, and the group members receive the multicast traffic.
 

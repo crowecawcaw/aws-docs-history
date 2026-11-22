@@ -1,7 +1,6 @@
 
 
 # Modify a transit gateway in AWS Transit Gateway
-<a name="tgw-modifying"></a>
 
 You can modify the configuration options for a transit gateway. When you modify a transit gateway, any existing transit gateway attachments don't experience any service interruptions.
 

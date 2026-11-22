@@ -1,7 +1,6 @@
 
 
 # View AWS Transit Gateway Flow Logs records
-<a name="view-flow-logs"></a>
 
 View information about your transit gateway flow logs through the Amazon VPC. When you choose a resource, all of the flow logs for that resource are listed. The information displayed includes the ID of the flow log, the flow log configuration, and information about the status of the flow log.
 

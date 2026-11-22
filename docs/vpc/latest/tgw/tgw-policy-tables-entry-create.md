@@ -1,7 +1,6 @@
 
 
 # Create a policy table entry in AWS Transit Gateway
-<a name="tgw-policy-tables-entry-create"></a>
 
 Add one or more rules to the policy table. Each rule specifies match criteria and a target route table. All match attributes are optional; omitting an attribute defaults it to Any (`*`).
 
@@ -36,7 +35,7 @@ Add one or more rules to the policy table. Each rule specifies match criteria an
 **To create a policy table entry using the AWS CLI**  
 Use the [create-transit-gateway-policy-table-entry](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-transit-gateway-policy-table-entry.html) command. Replace the policy table ID, rule number, policy rule values, and route table ID with your values.
 
-```
+```bash
 aws ec2 create-transit-gateway-policy-table-entry \
     --transit-gateway-policy-table-id tgw-ptb-0ca78a549EXAMPLE \
     --policy-rule-number 100 \

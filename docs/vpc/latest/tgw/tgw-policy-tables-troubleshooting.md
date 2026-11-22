@@ -1,7 +1,6 @@
 
 
 # Troubleshooting transit gateway policy tables in AWS Transit Gateway
-<a name="tgw-policy-tables-troubleshooting"></a>
 
 Use the following information to diagnose and resolve issues with transit gateway policy tables.
 

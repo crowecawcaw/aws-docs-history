@@ -1,7 +1,6 @@
 
 
 # Create a Connect peer in AWS Transit Gateway
-<a name="create-tgw-connect-peer"></a>
 
 You can create a Connect peer (GRE tunnel) for an existing Connect attachment. Before you begin, ensure that you have configured a transit gateway CIDR block. You can configure a transit gateway CIDR block when you [create](create-tgw.md) or [modify](tgw-modifying.md) a transit gateway. 
 

@@ -1,7 +1,6 @@
 
 
 # AWS Transit Gateway Flow Logs records in Amazon CloudWatch Logs
-<a name="flow-logs-cwl"></a>
 
 Flow logs can publish flow log data directly to Amazon CloudWatch.
 
@@ -32,7 +31,7 @@ The IAM policy that's attached to your IAM role must include at least the follow
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -60,7 +59,7 @@ Also ensure that your role has a trust relationship that allows the flow logs se
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -100,7 +99,7 @@ Users must also have permissions to use the `iam:PassRole` action for the IAM ro
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Delete an AWS Transit Gateway metering policy
-<a name="metering-policy-delete"></a>
 
 Delete metering policies when they are no longer required for your transit gateway cost allocation strategy. Deleting a policy reverts cost allocation to the default sender-based model where data processing and data transfer charges are allocated to the account that owns the source attachment. All policy entries associated with the deleted metering policy are also removed.
 

@@ -1,7 +1,6 @@
 
 
 # Identity and access management in AWS Transit Gateway
-<a name="transit-gateway-authentication-access-control"></a>
 
 AWS uses security credentials to identify you and to grant you access to your AWS resources. You can use features of AWS Identity and Access Management (IAM) to allow other users, services, and applications to use your AWS resources fully or in a limited way, without sharing your security credentials.
 
@@ -28,7 +27,7 @@ The second statement uses the `ec2:CreateAction` condition key to allow users to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -74,7 +73,7 @@ The following example enables users to create and delete transit gateway route t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -140,7 +139,7 @@ Both actions support resource-level permissions on the transit gateway attachmen
 
 The following example allows NAT management only on attachments tagged `environment=prod`.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Register members with a multicast group in AWS Transit Gateway
-<a name="add-members-multicast-group"></a>
 
 Use the following procedure to register group members with a multicast group. 
 

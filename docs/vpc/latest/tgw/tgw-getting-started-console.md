@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create an AWS Transit Gateway using the Amazon VPC Console
-<a name="tgw-getting-started-console"></a>
 
 In this tutorial, you'll learn how to use the Amazon VPC Console to create a transit gateway and connect two VPCs to it. You'll create the transit gateway, attach both VPCs, and then configure the necessary routes to enable communication between the transit gateway and your VPCs.
 

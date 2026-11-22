@@ -1,7 +1,6 @@
 
 
 # Unshare a shared multicast domain in AWS Transit Gateway
-<a name="sharing-unshare"></a>
 
 When a shared multicast domain is unshared, the following happens to consumer multicast domain resources:
 + Consumer subnets are disassociated from the multicast domain. The subnets remain in the consumer account.

@@ -1,7 +1,6 @@
 
 
 # Create a transit gateway route table in AWS Transit Gateway
-<a name="create-tgw-route-table"></a>
 
 **To create a transit gateway route table using the console**
 

@@ -1,7 +1,6 @@
 
 
 # View a VPC attachment in AWS Transit Gateway
-<a name="view-vpc-attachment"></a>
 
 **To view your VPC attachments using the console**
 

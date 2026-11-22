@@ -1,7 +1,6 @@
 
 
 # Modify a prefix list reference in AWS Transit Gateway
-<a name="modify-prefix-list-reference"></a>
 
 You can modify a prefix list reference by changing the attachment that the traffic is routed to, or indicating whether to drop traffic that matches the route.
 

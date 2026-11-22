@@ -1,7 +1,6 @@
 
 
 # Accept or reject a peering attachment request in AWS Transit Gateway
-<a name="tgw-peering-accept-reject"></a>
 
 When created, a transit gateway peering attachment is automatically created in a `pendingAcceptance` state and remains in this state indefinitely until it's either accepted or rejected. To activate the peering attachment, the owner of the accepter transit gateway must accept the peering attachment request, even if both transit gateways are in the same account. Accept the peering attachment request from the Region that the accepter transit gateway is located in. Alternatively, if you reject the peering attachment, you must reject the request from the Region that the accepter transit gateway is located in.
 

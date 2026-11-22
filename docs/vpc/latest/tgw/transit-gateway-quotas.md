@@ -1,7 +1,6 @@
 
 
 # AWS Transit Gateway Quotas
-<a name="transit-gateway-quotas"></a>
 
 Your AWS account has the following quotas (previously referred to as *limits*) related to transit gateways. Unless otherwise noted, each quota is Region-specific.
 

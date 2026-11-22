@@ -1,7 +1,6 @@
 
 
 # Delete a VPC attachment in AWS Transit Gateway
-<a name="delete-vpc-attachment"></a>
 
 **To delete a VPC attachment using the console**
 

@@ -1,7 +1,6 @@
 
 
 # Prerequisites for transit gateway policy tables in AWS Transit Gateway
-<a name="tgw-policy-tables-prerequisites"></a>
 
 Before configuring Policy-Based Routing (PBR) on a transit gateway attachment, confirm the following:
 + You have an existing transit gateway. PBR is enabled on all transit gateways by default. No additional configuration is required to activate the feature.

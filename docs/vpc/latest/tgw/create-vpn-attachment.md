@@ -1,7 +1,6 @@
 
 
 # Create a transit gateway attachment to a VPN in AWS Transit Gateway
-<a name="create-vpn-attachment"></a>
 
 **To create a VPN attachment using the console**
 

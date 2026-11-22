@@ -1,7 +1,6 @@
 
 
 # Identify a shared multicast domain in AWS Transit Gateway
-<a name="sharing-identify"></a>
 
 Owners and consumers can identify shared multicast domains using the Amazon Virtual Private Cloud and AWS CLI
 

@@ -1,7 +1,6 @@
 
 
 # Create a transit gateway in AWS Transit Gateway
-<a name="create-tgw"></a>
 
 When you create a transit gateway, we create a default transit gateway route table and use it as the default association route table and the default propagation route table. If you choose not to create the default transit gateway route table, you can create one later on. For more information about routes and route tables, see [Routing](how-transit-gateways-work.md#tgw-routing-overview).
 

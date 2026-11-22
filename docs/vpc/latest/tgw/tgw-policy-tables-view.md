@@ -1,7 +1,6 @@
 
 
 # View transit gateway policy tables in AWS Transit Gateway
-<a name="tgw-policy-tables-view"></a>
 
 You can view your transit gateway policy tables and their entries.
 
@@ -25,14 +24,14 @@ To track your entry usage against the per-transit gateway limit, use the Service
 **To view transit gateway policy tables using the AWS CLI**  
 To list all policy tables on your account, use the [describe-transit-gateway-policy-tables](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-transit-gateway-policy-tables.html) command.
 
-```
+```bash
 aws ec2 describe-transit-gateway-policy-tables \
     --filters "Name=transit-gateway-id,Values=tgw-0bc994abffEXAMPLE"
 ```
 
 Example response:
 
-```
+```json
 {
     "TransitGatewayPolicyTables": [
         {
@@ -64,14 +63,14 @@ To check total usage against the per-transit gateway limit, use the Service Quot
 **To view policy table entries using the AWS CLI**  
 Use the [get-transit-gateway-policy-table-entries](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-transit-gateway-policy-table-entries.html) command.
 
-```
+```bash
 aws ec2 get-transit-gateway-policy-table-entries \
     --transit-gateway-policy-table-id tgw-ptb-0ca78a549EXAMPLE
 ```
 
 Example response:
 
-```
+```json
 {
     "TransitGatewayPolicyTableEntries": [
         {

@@ -1,7 +1,6 @@
 
 
 # Transit gateway policy tables in AWS Transit Gateway
-<a name="tgw-policy-tables"></a>
 
 Policy-Based Routing (PBR) for AWS Transit Gateway gives network administrators rule-based control over how traffic is forwarded across a transit gateway. With PBR, forwarding decisions can be based on a combination of packet attributes including source and destination IP addresses, source and destination ports, and protocol rather than destination IP address alone. This enables you to apply different forwarding behaviors to different traffic flows even when those flows share the same destination.
 

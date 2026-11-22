@@ -1,7 +1,6 @@
 
 
 # Multicast in AWS Transit Gateway
-<a name="tgw-multicast-overview"></a>
 
 Multicast is a communication protocol used for delivering a single stream of data to multiple receiving computers simultaneously. Transit Gateway supports routing multicast traffic between subnets of attached VPCs, and it serves as a multicast router for instances sending traffic destined for multiple receiving instances. 
 

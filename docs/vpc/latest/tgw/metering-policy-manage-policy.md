@@ -1,7 +1,6 @@
 
 
 # Manage AWS Transit Gateway metering policies
-<a name="metering-policy-manage-policy"></a>
 
 After creating a metering policy, you can manage it by viewing current settings, modifying configuration options, or deleting the policy when no longer needed. Management operations allow you to add or remove middlebox attachments as your network requirements change. You can only create or delete a policy entry. If you need to modify an existing rule, you can delete the entry and create a new one with the modified configuration. All management operations require transit gateway owner permissions and take effect after two billing hour.
 

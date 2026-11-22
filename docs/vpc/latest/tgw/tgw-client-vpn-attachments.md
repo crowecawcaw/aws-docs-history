@@ -1,7 +1,6 @@
 
 
 # Client VPN attachments in AWS Transit Gateway
-<a name="tgw-client-vpn-attachments"></a>
 
 When you associate a Client VPN endpoint with a transit gateway, a Client VPN attachment is automatically created, allowing you to route traffic between your VPCs, on-premises networks, and Client VPN endpoints. AWS Transit Gateway supports cross-account Client VPN attachments, allowing accounts that the transit gateway is shared with to create their own Client VPN attachments.
 

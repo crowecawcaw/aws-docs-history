@@ -1,7 +1,6 @@
 
 
 # Create and manage AWS Transit Gateway Flow Logs using APIs or the CLI
-<a name="flow-logs-api-cli"></a>
 
 You can perform the tasks described on this page using the command line.
 

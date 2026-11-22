@@ -1,7 +1,6 @@
 
 
 # Multicast domains in AWS Transit Gateway
-<a name="multicast-domains-about"></a>
 
 A multicast domain allows segmentation of a multicast network into different domains. To begin using multicast with a transit gateway, create a multicast domain, and then associate subnets with the domain.
 

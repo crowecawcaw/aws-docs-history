@@ -1,7 +1,6 @@
 
 
 # Delete a peering attachment in AWS Transit Gateway
-<a name="tgw-peering-delete"></a>
 
 You can delete a transit gateway peering attachment. The owner of either of the transit gateways can delete the attachment.
 

@@ -1,7 +1,6 @@
 
 
 # Replace a static route in AWS Transit Gateway
-<a name="tgw-replace-static-route"></a>
 
 Replace a static route in a transit gateway route table with a different static route.
 

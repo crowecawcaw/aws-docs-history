@@ -1,7 +1,6 @@
 
 
 # Delete a transit gateway route table in AWS Transit Gateway
-<a name="delete-tgw-route-table"></a>
 
 **To delete a transit gateway route table using the console**
 

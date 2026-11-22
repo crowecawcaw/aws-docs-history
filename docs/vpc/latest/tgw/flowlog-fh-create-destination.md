@@ -1,7 +1,6 @@
 
 
 # Create the AWS Transit Gateway Flow Logs destination account role for Amazon Data Firehose
-<a name="flowlog-fh-create-destination"></a>
 
 From the destination account, create the destination role in the AWS Identity and Access Management console. 
 
@@ -29,7 +28,7 @@ From the destination account, create the destination role in the AWS Identity an
 
 1. For the **Trusted entity type**, choose **Custom trust policy**. For** Custom trust policy**, replace `"Principal": {},` with the following, which specifies the log delivery service. Choose **Next**.
 
-   ```
+   ```json
    "Principal": {
       "AWS": "arn:aws:iam::source-account:role/mySourceRole"
    },

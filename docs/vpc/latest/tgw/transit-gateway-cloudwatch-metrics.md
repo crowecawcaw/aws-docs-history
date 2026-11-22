@@ -1,7 +1,6 @@
 
 
 # CloudWatch metrics in AWS Transit Gateway
-<a name="transit-gateway-cloudwatch-metrics"></a>
 
 Amazon VPC publishes data points to Amazon CloudWatch for your transit gateways and transit gateway attachments. CloudWatch enables you to retrieve statistics about those data points as an ordered set of time series data, known as *metrics*. Think of a metric as a variable to monitor, and the data points as the values of that variable over time. Each data point has an associated timestamp and an optional unit of measurement.
 
@@ -14,6 +13,7 @@ For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.am
 **Topics**
 + [Transit gateway metrics](#transit-gateway-metrics)
 + [Attachment-level and availability zone metrics](#transit-gateway-attachment-metrics)
++ [Multipath resilience metrics](#transit-gateway-multipath-resilience-metrics)
 + [Transit gateway metric dimensions](#transit-gateway-dimensions)
 
 ## Transit gateway metrics
@@ -71,6 +71,30 @@ All metrics are always reported. Their values are dependent on the traffic in an
 | PacketDropCountTTLExpired | The number of packets dropped because the TTL expired.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 
 The `BytesInNAT`, `BytesOutNAT`, `PacketsInNAT`, and `PacketsOutNAT` metrics count the subset of traffic translated by 1:1 NAT. The existing `BytesIn`, `BytesOut`, `PacketsIn`, and `PacketsOut` metrics continue to report all traffic. Each NAT metric is counted against the attachment whose rule applied. For example, traffic from an attachment without NAT rules to the NAT address of a VPC with NAT rules appears in that VPC attachment's `PacketsOutNAT`. It doesn't appear in the source attachment's `PacketsInNAT`. When both the source and destination are translated, a packet counts in both the source attachment's `PacketsInNAT` and the destination attachment's `PacketsOutNAT`.
+
+## Multipath resilience metrics
+<a name="transit-gateway-multipath-resilience-metrics"></a>
+
+The following metrics are available for transit gateway peering attachments that have multipath resilience enabled. For more information about enabling multipath resilience, see [Enable multipath resilience for a transit gateway peering attachment](enable-multipath-resilience-tgw.md).
+
+AWS Transit Gateway publishes these metrics in the `AWS/TransitGateway` namespace. Each metric reports traffic in one direction between this AWS Region and the peer Region for the attachment. The `MultipathResilienceSLANonCompliantSecondsToPeer` metric helps you track delivery against the service level agreement (SLA). For more information about the SLA, see [Multipath Resilience SLA](https://aws.amazon.com/vpc/features/vpc-multipath-resilience/sla) on the AWS website.
+
+
+| Metric | Description | 
+| --- | --- | 
+| MultipathResiliencePacketsSentToPeer | The number of packets that multipath resilience received in this Region to send to the peer Region.<br />**Units**: Count<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| MultipathResiliencePacketsReceivedByPeer | The number of packets that the peer Region received from this Region.<br />**Units**: Count<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| MultipathResilienceAvailabilityToPeer | This is the percentage of packets sent to the peer Region in a one-minute period that multipath resilience measured as delivered. The value is calculated from the total packets sent and received in that minute. A value of 100 means that multipath resilience measured no packet loss in that minute. Minutes with too little traffic to measure always show 100, and minutes with no traffic show no value.<br />**Units**: Percent<br />**Statistics**: The only meaningful statistic is `Minimum`. | 
+| MultipathResilienceSLANonCompliantSecondsToPeer | The number of seconds in which delivery of your packets from this Region to the peer Region was below the SLA threshold.<br />**Units**: Count<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+
+To filter the multipath resilience metric data, use the following combination of dimensions.
+
+
+| Dimension | Description | 
+| --- | --- | 
+| TransitGatewayAttachment | Filter the metric data by transit gateway attachment. | 
+| SourceRegion | Filter the metric data by the source Region. | 
+| DestinationRegion | Filter the metric data by the destination Region. | 
 
 ## Transit gateway metric dimensions
 <a name="transit-gateway-dimensions"></a>

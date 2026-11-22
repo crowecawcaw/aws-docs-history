@@ -1,7 +1,6 @@
 
 
 # Shared multicast domains in AWS Transit Gateway
-<a name="multicast-share-domain"></a>
 
 With multicast domain sharing, multicast domain owners can share the domain with other AWS accounts inside its organization or across organizations in AWS Organizations. As the multicast domain owner, you can create and manage the multicast domain centrally. Once shared, those users can perform the following operations on a shared multicast domain:
 + Register and deregister group members or group sources in the multicast domain

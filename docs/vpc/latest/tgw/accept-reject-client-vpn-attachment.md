@@ -1,7 +1,6 @@
 
 
 # Accept or reject a Client VPN attachment in AWS Transit Gateway
-<a name="accept-reject-client-vpn-attachment"></a>
 
 If a Client VPN endpoint in another account creates an attachment to your transit gateway, you must accept or reject the attachment request before traffic can flow.
 

@@ -1,7 +1,6 @@
 
 
 # Network ACLs for transit gateways in AWS Transit Gateway
-<a name="tgw-nacls"></a>
 
 A network access control list (NACL) is an optional layer of security. 
 

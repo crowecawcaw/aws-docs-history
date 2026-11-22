@@ -1,7 +1,6 @@
 
 
 # Add AWS Transit Gateway metering policy middlebox attachments
-<a name="create-middlebox-attachment"></a>
 
 You can add middlebox attachments to integrate network appliances into your Transit Gateway metering policy. This allows you to route specific traffic through security appliances, load balancers, or other network functions while maintaining granular cost allocation control.
 

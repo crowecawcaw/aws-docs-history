@@ -1,7 +1,6 @@
 
 
 # Example: Steering traffic to a security appliance in AWS Transit Gateway
-<a name="tgw-policy-tables-example"></a>
 
 The following example steers traffic from a specific internal subnet to a firewall VPC for inspection, while routing all other traffic directly.
 
@@ -34,7 +33,7 @@ All other traffic (not from `10.1.10.0/24`) does not match rule 100 and falls th
 **AWS CLI commands to create this configuration**  
 Use the following commands to create the policy table, add the rules, and associate the table with the source VPC attachment.
 
-```
+```bash
 # Create the policy table
 aws ec2 create-transit-gateway-policy-table \
     --transit-gateway-id tgw-0bc994abffEXAMPLE

@@ -1,7 +1,6 @@
 
 
 # AWS Transit Gateway,Flow Logs records in Amazon Data Firehose
-<a name="flow-logs-kinesis"></a>
 
 **Topics**
 + [IAM roles for cross account delivery](#flow-logs-kinesis-iam)
@@ -38,7 +37,7 @@ In the source account, create a role that grants the following permissions. In t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -85,7 +84,7 @@ Ensure that this role has the following trust policy, which allows the log deliv
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -112,7 +111,7 @@ In the destination account, create a role with a name that starts with **AWSLogD
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -137,7 +136,7 @@ Ensure that this role has the following trust policy, which allows the role that
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Create a transit gateway policy table in AWS Transit Gateway
-<a name="tgw-policy-tables-create"></a>
 
 Create a policy table and associate it with your transit gateway.
 
@@ -24,14 +23,14 @@ The policy table enters a **Pending** state. Wait for the state to change to **A
 **To create a transit gateway policy table using the AWS CLI**  
 Use the [create-transit-gateway-policy-table](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-transit-gateway-policy-table.html) command. Replace `tgw-0bc994abffEXAMPLE` with your transit gateway ID.
 
-```
+```bash
 aws ec2 create-transit-gateway-policy-table \
     --transit-gateway-id tgw-0bc994abffEXAMPLE
 ```
 
 Example response:
 
-```
+```json
 {
     "TransitGatewayPolicyTable": {
         "TransitGatewayPolicyTableId": "tgw-ptb-0ca78a549EXAMPLE",

@@ -1,7 +1,6 @@
 
 
 # View transit gateway route tables using AWS Transit Gateway
-<a name="view-tgw-route-tables"></a>
 
 **To view your transit gateway route tables using the console**
 

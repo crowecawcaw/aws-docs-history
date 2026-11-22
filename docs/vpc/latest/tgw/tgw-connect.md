@@ -1,7 +1,6 @@
 
 
 # Connect attachments and Connect peers in AWS Transit Gateway
-<a name="tgw-connect"></a>
 
 You can create a *Transit Gateway Connect attachment* to establish a connection between a transit gateway and third-party virtual appliances (such as SD-WAN appliances) running in a VPC. A Connect attachment supports the Generic Routing Encapsulation (GRE) tunnel protocol for high performance, and Border Gateway Protocol (BGP) for dynamic routing. After you create a Connect attachment, you can create one or more GRE tunnels (also referred to as *Transit Gateway Connect peers*) on the Connect attachment to connect the transit gateway and the third-party appliance. You establish two BGP sessions over the GRE tunnel to exchange routing information. 
 

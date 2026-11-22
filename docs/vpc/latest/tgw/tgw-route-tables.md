@@ -1,7 +1,6 @@
 
 
 # Transit gateway route tables in AWS Transit Gateway
-<a name="tgw-route-tables"></a>
 
 Use transit gateway route tables to configure routing for your transit gateway attachments. A route table is a table that contains rules that direct how your network traffic is routed between your VPCs and VPNs. Each route in the table contains the range of IP addresses for the destinations that you want to send traffic to.
 
