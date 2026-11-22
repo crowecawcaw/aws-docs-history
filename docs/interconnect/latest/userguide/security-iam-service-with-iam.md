@@ -1,7 +1,6 @@
 
 
 # How AWS Interconnect works with IAM
-<a name="security-iam-service-with-iam"></a>
 
 Before you use IAM to manage access to AWS Interconnect, learn what IAM features are available to use with AWS Interconnect. To get a high-level view of how AWS Interconnect and other AWS services work with IAM, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 

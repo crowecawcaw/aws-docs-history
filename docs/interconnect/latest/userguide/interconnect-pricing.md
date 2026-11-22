@@ -1,7 +1,6 @@
 
 
 # Pricing for AWS Interconnect
-<a name="interconnect-pricing"></a>
 
 **Note**  
 This page describes pricing for the AWS side of your Interconnect only. The service provider on the other side of your Interconnect determines their pricing independently of AWS.

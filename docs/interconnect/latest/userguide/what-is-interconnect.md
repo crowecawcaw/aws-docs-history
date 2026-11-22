@@ -1,7 +1,6 @@
 
 
 # What is AWS Interconnect?
-<a name="what-is-interconnect"></a>
 
 ## What is AWS Interconnect?
 <a name="what-is-title"></a>

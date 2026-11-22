@@ -1,7 +1,6 @@
 
 
 # Quotas for AWS Interconnect
-<a name="quotas_for_aws_interconnect"></a>
 
 ## Quotas for AWS Interconnect
 <a name="load-balancer-limits"></a>

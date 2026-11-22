@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Interconnect - last mile
-<a name="getting-started-lastmile"></a>
 
 This guide walks you through creating your first AWS Interconnect - last mile connection.
 

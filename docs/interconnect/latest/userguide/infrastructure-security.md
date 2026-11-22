@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in AWS Interconnect
-<a name="infrastructure-security"></a>
 
 ## Service Protections and Access
 <a name="service-infra-protections"></a>

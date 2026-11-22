@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Interconnect - multicloud
-<a name="getting-started-multicloud"></a>
 
 ## Plan your network architecture
 <a name="plan-network-architecture"></a>

@@ -1,7 +1,6 @@
 
 
 # Example Scenarios
-<a name="interconnect-pricing-scenarios"></a>
 
 The following examples show how the Tier structure is applied to your Interconnect in different scenarios.
 

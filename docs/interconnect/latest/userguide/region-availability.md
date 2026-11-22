@@ -1,7 +1,6 @@
 
 
 # Regional Availability
-<a name="region-availability"></a>
 
 ## AWS Interconnect – last mile
 <a name="last-mile-availability"></a>
@@ -45,10 +44,9 @@ Interconnect - multicloud is supported with the following AWS Regions and cloud 
 +  AWS Asia Pacific (Singapore) ap-southeast-1 – Google Cloud Singapore (asia-southeast1)
 +  AWS Asia Pacific (Sydney) ap-southeast-2 – Google Cloud Sydney (australia-southeast1)
 
-### Microsoft Azure (Preview)
-<a name="microsoft-azure-preview"></a>
+### Microsoft Azure
+<a name="microsoft-azure"></a>
 +  AWS US East (N. Virginia) us-east-1 – Azure US East (eastus)
-+  AWS US West (N. California) us-west-1 – Azure West US (westus)
 +  AWS Europe (Frankfurt) eu-central-1 – Azure Germany West Central (germanywestcentral)
 +  AWS Asia Pacific (Sydney) ap-southeast-2 – Azure Australia East (australiaeast)
 
