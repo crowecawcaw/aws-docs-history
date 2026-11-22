@@ -1,7 +1,6 @@
 
 
 # Registering a delegated administrator for your organizational view
-<a name="register-a-delegated-administrator"></a>
 
 After you enable organizational view for your organization, you can register up to five member accounts in your organization as a delegated administrator. To do this, call the [RegisterDelegatedAdministrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html) API operation. After you register the member accounts, they are a delegated administrator account and can access the AWS Health organizational view from the AWS Health Dashboard. If the account has a [Business](https://aws.amazon.com/premiumsupport/plans/business/), [Enterprise On-Ramp](https://aws.amazon.com/premiumsupport/plans/enterprise-onramp), or [Enterprise](https://aws.amazon.com/premiumsupport/plans/enterprise) Support plan, then the delegated administrators can use the AWS Health API to access the AWS Health organizational view.
 

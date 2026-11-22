@@ -1,7 +1,6 @@
 
 
 # Reference: AWS Health events Amazon EventBridge schema
-<a name="aws-health-events-eventbridge-schema"></a>
 
 The following is the schema for AWS Health events. The contents of the details parameter follows in a second table. Sample payloads ares provided after the schema tables.
 
@@ -63,7 +62,7 @@ The following table documents the content of the **detail** parameter in the AWS
 ## Public Health Event - Amazon EC2 operational issue
 <a name="amazon-ec2-operational-issue"></a>
 
-```
+```JSON
 {
     "version": "0",
     "id": "7bf73129-1428-4cd3-a780-95db273d1602",
@@ -102,7 +101,7 @@ The following table documents the content of the **detail** parameter in the AWS
 ## Account-specific AWS Health Event - Elastic Load Balancing API Issue
 <a name="elastic-load-balancing-api-issue"></a>
 
-```
+```JSON
 {
     "version": "0",
     "id": "121345678-1234-1234-1234-123456789012",
@@ -139,7 +138,7 @@ The following table documents the content of the **detail** parameter in the AWS
 ## Account-specific AWS Health Event - backup event for Amazon EC2 Instance Store Drive Performance Degraded
 <a name="amazon-ec2-instance-store-drive-performance-degraded"></a>
 
-```
+```JSON
 {
     "version": "0",
     "id": "121345678-1234-1234-1234-123456789012",
@@ -181,7 +180,7 @@ The following table documents the content of the **detail** parameter in the AWS
 ## Account-specific AWS Health Event - Amazon EC2 Instance Retirement
 <a name="amazon-ec2-instance-retirement-scheduled"></a>
 
-```
+```JSON
 {
     "version": "0",
     "id": "7bf73129-1428-4cd3-a780-95db273d1602",
@@ -230,7 +229,7 @@ The following table documents the content of the **detail** parameter in the AWS
 ## Account-specific AWS Health Event - Lambda Planned Lifecycle Event
 <a name="amazon-lambda-planned-lifecycle-event"></a>
 
-```
+```JSON
 {
     "version": "0",
     "id": "7bf73129-1428-4cd3-a780-95db273d1602",

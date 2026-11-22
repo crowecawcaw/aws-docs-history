@@ -1,7 +1,6 @@
 
 
 # Integrating AWS Health with other systems using the AWS Health API
-<a name="health-api"></a>
 
 AWS Health is a RESTful web service that uses HTTPS as a transport and JSON as a message serialization format. Your application code can make requests directly to the AWS Health API. When you use the REST API directly, you must write the necessary code to sign and authenticate your requests. For more information about the AWS Health operations and parameters, see the [AWS Health API Reference](https://docs.aws.amazon.com/health/latest/APIReference/).
 
@@ -56,7 +55,7 @@ To determine if an endpoint is the *active endpoint*, do a DNS lookup on the *gl
 **Example : DNS lookup on global endpoint**  
 The following command completes a DNS lookup on the global.health.amazonaws.com endpoint. The command then returns the us-east-1 Region endpoint. This output tells you which endpoint you should use for AWS Health.  
 
-```
+```bash
 dig global.health.amazonaws.com | grep CNAME
 global.health.amazonaws.com. 10 IN CNAME health.us-east-1.amazonaws.com
 ```

@@ -1,7 +1,6 @@
 
 
 # Logging AWS Health API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Health is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Health. CloudTrail captures API calls for AWS Health as events. The calls captured include calls from the AWS Health console and code calls to the AWS Health API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Health. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS Health, the IP address that the request was made from, who made the request, when it was made, and additional details.
 
@@ -42,7 +41,7 @@ For more information, see [Receiving CloudTrail Log Files from Multiple Regions]
 
 The following example shows a CloudTrail log entry that demonstrates the [DescribeEntityAggregates](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEntityAggregates.html) operation.
 
-```
+```json
 {
    "Records": [
    {

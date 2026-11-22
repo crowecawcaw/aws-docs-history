@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon EventBridge
-<a name="cloud-watch-events-integration"></a>
 
 Use EventBridge to detect and react to changes for AWS Health events. You can monitor specific AWS Health events that occur in your account, and then set up rules so that AWS Health notifies you, or you take action, when events change.
 

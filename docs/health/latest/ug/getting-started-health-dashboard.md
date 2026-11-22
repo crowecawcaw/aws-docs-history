@@ -1,7 +1,6 @@
 
 
 # Getting started with your AWS Health Dashboard
-<a name="getting-started-health-dashboard"></a>
 
 You can use your AWS Health Dashboard to learn about AWS Health events. These events can affect your AWS services or AWS account. After you sign in to your account, the AWS Health Dashboard shows information in the following ways:
 + **[Your account events](aws-health-account-views.md)** – This page shows events that are specific to your account. You can view open, recent, and scheduled changes. You can also view notifications and an event log that shows all events from the past 90 days.

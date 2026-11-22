@@ -1,7 +1,6 @@
 
 
 # Version catalog for AWS Health
-<a name="aws-health-version-catalog"></a>
 
 Learn about the version catalog for AWS Health, which provides a service-wide view of supported versions and their timelines.
 
@@ -90,13 +89,13 @@ Each event lists one or more impact-risk tags so that you can assess severity. `
 
 Query the lifecycle information by using the AWS Command Line Interface (AWS CLI).
 
-```
+```bash
 aws health describe-service-lifecycle
 ```
 
 The following example shows a version entry from the `DescribeServiceLifecycle` API.
 
-```
+```json
 {
   "service": "LAMBDA",
   "title": "Python 3.14 Lambda Runtime",

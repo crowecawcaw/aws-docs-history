@@ -1,7 +1,6 @@
 
 
 # Data encryption
-<a name="data-encryption"></a>
 
 See the following information about how AWS Health encrypts data.
 

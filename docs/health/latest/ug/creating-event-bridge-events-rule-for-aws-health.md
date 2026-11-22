@@ -1,7 +1,6 @@
 
 
 # Configuring an EventBridge rule to send notifications about events in AWS Health
-<a name="creating-event-bridge-events-rule-for-aws-health"></a>
 
 You can create an Amazon EventBridge rule to programmatically integrate AWS Health events with other services, applications, and workloads. EventBridge provides a drag and drop console interface and an API to set up rules that trigger when a matching AWS Health event is created for your account or organization. To learn how to set up a rule in EventBridge to capture AWS Health events, see [Creating rules using the Enhanced Builder](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-visual.html) and [Creating rules using the Advanced Builder](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-wizard.html) in the *Amazon EventBridge User Guide*.
 
@@ -17,7 +16,7 @@ For a new or existing rule, use the [PutRule](https://docs.aws.amazon.com/eventb
 **Example: Setting up rules for issues for only the Amazon EC2 service**  
 The following event pattern creates a rule to monitor issue events for the Amazon EC2 service.  
 
-```
+```JSON
 {
   "detail": {
     "eventTypeCategory": [
@@ -39,7 +38,7 @@ The following event pattern creates a rule to monitor issue events for the Amazo
 **Example: Setting up rules for all action required AWS Health events, including planned lifecycle events**  
 The following event pattern creates a rule to monitor all AWS Health events that require action, including planned lifecycle events.  
 
-```
+```JSON
 {
   "detail": {
     "eventTypeCategory": [
@@ -62,7 +61,7 @@ The following event pattern creates a rule to monitor all AWS Health events that
 **Example: Setting up rules for all AWS Health events for multiple services and event type categories**  
 The following event pattern creates a rule to monitor events for the `issue`, `accountNotification`, and `scheduledChange` event type categories for three AWS services: Amazon EC2 Auto Scaling, Amazon VPC, and Amazon EC2.  
 
-```
+```JSON
 {
   "detail": {
     "eventTypeCategory": [

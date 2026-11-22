@@ -1,7 +1,6 @@
 
 
 # Disabling organizational view
-<a name="disable-organizational-view"></a>
 
 If you don't want to aggregate events for your organization, you can turn off this feature from the management account or you can disable organizational view by using the [DisableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_DisableHealthServiceAccessForOrganization.html) API operation.
 

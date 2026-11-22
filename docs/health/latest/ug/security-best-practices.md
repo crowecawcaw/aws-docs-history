@@ -1,7 +1,6 @@
 
 
 # Security best practices for AWS Health
-<a name="security-best-practices"></a>
 
 See the following best practices for working with AWS Health.
 

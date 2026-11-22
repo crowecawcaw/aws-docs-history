@@ -1,7 +1,6 @@
 
 
 # Viewing paginated lists of AWS Health events on EventBridge
-<a name="pagnation-of-health-events"></a>
 
 AWS Health supports pagination of AWS Health events when the list of `resources` or `affectedEntities` causes the size of the message to exceed EventBridge’s 256KB message size limit. 
 

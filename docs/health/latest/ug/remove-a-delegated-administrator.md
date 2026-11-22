@@ -1,7 +1,6 @@
 
 
 # Removing a delegated administrator from your organizational view
-<a name="remove-a-delegated-administrator"></a>
 
 To remove access for a delegated administrator, call the [DeregisterDelegatedAdministrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeregisterDelegatedAdministrator.html) API operation.
 

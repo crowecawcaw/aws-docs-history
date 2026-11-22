@@ -1,7 +1,6 @@
 
 
 # Demos: Retrieving the last seven days of AWS Health event data programmatically
-<a name="using-global-endpoints-demo"></a>
 
 In the following code examples, AWS Health uses a DNS lookup against the global endpoint to determine the active regional endpoint and signing Region. AWS Health uses this information to retrieve a report of the last seven days of event data. The code restarts the workflow if the active endpoint changes. 
 
@@ -23,13 +22,13 @@ You must install [Gradle](https://docs.gradle.org/current/userguide/installation
 
 1. In a command line window, enter the following command.
 
-   ```
+   ```bash
    gradle build
    ```
 
 1. Enter the following commands to specify your AWS credentials.
 
-   ```
+   ```bash
    export AWS_ACCESS_KEY_ID="AKIAIOSFODNN7EXAMPLE"
    export AWS_SECRET_ACCESS_KEY="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
    export AWS_SESSION_TOKEN="{{your-aws-token}}"
@@ -37,7 +36,7 @@ You must install [Gradle](https://docs.gradle.org/current/userguide/installation
 
 1. Enter the following command to run the demo.
 
-   ```
+   ```bash
    gradle run
    ```  
 **Example : AWS Health event output**  
@@ -121,32 +120,32 @@ You must install [Python 3](https://www.python.org/downloads/).
 
 1. In a command line window, enter the following commands.
 
-   ```
+   ```bash
    pip3 install virtualenv 
    virtualenv -p python3 v-aws-health-env
    ```
 **Note**  
 For Python 3.3 and later, you can use the built-in `venv` module to create the virtual environment, instead of installing `virtualenv`. For more information, see [venv - Creation of virtual environments](https://docs.python.org/3/library/venv.html) on the Python website.  
 
-   ```
+   ```bash
    python3 -m venv v-aws-health-env
    ```
 
 1. Enter the following command to activate the virtual environment.
 
-   ```
+   ```bash
    source v-aws-health-env/bin/activate
    ```
 
 1. Enter the following command to install the dependencies.
 
-   ```
+   ```bash
    pip install -r requirements.txt
    ```
 
 1. Enter the following commands to specify your AWS credentials.
 
-   ```
+   ```bash
    export AWS_ACCESS_KEY_ID="AKIAIOSFODNN7EXAMPLE"
    export AWS_SECRET_ACCESS_KEY="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
    export AWS_SESSION_TOKEN="{{your-aws-token}}"
@@ -154,7 +153,7 @@ For Python 3.3 and later, you can use the built-in `venv` module to create the v
 
 1. Enter the following command to run the demo.
 
-   ```
+   ```bash
    python3 main.py
    ```  
 **Example : AWS Health event output**  
@@ -184,7 +183,7 @@ For Python 3.3 and later, you can use the built-in `venv` module to create the v
 
 1. When you're finished, enter the following command to deactivate the virtual machine.
 
-   ```
+   ```bash
    deactivate
    ```
 

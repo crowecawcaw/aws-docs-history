@@ -1,7 +1,6 @@
 
 
 # Concepts for AWS Health
-<a name="aws-health-concepts-and-terms"></a>
 
 Learn about AWS Health concepts and understand how you can use the service to maintain the health of your applications, services, and resources in your AWS account.
 

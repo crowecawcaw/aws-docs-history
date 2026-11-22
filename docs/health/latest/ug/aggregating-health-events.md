@@ -1,7 +1,6 @@
 
 
 # Aggregating AWS Health events using organizational view and delegated administrator access
-<a name="aggregating-health-events"></a>
 
 AWS Health supports organizational view and delegated administrator access for AWS Health events published on Amazon EventBridge. When organizational view is turned on in AWS Health, then the management account or a delegated administrator account receives a single feed of AWS Health events from all accounts within your organization in AWS Organizations.
 

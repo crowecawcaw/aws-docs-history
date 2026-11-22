@@ -1,7 +1,6 @@
 
 
 # Monitoring account-specific and public events for AWS Health
-<a name="about-public-events"></a>
 
 When you create an EventBridge rule to monitor events from AWS Health, the rule delivers both account-specific events and public events:
 + *Account-specific* events affect your account and resources, such as an event that tells you about a required update to an Amazon EC2 instance or other scheduled change events.

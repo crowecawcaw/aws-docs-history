@@ -1,7 +1,6 @@
 
 
 # Viewing your account events in the AWS Health Dashboard
-<a name="aws-health-account-views"></a>
 
 You can sign in to your account to get personalized events and recommendations.
 

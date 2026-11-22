@@ -1,7 +1,6 @@
 
 
 # Aggregating AWS Health events across accounts
-<a name="aggregate-events"></a>
 
 By default, you can use AWS Health to view the AWS Health events of a single AWS account. If you use AWS Organizations, you can also view AWS Health events centrally across your organization. This feature provides access to the same information as single account operations. You can use filters to view events in specific AWS Regions, accounts, and services.
 
