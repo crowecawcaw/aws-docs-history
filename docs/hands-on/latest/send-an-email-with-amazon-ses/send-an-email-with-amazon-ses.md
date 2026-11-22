@@ -1,7 +1,6 @@
 
 
 # Send an Email with Amazon SES
-<a name="send-an-email-with-amazon-ses"></a>
 
 
 |  |  | 
