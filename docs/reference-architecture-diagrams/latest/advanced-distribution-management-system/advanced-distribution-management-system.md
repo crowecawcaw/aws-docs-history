@@ -1,7 +1,6 @@
 
 
 # Advanced Distribution Management System on AWS
-<a name="advanced-distribution-management-system"></a>
 
 Publication date: **July 21, 2022 ([Diagram history](#adms-history))**
 
