@@ -1,7 +1,6 @@
 
 
 # Migrate
-<a name="migrate-perf"></a>
 
  As you migrate your workload, you need to consistently compare the migrated workload against the performance requirements that you identified through KPIs or benchmarks. To do this, you need to perform the necessary testing on your migrated applications, capture any issues or lessons learned, and iterate for the next migration wave. 
 

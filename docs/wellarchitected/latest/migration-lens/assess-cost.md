@@ -1,7 +1,6 @@
 
 
 # Assess
-<a name="assess-cost"></a>
 
  In the assess phase, prioritizing cost-effectiveness is essential. This phase involves a comprehensive evaluation of existing infrastructure usage and a thorough analysis of application dependencies. By assessing these aspects, you can pinpoint opportunities for optimizing costs throughout the migration journey. To expedite this cost-effective assessment, consider leveraging AWS programs and workshops designed to remove common blockers and accelerate migrations. By incorporating these best practices, you not only ensure a well-informed migration strategy, but also lay the groundwork for maximizing cost efficiency in your cloud migration. 
 

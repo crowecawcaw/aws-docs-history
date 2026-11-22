@@ -1,7 +1,6 @@
 
 
 # Assess
-<a name="assess-sus"></a>
 
  By migrating to AWS, customers can benefit from our investments in renewable energy and economy-of-scale to run their workloads with lower carbon emissions. As part of the assess phase, you can calculate the expected carbon emission reductions when migrating to AWS by comparing estimated annual carbon emissions for a customer's current on-premises infrastructure with corresponding carbon emissions of right-sized workloads in AWS. This phase also enables you to identify sustainability related key performance indicators (KPIs) to align key stakeholders. 
 

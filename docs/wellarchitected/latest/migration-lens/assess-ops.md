@@ -1,7 +1,6 @@
 
 
 # Assess
-<a name="assess-ops"></a>
 
  The assess phase of AWS migration is a crucial step that lays the foundation for a successful migration journey. In this phase, you delve into various aspects of your migration plan, aligning it with your organization's goals. To achieve this, you must consider the scope, technology, and processes involved. Your migration plan should be based on up-to-date data obtained through a comprehensive discovery exercise, particularly vital for long-running migrations. This data informs your migration patterns and helps in refining your plans regularly. 
 

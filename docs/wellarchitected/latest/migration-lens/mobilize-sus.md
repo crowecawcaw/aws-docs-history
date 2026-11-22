@@ -1,7 +1,6 @@
 
 
 # Mobilize
-<a name="mobilize-sus"></a>
 
  The next step in preparing your workforce and resources to migrate your enterprise at scale is to break down the [**mobilize activities**](https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-migration/mobilize-phase.html) into different workstreams. Although the goal of the mobilize phase is the migration of business applications, most prescriptive guidance and answers on achieving your sustainability goals are found here. 
 

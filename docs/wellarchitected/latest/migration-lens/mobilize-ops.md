@@ -1,7 +1,6 @@
 
 
 # Mobilize
-<a name="mobilize-ops"></a>
 
  The mobilize phase of migration is a critical step in a smooth transition to the cloud. It involves comprehensive planning and preparation, guided by best practices to maximize success. During this phase, it's essential to establish mechanisms for tracking planned versus actual business benefits and assess your team's skills, implementing training plans where required. Acquire the necessary bandwidth to operate workloads while migrating to the cloud in parallel. Establish a Cloud Center of Excellence (CCoE) responsible for cloud operations, and define a comprehensive Cloud Operations Strategy, covering resource allocation, security, cost management, and governance to streamline the migration process effectively. 
 

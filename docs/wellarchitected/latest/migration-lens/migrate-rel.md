@@ -1,7 +1,6 @@
 
 
 # Migrate
-<a name="migrate-rel"></a>
 
  The migrate phase is where the actual migration of the workload takes place. In this phase, we perform migration as planned, monitor the migration process, and keep a plan in place to rollback in case issues encountered during the migration. 
 

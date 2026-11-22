@@ -1,7 +1,6 @@
 
 
 # Assess
-<a name="assess-rel"></a>
 
  The Assess phase involves evaluating the current state of the workloads that are targeted for the migration. To achieve this, we will focus on assessing the existing workloads for any potential points of failure during the migration process. 
 

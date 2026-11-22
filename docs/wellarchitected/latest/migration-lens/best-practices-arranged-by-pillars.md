@@ -1,7 +1,6 @@
 
 
 # Best practices arranged by pillars
-<a name="best-practices-arranged-by-pillars"></a>
 
 ## Operational excellence pillar best practices
 <a name="operational-excellence-pillar-best-practices"></a>

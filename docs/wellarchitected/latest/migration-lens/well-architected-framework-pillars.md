@@ -1,7 +1,6 @@
 
 
 # The pillars of the Well-Architected Framework
-<a name="well-architected-framework-pillars"></a>
 
  The AWS Well-Architected Framework provides architectural best practices for designing and operating workloads in the cloud. The Framework consists of six pillars: 
 +  **Operational excellence**: Includes the ability to run, monitor, and gain insights into workloads. It enables delivering business value and improves supporting processes and procedures. Best practice focus areas include organization, prepare, operate, and evolve. 

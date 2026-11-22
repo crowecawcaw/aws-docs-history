@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
  The security pillar encompasses the ability to protect information, systems, and assets to take advantage of cloud technologies designed to improve your security. It provides an overview of design principles, best practices, and questions to ask. This pillar helps you understand how to apply the shared responsibility model during the three migration phases. You can find additional prescriptive guidance on implementation details in the [security pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html?ref=wellarchitected-wp). 
 

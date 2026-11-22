@@ -1,7 +1,6 @@
 
 
 # Mobilize
-<a name="mobilize-sec"></a>
 
  During the mobilize phase of the migration, you plan for your authentication and authorization systems to ensure secure access to your migrated workloads. This phase also involves building your AWS environment in alignment with AWS security foundations. Establishing a secure connection between on-premises and AWS is essential for safely migrating workloads to AWS. This includes establishing policies and tools for data encryption at rest and in transit. Furthermore, it's important to consider any third-party integrations and align them with the overall security strategy. These steps collectively enhance the security resilience of the migration process and prepare the infrastructure for a successful transition to AWS. 
 

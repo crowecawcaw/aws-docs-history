@@ -1,7 +1,6 @@
 
 
 # Migrate
-<a name="migrate-sec"></a>
 
  As the migration progresses, security remains top priority. It's essential to understand the data security and compliance, establish a secure credential mechanism, and have robust mechanisms in place for monitoring, identifying, and responding to any security incidents or anomalies. This involves not only employing the right tools, but also training teams and preparing them to respond effectively. In this phase, you also implement mechanisms to protect the migrated resources of compute, network, databases and applications. 
 

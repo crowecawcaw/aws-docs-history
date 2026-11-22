@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 
 ## Well-Architected terminology
 <a name="well-architected-terminology"></a>

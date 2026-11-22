@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  Contributors to this document include: 
 +  Ebrahim (EB) Khiyami, Cloud Optimization Success Solutions Architect, Amazon Web Services 

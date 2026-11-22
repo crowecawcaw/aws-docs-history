@@ -1,7 +1,6 @@
 
 
 # Mobilize 
-<a name="mobilize-cost"></a>
 
  As you start planning for your migration in the mobilize phase, you need to consider planning for optimizing resource utilization and cost management. To achieve this, use existing automation tools to streamline migration processes effectively. Additionally, minimize data transfer to conserve bandwidth and mitigate data egress costs, ensuring a cost-effective transition. Right-sizing replication servers is essential to prevent bottlenecks without unnecessary over-provisioning. Furthermore, establish robust cost and usage governance through IAM policies and define a customized cost allocation strategy tailored to your organization's financial management needs. These practices collectively contribute to a smooth and cost-efficient mobilization of your migration efforts. 
 

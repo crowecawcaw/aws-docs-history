@@ -1,7 +1,6 @@
 
 
 # Assess
-<a name="assess-perf"></a>
 
  In the assess phase of migration to AWS, it's important to evaluate performance requirements for your workloads and ensure your existing OS platforms align with those needs. Efficient data transfer methods and the selection of the most suitable storage options are key considerations. Additionally, identifying network requirements and implementing a strategy for managing IP address conflicts and DNS requirements are vital steps for a smooth and successful migration process. 
 
