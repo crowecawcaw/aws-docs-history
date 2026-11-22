@@ -1,7 +1,6 @@
 
 
 # Grant DescribeStreamSummary permission to the KPL
-<a name="service-managed-pk-kpl-permissions"></a>
 
 The updated KPL calls the `DescribeStreamSummary` API to detect whether a stream uses service-managed record distribution (`AUTO`). Ensure that the IAM principal your producer uses has the `kinesis:DescribeStreamSummary` permission for the stream. This permission is included in the minimum-permissions policy for the KPL; if you follow that policy, no change is required.
 

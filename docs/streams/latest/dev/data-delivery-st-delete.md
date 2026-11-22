@@ -1,7 +1,6 @@
 
 
 # Delete a streaming table delivery
-<a name="data-delivery-st-delete"></a>
 
  Delete a streaming table delivery when you no longer need it. Deleting a delivery stops delivery from the source stream to the destination. Data already delivered to the Iceberg table is not removed. 
 
@@ -22,7 +21,7 @@
 
  Use the `delete-channel` command: 
 
-```
+```bash
 aws kinesis delete-channel \
     --channel-arn "arn:aws:kinesis:us-east-1:111122223333:channel/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 ```

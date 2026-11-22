@@ -1,7 +1,6 @@
 
 
 # Develop consumers with KCL in Java
-<a name="develop-kcl-consumers-java"></a>
 
 ## Prerequisites
 <a name="develop-kcl-consumers-java-prerequisites"></a>
@@ -65,7 +64,7 @@ A KCL consumer application consists of the following key components:
 + [RecordProcessor](#implementation-recordprocessor)
 + [RecordProcessorFactory](#implementation-recordprocessorfactory)
 + [Scheduler](#implementation-scheduler)
-+ [Main Consumer Application](#implementation-main)
++ [Main consumer application](#implementation-main)
 
 ### RecordProcessor
 <a name="implementation-recordprocessor"></a>
@@ -244,7 +243,7 @@ Key responsibilities:
 
 Scheduler is typically created and started in the Main Application. You can check the implementation example of Scheduler in the following section, Main Consumer Application. 
 
-### Main Consumer Application
+### Main consumer application
 <a name="implementation-main"></a>
 
 Main Consumer Application ties all the components together. It's responsible for setting up the KCL consumer, creating necessary clients, configuring the Scheduler, and managing the application's lifecycle.
@@ -315,7 +314,7 @@ public class SampleConsumer {
 }
 ```
 
- KCL creates an Enhanced Fan-out (EFO) consumer with dedicated throughput by default. For more information about Enhanced Fan-out, see [Develop enhanced fan-out consumers with dedicated throughput](enhanced-consumers.md). If you have less than 2 consumers or don't need read propagation delays under 200 ms, you must set the following configuration in the scheduler object to use shared-throughput consumers:
+ KCL creates an enhanced fan-out (EFO) consumer with dedicated throughput by default. For more information about enhanced fan-out, see [Develop enhanced fan-out consumers with dedicated throughput](enhanced-consumers.md). If you have less than 2 consumers or don't need read propagation delays under 200 ms, you must set the following configuration in the scheduler object to use shared-throughput consumers:
 
 ```
 configsBuilder.retrievalConfig().retrievalSpecificConfig(new PollingConfig(streamName, kinesisClient))

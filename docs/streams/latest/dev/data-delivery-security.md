@@ -1,7 +1,6 @@
 
 
 # Security for data delivery
-<a name="data-delivery-security"></a>
 
  Use this topic to learn about the security features and best practices for data delivery in Amazon Kinesis Data Streams, including encryption, access control, and audit logging. 
 

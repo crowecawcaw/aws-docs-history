@@ -1,7 +1,6 @@
 
 
 # List streaming table deliveries
-<a name="data-delivery-st-list"></a>
 
  List the deliveries in your account, optionally filtered to the deliveries attached to a specific stream. Use this to find deliveries before deleting a stream, or to audit the deliveries configured in a AWS Region. 
 
@@ -17,13 +16,13 @@
 
  Use the `list-channels` command to list deliveries in the current AWS Region: 
 
-```
+```bash
 aws kinesis list-channels
 ```
 
  To list only the deliveries attached to a specific stream, provide a stream filter: 
 
-```
+```bash
 aws kinesis list-channels \
     --stream-filter StreamARN="arn:aws:kinesis:us-east-1:111122223333:stream/my-stream"
 ```

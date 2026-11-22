@@ -1,7 +1,6 @@
 
 
 # Amazon DynamoDB with Kinesis data streams
-<a name="service-managed-pk-integrations-ddb-streams"></a>
 
 You can stream Amazon DynamoDB change data capture (CDC) records to a Kinesis Data Streams stream that you own. DynamoDB always sets a non-null partition key (a hash of the item's key) and never reads records back from the stream. On a service-managed stream, DynamoDB continues to work without changes.
 

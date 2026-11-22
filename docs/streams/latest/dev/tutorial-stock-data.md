@@ -1,7 +1,6 @@
 
 
 # Tutorial: Analyze real-time stock data using Amazon Managed Service for Apache Flink
-<a name="tutorial-stock-data"></a>
 
 The scenario for this tutorial involves ingesting stock trades into a data stream and writing a simple [Amazon Managed Service for Apache Flink](https://docs.aws.amazon.com/kinesisanalytics/latest/java/what-is.html) application that performs calculations on the stream. You will learn how to send a stream of records to Kinesis Data Streams and implement an application that consumes and processes the records in near real time.
 
@@ -30,7 +29,7 @@ To complete the steps in this guide, you must have the following:
 + [Git Client.](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) Install the Git client if you haven't already.
 + [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/). Maven must be in your working path. To test your Apache Maven installation, enter the following:
 
-  ```
+  ```bash
   $ mvn -version
   ```
 

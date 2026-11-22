@@ -1,11 +1,10 @@
 
 
 # List streams
-<a name="kinesis-using-sdk-java-list-streams"></a>
 
 Streams are scoped to the AWS account associated with the AWS credentials used to instantiate the Kinesis Data Streams client and also to the Region specified for the client. An AWS account could have many streams active at one time. You can list your streams in the Kinesis Data Streams console, or programmatically. The code in this section shows how to list all the streams for your AWS account. 
 
-```
+```java
 ListStreamsRequest listStreamsRequest = new ListStreamsRequest();
 listStreamsRequest.setLimit(20); 
 ListStreamsResult listStreamsResult = client.listStreams(listStreamsRequest);
@@ -14,7 +13,7 @@ List<String> streamNames = listStreamsResult.getStreamNames();
 
 This code example first creates a new instance of `ListStreamsRequest` and calls its `setLimit` method to specify that a maximum of 20 streams should be returned for each call to `listStreams`. If you do not specify a value for `setLimit`, Kinesis Data Streams returns a number of streams less than or equal to the number in the account. The code then passes `listStreamsRequest` to the `listStreams` method of the client. The return value `listStreams` is stored in a `ListStreamsResult` object. The code calls the `getStreamNames` method on this object and stores the returned stream names in the `streamNames` list. Note that Kinesis Data Streams might return fewer streams than specified by the specified limit even if there are more streams than that in the account and Region. To ensure that you retrieve all the streams, use the `getHasMoreStreams` method as described in the next code example. 
 
-```
+```java
 while (listStreamsResult.getHasMoreStreams()) 
 {
     if (streamNames.size() > 0) {

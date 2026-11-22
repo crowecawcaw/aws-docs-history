@@ -1,7 +1,6 @@
 
 
 # Create an IAM policy and user
-<a name="tutorial-stock-data-kplkcl-iam"></a>
 
 Security best practices for AWS dictate the use of fine-grained permissions to control access to different resources. AWS Identity and Access Management (IAM) allows you to manage users and user permissions in AWS. An [IAM policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html) explicitly lists actions that are allowed and the resources on which the actions are applicable.
 
@@ -88,7 +87,7 @@ The resulting policy document should look something like the following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -180,7 +179,7 @@ The resulting policy document should look something like the following:
 
 1. Choose `StockTradeStreamUser` and **Attach Policy**.
 
-## Next Steps
+## Next steps
 <a name="tutorial-stock-data-kplkcl-iam-next"></a>
 
 [Download and build the implementation code](tutorial-stock-data-kplkcl-download.md)

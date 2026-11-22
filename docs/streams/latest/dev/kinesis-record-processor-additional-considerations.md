@@ -1,7 +1,6 @@
 
 
 # Handle startup, shutdown, and throttling
-<a name="kinesis-record-processor-additional-considerations"></a>
 
 Here are some additional considerations to incorporate into the design of your Amazon Kinesis Data Streams application.
 

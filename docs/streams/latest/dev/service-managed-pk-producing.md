@@ -1,7 +1,6 @@
 
 
 # Write records to service-managed streams
-<a name="service-managed-pk-producing"></a>
 
 When a stream uses service-managed record distribution, Kinesis Data Streams automatically distributes records across shards. You can write records using the [PutRecord](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) and [PutRecords](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecords.html) APIs without providing partition keys. Existing producers that already provide partition keys continue to work without modification — the service ignores the provided values and uses its own distribution algorithms.
 

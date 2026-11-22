@@ -1,7 +1,6 @@
 
 
 # Test your permissions and request inputs with dry run
-<a name="kds-dryrun-validation"></a>
 
 You can use the `DryRun` parameter with Kinesis Data Streams data plane APIs to verify that you have the required permissions and that your request parameters are valid. This validation occurs before you run the operation on an Amazon Kinesis Data Streams resource. When you set `DryRun` to true, Kinesis Data Streams validates that you have the required IAM permissions to access your stream, checks your request parameters, and confirms that the target resource exists. It performs these checks without running the operation or reading or writing any data.
 

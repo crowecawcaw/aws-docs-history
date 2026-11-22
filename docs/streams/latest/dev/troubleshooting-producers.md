@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Amazon Kinesis Data Streams producers
-<a name="troubleshooting-producers"></a>
 
 **Topics**
 + [My producer application is writing at a slower rate than expected](#producer-writing-at-slower-rate)

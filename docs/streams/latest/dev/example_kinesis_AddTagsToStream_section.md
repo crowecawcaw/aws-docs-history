@@ -1,7 +1,6 @@
 
 
 # Use `AddTagsToStream` with an AWS SDK or CLI
-<a name="example_kinesis_AddTagsToStream_section"></a>
 
 The following code examples show how to use `AddTagsToStream`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples). 
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -101,7 +100,7 @@ For more information, see [Tagging Your Streams](https://docs.aws.amazon.com/str
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
 
-```
+```python
     def add_tags_to_stream(self, stream_name, tags):
         """
         Adds or updates tags for a Kinesis data stream.

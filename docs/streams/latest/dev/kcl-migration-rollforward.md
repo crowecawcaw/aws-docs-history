@@ -1,7 +1,6 @@
 
 
 # Roll forward to KCL 3.5.x after a rollback from KCL 3.5.x
-<a name="kcl-migration-rollforward"></a>
 
 This topic explains the steps to roll forward your consumer back to KCL 3.5.x after a rollback. When you need to roll forward, you must go through a two-step process:
 
@@ -9,7 +8,7 @@ This topic explains the steps to roll forward your consumer back to KCL 3.5.x af
 
 1. Deploy the Phase 2 code.
 
-## Step 1: Run the KCL Migration Tool
+## Step 1: Run the KCL migration tool
 <a name="kcl-migration-rollforward-tool"></a>
 
 Run the KCL Migration Tool with the following command to roll forward to KCL 3.5.x:

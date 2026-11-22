@@ -1,13 +1,12 @@
 
 
 # Split a shard
-<a name="kinesis-using-sdk-java-resharding-split"></a>
 
 To split a shard in Amazon Kinesis Data Streams, you need to specify how hash key values from the parent shard should be redistributed to the child shards. When you add a data record to a stream, it is assigned to a shard based on a hash key value. The hash key value is the [MD5](http://en.wikipedia.org/wiki/MD5) hash of the partition key that you specify for the data record at the time that you add the data record to the stream. Data records that have the same partition key also have the same hash key value.
 
 The possible hash key values for a given shard constitute a set of ordered contiguous non-negative integers. This range of possible hash key values is given by the following: 
 
-```
+```java
 shard.getHashKeyRange().getStartingHashKey();
 shard.getHashKeyRange().getEndingHashKey();
 ```
@@ -18,7 +17,7 @@ The following code demonstrates a shard split operation that redistributes the h
 
 The code assumes that `myStreamName` holds the name of your stream and the object variable `shard` holds the shard to split. Begin by instantiating a new `splitShardRequest` object and setting the stream name and shard ID.
 
-```
+```java
 SplitShardRequest splitShardRequest = new SplitShardRequest();
 splitShardRequest.setStreamName(myStreamName);
 splitShardRequest.setShardToSplit(shard.getShardId());
@@ -26,7 +25,7 @@ splitShardRequest.setShardToSplit(shard.getShardId());
 
 Determine the hash key value that is half-way between the lowest and highest values in the shard. This is the starting hash key value for the child shard that will contain the upper half of the hash keys from the parent shard. Specify this value in the `setNewStartingHashKey` method. You need specify only this value. Kinesis Data Streams automatically distributes the hash keys below this value to the other child shard that is created by the split. The last step is to call the `splitShard` method on the Kinesis Data Streams client.
 
-```
+```java
 BigInteger startingHashKey = new BigInteger(shard.getHashKeyRange().getStartingHashKey());
 BigInteger endingHashKey   = new BigInteger(shard.getHashKeyRange().getEndingHashKey());
 String newStartingHashKey  = startingHashKey.add(endingHashKey).divide(new BigInteger("2")).toString();

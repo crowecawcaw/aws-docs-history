@@ -1,7 +1,6 @@
 
 
 # Data delivery concepts
-<a name="data-delivery-concepts"></a>
 
  Use this topic to review key concepts for streaming tables and Amazon S3 delivery in Amazon Kinesis Data Streams. 
 

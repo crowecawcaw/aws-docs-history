@@ -1,7 +1,6 @@
 
 
 # Develop a Kinesis Client Library consumer in Java
-<a name="kinesis-record-processor-implementation-app-java"></a>
 
 **Important**  
 Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md).
@@ -19,7 +18,7 @@ You must complete the following tasks when implementing a KCL consumer applicati
 + [Implement a class factory for the IRecordProcessor interface](#kinesis-record-processor-implementation-factory-java)
 + [Create a worker](#kcl-java-worker)
 + [Modify the configuration properties](#kinesis-record-processor-initialization-java)
-+ [Migrate to Version 2 of the record processor interface](#kcl-java-v2-migration)
++ [Migrate to version 2 of the record processor interface](#kcl-java-v2-migration)
 
 ## Implement the IRecordProcessor methods
 <a name="kinesis-record-processor-implementation-interface-java"></a>
@@ -27,15 +26,15 @@ You must complete the following tasks when implementing a KCL consumer applicati
 The KCL currently supports two versions of the `IRecordProcessor` interface:The original interface is available with the first version of the KCL, and version 2 is available starting with KCL version 1.5.0. Both interfaces are fully supported. Your choice depends on your specific scenario requirements. Refer to your locally built Javadocs or the source code to see all the differences. The following sections outline the minimal implementation for getting started.
 
 **Topics**
-+ [Original Interface (Version 1)](#kcl-java-interface-original)
-+ [Updated interface (Version 2)](#kcl-java-interface-v2)
++ [Original interface (version 1)](#kcl-java-interface-original)
++ [Updated interface (version 2)](#kcl-java-interface-v2)
 
-### Original Interface (Version 1)
+### Original interface (version 1)
 <a name="kcl-java-interface-original"></a>
 
 The original `IRecordProcessor` interface (`package com.amazonaws.services.kinesis.clientlibrary.interfaces`) exposes the following record processor methods that your consumer must implement. The sample provides implementations that you can use as a starting point (see `AmazonKinesisApplicationSampleRecordProcessor.java`).
 
-```
+```java
 public void initialize(String shardId)
 public void processRecords(List<Record> records, IRecordProcessorCheckpointer checkpointer)
 public void shutdown(IRecordProcessorCheckpointer checkpointer, ShutdownReason reason)
@@ -44,20 +43,20 @@ public void shutdown(IRecordProcessorCheckpointer checkpointer, ShutdownReason r
 **initialize**  
 The KCL calls the `initialize` method when the record processor is instantiated, passing a specific shard ID as a parameter. This record processor processes only this shard and typically, the reverse is also true (this shard is processed only by this record processor). However, your consumer should account for the possibility that a data record might be processed more than one time. Kinesis Data Streams has *at least once* semantics, meaning that every data record from a shard is processed at least one time by a worker in your consumer. For more information about cases in which a particular shard may be processed by more than one worker, see [Use resharding, scaling, and parallel processing to change the number of shards](kinesis-record-processor-scaling.md).
 
-```
+```java
 public void initialize(String shardId)
 ```
 
 **processRecords**  
 The KCL calls the `processRecords` method, passing a list of data record from the shard specified by the `initialize(shardId)` method. The record processor processes the data in these records according to the semantics of the consumer. For example, the worker might perform a transformation on the data and then store the result in an Amazon Simple Storage Service (Amazon S3) bucket.
 
-```
+```java
 public void processRecords(List<Record> records, IRecordProcessorCheckpointer checkpointer) 
 ```
 
 In addition to the data itself, the record also contains a sequence number and partition key. The worker can use these values when processing the data. For example, the worker could choose the S3 bucket in which to store the data based on the value of the partition key. The `Record` class exposes the following methods that provide access to the record's data, sequence number, and partition key. 
 
-```
+```java
 record.getData()  
 record.getSequenceNumber() 
 record.getPartitionKey()
@@ -78,7 +77,7 @@ The KCL relies on `processRecords` to handle any exceptions that arise from proc
 **shutdown**  
 The KCL calls the `shutdown` method either when processing ends (the shutdown reason is `TERMINATE`) or the worker is no longer responding (the shutdown reason is `ZOMBIE`).
 
-```
+```java
 public void shutdown(IRecordProcessorCheckpointer checkpointer, ShutdownReason reason)
 ```
 
@@ -86,12 +85,12 @@ Processing ends when the record processor does not receive any further records f
 
 The KCL also passes a `IRecordProcessorCheckpointer` interface to `shutdown`. If the shutdown reason is `TERMINATE`, the record processor should finish processing any data records, and then call the `checkpoint` method on this interface.
 
-### Updated interface (Version 2)
+### Updated interface (version 2)
 <a name="kcl-java-interface-v2"></a>
 
 The updated `IRecordProcessor` interface (`package com.amazonaws.services.kinesis.clientlibrary.interfaces.v2`) exposes the following record processor methods that your consumer must implement: 
 
-```
+```java
 void initialize(InitializationInput initializationInput)
 void processRecords(ProcessRecordsInput processRecordsInput)
 void shutdown(ShutdownInput shutdownInput)
@@ -114,7 +113,7 @@ You also need to implement a factory for the class that implements the record pr
 
 The sample implements the factory class in the file `AmazonKinesisApplicationSampleRecordProcessorFactory.java` using the original record processor interface. If you want the class factory to create version 2 record processors, use the package name `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2`.
 
-```
+```java
   public class SampleRecordProcessorFactory implements IRecordProcessorFactory { 
       /**
       * Constructor.
@@ -137,7 +136,7 @@ The sample implements the factory class in the file `AmazonKinesisApplicationSam
 
 As discussed in [Implement the IRecordProcessor methods](#kinesis-record-processor-implementation-interface-java), there are two versions of the KCL record processor interface to choose from, which affects how you would create a worker. The original record processor interface uses the following code structure to create a worker:
 
-```
+```java
 final KinesisClientLibConfiguration config = new KinesisClientLibConfiguration(...)
 final IRecordProcessorFactory recordProcessorFactory = new RecordProcessorFactory();
 final Worker worker = new Worker(recordProcessorFactory, config);
@@ -145,7 +144,7 @@ final Worker worker = new Worker(recordProcessorFactory, config);
 
 With version 2 of the record processor interface, you can use `Worker.Builder` to create a worker without needing to worry about which constructor to use and the order of the arguments. The updated record processor interface uses the following code structure to create a worker:
 
-```
+```java
 final KinesisClientLibConfiguration config = new KinesisClientLibConfiguration(...)
 final IRecordProcessorFactory recordProcessorFactory = new RecordProcessorFactory();
 final Worker worker = new Worker.Builder()
@@ -173,13 +172,13 @@ You must make your AWS credentials available to one of the credential providers 
 
 The sample application first attempts to retrieve IAM credentials from instance metadata: 
 
-```
+```java
 credentialsProvider = new InstanceProfileCredentialsProvider(); 
 ```
 
 If the sample application cannot obtain credentials from the instance metadata, it attempts to retrieve credentials from a properties file:
 
-```
+```java
 credentialsProvider = new ClasspathPropertiesFileCredentialsProvider();
 ```
 
@@ -190,18 +189,18 @@ For more information about instance metadata, see [Instance Metadata](https://do
 
 The sample initialization code creates an ID for the worker, `workerId`, using the name of the local computer and appending a globally unique identifier as shown in the following code snippet. This approach supports the scenario of multiple instances of the consumer application running on a single computer.
 
-```
+```java
 String workerId = InetAddress.getLocalHost().getCanonicalHostName() + ":" + UUID.randomUUID();
 ```
 
-## Migrate to Version 2 of the record processor interface
+## Migrate to version 2 of the record processor interface
 <a name="kcl-java-v2-migration"></a>
 
 If you want to migrate code that uses the original interface, in addition to the steps described previously, the following steps are required:
 
 1. Change your record processor class to import the version 2 record processor interface:
 
-   ```
+   ```java
    import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor;
    ```
 
@@ -209,13 +208,13 @@ If you want to migrate code that uses the original interface, in addition to the
 
 1. Change your record processor factory class to import the version 2 record processor factory interface:
 
-   ```
+   ```java
    import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessorFactory;
    ```
 
 1. Change the construction of the worker to use `Worker.Builder`. For example:
 
-   ```
+   ```java
    final Worker worker = new Worker.Builder()
        .recordProcessorFactory(recordProcessorFactory)
        .config(config)

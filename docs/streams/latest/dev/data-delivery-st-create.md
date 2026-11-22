@@ -1,7 +1,6 @@
 
 
 # Create a streaming table delivery
-<a name="data-delivery-st-create"></a>
 
  Create a delivery that continuously sends records from an Amazon Kinesis Data Streams stream to a streaming table on Apache Iceberg backed by an S3 table bucket. You can create a delivery with the AWS Management Console or the AWS CLI. When you create a delivery, Amazon Kinesis Data Streams creates the destination Iceberg table in the table bucket you specify. 
 
@@ -15,7 +14,7 @@
 
 1. In the navigation pane, choose **Streaming tables**, and then choose **Create streaming table**.
 
-1. **Step 1: Source configuration.** Under **Delivery details**, enter a **Delivery name**. Acceptable characters are uppercase and lowercase letters, numbers, underscores, hyphens, and periods. For **Source**, choose the On-Demand stream to deliver from. Only On-Demand streams are displayed. Choose **Next**.
+1. **Step 1: Source configuration.** Under **Delivery details**, enter a **Delivery name**. Acceptable characters are uppercase and lowercase letters, numbers, underscores, hyphens, and periods. For **Source**, choose the On-demand stream to deliver from. Only On-demand streams are displayed. Choose **Next**.
 
 1. **Step 2: Destination configuration.** Under **Record conversion configuration**, choose a **Record conversion format**:
    + **JSON** – JSON records that are validated against a schema in AWS Glue Schema Registry. Provide the schema ARN under **Glue Schema registry**.
@@ -47,7 +46,7 @@
 
  Use the `create-channel` command to create a streaming table delivery. This configuration requires a schema from AWS Glue Schema Registry and a dead-letter queue: 
 
-```
+```bash
 aws kinesis create-channel \
     --channel-name "my-iceberg-delivery" \
     --service-execution-role-arn "arn:aws:iam::111122223333:role/my-channel-role" \

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Use AWS Lambda with Amazon Kinesis Data Streams
-<a name="tutorial-stock-data-lambda"></a>
 
 In this tutorial, you create a Lambda function to consume events from a Kinesis data stream. In this example scenario, a custom application writes records to a Kinesis data stream. AWS Lambda then polls this data stream and, when it detects new data records, invokes your Lambda function. AWS Lambda then executes the Lambda function by assuming the execution role that you specified when you created the Lambda function.
 

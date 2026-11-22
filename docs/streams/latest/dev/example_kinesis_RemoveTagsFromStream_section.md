@@ -1,7 +1,6 @@
 
 
 # Use `RemoveTagsFromStream` with an AWS SDK or CLI
-<a name="example_kinesis_RemoveTagsFromStream_section"></a>
 
 The following code examples show how to use `RemoveTagsFromStream`.
 
@@ -30,7 +29,7 @@ For more information, see [Tagging Your Streams](https://docs.aws.amazon.com/str
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
 
-```
+```python
     def remove_tags_from_stream(self, stream_name, tag_keys):
         """
         Removes tags from a Kinesis data stream.

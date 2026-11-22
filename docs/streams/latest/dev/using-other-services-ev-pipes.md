@@ -1,7 +1,6 @@
 
 
 # Read data from Kinesis Data Streams using Amazon EventBridge Pipes
-<a name="using-other-services-ev-pipes"></a>
 
 Amazon EventBridge Pipes supports Kinesis data streams as a source. Amazon EventBridge Pipes helps you create point-to-point integrations between event producers and consumers with optional transform, filter and enrich steps. You can use EventBridge Pipes to receive records in a Kinesis data stream and optionally filter or enhance these records before sending them to one of the available destinations for processing, including Kinesis Data Streams. 
 

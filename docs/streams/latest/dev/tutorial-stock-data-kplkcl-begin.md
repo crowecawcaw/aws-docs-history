@@ -1,14 +1,13 @@
 
 
 # Complete prerequisites
-<a name="tutorial-stock-data-kplkcl-begin"></a>
 
 The following are requirements for completing the [Tutorial: Process real-time stock data using KPL and KCL 1.x](tutorial-stock-data-kplkcl.md).
 
-## Create and use an Amazon Web Services Account
+## Create and use an Amazon Web Services account
 <a name="tutorial-stock-data-kplkcl-begin-aws"></a>
 
-Before you begin, ensure that you are familiar with the concepts discussed in [Amazon Kinesis Data Streams Terminology and concepts](key-concepts.md), particularly streams, shards, producers, and consumers. It is also helpful to have completed [Tutorial: Install and configure the AWS CLI for Kinesis Data Streams](kinesis-tutorial-cli-installation.md).
+Before you begin, ensure that you are familiar with the concepts discussed in [Amazon Kinesis Data Streams terminology and concepts](key-concepts.md), particularly streams, shards, producers, and consumers. It is also helpful to have completed [Tutorial: Install and configure the AWS CLI for Kinesis Data Streams](kinesis-tutorial-cli-installation.md).
 
 You need an AWS account and a web browser to access the AWS Management Console.
 
@@ -27,7 +26,7 @@ You need the latest [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/) ver
 
 The consumer application requires the Kinesis Client Library (KCL) version 1.2.1 or higher, which you can obtain from GitHub at [Kinesis Client Library (Java)](https://github.com/awslabs/amazon-kinesis-client).
 
-## Next Steps
+## Next steps
 <a name="tutorial-stock-data-kplkcl-begin-next"></a>
 
 [Create a data stream](tutorial-stock-data-kplkcl-create-stream.md)

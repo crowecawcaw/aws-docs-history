@@ -1,7 +1,6 @@
 
 
 # Implement the producer
-<a name="tutorial-stock-data-kplkcl2-producer"></a>
 
 This tutorial uses the real-world scenario of stock market trade monitoring. The following principles briefly explain how this scenario maps to the producer and its supporting code structure.
 
@@ -13,7 +12,7 @@ An individual stock trade is represented by an instance of the StockTrade class.
 **Stream record**  
 A stream is a sequence of records. A record is a serialization of a `StockTrade` instance in JSON format. For example:   
 
-```
+```json
 {
   "tickerSymbol": "AMZN", 
   "tradeType": "BUY", 
@@ -38,7 +37,7 @@ The `main` method of the producer, StockTradesWriter continuously retrieves a ra
 1. In a continuous loop, calls the `StockTradeGenerator.getRandomTrade()` method and then the `sendStockTrade` method to send the trade to the stream every 100 milliseconds. 
 The `sendStockTrade` method of the `StockTradesWriter` class has the following code:   
 
-```
+```java
 private static void sendStockTrade(StockTrade trade, KinesisAsyncClient kinesisClient,
             String streamName) {
         byte[] bytes = trade.toJsonAsBytes();
@@ -67,12 +66,12 @@ private static void sendStockTrade(StockTrade trade, KinesisAsyncClient kinesisC
 Refer to the following code breakdown:
 + The `PutRecord` API expects a byte array, and you must convert trade to JSON format. This single line of code performs that operation: 
 
-  ```
+  ```java
   byte[] bytes = trade.toJsonAsBytes();
   ```
 + Before you can send the trade, you create a new `PutRecordRequest` instance (called request in this case). Each `request` requires the stream name, partition key, and a data blob. 
 
-  ```
+  ```java
   PutPutRecordRequest request = PutRecordRequest.builder()
       .partitionKey(trade.getTickerSymbol()) // We use the ticker symbol as the partition key, explained in the Supplemental Information section below.
       .streamName(streamName)
@@ -84,12 +83,12 @@ Refer to the following code breakdown:
 
   Now `request` is ready to send to the client (the put operation): 
 
-  ```
+  ```java
      kinesisClient.putRecord(request).get();
   ```
 + Error checking and logging are always useful additions. This code logs error conditions: 
 
-  ```
+  ```java
   if (bytes == null) {
       LOG.warn("Could not get JSON bytes for stock trade");
       return;
@@ -98,7 +97,7 @@ Refer to the following code breakdown:
 
   Add the try/catch block around the `put` operation: 
 
-  ```
+  ```java
   try {
    	kinesisClient.putRecord(request).get();
   } catch (InterruptedException e) {
@@ -111,7 +110,7 @@ Refer to the following code breakdown:
   This is because a Kinesis Data Streams put operation can fail because of a network error, or due to the data stream reaching its throughput limits and getting throttled. It is recommended that you carefully consider your retry policy for `put` operations to avoid data loss, such as using a retry. 
 + Status logging is helpful but optional:
 
-  ```
+  ```java
   LOG.info("Putting trade: " + trade.toString());
   ```
 The producer shown here uses the Kinesis Data Streams API single record functionality, `PutRecord`. In practice, if an individual producer generates many records, it is often more efficient to use the multiple records functionality of `PutRecords` and send batches of records at a time. For more information, see [Write data to Amazon Kinesis Data Streams](building-producers.md).
@@ -122,7 +121,7 @@ The producer shown here uses the Kinesis Data Streams API single record function
 
 1. Run the `StockTradeWriter` class with the following arguments:
 
-   ```
+   ```java
    StockTradeStream us-west-2
    ```
 

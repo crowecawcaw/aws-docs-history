@@ -1,7 +1,6 @@
 
 
 # Describe an Amazon S3 delivery
-<a name="data-delivery-s3-describe"></a>
 
  Retrieve the configuration and current status of an Amazon S3 delivery, including its state (`ChannelStatus`) and status reason (`ChannelStatusReason`). Use this to verify that a delivery reached the ACTIVE state after creation, or to diagnose a delivery in the FAILED state. 
 
@@ -19,7 +18,7 @@
 
  Use the `describe-channel` command and pass the channel ARN (`ChannelARN`) returned by `create-channel`: 
 
-```
+```bash
 aws kinesis describe-channel \
     --channel-arn "arn:aws:kinesis:us-east-1:111122223333:channel/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 ```

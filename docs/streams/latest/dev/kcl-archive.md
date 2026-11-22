@@ -1,7 +1,6 @@
 
 
 # Previous KCL version documentation
-<a name="kcl-archive"></a>
 
 The following topics have been archived. To see current Kinesis Client Library documentation, see [Use Kinesis Client Library](kcl.md).
 

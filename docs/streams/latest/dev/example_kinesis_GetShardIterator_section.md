@@ -1,7 +1,6 @@
 
 
 # Use `GetShardIterator` with an AWS SDK or CLI
-<a name="example_kinesis_GetShardIterator_section"></a>
 
 The following code examples show how to use `GetShardIterator`.
 
@@ -37,7 +36,7 @@ For more information, see [Developing Consumers Using the Kinesis Data Streams A
 **Tools for PowerShell V4**  
 **Example 1: Returns a shard iterator for the specified shard and starting position. Details of the shard identifiers and sequence numbers can be obtained from the output of the Get-KINStream cmdlet, by referencing the Shards collection of the returned stream object. The returned iterator can be used with the Get-KINRecord cmdlet to pull data records in the shard.**  
 
-```
+```powershell
 Get-KINShardIterator -StreamName "mystream" -ShardId "shardId-000000000000" -ShardIteratorType AT_SEQUENCE_NUMBER -StartingSequenceNumber "495598645..."
 ```
 **Output:**  
@@ -50,7 +49,7 @@ AAAAAAAAAAGIc....9VnbiRNaP
 **Tools for PowerShell V5**  
 **Example 1: Returns a shard iterator for the specified shard and starting position. Details of the shard identifiers and sequence numbers can be obtained from the output of the Get-KINStream cmdlet, by referencing the Shards collection of the returned stream object. The returned iterator can be used with the Get-KINRecord cmdlet to pull data records in the shard.**  
 
-```
+```powershell
 Get-KINShardIterator -StreamName "mystream" -ShardId "shardId-000000000000" -ShardIteratorType AT_SEQUENCE_NUMBER -StartingSequenceNumber "495598645..."
 ```
 **Output:**  
@@ -66,7 +65,7 @@ AAAAAAAAAAGIc....9VnbiRNaP
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
 
-```
+```python
     def get_shard_iterator(self, stream_name, shard_id, iterator_type="TRIM_HORIZON"):
         """
         Gets a shard iterator for reading data records from a shard.

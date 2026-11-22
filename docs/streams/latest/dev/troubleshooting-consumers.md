@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Kinesis Data Streams consumers
-<a name="troubleshooting-consumers"></a>
 
 **Topics**
 + [Compilation error with the LeaseManagementConfig constructor](#compilation-error-leasemanagementconfig)
@@ -13,6 +12,7 @@
 + [Consumer record processing is falling behind](#record-processing-falls-behind)
 + [Unauthorized KMS key permission error](#unauthorized-kms-consumer)
 + [DynamoDbException: The document path provided in the update expression is invalid for update](#dynamo-db-exception)
++ [Troubleshooting by consumption path](#troubleshooting-consumers-paths)
 + [Troubleshoot other common issues for consumers](#misc-troubleshooting-consumer)
 
 ## Compilation error with the LeaseManagementConfig constructor
@@ -138,6 +138,11 @@ When using KCL 3.x with AWS SDK for Java versions 2.27.19 through 2.27.23, you m
  "software.amazon.awssdk.services.dynamodb.model.DynamoDbException: The document path provided in the update expression is invalid for update (Service: DynamoDb, Status Code: 400, Request ID: xxx)"
 
 This error occurs due to a known issue in the AWS SDK for Java that affects the DynamoDB metadata table managed by KCL 3.x. The issue was introduced in version 2.27.19 and impacts all versions up to 2.27.23. The issue has been resolved in the AWS SDK for Java version 2.27.24. For optimal performance and stability, we recommend upgrading to version 2.28.0 or later.
+
+## Troubleshooting by consumption path
+<a name="troubleshooting-consumers-paths"></a>
+
+This section covers shared-throughput and enhanced fan-out stream consumers. For streaming tables and Amazon S3 delivery, see [Troubleshooting data delivery](data-delivery-troubleshooting.md). For consuming through a queue, see [Consume records from a stream with queues](consuming-with-queues.md).
 
 ## Troubleshoot other common issues for consumers
 <a name="misc-troubleshooting-consumer"></a>

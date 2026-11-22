@@ -1,7 +1,6 @@
 
 
 # S3 output key template for Amazon S3 delivery
-<a name="data-delivery-s3-key-template"></a>
 
  When delivering to general purpose Amazon S3 buckets, you can configure an S3 output key template to control the object key structure of delivered files. The key template is optional – if not specified, Amazon S3 delivery uses the default template. 
 

@@ -1,7 +1,6 @@
 
 
 # Develop a Kinesis Client Library consumer in Python
-<a name="kinesis-record-processor-implementation-app-py"></a>
 
 **Important**  
 Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md).
@@ -23,7 +22,7 @@ You must complete the following tasks when implementing a KCL consumer applicati
 
 The `RecordProcess` class must extend the `RecordProcessorBase` to implement the following methods. The sample provides implementations that you can use as a starting point (see `sample_kclpy_app.py`).
 
-```
+```python
 def initialize(self, shard_id)
 def process_records(self, records, checkpointer)
 def shutdown(self, checkpointer, reason)
@@ -32,20 +31,20 @@ def shutdown(self, checkpointer, reason)
 **initialize**  
 The KCL calls the `initialize` method when the record processor is instantiated, passing a specific shard ID as a parameter. This record processor processes only this shard, and typically, the reverse is also true (this shard is processed only by this record processor). However, your consumer should account for the possibility that a data record might be processed more than one time. This is because Kinesis Data Streams has *at least once* semantics, meaning that every data record from a shard is processed at least one time by a worker in your consumer. For more information about cases in which a particular shard may be processed by more than one worker, see [Use resharding, scaling, and parallel processing to change the number of shards](kinesis-record-processor-scaling.md).
 
-```
+```python
 def initialize(self, shard_id)
 ```
 
 **process\_records**  
  The KCL calls this method, passing a list of data record from the shard specified by the `initialize` method. The record processor that you implement processes the data in these records according to the semantics of your consumer. For example, the worker might perform a transformation on the data and then store the result in an Amazon Simple Storage Service (Amazon S3) bucket.
 
-```
+```python
 def process_records(self, records, checkpointer) 
 ```
 
 In addition to the data itself, the record also contains a sequence number and partition key. The worker can use these values when processing the data. For example, the worker could choose the S3 bucket in which to store the data based on the value of the partition key. The `record` dictionary exposes the following key-value pairs to access the record's data, sequence number, and partition key:
 
-```
+```python
 record.get('data')
 record.get('sequenceNumber')
 record.get('partitionKey')
@@ -68,7 +67,7 @@ The KCL relies on `process_records` to handle any exceptions that arise from pro
 **shutdown**  
  The KCL calls the `shutdown` method either when processing ends (the shutdown reason is `TERMINATE`) or the worker is no longer responding (the shutdown `reason` is `ZOMBIE`).
 
-```
+```java
 def shutdown(self, checkpointer, reason)
 ```
 

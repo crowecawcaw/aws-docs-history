@@ -1,7 +1,6 @@
 
 
 # Amazon EMR with service-managed streams
-<a name="service-managed-pk-integrations-emr"></a>
 
 Amazon EMR uses the Spark connector to read from and write to Kinesis Data Streams streams. The connector has no logic that depends on the partition key value for reading or writing data. When Amazon EMR consumes from a service-managed stream, no changes are required.
 

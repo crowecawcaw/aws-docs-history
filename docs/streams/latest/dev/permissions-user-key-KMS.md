@@ -1,7 +1,6 @@
 
 
 # Permissions to use user-generated KMS keys
-<a name="permissions-user-key-KMS"></a>
 
 Before you can use server-side encryption with a user-generated KMS key, you must configure AWS KMS key policies to allow encryption of streams and encryption and decryption of stream records. For examples and more information about AWS KMS permissions, see [AWS KMS API Permissions: Actions and Resources Reference](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html). 
 
@@ -15,7 +14,7 @@ Before you use user-generated KMS master keys, ensure that your Kinesis stream p
 
 When Amazon Kinesis Data Streams calls AWS KMS on your behalf, it passes an encryption context to AWS KMS that can be used as a condition for authorization in key policies and grants. Kinesis Data Streams uses the stream ARN as the encryption context in all AWS KMS calls.
 
-```
+```JSON
 "encryptionContext": {
     "aws:kinesis:arn": "arn:aws:kinesis:{{region}}:{{account-id}}:stream/{{stream-name}}"
 }
@@ -35,7 +34,7 @@ Your Kinesis stream producers must have the `kms:GenerateDataKey` permission.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -70,7 +69,7 @@ Your Kinesis stream consumers must have the `kms:Decrypt` permission.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

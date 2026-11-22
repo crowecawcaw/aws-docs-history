@@ -1,7 +1,6 @@
 
 
 # Migrate existing producers
-<a name="service-managed-pk-producing-migration"></a>
 
 You do not need to modify existing producers when enabling service-managed record distribution on a stream. Existing producers that provide partition keys continue to function — the service ignores the partition key values and distributes records using internal algorithms.
 

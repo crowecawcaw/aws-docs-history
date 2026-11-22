@@ -1,14 +1,13 @@
 
 
 # Complete prerequisites
-<a name="tutorial-stock-data-kplkcl2-begin"></a>
 
 You must meet the following requirements to complete this tutorial:
 
-## Create and use an Amazon Web Services Account
+## Create and use an Amazon Web Services account
 <a name="tutorial-stock-data-kplkcl2-begin-aws"></a>
 
-Before you begin, make sure that you are familiar with the concepts discussed in [Amazon Kinesis Data Streams Terminology and concepts](key-concepts.md), particularly with streams, shards, producers, and consumers. It is also helpful to have completed the steps in the following guide: [Tutorial: Install and configure the AWS CLI for Kinesis Data Streams](kinesis-tutorial-cli-installation.md).
+Before you begin, make sure that you are familiar with the concepts discussed in [Amazon Kinesis Data Streams terminology and concepts](key-concepts.md), particularly with streams, shards, producers, and consumers. It is also helpful to have completed the steps in the following guide: [Tutorial: Install and configure the AWS CLI for Kinesis Data Streams](kinesis-tutorial-cli-installation.md).
 
 You must have an AWS account and a web browser to access the AWS Management Console.
 

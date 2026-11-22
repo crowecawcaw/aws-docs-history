@@ -1,7 +1,6 @@
 
 
 # Interact with data using the AWS Glue Schema Registry
-<a name="building-enhanced-consumers-glue-schema-registry"></a>
 
 You can integrate your Kinesis data streams with the AWS Glue Schema Registry. The AWS Glue Schema Registry allows you to centrally discover, control, and evolve schemas, while ensuring data produced is continuously validated by a registered schema. A schema defines the structure and format of a data record. A schema is a versioned specification for reliable data publication, consumption, or storage. The AWS Glue Schema Registry enables you to improve end-to-end data quality and data governance within your streaming applications. For more information, see [AWS Glue Schema Registry](https://docs.aws.amazon.com/glue/latest/dg/schema-registry.html). One of the ways to set up this integration is through the `GetRecords` Kinesis Data Streams API available in the AWS Java SDK. 
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with S3 general purpose delivery
-<a name="data-delivery-s3-getting-started"></a>
 
  This tutorial walks you through creating your first Amazon S3 delivery to send records from an Amazon Kinesis Data Streams stream to a general purpose Amazon S3 bucket, verifying it, and cleaning up. 
 
@@ -9,7 +8,7 @@
 <a name="data-delivery-s3-gs-prerequisites"></a>
 
 Before you begin, ensure the following prerequisites are met:
-+ A Kinesis Data Streams stream configured with On-Demand Standard or On-Demand Advantage capacity mode.
++ A Kinesis Data Streams stream configured with On-demand Standard or On-demand Advantage capacity mode.
 + An IAM service execution role that grants Kinesis Data Streams permission to deliver records to your destination. See [IAM permissions for data delivery](data-delivery-iam.md).
 + A general purpose Amazon S3 bucket for the destination.
 + The AWS CLI installed and configured, if you use the AWS CLI.

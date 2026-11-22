@@ -1,7 +1,6 @@
 
 
 # Write to Kinesis Data Streams using Connect Customer
-<a name="using-other-services-connect"></a>
 
 You can use Kinesis Data Streams to export contact records and agent events in real-time from your Connect Customer instance. You can also enable data streaming from Connect Customer Customer Profiles to automatically receive updates to a Kinesis data stream about creation of new profiles or changes to existing ones.
 

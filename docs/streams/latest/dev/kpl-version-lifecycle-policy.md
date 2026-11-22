@@ -1,7 +1,6 @@
 
 
 # KPL version lifecycle policy
-<a name="kpl-version-lifecycle-policy"></a>
 
 This topic outlines the version lifecycle policy for Amazon Kinesis Producer Library (KPL). AWS regularly provides new releases for KPL versions to support new features and enhancements, bug fixes, security patches, and dependency updates. We recommend that you stay up-to-date with KPL versions to keep up with the latest features, security updates, and underlying dependencies. We **don't** recommend continued use of an unsupported KPL version.
 

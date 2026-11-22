@@ -1,7 +1,6 @@
 
 
 # KPL supported platforms
-<a name="kinesis-kpl-supported-plats"></a>
 
 The Amazon Kinesis Producer Library (KPL) is written in C\+\+ and runs as a child process to the main user process. Precompiled 64-bit native binaries are bundled with the Java release and are managed by the Java wrapper.
 

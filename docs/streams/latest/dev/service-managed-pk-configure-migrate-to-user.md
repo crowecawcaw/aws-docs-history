@@ -1,7 +1,6 @@
 
 
 # Migrate from service-managed to user-managed (AUTO → USER\_PARTITION\_KEY)
-<a name="service-managed-pk-configure-migrate-to-user"></a>
 
 Follow these steps to safely switch a production stream back to user-managed partition keys:
 

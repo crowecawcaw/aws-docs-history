@@ -1,7 +1,6 @@
 
 
 # Customize KPL retries and rate limit behavior
-<a name="kinesis-producer-adv-retries-rate-limiting"></a>
 
 When you add Amazon Kinesis Producer Library (KPL) user records using the KPL `addUserRecord()` operation, a record is given a time stamp and added to a buffer with a deadline set by the `RecordMaxBufferedTime` configuration parameter. This time stamp/deadline combination sets the buffer priority. Records are flushed from the buffer based on the following criteria:
 + Buffer priority

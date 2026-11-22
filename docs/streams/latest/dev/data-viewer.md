@@ -1,7 +1,6 @@
 
 
 # Use the Data Viewer in the Kinesis console
-<a name="data-viewer"></a>
 
  The Data Viewer in the Kinesis Management Console lets you view data records within the specified shard of your data stream without having to develop a consumer application. To use the Data Viewer, follow these steps: 
 

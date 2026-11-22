@@ -1,7 +1,6 @@
 
 
 # Use Kinesis Client Library
-<a name="kcl"></a>
 
 ## What is Kinesis Client Library?
 <a name="kcl-library-what-is"></a>

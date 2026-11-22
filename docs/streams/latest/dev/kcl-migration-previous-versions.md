@@ -1,7 +1,6 @@
 
 
 # Migrate from previous KCL versions
-<a name="kcl-migration-previous-versions"></a>
 
 This topic explains how to migrate from previous versions of the Kinesis Client Library (KCL). 
 

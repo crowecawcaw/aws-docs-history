@@ -1,7 +1,6 @@
 
 
 # Develop enhanced fan-out consumers with the AWS SDK for Java
-<a name="building-enhanced-consumers-api"></a>
 
 *Enhanced fan-out* is an Amazon Kinesis Data Streams feature that enables consumers to receive records from a data stream with dedicated throughput of up to 2 MB of data per second per shard. A consumer that uses enhanced fan-out doesn't have to contend with other consumers that are receiving data from the stream. For more information, see [Develop enhanced fan-out consumers with dedicated throughput](enhanced-consumers.md).
 
@@ -19,7 +18,7 @@ You can use API operations to build a consumer that uses enhanced fan-out in Kin
 
 The following code is an example of how you can subscribe your consumer to a shard, renew the subscription periodically, and handle the events.
 
-```
+```JAVA
     import software.amazon.awssdk.services.kinesis.KinesisAsyncClient;
     import software.amazon.awssdk.services.kinesis.model.ShardIteratorType;
     import software.amazon.awssdk.services.kinesis.model.SubscribeToShardEvent;

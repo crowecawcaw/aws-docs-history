@@ -1,7 +1,6 @@
 
 
 # Update a stream
-<a name="updating-a-stream"></a>
 
 You can update the details of a stream using the Kinesis Data Streams console, the Kinesis Data Streams API, or the AWS CLI.
 
@@ -19,11 +18,11 @@ You can enable server-side encryption for existing streams, or for streams that 
 
 1. Choose the name of your stream in the list. The **Stream Details** page displays a summary of your stream configuration and monitoring information.
 
-1. To switch between on-demand and provisioned capacity modes for a data stream, choose **Edit capacity mode** in the **Configuration** tab. For more information, see [Choose the right mode to stream in](how-do-i-size-a-stream.md).
+1. To switch between On-demand and provisioned capacity modes for a data stream, choose **Edit capacity mode** in the **Configuration** tab. For more information, see [Choose the right mode to stream in](how-do-i-size-a-stream.md).
 **Important**  
-For each data stream in your AWS account, you can switch between the on-demand and provisioned modes twice within 24 hours.
+For each data stream in your AWS account, you can switch between the On-demand and provisioned modes twice within 24 hours.
 
-1. For a data stream in on-demand mode with [On-demand Advantage mode](how-do-i-size-a-stream.md#ondemand-advantage-mode) enabled, you can configure warm throughput to increase or decrease the stream's ingest capacity.
+1. For a data stream in On-demand mode with [On-demand Advantage mode](how-do-i-size-a-stream.md#ondemand-advantage-mode) enabled, you can configure warm throughput to increase or decrease the stream's ingest capacity.
 
 **To increase ingest capacity**  
 In the **Configuration** tab, choose **Edit warm throughput** and enter a target throughput value (in MB/s) that is higher than the stream's current capacity. The stream immediately provisions capacity to at least the specified warm throughput, ensuring it can handle the expected traffic without throttling. For example, if you forecast an upcoming event to peak around 200 MB/s, set the warm throughput to 200 MB/s ahead of time at no additional cost.
@@ -55,7 +54,7 @@ To update stream details using the API, see the following methods:
 + [StopStreamEncryption](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_StopStreamEncryption.html)
 + [UpdateShardCount](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateShardCount.html)
 + [UpdateStreamMode](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateStreamMode.html)
-+ [UpdateStreamWarmThroughput](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateStreamWarmThroughput.html) — When On-demand Advantage is enabled for an account, use this API to configure warm throughput for an on-demand stream. When you switch a stream from Provisioned to On-demand mode using the [UpdateStreamMode](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateStreamMode.html) API, you can also set warm throughput.
++ [UpdateStreamWarmThroughput](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateStreamWarmThroughput.html) — When On-demand Advantage is enabled for an account, use this API to configure warm throughput for an On-demand stream. When you switch a stream from Provisioned to On-demand mode using the [UpdateStreamMode](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateStreamMode.html) API, you can also set warm throughput.
 
 ## Use the AWS CLI
 <a name="update-stream-cli"></a>
@@ -64,7 +63,7 @@ For information about updating a stream using the AWS CLI, see the [Kinesis CLI 
 
 To configure warm throughput using the AWS CLI, use the `update-stream-warm-throughput` command. For example:
 
-```
+```bash
 aws kinesis update-stream-warm-throughput \
     --stream-arn arn:aws:kinesis:us-east-1:123456789012:stream/my-stream \
     --warm-throughput-mi-bps=200
@@ -72,7 +71,7 @@ aws kinesis update-stream-warm-throughput \
 
 To lower capacity, reconfigure `warm-throughput-mi-bps` to the same or a lower value:
 
-```
+```bash
 aws kinesis update-stream-warm-throughput \
     --stream-arn arn:aws:kinesis:us-east-1:123456789012:stream/my-stream \
     --warm-throughput-mi-bps=50

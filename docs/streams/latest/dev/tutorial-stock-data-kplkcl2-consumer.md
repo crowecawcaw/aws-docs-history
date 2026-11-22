@@ -1,7 +1,6 @@
 
 
 # Implement the consumer
-<a name="tutorial-stock-data-kplkcl2-consumer"></a>
 
 The consumer application in this tutorial continuously processes the stock trades in your data stream. It then outputs the most popular stocks being bought and sold every minute. The application is built on top of the Kinesis Client Library (KCL), which does much of the heavy lifting common to consumer apps. For more information, see [KCL 1.x and 2.x information](shared-throughput-kcl-consumers.md). 
 
@@ -41,7 +40,7 @@ Add code to the methods of the `StockTradeRecordProcessor` class, as shown in th
 
 1. Implement the `processRecord` method by instantiating a correctly sized `StockTrade` object and adding the record data to it, logging a warning if there's a problem. 
 
-   ```
+   ```java
    byte[] arr = new byte[record.data().remaining()];
    record.data().get(arr);
    StockTrade trade = StockTrade.fromJsonAsBytes(arr);
@@ -54,7 +53,7 @@ Add code to the methods of the `StockTradeRecordProcessor` class, as shown in th
 
 1. Implement a `reportStats` method. Modify the output format to suit your preferences. 
 
-   ```
+   ```java
    System.out.println("****** Shard " + kinesisShardId + " stats for last 1 minute ******\n" +
    stockStats + "\n" +
    "****************************************************************\n");
@@ -62,13 +61,13 @@ Add code to the methods of the `StockTradeRecordProcessor` class, as shown in th
 
 1. Implement the `resetStats` method, which creates a new `stockStats` instance. 
 
-   ```
+   ```java
    stockStats = new StockStats();
    ```
 
 1. Implement the following methods required by `ShardRecordProcessor` interface:
 
-   ```
+   ```java
    @Override
    public void leaseLost(LeaseLostInput leaseLostInput) {
        log.info("Lost lease, so terminating.");
@@ -115,7 +114,7 @@ Add code to the methods of the `StockTradeRecordProcessor` class, as shown in th
 
 1. Run the `StockTradesProcessor` class with the following arguments:
 
-   ```
+   ```java
    StockTradesProcessor StockTradeStream us-west-2
    ```
 

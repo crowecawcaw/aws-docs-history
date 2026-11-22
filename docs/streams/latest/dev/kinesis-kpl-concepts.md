@@ -1,7 +1,6 @@
 
 
 # KPL key concepts
-<a name="kinesis-kpl-concepts"></a>
 
 The following sections contain concepts and terminology necessary to understand and benefit from the Amazon Kinesis Producer Library (KPL).
 

@@ -1,7 +1,6 @@
 
 
 # Handle duplicate records
-<a name="kinesis-record-processor-duplicates"></a>
 
 There are two primary reasons why records may be delivered more than one time to your Amazon Kinesis Data Streams application: producer retries and consumer retries. Your application must anticipate and appropriately handle processing individual records multiple times.
 

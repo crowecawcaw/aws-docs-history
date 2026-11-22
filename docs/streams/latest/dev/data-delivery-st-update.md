@@ -1,7 +1,6 @@
 
 
 # Update a streaming table delivery
-<a name="data-delivery-st-update"></a>
 
  Update an existing streaming table delivery. On an existing delivery, you can change only the data freshness interval (`DataFreshnessInSeconds`) and the CloudWatch Logs configuration. All other properties are immutable after creation. To change any other setting, delete the delivery and create a new one. 
 
@@ -24,7 +23,7 @@ You can also edit or delete a delivery from the list page by selecting the deliv
 
  Use the `update-channel` command to change the data freshness interval. The following command updates a delivery to a data freshness interval of 600 seconds: 
 
-```
+```bash
 aws kinesis update-channel \
     --channel-arn "arn:aws:kinesis:us-east-1:111122223333:channel/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111" \
     --s3-tables-destination-configuration '{

@@ -1,7 +1,6 @@
 
 
 # Roll back to the previous KCL version
-<a name="kcl-migration-rollback"></a>
 
 This topic explains the steps to roll back your KCL 3.5.x consumer to the previous version. The rollback process depends on which migration phase your application is currently in.
 
@@ -35,7 +34,7 @@ If your application is in Phase 2 (`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X`), 
 **Note**  
 The KCL Migration Tool handles only the Phase 2 to Phase 1 rollback. To reach your previous KCL version (KCL 2.x) from Phase 2, first roll back to Phase 1 using the steps in this section, and then follow [Roll back from Phase 1 to KCL 2.x](#kcl-migration-rollback-to-v2) to run the tool in `rollback-to-v2` mode and delete the non-lease entries before you redeploy your previous code.
 
-## Step 1: Run the KCL Migration Tool
+## Step 1: Run the KCL migration tool
 <a name="kcl-migration-rollback-tool"></a>
 
 When you need to roll back from Phase 2 (`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X`) to Phase 1, run the KCL Migration Tool. The tool performs the following tasks:

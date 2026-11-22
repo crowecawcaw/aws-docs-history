@@ -1,7 +1,6 @@
 
 
 # KCL version lifecycle policy
-<a name="kcl-version-lifecycle-policy"></a>
 
 This topic outlines the version lifecycle policy for Amazon Kinesis Client Library (KCL). AWS regularly provides new releases for KCL versions to support new features and enhancements, bug fixes, security patches, and dependency updates. We recommend that you stay up-to-date with KCL versions to keep up with the latest features, security updates, and underlying dependencies. We **don't** recommend continued use of an unsupported KCL version.
 

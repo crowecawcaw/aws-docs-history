@@ -1,11 +1,10 @@
 
 
 # Use the AWS CLI to perform Amazon Kinesis Data Streams operations
-<a name="getting-started"></a>
 
 This section shows you how to perform basic Amazon Kinesis Data Streams operations using the AWS Command Line Interface. You will learn fundamental Kinesis Data Streams data flow principles and the steps necessary to put and get data from an Kinesis data stream.
 
- If you are new to Kinesis Data Streams, start by becoming familiar with the concepts and terminology presented in [Amazon Kinesis Data Streams Terminology and concepts](key-concepts.md).
+ If you are new to Kinesis Data Streams, start by becoming familiar with the concepts and terminology presented in [Amazon Kinesis Data Streams terminology and concepts](key-concepts.md).
 
 **Topics**
 + [Tutorial: Install and configure the AWS CLI for Kinesis Data Streams](kinesis-tutorial-cli-installation.md)

@@ -1,7 +1,6 @@
 
 
 # Handle large records
-<a name="large-records"></a>
 
 Amazon Kinesis Data Streams supports records up to 10 mebibytes (MiBs). This capability is recommended for processing intermittent data payloads that exceed the default 1 MiB record size limit. The default maximum record size for existing, and newly created streams is set to 1 MiB.
 
@@ -25,7 +24,7 @@ The rate at which capacity is replenished depends on several factors:
 
 For best results, use a uniformly distributed partition key to spread large records across the stream's available capacity.
 
-In on-demand mode, Kinesis Data Streams manages capacity automatically. Your stream scales its throughput up and down based on your traffic patterns, and large record burst capacity is handled transparently. You don't need to provision or manage capacity to use large records. For more information on how on-demand mode scales, see [On-demand mode features and use cases](how-do-i-size-a-stream.html#ondemandmode).
+In On-demand mode, Kinesis Data Streams manages capacity automatically. Your stream scales its throughput up and down based on your traffic patterns, and large record burst capacity is handled transparently. You don't need to provision or manage capacity to use large records. For more information on how On-demand mode scales, see [On-demand mode features and use cases](how-do-i-size-a-stream.html#ondemandmode).
 
 ## Update your stream to use large records
 <a name="update-stream"></a>

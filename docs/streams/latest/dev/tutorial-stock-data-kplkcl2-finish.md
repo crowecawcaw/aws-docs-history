@@ -1,7 +1,6 @@
 
 
 # Clean up resources
-<a name="tutorial-stock-data-kplkcl2-finish"></a>
 
 Because you are paying to use the Kinesis data stream, make sure that you delete it and the corresponding Amazon DynamoDB table when you are done with it. Nominal charges occur on an active stream even when you aren't sending and getting records. This is because an active stream is using resources by continuously "listening" for incoming records and requests to get records.
 

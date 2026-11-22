@@ -1,7 +1,6 @@
 
 
 # Expired iterator exception errors
-<a name="kinesis-fis-expired-iterator"></a>
 
  Expired iterator exception errors (HTTP 400) occur when the shard iterator is expired, and is no longer used to retrieve stream records when calling `GetRecords`. This occurs when there are delays between read operations, which are caused by long-running data processing tasks, network issues, or application downtime. 
 

@@ -1,7 +1,6 @@
 
 
 # Quotas and limits
-<a name="service-sizes-and-limits"></a>
 
 The following table describes stream and shard quotas and limits for Amazon Kinesis Data Streams.
 
@@ -12,15 +11,16 @@ The following table describes stream and shard quotas and limits for Amazon Kine
   <tr><th>Quota</th><th>On-demand mode</th><th>Provisioned mode</th></tr>
 </thead>
 <tbody>
-  <tr><td>Number of data streams</td><td>There's no upper quota on the number of streams within your AWS account. By default, you can create up to 50 data streams with the on-demand capacity mode. If you require an increase of this quota, raise a <a href="https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase">support ticket</a>.</td><td>There's no upper quota on the number of streams with the provisioned mode within an account.</td></tr>
+  <tr><td>Number of data streams</td><td>There's no upper quota on the number of streams within your AWS account. By default, you can create up to 50 data streams with the On-demand capacity mode. If you require an increase of this quota, raise a <a href="https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase">support ticket</a>.</td><td>There's no upper quota on the number of streams with the provisioned mode within an account.</td></tr>
   <tr><td>Number of shards</td><td>There's no upper limit. Number of shards depends on the amount of data ingested and the level of throughput you require. Kinesis Data Streams automatically scales the number of shards in response to changes in data volume and traffic.</td><td>There's no upper limit. The default shard quota is 20,000 shards per AWS account for the following AWS Regions:<ul><li> <i>US East (N. Virginia)</i> </li><li> <i>US West (Oregon)</i> </li><li> <i>Europe (Ireland)</i> </li></ul><br />For all other Regions, the default shard quota is 1,000 or 6,000 shards per AWS account. You can view your account's shard quota and utilization through the Service Quotas console at <a href="https://console.aws.amazon.com/servicequotas/">https://console.aws.amazon.com/servicequotas/</a>.<br />To request an increase to the shard quota, use the Service Quotas console or AWS CLI. For more information, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota increase</a>.</td></tr>
-  <tr><td>Data stream throughput</td><td>By default, new data streams created with the on-demand capacity mode have 4 MB/s of write and 8 MB/s of read throughput. In <i>US East (N. Virginia)</i>, <i>US West (Oregon)</i>, and <i>Europe (Ireland)</i> AWS Regions, data streams with the on-demand capacity mode scale up to 10 GB/s of write and 20 GB/s read throughput. For other Regions, data streams with the on-demand capacity mode scale up to 200 MB/s of write and 400 MB/s read throughput. If you require an increase up to 10 GB/s write and 20 GB/s read capacity for these Regions, submit a <a href="https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase">support ticket</a>.</td><td>There is no upper limit. Maximum throughput depends on the number of shards provisioned for the stream. Each shard can support up to 1 MB/sec or 1,000 records/sec write throughput or up to 2 MB/sec or 2,000 records/sec read throughput. If you need more ingest capacity, you can easily scale up the number of shards in the stream using the AWS Management Console or the <a href="https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateShardCount.html">UpdateShardCount</a> API.</td></tr>
+  <tr><td>Data stream throughput</td><td>By default, new data streams created with the On-demand capacity mode have 4 MB/s of write and 8 MB/s of read throughput. In <i>US East (N. Virginia)</i>, <i>US West (Oregon)</i>, and <i>Europe (Ireland)</i> AWS Regions, data streams with the On-demand capacity mode scale up to 10 GB/s of write and 20 GB/s read throughput. For other Regions, data streams with the On-demand capacity mode scale up to 200 MB/s of write and 400 MB/s read throughput. If you require an increase up to 10 GB/s write and 20 GB/s read capacity for these Regions, submit a <a href="https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase">support ticket</a>.</td><td>There is no upper limit. Maximum throughput depends on the number of shards provisioned for the stream. Each shard can support up to 1 MB/sec or 1,000 records/sec write throughput or up to 2 MB/sec or 2,000 records/sec read throughput. If you need more ingest capacity, you can easily scale up the number of shards in the stream using the AWS Management Console or the <a href="https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateShardCount.html">UpdateShardCount</a> API.</td></tr>
   <tr><td>Data payload size</td><td colspan="2">The maximum size of the data payload of a record before <code>base64-encoding</code> is up to 10 MiB. Kinesis is designed to handle intermittent large records (1-10MiB in size) using burst capacity. </td></tr>
   <tr><td><code>GetRecords</code> transaction size</td><td colspan="2"> <a href="https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a> can retrieve up to 10 MB of data per call from a single shard, and up to 10,000 records per call. Each call to <code>GetRecords</code> is counted as one read transaction. Each shard can support up to five read transactions per second. Each read transaction can provide up to 10,000 records with an upper quota of 10 MB per transaction.</td></tr>
   <tr><td>Data read rate per shard</td><td colspan="2"> Each shard can support up to a maximum total data read rate of 2 MB per second via <a href="https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a>. If a call to <code>GetRecords</code> returns 10 MB, subsequent calls made within the next 5 seconds throw an exception.</td></tr>
-  <tr><td>Number of registered consumers per data stream</td><td colspan="2"> With Kinesis On-demand Advantage mode, you can create up to 50 registered consumers (Enhanced Fan-out). With Kinesis On-Demand Standard and Kinesis Provisioned modes, you can create up to 20 registered consumers (Enhanced Fan-out Limit) for each data stream.</td></tr>
-  <tr><td>Switching between provisioned and on-demand modes </td><td colspan="2"> For each data stream in your AWS account, you can switch between the on-demand and provisioned capacity modes twice within 24 hours.  </td></tr>
-  <tr><td>Streaming tables and Amazon S3 delivery</td><td>For quotas and limits that apply to streaming tables and Amazon S3 delivery, see <a href="data-delivery-quotas.md">Delivery quotas and limits</a>.</td><td>Not supported. Streaming tables and Amazon S3 delivery require on-demand capacity mode.</td></tr>
+  <tr><td>Number of registered consumers per data stream</td><td colspan="2"> A data stream supports up to 20 registered consumers on On-demand Standard and provisioned streams, and up to 50 on On-demand Advantage. Both enhanced fan-out consumers and queues count against this limit, and queues are supported on On-demand streams only.</td></tr>
+  <tr><td>Switching between provisioned and On-demand modes </td><td colspan="2"> For each data stream in your AWS account, you can switch between the On-demand and provisioned capacity modes twice within 24 hours.  </td></tr>
+  <tr><td>Streaming tables and Amazon S3 delivery</td><td>For quotas and limits that apply to streaming tables and Amazon S3 delivery, see <a href="data-delivery-quotas.md">Delivery quotas and limits</a>.</td><td>Not supported. Streaming tables and Amazon S3 delivery require On-demand capacity mode.</td></tr>
+  <tr><td>Queues</td><td>For quotas and limits that apply to queues, see <a href="queues-quotas.md">Quotas and limits for queues</a>.</td><td>Not supported. Queues require On-demand capacity mode.</td></tr>
 </tbody>
 </table>
 
@@ -30,13 +30,13 @@ The following table describes stream and shard quotas and limits for Amazon Kine
 
 Like most AWS APIs, Kinesis Data Streams API operations are rate-limited. The following limits apply per AWS account per Region. For more information on Kinesis Data Streams APIs, see the [Amazon Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/). 
 
-### KDS Control Plane API Limits
+### KDS control plane API limits
 <a name="kds-api-limits-control"></a>
 
 The following section describes limits for the KDS control plane APIs. KDS control plane APIs let you create and manage your data streams. These limits apply per AWS account per Region.
 
 
-**Control Plane API Limits**  
+**Control plane API limits**  
 
 | API | API call limit | Per Account/Stream  | Description | 
 | --- | --- | --- | --- | 
@@ -67,17 +67,17 @@ The following section describes limits for the KDS control plane APIs. KDS contr
 | StartStreamEncryption |  | Per Stream | You can successfully apply a new AWS KMS key for server-side encryption 25 times in a rolling 24-hour period.  | 
 | StopStreamEncryption |  | Per Stream | You can successfully disable server-side encryption 25 times in a rolling 24-hour period.  | 
 | UpdateShardCount |  | Per Stream | Only applicable for provisioned. The default limit on number of shards is 10,000. There are additional limits on this API. For more information, see [UpdateShardCount](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateShardCount.html).  | 
-| UpdateStreamMode |  | Per stream | For each data stream in your AWS account, you can switch between the on-demand and provisioned capacity modes twice within 24 hours. | 
-| UpdateStreamWarmThroughput | 5 TPS | Per account | The maximum warm throughput that can be configured is the on-demand mode's data stream throughput limit for the account and Region. | 
+| UpdateStreamMode |  | Per stream | For each data stream in your AWS account, you can switch between the On-demand and provisioned capacity modes twice within 24 hours. | 
+| UpdateStreamWarmThroughput | 5 TPS | Per account | The maximum warm throughput that can be configured is the On-demand mode's data stream throughput limit for the account and Region. | 
 | UpdateAccountSettings | 5 TPS | Per account | Enable or disable account settings, such as On-demand Advantage mode. | 
 
-### KDS Data Plane API Limits
+### KDS data plane API limits
 <a name="kds-api-limits-data"></a>
 
 The following section describes the limits for the KDS data plane APIs. KDS data plane APIs enable you to use your data streams for collecting and processing data records in real time. These limits apply per shard within your data streams.
 
 
-**Data Plane API limits**  
+**Data plane API limits**  
 
 | API | API call limit | Payload limit | Additional details | 
 | --- | --- | --- | --- | 
@@ -87,7 +87,7 @@ The following section describes the limits for the KDS data plane APIs. KDS data
 | PutRecords |  | Each PutRecords request can support up to 500 records. Each record in the request can be as large as 10 MiB, up to a limit of 10 MiB for the entire request, including partition keys. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MB per second.  |  Kinesis is designed to handle intermittent large records (1-10MiB in size) using burst capacity. | 
 | SubscribeToShard | You can make one call to SubscribeToShard per second per registered consumer per shard.  |  | If you call SubscribeToShard again with the same ConsumerARN and ShardId within 5 seconds of a successful call, you'll get a ResourceInUseException.  | 
 
-## Increasing Quotas
+## Increasing quotas
 <a name="increasing-kds-limits"></a>
 
 You can use Service Quotas to request an increase for a quota, if the quota is adjustable. Some requests are automatically resolved, while others are submitted to AWS Support. You can track the status of a quota increase request that is submitted to AWS Support. Requests to increase Service Quotas do not receive priority support. If you have an urgent request, contact AWS Support. For more information, see [What Is Service Quotas?](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html)

@@ -1,7 +1,6 @@
 
 
 # Delete an Amazon S3 delivery
-<a name="data-delivery-s3-delete"></a>
 
  Delete an Amazon S3 delivery when you no longer need it. Deleting a delivery stops delivery from the source stream to the destination. Data already delivered to the Amazon S3 bucket is not removed. 
 
@@ -22,7 +21,7 @@
 
  Use the `delete-channel` command: 
 
-```
+```bash
 aws kinesis delete-channel \
     --channel-arn "arn:aws:kinesis:us-east-1:111122223333:channel/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 ```

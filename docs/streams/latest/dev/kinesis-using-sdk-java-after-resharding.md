@@ -1,7 +1,6 @@
 
 
 # Complete the resharding action
-<a name="kinesis-using-sdk-java-after-resharding"></a>
 
 After any kind of resharding procedure in Amazon Kinesis Data Streams, and before normal record processing resumes, other procedures and considerations are required. The following sections describe these.
 
@@ -14,7 +13,7 @@ After any kind of resharding procedure in Amazon Kinesis Data Streams, and befor
 
 After you call a resharding operation, either `splitShard` or `mergeShards`, you must wait for the stream to become active again. The code to use is the same as when you wait for a stream to become active after [creating a stream](kinesis-using-sdk-java-create-stream.md). That code is as follows:
 
-```
+```java
 DescribeStreamRequest describeStreamRequest = new DescribeStreamRequest();
 describeStreamRequest.setStreamName( myStreamName );
 

@@ -1,7 +1,6 @@
 
 
 # IAM permissions required for KCL consumer applications
-<a name="kcl-iam-permissions"></a>
 
  You must add the following permissions to the IAM role or user associated with your KCL consumer application. 
 
@@ -35,7 +34,7 @@ The following is an example policy document for a KCL consumer application.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

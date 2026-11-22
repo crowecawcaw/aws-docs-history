@@ -1,7 +1,6 @@
 
 
 # Migrate consumers from KCL 1.x to KCL 2.x
-<a name="kcl-migration"></a>
 
 **Important**  
 Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md).
@@ -11,7 +10,7 @@ This topic explains the differences between versions 1.x and 2.x of the Kinesis 
 Version 2.0 of the KCL introduces the following interface changes:
 
 
-**KCL Interface Changes**  
+**KCL interface changes**  
 
 | KCL 1.x Interface | KCL 2.0 Interface | 
 | --- | --- | 
@@ -32,7 +31,7 @@ Version 2.0 of the KCL introduces the following interface changes:
 
 The following example shows a record processor implemented for KCL 1.x:
 
-```
+```JAVA
 package com.amazonaws.kcl;
 
 import com.amazonaws.services.kinesis.clientlibrary.exceptions.InvalidStateException;
@@ -89,7 +88,7 @@ public class TestRecordProcessor implements IRecordProcessor, IShutdownNotificat
 
 1. Change the interfaces from `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor` and `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IShutdownNotificationAware` to `software.amazon.kinesis.processor.ShardRecordProcessor`, as follows:
 
-   ```
+   ```JAVA
    // import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor;
    // import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IShutdownNotificationAware;
    import software.amazon.kinesis.processor.ShardRecordProcessor;
@@ -100,7 +99,7 @@ public class TestRecordProcessor implements IRecordProcessor, IShutdownNotificat
 
 1. Update the `import` statements for the `initialize` and `processRecords` methods.
 
-   ```
+   ```JAVA
    // import com.amazonaws.services.kinesis.clientlibrary.types.InitializationInput;
    import software.amazon.kinesis.lifecycle.events.InitializationInput;
    
@@ -110,7 +109,7 @@ public class TestRecordProcessor implements IRecordProcessor, IShutdownNotificat
 
 1. Replace the `shutdown` method with the following new methods: `leaseLost`, `shardEnded`, and `shutdownRequested`.
 
-   ```
+   ```JAVA
    //    @Override
    //    public void shutdownRequested(IRecordProcessorCheckpointer checkpointer) {
    //        //
@@ -173,7 +172,7 @@ public class TestRecordProcessor implements IRecordProcessor, IShutdownNotificat
 
 The following is the updated version of the record processor class.
 
-```
+```JAVA
 package com.amazonaws.kcl;
 
 import software.amazon.kinesis.exceptions.InvalidStateException;
@@ -232,7 +231,7 @@ public class TestRecordProcessor implements ShardRecordProcessor {
 
 The record processor factory is responsible for creating record processors when a lease is acquired. The following is an example of a KCL 1.x factory.
 
-```
+```JAVA
 package com.amazonaws.kcl;
 
 import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor;
@@ -250,7 +249,7 @@ public class TestRecordProcessorFactory implements IRecordProcessorFactory {
 
 1. Change the implemented interface from `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessorFactory` to `software.amazon.kinesis.processor.ShardRecordProcessorFactory`, as follows.
 
-   ```
+   ```JAVA
    // import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor;
    import software.amazon.kinesis.processor.ShardRecordProcessor;
    
@@ -263,14 +262,14 @@ public class TestRecordProcessorFactory implements IRecordProcessorFactory {
 
 1. Change the return signature for `createProcessor`.
 
-   ```
+   ```JAVA
    // public IRecordProcessor createProcessor() {
    public ShardRecordProcessor shardRecordProcessor() {
    ```
 
 The following is an example of the record processor factory in 2.0:
 
-```
+```JAVA
 package com.amazonaws.kcl;
 
 import software.amazon.kinesis.processor.ShardRecordProcessor;
@@ -289,7 +288,7 @@ public class TestRecordProcessorFactory implements ShardRecordProcessorFactory {
 
 In version 2.0 of the KCL, a new class, called `Scheduler`, replaces the `Worker` class. The following is an example of a KCL 1.x worker.
 
-```
+```JAVA
 final KinesisClientLibConfiguration config = new KinesisClientLibConfiguration(...)
 final IRecordProcessorFactory recordProcessorFactory = new RecordProcessorFactory();
 final Worker worker = new Worker.Builder()
@@ -302,7 +301,7 @@ final Worker worker = new Worker.Builder()
 
 1. Change the `import` statement for the `Worker` class to the import statements for the `Scheduler` and `ConfigsBuilder` classes.
 
-   ```
+   ```JAVA
    // import com.amazonaws.services.kinesis.clientlibrary.lib.worker.Worker;
    import software.amazon.kinesis.coordinator.Scheduler;
    import software.amazon.kinesis.common.ConfigsBuilder;
@@ -314,7 +313,7 @@ final Worker worker = new Worker.Builder()
 **Important**  
 The Amazon Kinesis Client might see significantly increased latency, unless you configure `KinesisAsyncClient` to have a `maxConcurrency` high enough to allow all leases plus additional usages of `KinesisAsyncClient`.
 
-   ```
+   ```JAVA
    import java.util.UUID;
    
    import software.amazon.awssdk.regions.Region;
@@ -351,7 +350,7 @@ The Amazon Kinesis Client might see significantly increased latency, unless you 
 With the 2.0 release of the Kinesis Client Library, the configuration of the client moved from a single configuration class (`KinesisClientLibConfiguration`) to six configuration classes. The following table describes the migration.
 
 
-**Configuration Fields and Their New Classes**  
+**Configuration fields and their new classes**  
 
 | Original Field | New Configuration Class | Description | 
 | --- | --- | --- | 

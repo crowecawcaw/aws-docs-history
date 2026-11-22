@@ -1,7 +1,6 @@
 
 
 # Use resharding, scaling, and parallel processing to change the number of shards
-<a name="kinesis-record-processor-scaling"></a>
 
 *Resharding* enables you to increase or decrease the number of shards in a stream in order to adapt to changes in the rate of data flowing through the stream. Resharding is typically performed by an administrative application that monitors shard data-handling metrics. Although the KCL itself doesn't initiate resharding operations, it is designed to adapt to changes in the number of shards that result from resharding. 
 

@@ -1,7 +1,6 @@
 
 
 # Use `ListStreams` with an AWS SDK or CLI
-<a name="example_kinesis_ListStreams_section"></a>
 
 The following code examples show how to use `ListStreams`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Kinesis#code-examples). 
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -76,7 +75,7 @@ For more information, see [Listing Streams](https://docs.aws.amazon.com/streams/
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
 
-```
+```python
     def list_streams(self, limit=100):
         """
         Lists Kinesis data streams in the account.
@@ -114,7 +113,7 @@ For more information, see [Listing Streams](https://docs.aws.amazon.com/streams/
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples). 
 
-```
+```rust
 async fn show_streams(client: &Client) -> Result<(), Error> {
     let resp = client.list_streams().send().await?;
 
@@ -138,7 +137,7 @@ async fn show_streams(client: &Client) -> Result<(), Error> {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_kns->liststreams(        " oo_result is returned for testing purposes. "
             "Set Limit to specify that a maximum of streams should be returned."

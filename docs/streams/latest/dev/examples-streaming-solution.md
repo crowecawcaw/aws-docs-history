@@ -1,7 +1,6 @@
 
 
 # Use the AWS Streaming Data Solution for Amazon Kinesis
-<a name="examples-streaming-solution"></a>
 
 The AWS Streaming Data Solution for Amazon Kinesis automatically configures the AWS services necessary to easily capture, store, process, and deliver streaming data. The solution provides multiple options for solving streaming data use cases that use multiple AWS services including Kinesis Data Streams, AWS Lambda, Amazon API Gateway, and Amazon Managed Service for Apache Flink. 
 

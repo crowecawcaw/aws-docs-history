@@ -1,7 +1,6 @@
 
 
 # Develop shared-throughput consumers with the AWS SDK for Java
-<a name="developing-consumers-with-sdk"></a>
 
 One of the methods for developing custom Kinesis Data Streams consumers with shared throughout is to use the Amazon Kinesis Data Streams APIs with the AWS SDK for Java. This section describes using the Kinesis Data Streams APIs with the AWS SDK for Java. You can call the Kinesis Data Streams APIs using other different programming languages. For more information about all available AWS SDKs, see [Start Developing with Amazon Web Services](https://aws.amazon.com/developers/getting-started/). 
 
@@ -35,7 +34,7 @@ Obtain the initial shard iterator using the `getShardIterator` method. Obtain sh
 
 To obtain the initial shard iterator, instantiate `GetShardIteratorRequest` and pass it to the `getShardIterator` method. To configure the request, specify the stream and the shard ID. For information about how to obtain the streams in your AWS account, see [List streams](kinesis-using-sdk-java-list-streams.md). For information about how to obtain the shards in a stream, see [List shards](kinesis-using-sdk-java-list-shards.md).
 
-```
+```java
 String shardIterator;
 GetShardIteratorRequest getShardIteratorRequest = new GetShardIteratorRequest();
 getShardIteratorRequest.setStreamName(myStreamName);
@@ -57,20 +56,20 @@ For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesi
 
 Some iterator types require that you specify a sequence number in addition to the type; for example:
 
-```
+```java
 getShardIteratorRequest.setShardIteratorType("AT_SEQUENCE_NUMBER");
 getShardIteratorRequest.setStartingSequenceNumber(specialSequenceNumber);
 ```
 
 After you obtain a record using `getRecords`, you can get the sequence number for the record by calling the record's `getSequenceNumber` method. 
 
-```
+```java
 record.getSequenceNumber()
 ```
 
 In addition, the code that adds records to the data stream can get the sequence number for an added record by calling `getSequenceNumber` on the result of `putRecord`. 
 
-```
+```java
 lastSequenceNumber = putRecordResult.getSequenceNumber();
 ```
 
@@ -87,7 +86,7 @@ If no records are returned, that means no data records are currently available f
 
 Pass the `getRecordsRequest` to the `getRecords` method, and capture the returned value as a `getRecordsResult` object. To get the data records, call the `getRecords` method on the `getRecordsResult` object. 
 
-```
+```java
 GetRecordsRequest getRecordsRequest = new GetRecordsRequest();
 getRecordsRequest.setShardIterator(shardIterator);
 getRecordsRequest.setLimit(25);
@@ -98,13 +97,13 @@ List<Record> records = getRecordsResult.getRecords();
 
 To prepare for another call to `getRecords`, obtain the next shard iterator from `getRecordsResult`. 
 
-```
+```java
 shardIterator = getRecordsResult.getNextShardIterator();
 ```
 
 For best results, sleep for at least 1 second (1,000 milliseconds) between calls to `getRecords` to avoid exceeding the limit on `getRecords` frequency. 
 
-```
+```java
 try {
   Thread.sleep(1000);
 }
@@ -116,7 +115,7 @@ Typically, you should call `getRecords` in a loop, even when you're retrieving a
 **Example: getRecords**  
 The following code example reflects the `getRecords` tips in this section, including making calls in a loop.
 
-```
+```java
 // Continuously read data records from a shard
 List<Record> records;
     

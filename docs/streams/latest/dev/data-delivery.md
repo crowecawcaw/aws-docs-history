@@ -1,11 +1,10 @@
 
 
 # Streaming tables and S3 delivery for Amazon Kinesis Data Streams
-<a name="data-delivery"></a>
 
 With Amazon Kinesis Data Streams, you can deliver streaming data from your Kinesis data streams to two destination types: streaming tables on Apache Iceberg (Amazon S3 Tables), or general purpose Amazon S3 buckets. You don't need to manage any infrastructure, and you can start delivering within minutes. Amazon Kinesis Data Streams reads from your stream, buffers and aggregates records, and delivers them to your configured destination. Delivery is fully managed – there are no connectors, consumer applications, or compute resources to provision.
 
-These capabilities are supported for streams running in On-Demand Advantage or On-Demand Standard capacity mode. You configure delivery from your stream and specify a destination. Amazon Kinesis Data Streams then handles scaling, retries, and delivery reliability automatically. Delivery does not consume your stream's read throughput and has no impact on existing consumers.
+These capabilities are supported for streams running in On-demand Advantage or On-demand Standard capacity mode. You configure delivery from your stream and specify a destination. Amazon Kinesis Data Streams then handles scaling, retries, and delivery reliability automatically. Delivery does not consume your stream's read throughput and has no impact on existing consumers.
 
 **Topics**
 + [How data delivery works](#data-delivery-how-it-works)
@@ -28,7 +27,7 @@ These capabilities are supported for streams running in On-Demand Advantage or O
 
 Data delivery connects your Kinesis data stream to a delivery destination through a managed pipeline:
 
-1. You publish data to a Kinesis data stream in On-Demand mode.
+1. You publish data to a Kinesis data stream in On-demand mode.
 
 1. You call `CreateChannel` on the stream and specify a destination (streaming tables on Apache Iceberg, or a general purpose Amazon S3 bucket).
 
@@ -75,7 +74,7 @@ Data delivery provides the following key capabilities:
 <a name="data-delivery-requirements-overview"></a>
 
 Data delivery has the following requirements:
-+ Your Kinesis data stream must use On-Demand Standard or On-Demand Advantage capacity mode.
++ Your Kinesis data stream must use On-demand Standard or On-demand Advantage capacity mode.
 + You must create an IAM service execution role that grants the delivery permissions to write to your destination.
 + Your destination bucket or table bucket must be in the same Region as your Kinesis data stream. Data delivery does not support cross-Region delivery for either destination type.
 + For streaming tables on Apache Iceberg, cross-account delivery is not supported. The source stream, the destination S3 table bucket, and AWS Glue Schema Registry must all be in the same AWS account and the same Region.

@@ -1,7 +1,6 @@
 
 
 # Costs, Regions, and performance considerations
-<a name="costs-performance"></a>
 
 When you apply server-side encryption, you are subject to AWS KMS API usage and key costs. Unlike custom KMS master keys, the `(Default) aws/kinesis` customer master key (CMK) is offered free of charge. However, you still must pay for the API usage costs that Amazon Kinesis Data Streams incurs on your behalf.
 
@@ -25,7 +24,7 @@ For every encrypted stream, when reading from TIP and using a single IAM account
 
 Currently, server-side encryption of Kinesis streams is available in all the Regions supported for Kinesis Data Streams, including AWS GovCloud (US-West), and the China Regions. For more information about supported Regions for Kinesis Data Streams see [https://docs.aws.amazon.com/general/latest/gr/ak.html](https://docs.aws.amazon.com/general/latest/gr/ak.html).
 
-## Performance Considerations
+## Performance considerations
 <a name="performance-considerations"></a>
 
 Due to the service overhead of applying encryption, applying server-side encryption increases the typical latency of `PutRecord`, `PutRecords`, and `GetRecords` by less than 100μs.

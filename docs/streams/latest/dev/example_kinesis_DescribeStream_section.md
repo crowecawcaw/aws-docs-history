@@ -1,7 +1,6 @@
 
 
 # Use `DescribeStream` with an AWS SDK or CLI
-<a name="example_kinesis_DescribeStream_section"></a>
 
 The following code examples show how to use `DescribeStream`.
 
@@ -77,7 +76,7 @@ For more information, see [Creating and Managing Streams](https://docs.aws.amazo
 **Tools for PowerShell V4**  
 **Example 1: Returns details of the specified stream.**  
 
-```
+```powershell
 Get-KINStream -StreamName "mystream"
 ```
 **Output:**  
@@ -95,7 +94,7 @@ StreamStatus         : ACTIVE
 **Tools for PowerShell V5**  
 **Example 1: Returns details of the specified stream.**  
 
-```
+```powershell
 Get-KINStream -StreamName "mystream"
 ```
 **Output:**  
@@ -116,7 +115,7 @@ StreamStatus         : ACTIVE
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
 
-```
+```python
 class KinesisStream:
     """Encapsulates a Kinesis stream."""
 
@@ -156,7 +155,7 @@ class KinesisStream:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples). 
 
-```
+```rust
 async fn show_stream(client: &Client, stream: &str) -> Result<(), Error> {
     let resp = client.describe_stream().stream_name(stream).send().await?;
 
@@ -180,7 +179,7 @@ async fn show_stream(client: &Client, stream: &str) -> Result<(), Error> {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_kns->describestream(
             iv_streamname = iv_stream_name ).

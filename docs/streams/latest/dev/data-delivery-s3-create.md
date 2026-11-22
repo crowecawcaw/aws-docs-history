@@ -1,7 +1,6 @@
 
 
 # Create an Amazon S3 delivery
-<a name="data-delivery-s3-create"></a>
 
  Create a delivery that sends records from an Amazon Kinesis Data Streams stream to a general purpose Amazon S3 bucket. You can create a delivery with the AWS Management Console or the AWS CLI. Records are delivered in their source format, batched into optimally sized objects, with configurable compression and an S3 key structure you define. 
 
@@ -15,7 +14,7 @@
 
 1. In the navigation pane, choose **S3 general purpose delivery**, and then choose **Create delivery**.
 
-1. **Step 1: Source configuration.** Under **Delivery details**, enter a **Delivery name**. For **Source**, choose the On-Demand stream to deliver from. Only On-Demand streams are displayed. Choose **Next**.
+1. **Step 1: Source configuration.** Under **Delivery details**, enter a **Delivery name**. For **Source**, choose the On-demand stream to deliver from. Only On-demand streams are displayed. Choose **Next**.
 
 1. **Step 2: Destination configuration.** Choose a **Record format** (**JSON**, **STRING**, or **BYTE\_ARRAY**), and then specify the destination:
    + **S3 bucket ARN** – the ARN of the destination general purpose Amazon S3 bucket.
@@ -36,7 +35,7 @@
 
  Use the `create-channel` command to create an Amazon S3 delivery that sends records to a general purpose Amazon S3 bucket with JSON format and GZIP compression: 
 
-```
+```bash
 aws kinesis create-channel \
     --channel-name "my-s3-delivery" \
     --service-execution-role-arn "arn:aws:iam::111122223333:role/my-channel-role" \

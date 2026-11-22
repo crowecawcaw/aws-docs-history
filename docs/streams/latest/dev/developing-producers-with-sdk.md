@@ -1,7 +1,6 @@
 
 
 # Develop producers using the Amazon Kinesis Data Streams API with the AWS SDK for Java
-<a name="developing-producers-with-sdk"></a>
 
 You can develop producers using the Amazon Kinesis Data Streams API with the AWS SDK for Java. If you are new to Kinesis Data Streams, start by becoming familiar with the concepts and terminology presented in [What is Amazon Kinesis Data Streams?](introduction.md) and [Use the AWS CLI to perform Amazon Kinesis Data Streams operations](getting-started.md).
 
@@ -48,7 +47,7 @@ A `PutRecords` request can include records with different partition keys. The sc
 
 The following code creates 100 data records with sequential partition keys and puts them in a stream called `DataStream`. 
 
-```
+```java
         AmazonKinesisClientBuilder clientBuilder = AmazonKinesisClientBuilder.standard();
         
         clientBuilder.setRegion(regionName);
@@ -81,9 +80,9 @@ By default, failure of individual records within a request does not stop the pro
 
 Successful records include `SequenceNumber` and `ShardID` values, and unsuccessful records include `ErrorCode` and `ErrorMessage` values. The `ErrorCode` parameter reflects the type of error and can be one of the following values: `ProvisionedThroughputExceededException` or `InternalFailure`. `ErrorMessage` provides more detailed information about the `ProvisionedThroughputExceededException` exception including the account ID, stream name, and shard ID of the record that was throttled. The example below has three records in a `PutRecords` request. The second record fails and is reflected in the response. 
 
-**Example PutRecords Request Syntax**  
+**Example PutRecords request syntax**  
 
-```
+```json
 {
     "Records": [
         {
@@ -103,9 +102,9 @@ Successful records include `SequenceNumber` and `ShardID` values, and unsuccessf
 }
 ```
 
-**Example PutRecords Response Syntax**  
+**Example PutRecords response syntax**  
 
-```
+```json
 {
     "FailedRecordCount”: 1,
     "Records": [
@@ -131,7 +130,7 @@ Records that were unsuccessfully processed can be included in subsequent `PutRec
 
 **Example PutRecords failure handler**  
 
-```
+```java
 PutRecordsRequest putRecordsRequest = new PutRecordsRequest();
 putRecordsRequest.setStreamName(myStreamName);
 List<PutRecordsRequestEntry> putRecordsRequestEntryList = new ArrayList<>();
@@ -184,7 +183,7 @@ A partition key is used to group data within the stream. A data record is assign
 
 The following code creates ten data records, distributed across two partition keys, and puts them in a stream called `myStreamName`.
 
-```
+```java
 for (int j = 0; j < 10; j++) 
 {
   PutRecordRequest putRecordRequest = new PutRecordRequest();

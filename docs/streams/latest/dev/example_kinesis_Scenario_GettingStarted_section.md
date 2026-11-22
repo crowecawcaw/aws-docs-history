@@ -1,7 +1,6 @@
 
 
 # Learn Data Streams basics using an AWS SDK
-<a name="example_kinesis_Scenario_GettingStarted_section"></a>
 
 The following code examples show how to:
 + Create a stream and wait for it to become ACTIVE.
@@ -24,7 +23,7 @@ The following code examples show how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
 Run the Kinesis Data Streams basics scenario.  
 
-```
+```python
 def run_scenario(kinesis_wrapper):
     """
     Runs the Kinesis Data Streams basics scenario.
@@ -282,7 +281,7 @@ if __name__ == "__main__":
 ```
 Define a wrapper class that is called by the scenario to manage Kinesis actions.  
 
-```
+```python
 class KinesisWrapper:
     """Encapsulates Amazon Kinesis Data Streams operations."""
 
@@ -596,7 +595,7 @@ class KinesisWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples). 
 
-```
+```sap-abap
     DATA lo_stream_describe_result TYPE REF TO /aws1/cl_knsdescrstreamoutput.
     DATA lo_stream_description TYPE REF TO /aws1/cl_knsstreamdescription.
     DATA lo_sharditerator TYPE REF TO /aws1/cl_knsgetsharditerator01.

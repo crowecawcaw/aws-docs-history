@@ -1,7 +1,6 @@
 
 
 # How Amazon S3 delivery works
-<a name="data-delivery-s3-about"></a>
 
  Use this topic to learn how an Amazon S3 delivery sends records from an Amazon Kinesis Data Streams stream to general purpose Amazon Simple Storage Service buckets, including storage configuration, compression, storage class, record formats, and encryption. 
 

@@ -1,7 +1,6 @@
 
 
 # Download and build the code
-<a name="tutorial-stock-data-kplkcl2-download"></a>
 
 This topic provides sample implementation code for the sample stock trades ingestion into the data stream (*producer*) and the processing of this data (*consumer*).
 

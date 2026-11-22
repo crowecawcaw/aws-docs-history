@@ -1,7 +1,6 @@
 
 
 # Getting started tutorials for Amazon Kinesis Data Streams
-<a name="examples"></a>
 
 Amazon Kinesis Data Streams provides a number of different solutions to ingesting and consuming data from Kinesis data streams. The tutorials in this section are designed to further assist you in understanding Amazon Kinesis Data Streams concepts and functionality and identify the solution that meets your needs. 
 

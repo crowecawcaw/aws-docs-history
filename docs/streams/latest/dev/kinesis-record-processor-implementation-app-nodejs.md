@@ -1,7 +1,6 @@
 
 
 # Develop a Kinesis Client Library consumer in Node.js
-<a name="kinesis-record-processor-implementation-app-nodejs"></a>
 
 **Important**  
 Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md).
@@ -12,7 +11,7 @@ The KCL is a Java library; support for languages other than Java is provided usi
 
 To download the Node.js KCL from GitHub, go to [Kinesis Client Library (Node.js)](https://github.com/awslabs/amazon-kinesis-client-nodejs).
 
-**Sample Code Downloads**
+**Sample code downloads**
 
 There are two code samples available for KCL in Node.js:
 + [basic-sample](https://github.com/awslabs/amazon-kinesis-client-nodejs/tree/master/samples/basic_sample)
@@ -33,7 +32,7 @@ You must complete the following tasks when implementing a KCL consumer applicati
 
 The simplest possible consumer using the KCL for Node.js must implement a `recordProcessor` function, which in turn contains the functions `initialize`, `processRecords`, and `shutdown`. The sample provides an implementation that you can use as a starting point (see `sample_kcl_app.js`).
 
-```
+```java
 function recordProcessor() {
   // return an object that implements initialize, processRecords and shutdown functions.}
 ```
@@ -41,14 +40,14 @@ function recordProcessor() {
 **initialize**  
 The KCL calls the `initialize` function when the record processor starts. This record processor processes only the shard ID passed as `initializeInput.shardId`, and typically, the reverse is also true (this shard is processed only by this record processor). However, your consumer should account for the possibility that a data record might be processed more than one time. This is because Kinesis Data Streams has *at least once* semantics, meaning that every data record from a shard is processed at least one time by a worker in your consumer. For more information about cases in which a particular shard might be processed by more than one worker, see [Use resharding, scaling, and parallel processing to change the number of shards](kinesis-record-processor-scaling.md).
 
-```
+```java
 initialize: function(initializeInput, completeCallback)
 ```
 
 **processRecords**  
  The KCL calls this function with input that contains a list of data records from the shard specified to the `initialize` function. The record processor that you implement processes the data in these records according to the semantics of your consumer. For example, the worker might perform a transformation on the data and then store the result in an Amazon Simple Storage Service (Amazon S3) bucket. 
 
-```
+```java
 processRecords: function(processRecordsInput, completeCallback)
 ```
 
@@ -77,7 +76,7 @@ The basic sample application shows the simplest possible call to the `checkpoint
 **shutdown**  
 The KCL calls the `shutdown` function either when processing ends (`shutdownInput.reason` is `TERMINATE`) or the worker is no longer responding (`shutdownInput.reason` is `ZOMBIE`).
 
-```
+```java
 shutdown: function(shutdownInput, completeCallback)
 ```
 

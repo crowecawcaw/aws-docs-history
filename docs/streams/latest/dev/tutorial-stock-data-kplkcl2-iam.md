@@ -1,7 +1,6 @@
 
 
 # Create an IAM policy and user
-<a name="tutorial-stock-data-kplkcl2-iam"></a>
 
 Security best practices for AWS dictate the use of fine-grained permissions to control access to different resources. AWS Identity and Access Management (IAM) lets you to manage users and user permissions in AWS. An [IAM policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html) explicitly lists actions that are allowed and the resources on which the actions are applicable.
 
@@ -88,7 +87,7 @@ The resulting policy document should look like this:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

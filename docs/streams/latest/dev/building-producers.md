@@ -1,7 +1,6 @@
 
 
 # Write data to Amazon Kinesis Data Streams
-<a name="building-producers"></a>
 
 A *producer* is an application that writes data to Amazon Kinesis Data Streams. You can build producers for Kinesis Data Streams using the AWS SDK for Java and the Kinesis Producer Library (KPL).
 

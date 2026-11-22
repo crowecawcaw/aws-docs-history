@@ -1,7 +1,6 @@
 
 
 # Tag your Amazon Kinesis Data Streams resources
-<a name="tagging"></a>
 
 You can assign your own metadata to streams and enhanced fan-out consumers you create in Amazon Kinesis Data Streams in the form of *tags*. A tag is a key-value pair that you define for a stream. Using tags is a simple yet powerful way to manage AWS resources and organize data, including billing data.
 

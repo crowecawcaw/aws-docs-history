@@ -1,7 +1,6 @@
 
 
 # Monitor the Amazon Kinesis Data Streams service with Amazon CloudWatch
-<a name="monitoring-with-cloudwatch"></a>
 
 Amazon Kinesis Data Streams and Amazon CloudWatch are integrated so that you can collect, view, and analyze CloudWatch metrics for your Kinesis data streams. For example, to track shard usage, you can monitor the `IncomingBytes` and `OutgoingBytes` metrics and compare them to the number of shards in the stream.
 
@@ -20,12 +19,15 @@ The following table describes basic stream-level and enhanced shard-level monito
 
 Kinesis Data Streams sends metrics to CloudWatch at two levels: the stream level and, optionally, the shard level. Stream-level metrics are for the most common monitoring use cases in normal conditions. Shard-level metrics are for specific monitoring tasks, usually related to troubleshooting, and are enabled using the [EnableEnhancedMonitoring](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_EnableEnhancedMonitoring.html) operation. 
 
+These metrics cover the stream and each way of consuming it. For the namespace and dimensions that apply to each consumption path, see [Metrics by consumption path](#kinesis-metrics-consumption-paths).
+
 For an explanation of the statistics gathered from CloudWatch metrics, see [CloudWatch Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide*.
 
 **Topics**
 + [Basic stream-level metrics](#kinesis-metrics-stream)
 + [Enhanced shard-level metrics](#kinesis-metrics-shard)
 + [Dimensions for Amazon Kinesis Data Streams metrics](#kinesis-metricdimensions)
++ [Metrics by consumption path](#kinesis-metrics-consumption-paths)
 + [Recommended Amazon Kinesis Data Streams metrics](#kinesis-metric-use)
 
 ### Basic stream-level metrics
@@ -40,7 +42,7 @@ Kinesis Data Streams sends these stream-level metrics to CloudWatch every minute
 | --- | --- | 
 | GetRecords.Bytes | The number of bytes retrieved from the Kinesis stream, measured over the specified time period. Minimum, Maximum, and Average statistics represent the bytes in a single `GetRecords` operation for the stream in the specified time period.<br />Shard-level metric name: `OutgoingBytes`<br />Dimensions: StreamName<br />Statistics: Minimum, Maximum, Average, Sum, Samples<br />Units: Bytes | 
 | GetRecords.IteratorAge | This metric is no longer used. Use `GetRecords.IteratorAgeMilliseconds`. | 
-| GetRecords.IteratorAgeMilliseconds | The age of the last record in all `GetRecords` calls made against a Kinesis stream, measured over the specified time period. Age is the difference between the current time and when the last record of the `GetRecords` call was written to the stream. The Minimum and Maximum statistics can be used to track the progress of Kinesis consumer applications. A value of zero indicates that the records being read are completely caught up with the stream.<br />Shard-level metric name: `IteratorAgeMilliseconds`<br />Dimensions: StreamName<br />Statistics: Minimum, Maximum, Average, Samples<br />Units: Milliseconds | 
+| GetRecords.IteratorAgeMilliseconds | The age of the last record in all `GetRecords` calls made against a Kinesis stream, measured over the specified time period. Age is the difference between the current time and when the last record of the `GetRecords` call was written to the stream. The Minimum and Maximum statistics can be used to track the progress of Kinesis stream consumers. A value of zero indicates that the records being read are completely caught up with the stream.<br />Shard-level metric name: `IteratorAgeMilliseconds`<br />Dimensions: StreamName<br />Statistics: Minimum, Maximum, Average, Samples<br />Units: Milliseconds | 
 | GetRecords.Latency | The time taken per `GetRecords` operation, measured over the specified time period.<br />Dimensions: StreamName<br />Statistics: Minimum, Maximum, Average<br />Units: Milliseconds | 
 | GetRecords.Records | The number of records retrieved from the shard, measured over the specified time period. Minimum, Maximum, and Average statistics represent the records in a single `GetRecords` operation for the stream in the specified time period.<br />Shard-level metric name: `OutgoingRecords`<br />Dimensions: StreamName<br />Statistics: Minimum, Maximum, Average, Sum, Samples<br />Units: Count | 
 | GetRecords.Success | The number of successful `GetRecords` operations per stream, measured over the specified time period.<br />Dimensions: StreamName<br />Statistics: Average, Sum, Samples<br />Units: Count | 
@@ -78,7 +80,7 @@ Kinesis sends the following shard-level metrics to CloudWatch every minute. Each
 | --- | --- | 
 | IncomingBytes | The number of bytes successfully put to the shard over the specified time period. This metric includes bytes from `PutRecord` and `PutRecords` operations. Minimum, Maximum, and Average statistics represent the bytes in a single put operation for the shard in the specified time period.<br />Stream-level metric name: `IncomingBytes`<br />Dimensions: StreamName, ShardId<br />Statistics: Minimum, Maximum, Average, Sum, Samples<br />Units: Bytes | 
 | IncomingRecords | The number of records successfully put to the shard over the specified time period. This metric includes record counts from `PutRecord` and `PutRecords` operations. Minimum, Maximum, and Average statistics represent the records in a single put operation for the shard in the specified time period.<br />Stream-level metric name: `IncomingRecords`<br />Dimensions: StreamName, ShardId<br />Statistics: Minimum, Maximum, Average, Sum, Samples<br />Units: Count | 
-| IteratorAgeMilliseconds | The age of the last record in all `GetRecords` calls made against a shard, measured over the specified time period. Age is the difference between the current time and when the last record of the `GetRecords` call was written to the stream. The Minimum and Maximum statistics can be used to track the progress of Kinesis consumer applications. A value of 0 (zero) indicates that the records being read are completely caught up with the stream.<br />Stream-level metric name: `GetRecords.IteratorAgeMilliseconds`<br />Dimensions: StreamName, ShardId<br />Statistics: Minimum, Maximum, Average, Samples<br />Units: Milliseconds | 
+| IteratorAgeMilliseconds | The age of the last record in all `GetRecords` calls made against a shard, measured over the specified time period. Age is the difference between the current time and when the last record of the `GetRecords` call was written to the stream. The Minimum and Maximum statistics can be used to track the progress of Kinesis stream consumers. A value of 0 (zero) indicates that the records being read are completely caught up with the stream.<br />Stream-level metric name: `GetRecords.IteratorAgeMilliseconds`<br />Dimensions: StreamName, ShardId<br />Statistics: Minimum, Maximum, Average, Samples<br />Units: Milliseconds | 
 | OutgoingBytes | The number of bytes retrieved from the shard, measured over the specified time period. Minimum, Maximum, and Average statistics represent the bytes returned in a single `GetRecords` operation or published in a single `SubscribeToShard` event for the shard in the specified time period.<br />Stream-level metric name: `GetRecords.Bytes`<br />Dimensions: StreamName, ShardId<br />Statistics: Minimum, Maximum, Average, Sum, Samples<br />Units: Bytes | 
 | OutgoingRecords | The number of records retrieved from the shard, measured over the specified time period. Minimum, Maximum, and Average statistics represent the records returned in a single `GetRecords` operation or published in a single `SubscribeToShard` event for the shard in the specified time period.<br />Stream-level metric name: `GetRecords.Records`<br />Dimensions: StreamName, ShardId<br />Statistics: Minimum, Maximum, Average, Sum, Samples<br />Units: Count | 
 | ReadProvisionedThroughputExceeded | The number of `GetRecords` calls throttled for the shard over the specified time period. This exception count covers all dimensions of the following limits: 5 reads per shard per second or 2 MB per second per shard. The most commonly used statistic for this metric is Average.<br />When the Minimum statistic has a value of 1, all records were throttled for the shard during the specified time period. <br />When the Maximum statistic has a value of 0 (zero), no records were throttled for the shard during the specified time period.<br />Stream-level metric name: `ReadProvisionedThroughputExceeded`<br />Dimensions: StreamName, ShardId<br />Statistics: Minimum, Maximum, Average, Sum, Samples<br />Units: Count | 
@@ -92,6 +94,19 @@ Kinesis sends the following shard-level metrics to CloudWatch every minute. Each
 | --- | --- | 
 |  StreamName  | The name of the Kinesis stream. All available statistics are filtered by `StreamName`.  | 
 
+### Metrics by consumption path
+<a name="kinesis-metrics-consumption-paths"></a>
+
+The following table shows the CloudWatch namespace and dimensions for each way of consuming a stream, and where each set of metrics is documented.
+
+
+| Consumption path | Namespace | Dimensions | Where documented | 
+| --- | --- | --- | --- | 
+| Shared-throughput stream consumers | `AWS/Kinesis` | `StreamName` | [Basic stream-level metrics](#kinesis-metrics-stream) | 
+| Enhanced fan-out stream consumers | `AWS/Kinesis` | `StreamName`, `ConsumerName` | [Basic stream-level metrics](#kinesis-metrics-stream) | 
+| Queues | `AWS/Kinesis` | `QueueId`, `QueueName` | [Monitor a queue](queues-monitoring.md) | 
+| Streaming tables and Amazon S3 delivery | `AWS/Kinesis` | `ChannelName`, `ChannelId`, `StreamName` | [Monitoring data delivery](data-delivery-monitoring.md) | 
+
 ### Recommended Amazon Kinesis Data Streams metrics
 <a name="kinesis-metric-use"></a>
 
@@ -100,8 +115,8 @@ Several Amazon Kinesis Data Streams metrics might be of particular interest to K
 
 | Metric | Usage Notes | 
 | --- | --- | 
-| `GetRecords.IteratorAgeMilliseconds` | Tracks the read position across all shards and consumers in the stream. If an iterator's age passes 50% of the retention period (by default, 24 hours, configurable up to 7 days), there is risk for data loss due to record expiration. We recommend that you use CloudWatch alarms on the Maximum statistic to alert you before this loss is a risk. For an example scenario that uses this metric, see [Consumer record processing is falling behind](troubleshooting-consumers.md#record-processing-falls-behind). | 
-| `ReadProvisionedThroughputExceeded` | When your consumer-side record processing is falling behind, it is sometimes difficult to know where the bottleneck is. Use this metric to determine if your reads are being throttled due to exceeding your read throughput limits. The most commonly used statistic for this metric is Average. | 
+| `GetRecords.IteratorAgeMilliseconds` | Tracks the read position across all shards and stream consumers in the stream. If an iterator's age passes 50% of the retention period (by default, 24 hours, configurable up to 7 days), there is risk for data loss due to record expiration. We recommend that you use CloudWatch alarms on the Maximum statistic to alert you before this loss is a risk. For an example scenario that uses this metric, see [Consumer record processing is falling behind](troubleshooting-consumers.md#record-processing-falls-behind). | 
+| `ReadProvisionedThroughputExceeded` | When your stream consumer's record processing is falling behind, it is sometimes difficult to know where the bottleneck is. Use this metric to determine if your reads are being throttled due to exceeding your read throughput limits. The most commonly used statistic for this metric is Average. | 
 | WriteProvisionedThroughputExceeded | This is for the same purpose as the ReadProvisionedThroughputExceeded metric, but for the producer (put) side of the stream. The most commonly used statistic for this metric is Average. | 
 | PutRecord.Success, PutRecords.Success | We recommend using CloudWatch alarms on the Average statistic to indicate when records are failing to the stream. Choose one or both put types depending on what your producer uses. If using the Amazon Kinesis Producer Library (KPL), use PutRecords.Success. | 
 | GetRecords.Success | We recommend using CloudWatch alarms on the Average statistic to indicate when records are failing from the stream. | 

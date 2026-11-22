@@ -1,7 +1,6 @@
 
 
 # KCL configurations
-<a name="kcl-configuration"></a>
 
 You can set configuration properties to customize Kinesis Client Library's functionality to meet your specific requirements. The following table describes configuration properties and classes.
 
@@ -23,9 +22,9 @@ In KCL 3.x, the load balancing algorithm aims to achieve even CPU utilization ac
 | ignoreUnexpectedChildShards | LeaseManagementConfig | When set, child shards that have an open shard are ignored. This is primarily for DynamoDB Streams. | FALSE | 
 | maxLeasesForWorker | LeaseManagementConfig | The maximum number of leases a single worker should accept. Setting it too low may cause data loss if workers can't process all shards, and lead to a suboptimal lease assignment among workers. Consider total shard count, number of workers, and worker processing capacity when configuring it. | Unlimited | 
 | maxLeaseRenewalThreads | LeaseManagementConfig | Controls the size of the lease renewer thread pool. The more leases that your application could take, the larger this pool should be. | 20 | 
-| billingMode | LeaseManagementConfig | Determines the capacity mode of the lease table created in DynamoDB. There are two options: on-demand mode (PAY\_PER\_REQUEST) and provisioned mode. We recommend using the default setting of on-demand mode because it automatically scales to accommodate your workload without the need for capacity planning. | PAY\_PER\_REQUEST (on-demand mode) | 
-| initialLeaseTableReadCapacity | LeaseManagementConfig | The DynamoDB read capacity that is used if the Kinesis Client Library needs to create a new DynamoDB lease table with provisioned capacity mode. You can ignore this configuration if you are using the default on-demand capacity mode in billingMode configuration. | 10 | 
-| initialLeaseTableWriteCapacity | LeaseManagementConfig | The DynamoDB read capacity that is used if the Kinesis Client Library needs to create a new DynamoDB lease table. You can ignore this configuration if you are using the default on-demand capacity mode in billingMode configuration. | 10 | 
+| billingMode | LeaseManagementConfig | Determines the capacity mode of the lease table created in DynamoDB. There are two options: On-demand mode (PAY\_PER\_REQUEST) and provisioned mode. We recommend using the default setting of On-demand mode because it automatically scales to accommodate your workload without the need for capacity planning. | PAY\_PER\_REQUEST (On-demand mode) | 
+| initialLeaseTableReadCapacity | LeaseManagementConfig | The DynamoDB read capacity that is used if the Kinesis Client Library needs to create a new DynamoDB lease table with provisioned capacity mode. You can ignore this configuration if you are using the default On-demand capacity mode in billingMode configuration. | 10 | 
+| initialLeaseTableWriteCapacity | LeaseManagementConfig | The DynamoDB read capacity that is used if the Kinesis Client Library needs to create a new DynamoDB lease table. You can ignore this configuration if you are using the default On-demand capacity mode in billingMode configuration. | 10 | 
 | initialPositionInStreamExtended | LeaseManagementConfig | The initial position in the stream that the application should start at. This is only used during initial lease creation. | InitialPositionInStream.TRIM\_HORIZON | 
 | reBalanceThresholdPercentage | LeaseManagementConfig | A percentage value that determines when the load balancing algorithm should consider reassigning shards among workers.<br />This is a new configuration introduced in KCL 3.x. | 10 | 
 | useAbsoluteReBalanceThreshold | LeaseManagementConfig | Determines whether `reBalanceThresholdPercentage` is applied as fixed percentage points (`true`) or as a relative percentage of the fleet average (`false`), when the load balancing algorithm uses CPU metrics to rebalance leases.<br />This is a new configuration introduced in KCL 3.x. | FALSE | 

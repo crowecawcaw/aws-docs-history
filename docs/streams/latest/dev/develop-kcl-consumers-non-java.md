@@ -1,7 +1,6 @@
 
 
 # Develop consumers with KCL in non-Java languages
-<a name="develop-kcl-consumers-non-java"></a>
 
 This section covers the implementation of consumers using Kinesis Client Library (KCL) in Python, Node.js, .NET, and Ruby.
 

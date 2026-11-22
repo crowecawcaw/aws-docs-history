@@ -1,7 +1,6 @@
 
 
 # Upgrade KPL to send null partition keys
-<a name="service-managed-pk-kpl-upgrade-for-null"></a>
 
 To send records without providing a partition key to a service-managed stream, you must upgrade to the latest KPL version. The updated KPL can detect whether a stream uses service-managed record distribution (AUTO) and handle null partition keys accordingly.
 

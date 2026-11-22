@@ -1,7 +1,6 @@
 
 
 # Reshard a stream
-<a name="kinesis-using-sdk-java-resharding"></a>
 
 **Important**  
 You can reshard your stream using the [UpdateShardCount](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateShardCount.html) API. Otherwise, you can continue to perform splits and merges as explained here.

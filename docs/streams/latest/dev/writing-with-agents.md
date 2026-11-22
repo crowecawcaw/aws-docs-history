@@ -1,7 +1,6 @@
 
 
 # Write to Amazon Kinesis Data Streams using Kinesis Agent
-<a name="writing-with-agents"></a>
 
 Kinesis Agent is a stand-alone Java software application that offers an easy way to collect and send data to Kinesis Data Streams. The agent continuously monitors a set of files and sends new data to your stream. The agent handles file rotation, checkpointing, and retry upon failures. It delivers all of your data in a reliable, timely, and simple manner. It also emits Amazon CloudWatch metrics to help you better monitor and troubleshoot the streaming process.
 
@@ -80,7 +79,7 @@ CMD ["start-aws-kinesis-agent"]
 
    In this configuration file, specify the files ( `"filePattern"` ) from which the agent collects data, and the name of the stream ( `"kinesisStream"` ) to which the agent sends data. Note that the file name is a pattern, and the agent recognizes file rotations. You can rotate files or create new files no more than once per second. The agent uses the file creation timestamp to determine which files to track and tail into your stream; creating new files or rotating files more frequently than once per second does not allow the agent to differentiate properly between them.
 
-   ```
+   ```json
    { 
       "flows": [
            { 
@@ -159,7 +158,7 @@ The following are the flow configuration settings.
 
 By specifying multiple flow configuration settings, you can configure the agent to monitor multiple file directories and send data to multiple streams. In the following configuration example, the agent monitors two file directories and sends data to an Kinesis stream and a Firehose delivery stream respectively. Note that you can specify different endpoints for Kinesis Data Streams and Firehose so that your Kinesis stream and Firehose delivery stream don’t need to be in the same region.
 
-```
+```json
 {
     "cloudwatch.emitMetrics": {{true}},
     "kinesis.endpoint": "{{https://your/kinesis/endpoint}}", 
@@ -184,12 +183,12 @@ For more detailed information about using the agent with Firehose, see [Writing 
 
 The agent can pre-process the records parsed from monitored files before sending them to your stream. You can enable this feature by adding the `dataProcessingOptions` configuration setting to your file flow. One or more processing options can be added and they will be performed in the specified order.
 
-The agent supports the following processing options listed. Because the agent is open-source, you can further develop and extend its processing options. You can download the agent from [Kinesis Agent](https://github.com/awslabs/amazon-kinesis-agent).Processing Options
+The agent supports the following processing options listed. Because the agent is open-source, you can further develop and extend its processing options. You can download the agent from [Kinesis Agent](https://github.com/awslabs/amazon-kinesis-agent).Processing options
 
 `SINGLELINE`  
 Converts a multi-line record to a single line record by removing newline characters, leading spaces, and trailing spaces.  
 
-```
+```json
 {
     "optionName": "SINGLELINE"
 }
@@ -198,7 +197,7 @@ Converts a multi-line record to a single line record by removing newline charact
 `CSVTOJSON`  
 Converts a record from delimiter separated format to JSON format.  
 
-```
+```json
 {
     "optionName": "CSVTOJSON",
     "customFieldNames": [ "{{field1}}", "{{field2}}", {{...}} ],
@@ -213,7 +212,7 @@ The string used as the delimiter in the record. The default is a comma (,).
 `LOGTOJSON`  
 Converts a record from a log format to JSON format. The supported log formats are **Apache Common Log**, **Apache Combined Log**, **Apache Error Log**, and **RFC3164 Syslog**.  
 
-```
+```json
 {
     "optionName": "LOGTOJSON",
     "logFormat": "{{logformat}}",
@@ -232,10 +231,10 @@ The regular expression pattern used to extract values from log entries. This set
 `customFieldNames`  
 The custom field names used as keys in each JSON key value pair. You can use this setting to define field names for values extracted from `matchPattern`, or override the default field names of predefined log formats.
 
-**Example : LOGTOJSON Configuration**  <a name="example-logtojson"></a>
+**Example : LOGTOJSON configuration**  <a name="example-logtojson"></a>
 Here is one example of a `LOGTOJSON` configuration for an Apache Common Log entry converted to JSON format:  
 
-```
+```json
 {
     "optionName": "LOGTOJSON",
     "logFormat": "COMMONAPACHELOG"
@@ -252,10 +251,10 @@ After conversion:
 {"host":"64.242.88.10","ident":null,"authuser":null,"datetime":"07/Mar/2004:16:10:02 -0800","request":"GET /mailman/listinfo/hsdivision HTTP/1.1","response":"200","bytes":"6291"}
 ```
 
-**Example : LOGTOJSON Configuration With Custom Fields**  <a name="example-logtojson-custom-fields"></a>
+**Example : LOGTOJSON configuration with custom fields**  <a name="example-logtojson-custom-fields"></a>
 Here is another example `LOGTOJSON` configuration:  
 
-```
+```json
 {
     "optionName": "LOGTOJSON",
     "logFormat": "COMMONAPACHELOG",
@@ -268,10 +267,10 @@ With this configuration setting, the same Apache Common Log entry from the previ
 {"f1":"64.242.88.10","f2":null,"f3":null,"f4":"07/Mar/2004:16:10:02 -0800","f5":"GET /mailman/listinfo/hsdivision HTTP/1.1","f6":"200","f7":"6291"}
 ```
 
-**Example : Convert Apache Common Log Entry**  <a name="example-apache-common-log-entry"></a>
+**Example : Convert Apache common log entry**  <a name="example-apache-common-log-entry"></a>
 The following flow configuration converts an Apache Common Log entry to a single line record in JSON format:  
 
-```
+```json
 { 
     "flows": [
         {
@@ -288,10 +287,10 @@ The following flow configuration converts an Apache Common Log entry to a single
 }
 ```
 
-**Example : Convert Multi-Line Records**  <a name="example-convert-multiline"></a>
+**Example : Convert multi-line records**  <a name="example-convert-multiline"></a>
 The following flow configuration parses multi-line records whose first line starts with "`[SEQUENCE=`". Each record is first converted to a single line record. Then, values are extracted from the record based on a tab delimiter. Extracted values are mapped to specified `customFieldNames` values to form a single-line record in JSON format.  
 
-```
+```json
 { 
     "flows": [
         {
@@ -313,10 +312,10 @@ The following flow configuration parses multi-line records whose first line star
 }
 ```
 
-**Example : LOGTOJSON Configuration with Match Pattern**  <a name="example-logtojson-match-pattern"></a>
+**Example : LOGTOJSON configuration with match pattern**  <a name="example-logtojson-match-pattern"></a>
 Here is one example of a `LOGTOJSON` configuration for an Apache Common Log entry converted to JSON format, with the last field (bytes) omitted:  
 
-```
+```json
 {
     "optionName": "LOGTOJSON",
     "logFormat": "COMMONAPACHELOG",

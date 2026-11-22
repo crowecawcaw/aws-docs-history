@@ -1,7 +1,6 @@
 
 
 # When to use service-managed record distribution
-<a name="service-managed-pk-when-to-use"></a>
 
 Use service-managed record distribution for stateless streaming workloads where record ordering is not required:
 + Log aggregation

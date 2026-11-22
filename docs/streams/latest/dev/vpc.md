@@ -1,7 +1,6 @@
 
 
 # Use Amazon Kinesis Data Streams with interface VPC endpoints
-<a name="vpc"></a>
 
 You can use an interface VPC endpoint to prevent traffic between your Amazon VPC and Kinesis Data Streams from leaving the Amazon network. Interface VPC endpoints don't require an internet gateway, NAT device, VPN connection, or Direct Connect connection. Interface VPC endpoints are powered by AWS PrivateLink, an AWS technology that enables private communication between AWS services using an elastic network interface with private IPs in your Amazon VPC. For more information, see [Amazon Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html) and [Interface VPC Endpoints (AWS PrivateLink)](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint). 
 
@@ -16,6 +15,8 @@ You can use an interface VPC endpoint to prevent traffic between your Amazon VPC
 To get started, you do not need to change the settings for your streams, producers, or consumers. Create an interface VPC endpoint for your Kinesis Data Streams to start traffic flowing from and to your Amazon VPC resources through the interface VPC endpoint. FIPS-enabled interface VPC endpoints are available for US Regions. For more information, see [Creating an Interface Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint).
 
 The Amazon Kinesis Producer Library (KPL) and Kinesis Consumer Library (KCL) call AWS services like Amazon CloudWatch and Amazon DynamoDB using either public endpoints or private interface VPC endpoints, whichever are in use. For example, if your KCL application is running in a VPC with DynamoDB interface with VPC endpoints enabled, calls between DynamoDB and your KCL application flow through the interface VPC endpoint.
+
+Queue operations are reachable through interface VPC endpoints (AWS PrivateLink), so you can call them without traffic between your Amazon VPC and Kinesis Data Streams leaving the Amazon network. Queue operations use their own endpoint service, `com.amazonaws.{{region}}.kinesis-queues`, or `com.amazonaws.{{region}}.kinesis-queues-fips` for FIPS. To call queue operations from your Amazon VPC, create an interface VPC endpoint for that endpoint service.
 
 ## Control access to VPC endpoints for Kinesis Data Streams
 <a name="interface-vpc-endpoints-policies"></a>
@@ -63,7 +64,7 @@ The following are example endpoint policies for accessing Kinesis data streams.
 
 ****  
 
-  ```
+  ```json
   {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

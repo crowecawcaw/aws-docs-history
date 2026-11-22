@@ -1,7 +1,6 @@
 
 
 # Transition behavior
-<a name="service-managed-pk-transition"></a>
 
 You can switch between service-managed and user-managed record distribution at any time. The mode change takes effect immediately without downtime or data loss for records already written. Producer and consumer applications continue to work with the following exceptions:
 + After you switch to user-managed distribution, producers that omit a partition key fail and must be updated to supply one.

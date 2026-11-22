@@ -1,7 +1,6 @@
 
 
 # (Optional) Extend the consumer
-<a name="tutorial-stock-data-kplkcl-consumer-extension"></a>
 
 The application in the [Tutorial: Process real-time stock data using KPL and KCL 1.x](tutorial-stock-data-kplkcl.md) might already be sufficient for your purposes. This optional section shows how you can extend the consumer code for a slightly more elaborate scenario.
 
@@ -11,7 +10,7 @@ If you want to know about the biggest sell orders each minute, you can modify th
 
 1. Add new instance variables:
 
-   ```
+   ```java
     // Ticker symbol of the stock that had the largest quantity of shares sold 
     private String largestSellOrderStock;
     // Quantity of shares for the largest sell order trade
@@ -20,7 +19,7 @@ If you want to know about the biggest sell orders each minute, you can modify th
 
 1. Add the following code to `addStockTrade`:
 
-   ```
+   ```java
     if (type == TradeType.SELL) {
         if (largestSellOrderStock == null || trade.getQuantity() > largestSellOrderQuantity) {
             largestSellOrderStock = trade.getTickerSymbol();
@@ -31,7 +30,7 @@ If you want to know about the biggest sell orders each minute, you can modify th
 
 1. Modify the `toString` method to print the additional information:
 
-   ```
+   ```java
     public String toString() {
         return String.format(
                 "Most popular stock being bought: %s, %d buys.%n" +
@@ -45,7 +44,7 @@ If you want to know about the biggest sell orders each minute, you can modify th
 
 If you run the consumer now (remember to run the producer also), you should see output similar to this:
 
-```
+```java
  ****** Shard shardId-000000000001 stats for last 1 minute ******
   Most popular stock being bought: WMT, 27 buys.
   Most popular stock being sold: PTR, 14 sells.

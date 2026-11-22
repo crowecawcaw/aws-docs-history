@@ -1,7 +1,6 @@
 
 
 # Producer API behavior with service-managed distribution
-<a name="service-managed-pk-producing-behavior"></a>
 
 When service-managed record distribution is enabled on a stream, the following behavior applies to the [PutRecord](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) and [PutRecords](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecords.html) APIs:
 + **PartitionKey** – Optional. If provided, the value is ignored for shard placement. The service distributes the record using internal algorithms.

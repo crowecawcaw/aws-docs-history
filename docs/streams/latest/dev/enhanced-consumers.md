@@ -1,12 +1,14 @@
 
 
 # Develop enhanced fan-out consumers with dedicated throughput
-<a name="enhanced-consumers"></a>
 
-In Amazon Kinesis Data Streams, you can build consumers that use a feature called *enhanced fan-out*. This feature lets consumers receive records from a stream with throughput of up to 2 MB of data per second per shard. This throughput is dedicated, which means that consumers that use enhanced fan-out don't have to contend with other consumers that are receiving data from the stream. Kinesis Data Streams pushes data records from the stream to consumers that use enhanced fan-out. Therefore, these consumers don't need to poll for data.
+In Amazon Kinesis Data Streams, you can build stream consumers that use a feature called *enhanced fan-out*. This feature lets a stream consumer receive records from a stream with throughput of up to 2 MB of data per second per shard. This throughput is dedicated, which means that stream consumers that use enhanced fan-out don't have to contend with other consumers that are receiving data from the stream. Kinesis Data Streams pushes data records from the stream to stream consumers that use enhanced fan-out. Therefore, these consumers don't need to poll for data.
+
+To use enhanced fan-out, you register the consumer on the stream. A *registered consumer* is an entity that Kinesis Data Streams tracks on the stream and delivers records to, and each one counts against the stream's registered consumer limit. There are two kinds: an enhanced fan-out stream consumer, described on this page, and a queue, which delivers records to a queue consumer and tracks the delivery state of each record. The two kinds share one limit, so a stream with queues has correspondingly fewer registrations available for enhanced fan-out consumers. For more information about consuming a stream with a queue, see [Consume records with a queue](queues-overview.md).
 
 **Important**  
-With On-demand Advantage mode, you can register up to 50 consumers per stream to use enhanced fan-out. With On-demand Standard and Provisioned streams, you can register up to 20 consumers per stream to use enhanced fan-out. 
+With On-demand Advantage mode, you can register up to 50 consumers per stream to use enhanced fan-out. With On-demand Standard and Provisioned streams, you can register up to 20 consumers per stream to use enhanced fan-out.   
+On an On-demand stream, that limit is the stream's registered consumer limit, which enhanced fan-out stream consumers and queues share. Each queue counts as one registered consumer.
 
 The following diagram shows the enhanced fan-out architecture. If you use version 2.0 or later of the Amazon Kinesis Client Library (KCL) to build a consumer, the KCL sets up the consumer to use enhanced fan-out to receive data from all the shards of the stream. If you use the API to build a consumer that uses enhanced fan-out, then you can subscribe to individual shards.
 

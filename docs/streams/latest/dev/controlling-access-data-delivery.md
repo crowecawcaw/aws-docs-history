@@ -1,7 +1,6 @@
 
 
 # Access control for streaming tables and Amazon S3 delivery
-<a name="controlling-access-data-delivery"></a>
 
  Streaming tables and Amazon S3 delivery use an IAM service execution role that Amazon Kinesis Data Streams assumes to write data to your destination. Follow these access control practices: 
 + **Least privilege** – Grant only the minimum permissions the service execution role needs. Scope Amazon S3 permissions to specific buckets and prefixes rather than using wildcards.

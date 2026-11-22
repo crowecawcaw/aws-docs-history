@@ -1,9 +1,8 @@
 
 
 # Tutorial: Perform basic Kinesis Data Streams operations using the AWS CLI
-<a name="fundamental-stream"></a>
 
-This section describes basic use of a Kinesis data stream from the command line using the AWS CLI. Be sure you are familiar with the concepts discussed in [Amazon Kinesis Data Streams Terminology and concepts](key-concepts.md).
+This section describes basic use of a Kinesis data stream from the command line using the AWS CLI. Be sure you are familiar with the concepts discussed in [Amazon Kinesis Data Streams terminology and concepts](key-concepts.md).
 
 **Note**  
 After you create a stream, your account incurs nominal charges for Kinesis Data Streams usage because Kinesis Data Streams is not eligible for the AWS Free Tier. When you are finished with this tutorial, delete your AWS resources to stop incurring charges. For more information, see [Step 4: Clean up](#clean-up).
@@ -46,7 +45,8 @@ You should get output that is similar to the following example:
         ],
         "EncryptionType": "NONE",
         "OpenShardCount": 3,
-        "ConsumerCount": 0
+        "ConsumerCount": 0,
+        "QueueCount": 0
     }
 }
 ```
@@ -68,7 +68,8 @@ You should get output that is similar to the following example:
         ],
         "EncryptionType": "NONE",
         "OpenShardCount": 3,
-        "ConsumerCount": 0
+        "ConsumerCount": 0,
+        "QueueCount": 0
     }
 }
 ```
@@ -100,7 +101,7 @@ aws kinesis put-record --stream-name Foo --partition-key 123 --data testdata
 
  This command, if successful, will result in output similar to the following example: 
 
-```
+```json
 {
     "ShardId": "shardId-000000000000",
     "SequenceNumber": "49546986683135544286507457936321625675700192471156785154"
@@ -122,7 +123,7 @@ aws kinesis get-shard-iterator --shard-id shardId-000000000000 --shard-iterator-
 
 Recall that the `aws kinesis` commands have a Kinesis Data Streams API behind them, so if you are curious about any of the parameters shown, you can read about them in the [`GetShardIterator`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) API reference topic. Successful execution will result in output similar to the following example: 
 
-```
+```json
 {
     "ShardIterator": "AAAAAAAAAAHSywljv0zEgPX4NyKdZ5wryMzP9yALs8NeKbUjp1IxtZs1Sp+KEd9I6AJ9ZG4lNR1EMi+9Md/nHvtLyxpfhEzYvkTZ4D9DQVz/mBYWRO6OTZRKnW9gd+efGN2aHFdkH1rJl4BL9Wyrk+ghYG22D2T1Da2EyNSH1+LAbK33gQweTJADBdyMwlo5r6PqcP2dzhg="
 }
@@ -156,7 +157,7 @@ aws kinesis get-records --shard-iterator ((aws kinesis get-shard-iterator --shar
 
 The successful result of the `get-records` command will request records from your stream for the shard that you specified when you obtained the shard iterator, as in the following example: 
 
-```
+```json
 {
   "Records":[ {
     "Data":"dGVzdGRhdGE=",
@@ -181,7 +182,7 @@ A successful `get-records` result will always have a `NextShardIterator` even if
 
 If you call `get-records` until there are no more records in the stream and shard you are pulling from, you will see output with empty records similar to the following example: 
 
-```
+```json
 {
     "Records": [],
     "NextShardIterator": "AAAAAAAAAAGCJ5jzQNjmdhO6B/YDIDE56jmZmrmMA/r1WjoHXC/kPJXc1rckt3TFL55dENfe5meNgdkyCRpUPGzJpMgYHaJ53C3nCAjQ6s7ZupjXeJGoUFs5oCuFwhP+Wul/EhyNeSs5DYXLSSC5XCapmCAYGFjYER69QSdQjxMmBPE/hiybFDi5qtkT6/PsZNz6kFoqtDk="

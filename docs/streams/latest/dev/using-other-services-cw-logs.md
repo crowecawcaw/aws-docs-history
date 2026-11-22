@@ -1,7 +1,6 @@
 
 
 # Write to Kinesis Data Streams using Amazon CloudWatch Logs
-<a name="using-other-services-cw-logs"></a>
 
 You can use CloudWatch subscriptions to get access to a real-time feed of log events from Amazon CloudWatch Logs and have it delivered to a Kinesis data stream for processing, analysis, and loading to to other systems. 
 

@@ -1,7 +1,6 @@
 
 
 # How streaming table delivery works
-<a name="data-delivery-st-about"></a>
 
  Use this topic to learn how a streaming table delivery sends records from your Amazon Kinesis Data Streams stream to streaming tables on Apache Iceberg backed by S3 table buckets, including record conversion, destination table creation, partitioning, data freshness, the dead-letter queue, and encryption. 
 

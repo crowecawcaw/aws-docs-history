@@ -1,7 +1,6 @@
 
 
 # Provisioned throughput exception errors
-<a name="kinesis-fis-provisioned-throughput"></a>
 
 Provisioned throughput exceeded exception errors (HTTP 400) occur when the request rate for a Kinesis stream surpasses the throughput limits of one or more shards. Each shard has specific read, and write capacity limits, and exceeding those limits triggers this exception. Scenarios leading to this exception include: sudden spikes in data ingestion or consumption, insufficient shard capacity for the data volume being processed, or uneven distribution of partition keys.
 
@@ -11,10 +10,10 @@ Provisioned throughput exceeded exception errors (HTTP 400) occur when the reque
 + Ensure that there is proper distribution of partition keys.
 + Monitor stream metrics.
 
-Additionally, using the Kinesis on-demand capacity mode helps to automatically adjust workloads, and minimize the occurrence of this exception. For more information, see [What is AWS Fault Injection Service?](https://docs.aws.amazon.com/fis/latest/userguide/what-is.html)
+Additionally, using the Kinesis On-demand capacity mode helps to automatically adjust workloads, and minimize the occurrence of this exception. For more information, see [What is AWS Fault Injection Service?](https://docs.aws.amazon.com/fis/latest/userguide/what-is.html)
 
 **Note**  
-Improper distribution issues are outside of on-demand mode capability of automatic scaling.
+Improper distribution issues are outside of On-demand mode capability of automatic scaling.
 
 **To perform a basic experiment**
 
@@ -52,7 +51,7 @@ Example experiment template
 
  The following example shows a provisioned throughput exception for all requests up to 5 Kinesis Data streams with the specified tag. AWS FIS selects the streams to affect at random. After 5 minutes the fault is removed.
 
-```
+```json
 {
     "description": "Kinesis stream experiment",
     "targets": {

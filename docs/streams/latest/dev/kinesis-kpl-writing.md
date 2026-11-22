@@ -1,7 +1,6 @@
 
 
 # Write to your Kinesis data stream using the KPL
-<a name="kinesis-kpl-writing"></a>
 
 The following sections show sample code in a progression from the most basic producer to fully asynchronous code.
 
@@ -10,7 +9,7 @@ The following sections show sample code in a progression from the most basic pro
 
 The following code is all that is needed to write a minimal working producer. The Amazon Kinesis Producer Library (KPL) user records are processed in the background.
 
-```
+```java
 // KinesisProducer gets credentials automatically like 
 // DefaultAWSCredentialsProviderChain. 
 // It also gets region automatically from the EC2 metadata service. 
@@ -29,7 +28,7 @@ for (int i = 0; i < 100; ++i) {
 
 In the previous example, the code didn't check whether the KPL user records succeeded. The KPL performs any retries needed to account for failures. But if you want to check on the results, you can examine them using the `Future` objects that are returned from `addUserRecord`, as in the following example (previous example shown for context):
 
-```
+```java
 KinesisProducer kinesis = new KinesisProducer();  
 
 // Put some records and save the Futures 
@@ -60,7 +59,7 @@ for (Future<UserRecordResult> f : putFutures) {
 
 The previous example is calling `get()` on a `Future` object, which blocks runtime. If you don't want to block runtime, you can use an asynchronous callback, as shown in the following example:
 
-```
+```java
 KinesisProducer kinesis = new KinesisProducer();
 
 FutureCallback<UserRecordResult> myCallback = new FutureCallback<UserRecordResult>() {     

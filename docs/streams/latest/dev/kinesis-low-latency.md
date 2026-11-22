@@ -1,7 +1,6 @@
 
 
 # Improve low-latency processing
-<a name="kinesis-low-latency"></a>
 
 *Propagation delay* is defined as the end-to-end latency from the moment a record is written to the stream until it is read by a consumer application. This delay varies depending upon a number of factors, but it is primarily affected by the polling interval of consumer applications.
 
@@ -13,7 +12,7 @@ Kinesis Data Streams records are available to be read immediately after they are
 
 Java KCL configuration code:
 
-```
+```java
 kinesisClientLibConfiguration = new
         KinesisClientLibConfiguration(applicationName,
         streamName,               
@@ -23,7 +22,7 @@ kinesisClientLibConfiguration = new
 
 Property file setting for Python and Ruby KCL:
 
-```
+```java
 idleTimeBetweenReadsInMillis = 250
 ```
 

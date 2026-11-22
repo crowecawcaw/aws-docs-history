@@ -1,7 +1,6 @@
 
 
 # Amazon Data Firehose consuming from service-managed streams
-<a name="service-managed-pk-integrations-firehose"></a>
 
 Amazon Data Firehose delivery streams that source data from a Kinesis Data Streams stream configured with service-managed record distribution continue to work without changes. Firehose reads records from shards and delivers them to destinations regardless of how records were distributed across shards. No configuration changes are required.
 

@@ -1,7 +1,6 @@
 
 
 # Migrate from KCL 2.x to KCL 3.x
-<a name="kcl-migration-from-2-3"></a>
 
 This topic provides step-by-step instructions to migrate your consumer from KCL 2.x to KCL 3.x. We recommend migrating to KCL 3.5 or later to use the single table format. KCL 3.x supports in-place migration of KCL 2.x consumers. You can continue consuming the data from your Kinesis data stream while migrating your workers in a rolling manner.
 

@@ -1,7 +1,6 @@
 
 
 # Create a stream using the APIs
-<a name="kinesis-using-sdk-java-create-stream"></a>
 
 Use the following steps to create your Kinesis data stream.
 
@@ -10,7 +9,7 @@ Use the following steps to create your Kinesis data stream.
 
 Before you can work with Kinesis data streams, you must build a client object. The following Java code instantiates a client builder and uses it to set the Region, credentials, and the client configuration. It then builds a client object. 
 
-```
+```java
 AmazonKinesisClientBuilder clientBuilder = AmazonKinesisClientBuilder.standard();
         
 clientBuilder.setRegion(regionName);
@@ -28,13 +27,13 @@ For more information, see [Kinesis Data Streams Regions and Endpoints](https://d
 Now that you have created your Kinesis Data Streams client, you can create a stream using the console or programmatically. To create a stream programmatically, instantiate a `CreateStreamRequest` object and specify a name for the stream. If you want to use provisioned mode, specify the number of shards for the stream to use.
 + **On-demand**:
 
-  ```
+  ```java
   CreateStreamRequest createStreamRequest = new CreateStreamRequest();
   createStreamRequest.setStreamName( myStreamName );
   ```
 + **Provisioned**:
 
-  ```
+  ```java
   CreateStreamRequest createStreamRequest = new CreateStreamRequest();
   createStreamRequest.setStreamName( myStreamName );
   createStreamRequest.setShardCount( myStreamSize );
@@ -46,7 +45,7 @@ The throughput of the stream is a function of the number of shards. For greater 
 
  After you have configured the `createStreamRequest` object, create a stream by calling the `createStream` method on the client. After calling `createStream`, wait for the stream to reach the `ACTIVE` state before performing any operations on the stream. To check the state of the stream, call the `describeStream` method. However, `describeStream` throws an exception if the stream does not exist. Therefore, enclose the `describeStream` call in a `try/catch` block. 
 
-```
+```java
 client.createStream( createStreamRequest );
 DescribeStreamRequest describeStreamRequest = new DescribeStreamRequest();
 describeStreamRequest.setStreamName( myStreamName );

@@ -1,7 +1,6 @@
 
 
 # IAM permissions
-<a name="service-managed-pk-configure-iam"></a>
 
 To configure the record distribution strategy, the IAM principal must have the following permissions:
 + `kinesis:CreateStream` – to create a stream with service-managed record distribution

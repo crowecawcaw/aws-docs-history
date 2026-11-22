@@ -1,7 +1,6 @@
 
 
 # Create a stream using the AWS Management Console
-<a name="how-do-i-create-a-stream"></a>
 
 You can create a stream using the Kinesis Data Streams console, the Kinesis Data Streams API, or the AWS Command Line Interface (AWS CLI).
 

@@ -1,7 +1,6 @@
 
 
 # Use `ListShards` with an AWS SDK or CLI
-<a name="example_kinesis_ListShards_section"></a>
 
 The following code examples show how to use `ListShards`.
 
@@ -57,7 +56,7 @@ For more information, see [Listing Shards](https://docs.aws.amazon.com/streams/l
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
 
-```
+```python
     def list_shards(self, stream_name, max_wait=30, poll_interval=2):
         """
         Lists the shards in a Kinesis data stream.

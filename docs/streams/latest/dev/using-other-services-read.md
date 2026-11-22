@@ -1,7 +1,6 @@
 
 
 # Read data from Kinesis Data Streams using other AWS services
-<a name="using-other-services-read"></a>
 
 The following AWS services can directly integrate with Amazon Kinesis Data Streams to read data from Kinesis data streams. Review the information for each service that you are interested in and refer to the provided references. 
 

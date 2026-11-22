@@ -1,7 +1,6 @@
 
 
 # Develop a Kinesis Client Library consumer in Python
-<a name="kcl2-standard-consumer-python-example"></a>
 
 **Important**  
 Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md).
@@ -23,7 +22,7 @@ You must complete the following tasks when implementing a KCL consumer applicati
 
 The `RecordProcess` class must extend the `RecordProcessorBase` class to implement the following methods:
 
-```
+```Python
 initialize
 process_records
 shutdown_requested
@@ -31,7 +30,7 @@ shutdown_requested
 
 This sample provides implementations that you can use as a starting point.
 
-```
+```python
 #!/usr/bin/env python
 
 # Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -200,7 +199,7 @@ if __name__ == "__main__":
 
 The sample provides default values for the configuration properties, as shown in the following script. You can override any of these properties with your own values.
 
-```
+```Python
 # The script that abides by the multi-language protocol. This script will
 # be executed by the MultiLangDaemon, which will communicate with this script
 # over STDIN and STDOUT according to the multi-language protocol.

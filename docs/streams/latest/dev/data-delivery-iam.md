@@ -1,7 +1,6 @@
 
 
 # IAM permissions for data delivery
-<a name="data-delivery-iam"></a>
 
  Use this topic to learn about the IAM permissions required to create and manage delivery resources in Amazon Kinesis Data Streams, as well as the service execution role that data delivery assumes to deliver data to your destination. 
 
@@ -30,7 +29,7 @@
 
  The trust policy allows the Kinesis Data Streams service to assume the role. Include condition keys to prevent the confused deputy problem. 
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -58,7 +57,7 @@
 
  When delivering to streaming tables on Apache Iceberg, the service execution role requires the following permissions: 
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -207,7 +206,7 @@
 
  When delivering to general purpose Amazon S3 buckets, the service execution role requires the following permissions: 
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -314,7 +313,7 @@
 
  If you enable CloudWatch Logs for your delivery, add the following permissions to the service execution role: 
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

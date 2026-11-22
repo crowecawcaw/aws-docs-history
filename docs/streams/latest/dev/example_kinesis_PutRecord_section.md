@@ -1,7 +1,6 @@
 
 
 # Use `PutRecord` with an AWS SDK or CLI
-<a name="example_kinesis_PutRecord_section"></a>
 
 The following code examples show how to use `PutRecord`.
 
@@ -39,7 +38,7 @@ For more information, see [Developing Producers Using the Amazon Kinesis Data St
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kinesis#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.core.SdkBytes;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.kinesis.KinesisClient;
@@ -159,12 +158,12 @@ public class StockTradesWriter {
 **Tools for PowerShell V4**  
 **Example 1: Writes a record containing the string supplied to the -Text parameter.**  
 
-```
+```powershell
 Write-KINRecord -Text "test data from string" -StreamName "mystream" -PartitionKey "Key1"
 ```
 **Example 2: Writes a record containing the data contained in the specified file. The file is treated as a sequence of bytes so if it contains text, it should be written with any necessary encoding before using it with this cmdlet.**  
 
-```
+```powershell
 Write-KINRecord -FilePath "C:\TestData.txt" -StreamName "mystream" -PartitionKey "Key2"
 ```
 +  For API details, see [PutRecord](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -172,12 +171,12 @@ Write-KINRecord -FilePath "C:\TestData.txt" -StreamName "mystream" -PartitionKey
 **Tools for PowerShell V5**  
 **Example 1: Writes a record containing the string supplied to the -Text parameter.**  
 
-```
+```powershell
 Write-KINRecord -Text "test data from string" -StreamName "mystream" -PartitionKey "Key1"
 ```
 **Example 2: Writes a record containing the data contained in the specified file. The file is treated as a sequence of bytes so if it contains text, it should be written with any necessary encoding before using it with this cmdlet.**  
 
-```
+```powershell
 Write-KINRecord -FilePath "C:\TestData.txt" -StreamName "mystream" -PartitionKey "Key2"
 ```
 +  For API details, see [PutRecord](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -188,7 +187,7 @@ Write-KINRecord -FilePath "C:\TestData.txt" -StreamName "mystream" -PartitionKey
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
 
-```
+```python
 class KinesisStream:
     """Encapsulates a Kinesis stream."""
 
@@ -230,7 +229,7 @@ class KinesisStream:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kinesis#code-examples). 
 
-```
+```rust
 async fn add_record(client: &Client, stream: &str, key: &str, data: &str) -> Result<(), Error> {
     let blob = Blob::new(data);
 
@@ -255,7 +254,7 @@ async fn add_record(client: &Client, stream: &str, key: &str, data: &str) -> Res
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kns#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_kns->putrecord(            " oo_result is returned for testing purposes. "
             iv_streamname = iv_stream_name

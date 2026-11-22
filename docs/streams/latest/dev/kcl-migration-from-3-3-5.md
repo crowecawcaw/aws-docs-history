@@ -1,7 +1,6 @@
 
 
 # Migrate from KCL 3.x to single table format
-<a name="kcl-migration-from-3-3-5"></a>
 
 If you run KCL 3.x with all three DynamoDB metadata tables (lease table, worker metrics table, and coordinator state table), you can migrate to single table format to consolidate all metadata into the lease table.
 

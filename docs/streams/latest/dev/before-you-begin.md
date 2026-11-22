@@ -1,7 +1,6 @@
 
 
 # Complete prerequisites to set up Amazon Kinesis Data Streams
-<a name="before-you-begin"></a>
 
 Before you use Amazon Kinesis Data Streams for the first time, complete the following tasks to set up your environment.
 

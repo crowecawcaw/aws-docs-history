@@ -1,7 +1,6 @@
 
 
 # Consumer considerations
-<a name="service-managed-pk-consuming-considerations"></a>
 
 When consuming from service-managed streams, keep the following in mind:
 + **Handle null partition keys** – Your consumer application should handle `null` partition key values gracefully. Do not use partition keys from service-managed streams for any business logic.

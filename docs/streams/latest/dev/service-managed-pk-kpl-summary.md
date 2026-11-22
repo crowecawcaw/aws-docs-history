@@ -1,7 +1,6 @@
 
 
 # Summary
-<a name="service-managed-pk-kpl-summary"></a>
 
 
 **KPL and KCL compatibility summary**  

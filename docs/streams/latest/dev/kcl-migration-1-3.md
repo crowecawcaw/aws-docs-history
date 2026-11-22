@@ -1,7 +1,6 @@
 
 
 # Migrating from KCL 1.x to KCL 3.x
-<a name="kcl-migration-1-3"></a>
 
 This topic explains the instructions to migrate your consumer from KCL 1.x to KCL 3.x. KCL 1.x uses different classes and interfaces compared to KCL 2.x and KCL 3.x. You must migrate the record processor, record processor factory, and worker classes to the KCL 2.x/3.x compatible format first, and follow the migration steps for KCL 2.x to KCL 3.x migration. You can directly upgrade from KCL 1.x to KCL 3.x.
 
