@@ -1,7 +1,6 @@
 
 
 # Omni-channel Customer Engagement for Lodging
-<a name="omni-channel-customer-engagement-lodging"></a>
 
 Publication date: **August 15, 2022 ([Diagram history](#oce-history))**
 
