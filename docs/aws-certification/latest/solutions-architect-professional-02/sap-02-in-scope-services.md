@@ -1,7 +1,6 @@
 
 
 # In-Scope AWS Services
-<a name="sap-02-in-scope-services"></a>
 
 The following list contains AWS services and features that are in scope for the AWS Certified Solutions Architect - Professional (SAP-C02) exam. This list is non-exhaustive and is subject to change. AWS offerings appear in categories that align with the offerings' primary functions.
 

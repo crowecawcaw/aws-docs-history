@@ -1,7 +1,6 @@
 
 
 # Content Domain 1: Design Solutions for Organizational Complexity
-<a name="solutions-architect-professional-02-domain1"></a>
 
 **Topics**
 + [Task 1.1: Architect network connectivity strategies.](#solutions-architect-professional-02-domain1-task1)
