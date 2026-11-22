@@ -1,7 +1,6 @@
 
 
 # Apollo connection options
-<a name="apollo-connection-options"></a>
 
 The following are connection options for Apollo:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Apollo object to read.

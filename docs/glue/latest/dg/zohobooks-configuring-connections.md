@@ -1,7 +1,6 @@
 
 
 # Configuring Zoho Books connections
-<a name="zohobooks-configuring-connections"></a>
 
 Zoho Books connections use OAuth 2.0 with the authorization code (three-legged) grant. You register a server-based OAuth application with Zoho Books, store its client secret in Secrets Manager, and authorize the connection through the Zoho Books consent screen when you create it in AWS Glue Studio. AWS Glue obtains and refreshes the access token for you.
 

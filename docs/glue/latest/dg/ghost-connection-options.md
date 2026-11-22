@@ -1,7 +1,6 @@
 
 
 # Ghost connection options
-<a name="ghost-connection-options"></a>
 
 The following are connection options for Ghost:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Ghost object to read.

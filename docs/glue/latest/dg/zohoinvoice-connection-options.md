@@ -1,7 +1,6 @@
 
 
 # Zoho Invoice connection options
-<a name="zohoinvoice-connection-options"></a>
 
 The following are connection options for Zoho Invoice:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Zoho Invoice object to read.

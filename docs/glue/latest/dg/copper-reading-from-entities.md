@@ -1,7 +1,6 @@
 
 
 # Reading from Copper entities
-<a name="copper-reading-from-entities"></a>
 
 **Prerequisites**
 

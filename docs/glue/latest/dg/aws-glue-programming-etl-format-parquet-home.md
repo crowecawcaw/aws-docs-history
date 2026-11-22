@@ -1,7 +1,6 @@
 
 
 # Using the Parquet format in AWS Glue
-<a name="aws-glue-programming-etl-format-parquet-home"></a>
 
 AWS Glue retrieves data from sources and writes data to targets stored and transported in various data formats. If your data is stored or transported in the Parquet data format, this document introduces you available features for using your data in AWS Glue. 
 
@@ -36,7 +35,7 @@ The following AWS Glue ETL script shows the process of reading Parquet files or 
 
 For this example, use the [create\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options) method.
 
-```
+```python
 # Example: Read Parquet from S3
 
 from pyspark.context import SparkContext
@@ -55,7 +54,7 @@ dynamicFrame = glueContext.create_dynamic_frame.from_options(
 
 You can also use DataFrames in a script (`pyspark.sql.DataFrame`).
 
-```
+```python
 dataFrame = spark.read.parquet("s3://{{s3path}}/")
 ```
 
@@ -64,7 +63,7 @@ dataFrame = spark.read.parquet("s3://{{s3path}}/")
 
 For this example, use the [getSourceWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSourceWithFormat) method.
 
-```
+```scala
 // Example: Read Parquet from S3
 
 import com.amazonaws.services.glue.util.JsonOptions
@@ -87,7 +86,7 @@ object GlueApp {
 
 You can also use DataFrames in a script (`org.apache.spark.sql.DataFrame`).
 
-```
+```scala
 spark.read.parquet("s3://{{s3path}}/")
 ```
 
@@ -111,7 +110,7 @@ We provide a custom Parquet writer with performance optimizations for DynamicFra
 
 For this example, use the [write\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options) method.
 
-```
+```python
 # Example: Write Parquet to S3
 # Consider whether useGlueParquetWriter is right for your workflow.
 
@@ -136,7 +135,7 @@ glueContext.write_dynamic_frame.from_options(
 
 You can also use DataFrames in a script (`pyspark.sql.DataFrame`).
 
-```
+```python
 df.write.parquet("s3://{{s3path}}/")
 ```
 
@@ -145,7 +144,7 @@ df.write.parquet("s3://{{s3path}}/")
 
 For this example, use the [getSinkWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSinkWithFormat) method.
 
-```
+```scala
 // Example: Write Parquet to S3
 // Consider whether useGlueParquetWriter is right for your workflow.
 
@@ -169,7 +168,7 @@ object GlueApp {
 
 You can also use DataFrames in a script (`org.apache.spark.sql.DataFrame`).
 
-```
+```scala
 df.write.parquet("s3://{{s3path}}/")
 ```
 

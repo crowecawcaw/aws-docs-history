@@ -1,7 +1,6 @@
 
 
 # Connection Metadata and Preview API
-<a name="aws-glue-api-catalog-connections-connections-metadata"></a>
 
 The following connection APIs describe operations for describing connection metadata.
 

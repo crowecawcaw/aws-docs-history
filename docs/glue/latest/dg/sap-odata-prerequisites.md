@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="sap-odata-prerequisites"></a>
 
 Prior to initiating an AWS Glue job for data extraction from SAP OData using the SAP OData connection, complete the following prerequisites:
 + The relevant SAP OData Service must be activated in the SAP system, ensuring the data source is available for consumption. If the OData service is not activated, the Glue job will not be able to access or extract data from SAP.

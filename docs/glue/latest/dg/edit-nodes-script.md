@@ -1,7 +1,6 @@
 
 
 # Editing or uploading a job script
-<a name="edit-nodes-script"></a>
 
 Use the AWS Glue Studio visual editor to edit the job script or upload your own script.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring Folk
-<a name="folk-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Folk, you must meet the following requirements:
 

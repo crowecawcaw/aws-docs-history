@@ -1,7 +1,6 @@
 
 
 # AWS Glue Scala MapNode APIs
-<a name="glue-etl-scala-apis-glue-types-mapnode"></a>
 
 **Package: com.amazonaws.services.glue.types**
 

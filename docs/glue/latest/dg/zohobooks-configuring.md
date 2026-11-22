@@ -1,7 +1,6 @@
 
 
 # Configuring Zoho Books
-<a name="zohobooks-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Zoho Books, you must meet the following requirements:
 

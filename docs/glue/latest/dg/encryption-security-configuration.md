@@ -1,7 +1,6 @@
 
 
 # Encrypting data written by AWS Glue
-<a name="encryption-security-configuration"></a>
 
 A *security configuration* is a set of security properties that can be used by AWS Glue. You can use a security configuration to encrypt data at rest. The following scenarios show some of the ways that you can use a security configuration. 
 + Attach a security configuration to an AWS Glue crawler to write encrypted Amazon CloudWatch Logs. For more information about attaching security configurations to crawlers, see [Step 3: Configure security settings](define-crawler-configure-security-settings.md).
@@ -28,7 +27,7 @@ Follow these steps to set up your AWS Glue environment to use security configura
 
    In the following example, {{"role1"}}, {{"role2"}}, and {{"role3"}} are IAM roles that are passed to crawlers and jobs.
 
-   ```
+   ```json
    {
           "Effect": "Allow",
           "Principal": { "Service": "logs.{{region}}.amazonaws.com",

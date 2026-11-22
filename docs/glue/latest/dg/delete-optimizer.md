@@ -1,7 +1,6 @@
 
 
 # Deleting an optimizer
-<a name="delete-optimizer"></a>
 
 You can delete an optimizer and associated metadata for the table using AWS CLI or AWS API operation.
 

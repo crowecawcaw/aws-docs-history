@@ -1,7 +1,6 @@
 
 
 # Connecting to Brevo in AWS Glue Studio
-<a name="connecting-to-data-brevo"></a>
 
 Brevo (formerly Sendinblue) is an email/SMS marketing \+ CRM platform. Because you are a Brevo user, you can connect AWS Glue to your Brevo account. You can then use Brevo as a data source in your AWS Glue ETL jobs to transfer data between Brevo and AWS services or other supported applications.
 

@@ -1,7 +1,6 @@
 
 
 # Connecting to Attio in AWS Glue Studio
-<a name="connecting-to-data-attio"></a>
 
 Attio is a modern, data-driven CRM built around flexible objects (people, companies, deals, and custom record types). Because you are an Attio user, you can connect AWS Glue to your Attio account. You can then use Attio as a data source in your AWS Glue ETL jobs to transfer data between Attio and AWS services or other supported applications.
 

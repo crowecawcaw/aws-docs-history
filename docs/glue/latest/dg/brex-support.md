@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Brex
-<a name="brex-support"></a>
 
 AWS Glue supports Brex as follows:
 

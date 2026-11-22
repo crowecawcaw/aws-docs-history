@@ -1,7 +1,6 @@
 
 
 # Configuring Constant Contact connections
-<a name="constantcontact-configuring-connections"></a>
 
 To connect to Constant Contact, register an Open Authorization (OAuth) 2.0 application with Constant Contact, enter its client ID in AWS Glue Studio, store its client secret in Secrets Manager, and authorize the connection through the Constant Contact consent screen. With AWS Glue, you don't need to manually obtain or refresh the access token.
 

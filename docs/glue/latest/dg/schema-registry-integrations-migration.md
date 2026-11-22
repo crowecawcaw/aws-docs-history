@@ -1,7 +1,6 @@
 
 
 # Migration from a third-party schema registry to AWS Glue Schema Registry
-<a name="schema-registry-integrations-migration"></a>
 
 The migration from a third-party schema registry to the AWS Glue Schema Registry has a dependency on the existing, current third-party schema registry. If there are records in an Apache Kafka topic which were sent using a third-party schema registry, consumers need the third-party schema registry to deserialize those records. The `AWSKafkaAvroDeserializer` provides the ability to specify a secondary deserializer class which points to the third-party deserializer and is used to deserialize those records.
 

@@ -1,7 +1,6 @@
 
 
 # Detect and process sensitive data
-<a name="detect-PII"></a>
 
  The Detect PII transform identifies Personal Identifiable Information (PII) in your data source. You choose the PII entity to identify, how you want the data to be scanned, and what to do with the PII entity that have been identified by the Detect PII transform. 
 

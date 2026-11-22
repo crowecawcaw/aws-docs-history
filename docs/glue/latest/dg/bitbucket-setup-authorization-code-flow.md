@@ -1,7 +1,6 @@
 
 
 # Setting up the authorization code flow for Bitbucket
-<a name="bitbucket-setup-authorization-code-flow"></a>
 
 The OAuth 2.0 authorization code flow is three-legged. When you create the connection, AWS Glue redirects you to Bitbucket to authorize access. AWS Glue then stores the access token and refresh token in your secret and refreshes them.
 

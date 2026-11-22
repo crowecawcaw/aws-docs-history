@@ -1,7 +1,6 @@
 
 
 # Using Sensitive Data Detection outside AWS Glue Studio
-<a name="aws-glue-api-sensitive-data-example"></a>
 
  AWS Glue Studio allows you to detect sensitive data, however, you can also use the Sensitive Data Detection functionality outside of AWS Glue Studio. 
 

@@ -1,7 +1,6 @@
 
 
 # Development endpoint workflow
-<a name="dev-endpoint-workflow"></a>
 
 To use an AWS Glue development endpoint, you can follow this workflow:
 

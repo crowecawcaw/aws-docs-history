@@ -1,7 +1,6 @@
 
 
 # Connecting to Fullstory in AWS Glue Studio
-<a name="connecting-to-data-fullstory"></a>
 
 Fullstory is a digital-experience / product-analytics platform that captures user sessions and behavior. Because you are a Fullstory user, you can connect AWS Glue to your Fullstory account. You can then use Fullstory as a data source in your AWS Glue ETL jobs to transfer data between Fullstory and AWS services or other supported applications.
 

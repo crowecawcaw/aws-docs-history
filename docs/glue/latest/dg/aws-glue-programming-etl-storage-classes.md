@@ -1,7 +1,6 @@
 
 
 # Excluding Amazon S3 storage classes
-<a name="aws-glue-programming-etl-storage-classes"></a>
 
 If you're running AWS Glue ETL jobs that read files or partitions from Amazon Simple Storage Service (Amazon S3), you can exclude some Amazon S3 storage class types.
 
@@ -16,7 +15,7 @@ For more information, see [Amazon S3 Storage Classes](https://docs.aws.amazon.co
 
 The examples in this section show how to exclude the `GLACIER` and `DEEP_ARCHIVE` storage classes. These classes allow you to list files, but they won't let you read the files unless they are restored. (For more information, see [Restoring Archived Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html) in the *Amazon S3 Developer Guide*.)
 
-By using storage class exclusions, you can ensure that your AWS Glue jobs will work on tables that have partitions across these storage class tiers. Without exclusions, jobs that read data from these tiers fail with the following error: AmazonS3Exception: The operation is not valid for the object's storage class.
+By using storage class exclusions, you can ensure that your AWS Glue jobs will work on tables that have partitions across these storage class tiers. Without exclusions, jobs that read data from these tiers fail with the following error: `AmazonS3Exception: The operation is not valid for the object's storage class.`
 
 There are different ways that you can filter Amazon S3 storage classes in AWS Glue.
 

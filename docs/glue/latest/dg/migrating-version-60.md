@@ -1,7 +1,6 @@
 
 
 # Migrating AWS Glue for Spark jobs to AWS Glue version 6.0
-<a name="migrating-version-60"></a>
 
 This topic describes the changes between AWS Glue version 5.1 and 6.0 to allow you to migrate your Spark applications and ETL jobs to AWS Glue 6.0. It also describes the features in AWS Glue 6.0 and the advantages of using it.
 

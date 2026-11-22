@@ -1,7 +1,6 @@
 
 
 # Use `ListJobs` with an AWS SDK
-<a name="example_glue_ListJobs_section"></a>
 
 The following code examples show how to use `ListJobs`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// List AWS Glue jobs using a paginator.
     /// </summary>
@@ -40,7 +39,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region in which the bucket was created (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -79,7 +78,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples). 
 
-```
+```javascript
 const listJobs = () => {
   const client = new GlueClient({});
 
@@ -96,7 +95,7 @@ const listJobs = () => {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples). 
 
-```
+```php
         $jobs = $glueService->listJobs();
         echo "Current jobs:\n";
         foreach ($jobs['JobNames'] as $jobsName) {
@@ -126,7 +125,7 @@ const listJobs = () => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples). 
 
-```
+```python
 class GlueWrapper:
     """Encapsulates AWS Glue actions."""
 
@@ -163,7 +162,7 @@ class GlueWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples). 
 
-```
+```ruby
 # The `GlueWrapper` class serves as a wrapper around the AWS Glue API, providing a simplified interface for common operations.
 # It encapsulates the functionality of the AWS SDK for Glue and provides methods for interacting with Glue crawlers, databases, tables, jobs, and S3 resources.
 # The class initializes with a Glue client and a logger, allowing it to make API calls and log any errors or informational messages.
@@ -191,7 +190,7 @@ class GlueWrapper
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples). 
 
-```
+```rust
         let mut list_jobs = glue.list_jobs().into_paginator().send();
         while let Some(list_jobs_output) = list_jobs.next().await {
             match list_jobs_output {
@@ -211,7 +210,7 @@ class GlueWrapper
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_glu->listjobs( ).
         DATA(lt_job_names) = oo_result->get_jobnames( ).
@@ -237,7 +236,7 @@ class GlueWrapper
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples). 
 
-```
+```swift
 import AWSClientRuntime
 import AWSGlue
 

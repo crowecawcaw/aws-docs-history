@@ -1,7 +1,6 @@
 
 
 # Configuring Miro
-<a name="miro-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Miro, you must meet the following requirements:
 

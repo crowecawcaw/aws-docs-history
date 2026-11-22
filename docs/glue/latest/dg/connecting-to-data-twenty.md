@@ -1,7 +1,6 @@
 
 
 # Connecting to Twenty CRM in AWS Glue Studio
-<a name="connecting-to-data-twenty"></a>
 
 Twenty CRM is a customer relationship management (CRM) application that organizes companies, people, and opportunities as structured records. Because you are a Twenty CRM user, you can connect AWS Glue to your Twenty CRM account. You can then use Twenty CRM as a data source in your AWS Glue ETL jobs to transfer data between Twenty CRM and AWS services or other supported applications.
 

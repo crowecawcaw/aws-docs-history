@@ -1,7 +1,6 @@
 
 
 # Setting up alerts, deployments, and scheduling
-<a name="data-quality-alerts"></a>
 
 This topic describes how to set up alerts, deployments, and scheduling for AWS Glue Data Quality.
 
@@ -545,3 +544,4 @@ You can schedule data quality rules using the following methods:
   +  Navigate to the ruleset and click **Run**. 
   +  In the **Run frequency**, select the desired schedule and provide a **Task Name**. This Task Name is the name of your schedule in EventBridge. 
 + Use Amazon EventBridge and AWS Step Functions to orchestrate evaluations and recommendations for data quality rules.
++ Use data quality monitoring at the catalog and database level. You create a data quality evaluation configuration at the catalog or database level, and AWS Glue Data Quality evaluates every table in scope on a schedule, once, or when table metadata changes, without setting up schedules for each table. For more information, see [Data quality monitoring at the catalog and database level](data-quality-catalog-monitoring.md).

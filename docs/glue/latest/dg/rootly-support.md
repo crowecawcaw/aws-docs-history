@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Rootly
-<a name="rootly-support"></a>
 
 AWS Glue supports Rootly as follows:
 

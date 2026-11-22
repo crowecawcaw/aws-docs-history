@@ -1,7 +1,6 @@
 
 
 # Connecting to Trello in AWS Glue Studio
-<a name="connecting-to-data-trello"></a>
 
 Trello is visual work management built on boards, lists, and cards. Because you are a Trello user, you can connect AWS Glue to your Trello account. You can then use Trello as a data source in your AWS Glue ETL jobs to transfer data between Trello and AWS services or other supported applications.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Insightly
-<a name="insightly-support"></a>
 
 AWS Glue supports Insightly as follows:
 

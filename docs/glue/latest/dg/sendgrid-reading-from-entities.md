@@ -1,7 +1,6 @@
 
 
 # Reading from SendGrid entities
-<a name="sendgrid-reading-from-entities"></a>
 
 **Prerequisite**
 

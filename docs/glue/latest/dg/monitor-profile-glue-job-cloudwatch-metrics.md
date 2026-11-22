@@ -1,7 +1,6 @@
 
 
 # Job monitoring and debugging
-<a name="monitor-profile-glue-job-cloudwatch-metrics"></a>
 
 You can collect metrics about AWS Glue jobs and visualize them on the AWS Glue and Amazon CloudWatch consoles to identify and fix issues. Profiling your AWS Glue jobs requires the following steps:
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Close CRM entities
-<a name="close-reading-from-entities"></a>
 
 **Prerequisites**
 

@@ -1,7 +1,6 @@
 
 
 # Configuring Salesforce Marketing Cloud Account Engagement
-<a name="salesforce-marketing-cloud-account-engagement-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Salesforce Marketing Cloud Account Engagement, you must meet these requirements:
 

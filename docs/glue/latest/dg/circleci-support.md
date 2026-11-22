@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for CircleCI
-<a name="circleci-support"></a>
 
 AWS Glue supports CircleCI as follows:
 

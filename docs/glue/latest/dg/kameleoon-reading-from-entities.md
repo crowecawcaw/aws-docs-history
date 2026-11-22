@@ -1,7 +1,6 @@
 
 
 # Reading from Kameleoon entities
-<a name="kameleoon-reading-from-entities"></a>
 
 **Prerequisites**
 

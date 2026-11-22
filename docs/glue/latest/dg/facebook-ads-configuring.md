@@ -1,7 +1,6 @@
 
 
 # Configuring Facebook Ads
-<a name="facebook-ads-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Facebook Ads, you must meet these requirements:
 

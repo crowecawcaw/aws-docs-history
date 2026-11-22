@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the SonarCloud connector
-<a name="sonarcloud-connector-limitations"></a>
 
 The following are limitations and notes for the SonarCloud connector:
 + SonarCloud is supported as a source only. Writing to SonarCloud is not supported.

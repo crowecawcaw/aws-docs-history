@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Apollo connector
-<a name="apollo-connector-limitations"></a>
 
 The following are limitations and notes for the Apollo connector:
 + Apollo is supported as a source only. Writing to Apollo is not supported.

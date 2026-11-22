@@ -1,7 +1,6 @@
 
 
 # LogRocket connection options
-<a name="logrocket-connection-options"></a>
 
 The following are connection options for LogRocket:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the LogRocket object to read.

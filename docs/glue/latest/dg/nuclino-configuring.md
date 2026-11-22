@@ -1,7 +1,6 @@
 
 
 # Configuring Nuclino
-<a name="nuclino-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Nuclino, you must meet the following requirements:
 

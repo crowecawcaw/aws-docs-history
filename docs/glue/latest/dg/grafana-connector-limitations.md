@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Grafana connector
-<a name="grafana-connector-limitations"></a>
 
 The following are limitations and notes for the Grafana connector:
 + Grafana is supported as a source only. Writing to Grafana is not supported.

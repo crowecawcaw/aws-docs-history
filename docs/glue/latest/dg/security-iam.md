@@ -1,7 +1,6 @@
 
 
 # Identity and access management for AWS Glue
-<a name="security-iam"></a>
 
 
 

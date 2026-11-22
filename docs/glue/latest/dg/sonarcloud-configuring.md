@@ -1,7 +1,6 @@
 
 
 # Configuring SonarCloud
-<a name="sonarcloud-configuring"></a>
 
 Before you can use AWS Glue to transfer data from SonarCloud, you must meet the following requirements:
 

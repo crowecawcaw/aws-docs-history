@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for REST API
-<a name="rest-api-support"></a>
 
 AWS Glue supports REST API as follows:
 

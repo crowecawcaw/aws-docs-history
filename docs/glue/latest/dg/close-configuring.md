@@ -1,7 +1,6 @@
 
 
 # Configuring Close CRM
-<a name="close-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Close CRM, you must meet the following requirements:
 

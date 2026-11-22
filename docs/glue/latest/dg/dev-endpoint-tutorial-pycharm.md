@@ -1,7 +1,6 @@
 
 
 # Tutorial: Set up PyCharm professional with a development endpoint
-<a name="dev-endpoint-tutorial-pycharm"></a>
 
 This tutorial shows you how to connect the [PyCharm Professional](https://www.jetbrains.com/pycharm/) Python IDE running on your local machine to a development endpoint so that you can interactively run, debug, and test AWS Glue ETL (extract, transfer, and load) scripts before deploying them. The instructions and screen captures in the tutorial are based on PyCharm Professional version 2019.3.
 
@@ -23,7 +22,7 @@ The tutorial uses Amazon S3 as a data source. If you want to use a JDBC data sou
 
 1. Create a file named `get_person_schema.py` in the project with the following content:
 
-   ```
+   ```python
    from pyspark.context import SparkContext
    from awsglue.context import GlueContext
    

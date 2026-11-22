@@ -1,7 +1,6 @@
 
 
 # Insightly connection options
-<a name="insightly-connection-options"></a>
 
 The following are connection options for Insightly:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Insightly object to read.

@@ -1,7 +1,6 @@
 
 
 # Table API
-<a name="aws-glue-api-catalog-tables"></a>
 
 The Table API describes data types and operations associated with tables.
 

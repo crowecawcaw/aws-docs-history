@@ -1,7 +1,6 @@
 
 
 # Limitations
-<a name="zero-etl-limitations"></a>
 
 The following are general limitations of or considerations about zero-ETL integrations:
 + Resource properties have a one-to-one relationship with the corresponding resource. Consequently, all integrations created using that resource must adhere to the singular resource property. Modifying a resource property will therefore impact all integrations associated with that resource.

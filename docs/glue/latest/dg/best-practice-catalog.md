@@ -1,7 +1,6 @@
 
 
 # AWS Glue Data Catalog best practices
-<a name="best-practice-catalog"></a>
 
  This section covers best practices for effectively managing and utilizing the AWS Glue Data Catalog. It emphasizes practices such as efficient crawler usage, metadata organization, security, performance optimization, automation, data governance, and integration with other AWS services. 
 + **Use crawlers effectively** – Run crawlers regularly to keep the Data Catalog up-to-date with changes in your data sources. Use incremental crawls for frequently changing data sources to improve performance. Configure crawlers to automatically add new partitions or update schemas when changes are detected. 

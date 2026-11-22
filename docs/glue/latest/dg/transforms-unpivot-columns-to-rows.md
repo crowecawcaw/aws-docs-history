@@ -1,7 +1,6 @@
 
 
 # Using the Unpivot Columns To Rows transform
-<a name="transforms-unpivot-columns-to-rows"></a>
 
  The **Unpivot** transform allows you convert columns into values of new columns generating a row for each unique value. It’s the opposite of pivot but note that it’s not equivalent since it cannot separate rows with identical values that were aggregated or split combinations into the original columns (you can do that later using a Split transform). For example, if you have the following table: 
 

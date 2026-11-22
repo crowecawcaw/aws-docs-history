@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for New Relic
-<a name="newrelic-support"></a>
 
 AWS Glue supports New Relic as follows:
 

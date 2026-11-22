@@ -1,7 +1,6 @@
 
 
 # Reading from Google Ads entities
-<a name="googleads-reading-from-entities"></a>
 
  **Prerequisites** 
 +  A Google Ads Object you would like to read from. Refer the supported entities table below to check the available entities. 
@@ -26,7 +25,7 @@ googleAds_read = glueContext.create_dynamic_frame.from_options(
     connection_options={
         "connectionName": "connectionName",
         "ENTITY_NAME": "campaign-3467***",
-        "API_VERSION": "v16"
+        "API_VERSION": "v26"
     }
 ```
 
@@ -148,7 +147,6 @@ googleAds_read = glueContext.create_dynamic_frame.from_options(
 | Ad Group Ad | reviewStatus | String | \!=, = | 
 | Ad Group Ad | adStrength | String | \!=, = | 
 | Ad Group Ad | type | String | \!=, = | 
-| Ad Group Ad | businessName | String | \!=, =, LIKE | 
 | Ad Group Ad | date | Date | BETWEEN, =, <, >, <=, >= | 
 | Ad Group Ad | allConversionsByConversionDate | Double | \!=, =, <, > | 
 | Ad Group Ad | allConversionsValueByConversionDate | Double | \!=, =, <, > | 
@@ -291,7 +289,7 @@ googleads_read = glueContext.create_dynamic_frame.from_options(
     connection_options={
         "connectionName": "connectionName",
         "ENTITY_NAME": "campaign-3467***",
-        "API_VERSION": "v16",
+        "API_VERSION": "v26",
         "PARTITION_FIELD": "date"
         "LOWER_BOUND": "2024-01-01"
         "UPPER_BOUND": "2024-06-05"

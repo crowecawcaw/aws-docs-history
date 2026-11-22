@@ -1,7 +1,6 @@
 
 
 # Step 7: Create an IAM role for SageMaker AI notebooks
-<a name="create-an-iam-role-sagemaker-notebook"></a>
 
 If you plan to use SageMaker AI notebooks with development endpoints, you need to grant the IAM role permissions. You provide those permissions by using AWS Identity and Access Management (IAM), through an IAM role.
 
@@ -24,7 +23,7 @@ If you plan to use SageMaker AI notebooks with development endpoints, you need t
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

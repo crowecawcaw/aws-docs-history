@@ -1,7 +1,6 @@
 
 
 # Reading from Jenkins entities
-<a name="jenkins-reading-from-entities"></a>
 
 **Prerequisites**
 

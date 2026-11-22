@@ -1,7 +1,6 @@
 
 
 # ShipBob connection options
-<a name="shipbob-connection-options"></a>
 
 The following are connection options for ShipBob:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the ShipBob object to read.

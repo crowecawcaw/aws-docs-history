@@ -1,7 +1,6 @@
 
 
 # Connecting to Mailchimp
-<a name="connecting-to-mailchimp"></a>
 
 Mailchimp is an all-in-one marketing platform that helps you manage and talk to your clients, customers, and other interested parties. Their approach to marketing focuses on healthy contact management practices, beautifully designed emails, unique automated workflows, and powerful data analysis. If you're a Mailchimp user, you can connect AWS Glue to your Mailchimp account. Then, you can use Mailchimp as a data source in your ETL jobs. Run these jobs to transfer data between Mailchimp and AWS services or other supported applications.
 

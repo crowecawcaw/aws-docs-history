@@ -1,7 +1,6 @@
 
 
 # Connecting to Zuora in AWS Glue Studio
-<a name="connecting-to-data-zuora"></a>
 
 Zuora is a subscription-billing and revenue platform. Because you are a Zuora user, you can connect AWS Glue to your Zuora account. You can then use Zuora as a data source in your AWS Glue ETL jobs to transfer data between Zuora and AWS services or other supported applications.
 

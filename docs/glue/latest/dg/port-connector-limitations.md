@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Port connector
-<a name="port-connector-limitations"></a>
 
 The following are limitations and notes for the Port connector:
 + Port is supported as a source only. Writing to Port is not supported.

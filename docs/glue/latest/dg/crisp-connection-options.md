@@ -1,7 +1,6 @@
 
 
 # Crisp connection options
-<a name="crisp-connection-options"></a>
 
 The following are connection options for Crisp:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Crisp object to read.

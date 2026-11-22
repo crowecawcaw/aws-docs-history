@@ -1,7 +1,6 @@
 
 
 # Configuring a REST API ConnectionType
-<a name="rest-api-configuring"></a>
 
  Before you can use AWS Glue to transfer data from the REST API-based data source, you must meet these requirements: 
 

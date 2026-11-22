@@ -1,7 +1,6 @@
 
 
 # Reading from Avalara entities
-<a name="avalara-reading-from-entities"></a>
 
 **Prerequisites**
 

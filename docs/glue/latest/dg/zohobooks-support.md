@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Zoho Books
-<a name="zohobooks-support"></a>
 
 AWS Glue supports Zoho Books as follows:
 

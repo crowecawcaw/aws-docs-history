@@ -1,7 +1,6 @@
 
 
 # Reading from Productboard entities
-<a name="productboard-reading-from-entities"></a>
 
  **Prerequisites** 
 

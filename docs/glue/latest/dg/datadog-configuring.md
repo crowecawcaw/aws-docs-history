@@ -1,7 +1,6 @@
 
 
 # Configuring Datadog
-<a name="datadog-configuring"></a>
 
 Before you can use AWS Glue to transfer from Datadog, you must meet the following requirements:
 

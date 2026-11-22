@@ -1,7 +1,6 @@
 
 
 # Viewing blueprint runs in AWS Glue
-<a name="viewing_blueprint_runs"></a>
 
 View a blueprint run to see the following information:
 + Name of the workflow that was created.

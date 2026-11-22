@@ -1,7 +1,6 @@
 
 
 # Configuring New Relic
-<a name="newrelic-configuring"></a>
 
 Before you can use AWS Glue to transfer data from New Relic, you must meet the following requirements:
 

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for BambooHR
-<a name="bamboohr-support"></a>
 
 AWS Glue supports BambooHR as follows:
 

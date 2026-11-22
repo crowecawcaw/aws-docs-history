@@ -1,7 +1,6 @@
 
 
 # Configuring Domo
-<a name="domo-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Domo to supported destinations, you must meet these requirements:
 

@@ -1,7 +1,6 @@
 
 
 # Migrating from AWS Glue DataBrew to AWS Glue Studio
-<a name="databrew-migration-to-glue-studio"></a>
 
  If you have recipes in AWS Glue DataBrew, use the following checklist to migrate your recipes to AWS Glue Studio. 
 

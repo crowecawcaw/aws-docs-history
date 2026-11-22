@@ -1,7 +1,6 @@
 
 
 # Reading from Intercom entities
-<a name="intercom-reading-from-entities"></a>
 
  **Prerequisites** 
 +  An Intercom object you would like to read from. Refer to the supported entities table below to check the available entities. 

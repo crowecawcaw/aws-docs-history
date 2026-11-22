@@ -1,11 +1,10 @@
 
 
 # Google Ads connection options
-<a name="googleads-connection-options"></a>
 
 The following are connection options for Google Ads:
 +  `ENTITY_NAME`(String) - (Required) Used for Read/Write. The name of your Object in Google Ads. 
-+  `API_VERSION`(String) - (Required) Used for Read/Write. Google Ads Rest API version you want to use. Example: v16. 
++  `API_VERSION`(String) - (Required) Used for Read/Write. Google Ads Rest API version you want to use. Default: v26. Example: v26. 
 +  `DEVELOPER_TOKEN`(String) - (Required) Used for Read/Write. Required to authenticate the developer or application making requests to the API. 
 +  `MANAGER_ID`(String) - Used for Read/Write. A unique identifier that allows you to manage multiple Google Ads accounts. This is the customer ID of the authorized manager. If your access to the customer account is through a manager account, the `MANAGER_ID` is required. For more information, see [login-customer-id](https://developers.google.com/google-ads/api/docs/concepts/call-structure#cid). 
 +  `SELECTED_FIELDS`(List<String>) - Default: empty(SELECT \*). Used for Read. Columns you want to select for the object. 

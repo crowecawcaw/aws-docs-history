@@ -1,7 +1,6 @@
 
 
 # Connecting to Dynatrace
-<a name="connecting-to-data-dynatrace"></a>
 
 Dynatrace is a platform that offers analytics and automation for comprehensive observability and security. It specializes in monitoring and optimizing application performance, infrastructure, and user experience.
 

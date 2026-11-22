@@ -1,7 +1,6 @@
 
 
 # Creating a Vertica source node
-<a name="creating-vertica-source-node"></a>
 
 ## Prerequisites needed
 <a name="creating-vertica-source-node-prerequisites"></a>

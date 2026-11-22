@@ -1,7 +1,6 @@
 
 
 # DynamicFrame class
-<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame"></a>
 
 One of the major abstractions in Apache Spark is the SparkSQL `DataFrame`, which is similar to the `DataFrame` construct found in R and Pandas. A `DataFrame` is similar to a table and supports functional-style (map/reduce/filter/etc.) operations and SQL operations (select, project, aggregate).
 
@@ -174,7 +173,7 @@ The following code example shows how to use the `apply_mapping` method to rename
 **Note**  
 To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling).
 
-```
+```python
 # Example: Use apply_mapping to reshape source data into
 # the desired column names and types as a new DynamicFrame
 
@@ -270,7 +269,7 @@ This code example uses the `drop_fields` method to remove selected top-level and
 
 The example uses the following dataset that is represented by the `EXAMPLE-FRIENDS-DATA` table in the code:
 
-```
+```json
 {"name": "Sally", "age": 23, "location": {"state": "WY", "county": "Fremont"}, "friends": []}
 {"name": "Varun", "age": 34, "location": {"state": "NE", "county": "Douglas"}, "friends": [{"name": "Arjun", "age": 3}]}
 {"name": "George", "age": 52, "location": {"state": "NY"}, "friends": [{"name": "Fred"}, {"name": "Amy", "age": 15}]}
@@ -280,7 +279,7 @@ The example uses the following dataset that is represented by the `EXAMPLE-FRIEN
 
 **Example code**
 
-```
+```python
 # Example: Use drop_fields to remove top-level and nested fields from a DynamicFrame.
 # Replace MY-EXAMPLE-DATABASE with your Glue Data Catalog database name.
 # Replace EXAMPLE-FRIENDS-DATA with your table name.
@@ -358,7 +357,7 @@ Like the `map` method, `filter` takes a function as an argument that gets applie
 **Note**  
 To access the dataset that is used in this example, see [Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling).
 
-```
+```python
 # Example: Use filter to create a new DynamicFrame
 # with a filtered selection of records
 
@@ -425,7 +424,7 @@ Note that the `join` transform keeps all fields intact. This means that the fiel
 **Note**  
 To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling).
 
-```
+```python
 # Example: Use join to combine data from three DynamicFrames
 
 from pyspark.context import SparkContext
@@ -610,7 +609,7 @@ This example shows how to use the `map` method to apply a function to every reco
 **Note**  
 To access the dataset that is used in this example, see [Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling).
 
-```
+```python
 # Example: Use map to combine fields in all records
 # of a DynamicFrame
 
@@ -727,7 +726,7 @@ dict_keys(['high', 'low'])
 
 **Example code**
 
-```
+```python
 # Example: Use mergeDynamicFrame to merge DynamicFrames
 # based on a set of specified primary keys
 
@@ -895,7 +894,7 @@ root
 
 **Example code**
 
-```
+```python
 # Example: Use relationalize to flatten
 # a nested schema into a format that fits
 # into a relational database.
@@ -977,7 +976,7 @@ To access the dataset that is used in this example, see [Code example: Joining a
 
 **Example code**
 
-```
+```python
 # Example: Use rename_field to rename fields
 # in a DynamicFrame
 
@@ -1122,7 +1121,7 @@ root
 
 **Example code**
 
-```
+```python
 # Example: Use resolveChoice to handle
 # a column that contains multiple types
 
@@ -1289,7 +1288,7 @@ The following code example shows how to use the `select_fields` method to create
 **Note**  
 To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling).
 
-```
+```python
 # Example: Use select_fields to select specific fields from a DynamicFrame
 
 from pyspark.context import SparkContext
@@ -1444,7 +1443,7 @@ This code example uses the `simplify_ddb_json` method to use the AWS Glue Dynamo
 
 **Example code**
 
-```
+```python
 from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 
@@ -1522,7 +1521,7 @@ root
 
 **Example code**
 
-```
+```python
 # Example: Use spigot to write sample records
 # to a destination during a transformation
 # from pyspark.context import SparkContext.
@@ -1580,7 +1579,7 @@ spigot_output = persons.spigot(
 
 The following is an example of the data that `spigot` writes to Amazon S3. Because the example code specified `options={"topk": 10}`, the sample data contains the first 10 records.
 
-```
+```json
 {"family_name":"Collins","given_name":"Michael","birth_date":"1944-10-15"}
 {"family_name":"Huizenga","given_name":"Bill","birth_date":"1969-01-31"}
 {"family_name":"Clawson","given_name":"Curtis","birth_date":"1959-09-28"}
@@ -1639,7 +1638,7 @@ root
 
 **Example code**
 
-```
+```python
 # Example: Use split_fields to split selected
 # fields into a separate DynamicFrame
 
@@ -1747,7 +1746,7 @@ root
 
 **Example code**
 
-```
+```python
 # Example: Use split_rows to split up 
 # rows in a DynamicFrame based on value
 
@@ -1893,7 +1892,7 @@ root
 
 **Example code**
 
-```
+```python
 # Example: Use unbox to unbox a string field
 # into a struct in a DynamicFrame
 
@@ -2018,7 +2017,7 @@ root
 
 **Example code**
 
-```
+```python
 # Example: Use unnest to unnest nested
 # objects in a DynamicFrame
 
@@ -2173,7 +2172,7 @@ The following code example shows how to use the `errorsAsDynamicFrame` method to
 
 The example uses the following dataset that you can upload to Amazon S3 as JSON. Notice that the second record is malformed. Malformed data typically breaks file parsing when you use SparkSQL. However, `DynamicFrame` recognizes malformation issues and turns malformed lines into error records that you can handle individually.
 
-```
+```json
 {"id": 1, "name": "george", "surname": "washington", "height": 178}
 {"id": 2, "name": "benjamin", "surname": "franklin", 
 {"id": 3, "name": "alexander", "surname": "hamilton", "height": 171}
@@ -2182,7 +2181,7 @@ The example uses the following dataset that you can upload to Amazon S3 as JSON.
 
 **Example code**
 
-```
+```python
 # Example: Use errorsAsDynamicFrame to view error records.
 # Replace s3://DOC-EXAMPLE-S3-BUCKET/error_data.json with your location.
 

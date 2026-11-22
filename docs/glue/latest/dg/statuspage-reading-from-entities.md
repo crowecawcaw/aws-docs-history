@@ -1,7 +1,6 @@
 
 
 # Reading from Statuspage entities
-<a name="statuspage-reading-from-entities"></a>
 
 **Prerequisites**
 

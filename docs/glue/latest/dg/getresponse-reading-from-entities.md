@@ -1,7 +1,6 @@
 
 
 # Reading from GetResponse entities
-<a name="getresponse-reading-from-entities"></a>
 
 **Prerequisites**
 

@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the ClickUp connector
-<a name="clickup-connector-limitations"></a>
 
 The following are limitations and notes for the ClickUp connector:
 + ClickUp is supported as a source only. Writing to ClickUp is not supported.

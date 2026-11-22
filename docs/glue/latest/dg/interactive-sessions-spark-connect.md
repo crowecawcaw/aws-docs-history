@@ -1,7 +1,6 @@
 
 
 # Using Spark Connect with AWS Glue interactive sessions
-<a name="interactive-sessions-spark-connect"></a>
 
  [Apache Spark Connect](https://spark.apache.org/spark-connect/) introduces a decoupled client-server architecture that separates your application from the Spark driver process. With Spark Connect, AWS Glue interactive sessions benefit from a lightweight client that starts faster, uses fewer local resources, and provides native compatibility with the PySpark DataFrame and SQL APIs. You can use AWS Glue interactive sessions from your preferred notebook tooling or IDE. 
 

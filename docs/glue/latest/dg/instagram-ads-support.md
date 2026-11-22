@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Instagram Ads
-<a name="instagram-ads-support"></a>
 
 AWS Glue supports Instagram Ads as follows:
 

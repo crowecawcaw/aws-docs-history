@@ -1,7 +1,6 @@
 
 
 # Setting up a VPC to connect to PyPI for AWS Glue
-<a name="setup-vpc-for-pypi"></a>
 
 The Python Package Index (PyPI) is a repository of software for the Python programming language. This topic addresses the details needed to support the use of pip installed packages (as specified by the session creator using the `--additional-python-modules` flag).
 

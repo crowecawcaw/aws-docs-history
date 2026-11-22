@@ -1,7 +1,6 @@
 
 
 # BigQuery connections
-<a name="aws-glue-programming-etl-connect-bigquery-home"></a>
 
 You can use AWS Glue for Spark to read from and write to tables in Google BigQuery in AWS Glue 4.0 and later versions. You can read from BigQuery with a Google SQL query. You connect to BigQuery using credentials stored in AWS Secrets Manager through a AWS Glue connection.
 

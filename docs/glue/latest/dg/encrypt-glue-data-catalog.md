@@ -1,7 +1,6 @@
 
 
 # Encrypting your Data Catalog
-<a name="encrypt-glue-data-catalog"></a>
 
 AWS Glue Data Catalog encryption provides enhanced security for your sensitive data. AWS Glue integrates with AWS Key Management Service (AWS KMS) to encrypt metadata that's stored in the Data Catalog, including automatically registered assets that you enrich with business context for semantic search. You can enable or disable encryption settings for resources in the Data Catalog using the AWS Glue console or the AWS CLI. 
 
@@ -101,7 +100,7 @@ When you enable an IAM role to delegate KMS operations, you can no longer access
 
 ****  
 
-        ```
+        ```json
         {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -126,7 +125,7 @@ When you enable an IAM role to delegate KMS operations, you can no longer access
 
 ****  
 
-        ```
+        ```json
         {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -150,7 +149,7 @@ When you enable an IAM role to delegate KMS operations, you can no longer access
 
 ****  
 
-        ```
+        ```json
         {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -178,7 +177,7 @@ When you enable an IAM role to delegate KMS operations, you can no longer access
 
    The following policy grants the principal the required permissions. The `kms:CreateGrant` action allows AWS Glue to encrypt and re-encrypt Data Catalog metadata and the search index in the background after the AWS KMS request completes. AWS Glue scopes the grant to the `glue_catalog_id` encryption context.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [
@@ -282,7 +281,7 @@ The principal that accesses business context and search must also have access to
 
 In addition to the identity policy, you must also add the following statement to your KMS key policy to allow AWS Glue to create grants for search index encryption. The `kms:GrantIsForAWSResource` condition limits the grant to AWS Glue, and the `glue_catalog_id` encryption context scopes it to your Data Catalog. To use the statement, replace the {{user input placeholders}} with your own information.
 
-```
+```json
 {
     "Sid": "AllowCreateGrantForSearchIndexEncryption",
     "Effect": "Allow",

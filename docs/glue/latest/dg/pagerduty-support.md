@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for PagerDuty
-<a name="pagerduty-support"></a>
 
 AWS Glue supports PagerDuty as follows:
 

@@ -1,7 +1,6 @@
 
 
 # AWS Glue versions
-<a name="release-notes"></a>
 
 You can configure the AWS Glue version parameter when you add or update a job. The AWS Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version that's supported for jobs of type Spark. The following table lists the available AWS Glue versions, the corresponding Spark and Python versions, and other changes in functionality.
 

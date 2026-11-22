@@ -1,7 +1,6 @@
 
 
 # Connecting to Webflow in AWS Glue Studio
-<a name="connecting-to-data-webflow"></a>
 
 Webflow is a visual website builder with a CMS. Because you are a Webflow user, you can connect AWS Glue to your Webflow account. You can then use Webflow as a data source in your AWS Glue ETL jobs to transfer data between Webflow and AWS services or other supported applications.
 

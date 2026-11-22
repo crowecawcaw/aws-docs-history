@@ -1,7 +1,6 @@
 
 
 # Using APIs to measure and manage data quality
-<a name="data-quality-using-apis"></a>
 
 This topic describes how to use APIs to measure and manage data quality.
 
@@ -11,6 +10,7 @@ This topic describes how to use APIs to measure and manage data quality.
 + [Working with AWS Glue Data Quality rulesets](#using-apis-rulesets)
 + [Working with AWS Glue Data Quality runs](#using-apis-runs)
 + [Working with AWS Glue Data Quality results](#using-apis-results)
++ [Working with data quality evaluation configurations](#using-apis-evaluation-configs)
 
 ## Prerequisites
 <a name="using-apis-prerequisites"></a>
@@ -741,3 +741,36 @@ response = client.get_data_quality_result(
 
 print(resp['RuleResults'])
 ```
+
+## Working with data quality evaluation configurations
+<a name="using-apis-evaluation-configs"></a>
+
+To use data quality monitoring at the catalog and database level, create a data quality evaluation configuration. AWS Glue Data Quality then evaluates every table in scope without you starting runs yourself. The following Python example creates a configuration at the database level that profiles every table in a database every 24 hours with the `SIMPLE` built-in ruleset. Replace `my-database-config`, `111122223333`, `my_database`, and `DataQualityEvaluationConfigRole` with your own values.
+
+```python
+import logging
+
+import boto3
+from botocore.exceptions import ClientError
+
+logger = logging.getLogger(__name__)
+glue = boto3.client("glue")
+
+try:
+    glue.create_data_quality_evaluation_config(
+        Name="my-database-config",
+        Level="DATABASE",
+        DataSource={"GlueTables": {"CatalogId": "111122223333", "DatabaseName": "my_database"}},
+        ManagedRulesetName="SIMPLE",
+        Triggers=["SCHEDULE"],
+        ScheduleExpression="rate(24 hours)",
+        Role="DataQualityEvaluationConfigRole",
+    )
+except ClientError as err:
+    logger.error(
+        "Couldn't create the data quality evaluation configuration. Here's why: %s: %s",
+        err.response["Error"]["Code"], err.response["Error"]["Message"])
+    raise
+```
+
+For the role that the configuration needs, more examples, and how to find the results, see [Getting started with data quality monitoring at the catalog and database level](data-quality-catalog-monitoring-getting-started.md).

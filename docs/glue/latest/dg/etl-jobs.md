@@ -1,7 +1,6 @@
 
 
 # Orchestration in AWS Glue
-<a name="etl-jobs"></a>
 
 The following sections provide information on orchestration of jobs in AWS Glue.
 

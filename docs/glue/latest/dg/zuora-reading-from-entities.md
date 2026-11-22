@@ -1,7 +1,6 @@
 
 
 # Reading from Zuora entities
-<a name="zuora-reading-from-entities"></a>
 
 **Prerequisites**
 

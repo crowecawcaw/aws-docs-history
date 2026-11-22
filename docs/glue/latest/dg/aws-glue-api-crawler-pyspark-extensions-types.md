@@ -1,7 +1,6 @@
 
 
 # PySpark extension types
-<a name="aws-glue-api-crawler-pyspark-extensions-types"></a>
 
 The types that are used by the AWS Glue PySpark extensions.
 

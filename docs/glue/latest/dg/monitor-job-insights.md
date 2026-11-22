@@ -1,7 +1,6 @@
 
 
 # Monitoring with AWS Glue job run insights
-<a name="monitor-job-insights"></a>
 
 AWS Glue job run insights is a feature in AWS Glue that simplifies job debugging and optimization for your AWS Glue jobs. AWS Glue provides [Spark UI](https://docs.aws.amazon.com/glue/latest/dg/monitor-spark-ui.html), and [CloudWatch logs and metrics](https://docs.aws.amazon.com/glue/latest/dg/monitor-cloudwatch.html) for monitoring your AWS Glue jobs. With this feature, you get this information about your AWS Glue job's execution:
 + Line number of your AWS Glue job script that had a failure.

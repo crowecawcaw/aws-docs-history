@@ -1,7 +1,6 @@
 
 
 # Reading from Miro entities
-<a name="miro-reading-from-entities"></a>
 
 **Prerequisites**
 

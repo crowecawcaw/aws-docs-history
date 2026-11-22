@@ -1,7 +1,6 @@
 
 
 # Connecting to Front in AWS Glue Studio
-<a name="connecting-to-data-front"></a>
 
 Front is a shared-inbox / customer-communication platform where teams manage email, chat, and SMS as collaborative conversations. Because you are a Front user, you can connect AWS Glue to your Front account. You can then use Front as a data source in your AWS Glue ETL jobs to transfer data between Front and AWS services or other supported applications.
 

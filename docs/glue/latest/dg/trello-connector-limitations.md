@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Trello connector
-<a name="trello-connector-limitations"></a>
 
 The following are limitations and notes for the Trello connector:
 + Trello is supported as a source only. Writing to Trello is not supported.

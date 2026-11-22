@@ -1,7 +1,6 @@
 
 
 # Configuring Pendo
-<a name="pendo-configuring"></a>
 
 Before you can use AWS Glue to transfer from Pendo, you must meet the following requirements:
 

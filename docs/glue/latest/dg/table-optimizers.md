@@ -1,7 +1,6 @@
 
 
 # Optimizing Iceberg tables
-<a name="table-optimizers"></a>
 
 AWS Glue supports mutiple table optimization options to enhance the management and performance of Apache Iceberg tables used by the AWS analytical engines and ETL jobs. These optimizers provide efficient storage utilization, improved query performance, and effective data management. There are three types of table optimizers available in AWS Glue: 
 + **Compaction **– Data compaction compacts small data files to reduce storage usage and improve read performance. Data files are merged and rewritten to remove obsolete data and consolidate fragmented data into larger, more efficient files. You can configure compaction to run automatically. 
@@ -16,7 +15,7 @@ Catalog-level optimization configuration is available through the Lake Formation
 
  The following video demonstrates how to configure optimizers for Iceberg tables in the Data Catalog. 
 
-[![AWS Videos](https://img.youtube.com/vi/xOXE7AS-pNA?si=lKvt_TSlPkoc6OXn/0.jpg)](https://www.youtube.com/watch?v=xOXE7AS-pNA?si=lKvt_TSlPkoc6OXn)
+[![AWS Videos](https://img.youtube.com/vi/xOXE7AS-pNA/0.jpg)](https://www.youtube.com/watch?v=xOXE7AS-pNA)
 
 
 **Topics**

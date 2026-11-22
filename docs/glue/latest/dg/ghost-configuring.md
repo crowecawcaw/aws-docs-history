@@ -1,7 +1,6 @@
 
 
 # Configuring Ghost
-<a name="ghost-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Ghost, you must meet the following requirements:
 

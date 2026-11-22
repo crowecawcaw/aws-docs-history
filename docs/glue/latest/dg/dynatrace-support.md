@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Dynatrace
-<a name="dynatrace-support"></a>
 
 AWS Glue supports Dynatrace as follows:
 

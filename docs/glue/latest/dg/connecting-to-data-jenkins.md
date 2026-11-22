@@ -1,7 +1,6 @@
 
 
 # Connecting to Jenkins in AWS Glue Studio
-<a name="connecting-to-data-jenkins"></a>
 
 Jenkins is a free, open-source CI/CD automation server. Because you are a Jenkins user, you can connect AWS Glue to your Jenkins account. You can then use Jenkins as a data source in your AWS Glue ETL jobs to transfer data between Jenkins and AWS services or other supported applications.
 

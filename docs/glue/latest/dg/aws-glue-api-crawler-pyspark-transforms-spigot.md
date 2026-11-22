@@ -1,7 +1,6 @@
 
 
 # Spigot class
-<a name="aws-glue-api-crawler-pyspark-transforms-spigot"></a>
 
 Writes sample records to a specified destination to help you verify the transformations performed by your AWS Glue job.
 

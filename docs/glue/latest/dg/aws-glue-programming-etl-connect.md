@@ -1,7 +1,6 @@
 
 
 # Connection types and options for ETL in AWS Glue for Spark
-<a name="aws-glue-programming-etl-connect"></a>
 
 In AWS Glue for Spark, various PySpark and Scala methods and transforms specify the connection type using a `connectionType` parameter. They specify connection options using a `connectionOptions` or `options` parameter.
 

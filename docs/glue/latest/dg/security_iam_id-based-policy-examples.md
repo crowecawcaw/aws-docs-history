@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS Glue
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify AWS Glue resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -51,7 +50,7 @@ For example, the following IAM policy allows API operations for `GetClassifier` 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -110,7 +109,7 @@ If you create an IAM policy that is more restrictive than the minimum required p
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -155,7 +154,7 @@ The following policy grants read-only permission to a `books` table in database 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -187,7 +186,7 @@ The following policy grants the minimum necessary permissions to create table `t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -218,7 +217,7 @@ Assume that there are three tables—`customers`, `stores`, and `store_sales`—
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -248,7 +247,7 @@ You can simplify the preceding policy by using `store*` to match any table names
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -277,7 +276,7 @@ Similarly, using `/db1/*` to match all tables in `db1`, the following policy gra
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -306,7 +305,7 @@ If no table ARN is provided, a call to `GetTables` succeeds, but it returns an e
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -334,7 +333,7 @@ If the database ARN is missing in the policy, a call to `GetTables` fails with a
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -365,7 +364,7 @@ The following policy grants all permissions on a table named `books` in database
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -411,7 +410,7 @@ The preceding policy can be simplified in practice.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -446,7 +445,7 @@ In this example, suppose that the databases and tables in your AWS Glue Data Cat
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -508,7 +507,7 @@ In the preceding example, even though the first statement grants full access to 
 
 For example, suppose that you want to limit access to a trigger `t2` to a specific user named `Tom` in your account. All other users, including `Sam`, have access to trigger `t1`. The triggers `t1` and `t2` have the following properties. 
 
-```
+```json
 aws glue get-triggers
 {
     "Triggers": [
@@ -545,7 +544,7 @@ The AWS Glue administrator attached a tag value `Tom` (`aws:ResourceTag/Name": "
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -567,7 +566,7 @@ The AWS Glue administrator attached a tag value `Tom` (`aws:ResourceTag/Name": "
 
 When Tom tries to access the trigger `t1`, he receives an access denied message. Meanwhile, he can successfully retrieve trigger `t2`. 
 
-```
+```json
 aws glue get-trigger --name t1
 
 An error occurred (AccessDeniedException) when calling the GetTrigger operation: User: Tom is not authorized to perform: glue:GetTrigger on resource: arn:aws:glue:us-east-1:123456789012:trigger/t1
@@ -597,7 +596,7 @@ To give Tom access to `GetTriggers`, the AWS Glue administrator creates a policy
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -672,7 +671,7 @@ The following is the resource policy that the AWS Glue administrator grants to T
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -712,7 +711,7 @@ The following is the resource policy that the AWS Glue administrator grants to T
 
 Using the same triggers as the previous example, Tom can access trigger `t2`, but not trigger `t1`. The following example shows the results when Tom tries to access `t1` and `t2` with `BatchGetTriggers`. 
 
-```
+```json
 aws glue batch-get-triggers --trigger-names t2
 {
     "Triggers": {
@@ -735,7 +734,7 @@ An error occurred (AccessDeniedException) when calling the BatchGetTriggers oper
 
 The following example shows the results when Tom tries to access both trigger `t2` and trigger `t3` (which does not exist) in the same `BatchGetTriggers` call. Notice that because Tom has access to trigger `t2` and it exists, only `t2` is returned. Although Tom is allowed to access trigger `t3`, trigger `t3` does not exist, so `t3` is returned in the response in a list of `"TriggersNotFound": []`. 
 
-```
+```json
 aws glue batch-get-triggers --trigger-names t2 t3
 {
     "Triggers": {

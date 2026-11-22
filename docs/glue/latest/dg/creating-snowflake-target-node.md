@@ -1,7 +1,6 @@
 
 
 # Creating a Snowflake target node
-<a name="creating-snowflake-target-node"></a>
 
 ## Permissions needed
 <a name="creating-snowflake-target-node-permissions"></a>

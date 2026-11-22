@@ -1,7 +1,6 @@
 
 
 # Schema unnesting & data partitioning
-<a name="zero-etl-partition-schema-unnesting"></a>
 
  When working with NoSQL data sources like DynamoDB and SaaS applications, data often presents unique challenges for analytics: 
 

@@ -1,7 +1,6 @@
 
 
 # Converting a script or notebook into an AWS Glue job
-<a name="interactive-sessions-convert"></a>
 
  There are two ways you can convert a script or notebook into an AWS Glue job: 
 +  Use **nbconvert** to convert your Jupyter `.ipynb` notebook document file into a `.py` file. For more information, see [nbconvert: Convert Notebooks to other formats](https://nbconvert.readthedocs.io/en/latest/). 

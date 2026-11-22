@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for HubSpot connector
-<a name="hubspot-connector-limitations"></a>
 
 The following are limitations or notes for the HubSpot connector:
 + The search endpoints are limited to 10,000 total results for any given query. Any partition having more than 10,000 records will result in a 400 error.

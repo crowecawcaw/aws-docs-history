@@ -1,7 +1,6 @@
 
 
 # Configuring anomaly detection in AWS Glue ETL jobs
-<a name="data-quality-configuring-anomaly-detection-etl-jobs"></a>
 
  To begin with anomaly detection in AWS Glue Studio, open a AWS Glue Studio job and click on the **Evaluate Data Quality Transform**. 
 

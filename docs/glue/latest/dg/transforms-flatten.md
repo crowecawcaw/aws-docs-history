@@ -1,7 +1,6 @@
 
 
 # Flatten nested structs
-<a name="transforms-flatten"></a>
 
 *Flatten* the fields of nested structs in the data, so they become top level fields. The new fields are named using the field name prefixed with the names of the struct fields to reach it, separated by dots. 
 

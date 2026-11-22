@@ -1,7 +1,6 @@
 
 
 # Data discovery and cataloging in AWS Glue
-<a name="catalog-and-crawler"></a>
 
 The AWS Glue Data Catalog is a centralized repository that stores metadata about your organization's data sets. It acts as an index to the location, schema, and runtime metrics of your data sources. The metadata is stored in metadata tables, where each table represents a single data store. 
 
@@ -39,6 +38,10 @@ For more information, see [Optimizing Iceberg tables](table-optimizers.md).
 Column statistics  
  You can compute column-level statistics for Data Catalog tables in data formats such as Parquet, ORC, JSON, ION, CSV, and XML without setting up additional data pipelines. Column statistics help you to understand data profiles by getting insights about values within a column. The Data Catalog supports generating statistics for column values such as minimum value, maximum value, total null values, total distinct values, average length of values, and total occurrences of true values.   
 For more information, see [Optimizing query performance using column statistics](column-statistics.md).
+
+Data quality monitoring  
+With data quality monitoring at the catalog and database level, AWS Glue Data Quality evaluates every table in a catalog or database from a single data quality evaluation configuration, including tables that you add later.  
+For more information, see [Monitoring data quality in the AWS Glue Data Catalog](catalog-data-quality-monitoring.md).
 
 Data lineage  
 The Data Catalog maintains a record of the transformations and operations performed on your data, providing data lineage information. This lineage information is valuable for auditing, compliance, and understanding the data's provenance.

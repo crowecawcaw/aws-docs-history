@@ -1,7 +1,6 @@
 
 
 # Adding a schema version
-<a name="schema-registry-gs5c"></a>
 
 When you add a schema version, you will need to compare the versions to make sure the new schema will be accepted.
 

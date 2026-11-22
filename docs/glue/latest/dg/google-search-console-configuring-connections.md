@@ -1,7 +1,6 @@
 
 
 # Configuring Google Search Console connections
-<a name="google-search-console-configuring-connections"></a>
 
 Google Search Console supports the AUTHORIZATION\_CODE grant type for OAuth2. The grant type determines how AWS Glue communicates with Google Search Console to request access to your data.
 + This grant type is considered "three-legged" OAuth as it relies on redirecting users to a third-party authorization server to authenticate the user. It is used when creating connections via the AWS Glue console.
@@ -28,7 +27,7 @@ To configure a Google Search Console connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

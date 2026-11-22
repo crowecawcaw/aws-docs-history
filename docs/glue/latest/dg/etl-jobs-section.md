@@ -1,7 +1,6 @@
 
 
 # Working with Spark jobs in AWS Glue
-<a name="etl-jobs-section"></a>
 
 Provides information on AWS Glue for Spark ETL jobs.
 

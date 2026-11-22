@@ -1,7 +1,6 @@
 
 
 # Twenty CRM connection options
-<a name="twenty-connection-options"></a>
 
 The following are connection options for Twenty CRM:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Twenty CRM object to read.

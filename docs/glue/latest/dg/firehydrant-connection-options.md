@@ -1,7 +1,6 @@
 
 
 # FireHydrant connection options
-<a name="firehydrant-connection-options"></a>
 
 The following are connection options for FireHydrant:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the FireHydrant object to read.

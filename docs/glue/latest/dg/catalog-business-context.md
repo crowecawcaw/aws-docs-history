@@ -1,7 +1,6 @@
 
 
 # Adding business context
-<a name="catalog-business-context"></a>
 
 **Note**  
 Business context and semantic search are in preview for AWS Glue in the following AWS Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland). This feature is subject to change.

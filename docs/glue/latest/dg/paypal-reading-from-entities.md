@@ -1,7 +1,6 @@
 
 
 # Reading from PayPal entities
-<a name="paypal-reading-from-entities"></a>
 
 **Prerequisite**
 

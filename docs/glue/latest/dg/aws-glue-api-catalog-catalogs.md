@@ -1,7 +1,6 @@
 
 
 # Catalogs API
-<a name="aws-glue-api-catalog-catalogs"></a>
 
 The Catalogs API describes the APIs for creating, deleting, locating, updating, and listing catalogs.
 

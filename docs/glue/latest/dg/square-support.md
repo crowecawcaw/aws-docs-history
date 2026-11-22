@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Square
-<a name="square-support"></a>
 
 AWS Glue supports Square as follows:
 

@@ -1,7 +1,6 @@
 
 
 # Connecting to Adobe Analytics
-<a name="connecting-to-adobe-analytics"></a>
 
 Adobe Analytics is a robust data analysis platform that collects data from multi-channel digital experiences that support the customer journey and provides tools for analyzing the data. It’s a platform commonly used by marketers and business analysts for business analytics purposes. If you're a Adobe Analytics user, you can connect AWS Glue to your Adobe Analytics account. Then, you can use Adobe Analytics as a data source in your ETL Jobs. Run these jobs to transfer data between Adobe Analytics and AWS services or other supported applications.
 

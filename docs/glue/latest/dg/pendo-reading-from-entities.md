@@ -1,7 +1,6 @@
 
 
 # Reading from Pendo entities
-<a name="pendo-reading-from-entities"></a>
 
  **Prerequisites** 
 

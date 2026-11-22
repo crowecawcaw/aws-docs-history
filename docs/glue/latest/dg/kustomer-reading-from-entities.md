@@ -1,7 +1,6 @@
 
 
 # Reading from Kustomer entities
-<a name="kustomer-reading-from-entities"></a>
 
 **Prerequisite**
 

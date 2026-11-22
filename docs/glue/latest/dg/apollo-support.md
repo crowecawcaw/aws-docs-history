@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Apollo
-<a name="apollo-support"></a>
 
 AWS Glue supports Apollo as follows:
 

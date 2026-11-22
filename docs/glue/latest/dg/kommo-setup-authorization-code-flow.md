@@ -1,7 +1,6 @@
 
 
 # Setting up the authorization code flow for Kommo
-<a name="kommo-setup-authorization-code-flow"></a>
 
 Kommo uses the OAuth 2.0 authorization code grant. You register an OAuth integration in Kommo to obtain a client ID and client secret, store the client secret in Secrets Manager, and authorize the connection through the Kommo consent screen when you create it in AWS Glue Studio. AWS Glue then obtains and refreshes the access token for you.
 

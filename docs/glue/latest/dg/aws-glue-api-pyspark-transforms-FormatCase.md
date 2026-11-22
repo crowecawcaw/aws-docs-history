@@ -1,7 +1,6 @@
 
 
 # FormatCase class
-<a name="aws-glue-api-pyspark-transforms-FormatCase"></a>
 
 The `FormatCase` transform changes each string in a column to the specified case type.
 

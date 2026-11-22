@@ -1,7 +1,6 @@
 
 
 # Reading from Typeform entities
-<a name="typeform-reading-from-entities"></a>
 
 **Prerequisites**
 

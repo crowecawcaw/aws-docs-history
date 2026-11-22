@@ -1,7 +1,6 @@
 
 
 # Reading from Hex entities
-<a name="hex-reading-from-entities"></a>
 
 **Prerequisites**
 

@@ -1,7 +1,6 @@
 
 
 # Simplify\_ddb\_json class
-<a name="aws-glue-api-crawler-pyspark-transforms-simplify-ddb-json"></a>
 
 Simplifies nested columns in a `DynamicFrame` that are specifically in the DynamoDB JSON structure, and returns a new simplified `DynamicFrame`.
 

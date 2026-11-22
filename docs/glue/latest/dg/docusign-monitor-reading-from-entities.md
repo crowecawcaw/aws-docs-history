@@ -1,7 +1,6 @@
 
 
 # Reading from Docusign Monitor entities
-<a name="docusign-monitor-reading-from-entities"></a>
 
 **Prerequisite**
 

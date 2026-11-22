@@ -1,7 +1,6 @@
 
 
 # Configuring CircleCI connections
-<a name="circleci-configuring-connections"></a>
 
 CircleCI supports custom authentication.
 
@@ -24,7 +23,7 @@ To configure a CircleCI connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

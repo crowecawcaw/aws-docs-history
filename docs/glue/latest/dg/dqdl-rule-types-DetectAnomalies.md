@@ -1,13 +1,12 @@
 
 
 # DetectAnomalies
-<a name="dqdl-rule-types-DetectAnomalies"></a>
 
  Detects anomalies for a given data quality rule. Every execution of DetectAnomalies rule result in saving evaluated value for the given rule. When there is enough data gathered, anomaly detection algorithm takes all historical data for that given rule and runs anomaly detection. DetectAnomalies rule fails when anomaly is detected. More info about what anomaly was detected can be obtained from Observations. 
 
 **Syntax**
 
-```
+```json
        DetectAnomalies {{<RULE_NAME>}} {{<RULE_PARAMETERS>}}
 ```
 
@@ -33,7 +32,7 @@
 
 For example, if we want to detect RowCount anomalies, we provide RowCount as a rule name. 
 
-```
+```json
 DetectAnomalies "RowCount"
 ```
 
@@ -41,6 +40,6 @@ DetectAnomalies "RowCount"
 
 For example, if we want to detect ColumnLength anomalies, we provide ColumnLength as a rule name and the column name. 
 
-```
+```json
 DetectAnomalies "ColumnLength" "id"
 ```

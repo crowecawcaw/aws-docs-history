@@ -1,7 +1,6 @@
 
 
 # Connecting to PagerDuty in AWS Glue Studio
-<a name="connecting-to-data-pagerduty"></a>
 
 PagerDuty is a digital-operations / incident-management platform. Because you are a PagerDuty user, you can connect AWS Glue to your PagerDuty account. You can then use PagerDuty as a data source in your AWS Glue ETL jobs to transfer data between PagerDuty and AWS services or other supported applications.
 

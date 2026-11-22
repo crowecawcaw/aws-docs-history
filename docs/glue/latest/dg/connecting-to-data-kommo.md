@@ -1,7 +1,6 @@
 
 
 # Connecting to Kommo in AWS Glue Studio
-<a name="connecting-to-data-kommo"></a>
 
 Kommo (formerly amoCRM) is a sales-pipeline \+ messaging CRM. Because you are a Kommo user, you can connect AWS Glue to your Kommo account. You can then use Kommo as a data source in your AWS Glue ETL jobs to transfer data between Kommo and AWS services or other supported applications.
 

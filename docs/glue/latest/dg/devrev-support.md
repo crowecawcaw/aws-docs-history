@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for DevRev
-<a name="devrev-support"></a>
 
 AWS Glue supports DevRev as follows:
 

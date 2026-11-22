@@ -1,7 +1,6 @@
 
 
 # FileUniqueness
-<a name="dqdl-rule-types-FileUniqueness"></a>
 
  File Uniqueness allows you to ensure that there are no duplicate files in the data you have received from your data producers. 
 

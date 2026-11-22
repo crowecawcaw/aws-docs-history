@@ -1,7 +1,6 @@
 
 
 # Configuring Amplitude Experiment connections
-<a name="amplitude-experiment-configuring-connections"></a>
 
 Amplitude Experiment connections authenticate with an API key (or token). You store the key in Secrets Manager and reference that secret when you create the connection in AWS Glue Studio.
 

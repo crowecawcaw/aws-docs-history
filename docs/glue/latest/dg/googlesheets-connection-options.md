@@ -1,7 +1,6 @@
 
 
 # Google Sheets connection options
-<a name="googlesheets-connection-options"></a>
 
 The following are connection options for Google Sheets:
 +  `ENTITY_NAME`(String) - (Required) Used for Read. The `SpreadSheet ID` and `sheetTabName` in Google Sheets. Example: `{SpreadSheetID}#{SheetTabName}`. 

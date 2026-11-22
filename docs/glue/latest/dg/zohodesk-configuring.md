@@ -1,7 +1,6 @@
 
 
 # Configuring Zoho Desk
-<a name="zohodesk-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Zoho Desk, you must meet the following requirements:
 

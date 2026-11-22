@@ -1,7 +1,6 @@
 
 
 # DQDL rule type reference
-<a name="dqdl-rule-types"></a>
 
 This section provides a reference for each rule type that AWS Glue Data Quality supports.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring Airship
-<a name="airship-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Airship, you must meet the following requirements:
 

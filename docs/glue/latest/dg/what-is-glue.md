@@ -1,7 +1,6 @@
 
 
 # What is AWS Glue?
-<a name="what-is-glue"></a>
 
  AWS Glue is a serverless data integration service that makes it easy for analytics users to discover, prepare, move, and integrate data from multiple sources. You can use it for analytics, machine learning, and application development. It also includes additional productivity and data ops tooling for authoring, running jobs, and implementing business workflows. 
 

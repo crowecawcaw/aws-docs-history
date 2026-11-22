@@ -1,7 +1,6 @@
 
 
 # Configuring Constant Contact
-<a name="constantcontact-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Constant Contact, you must meet the following requirements:
 

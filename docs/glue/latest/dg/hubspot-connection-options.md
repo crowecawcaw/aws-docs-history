@@ -1,7 +1,6 @@
 
 
 # HubSpot connection options
-<a name="hubspot-connection-options"></a>
 
 The following are connection options for HubSpot:
 + `ENTITY_NAME`(String) - (Required) Used for Read. The name of your object in HubSpot.

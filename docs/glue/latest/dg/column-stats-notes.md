@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations
-<a name="column-stats-notes"></a>
 
 The following considerations and limitations apply to generating column statistics.
 

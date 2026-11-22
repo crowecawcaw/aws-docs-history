@@ -1,7 +1,6 @@
 
 
 # Adding triggers
-<a name="console-triggers"></a>
 
 You can add a trigger using the AWS Glue console, the AWS Command Line Interface (AWS CLI), or the AWS Glue API.
 

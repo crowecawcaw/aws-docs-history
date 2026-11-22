@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for LogRocket
-<a name="logrocket-support"></a>
 
 AWS Glue supports LogRocket as follows:
 

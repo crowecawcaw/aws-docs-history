@@ -1,7 +1,6 @@
 
 
 # Managing auto upgrade
-<a name="auto-version-upgrades-managing-auto-upgrade"></a>
 
 This section describes how to approve or decline an upgrade, how to disable auto upgrade, and how to upgrade a job after a failed evaluation.
 
@@ -63,7 +62,7 @@ A failed upgraded run appears in your run history even though AWS Glue retries i
 
 Get the analysis ID from the `GetJob` response. For more information, see [Checking a job's auto upgrade status](auto-version-upgrades-monitoring-auto-upgrades.md#auto-version-upgrades-checking-a-jobs-auto-upgrade-status). Then run the following command. Use `--upgrade-consent DECLINE` to decline.
 
-```
+```bash
 aws glue start-job-upgrade-analysis \
   --job-name my-etl-job \
   --analysis-id ja-1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d \
@@ -73,7 +72,7 @@ aws glue start-job-upgrade-analysis \
 ### To approve or decline (AWS SDK for Python (Boto3))
 <a name="auto-version-upgrades-to-approve-or-decline-aws-sdk-for-python-boto3"></a>
 
-```
+```python
 import boto3
 
 glue = boto3.client("glue", region_name="us-west-2")
@@ -89,7 +88,7 @@ glue.start_job_upgrade_analysis(
 
 Set `GlueVersion` to a specific version, such as `4.0`. Any evaluation in progress stops, and the job's next run executes on the version you set. You can turn off auto upgrade safely at any phase.
 
-```
+```bash
 aws glue update-job \
   --job-name my-etl-job \
   --job-update '{

@@ -1,7 +1,6 @@
 
 
 # Reading from Coalesce entities
-<a name="coalesce-reading-from-entities"></a>
 
 **Prerequisites**
 

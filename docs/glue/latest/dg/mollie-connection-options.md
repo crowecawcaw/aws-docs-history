@@ -1,7 +1,6 @@
 
 
 # Mollie connection options
-<a name="mollie-connection-options"></a>
 
 The following are connection options for Mollie:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Mollie object to read.

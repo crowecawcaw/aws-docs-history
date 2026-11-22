@@ -1,7 +1,6 @@
 
 
 # Freshsales connection options
-<a name="freshsales-connection-options"></a>
 
 The following are connection options for Freshsales:
 + `ENTITY_NAME`(String) - (Required) Used for Read. The name of your object in Freshsales.

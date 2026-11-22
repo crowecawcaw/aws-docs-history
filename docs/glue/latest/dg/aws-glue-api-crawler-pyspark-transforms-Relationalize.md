@@ -1,7 +1,6 @@
 
 
 # Relationalize class
-<a name="aws-glue-api-crawler-pyspark-transforms-Relationalize"></a>
 
 Flattens a nested schema in a `DynamicFrame` and pivots out array columns from the flattened frame.
 

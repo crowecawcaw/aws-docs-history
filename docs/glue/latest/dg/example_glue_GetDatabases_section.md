@@ -1,7 +1,6 @@
 
 
 # Use `GetDatabases` with an AWS SDK or CLI
-<a name="example_glue_GetDatabases_section"></a>
 
 The following code examples show how to use `GetDatabases`.
 
@@ -97,7 +96,7 @@ For more information, see [Defining a Database in Your Data Catalog](https://doc
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples). 
 
-```
+```javascript
 const getDatabases = () => {
   const client = new GlueClient({});
 

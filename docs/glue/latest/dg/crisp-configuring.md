@@ -1,7 +1,6 @@
 
 
 # Configuring Crisp
-<a name="crisp-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Crisp, you must meet the following requirements:
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Smartsheet entities
-<a name="smartsheet-reading-from-entities"></a>
 
  **Prerequisites** 
 

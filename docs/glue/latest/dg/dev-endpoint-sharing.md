@@ -1,7 +1,6 @@
 
 
 # Advanced configuration: sharing development endpoints among multiple users
-<a name="dev-endpoint-sharing"></a>
 
 This section explains how you can take advantage of development endpoints with SageMaker notebooks in typical use cases to share development endpoints among multiple users.
 
@@ -17,7 +16,7 @@ For example, if your development endpoint has 10 workers and the worker type is 
 Regardless of the specified worker type, Spark dynamic resource allocation will be turned on. If a dataset is large enough, Spark may allocate all the executors to a single Livy session since `spark.dynamicAllocation.maxExecutors` is not set by default. This means that other Livy sessions on the same dev endpoint will wait to launch new executors. If the dataset is small, Spark will be able to allocate executors to multiple Livy sessions at the same time.
 
 **Note**  
-For more information about how resources are allocated in different use cases and how you set a configuration to modify the behavior, see [Advanced configuration: sharing development endpoints among multiple users](#dev-endpoint-sharing).
+For more information about how resources are allocated in different use cases and how you set a configuration to modify the behavior, see [Advanced configuration: sharing development endpoints among multiple users](dev-endpoint-sharing.md).
 
 ### Multi-tenancy configuration
 <a name="dev-endpoint-sharing-sharing-multi"></a>

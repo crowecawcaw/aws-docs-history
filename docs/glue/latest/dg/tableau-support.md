@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Tableau
-<a name="tableau-support"></a>
 
 AWS Glue supports Tableau as follows:
 

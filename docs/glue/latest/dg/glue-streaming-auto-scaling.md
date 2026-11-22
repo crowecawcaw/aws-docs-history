@@ -1,7 +1,6 @@
 
 
 # AWS Glue streaming autoscaling
-<a name="glue-streaming-auto-scaling"></a>
 
 AWS Glue streaming ETL jobs continuously consume data from streaming sources, clean and transform the data in-flight, and make it available for analysis. By monitoring each stage of the job run, AWS Glue autoscaling can turn off workers when they are idle or add workers if additional parallel processing is possible.
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Postman entities
-<a name="postman-reading-from-entities"></a>
 
 **Prerequisites**
 

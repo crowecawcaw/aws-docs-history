@@ -1,7 +1,6 @@
 
 
 # Configuring Omnisend
-<a name="omnisend-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Omnisend, you must meet the following requirements:
 

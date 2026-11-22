@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for Adobe Marketo Engage connector
-<a name="adobe-marketo-engage-connector-limitations"></a>
 
 The following are limitations or notes for the Adobe Marketo Engage connector:
 + 'sinceDatetime' and 'activityTypeId' are mandatory filter parameters for the Sync Activities entity.

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Smartlook
-<a name="smartlook-support"></a>
 
 AWS Glue supports Smartlook as follows:
 

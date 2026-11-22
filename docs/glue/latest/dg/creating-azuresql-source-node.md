@@ -1,7 +1,6 @@
 
 
 # Creating a Azure SQL source node
-<a name="creating-azuresql-source-node"></a>
 
 ## Prerequisites needed
 <a name="creating-azuresql-source-node-prerequisites"></a>

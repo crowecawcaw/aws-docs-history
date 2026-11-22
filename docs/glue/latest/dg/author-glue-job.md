@@ -1,7 +1,6 @@
 
 
 # Working with jobs in AWS Glue
-<a name="author-glue-job"></a>
 
 The following sections provide information on ETL and Ray jobs in AWS Glue.
 

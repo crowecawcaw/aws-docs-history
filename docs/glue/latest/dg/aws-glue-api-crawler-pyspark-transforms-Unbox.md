@@ -1,7 +1,6 @@
 
 
 # Unbox class
-<a name="aws-glue-api-crawler-pyspark-transforms-Unbox"></a>
 
 Unboxes (reformats) a string field in a `DynamicFrame`.
 

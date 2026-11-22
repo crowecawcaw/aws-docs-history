@@ -1,7 +1,6 @@
 
 
 # C\# Implementation
-<a name="schema-registry-gs-serde-csharp"></a>
 
 **Note**  
 Prerequisites: Before completing the following steps, you will need to have a Amazon Managed Streaming for Apache Kafka (Amazon MSK) or Apache Kafka cluster running. Your producers and consumers need to be running on .NET 8.0 or above.

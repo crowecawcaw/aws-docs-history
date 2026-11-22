@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Mollie
-<a name="mollie-support"></a>
 
 AWS Glue supports Mollie as follows:
 

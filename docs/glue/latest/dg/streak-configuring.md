@@ -1,7 +1,6 @@
 
 
 # Configuring Streak
-<a name="streak-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Streak, you must meet the following requirements:
 

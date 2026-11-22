@@ -1,7 +1,6 @@
 
 
 # Connecting to Postman in AWS Glue Studio
-<a name="connecting-to-data-postman"></a>
 
 Postman is an API platform for designing, testing, documenting, mocking, monitoring, and collaboratively reviewing APIs. Because you are a Postman user, you can connect AWS Glue to your Postman account. You can then use Postman as a data source in your AWS Glue ETL jobs to transfer data between Postman and AWS services or other supported applications.
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Instagram Ads entities
-<a name="instagram-ads-reading-from-entities"></a>
 
 **Prerequisite**
 

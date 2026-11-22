@@ -1,7 +1,6 @@
 
 
 # Reading from Constant Contact entities
-<a name="constantcontact-reading-from-entities"></a>
 
 **Prerequisites**
 

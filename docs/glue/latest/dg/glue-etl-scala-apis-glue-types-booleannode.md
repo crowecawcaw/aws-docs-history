@@ -1,7 +1,6 @@
 
 
 # AWS Glue Scala BooleanNode APIs
-<a name="glue-etl-scala-apis-glue-types-booleannode"></a>
 
 **Package: com.amazonaws.services.glue.types**
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Glue Spark jobs
-<a name="monitor-spark"></a>
 
 **Topics**
 + [Spark Metrics available in AWS Glue Studio](#console-jobs-details-metrics-spark)

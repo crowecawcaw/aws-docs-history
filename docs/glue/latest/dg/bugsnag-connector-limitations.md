@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the BugSnag connector
-<a name="bugsnag-connector-limitations"></a>
 
 The following are limitations and notes for the BugSnag connector:
 + BugSnag is supported as a source only. Writing to BugSnag is not supported.

@@ -1,7 +1,6 @@
 
 
 # Add a UUID column
-<a name="transforms-uuid"></a>
 
 When you add a *UUID* (Universally Unique Identified) column, each row will be assigned a unique 36-character string.
 

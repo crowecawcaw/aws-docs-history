@@ -1,7 +1,6 @@
 
 
 # Creating an Smartsheet account
-<a name="smartsheet-create-account"></a>
 
 1. Sign up for a Smartsheet account by accessing [Smartsheet sing-up page](https://app.smartsheet.com/home). 
 

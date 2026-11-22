@@ -1,7 +1,6 @@
 
 
 # Creating a registry
-<a name="schema-registry-gs3"></a>
 
 You may use the default registry or create as many new registries as necessary using the AWS Glue APIs or AWS Glue console.
 

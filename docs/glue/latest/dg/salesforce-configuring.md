@@ -1,7 +1,6 @@
 
 
 # Configuring Salesforce
-<a name="salesforce-configuring"></a>
 
 Before you can use AWS Glue to transfer data to or from Salesforce, you must meet these requirements:
 

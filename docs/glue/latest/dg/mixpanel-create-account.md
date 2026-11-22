@@ -1,7 +1,6 @@
 
 
 # Creating a Mixpanel account and configuring the client app
-<a name="mixpanel-create-account"></a>
 
 **Creating a Mixpanel account**
 

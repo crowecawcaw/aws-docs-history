@@ -1,7 +1,6 @@
 
 
 # Configuring Todoist
-<a name="todoist-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Todoist, you must meet the following requirements:
 

@@ -1,7 +1,6 @@
 
 
 # Writing custom classifiers for diverse data formats
-<a name="custom-classifier"></a>
 
 You can provide a custom classifier to classify your data in AWS Glue. You can create a custom classifier using a grok pattern, an XML tag, JavaScript Object Notation (JSON), or comma-separated values (CSV). An AWS Glue crawler calls a custom classifier. If the classifier recognizes the data, it returns the classification and schema of the data to the crawler. You might need to define a custom classifier if your data doesn't match any built-in classifiers, or if you want to customize the tables that are created by the crawler.
 
@@ -285,7 +284,7 @@ AWS Glue keeps track of the creation time, last update time, and version of your
 **Example Using a JSON classifier to pull records from an array**  
 Suppose that your JSON data is an array of records. For example, the first few lines of your file might look like the following:  
 
-```
+```json
 [
   {
     "type": "constituency",
@@ -367,7 +366,7 @@ root
 **Example Using a JSON classifier to examine only parts of a file**  
 Suppose that your JSON data follows the pattern of the example JSON file `s3://awsglue-datasets/examples/us-legislators/all/areas.json` drawn from [http://everypolitician.org/](http://everypolitician.org/). Example objects in the JSON file look like the following:  
 
-```
+```json
 {
   "type": "constituency",
   "id": "ocd-division\/country:us\/state:ak",

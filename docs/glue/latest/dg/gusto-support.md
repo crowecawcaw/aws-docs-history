@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Gusto
-<a name="gusto-support"></a>
 
 AWS Glue supports Gusto as follows:
 

@@ -1,7 +1,6 @@
 
 
 # Using job parameters in AWS Glue jobs
-<a name="aws-glue-programming-etl-glue-arguments"></a>
 
 When creating a AWS Glue job, you set some standard fields, such as `Role` and `WorkerType`. You can provide additional configuration information through the `Argument` fields (**Job Parameters** in the console). In these fields, you can provide AWS Glue jobs with the arguments (parameters) listed in this topic. 
 

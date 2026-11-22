@@ -1,7 +1,6 @@
 
 
 # Reading from Todoist entities
-<a name="todoist-reading-from-entities"></a>
 
 **Prerequisites**
 

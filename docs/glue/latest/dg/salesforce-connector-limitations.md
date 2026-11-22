@@ -1,7 +1,6 @@
 
 
 # Limitations for the Salesforce connector
-<a name="salesforce-connector-limitations"></a>
 
 The following are limitations for the Salesforce connector:
 + We only support Spark SQL and Salesforce SOQL is not supported.

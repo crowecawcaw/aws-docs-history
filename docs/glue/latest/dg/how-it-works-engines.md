@@ -1,7 +1,6 @@
 
 
 # AWS Glue for Spark and AWS Glue for Ray
-<a name="how-it-works-engines"></a>
 
 In AWS Glue on Apache Spark (AWS Glue ETL), you can use PySpark to write Python code to handle data at scale. Spark is a familiar solution for this problem, but data engineers with Python-focused backgrounds can find the transition unintuitive. The Spark DataFrame model is not seamlessly "Pythonic", which reflects the Scala language and Java runtime it is built upon.
 

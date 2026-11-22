@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon CloudWatch metrics
-<a name="view-optimization-metrics"></a>
 
  After running the table optimizers successfully, the service creates Amazon CloudWatch metrics on the optimization job performance. You can go to the **CloudWatch Metrics** and choose **Metrics**, **All metrics**. You can to filter metrics by the specific namespace (for example AWS Glue), table name, or database name.
 

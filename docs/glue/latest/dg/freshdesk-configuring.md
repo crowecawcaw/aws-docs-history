@@ -1,7 +1,6 @@
 
 
 # Configuring Freshdesk
-<a name="freshdesk-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Freshdesk, you must meet these requirements:
 

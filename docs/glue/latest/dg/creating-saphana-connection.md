@@ -1,7 +1,6 @@
 
 
 # Creating a SAP HANA connection
-<a name="creating-saphana-connection"></a>
 
 To connect to SAP HANA from AWS Glue, you will need to create and store your SAP HANA credentials in a AWS Secrets Manager secret, then associate that secret with a SAP HANA AWS Glue connection. You will need to configure network connectivity between your SAP HANA service and AWS Glue.
 

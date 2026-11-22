@@ -1,7 +1,6 @@
 
 
 # Step 4: Set output and scheduling
-<a name="define-crawler-set-output-and-scheduling"></a>
 
 **Output configuration**  
 Options include how the crawler should handle detected schema changes, deleted objects in the data store, and more. For more information, see [Customizing crawler behavior](crawler-configuration.md)

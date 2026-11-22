@@ -1,7 +1,6 @@
 
 
 # Connecting to Salesforce Marketing Cloud
-<a name="connecting-to-data-salesforce-marketing-cloud"></a>
 
 Salesforce Marketing Cloud is a provider of marketing automation and analytics software for email, mobile, social, and online marketing. It also offers consulting and implementation services. As a Salesforce Marketing Cloud user, you can connect AWS Glue to your Salesforce Marketing Cloud account. Then, you can use Salesforce Marketing Cloud as a data source or destination in your ETL jobs. Run these jobs to transfer data between Salesforce Marketing Cloud and AWS services or other supported applications.
 

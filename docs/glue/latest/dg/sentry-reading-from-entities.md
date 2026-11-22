@@ -1,7 +1,6 @@
 
 
 # Reading from Sentry entities
-<a name="sentry-reading-from-entities"></a>
 
 **Prerequisites**
 

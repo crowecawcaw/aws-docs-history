@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for dbt Cloud
-<a name="dbt-support"></a>
 
 AWS Glue supports dbt Cloud as follows:
 

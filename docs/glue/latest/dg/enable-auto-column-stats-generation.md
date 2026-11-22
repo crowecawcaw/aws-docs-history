@@ -1,7 +1,6 @@
 
 
 # Enabling catalog-level automatic statistics generation
-<a name="enable-auto-column-stats-generation"></a>
 
 You can enable the automatic column statistics generation for all new Apache Iceberg tables and tables in non-OTF table (Parquet, JSON, CSV, XML, ORC, ION) formats in the Data Catalog. After creating the table, you can also explicitly update the column statistics settings manually.
 

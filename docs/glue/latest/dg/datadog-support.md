@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Datadog
-<a name="datadog-support"></a>
 
 AWS Glue supports Datadog as follows:
 

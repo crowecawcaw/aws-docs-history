@@ -1,7 +1,6 @@
 
 
 # Writing to Adobe Marketo Engage entities
-<a name="adobe-marketo-engage-writing-to-entities"></a>
 
 **Prerequisites**
 + An Adobe Marketo object you would like to write to. You will need the object name such as `leads` or `customobjects`.

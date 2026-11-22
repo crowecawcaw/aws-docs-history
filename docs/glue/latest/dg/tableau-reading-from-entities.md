@@ -1,7 +1,6 @@
 
 
 # Reading from Tableau entities
-<a name="tableau-reading-from-entities"></a>
 
 **Prerequisites**
 

@@ -1,7 +1,6 @@
 
 
 # Configuring Oracle NetSuite connections
-<a name="oracle-netsuite-configuring-connections"></a>
 
 Oracle NetSuite supports the AUTHORIZATION\_CODE grant type for OAuth2. The grant type determines how AWS Glue communicates with Oracle NetSuite to request access to your data.
 + This grant type is considered "three-legged" OAuth as it relies on redirecting users to a third-party authorization server to authenticate the user. It is used when creating connections via the AWS Glue console. The user creating a connection may by default rely on an AWS Glue-owned connected app (AWS Glue managed client application) where they do not need to provide any OAuth-related information except for their Oracle NetSuite instance URL. The AWS Glue console will redirect the user to Oracle NetSuite where the user must log in and allow AWS Glue the requested permissions to access their Oracle NetSuite instance.
@@ -30,7 +29,7 @@ To configure a Oracle NetSuite connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

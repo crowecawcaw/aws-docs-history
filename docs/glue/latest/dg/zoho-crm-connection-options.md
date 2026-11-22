@@ -1,7 +1,6 @@
 
 
 # Zoho CRM connection options
-<a name="zoho-crm-connection-options"></a>
 
 The following are connection options for Zoho CRM:
 + `ENTITY_NAME`(String) - (Required) Used for Read. The name of your object in Zoho CRM.

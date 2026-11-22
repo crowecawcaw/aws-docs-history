@@ -1,7 +1,6 @@
 
 
 # Reading from ServiceNow entities
-<a name="servicenow-reading-from-entities"></a>
 
 **Prerequisite**
 

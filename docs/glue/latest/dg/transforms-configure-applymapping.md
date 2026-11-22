@@ -1,7 +1,6 @@
 
 
 # Using Change Schema to remap data property keys
-<a name="transforms-configure-applymapping"></a>
 
 A *Change Schema* transform remaps the source data property keys into the desired configured for the target data. In a Change Schema transform node, you can:
 + Change the name of multiple data property keys.
@@ -21,7 +20,7 @@ You can also add additional *Change Schema* nodes to the job diagram as needed â
 
 1.  In the **SQL Query** transform, use an SQL query to cast the remapped column to the desired precision. The SQL query would look like this: 
 
-   ```
+   ```SQL
    SELECT col1, col2, CAST(DecimalCol AS DECIMAL(18,6)) AS OutputDecimalCol
    FROM __THIS__
    ```

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Folk
-<a name="folk-support"></a>
 
 AWS Glue supports Folk as follows:
 

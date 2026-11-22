@@ -1,7 +1,6 @@
 
 
 # Connecting to the Data Catalog using AWS Glue Iceberg REST extension endpoint
-<a name="connect-glue-iceberg-rest-ext"></a>
 
  AWS Glue Iceberg REST extension endpoint provides additional APIs, which are not present in the Apache Iceberg REST specification, and provides server-side scan planning capabilities. These additional APIs are used when you access tables stored in Amazon Redshift managed storage. The endpoint is accessible from an application using Apache Iceberg AWS Glue Data Catalog extensions. 
 

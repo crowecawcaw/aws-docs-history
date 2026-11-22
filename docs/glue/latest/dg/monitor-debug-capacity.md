@@ -1,7 +1,6 @@
 
 
 # Monitoring for DPU capacity planning
-<a name="monitor-debug-capacity"></a>
 
 You can use job metrics in AWS Glue to estimate the number of data processing units (DPUs) that can be used to scale out an AWS Glue job.
 

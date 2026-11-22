@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for PayPal connector
-<a name="paypal-connector-limitations"></a>
 
 The following are limitations or notes for the PayPal connector:
 + The [PayPal transactions documentation](https://developer.paypal.com/docs/api/transaction-search/v1/#search_get) mentions that it takes a maximum of three hours for executed transactions to appear in the list transactions call. However, it has been observed to take more time than that depending the [`last_refreshed_datetime`](https://developer.paypal.com/docs/api/transaction-search/v1/#search_get:~:text=last_refreshed_datetime). Here, `last_refreshed_datetime` is the amount of time until which you have data available from the APIs.

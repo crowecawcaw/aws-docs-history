@@ -1,7 +1,6 @@
 
 
 # Configuring Front
-<a name="front-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Front, you must meet the following requirements:
 

@@ -1,27 +1,34 @@
 
 
 # Develop and test AWS Glue jobs locally using a Docker image
-<a name="develop-local-docker-image"></a>
 
- For a production-ready data platform, the development process and CI/CD pipeline for AWS Glue jobs is a key topic. You can flexibly develop and test AWS Glue jobs in a Docker container. AWS Glue hosts Docker images on Docker Hub to set up your development environment with additional utilities. You can use your preferred IDE, notebook, or REPL using AWS Glue ETL library. This topic describes how to develop and test AWS Glue version 5.0 jobs in a Docker container using a Docker image.
+ For a production-ready data platform, the development process and CI/CD pipeline for AWS Glue jobs is a key topic. You can flexibly develop and test AWS Glue jobs in a Docker container. AWS Glue hosts Docker images on Amazon ECR Public Gallery and Docker Hub to set up your development environment with additional utilities. You can use your preferred IDE, notebook, or REPL using AWS Glue ETL library. This topic describes how to develop and test AWS Glue version 6.0 jobs in a Docker container using a Docker image.
 
 ## Available Docker images
 <a name="develop-local-available-docker-images-ecr"></a>
 
- The following Docker images are available for AWS Glue on [Amazon ECR:](https://gallery.ecr.aws/glue/aws-glue-libs). 
+ The following Docker images are available for AWS Glue on [Amazon ECR Public Gallery](https://gallery.ecr.aws/glue/aws-glue-libs) and Docker Hub (`amazon/aws-glue-libs`): 
++  For AWS Glue version 6.0: `public.ecr.aws/glue/aws-glue-libs:6.0` 
++  For AWS Glue version 5.1: `public.ecr.aws/glue/aws-glue-libs:5.1` 
 +  For AWS Glue version 5.0: `public.ecr.aws/glue/aws-glue-libs:5` 
 + For AWS Glue version 4.0: `public.ecr.aws/glue/aws-glue-libs:glue_libs_4.0.0_image_01`
 + For AWS Glue version 3.0: `public.ecr.aws/glue/aws-glue-libs:glue_libs_3.0.0_image_01`
 + For AWS Glue version 2.0: `public.ecr.aws/glue/aws-glue-libs:glue_libs_2.0.0_image_01`
 
+ The same images are available on Docker Hub as `docker.io/amazon/aws-glue-libs:<tag>` (for example, `amazon/aws-glue-libs:6.0`). 
+
 **Note**  
  AWS Glue Docker images are compatible with both x86\_64 and arm64. 
 
- In this example, we use `public.ecr.aws/glue/aws-glue-libs:5` and run the container on a local machine (Mac, Windows, or Linux). This container image has been tested for AWS Glue version 5.0 Spark jobs. The image contains the following: 
+**Note**  
+ The `5` tag tracks the latest AWS Glue 5.0.x image only. Starting with AWS Glue 5.1, the floating tag uses the `<major>.<minor>` version (for example, `5.1` and `6.0`), so `5` doesn't include AWS Glue 5.1. 
+
+ In this example, we use `public.ecr.aws/glue/aws-glue-libs:6.0` and run the container on a local machine (Mac, Windows, or Linux). This container image has been tested for AWS Glue version 6.0 Spark jobs. The image contains the following: 
 +  Amazon Linux 2023 
 +  AWS Glue ETL Library 
-+  Apache Spark 3.5.4 
-+  Open table format libraries; Apache Iceberg 1.7.1, Apache Hudi 0.15.0, and Delta Lake 3.3.0 
++  Apache Spark 4.1.1 (Scala 2.13) 
++  Python 3.13 
++  The image includes open table format libraries: Apache Iceberg 1.11.0, Apache Hudi 1.1.1, and Delta Lake 4.2.0. 
 +  AWS Glue Data Catalog Client 
 +  Amazon Redshift connector for Apache Spark 
 +  Amazon DynamoDB connector for Apache Hadoop 
@@ -35,7 +42,7 @@
 ## Prerequisites
 <a name="develop-local-docker-image-prereq"></a>
 
-Before you start, make sure that Docker is installed and the Docker daemon is running. For installation instructions, see the Docker documentation for [Mac](https://docs.docker.com/docker-for-mac/install/) or [Linux](https://docs.docker.com/engine/install/). The machine running the Docker hosts the AWS Glue container. Also make sure that you have at least 7 GB of disk space for the image on the host running the Docker.
+Before you start, make sure that Docker is installed and the Docker daemon is running. For installation instructions, see the Docker documentation for [Mac](https://docs.docker.com/docker-for-mac/install/) or [Linux](https://docs.docker.com/engine/install/). The machine running the Docker hosts the AWS Glue container. Also make sure that you have at least 10 GB of disk space for the image on the host running the Docker.
 
  For more information about restrictions when developing AWS Glue code locally, see [ Local development restrictions ](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-libraries.html#local-dev-restrictions). 
 
@@ -54,7 +61,7 @@ To enable AWS API calls from the container, set up AWS credentials by following 
 
 In the following sections, we use this AWS named profile.
 
-### 
+### Pull the image
 <a name="develop-local-docker-pull-image-from-ecr-public"></a>
 
  If you’re running Docker on Windows, choose the Docker icon (right-click) and choose **Switch to Linux containers** before pulling the image. 
@@ -62,7 +69,7 @@ In the following sections, we use this AWS named profile.
 Run the following command to pull the image from ECR Public:
 
 ```
-docker pull public.ecr.aws/glue/aws-glue-libs:5 
+docker pull public.ecr.aws/glue/aws-glue-libs:6.0
 ```
 
 ## Run the container
@@ -93,8 +100,8 @@ You can run an AWS Glue job script by running the `spark-submit` command on the 
        -v ~/.aws:/home/hadoop/.aws \
        -v $WORKSPACE_LOCATION:/home/hadoop/workspace/ \
        -e AWS_PROFILE=$PROFILE_NAME \
-       --name glue5_spark_submit \
-       public.ecr.aws/glue/aws-glue-libs:5 \
+       --name glue_spark_submit \
+       public.ecr.aws/glue/aws-glue-libs:6.0 \
        spark-submit /home/hadoop/workspace/src/$SCRIPT_FILE_NAME
    ```
 
@@ -109,28 +116,29 @@ You can run an AWS Glue job script by running the `spark-submit` command on the 
 $ docker run -it --rm \
     -v ~/.aws:/home/hadoop/.aws \
     -e AWS_PROFILE=$PROFILE_NAME \
-    --name glue5_pyspark \
-    public.ecr.aws/glue/aws-glue-libs:5 \
+    --name glue_pyspark \
+    public.ecr.aws/glue/aws-glue-libs:6.0 \
     pyspark
 ```
 
  You will see the following output: 
 
 ```
-Python 3.11.6 (main, Jan  9 2025, 00:00:00) [GCC 11.4.1 20230605 (Red Hat 11.4.1-2)] on linux
+Python 3.13.18 (main, Aug 24 2026, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-5)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
+WARNING: Using incubator modules: jdk.incubator.vector
 Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
 Welcome to
       ____              __
      / __/__  ___ _____/ /__
     _\ \/ _ \/ _ `/ __/  '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 3.5.4-amzn-0
+   /__ / .__/\_,_/_/ /_/\_\   version 4.1.1-amzn-0
       /_/
 
-Using Python version 3.11.6 (main, Jan  9 2025 00:00:00)
+Using Python version 3.13.18 (main, Aug 24 2026 00:00:00)
 Spark context Web UI available at None
-Spark context available as 'sc' (master = local[*], app id = local-1740643079929).
+Spark context available as 'sc' (master = local[*], app id = local-1792995942477).
 SparkSession available as 'spark'.
 >>>
 ```
@@ -158,8 +166,8 @@ $ docker run -i --rm \
     -v $WORKSPACE_LOCATION:/home/hadoop/workspace/ \
     --workdir /home/hadoop/workspace \
     -e AWS_PROFILE=$PROFILE_NAME \
-    --name glue5_pytest \
-    public.ecr.aws/glue/aws-glue-libs:5 \
+    --name glue_pytest \
+    public.ecr.aws/glue/aws-glue-libs:6.0 \
     -c "python3 -m pytest --disable-warnings"
 ```
 
@@ -167,14 +175,14 @@ $ docker run -i --rm \
 
 ```
 ============================= test session starts ==============================
-platform linux -- Python 3.11.6, pytest-8.3.4, pluggy-1.5.0
+platform linux -- Python 3.13.18, pytest-9.0.3, pluggy-1.6.0
 rootdir: /home/hadoop/workspace
-plugins: integration-mark-0.2.0
+plugins: integration-mark-0.2.0, timeout-2.4.0
 collected 1 item
 
 tests/test_sample.py .                                                   [100%]
 
-======================== 1 passed, 1 warning in 34.28s =========================
+======================== 1 passed, 1 warning in 10.61s =========================
 ```
 
 ### Setting up the container to use Visual Studio Code
@@ -200,9 +208,9 @@ tests/test_sample.py .                                                   [100%]
 
    ```
    {
-       "python.defaultInterpreterPath": "/usr/bin/python3.11",
+       "python.defaultInterpreterPath": "/usr/bin/python3.13",
        "python.analysis.extraPaths": [
-           "/usr/lib/spark/python/lib/py4j-0.10.9.7-src.zip:/usr/lib/spark/python/:/usr/lib/spark/python/lib/",
+           "/usr/lib/spark/python/lib/py4j-0.10.9.9-src.zip:/usr/lib/spark/python/:/usr/lib/spark/python/lib/"
        ]
    }
    ```
@@ -216,14 +224,14 @@ tests/test_sample.py .                                                   [100%]
        -v ~/.aws:/home/hadoop/.aws \
        -v $WORKSPACE_LOCATION:/home/hadoop/workspace/ \
        -e AWS_PROFILE=$PROFILE_NAME \
-       --name glue5_pyspark \
-       public.ecr.aws/glue/aws-glue-libs:5 \
+       --name glue_pyspark \
+       public.ecr.aws/glue/aws-glue-libs:6.0 \
        pyspark
    ```
 
 1. Start Visual Studio Code.
 
-1.  Choose **Remote Explorer** on the left menu, and choose `amazon/aws-glue-libs:glue_libs_4.0.0_image_01`. 
+1.  Choose **Remote Explorer** on the left menu, and choose the running `glue_pyspark` container (`public.ecr.aws/glue/aws-glue-libs:6.0`). 
 
 1.  Right-click and choose **Attach in Current Window**.   
 ![When right-click, a window with the option to Attach in Current Window is presented.](https://docs.aws.amazon.com/glue/latest/dg/images/vs-code-other-containers.png)
@@ -231,13 +239,25 @@ tests/test_sample.py .                                                   [100%]
 1.  If the following dialog appears, choose **Got it**.   
 ![A window warning with message "Attaching to a container may execute arbitrary code".](https://docs.aws.amazon.com/glue/latest/dg/images/vs-code-warning-got-it.png)
 
-1. Open `/home/handoop/workspace/`.  
+1. Open `/home/hadoop/workspace/`.  
 ![A window drop-down with the option 'workspace' is highlighted.](https://docs.aws.amazon.com/glue/latest/dg/images/vs-code-open-workspace.png)
 
 1.  Create a AWS Glue PySpark script and choose **Run**. 
 
    You will see the successful run of the script.  
 ![The successful run of the script.](https://docs.aws.amazon.com/glue/latest/dg/images/vs-code-run-successful-script.png)
+
+## Changes between AWS Glue 5.x and AWS Glue 6.0 Docker image
+<a name="develop-local-docker-glue5-glue6-changes"></a>
+
+ The major changes between the AWS Glue 5.x and AWS Glue 6.0 Docker image: 
++  AWS Glue 6.0 uses Apache Spark 4.1.1 built with Scala 2.13. Any JAR files you add to the container (for example, by mounting them to `/opt/spark/jars/` or passing them with `--jars`) must be built for Spark 4.1.1 and Scala 2.13. JAR files built for Scala 2.12 don't work. 
++  In AWS Glue 6.0, the default Python interpreter is Python 3.13 (`/usr/bin/python3.13`). If you configure an IDE to use the container's interpreter, update the interpreter path and the bundled py4j path (`py4j-0.10.9.9-src.zip`). 
++  Starting with AWS Glue 5.1, the floating image tag uses the `<major>.<minor>` version. Use `public.ecr.aws/glue/aws-glue-libs:6.0` for AWS Glue 6.0. The `5` tag that AWS Glue 5.0 uses tracks 5.0.x only. 
++  The open table format libraries are updated to Apache Iceberg 1.11.0, Apache Hudi 1.1.1, and Delta Lake 4.2.0. As in AWS Glue 5.0, they're all pre-loaded by default. 
++  As in AWS Glue 5.0, there is a single container image for both batch and streaming jobs, and the default user name of the container is `hadoop`. 
+
+ The preceding list is specific to the Docker image. To learn more about AWS Glue 6.0 updates, see [Migrating AWS Glue for Spark jobs to AWS Glue version 6.0](https://docs.aws.amazon.com/glue/latest/dg/migrating-version-60.html). 
 
 ## Changes between AWS Glue 4.0 and AWS Glue 5.0 Docker image
 <a name="develop-local-docker-glue4-glue5-changes"></a>
@@ -246,9 +266,9 @@ tests/test_sample.py .                                                   [100%]
 +  In AWS Glue 5.0, there is a single container image for both batch and streaming jobs. This differs from Glue 4.0, where there was one image for batch and another for streaming. 
 +  In AWS Glue 5.0, the default user name of the container is `hadoop`. In AWS Glue 4.0, the default user name was `glue_user`. 
 +  In AWS Glue 5.0, several additional libraries including JupyterLab and Livy have been removed from the image. You can manually install them. 
-+  In AWS Glue 5.0, all of Iceberg, Hudi and Delta libraries are pre-loaded by default, and the environment variable `DATALAKE_FORMATS` is no longer needed. Prior to AWS Glue 4.0, the environment variable `DATALAKE_FORMATS` environment variable was used to specify which specific table formats should be loaded. 
++  In AWS Glue 5.0, all of the Iceberg, Hudi, and Delta libraries are pre-loaded by default, and the `DATALAKE_FORMATS` environment variable is no longer needed. In AWS Glue 4.0 and earlier versions, the `DATALAKE_FORMATS` environment variable was used to specify which table formats to load. 
 
- The above list is specific to the Docker image. To learn more about AWS Glue 5.0 updates, see [Introducing AWS Glue 5.0 for Apache Spark ](https://aws.amazon.com/blogs/big-data/introducing-aws-glue-5-0-for-apache-spark/) and [Migrating AWS Glue for Spark jobs to AWS Glue version 5.0](https://docs.aws.amazon.com/glue/latest/dg/migrating-version-50.html). 
+ The preceding list is specific to the Docker image. To learn more about AWS Glue 5.0 updates, see [Introducing AWS Glue 5.0 for Apache Spark ](https://aws.amazon.com/blogs/big-data/introducing-aws-glue-5-0-for-apache-spark/) and [Migrating AWS Glue for Spark jobs to AWS Glue version 5.0](https://docs.aws.amazon.com/glue/latest/dg/migrating-version-50.html). 
 
 ## Considerations
 <a name="develop-local-docker-considerations"></a>
@@ -264,10 +284,94 @@ tests/test_sample.py .                                                   [100%]
 +  [Sensitive Data Detection](https://docs.aws.amazon.com/glue/latest/dg/detect-PII.html) 
 +  AWS Lake Formation permission-based credential vending 
 
+## Appendix: Sample script and unit test
+<a name="develop-local-docker-image-appendix-sample"></a>
+
+ The following `sample.py` reads the public us-legislators sample dataset from Amazon S3 into a DynamicFrame and prints its schema. Save it as `src/sample.py` under your workspace. 
+
+```
+import sys
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+from awsglue.utils import getResolvedOptions
+
+
+class GluePythonSampleTest:
+    def __init__(self):
+        params = []
+        if '--JOB_NAME' in sys.argv:
+            params.append('JOB_NAME')
+        args = getResolvedOptions(sys.argv, params)
+
+        self.context = GlueContext(SparkContext.getOrCreate())
+        self.job = Job(self.context)
+
+        if 'JOB_NAME' in args:
+            jobname = args['JOB_NAME']
+        else:
+            jobname = "test"
+        self.job.init(jobname, args)
+
+    def run(self):
+        dyf = read_json(self.context, "s3://awsglue-datasets/examples/us-legislators/all/persons.json")
+        dyf.printSchema()
+
+        self.job.commit()
+
+
+def read_json(glue_context, path):
+    dynamicframe = glue_context.create_dynamic_frame.from_options(
+        connection_type='s3',
+        connection_options={
+            'paths': [path],
+            'recurse': True
+        },
+        format='json'
+    )
+    return dynamicframe
+
+
+if __name__ == '__main__':
+    GluePythonSampleTest().run()
+```
+
+ The following `test_sample.py` is a unit test for `sample.py`. Save it as `tests/test_sample.py` under your workspace. 
+
+```
+import pytest
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+from awsglue.utils import getResolvedOptions
+import sys
+from src import sample
+
+
+@pytest.fixture(scope="module", autouse=True)
+def glue_context():
+    sys.argv.append('--JOB_NAME')
+    sys.argv.append('test_count')
+
+    args = getResolvedOptions(sys.argv, ['JOB_NAME'])
+    context = GlueContext(SparkContext.getOrCreate())
+    job = Job(context)
+    job.init(args['JOB_NAME'], args)
+
+    yield(context)
+
+    job.commit()
+
+
+def test_counts(glue_context):
+    dyf = sample.read_json(glue_context, "s3://awsglue-datasets/examples/us-legislators/all/persons.json")
+    assert dyf.toDF().count() == 1961
+```
+
 ## Appendix: Adding JDBC drivers and Java libraries
 <a name="develop-local-docker-image-appendix"></a>
 
- To add JDBC driver not currently available in the container, you can create a new directory under your workspace with JAR files you need and mount the directory to `/opt/spark/jars/` in docker run command. JAR files found under `/opt/spark/jars/` within the container are automatically added to Spark Classpath and will be available for use during job run. 
+ To add JDBC driver not currently available in the container, you can create a new directory under your workspace with JAR files you need and mount the directory to `/opt/spark/jars/` in docker run command. JAR files found under `/opt/spark/jars/` within the container are automatically added to Spark Classpath and will be available for use during job run. For AWS Glue 6.0, use JAR files built for Spark 4.1.1 and Scala 2.13. 
 
  For example, use the following docker run command to add JDBC driver jars to PySpark REPL shell. 
 
@@ -278,8 +382,8 @@ docker run -it --rm \
     -v $WORKSPACE_LOCATION/jars/:/opt/spark/jars/ \
     --workdir /home/hadoop/workspace \
     -e AWS_PROFILE=$PROFILE_NAME \
-    --name glue5_jdbc \
-    public.ecr.aws/glue/aws-glue-libs:5 \
+    --name glue_jdbc \
+    public.ecr.aws/glue/aws-glue-libs:6.0 \
     pyspark
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Security APIs in AWS Glue
-<a name="aws-glue-api-jobs-security"></a>
 
 The Security API describes the security data types, and the API related to security in AWS Glue.
 

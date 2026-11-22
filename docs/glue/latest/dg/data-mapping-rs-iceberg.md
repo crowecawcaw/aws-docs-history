@@ -1,7 +1,6 @@
 
 
 # Data mapping between Amazon Redshift and Apache Iceberg
-<a name="data-mapping-rs-iceberg"></a>
 
 Redshift and Iceberg support various data types. The following compatibility matrix outlines the support and limitations when mapping data between these two data systems. Please refer to [Amazon Redshift Data Types](https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html) and [Apache Iceberg Table Specifications](https://iceberg.apache.org/spec/#primitive-types) for more details on supported data types in respective data systems.
 

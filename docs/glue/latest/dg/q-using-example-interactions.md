@@ -1,14 +1,13 @@
 
 
 # Example interactions
-<a name="q-using-example-interactions"></a>
 
 Amazon Q data integration in AWS Glue allows you enter your question in the Amazon Q panel. You can enter a question regarding data integration functionality provided by AWS Glue. A detailed answer, together with reference documents, will be returned.
 
 Another use case is generating AWS Glue ETL job scripts. You can ask a question regarding how to perform a data extract, transform, load job. A generated PySpark script will be returned.
 
 **Topics**
-+ [Amazon Q chat interactions](#q-using-example-interactions)
++ [Amazon Q chat interactions](q-using-example-interactions.md)
 + [AWS Glue Studio notebook interactions](#q-using-example-interactions-notebooks)
 
 ## Amazon Q chat interactions

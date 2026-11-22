@@ -1,7 +1,6 @@
 
 
 # Connecting to Xero in AWS Glue Studio
-<a name="connecting-to-data-xero"></a>
 
 Xero is cloud accounting software for small and mid-size businesses. Because you are a Xero user, you can connect AWS Glue to your Xero account. You can then use Xero as a data source in your AWS Glue ETL jobs to transfer data between Xero and AWS services or other supported applications.
 

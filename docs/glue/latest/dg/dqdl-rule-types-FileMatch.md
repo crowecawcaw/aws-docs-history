@@ -1,7 +1,6 @@
 
 
 # FileMatch
-<a name="dqdl-rule-types-FileMatch"></a>
 
  The FileMatch rule allows you to compare files against other files or checksums. This can be useful in a few scenarios: 
 

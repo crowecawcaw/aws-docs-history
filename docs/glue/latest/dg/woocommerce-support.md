@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for WooCommerce
-<a name="woocommerce-support"></a>
 
 AWS Glue supports WooCommerce as follows:
 

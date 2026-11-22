@@ -1,7 +1,6 @@
 
 
 # Using auto scaling for AWS Glue
-<a name="auto-scaling"></a>
 
 Auto Scaling is available for your AWS Glue ETL, interactive sessions, and streaming jobs with AWS Glue version 3.0 or later.
 
@@ -42,7 +41,7 @@ On the **Job details** tab in AWS Glue Studio, choose the type as **Spark** or *
 
 To enable Auto Scaling from the AWS CLI for your job run, run `start-job-run` with the following configuration:
 
-```
+```json
 {
     "JobName": "<your job name>",
     "Arguments": {
@@ -56,7 +55,7 @@ To enable Auto Scaling from the AWS CLI for your job run, run `start-job-run` wi
 
 Once at ETL job run is finished, you can also call `get-job-run` to check the actual resource usage of the job run in DPU-seconds. Note: the new field **DPUSeconds** will only show up for your batch jobs on AWS Glue 4.0 or later enabled with Auto Scaling. This field is not supported for streaming jobs.
 
-```
+```json
 $ aws glue get-job-run --job-name your-job-name --run-id jr_xx --endpoint https://glue.us-east-1.amazonaws.com --region us-east-1
 {
     "JobRun": {

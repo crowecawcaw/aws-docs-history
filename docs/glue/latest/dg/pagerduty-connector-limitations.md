@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the PagerDuty connector
-<a name="pagerduty-connector-limitations"></a>
 
 The following are limitations and notes for the PagerDuty connector:
 + PagerDuty is supported as a source only. Writing to PagerDuty is not supported.

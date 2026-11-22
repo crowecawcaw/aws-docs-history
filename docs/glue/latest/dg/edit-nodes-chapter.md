@@ -1,7 +1,6 @@
 
 
 # Starting visual ETL jobs in AWS Glue Studio
-<a name="edit-nodes-chapter"></a>
 
 You can use the simple visual interface in AWS Glue Studio to create your ETL jobs. You use the **Jobs** page to create new jobs. You can also use a script editor or notebook to work directly with code in the AWS Glue Studio ETL job script.
 

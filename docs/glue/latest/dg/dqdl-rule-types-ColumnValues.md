@@ -1,13 +1,12 @@
 
 
 # ColumnValues
-<a name="dqdl-rule-types-ColumnValues"></a>
 
 Runs an expression against the values in a column.
 
 **Syntax**
 
-```
+```json
 ColumnValues {{<COL_NAME>}} {{<EXPRESSION>}}
 ```
 + **COL\_NAME** – The name of the column that you want to evaluate the data quality rule against.
@@ -19,7 +18,7 @@ ColumnValues {{<COL_NAME>}} {{<EXPRESSION>}}
 
 The following example rule checks whether each value in the specified column is in a set of allowed values (including null, empty, and strings with only whitespaces).
 
-```
+```json
 ColumnValues "Country" in [ "US", "CA", "UK", NULL, EMPTY, WHITESPACES_ONLY ]
 ColumnValues "gender" in ["F", "M"] where "weightinkgs < 10"
 ```
@@ -44,7 +43,7 @@ ColumnValues "Load_Date" > (now() - 3 days)
 
 The following example rule checks whether the column values match a certain numeric constraint.
 
-```
+```json
 ColumnValues "Customer_ID" between 1 and 2000
 ```
 
@@ -52,32 +51,32 @@ ColumnValues "Customer_ID" between 1 and 2000
 
  For all `ColumnValues` rules (other than `!=` and `NOT IN`), `NULL` rows will fail the rule. If the rule fails due to a null value, the failure reason will display the following: 
 
-```
+```json
 Value: NULL does not meet the constraint requirement!
 ```
 
  The following example compound rule provides a way to explicitly allow for `NULL` values: 
 
-```
+```json
 (ColumnValues "Age" > 21) OR (ColumnValues "Age" = NULL)
 ```
 
  Negated ColumnValues rules using the `!=` and `not in` syntax will pass for `NULL` rows. For example: 
 
-```
+```json
 ColumnValues "Age" != 21
 ```
 
-```
+```json
 ColumnValues "Age" not in [21, 22, 23]
 ```
 
  The following examples provide a way to explicitly fail `NULL` values 
 
-```
+```json
 (ColumnValues "Age" != 21) AND (ColumnValues "Age" != NULL)
 ```
 
-```
+```json
 ColumnValues "Age" not in [21, 22, 23, NULL]
 ```

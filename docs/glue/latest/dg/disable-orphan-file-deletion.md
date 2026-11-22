@@ -1,7 +1,6 @@
 
 
 # Disabling orphan file deletion
-<a name="disable-orphan-file-deletion"></a>
 
  You can disable orphan file deletion optimizer for a particular Apache Iceberg table using AWS Glue console or AWS CLI. 
 

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Close CRM
-<a name="close-support"></a>
 
 AWS Glue supports Close CRM as follows:
 

@@ -1,7 +1,6 @@
 
 
 # Google Search Console connection options
-<a name="google-search-console-connection-options"></a>
 
 The following are connection options for Google Search Console:
 + `ENTITY_NAME`(String) - (Required) Used for Read. The name of your object in Google Search Console.

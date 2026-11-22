@@ -1,7 +1,6 @@
 
 
 # Using Amazon S3 Access Grants with AWS Glue
-<a name="security-s3-access-grants"></a>
 
 With Glue version 5.0, Amazon S3 Access Grants provide a scalable access control solution that you can use to augment access to your Amazon S3 data from AWS Glue. If you have a complex or large permission configuration for your S3 data, you can use S3 Access Grants to scale S3 data permissions for users and roles.
 

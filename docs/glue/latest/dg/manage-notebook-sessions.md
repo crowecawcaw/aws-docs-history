@@ -1,7 +1,6 @@
 
 
 # Managing notebook sessions
-<a name="manage-notebook-sessions"></a>
 
  Notebooks in AWS Glue Studio are based on the interactive sessions feature of AWS Glue. There is a cost for using interactive sessions. To help manage your costs, you can monitor the sessions created for your account, and configure the default settings for all sessions. 
 

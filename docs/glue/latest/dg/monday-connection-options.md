@@ -1,7 +1,6 @@
 
 
 # Monday connection option reference
-<a name="monday-connection-options"></a>
 
 The following are connection options for Monday:
 +  `ENTITY_NAME`(String) - (Required) Used for Read/Write. The name of your Object in Monday. 

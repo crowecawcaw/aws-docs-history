@@ -1,7 +1,6 @@
 
 
 # Creating a new Slack account and configuring the client app
-<a name="slack-new-account-creation"></a>
 
 **Creating a Slack account**
 

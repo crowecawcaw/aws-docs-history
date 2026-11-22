@@ -1,7 +1,6 @@
 
 
 # Create connections
-<a name="sap-odata-creating-connections"></a>
 
 To configure an SAP OData connection:
 

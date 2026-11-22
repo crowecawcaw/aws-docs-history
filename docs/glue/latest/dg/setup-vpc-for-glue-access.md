@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from AWS Glue
-<a name="setup-vpc-for-glue-access"></a>
 
  When using JDBC to connect to databases in Amazon RDS, you will need to perform additional setup. To enable AWS Glue components to communicate with Amazon RDS, you must set up access to your Amazon RDS data stores in Amazon VPC. To enable AWS Glue to communicate between its components, specify a security group with a self-referencing inbound rule for all TCP ports. By creating a self-referencing rule, you can restrict the source to the same security group in the VPC. A self-referencing rule will not open the VPC to all networks. The default security group for your VPC might already have a self-referencing inbound rule for ALL Traffic. 
 

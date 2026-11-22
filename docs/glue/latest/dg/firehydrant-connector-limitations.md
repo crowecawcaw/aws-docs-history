@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the FireHydrant connector
-<a name="firehydrant-connector-limitations"></a>
 
 The following are limitations and notes for the FireHydrant connector:
 + FireHydrant is supported as a source only. Writing to FireHydrant is not supported.

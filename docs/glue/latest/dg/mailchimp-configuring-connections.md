@@ -1,7 +1,6 @@
 
 
 # Configuring Mailchimp connections
-<a name="mailchimp-configuring-connections"></a>
 
  Mailchimp supports following two types for authentication mechanism: 
 + Mailchimp supports the `AUTHORIZATION_CODE` grant type.
@@ -35,7 +34,7 @@ It is a must to create a secret per connection in AWS Glue.
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

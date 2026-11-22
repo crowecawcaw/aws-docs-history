@@ -1,7 +1,6 @@
 
 
 # Reading from Pipeliner entities
-<a name="pipeliner-reading-from-entities"></a>
 
 **Prerequisites**
 

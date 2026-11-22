@@ -1,7 +1,6 @@
 
 
 # Export metadata to S3 Tables (preview)
-<a name="catalog-export-s3-tables"></a>
 
 **Note**  
 Catalog metadata export is available as a preview feature. This feature is subject to change before general availability.
@@ -47,7 +46,7 @@ Catalog metadata export is an account-level setting. You enable or disable it wi
 
 The IAM identity you use must have permission to call the export configuration operations `glue:PutDataCatalogExportConfiguration` and `glue:GetDataCatalogExportConfiguration`, as well as `s3tables:CreateTable`. For more information about S3 Tables permissions, see [Creating tables in S3 table buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-create.html) in the *Amazon Simple Storage Service User Guide*.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -78,7 +77,7 @@ To allow AWS Glue to export encrypted catalog metadata and to allow automatic ta
 
 AWS Glue writes to the AWS managed table bucket named `aws-catalog`. The KMS key used for encrypting the S3 Tables export does not need to be the same as the one used to encrypt the Data Catalog at rest. AWS Glue supports only symmetric KMS keys. To grant these service principals access, you can use the following example key policy. In this policy, the `maintenance.s3tables.amazonaws.com` service principal is granted permission to use a specific KMS key for encrypting and decrypting tables in the `aws-catalog` table bucket. For more information about the S3 Tables maintenance service principal, see [Permission requirements for S3 Tables SSE-KMS encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html) in the *Amazon Simple Storage Service User Guide*.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -148,7 +147,7 @@ AWS Glue writes to the AWS managed table bucket named `aws-catalog`. The KMS key
 
 Grant the principals that run exports the following permissions. The following policy grants the IAM principal access to decrypt a specific AWS Glue Data Catalog, scoped with the `glue_catalog_id` encryption context (the value is your `catalogId`).
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -189,20 +188,20 @@ Grant the principals that run exports the following permissions. The following p
 
 1. Run the following command to enable export:
 
-   ```
+   ```bash
    aws glue put-data-catalog-export-configuration \
        --export-setting ENABLED
    ```
 
 1. Confirm the configuration by running the following command:
 
-   ```
+   ```bash
    aws glue get-data-catalog-export-configuration
    ```
 
    Example response:
 
-   ```
+   ```json
    {
        "ExportSetting": "ENABLED",
        "Status": "ENABLED",
@@ -217,7 +216,7 @@ Grant the principals that run exports the following permissions. The following p
 
 Run the following command:
 
-```
+```bash
 aws glue put-data-catalog-export-configuration \
     --export-setting DISABLED
 ```
@@ -374,7 +373,7 @@ After you enable S3 Tables export and set up analytics integration, you can quer
 **List all catalog tables with their database and format**  
 
 
-```
+```sql
 SELECT id, name, database_name, table_format
 FROM aws_catalog.glue.tables;
 ```
@@ -382,7 +381,7 @@ FROM aws_catalog.glue.tables;
 **Find columns with descriptions for a specific table**  
 
 
-```
+```sql
 SELECT column_name, type, description
 FROM aws_catalog.glue.table_columns
 WHERE asset_id = '{{table-id}}';
@@ -391,7 +390,7 @@ WHERE asset_id = '{{table-id}}';
 **Join glossary terms to their parent glossary**  
 
 
-```
+```sql
 SELECT g.name AS glossary_name,
        t.name AS term_name,
        t.short_description
@@ -404,7 +403,7 @@ WHERE g.status = 'ENABLED';
 **Find tables associated with a specific glossary term**  
 
 
-```
+```sql
 SELECT t.name, t.database_name, gt.name AS term_name
 FROM aws_catalog.glue.tables t
 JOIN aws_catalog.catalog_metadata.associated_glossary_terms agt
@@ -417,7 +416,7 @@ WHERE gt.name = '{{term-name}}';
 **Extract a field from a custom-form attachment**  
 
 
-```
+```sql
 SELECT asset_id,
        attachment_name,
        json_extract_scalar(content_json, '$.owner') AS data_owner

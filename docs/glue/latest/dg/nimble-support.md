@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Nimble
-<a name="nimble-support"></a>
 
 AWS Glue supports Nimble as follows:
 

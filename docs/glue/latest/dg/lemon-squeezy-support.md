@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Lemon Squeezy
-<a name="lemon-squeezy-support"></a>
 
 AWS Glue supports Lemon Squeezy as follows:
 

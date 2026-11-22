@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Re:amaze
-<a name="reamaze-support"></a>
 
 AWS Glue supports Re:amaze as follows:
 

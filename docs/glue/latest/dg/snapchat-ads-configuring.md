@@ -1,7 +1,6 @@
 
 
 # Configuring Snapchat Ads
-<a name="snapchat-ads-configuring"></a>
 
 Before you can use AWS Glue to transfer from Snapchat Ads, you must meet these requirements:
 

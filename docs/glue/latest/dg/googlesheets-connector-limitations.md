@@ -1,7 +1,6 @@
 
 
 # Limitations for Google Sheets connector
-<a name="googlesheets-connector-limitations"></a>
 
 The following are limitations for the Google Sheets connector:
 +  Google Sheets connector does not support Filters. Hence, filter based partitioning cannot be supported. 

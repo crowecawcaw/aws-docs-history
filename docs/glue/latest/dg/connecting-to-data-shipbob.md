@@ -1,7 +1,6 @@
 
 
 # Connecting to ShipBob in AWS Glue Studio
-<a name="connecting-to-data-shipbob"></a>
 
 ShipBob is a third-party logistics (3PL) / fulfillment platform. Because you are a ShipBob user, you can connect AWS Glue to your ShipBob account. You can then use ShipBob as a data source in your AWS Glue ETL jobs to transfer data between ShipBob and AWS services or other supported applications.
 

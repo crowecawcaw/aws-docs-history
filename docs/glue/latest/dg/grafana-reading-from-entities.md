@@ -1,7 +1,6 @@
 
 
 # Reading from Grafana entities
-<a name="grafana-reading-from-entities"></a>
 
 **Prerequisites**
 

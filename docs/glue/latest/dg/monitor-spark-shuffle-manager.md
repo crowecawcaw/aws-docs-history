@@ -1,7 +1,6 @@
 
 
 # Storing Spark shuffle data
-<a name="monitor-spark-shuffle-manager"></a>
 
 Shuffling is an important step in a Spark job whenever data is rearranged between partitions. This is required because wide transformations such as `join`, ` groupByKey`, `reduceByKey`, and `repartition` require information from other partitions to complete processing. Spark gathers the required data from each partition and combines it into a new partition. During a shuffle, data is written to disk and transferred across the network. As a result, the shuffle operation is bound to local disk capacity. Spark throws a `No space left on device` or ` MetadataFetchFailedException` error when there is not enough disk space left on the executor and there is no recovery.
 

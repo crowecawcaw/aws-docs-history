@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS Glue Data Quality errors
-<a name="data-quality-trouble"></a>
 
 If you encounter errors in AWS Glue Data Quality, use the following solutions to help you find the source of the problems and fix them.
 
@@ -230,7 +229,7 @@ Invalid example: `RowCount > last(5)`.
 
  **Resolution**: DQDL is not parsable. There are a few instances where this can occur. If you are using composite rules, makes sure they have right parenthesis. 
 
-```
+```json
 (RowCount >= avg(last(10)) * 0.6) and (RowCount <= avg(last(10)) * 1.4) instead of
       RowCount >= avg(last(10)) * 0.6 and RowCount <= avg(last(10)) * 1.4
 ```

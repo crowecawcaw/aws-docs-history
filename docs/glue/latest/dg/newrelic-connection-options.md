@@ -1,7 +1,6 @@
 
 
 # New Relic connection options
-<a name="newrelic-connection-options"></a>
 
 The following are connection options for New Relic:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the New Relic object to read.

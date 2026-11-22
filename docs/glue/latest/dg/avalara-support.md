@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Avalara
-<a name="avalara-support"></a>
 
 AWS Glue supports Avalara as follows:
 

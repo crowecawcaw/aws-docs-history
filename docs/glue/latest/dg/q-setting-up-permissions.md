@@ -1,7 +1,6 @@
 
 
 # Configuring IAM permissions
-<a name="q-setting-up-permissions"></a>
 
 This topic describes the IAM permissions that you configure for the Amazon Q chat experience, and the AWS Glue Studio notebook experience.
 
@@ -19,7 +18,7 @@ Granting permissions to the APIs used by Amazon Q data integration in AWS Glue r
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -52,7 +51,7 @@ The `codewhisperer` prefix is a legacy name from a service that merged with Amaz
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

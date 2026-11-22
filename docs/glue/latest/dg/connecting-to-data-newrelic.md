@@ -1,7 +1,6 @@
 
 
 # Connecting to New Relic in AWS Glue Studio
-<a name="connecting-to-data-newrelic"></a>
 
 New Relic is an observability platform. Because you are a New Relic user, you can connect AWS Glue to your New Relic account. You can then use New Relic as a data source in your AWS Glue ETL jobs to transfer data between New Relic and AWS services or other supported applications.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring FireHydrant
-<a name="firehydrant-configuring"></a>
 
 Before you can use AWS Glue to transfer data from FireHydrant, you must meet the following requirements:
 

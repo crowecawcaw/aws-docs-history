@@ -1,7 +1,6 @@
 
 
 # Reading from Brex entities
-<a name="brex-reading-from-entities"></a>
 
 **Prerequisites**
 

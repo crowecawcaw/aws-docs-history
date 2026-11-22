@@ -1,7 +1,6 @@
 
 
 # Connecting to Streak in AWS Glue Studio
-<a name="connecting-to-data-streak"></a>
 
 Streak is a CRM built inside Gmail. Because you are a Streak user, you can connect AWS Glue to your Streak account. You can then use Streak as a data source in your AWS Glue ETL jobs to transfer data between Streak and AWS services or other supported applications.
 

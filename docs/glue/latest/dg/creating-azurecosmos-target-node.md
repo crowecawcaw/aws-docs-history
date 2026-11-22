@@ -1,7 +1,6 @@
 
 
 # Creating a Azure Cosmos DB target node
-<a name="creating-azurecosmos-target-node"></a>
 
 ## Prerequisites needed
 <a name="creating-azurecosmos-target-node-prerequisites"></a>

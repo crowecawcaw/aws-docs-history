@@ -1,7 +1,6 @@
 
 
 # Streaming execution models
-<a name="glue-streaming-execution-models"></a>
 
  AWS Glue Streaming provides two execution models for processing streaming data. Choose the model that best fits your latency requirements and workload characteristics. 
 

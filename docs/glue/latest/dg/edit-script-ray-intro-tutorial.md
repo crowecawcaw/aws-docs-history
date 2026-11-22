@@ -1,7 +1,6 @@
 
 
 # Tutorial: Writing an ETL script in AWS Glue for Ray
-<a name="edit-script-ray-intro-tutorial"></a>
 
 **Important**  
 AWS Glue for Ray is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Glue for Ray end of support](https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html).
@@ -70,7 +69,7 @@ In this step, you create an AWS Glue job using the AWS Management Console, provi
 
 In this tutorial, we address the following ETL scenario: you would like to read the January 2022 records from the New York City TLC Trip Record dataset, add a new column (`tip_rate`) to the dataset by combining data in existing columns, then remove a number of columns that aren't relevant to your current analysis, and then you would like to write the results to {{yourBucketName}}. The following Ray script performs these steps:
 
-```
+```python
 import ray
 import pandas
 from ray import data

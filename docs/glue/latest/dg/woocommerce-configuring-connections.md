@@ -1,7 +1,6 @@
 
 
 # Configuring WooCommerce connections
-<a name="woocommerce-configuring-connections"></a>
 
 WooCommerce supports custom authentication. For public WooCommerce documentation on generating the required API keys for custom authorization, see [Authentication – WooCommerce REST API Documentation](https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication).
 
@@ -23,7 +22,7 @@ To configure a WooCommerce connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

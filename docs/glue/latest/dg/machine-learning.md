@@ -1,7 +1,6 @@
 
 
 # Record matching with AWS Lake Formation FindMatches
-<a name="machine-learning"></a>
 
 **Note**  
 Record matching is currently unavailable in the following Regions in the AWS Glue console: Middle East (UAE), Europe (Spain), Asia Pacific (Jakarta), and Europe (Zurich).

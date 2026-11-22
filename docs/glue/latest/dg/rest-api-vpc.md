@@ -1,7 +1,6 @@
 
 
 # Connect to private REST APIs through a VPC
-<a name="rest-api-vpc"></a>
 
  To connect to private REST APIs that are only accessible within an Amazon Virtual Private Cloud (Amazon VPC), use a REST API connection with VPC configuration. This includes APIs behind a VPN, AWS PrivateLink, or firewall. 
 
@@ -24,7 +23,7 @@ Before you connect to a private REST API through a VPC, ensure the following:
 
  Include `PhysicalConnectionRequirements` in the `CreateConnection` request: 
 
-```
+```json
 {
     "ConnectionInput": {
         "Name": "{{connection-name}}",

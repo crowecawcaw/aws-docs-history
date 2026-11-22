@@ -1,7 +1,6 @@
 
 
 # Reading from Streak entities
-<a name="streak-reading-from-entities"></a>
 
 **Prerequisites**
 

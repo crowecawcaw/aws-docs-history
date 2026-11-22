@@ -1,7 +1,6 @@
 
 
 # Configuring Sender
-<a name="sender-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Sender, you must meet the following requirements:
 

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Todoist
-<a name="todoist-support"></a>
 
 AWS Glue supports Todoist as follows:
 

@@ -1,7 +1,6 @@
 
 
 # Generating help with AWS assistant
-<a name="generating-help-with-q"></a>
 
 AWS assistant help in the AWS Glue console provides context-aware, step-by-step guidance to help you complete tasks on the console page. When you choose the **AWS assistant help** link, the AWS assistant generates guidance that is relevant to your current task. You can ask follow-up questions directly in the same panel to get additional help without leaving the page.
 

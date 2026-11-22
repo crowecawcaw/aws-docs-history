@@ -1,7 +1,6 @@
 
 
 # Using Python libraries with AWS Glue
-<a name="aws-glue-programming-python-libraries"></a>
 
  You can install additional Python modules and libraries for use with AWS Glue ETL. For AWS Glue 2.0 and above, AWS Glue uses the Python Package Installer (pip3) to install additional modules used by AWS Glue ETL. AWS Glue provides multiple options to bring the additional Python modules to your AWS Glue job environment. You can use the `--additional-python-modules` parameter to bring in new modules using zip files containing bundled Python wheels (also known as "zip of wheels", available for AWS Glue 5.0 and above), individual Python wheel files, requirements files (requirements.txt, available for AWS Glue 5.0 and above), or a list of comma-separated Python modules. It could also be used to change the version of the python modules provided in the AWS Glue environment (see [Python modules already provided in AWS Glue](#glue-modules-provided) for more details). 
 

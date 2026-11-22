@@ -1,7 +1,6 @@
 
 
 # Configuring Paddle
-<a name="paddle-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Paddle, you must meet the following requirements:
 

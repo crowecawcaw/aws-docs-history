@@ -1,7 +1,6 @@
 
 
 # Setting up the authorization code flow for Constant Contact
-<a name="constantcontact-setup-authorization-code-flow"></a>
 
 Constant Contact uses the OAuth 2.0 authorization code flow. When you create the connection in AWS Glue Studio, you are redirected to Constant Contact to authorize AWS Glue, and AWS Glue then obtains and refreshes the access token for you.
 

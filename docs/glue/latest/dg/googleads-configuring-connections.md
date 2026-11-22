@@ -1,7 +1,6 @@
 
 
 # Configuring Google Ads connections
-<a name="googleads-configuring-connections"></a>
 
  Google Ads supports `AUTHORIZATION_CODE` grant type for OAuth2. 
 
@@ -35,7 +34,7 @@ To configure a Google Ads connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

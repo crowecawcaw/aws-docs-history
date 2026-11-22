@@ -1,7 +1,6 @@
 
 
 # Configuring Todoist connections
-<a name="todoist-configuring-connections"></a>
 
 Todoist connections authenticate with a Todoist personal API token or an OAuth 2.0 access token supplied as a static secret. The connector sends the token as a bearer token in the `Authorization` header and doesn't perform OAuth authorization or token refresh. You store the token in Secrets Manager and reference that secret when you create the connection in AWS Glue Studio.
 

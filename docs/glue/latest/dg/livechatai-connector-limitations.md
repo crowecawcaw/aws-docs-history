@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the LiveChatAI connector
-<a name="livechatai-connector-limitations"></a>
 
 The following are limitations and notes for the LiveChatAI connector:
 + LiveChatAI is supported as a source only. Writing to LiveChatAI is not supported.

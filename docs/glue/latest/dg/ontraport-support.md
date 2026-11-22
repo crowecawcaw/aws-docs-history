@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Ontraport
-<a name="ontraport-support"></a>
 
 AWS Glue supports Ontraport as follows:
 

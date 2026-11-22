@@ -1,7 +1,6 @@
 
 
 # Viewing column statistics task runs
-<a name="view-stats-run"></a>
 
 After you run a column statistics task, you can explore the task run details for a table using AWS Glue console, AWS CLI or using [GetColumnStatisticsTaskRuns](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskRun) operation.
 

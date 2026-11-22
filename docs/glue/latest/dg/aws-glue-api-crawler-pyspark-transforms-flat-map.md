@@ -1,7 +1,6 @@
 
 
 # FlatMap class
-<a name="aws-glue-api-crawler-pyspark-transforms-flat-map"></a>
 
  Applies a transform to each `DynamicFrame` in a collection. Results are not flattened into a single `DynamicFrame`, but preserved as a collection. 
 

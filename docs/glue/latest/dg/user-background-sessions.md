@@ -1,7 +1,6 @@
 
 
 # User background sessions for AWS Glue ETL
-<a name="user-background-sessions"></a>
 
 User background sessions enable long-running analytics and machine learning workloads to continue even after the user has logged off from their notebook interface. This capability is implemented through AWS Glue's trusted identity propagation feature. The following page explains the configuration options and behaviors for user background sessions. 
 

@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Miro connector
-<a name="miro-connector-limitations"></a>
 
 The following are limitations and notes for the Miro connector:
 + Miro is supported as a source only. Writing to Miro is not supported.

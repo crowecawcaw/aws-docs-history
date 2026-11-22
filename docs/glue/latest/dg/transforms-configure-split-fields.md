@@ -1,7 +1,6 @@
 
 
 # Using SplitFields to split a dataset into two
-<a name="transforms-configure-split-fields"></a>
 
 The *SplitFields* transform allows you to choose some of the data property keys in the input dataset and put them into one dataset and the unselected keys into a separate dataset. The output from this transform is a collection of `DynamicFrames`.
 

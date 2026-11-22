@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Twenty CRM
-<a name="twenty-support"></a>
 
 AWS Glue supports Twenty CRM as follows:
 

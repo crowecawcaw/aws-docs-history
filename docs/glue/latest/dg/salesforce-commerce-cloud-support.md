@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Salesforce Commerce Cloud
-<a name="salesforce-commerce-cloud-support"></a>
 
 AWS Glue supports Salesforce Commerce Cloud as follows:
 

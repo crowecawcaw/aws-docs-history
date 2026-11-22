@@ -1,7 +1,6 @@
 
 
 # Testing an AWS Glue connection
-<a name="console-test-connections"></a>
 
  As a best practice, before you use an AWS Glue connection in an ETL job, use the AWS Glue console to test the connection. AWS Glue uses the parameters in your connection to confirm that it can access your data store and reports any errors. For information about AWS Glue connections, see [Connecting to data](glue-connections.md). 
 

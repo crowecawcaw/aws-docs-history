@@ -1,7 +1,6 @@
 
 
 # Data Quality for ETL jobs in AWS Glue Studio notebooks
-<a name="data-quality-gs-studio-notebooks"></a>
 
 In this tutorial, you learn how to use AWS Glue Data Quality for extract, transform, and load (ETL) jobs in AWS Glue Studio notebooks. 
 

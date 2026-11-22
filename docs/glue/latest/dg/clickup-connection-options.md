@@ -1,7 +1,6 @@
 
 
 # ClickUp connection options
-<a name="clickup-connection-options"></a>
 
 The following are connection options for ClickUp:
 + `ENTITY_NAME` – (Required) Used for Read. The entity path of the ClickUp object to read. Use `workspaces` by itself. For `groups` and the `team-*` entities, use `{{entity}}/{{teamId}}`. For `space-folder` and `space-tag`, use `{{entity}}/{{teamId}}/{{spaceId}}`. You can use the workspaces and spaces that AWS Glue discovers for your connection.

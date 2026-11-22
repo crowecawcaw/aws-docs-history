@@ -1,7 +1,6 @@
 
 
 # Docusign Monitor limitations
-<a name="docusign-monitor-connection-limitations"></a>
 
 The following are limitations or notes for Docusign Monitor:
 + When a filter is applied using the `cursor` field, the API retrieves records for the next seven days starting from the specified date.

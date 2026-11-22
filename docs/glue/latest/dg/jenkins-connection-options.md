@@ -1,7 +1,6 @@
 
 
 # Jenkins connection options
-<a name="jenkins-connection-options"></a>
 
 The following are connection options for Jenkins:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Jenkins object to read.

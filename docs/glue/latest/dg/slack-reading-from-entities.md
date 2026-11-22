@@ -1,7 +1,6 @@
 
 
 # Reading from Slack entities
-<a name="slack-reading-from-entities"></a>
 
  **Prerequisites** 
 +  A Slack object you would like to read from. 

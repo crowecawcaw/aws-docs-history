@@ -1,7 +1,6 @@
 
 
 # AWS Glue for Ray end of support
-<a name="awsglue-ray-jobs-availability-change"></a>
 
 **Important**  
 AWS Glue for Ray is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Glue for Ray end of support](https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html).
@@ -31,14 +30,14 @@ Follow the instructions on [Installation options for Eksctl](https://docs.aws.am
 
 For macOS:
 
-```
+```bash
 brew tap weaveworks/tap
 brew install weaveworks/tap/eksctl
 ```
 
 For Linux:
 
-```
+```bash
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 
 # Move the extracted binary to /usr/local/bin
@@ -55,13 +54,13 @@ Follow the instructions on [Set up kubectl and eksctl](https://docs.aws.amazon.c
 
 For macOS:
 
-```
+```bash
 brew install kubectl
 ```
 
 For Linux:
 
-```
+```bash
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
@@ -74,13 +73,13 @@ Follow the instructions on [Installing Helm](https://helm.sh/docs/intro/install/
 
 For macOS:
 
-```
+```bash
 brew install helm
 ```
 
 For Linux:
 
-```
+```bash
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ```
 
@@ -100,7 +99,7 @@ This option is useful when using Graviton (ARM) nodes, consistent with what AWS 
 
 Create a Dockerfile locally:
 
-```
+```dockerfile
 # Build an ARM64 image
 FROM --platform=linux/arm64 python:3.9-slim-bullseye
 # Handy tools: wget for KubeRay probes; CA certs; keep image small
@@ -145,7 +144,7 @@ WORKDIR /app
 CMD ["python","-c","import ray,platform; print('Ray', ray.__version__, 'on', platform.machine())"]
 ```
 
-```
+```bash
 # Set environment variables
 export AWS_REGION=us-east-1
 export AWS_ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
@@ -177,7 +176,7 @@ aws ecr batch-get-image \
 
 Once done, reference this ARM64 image in the RayCluster spec with `nodeSelector: { kubernetes.io/arch: arm64 }`.
 
-```
+```yaml
 spec:
   rayVersion: "2.4.0"
   headGroupSpec:
@@ -232,7 +231,7 @@ You can either create a new Amazon Elastic Kubernetes Service cluster or reuse a
 **Note**  
 If you have an existing Amazon Elastic Kubernetes Service cluster, skip the commands to create a new cluster and just add a node group.
 
-```
+```bash
 # Environment Variables
 export AWS_REGION=us-east-1
 export CLUSTER=ray-eks
@@ -249,7 +248,7 @@ eksctl create cluster \
 #### Add a node group
 <a name="awsglue-ray-jobs-availability-change-add-nodegroup"></a>
 
-```
+```bash
 # ARM/Graviton (matches Glue's typical runtime):
 eksctl create nodegroup \
   --cluster $CLUSTER \
@@ -279,12 +278,12 @@ If you are using an existing Amazon Elastic Kubernetes Service cluster, then use
 
 A Kubernetes namespace is a logical grouping for resources (pods, services, roles, etc.). You can create or reuse an existing namespace. You will also need to create an IAM policy for S3 which mirrors your AWS Glue job's access. Use the same custom permissions your AWS Glue job role had (typically S3 read/write to specific buckets). To grant permissions to Amazon Elastic Kubernetes Service similar to the AWSGlueServiceRole, create a Service Account (IRSA) bound to this IAM policy. Refer to [IAM Roles for Service Accounts](https://docs.aws.amazon.com/eks/latest/eksctl/iamserviceaccounts.html) for instructions to setup this service account.
 
-```
+```bash
 # Create (or reuse) namespace
 kubectl create namespace $NS || true
 ```
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [{
@@ -298,7 +297,7 @@ kubectl create namespace $NS || true
 }
 ```
 
-```
+```bash
 # Create the IAM policy and wire IRSA:
 aws iam create-policy \
   --policy-name RayS3Policy \
@@ -318,7 +317,7 @@ eksctl create iamserviceaccount \
 #### Install KubeRay operator (controller that runs Ray on K8s)
 <a name="awsglue-ray-jobs-availability-change-install-kuberay"></a>
 
-```
+```bash
 helm repo add kuberay https://ray-project.github.io/kuberay-helm/
 helm repo update
 helm upgrade --install kuberay-operator kuberay/kuberay-operator \
@@ -334,7 +333,7 @@ kubectl -n kuberay-system get pods
 
 Create a YAML file to define ray cluster. Below is a sample configuration (raycluster.yaml):
 
-```
+```yaml
 apiVersion: ray.io/v1
 kind: RayCluster
 metadata:
@@ -377,7 +376,7 @@ spec:
 #### Deploy the Ray cluster on Amazon Elastic Kubernetes Service cluster
 <a name="awsglue-ray-jobs-availability-change-deploy-cluster"></a>
 
-```
+```bash
 kubectl apply -n $NS -f raycluster.yaml
 
 # Validate that the head pod turns to READY/ RUNNING state
@@ -386,7 +385,7 @@ kubectl -n $NS get pods -l ray.io/cluster=glue-like -w
 
 If there is a need to modify the deployed yaml, delete the cluster first and then re-apply the updated yaml:
 
-```
+```bash
 kubectl -n $NS delete raycluster glue-like
 kubectl -n $NS apply -f raycluster.yaml
 ```
@@ -396,7 +395,7 @@ kubectl -n $NS apply -f raycluster.yaml
 
 You can access the Ray dashboard by enabling port-forwarding using kubectl:
 
-```
+```bash
 # Get service
 SVC=$(kubectl -n $NS get svc -l ray.io/cluster=glue-like,ray.io/node-type=head -o jsonpath='{.items[0].metadata.name}')
 
@@ -409,7 +408,7 @@ kubectl -n $NS port-forward svc/$SVC 8265:8265
 
 To submit a Ray job, use the Ray jobs CLI. The CLI version can be newer than the cluster, it is backward compatible. As a pre-requisite, store your job script locally in a file, e.g. `job.py`.
 
-```
+```bash
 python3 -m venv ~/raycli && source ~/raycli/bin/activate
 pip install "ray[default]==2.49.2"
 

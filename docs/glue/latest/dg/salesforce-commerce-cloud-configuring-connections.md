@@ -1,7 +1,6 @@
 
 
 # Configuring Salesforce Commerce Cloud connections
-<a name="salesforce-commerce-cloud-configuring-connections"></a>
 
  Salesforce Commerce Cloud supports CLIENT CREDENTIALS grant type for OAuth2. 
 +  This grant type is considered 2-legged OAuth 2.0 as it is used by clients to obtain an access token outside of the context of a user. AWS Glue is able to use the client Id and client secret to authenticate Salesforce Commerce Cloud APIs which are provided by custom services that you define. 
@@ -32,7 +31,7 @@ To configure an Salesforce Commerce Cloud connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

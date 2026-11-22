@@ -1,7 +1,6 @@
 
 
 # Reading from Mailchimp entities
-<a name="mailchimp-reading-from-entities"></a>
 
  **Prerequisites** 
 

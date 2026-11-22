@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for SonarCloud
-<a name="sonarcloud-support"></a>
 
 AWS Glue supports SonarCloud as follows:
 

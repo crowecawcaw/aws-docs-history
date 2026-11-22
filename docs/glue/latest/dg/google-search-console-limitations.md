@@ -1,7 +1,6 @@
 
 
 # Google Search Console limitations
-<a name="google-search-console-limitations"></a>
 
 The following are limitations or notes for Google Search Console:
 + Google Search Console enforces usage limits on the API. For more information, see [Usage Limits](https://developers.google.com/webmaster-tools/limits).

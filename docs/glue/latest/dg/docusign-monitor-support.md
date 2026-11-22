@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Docusign Monitor
-<a name="docusign-monitor-support"></a>
 
 AWS Glue supports Docusign Monitor as follows:
 

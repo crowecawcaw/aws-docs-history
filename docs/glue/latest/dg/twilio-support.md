@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Twilio
-<a name="twilio-support"></a>
 
 AWS Glue supports Twilio as follows:
 

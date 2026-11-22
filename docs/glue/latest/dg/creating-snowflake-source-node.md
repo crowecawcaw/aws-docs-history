@@ -1,7 +1,6 @@
 
 
 # Creating a Snowflake source node
-<a name="creating-snowflake-source-node"></a>
 
 ## Permissions needed
 <a name="creating-snowflake-source-node-permissions"></a>

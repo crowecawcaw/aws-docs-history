@@ -1,7 +1,6 @@
 
 
 # Set up the Authorization Code flow for Salesforce
-<a name="salesforce-setup-authorization-code-flow"></a>
 
 Refer to Salesforce public documentation for enabling the OAuth 2.0 Authorization Code flow.
 

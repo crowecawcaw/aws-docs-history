@@ -1,7 +1,6 @@
 
 
 # Available connections
-<a name="available-connections"></a>
 
 AWS Glue supports the following connection types:
 + Adobe Analytics

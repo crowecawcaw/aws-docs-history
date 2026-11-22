@@ -1,7 +1,6 @@
 
 
 # Creating a MongoDB target node
-<a name="creating-mongodb-target-node"></a>
 
 ## Prerequisites needed
 <a name="creating-mongodb-target-node-prerequisites"></a>

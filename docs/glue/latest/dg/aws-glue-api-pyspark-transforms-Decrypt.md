@@ -1,7 +1,6 @@
 
 
 # Decrypt class
-<a name="aws-glue-api-pyspark-transforms-Decrypt"></a>
 
 The `Decrypt` transform decrypts inside of AWS Glue. Your data can also be decrypted outside of AWS Glue with the AWS Encryption SDK. If the provided KMS key ARN does not match what was used to encrypt the column, the decrypt operation fails.
 

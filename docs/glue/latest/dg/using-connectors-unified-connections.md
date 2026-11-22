@@ -1,7 +1,6 @@
 
 
 # Unified connections
-<a name="using-connectors-unified-connections"></a>
 
  AWS recently introduced a new feature called "SageMaker LakeHouse Connections" or "AWS Glue Unified Connections." This feature allows you to create connections that can be used by multiple AWS services, such as AWS Glue and Amazon Athena. When you create a data source in Amazon Athena, you'll notice a section that refers to AWS Glue connection inputs. In this case, Amazon Athena will create a AWS Glue connection for you, including any Amazon Athena-specific properties in the `AthenaProperties` section of the connection. 
 

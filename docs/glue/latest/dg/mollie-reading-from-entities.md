@@ -1,7 +1,6 @@
 
 
 # Reading from Mollie entities
-<a name="mollie-reading-from-entities"></a>
 
 **Prerequisites**
 

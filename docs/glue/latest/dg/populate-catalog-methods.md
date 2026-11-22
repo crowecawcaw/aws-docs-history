@@ -1,7 +1,6 @@
 
 
 # Populating the AWS Glue Data Catalog
-<a name="populate-catalog-methods"></a>
 
 You can populate the AWS Glue Data Catalog using the following methods:
 + AWS Glue crawler – An AWS Glue crawler can automatically discover and catalog data sources like databases, data lakes, and streaming data. The crawlers are the most common and recommended method to populate the Data Catalog as they can automatically discover and infer metadata for a wide variety of data sources.

@@ -1,7 +1,6 @@
 
 
 # Connecting to Pipedrive
-<a name="connecting-to-pipedrive"></a>
 
  Pipedrive is a sales pipeline CRM designed to help small businesses manage leads, track sales activities and close more deals. Pipedrive enables sales teams in small businesses to: Streamline processes and consolidate sales data in one unified CRM sales tool. If you're a Pipedrive user, you can connect AWS Glue to your Pipedrive account. Then, you can use Pipedrive as a data source in your ETL Jobs. Run these jobs to transfer data between Pipedrive and AWS services or other supported applications. 
 

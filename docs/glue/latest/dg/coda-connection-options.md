@@ -1,7 +1,6 @@
 
 
 # Coda connection options
-<a name="coda-connection-options"></a>
 
 The following are connection options for Coda:
 + `ENTITY_NAME` – (Required) Used for Read. The entity path of the Coda object to read. For a nested entity, use the full path that AWS Glue returns, as described in [Reading from Coda entities](coda-reading-from-entities.md).

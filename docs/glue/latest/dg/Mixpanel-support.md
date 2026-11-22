@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Mixpanel
-<a name="Mixpanel-support"></a>
 
 AWS Glue supports Mixpanel as follows:
 

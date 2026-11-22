@@ -1,7 +1,6 @@
 
 
 # Reading from ClickUp entities
-<a name="clickup-reading-from-entities"></a>
 
 **Prerequisites**
 

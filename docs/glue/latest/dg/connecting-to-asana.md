@@ -1,7 +1,6 @@
 
 
 # Connecting to Asana
-<a name="connecting-to-asana"></a>
 
 Asana is a cloud-based team collaboration solution that helps teams organize, plan, and complete tasks and projects. If you're an Asana user, your account contains data about your workspaces, projects, tasks, teams, and more. You can transfer data from Asana to certain AWS services or other supported applications.
 

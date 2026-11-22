@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Intercom
-<a name="intercom-support"></a>
 
 AWS Glue supports Intercom as follows:
 

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Hex
-<a name="hex-support"></a>
 
 AWS Glue supports Hex as follows:
 

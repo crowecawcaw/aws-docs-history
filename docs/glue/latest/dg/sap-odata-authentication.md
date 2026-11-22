@@ -1,7 +1,6 @@
 
 
 # SAP Authentication
-<a name="sap-odata-authentication"></a>
 
 The SAP connector supports both CUSTOM (this is SAP BASIC authentication) and OAUTH authentication methods.
 

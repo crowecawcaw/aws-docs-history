@@ -1,7 +1,6 @@
 
 
 # Reading from Xero entities
-<a name="xero-reading-from-entities"></a>
 
 **Prerequisites**
 

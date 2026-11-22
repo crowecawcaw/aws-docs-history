@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for LiveChatAI
-<a name="livechatai-support"></a>
 
 AWS Glue supports LiveChatAI as follows:
 

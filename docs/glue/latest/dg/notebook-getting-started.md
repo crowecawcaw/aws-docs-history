@@ -1,7 +1,6 @@
 
 
 # Getting started with notebooks in AWS Glue Studio
-<a name="notebook-getting-started"></a>
 
  When you start a notebook through AWS Glue Studio, all the configuration steps are done for you so that you can explore your data and start developing your job script after only a few seconds. 
 
@@ -36,7 +35,7 @@ To use notebooks in AWS Glue, your role requires the following:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -63,7 +62,7 @@ To use notebooks in AWS Glue, your role requires the following:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -101,7 +100,7 @@ To use notebooks in AWS Glue, your role requires the following:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

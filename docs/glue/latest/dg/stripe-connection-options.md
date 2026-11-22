@@ -1,7 +1,6 @@
 
 
 # Stripe connection options
-<a name="stripe-connection-options"></a>
 
 The following are connection options for Stripe:
 +  `ENTITY_NAME`(String) - (Required) Used for Read/Write. The name of your Object in Stripe. 

@@ -1,7 +1,6 @@
 
 
 # SelectFromCollection class
-<a name="aws-glue-api-crawler-pyspark-transforms-SelectFromCollection"></a>
 
 Selects one `DynamicFrame` in a `DynamicFrameCollection`.
 
@@ -14,13 +13,13 @@ This example uses `SelectFromCollection` to select a `DynamicFrame` from a `Dyna
 
 The example selects two `DynamicFrames` from a `DynamicFrameCollection` called `split_rows_collection`. The following is the list of keys in `split_rows_collection`.
 
-```
+```python
 dict_keys(['high', 'low'])
 ```
 
 **Example code**
 
-```
+```python
 # Example: Use SelectFromCollection to select
 # DynamicFrames from a DynamicFrameCollection
 
@@ -43,7 +42,7 @@ frame_high.toDF().show()
 ### Output
 <a name="SelectFromCollection-example-output"></a>
 
-```
+```python
 +---+-----+------------------------+-------------------------+
 | id|index|contact_details.val.type|contact_details.val.value|
 +---+-----+------------------------+-------------------------+

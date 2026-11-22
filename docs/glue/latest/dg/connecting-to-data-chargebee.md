@@ -1,7 +1,6 @@
 
 
 # Connecting to Chargebee in AWS Glue Studio
-<a name="connecting-to-data-chargebee"></a>
 
 Chargebee is a subscription-billing and revenue-management platform. Because you are a Chargebee user, you can connect AWS Glue to your Chargebee account. You can then use Chargebee as a data source in your AWS Glue ETL jobs to transfer data between Chargebee and AWS services or other supported applications.
 

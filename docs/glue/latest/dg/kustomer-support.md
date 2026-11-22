@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Kustomer
-<a name="kustomer-support"></a>
 
 AWS Glue supports Kustomer as follows:
 

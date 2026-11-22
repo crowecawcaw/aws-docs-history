@@ -1,7 +1,6 @@
 
 
 # OpenSearch Service connections
-<a name="aws-glue-programming-etl-connect-opensearch-home"></a>
 
 You can use AWS Glue for Spark to read from and write to tables in OpenSearch Service in AWS Glue 4.0 and later versions. You can define what to read from OpenSearch Service with an OpenSearch query. You connect to OpenSearch Service using HTTP basic authentication credentials stored in AWS Secrets Manager through a AWS Glue connection. This feature is not compatible with OpenSearch Service serverless.
 

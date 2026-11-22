@@ -1,7 +1,6 @@
 
 
 # Configuring Microsoft Teams connections
-<a name="microsoft-teams-configuring-connections"></a>
 
 Microsoft Teams supports following two types for authentication mechanism:
 
@@ -33,7 +32,7 @@ To configure a Microsoft Teams connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

@@ -1,7 +1,6 @@
 
 
 # About monitoring AWS Glue streaming jobs
-<a name="glue-streaming-monitoring"></a>
 
 Monitoring your streaming job is a critical part of building your ETL pipeline. Apart from using the Spark UI, you can also use Amazon CloudWatch to monitor the metrics. Below is a list of streaming metrics emitted by the AWS Glue framework. For a complete list of all the AWS Glue metrics, see [Monitoring AWS Glue using Amazon CloudWatch metrics](https://docs.aws.amazon.com/glue/latest/dg/monitoring-awsglue-with-cloudwatch-metrics.html).
 

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for SendGrid
-<a name="sendgrid-support"></a>
 
 AWS Glue supports SendGrid as follows:
 

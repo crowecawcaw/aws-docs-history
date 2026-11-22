@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations
-<a name="security-lf-enable-considerations"></a>
 
 Consider the following considerations and limitations when you use Lake Formation with AWS Glue. 
 + AWS Glue with Lake Formation is available in all supported Regions.

@@ -1,7 +1,6 @@
 
 
 # Configuring Adobe Analytics connections
-<a name="adobeanalytics-configuring-connections"></a>
 
  Adobe Analytics supports `AUTHORIZATION_CODE` grant type for `OAuth2`.
 
@@ -32,7 +31,7 @@ It is a must to create a secret per connection in AWS Glue.
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

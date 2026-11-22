@@ -1,7 +1,6 @@
 
 
 # Policies containing the API operations for creating and using connections
-<a name="workday-ldq-configuring-iam-permissions"></a>
 
 The following sample policy describes the required AWS IAM permissions for creating and using connections. If you are creating a new role, create a policy that contains the following:
 

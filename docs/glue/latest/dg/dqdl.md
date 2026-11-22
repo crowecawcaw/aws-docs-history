@@ -1,7 +1,6 @@
 
 
 # Data Quality Definition Language (DQDL) reference
-<a name="dqdl"></a>
 
 Data Quality Definition Language (DQDL) is a domain specific language that you use to define rules for AWS Glue Data Quality.
 
@@ -74,7 +73,7 @@ This guide introduces key DQDL concepts to help you understand the language. It 
 
 A DQDL document is case sensitive and contains a *ruleset*, which groups individual data quality rules together. To construct a ruleset, you must create a list named `Rules` (capitalized), delimited by a pair of square brackets. The list should contain one or more comma-separated DQDL rules like the following example.
 
-```
+```json
 Rules = [
    IsComplete "order-id",
    IsUnique "order-id"
@@ -86,7 +85,7 @@ Rules = [
 
 The structure of a DQDL rule depends on the rule type. However, DQDL rules generally fit the following format.
 
-```
+```json
 <RuleType> <Parameter> <Parameter> <Expression>
 ```
 
@@ -101,7 +100,7 @@ The structure of a DQDL rule depends on the rule type. However, DQDL rules gener
 The logical `and` operator results in `true` if and only if the rules that it connects are `true`. Otherwise, the combined rule results in `false`. Each rule that you connect with the `and` operator must be surrounded by parentheses.  
 The following example uses the `and` operator to combine two DQDL rules.  
 
-```
+```json
 (IsComplete "id") and (IsUnique "id")
 ```
 
@@ -109,7 +108,7 @@ The following example uses the `and` operator to combine two DQDL rules.
 The logical `or` operator results in `true` if and only if one or more of the rules that it connects are `true`. Each rule that you connect with the `or` operator must be surrounded by parentheses.  
 The following example uses the `or` operator to combine two DQDL rules.  
 
-```
+```json
 (RowCount "id" > 100) or (IsPrimaryKey "id")
 ```
 
@@ -224,7 +223,7 @@ object GlueApp {
 
 If a rule type doesn't produce a Boolean response, you must provide an expression as a parameter in order to create a Boolean response. For example, the following rule checks the mean (average) of all the values in a column against an expression to return a true or false result.
 
-```
+```json
 Mean "colA" between 80 and 100
 ```
 
@@ -289,7 +288,7 @@ The following table lists expressions that you can use in DQDL rules.
 
  You can filter your data when authoring rules. This is helpful when you want to apply conditional rules. 
 
-```
+```json
 <DQDL Rule> where "<valid SparkSQL where clause> "
 ```
 
@@ -297,13 +296,13 @@ The following table lists expressions that you can use in DQDL rules.
 
  If the rule you wish to add the where clause to a rule with a threshold, the where clause should be specified before the threshold condition. 
 
-```
+```json
 <DQDL Rule> where "valid SparkSQL statement>" with threshold <threshold condition>
 ```
 
  With this syntax you can write rules like the following. 
 
-```
+```json
 Completeness "colA" > 0.5 where "colB = 10"
 ColumnValues "colB" in ["A", "B"] where "colC is not null" with threshold > 0.9
 ColumnLength "colC" > 10 where "colD != Concat(colE, colF)"
@@ -311,7 +310,7 @@ ColumnLength "colC" > 10 where "colD != Concat(colE, colF)"
 
  We will validate that the SparkSQL statement provided is valid. If invalid, the rule evaluation will fail and we will throw the an `IllegalArgumentException` with the following format: 
 
-```
+```json
 Rule <DQDL Rule> where "<invalid SparkSQL>" has provided an invalid where clause :
 <SparkSQL Error>
 ```
@@ -351,7 +350,7 @@ object GlueApp {
 
  As an example, refer to the following rule and dataframe: 
 
-```
+```json
 IsComplete att2 where "att1 = 'a'"
 ```
 
@@ -670,7 +669,7 @@ After automatic rebinning, your histograms adapt to sustained data range changes
 
 You can opt out of automatic rebinning by setting the `rebin` parameter to `false` in your DQDL ruleset:
 
-```
+```json
 Analyzers = [
     Distribution "Salary" with bins = 20, rebin = false
 ]
@@ -683,7 +682,7 @@ When automatic rebinning is disabled, bin edges remain frozen indefinitely regar
 
 You can use the '\#' character to add a comment to your DQDL document. Anything after the '\#' character and until the end of the line is ignored by DQDL.
 
-```
+```json
 Rules = [
     # More items should generally mean a higher price, so correlation should be positive
     ColumnCorrelation "price" "num_items" > 0

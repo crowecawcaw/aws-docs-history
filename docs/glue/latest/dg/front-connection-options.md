@@ -1,7 +1,6 @@
 
 
 # Front connection options
-<a name="front-connection-options"></a>
 
 The following are connection options for Front:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Front object to read.

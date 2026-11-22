@@ -1,7 +1,6 @@
 
 
 # Creating a MongoDB source node
-<a name="creating-mongodb-source-node"></a>
 
 ## Prerequisites needed
 <a name="creating-mongodb-source-node-prerequisites"></a>

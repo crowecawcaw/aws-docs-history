@@ -1,7 +1,6 @@
 
 
 # Connecting to Snowflake in AWS Glue Studio
-<a name="connecting-to-data-snowflake"></a>
 
 **Note**  
  You can use AWS Glue for Spark to read from and write to tables in Snowflake in AWS Glue 4.0 and later versions. To configure a Snowflake connection with AWS Glue jobs programatically, see [Redshift connections](aws-glue-programming-etl-connect-redshift-home.md). 

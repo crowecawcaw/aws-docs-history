@@ -1,7 +1,6 @@
 
 
 # Connecting to Blackbaud Raiser's Edge NXT
-<a name="connecting-to-data-blackbaud"></a>
 
 Blackbaud Raiser's Edge NXT is a comprehensive cloud-based fundraising and donor management software solution built specifically for nonprofits and the entire social good community. This connector is built on top of Blackbaud Raiser’s Edge NXT’s SKY API and provides operations to help manage entities found within the Raisers Edge NXT.
 

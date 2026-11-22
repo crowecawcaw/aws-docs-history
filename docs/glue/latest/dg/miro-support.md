@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Miro
-<a name="miro-support"></a>
 
 AWS Glue supports Miro as follows:
 

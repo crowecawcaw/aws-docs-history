@@ -1,7 +1,6 @@
 
 
 # Zuora connection options
-<a name="zuora-connection-options"></a>
 
 The following are connection options for Zuora:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Zuora object to read.

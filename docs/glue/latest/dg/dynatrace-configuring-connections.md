@@ -1,7 +1,6 @@
 
 
 # Configuring Dynatrace connections
-<a name="dynatrace-configuring-connections"></a>
 
 Dynatrace supports custom authentication.
 
@@ -26,7 +25,7 @@ To configure a Dynatrace connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

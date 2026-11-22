@@ -1,7 +1,6 @@
 
 
 # Enabling snapshot retention optimizer
-<a name="enable-snapshot-retention"></a>
 
  You can use AWS Glue console, AWS CLI, or AWS API to enable snapshot retention optimizers for your Apache Iceberg tables in the Data Catalog. For new tables, you can choose Apache Iceberg as table format and enable snapshot retention optimizer when you create the table. Snapshot retention is disabled by default for new tables.
 

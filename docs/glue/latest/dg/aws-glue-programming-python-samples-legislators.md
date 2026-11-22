@@ -1,7 +1,6 @@
 
 
 # Code example: Joining and relationalizing data
-<a name="aws-glue-programming-python-samples-legislators"></a>
 
 This example uses a dataset that was downloaded from [http://everypolitician.org/](http://everypolitician.org/) to the `sample-dataset` bucket in Amazon Simple Storage Service (Amazon S3): `s3://awsglue-datasets/examples/us-legislators/all`. The dataset contains data in JSON format about United States legislators and the seats that they have held in the US House of Representatives and Senate, and has been modified slightly and made available in a public Amazon S3 bucket for purposes of this tutorial.
 

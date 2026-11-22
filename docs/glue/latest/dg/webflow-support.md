@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Webflow
-<a name="webflow-support"></a>
 
 AWS Glue supports Webflow as follows:
 

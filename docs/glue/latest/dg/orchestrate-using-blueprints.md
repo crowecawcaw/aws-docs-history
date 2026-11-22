@@ -1,7 +1,6 @@
 
 
 # Developing blueprints in AWS Glue
-<a name="orchestrate-using-blueprints"></a>
 
 Your organization might have a set of similar ETL use cases that could benefit from being able to parametrize a single workflow to handle them all. To address this need, AWS Glue enables you to define *blueprints*, which you can use to generate workflows. A blueprint accepts parameters, so that from a single blueprint, a data analyst can create different workflows to handle similar ETL use cases. After you create a blueprint, you can reuse it for different departments, teams, and projects.
 

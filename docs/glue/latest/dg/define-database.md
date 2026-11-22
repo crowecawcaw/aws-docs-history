@@ -1,7 +1,6 @@
 
 
 # Creating databases
-<a name="define-database"></a>
 
 Databases are used to organize metadata tables in the AWS Glue. When you define a table in the AWS Glue Data Catalog, you add it to a database. A table can be in only one database.
 

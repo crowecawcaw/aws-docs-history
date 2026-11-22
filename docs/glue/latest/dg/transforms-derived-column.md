@@ -1,7 +1,6 @@
 
 
 # Using the Derived Column transform to combine other columns
-<a name="transforms-derived-column"></a>
 
  The **Derived Column** transform allows you to define a new column based on a math formula or SQL expression in which you can use other columns in the data, as well as constants and literals. For instance, to derive a “percentage” column from the columns "success" and "count", you can enter the SQL expression: "success \* 100 / count \|\| '%'". 
 

@@ -1,7 +1,6 @@
 
 
 # JDBC connections
-<a name="aws-glue-programming-etl-connect-jdbc-home"></a>
 
  Certain, typically relational, database types support connecting through the JDBC standard. For more information about JDBC, see the [Java JDBC API](https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/) documentation. AWS Glue natively supports connecting to certain databases through their JDBC connectors - the JDBC libraries are provided in AWS Glue Spark jobs. When connecting to these database types using AWS Glue libraries, you have access to a standard set of options. 
 

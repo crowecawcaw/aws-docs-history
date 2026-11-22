@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for ShipBob
-<a name="shipbob-support"></a>
 
 AWS Glue supports ShipBob as follows:
 

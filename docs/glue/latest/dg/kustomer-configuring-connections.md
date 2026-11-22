@@ -1,7 +1,6 @@
 
 
 # Configuring Kustomer connections
-<a name="kustomer-configuring-connections"></a>
 
 To configure a Kustomer connection:
 
@@ -24,7 +23,7 @@ To configure a Kustomer connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

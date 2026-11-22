@@ -1,7 +1,6 @@
 
 
 # FileFreshness
-<a name="dqdl-rule-types-FileFreshness"></a>
 
  FileFreshness ensures your data files are fresh based on the condition you provide. It uses your files' last modified time to ensure that data files or the entire folder is up-to-date. 
 

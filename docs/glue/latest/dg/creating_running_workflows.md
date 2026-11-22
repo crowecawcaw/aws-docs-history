@@ -1,7 +1,6 @@
 
 
 # Creating and building out a workflow manually in AWS Glue
-<a name="creating_running_workflows"></a>
 
 You can use the AWS Glue console to manually create and build out a workflow one node at a time.
 

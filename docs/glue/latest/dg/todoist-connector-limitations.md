@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Todoist connector
-<a name="todoist-connector-limitations"></a>
 
 The following are limitations and notes for the Todoist connector:
 + Todoist is supported as a source only. Writing to Todoist is not supported.

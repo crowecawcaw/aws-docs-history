@@ -1,7 +1,6 @@
 
 
 # Configuring Zoho Desk connections
-<a name="zohodesk-configuring-connections"></a>
 
 Zoho Desk connections use OAuth 2.0 (authorization code grant). You register a server-based OAuth application in the Zoho Developer Console to obtain a client ID and client secret, store them in Secrets Manager, and authorize the connection through the Zoho consent screen when you create it in AWS Glue Studio. AWS Glue obtains and refreshes the access token for you.
 

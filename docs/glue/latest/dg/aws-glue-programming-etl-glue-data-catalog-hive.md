@@ -1,7 +1,6 @@
 
 
 # AWS Glue Data Catalog support for Spark SQL jobs
-<a name="aws-glue-programming-etl-glue-data-catalog-hive"></a>
 
 The AWS Glue Data Catalog is an Apache Hive metastore-compatible catalog. You can configure your AWS Glue jobs and development endpoints to use the Data Catalog as an external Apache Hive metastore. You can then directly run Apache Spark SQL queries against the tables stored in the Data Catalog. AWS Glue dynamic frames integrate with the Data Catalog by default. However, with this feature, Spark SQL jobs can start using the Data Catalog as an external Hive metastore.
 

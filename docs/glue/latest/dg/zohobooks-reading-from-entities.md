@@ -1,7 +1,6 @@
 
 
 # Reading from Zoho Books entities
-<a name="zohobooks-reading-from-entities"></a>
 
 **Prerequisites**
 

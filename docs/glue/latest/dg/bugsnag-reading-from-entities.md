@@ -1,7 +1,6 @@
 
 
 # Reading from BugSnag entities
-<a name="bugsnag-reading-from-entities"></a>
 
 **Prerequisites**
 

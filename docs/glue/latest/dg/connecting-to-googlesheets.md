@@ -1,7 +1,6 @@
 
 
 # Connecting to Google Sheets
-<a name="connecting-to-googlesheets"></a>
 
  Google Sheets is an online spreadsheet software that allows you to organize large amounts of data, create custom reports, automate calculations, and collaborate with others.If you're a Google Sheets user, you can connect AWS Glue to your Google Sheets account. Then, you can use Google Sheets as a data source in your ETL jobs. Run these jobs to transfer data between Google Sheets and AWS services or other supported applications. 
 

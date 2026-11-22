@@ -1,7 +1,6 @@
 
 
 # Configuring Kommo
-<a name="kommo-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Kommo, you must meet the following requirements:
 

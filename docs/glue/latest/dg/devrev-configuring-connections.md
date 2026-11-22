@@ -1,7 +1,6 @@
 
 
 # Configuring DevRev connections
-<a name="devrev-configuring-connections"></a>
 
 DevRev connections authenticate with a DevRev personal access token (PAT), which the connector sends as a bearer token. You store the PAT in Secrets Manager and reference that secret when you create the connection in AWS Glue Studio.
 

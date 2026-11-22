@@ -1,7 +1,6 @@
 
 
 # Reading from Bitbucket entities
-<a name="bitbucket-reading-from-entities"></a>
 
 **Prerequisites**
 

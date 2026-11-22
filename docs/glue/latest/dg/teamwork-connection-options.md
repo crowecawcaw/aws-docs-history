@@ -1,7 +1,6 @@
 
 
 # Teamwork connection options
-<a name="teamwork-connection-options"></a>
 
 The following are connection options for Teamwork:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Teamwork object to read.

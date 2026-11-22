@@ -1,7 +1,6 @@
 
 
 # Review IAM permissions needed for ETL jobs
-<a name="getting-started-min-privs-job"></a>
 
 When you create a job using AWS Glue Studio, the job assumes the permissions of the IAM role that you specify when you create it. This IAM role must have permission to extract data from your data source, write data to your target, and access AWS Glue resources. 
 

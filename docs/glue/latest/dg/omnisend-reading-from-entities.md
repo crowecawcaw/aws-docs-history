@@ -1,7 +1,6 @@
 
 
 # Reading from Omnisend entities
-<a name="omnisend-reading-from-entities"></a>
 
 **Prerequisites**
 

@@ -1,7 +1,6 @@
 
 
 # Zero-ETL integrations
-<a name="zero-etl-using"></a>
 
 [Zero-ETL](https://aws.amazon.com/what-is/zero-etl/) is a set of fully managed integrations by AWS that minimizes the need to build ETL data pipelines for common ingestion and replication use cases. It makes data available in Lakehouse architecture of Amazon SageMaker and Amazon Redshift from multiple operational, transactional, and application sources. Currently AWS Glue Zero-ETL supports DynamoDB, Oracle Database@AWS and SaaS sources like Salesforce, SAP, Zendesk as sources. With zero-ETL integration, you have fresher data for analytics, AI/ML, and reporting. You get more accurate and timely insights for use cases like business dashboards, optimized gaming experience, data quality monitoring, and customer behavior analysis. You can make data-driven predictions with more confidence, improve customer experiences, and promote data-driven insights across the business.
 

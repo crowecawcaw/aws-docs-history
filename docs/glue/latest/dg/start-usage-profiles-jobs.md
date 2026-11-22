@@ -1,7 +1,6 @@
 
 
 # Working with usage profiles
-<a name="start-usage-profiles-jobs"></a>
 
 ## Authoring jobs with usage profiles
 <a name="w2aac15c15c21b3"></a>

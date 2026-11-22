@@ -1,7 +1,6 @@
 
 
 # Zoom Meetings limitations
-<a name="zoom-meetings-limitations"></a>
 
 The following are limitations or notes for Zoom Meetings:
 + Zoom Meetings does not support orderby.

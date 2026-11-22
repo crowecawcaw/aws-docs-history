@@ -1,7 +1,6 @@
 
 
 # Reading from Vercel entities
-<a name="vercel-reading-from-entities"></a>
 
 **Prerequisites**
 

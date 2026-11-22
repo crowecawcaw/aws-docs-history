@@ -1,7 +1,6 @@
 
 
 # Reading from Monday entities
-<a name="monday-reading-from-entities"></a>
 
  **Prerequisites** 
 +  A Monday Object you would like to read from. Refer the supported entities table below to check the available entities. 

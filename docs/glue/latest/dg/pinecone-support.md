@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Pinecone
-<a name="pinecone-support"></a>
 
 AWS Glue supports Pinecone as follows:
 

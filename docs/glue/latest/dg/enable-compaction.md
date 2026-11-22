@@ -1,7 +1,6 @@
 
 
 # Enabling compaction optimizer
-<a name="enable-compaction"></a>
 
  You can use AWS Glue console, AWS CLI, or AWS API to enable compaction for your Apache Iceberg tables in the AWS Glue Data Catalog. For new tables, you can choose Apache Iceberg as table format and enable compaction when you create the table. Compaction is disabled by default for new tables.
 

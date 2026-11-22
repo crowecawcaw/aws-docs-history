@@ -1,7 +1,6 @@
 
 
 # Setting up AWS Glue usage profiles
-<a name="start-usage-profiles"></a>
 
 One of the main advantages of using a cloud platform is its flexibility. However, with this ease of creating compute resources comes a risk of spiraling cloud costs when left unmanaged and without guardrails. As a result, admins need to balance avoiding high infrastructure costs while at the same time allowing users to work without unnecessary friction.
 

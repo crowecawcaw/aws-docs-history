@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Octopus Deploy
-<a name="octopus-support"></a>
 
 AWS Glue supports Octopus Deploy as follows:
 

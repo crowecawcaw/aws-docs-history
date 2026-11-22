@@ -1,7 +1,6 @@
 
 
 # Configuring ClickUp
-<a name="clickup-configuring"></a>
 
 Before you can use AWS Glue to transfer data from ClickUp, you must meet the following requirements:
 

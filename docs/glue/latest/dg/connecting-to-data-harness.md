@@ -1,7 +1,6 @@
 
 
 # Connecting to Harness in AWS Glue Studio
-<a name="connecting-to-data-harness"></a>
 
 Harness is a software-delivery platform for CI/CD, feature flags, and cloud cost management. Because you are a Harness user, you can connect AWS Glue to your Harness account. You can then use Harness as a data source in your AWS Glue ETL jobs to transfer data between Harness and AWS services or other supported applications.
 

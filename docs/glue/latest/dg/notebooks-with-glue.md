@@ -1,7 +1,6 @@
 
 
 # Managing notebooks
-<a name="notebooks-with-glue"></a>
 
 **Note**  
  Development Endpoints are only supported for versions of AWS Glue prior to 2.0. For an interactive environment where you can author and test ETL scripts, use [Notebooks on AWS Glue Studio](https://docs.aws.amazon.com/glue/latest/ug/notebooks-chapter.html). 

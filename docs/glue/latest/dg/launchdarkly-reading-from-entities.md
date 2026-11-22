@@ -1,7 +1,6 @@
 
 
 # Reading from LaunchDarkly entities
-<a name="launchdarkly-reading-from-entities"></a>
 
 **Prerequisites**
 

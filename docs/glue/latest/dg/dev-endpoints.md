@@ -1,7 +1,6 @@
 
 
 # Development endpoints
-<a name="dev-endpoints"></a>
 
 A development endpoint is an environment that you can use to develop and test your AWS Glue scripts. You can use AWS Glue to create, edit, and delete development endpoints. You can list all the development endpoints that are created. You can add, delete, or rotate the SSH key of a development endpoint. You can also create notebooks that use the development endpoint.
 

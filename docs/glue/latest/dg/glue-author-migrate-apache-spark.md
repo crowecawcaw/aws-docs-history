@@ -1,7 +1,6 @@
 
 
 # Migrate Apache Spark programs to AWS Glue
-<a name="glue-author-migrate-apache-spark"></a>
 
 Apache Spark is an open-source platform for distributed computing workloads performed on large datasets. AWS Glue leverages Spark's capabilities to provide an optimized experience for ETL. You can migrate Spark programs to AWS Glue to take advantage of our features. AWS Glue provides the same performance enhancements you would expect from Apache Spark on Amazon EMR.
 

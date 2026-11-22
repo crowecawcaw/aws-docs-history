@@ -1,7 +1,6 @@
 
 
 # Using custom connectors and connections with AWS Glue Studio
-<a name="connectors-chapter"></a>
 
 AWS Glue provides built-in support for the most commonly used data stores (such as Amazon Redshift, Amazon Aurora, Microsoft SQL Server, MySQL, MongoDB, and PostgreSQL) using JDBC connections. AWS Glue also allows you to use custom JDBC drivers in your extract, transform, and load (ETL) jobs. For data stores that are not natively supported, such as SaaS applications, you can use connectors. 
 

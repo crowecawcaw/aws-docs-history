@@ -1,7 +1,6 @@
 
 
 # Connecting to Grafana in AWS Glue Studio
-<a name="connecting-to-data-grafana"></a>
 
 Grafana provides observability dashboards, data sources, annotations, alerting configuration, teams, users, playlists, snapshots, and access-control metadata. Because you are a Grafana user, you can connect AWS Glue to your Grafana account. You can then use Grafana as a data source in your AWS Glue ETL jobs to transfer data between Grafana and AWS services or other supported applications.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Glue Scala ResolveSpec APIs
-<a name="glue-etl-scala-apis-glue-resolvespec"></a>
 
 **Topics**
 + [ResolveSpec object](#glue-etl-scala-apis-glue-resolvespec-object)

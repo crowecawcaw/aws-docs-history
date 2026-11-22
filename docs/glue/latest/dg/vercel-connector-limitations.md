@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Vercel connector
-<a name="vercel-connector-limitations"></a>
 
 The following are limitations and notes for the Vercel connector:
 + Vercel is supported as a source only. Writing to Vercel is not supported.

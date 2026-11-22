@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Pendo
-<a name="pendo-support"></a>
 
 AWS Glue supports Pendo as follows:
 

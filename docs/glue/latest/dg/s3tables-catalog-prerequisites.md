@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="s3tables-catalog-prerequisites"></a>
 
 Before you create a federated catalog for S3 Tables in the AWS Glue Data Catalog, ensure your IAM principal (user or role) has the required permissions.
 
@@ -36,7 +35,7 @@ Your IAM principal needs the following permissions to enable S3 Tables integrati
 
 The following IAM policy provides the minimum permissions required to enable S3 Tables integration with the Data Catalog in IAM mode:
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Limitations
-<a name="asana-connector-limitations"></a>
 
 The following are limitations for the Asana connector:
 + Service Accounts in Enterprise Domains can only access audit log API endpoints. Authentication with a Service Account's personal access token is required to access these endpoints.

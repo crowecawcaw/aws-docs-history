@@ -1,7 +1,6 @@
 
 
 # Configuring BambooHR
-<a name="bamboohr-configuring"></a>
 
 Before you can use AWS Glue to transfer data from BambooHR, you must meet the following requirements:
 

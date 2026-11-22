@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Glue common setup errors
-<a name="glue-troubleshooting-errors"></a>
 
 If you encounter errors in AWS Glue, use the following information to help you find the source of the problems and fix them.
 

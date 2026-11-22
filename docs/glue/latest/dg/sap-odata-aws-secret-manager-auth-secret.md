@@ -1,7 +1,6 @@
 
 
 # AWS Secrets Manager to store your Auth secret
-<a name="sap-odata-aws-secret-manager-auth-secret"></a>
 
 You will need to store the SAP OData connection secrets in AWS Secrets Manager, configure the necessary permissions for retrieval as specified in the [IAM policies](sap-odata-configuring-iam-permissions.md) section, and use it while creating a connection.
 

@@ -1,7 +1,6 @@
 
 
 # Limitations
-<a name="stripe-limitations"></a>
 
 The following are limitations for the Stripe connector:
 +  Only Field Based Partitioning supported by connector. 

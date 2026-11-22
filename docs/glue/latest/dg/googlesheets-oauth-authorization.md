@@ -1,7 +1,6 @@
 
 
 # Set up Authorization code OAuth flow for Google Sheets
-<a name="googlesheets-oauth-authorization"></a>
 
  **Prerequisites** 
 +  A Google account where you can sign in to use the Google Sheets app. In your Google account, Google Sheets contains the data that you want to transfer. 

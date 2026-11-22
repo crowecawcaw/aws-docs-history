@@ -1,7 +1,6 @@
 
 
 # Reading from Rootly entities
-<a name="rootly-reading-from-entities"></a>
 
 **Prerequisites**
 

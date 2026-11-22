@@ -1,7 +1,6 @@
 
 
 # Viewing blueprints in AWS Glue
-<a name="viewing_blueprints"></a>
 
 View a blueprint to review the blueprint description, status, and parameter specifications, and to download the blueprint ZIP archive.
 

@@ -1,7 +1,6 @@
 
 
 # Reading from New Relic entities
-<a name="newrelic-reading-from-entities"></a>
 
 **Prerequisites**
 

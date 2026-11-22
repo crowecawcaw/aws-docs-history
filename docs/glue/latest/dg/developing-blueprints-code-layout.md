@@ -1,7 +1,6 @@
 
 
 # Creating the blueprint layout script
-<a name="developing-blueprints-code-layout"></a>
 
 The blueprint layout script must include a function that generates the entities in your workflow. You can name this function whatever you like. AWS Glue uses the configuration file to determine the fully qualified name of the function.
 

@@ -1,7 +1,6 @@
 
 
 # Accessing your development endpoint
-<a name="dev-endpoint-elastic-ip"></a>
 
 When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only a private IP address. The public IP address field is not populated. When you create a non-VPC development endpoint, AWS Glue returns only a public IP address.
 

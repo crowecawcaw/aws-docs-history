@@ -1,7 +1,6 @@
 
 
 # Data Catalog settings
-<a name="console-data-catalog-settings"></a>
 
  The Data Catalog settings contains options to set encryption and permissions options for the Data Catalog in your account. 
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Twenty CRM entities
-<a name="twenty-reading-from-entities"></a>
 
 **Prerequisites**
 

@@ -1,7 +1,6 @@
 
 
 # Configuring Adobe Marketo Engage
-<a name="adobe-marketo-engage-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Adobe Marketo Engage, you must meet these requirements:
 

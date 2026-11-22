@@ -1,7 +1,6 @@
 
 
 # Reading from Folk entities
-<a name="folk-reading-from-entities"></a>
 
 **Prerequisites**
 

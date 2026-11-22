@@ -1,7 +1,6 @@
 
 
 # Column statistics API
-<a name="aws-glue-api-crawler-column-statistics"></a>
 
 The column statistics API describes AWS Glue APIs for returning statistics on columns in a table.
 

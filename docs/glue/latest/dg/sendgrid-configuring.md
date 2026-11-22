@@ -1,7 +1,6 @@
 
 
 # Configuring SendGrid
-<a name="sendgrid-configuring"></a>
 
 Before you can use AWS Glue to transfer data from SendGrid, you must meet these requirements:
 

@@ -1,7 +1,6 @@
 
 
 # Job editor features
-<a name="job-editor-features"></a>
 
 The job editor provides the following features for creating and editing jobs.
 + A visual diagram of your job, with a node for each job task: Data source nodes for reading the data; transform nodes for modifying the data; data target nodes for writing the data.

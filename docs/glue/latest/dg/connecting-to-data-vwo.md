@@ -1,7 +1,6 @@
 
 
 # Connecting to VWO in AWS Glue Studio
-<a name="connecting-to-data-vwo"></a>
 
 VWO (Wingify) is an experimentation and behavior-analytics platform. Because you are a VWO user, you can connect AWS Glue to your VWO account. You can then use VWO as a data source in your AWS Glue ETL jobs to transfer data between VWO and AWS services or other supported applications.
 

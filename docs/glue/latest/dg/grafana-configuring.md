@@ -1,7 +1,6 @@
 
 
 # Configuring Grafana
-<a name="grafana-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Grafana, you must meet the following requirements:
 

@@ -1,7 +1,6 @@
 
 
 # Configuring Chargebee
-<a name="chargebee-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Chargebee, you must meet the following requirements:
 

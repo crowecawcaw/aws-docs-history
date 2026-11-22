@@ -1,7 +1,6 @@
 
 
 # Asana connection options
-<a name="asana-connection-options"></a>
 
 The following are connection options for Asana:
 +  `ENTITY_NAME`(String) – (Required) Used for Read/Write. The name of your Object in Asana. 

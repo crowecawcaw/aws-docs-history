@@ -1,7 +1,6 @@
 
 
 # CircleCI limitations
-<a name="circleci-connection-limitations"></a>
 
 The following are limitations or notes for CircleCI:
 + CircleCI does not support either field based or record based partitioning.

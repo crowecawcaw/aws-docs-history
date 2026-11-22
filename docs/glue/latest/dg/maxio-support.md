@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Maxio
-<a name="maxio-support"></a>
 
 AWS Glue supports Maxio as follows:
 

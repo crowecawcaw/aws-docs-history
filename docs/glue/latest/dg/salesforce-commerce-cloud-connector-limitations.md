@@ -1,7 +1,6 @@
 
 
 # Limitations
-<a name="salesforce-commerce-cloud-connector-limitations"></a>
 
 The following are limitations for the Salesforce Commerce Cloud connector:
 + The Contains filter is not working as expected when partitioning.

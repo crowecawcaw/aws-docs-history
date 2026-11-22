@@ -1,7 +1,6 @@
 
 
 # Setting up for AWS Glue Studio
-<a name="setting-up-studio"></a>
 
 Complete the tasks in this section when you're using AWS Glue for the visual ETL for the first time:
 

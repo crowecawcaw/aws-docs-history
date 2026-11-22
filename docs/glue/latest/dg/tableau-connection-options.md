@@ -1,7 +1,6 @@
 
 
 # Tableau connection options
-<a name="tableau-connection-options"></a>
 
 The following are connection options for Tableau:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Tableau object to read.

@@ -1,7 +1,6 @@
 
 
 # Connecting to Data Catalog from a standalone Spark application
-<a name="connect-gludc-spark"></a>
 
 You can connect to the Data Catalog from a stand application using an Apache Iceberg connector. 
 

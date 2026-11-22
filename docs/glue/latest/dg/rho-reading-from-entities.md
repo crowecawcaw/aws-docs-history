@@ -1,7 +1,6 @@
 
 
 # Reading from Rho entities
-<a name="rho-reading-from-entities"></a>
 
 **Prerequisites**
 

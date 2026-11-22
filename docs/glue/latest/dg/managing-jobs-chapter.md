@@ -1,7 +1,6 @@
 
 
 # Managing ETL jobs with AWS Glue Studio
-<a name="managing-jobs-chapter"></a>
 
 You can use the simple graphical interface in AWS Glue Studio to manage your ETL jobs. Using the navigation menu, choose **Jobs** to view the **Jobs** page. On this page, you can see all the jobs that you have created either with AWS Glue Studio or the AWS Glue console. You can view, manage, and run your jobs on this page. 
 

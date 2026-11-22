@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Monday
-<a name="monday-support"></a>
 
 AWS Glue supports Monday as follows:
 

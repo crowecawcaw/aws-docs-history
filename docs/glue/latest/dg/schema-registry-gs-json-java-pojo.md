@@ -1,7 +1,6 @@
 
 
 # Dealing with a specific record (JAVA POJO) for JSON
-<a name="schema-registry-gs-json-java-pojo"></a>
 
 You can use a plain old Java object (POJO) and pass the object as a record. This is similar to the notion of a specific record in AVRO. The [mbknor-jackson-jsonschema](https://github.com/mbknor/mbknor-jackson-jsonSchema) can generate a JSON schema for the POJO passed. This library can also inject additional information in the JSON schema.
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Nuclino entities
-<a name="nuclino-reading-from-entities"></a>
 
 **Prerequisites**
 

@@ -1,7 +1,6 @@
 
 
 # Rootly connection options
-<a name="rootly-connection-options"></a>
 
 The following are connection options for Rootly:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Rootly object to read.

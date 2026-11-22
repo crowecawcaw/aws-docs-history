@@ -1,7 +1,6 @@
 
 
 # Contentful connection options
-<a name="contentful-connection-options"></a>
 
 The following are connection options for Contentful:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Contentful object to read.

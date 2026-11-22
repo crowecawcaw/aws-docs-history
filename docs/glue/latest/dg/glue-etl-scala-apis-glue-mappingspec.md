@@ -1,7 +1,6 @@
 
 
 # MappingSpec
-<a name="glue-etl-scala-apis-glue-mappingspec"></a>
 
 **Package: com.amazonaws.services.glue**
 

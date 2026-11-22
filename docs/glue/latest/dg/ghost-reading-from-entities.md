@@ -1,7 +1,6 @@
 
 
 # Reading from Ghost entities
-<a name="ghost-reading-from-entities"></a>
 
 **Prerequisites**
 

@@ -1,7 +1,6 @@
 
 
 # Configuring Domo connections
-<a name="domo-configuring-connections"></a>
 
 Domo supports the CLIENT\_CREDENTIALS grant type for OAuth2.
 + This grant type is considered two-legged OAuth as only the client application authenticates itself to the server, with no involvement to the user.
@@ -29,7 +28,7 @@ To configure a Domo connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Updating the schema, and adding new partitions in the Data Catalog using AWS Glue ETL jobs
-<a name="update-from-job"></a>
 
 Your extract, transform, and load (ETL) job might create new table partitions in the target data store. Your dataset schema can evolve and diverge from the AWS Glue Data Catalog schema over time. AWS Glue ETL jobs now provide several features that you can use within your ETL script to update your schema and partitions in the Data Catalog. These features allow you to see the results of your ETL work in the Data Catalog, without having to rerun the crawler.
 

@@ -1,7 +1,6 @@
 
 
 # Square connection options
-<a name="square-connection-options"></a>
 
 The following are connection options for Square:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Square object to read.

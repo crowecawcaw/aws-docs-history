@@ -1,7 +1,6 @@
 
 
 # Connecting to Hex in AWS Glue Studio
-<a name="connecting-to-data-hex"></a>
 
 Hex is a collaborative analytics and data-science platform where teams build notebook-style projects and interactive data apps. Because you are a Hex user, you can connect AWS Glue to your Hex account. You can then use Hex as a data source in your AWS Glue ETL jobs to transfer data between Hex and AWS services or other supported applications.
 

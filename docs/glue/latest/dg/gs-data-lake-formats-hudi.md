@@ -1,7 +1,6 @@
 
 
 # Using Hudi framework in AWS Glue Studio
-<a name="gs-data-lake-formats-hudi"></a>
 
  When creating or editing a job, AWS Glue Studio automatically adds the corresponding Hudi libraries for you depending on the version of AWS Glue you are using. For more information, see [Using the Hudi framework in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-format-hudi.html). 
 

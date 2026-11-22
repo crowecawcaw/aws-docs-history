@@ -1,7 +1,6 @@
 
 
 # Creating a Kafka connection
-<a name="creating-connections-kafka"></a>
 
  When creating a Kafka connection, selecting **Kafka** from the drop-down menu will display additional settings to configure: 
 +  Kafka cluster details 

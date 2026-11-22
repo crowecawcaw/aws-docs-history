@@ -1,7 +1,6 @@
 
 
 # Reading from Zendesk entities
-<a name="zendesk-reading-from-entities"></a>
 
 **Prerequisite**
 

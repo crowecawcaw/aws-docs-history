@@ -1,7 +1,6 @@
 
 
 # Reading from Freshdesk entities
-<a name="freshdesk-reading-from-entities"></a>
 
 **Prerequisite**
 

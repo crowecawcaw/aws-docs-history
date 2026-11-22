@@ -1,7 +1,6 @@
 
 
 # Working with MongoDB connections in ETL jobs
-<a name="integrate-with-mongo-db"></a>
 
 You can create a connection for MongoDB and then use that connection in your AWS Glue job. For more information, see [MongoDB connections](aws-glue-programming-etl-connect-mongodb-home.md) in the AWS Glue programming guide. The connection `url`, `username` and `password` are stored in the MongoDB connection. Other options can be specified in your ETL job script using the `additionalOptions` parameter of `glueContext.getCatalogSource`. The other options can include:
 + `database`: (Required) The MongoDB database to read from.
@@ -38,7 +37,7 @@ By placing the `database` and `collection` information inside the ETL job script
 ------
 #### [  Python  ]
 
-   ```
+   ```py
    glue_context.create_dynamic_frame_from_catalog(
            database = {{catalogDB}},
            table_name = {{catalogTable}},

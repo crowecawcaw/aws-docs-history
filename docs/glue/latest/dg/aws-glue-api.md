@@ -1,7 +1,6 @@
 
 
 # AWS Glue API
-<a name="aws-glue-api"></a>
 
 This section describes data types and primitives used by AWS Glue SDKs and Tools. There are three general ways to interact with AWS Glue programmatically outside of the AWS Management Console, each with its own documentation: 
 +  Language SDK libraries allow you to access AWS resources from common programming languages. Find more information at [Tools to Build on AWS](https://aws.amazon.com/tools/). 
@@ -629,6 +628,10 @@ This section describes data types and primitives used by AWS Glue SDKs and Tools
   + [TargetProcessingProperties structure](aws-glue-api-integrations.md#aws-glue-api-integrations-TargetProcessingProperties)
   + [SourceTableConfig structure](aws-glue-api-integrations.md#aws-glue-api-integrations-SourceTableConfig)
   + [TargetTableConfig structure](aws-glue-api-integrations.md#aws-glue-api-integrations-TargetTableConfig)
+  + [IntegrationTableProperties structure](aws-glue-api-integrations.md#aws-glue-api-integrations-IntegrationTableProperties)
+  + [IntegrationTablePropertiesFilter structure](aws-glue-api-integrations.md#aws-glue-api-integrations-IntegrationTablePropertiesFilter)
+  + [IntegrationResourceProperty structure](aws-glue-api-integrations.md#aws-glue-api-integrations-IntegrationResourceProperty)
+  + [IntegrationResourcePropertyFilter structure](aws-glue-api-integrations.md#aws-glue-api-integrations-IntegrationResourcePropertyFilter)
   + [Operations](aws-glue-api-integrations.md#aws-glue-api-integrations-actions)
   + [CreateIntegration action (Python: create\_integration)](aws-glue-api-integrations.md#aws-glue-api-integrations-CreateIntegration)
   + [ModifyIntegration action (Python: modify\_integration)](aws-glue-api-integrations.md#aws-glue-api-integrations-ModifyIntegration)
@@ -639,9 +642,12 @@ This section describes data types and primitives used by AWS Glue SDKs and Tools
   + [UpdateIntegrationTableProperties action (Python: update\_integration\_table\_properties)](aws-glue-api-integrations.md#aws-glue-api-integrations-UpdateIntegrationTableProperties)
   + [GetIntegrationTableProperties action (Python: get\_integration\_table\_properties)](aws-glue-api-integrations.md#aws-glue-api-integrations-GetIntegrationTableProperties)
   + [DeleteIntegrationTableProperties action (Python: delete\_integration\_table\_properties)](aws-glue-api-integrations.md#aws-glue-api-integrations-DeleteIntegrationTableProperties)
+  + [ListIntegrationTableProperties action (Python: list\_integration\_table\_properties)](aws-glue-api-integrations.md#aws-glue-api-integrations-ListIntegrationTableProperties)
   + [CreateIntegrationResourceProperty action (Python: create\_integration\_resource\_property)](aws-glue-api-integrations.md#aws-glue-api-integrations-CreateIntegrationResourceProperty)
   + [UpdateIntegrationResourceProperty action (Python: update\_integration\_resource\_property)](aws-glue-api-integrations.md#aws-glue-api-integrations-UpdateIntegrationResourceProperty)
   + [GetIntegrationResourceProperty action (Python: get\_integration\_resource\_property)](aws-glue-api-integrations.md#aws-glue-api-integrations-GetIntegrationResourceProperty)
+  + [ListIntegrationResourceProperties action (Python: list\_integration\_resource\_properties)](aws-glue-api-integrations.md#aws-glue-api-integrations-ListIntegrationResourceProperties)
+  + [DeleteIntegrationResourceProperty action (Python: delete\_integration\_resource\_property)](aws-glue-api-integrations.md#aws-glue-api-integrations-DeleteIntegrationResourceProperty)
   + [UntagResource action (Python: untag\_resource)](aws-glue-api-integrations.md#aws-glue-api-integrations-UntagResource)
   + [ListTagsForResource action (Python: list\_tags\_for\_resource)](aws-glue-api-integrations.md#aws-glue-api-integrations-ListTagsForResource)
   + [Exceptions](aws-glue-api-integrations.md#aws-glue-api-integrations-exceptions)
@@ -851,6 +857,12 @@ This section describes data types and primitives used by AWS Glue SDKs and Tools
   + [RowLevelResultsOptions structure](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-RowLevelResultsOptions)
   + [CatalogTableConfigOptions structure](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-CatalogTableConfigOptions)
   + [DistributionResultsOptions structure](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-DistributionResultsOptions)
+  + [DataQualityEvaluationConfigDataSource structure](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-DataQualityEvaluationConfigDataSource)
+  + [DataQualityEvaluationConfigGlueTables structure](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-DataQualityEvaluationConfigGlueTables)
+  + [DataQualityEvaluationConfigAdditionalRunOptions structure](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-DataQualityEvaluationConfigAdditionalRunOptions)
+  + [DataQualityEvaluationConfigListDetails structure](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-DataQualityEvaluationConfigListDetails)
+  + [DataQualityEvaluationConfigListDataSource structure](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-DataQualityEvaluationConfigListDataSource)
+  + [DataQualityEvaluationConfigListGlueTables structure](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-DataQualityEvaluationConfigListGlueTables)
   + [Operations](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-actions)
   + [StartDataQualityRulesetEvaluationRun action (Python: start\_data\_quality\_ruleset\_evaluation\_run)](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-StartDataQualityRulesetEvaluationRun)
   + [CancelDataQualityRulesetEvaluationRun action (Python: cancel\_data\_quality\_ruleset\_evaluation\_run)](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-CancelDataQualityRulesetEvaluationRun)
@@ -881,6 +893,11 @@ This section describes data types and primitives used by AWS Glue SDKs and Tools
   + [GetDataQualityModelResult action (Python: get\_data\_quality\_model\_result)](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-GetDataQualityModelResult)
   + [ListDataQualityStatisticAnnotations action (Python: list\_data\_quality\_statistic\_annotations)](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-ListDataQualityStatisticAnnotations)
   + [PutDataQualityProfileAnnotation action (Python: put\_data\_quality\_profile\_annotation)](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-PutDataQualityProfileAnnotation)
+  + [CreateDataQualityEvaluationConfig action (Python: create\_data\_quality\_evaluation\_config)](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-CreateDataQualityEvaluationConfig)
+  + [GetDataQualityEvaluationConfig action (Python: get\_data\_quality\_evaluation\_config)](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-GetDataQualityEvaluationConfig)
+  + [UpdateDataQualityEvaluationConfig action (Python: update\_data\_quality\_evaluation\_config)](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-UpdateDataQualityEvaluationConfig)
+  + [DeleteDataQualityEvaluationConfig action (Python: delete\_data\_quality\_evaluation\_config)](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-DeleteDataQualityEvaluationConfig)
+  + [ListDataQualityEvaluationConfigs action (Python: list\_data\_quality\_evaluation\_configs)](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-ListDataQualityEvaluationConfigs)
 + [Sensitive data detection API](aws-glue-api-sensitive-data-api.md)
   + [Data types](aws-glue-api-sensitive-data-api.md#aws-glue-api-sensitive-data-api-objects)
   + [CustomEntityType structure](aws-glue-api-sensitive-data-api.md#aws-glue-api-sensitive-data-api-CustomEntityType)

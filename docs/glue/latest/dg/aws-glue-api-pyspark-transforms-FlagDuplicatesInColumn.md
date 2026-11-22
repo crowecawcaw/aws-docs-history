@@ -1,7 +1,6 @@
 
 
 # FlagDuplicatesInColumn class
-<a name="aws-glue-api-pyspark-transforms-FlagDuplicatesInColumn"></a>
 
 The `FlagDuplicatesInColumn` transform returns a new column with a specified value in each row that indicates whether the value in the row's source column matches a value in an earlier row of the source column. When matches are found, they are flagged as duplicates. The initial occurrence is not flagged, because it doesn't match an earlier row.
 

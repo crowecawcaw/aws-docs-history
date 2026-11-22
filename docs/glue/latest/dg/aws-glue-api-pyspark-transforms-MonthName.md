@@ -1,7 +1,6 @@
 
 
 # MonthName class
-<a name="aws-glue-api-pyspark-transforms-MonthName"></a>
 
  The `MonthName` transform creates a new column containing the name of the month, from a string that represents a date. 
 

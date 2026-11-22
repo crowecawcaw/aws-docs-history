@@ -1,7 +1,6 @@
 
 
 # Setting up the authorization code flow for Gusto
-<a name="gusto-setup-authorization-code-flow"></a>
 
 Gusto uses the OAuth 2.0 authorization code flow. When you create the connection in AWS Glue Studio, you are redirected to Gusto to authorize AWS Glue, and AWS Glue then obtains and refreshes the access token for you.
 

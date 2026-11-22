@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the GetResponse connector
-<a name="getresponse-connector-limitations"></a>
 
 The following are limitations and notes for the GetResponse connector:
 + GetResponse is supported as a source only. Writing to GetResponse is not supported.

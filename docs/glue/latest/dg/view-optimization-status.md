@@ -1,7 +1,6 @@
 
 
 # Viewing optimization details
-<a name="view-optimization-status"></a>
 
 You can view the optimization status for Apache Iceberg tables in the AWS Glue console, AWS CLI, or using AWS API operations. 
 

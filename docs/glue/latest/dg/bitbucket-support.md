@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Bitbucket
-<a name="bitbucket-support"></a>
 
 AWS Glue supports Bitbucket as follows:
 

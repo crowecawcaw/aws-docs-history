@@ -1,7 +1,6 @@
 
 
 # Using Scala to program AWS Glue ETL scripts
-<a name="glue-etl-scala-using"></a>
 
 You can automatically generate a Scala extract, transform, and load (ETL) program using the AWS Glue console, and modify it as needed before assigning it to a job. Or, you can write your own program from scratch. For more information, see [Configuring job properties for Spark jobs in AWS Glue](add-job.md). AWS Glue then compiles your Scala program on the server before running the associated job.
 

@@ -1,7 +1,6 @@
 
 
 # Using Data Lake frameworks with AWS Glue Studio
-<a name="gs-data-lake-formats"></a>
 
 ## Overview
 <a name="gs-data-lake-formats-overview"></a>

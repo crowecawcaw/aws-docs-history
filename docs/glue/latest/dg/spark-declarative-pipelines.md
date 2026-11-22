@@ -1,7 +1,6 @@
 
 
 # Spark Declarative Pipelines
-<a name="spark-declarative-pipelines"></a>
 
 Spark Declarative Pipelines (SDP) is a declarative framework for building batch and streaming data pipelines in AWS Glue 6.0. With SDP, you define what your data should look like using SQL or Python, and the framework automatically determines the execution plan, resolves dependencies between datasets, and runs independent branches in parallel.
 
@@ -49,7 +48,7 @@ To use SDP, you need the following:
 **Important**  
 If you use the `database:` field in your pipeline YAML for Hive or AWS Glue-managed (non-Iceberg) tables, the corresponding AWS Glue database must have its `LocationUri` set to an Amazon S3 path. The `LocationUri` is what places managed streaming tables (and their `_spark_metadata` log) on Amazon S3, which is what enables persistent, cross-run incremental processing for those tables. Iceberg tables that use the Data Catalog with `catalog-impl=GlueCatalog` (Option 1) do not require a database `LocationUri`. Create or update the database with an explicit Amazon S3 location:  
 
-```
+```bash
 aws glue create-database --database-input '{
   "Name":"my_pipeline_db",
   "LocationUri":"s3://my-bucket/warehouse/my_pipeline_db"
@@ -66,7 +65,7 @@ To create an SDP pipeline, complete the following steps.
 
 Create a file named `spark-pipeline.yml`:
 
-```
+```yaml
 name: my_analytics_pipeline
 catalog: spark_catalog
 database: analytics_db
@@ -97,7 +96,7 @@ Create transformation files in a `transformations/` directory. You can use SQL, 
 
 **SQL example** (`transformations/silver.sql`):
 
-```
+```sql
 CREATE MATERIALIZED VIEW silver_sales AS
 SELECT *, UPPER(region) as clean_region
 FROM bronze_sales
@@ -111,7 +110,7 @@ GROUP BY clean_region;
 
 **Python example** (`transformations/bronze.py`):
 
-```
+```python
 from pyspark import pipelines as dp
 from pyspark.sql import DataFrame, SparkSession
 
@@ -126,7 +125,7 @@ def bronze_sales() -> DataFrame:
 
 **Python streaming table example** (`transformations/events.py`):
 
-```
+```python
 from pyspark import pipelines as dp
 from pyspark.sql import DataFrame, SparkSession
 
@@ -167,7 +166,7 @@ Create a AWS Glue job with the following parameters:
 
 The following example creates an SDP job using the AWS CLI:
 
-```
+```bash
 aws glue create-job \
   --name my-sdp-pipeline \
   --role arn:aws:iam::123456789012:role/MyGlueRole \
@@ -216,7 +215,7 @@ Apache Iceberg is the recommended table format for streaming tables that require
 
 Use this option when you want your Iceberg tables registered in the Data Catalog (with `table_type=ICEBERG`) so that they are queryable from other engines such as , Amazon Redshift, and Amazon EMR. Table data and metadata are stored in Amazon S3, and cross-run incremental state is preserved. Add the following to the `configuration` section of your `spark-pipeline.yml`:
 
-```
+```yaml
 configuration:
   spark.sql.catalog.glue_catalog: "org.apache.iceberg.spark.SparkCatalog"
   spark.sql.catalog.glue_catalog.catalog-impl: "org.apache.iceberg.aws.glue.GlueCatalog"
@@ -234,7 +233,7 @@ The Iceberg catalog uses its own `warehouse` location for table data and metadat
 
 Use this option when you do not need Data Catalog registration. Iceberg metadata is file-based in Amazon S3, and the tables are **not** registered in the Data Catalog. Add the following to the `configuration` section of your `spark-pipeline.yml`:
 
-```
+```yaml
 configuration:
   spark.sql.catalog.spark_catalog: "org.apache.iceberg.spark.SparkSessionCatalog"
   spark.sql.catalog.spark_catalog.type: "hadoop"
@@ -259,7 +258,7 @@ With Iceberg configured, you get the following benefits:
 
 You can also read incrementally from an Iceberg table as a streaming source. In a medallion architecture, a downstream streaming table can consume only the new rows that are committed to an upstream Iceberg table on each run. The following example reads incrementally from an Iceberg `bronze` table into a `silver` streaming table:
 
-```
+```python
 from pyspark import pipelines as dp
 from pyspark.sql import SparkSession
 

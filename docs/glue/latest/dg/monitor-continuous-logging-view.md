@@ -1,7 +1,6 @@
 
 
 # Viewing logs for AWS Glue jobs
-<a name="monitor-continuous-logging-view"></a>
 
 You can view real-time logs using the AWS Glue console or the Amazon CloudWatch console.
 

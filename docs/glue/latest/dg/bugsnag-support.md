@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for BugSnag
-<a name="bugsnag-support"></a>
 
 AWS Glue supports BugSnag as follows:
 

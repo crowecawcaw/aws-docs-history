@@ -1,7 +1,6 @@
 
 
 # Reading from Adyen entities
-<a name="adyen-reading-from-entities"></a>
 
 **Prerequisites**
 

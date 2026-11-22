@@ -1,7 +1,6 @@
 
 
 # Miro connection options
-<a name="miro-connection-options"></a>
 
 The following are connection options for Miro:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Miro object to read.

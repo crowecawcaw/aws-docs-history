@@ -1,7 +1,6 @@
 
 
 # Reading from QuickBooks entities
-<a name="quickbooks-reading-from-entities"></a>
 
 **Prerequisite**
 

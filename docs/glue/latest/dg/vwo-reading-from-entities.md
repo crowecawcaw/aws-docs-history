@@ -1,7 +1,6 @@
 
 
 # Reading from VWO entities
-<a name="vwo-reading-from-entities"></a>
 
 **Prerequisites**
 

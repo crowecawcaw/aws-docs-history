@@ -1,7 +1,6 @@
 
 
 # Using Spigot to sample your dataset
-<a name="transforms-configure-spigot"></a>
 
 To test the transformations performed by your job, you might want to get a sample of the data to check that the transformation works as intended. The *Spigot* transform writes a subset of records from the dataset to a JSON file in an Amazon S3 bucket. The data sampling method can be either a specific number of records from the beginning of the file or a probability factor used to pick records.
 

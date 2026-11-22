@@ -1,7 +1,6 @@
 
 
 # Configuring Jira Cloud
-<a name="jira-cloud-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Jira Cloud to supported destinations, you must meet these requirements:
 

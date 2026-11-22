@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Glue
-<a name="setting-up"></a>
 
 The following sections provide information on setting up AWS Glue. Not all of the setting up sections are required to start using AWS Glue. You can use the instructions as needed to set up IAM permissions, encryption, and DNS ( if you're using a VPC environment to access data stores or if you're using interactive sessions).
 

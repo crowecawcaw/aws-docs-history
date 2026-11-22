@@ -1,7 +1,6 @@
 
 
 # AWS Glue connection properties
-<a name="connection-properties"></a>
 
 This topic includes information about properties for AWS Glue connections.
 

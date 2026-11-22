@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in AWS Glue
-<a name="logging-and-monitoring"></a>
 
 You can automate the running of your ETL (extract, transform, and load) jobs. AWS Glue provides metrics for crawlers and jobs that you can monitor. After you set up the AWS Glue Data Catalog with the required metadata, AWS Glue provides statistics about the health of your environment. You can automate the invocation of crawlers and jobs with a time-based schedule based on cron. You can also trigger jobs when an event-based trigger fires. 
 

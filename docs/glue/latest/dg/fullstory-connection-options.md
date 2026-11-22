@@ -1,7 +1,6 @@
 
 
 # Fullstory connection options
-<a name="fullstory-connection-options"></a>
 
 The following are connection options for Fullstory:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Fullstory object to read.

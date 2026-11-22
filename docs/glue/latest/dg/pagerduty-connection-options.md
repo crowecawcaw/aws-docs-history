@@ -1,7 +1,6 @@
 
 
 # PagerDuty connection options
-<a name="pagerduty-connection-options"></a>
 
 The following are connection options for PagerDuty:
 + `ENTITY_NAME` – (Required) Used for Read. The entity path of the PagerDuty object to read. Use the nested forms described in [Reading from PagerDuty entities](pagerduty-reading-from-entities.md) for `alerts`, `incident_notes`, and `team_members`.

@@ -1,7 +1,6 @@
 
 
 # Getting started with the AWS Glue Data Catalog
-<a name="start-data-catalog"></a>
 
  The AWS Glue Data Catalog is your persistent technical metadata store. It is a managed service that you can use to store, annotate, and share metadata in the AWS Cloud. For more information, see [AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/components-overview.html#data-catalog-intro). 
 

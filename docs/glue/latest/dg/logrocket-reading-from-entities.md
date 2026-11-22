@@ -1,7 +1,6 @@
 
 
 # Reading from LogRocket entities
-<a name="logrocket-reading-from-entities"></a>
 
 **Prerequisites**
 

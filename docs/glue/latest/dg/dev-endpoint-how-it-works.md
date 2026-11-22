@@ -1,7 +1,6 @@
 
 
 # How AWS Glue development endpoints work with SageMaker notebooks
-<a name="dev-endpoint-how-it-works"></a>
 
 One of the common ways to access your development endpoints is to use [Jupyter](https://jupyter.org/) on SageMaker notebooks. The Jupyter notebook is an open-source web application which is widely used in visualization, analytics, machine learning, etc. An AWS Glue SageMaker notebook provides you a Jupyter notebook experience with AWS Glue development endpoints. In the AWS Glue SageMaker notebook, the Jupyter notebook environment is pre-configured with [SparkMagic](https://github.com/jupyter-incubator/sparkmagic), an open source Jupyter plugin to submit Spark jobs to a remote Spark cluster. [Apache Livy](https://livy.apache.org) is a service that allows interaction with a remote Spark cluster over a REST API. In the AWS Glue SageMaker notebook, SparkMagic is configured to call the REST API against a Livy server running on an AWS Glue development endpoint. 
 

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for TestRail
-<a name="testrail-support"></a>
 
 AWS Glue supports TestRail as follows:
 

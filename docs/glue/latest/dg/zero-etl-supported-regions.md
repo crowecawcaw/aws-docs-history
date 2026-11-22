@@ -1,7 +1,6 @@
 
 
 # Supported Regions
-<a name="zero-etl-supported-regions"></a>
 
 The following Regions are available with AWS Glue Zero-ETL:
 

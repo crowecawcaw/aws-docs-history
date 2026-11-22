@@ -1,7 +1,6 @@
 
 
 # SplitFields class
-<a name="aws-glue-api-crawler-pyspark-transforms-SplitFields"></a>
 
 Splits a `DynamicFrame` into two new ones, by specified fields.
 

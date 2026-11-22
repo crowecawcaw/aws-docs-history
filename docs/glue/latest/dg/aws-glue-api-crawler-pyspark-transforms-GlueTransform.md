@@ -1,7 +1,6 @@
 
 
 # GlueTransform base class
-<a name="aws-glue-api-crawler-pyspark-transforms-GlueTransform"></a>
 
 The base class that all the `awsglue.transforms` classes inherit from.
 

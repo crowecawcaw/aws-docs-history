@@ -1,7 +1,6 @@
 
 
 # Enabling catalog-level automatic table optimization
-<a name="enable-auto-table-optimizers"></a>
 
  You can enable the automatic table optimization for all new Apache Iceberg tables in the Data Catalog. After creating the table, you can also explicitly update the table optimization settings manually. 
 
@@ -51,7 +50,7 @@ Use the following CLI command to update an existing catalog with optimizer setti
 
 **Example Update catalog with optimizer settings**  
 
-```
+```bash
 aws glue update-catalog \
    --name {{catalog-id}} \
   --catalog-input \

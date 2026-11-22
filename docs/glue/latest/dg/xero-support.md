@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Xero
-<a name="xero-support"></a>
 
 AWS Glue supports Xero as follows:
 

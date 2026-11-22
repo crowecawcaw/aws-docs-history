@@ -1,7 +1,6 @@
 
 
 # Deleting orphan files
-<a name="orphan-file-deletion"></a>
 
  AWS Glue Data Catalog allows you to remove orphan files from your Iceberg tables. Orphan files are unreferenced files that exist in your Amazon S3 data source under the specified table location, are not tracked by the Iceberg table metadata, and are older than your configured age limit. These orphan files can accumulate over time due to failure in operations like compaction, partition drops, or table rewrites, and take up unnecessary storage space.
 

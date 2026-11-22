@@ -1,7 +1,6 @@
 
 
 # Connecting to Mixpanel
-<a name="connecting-to-mixpanel"></a>
 
 Mixpanel is a powerful real-time analytics platform that helps companies measure and optimize user engagement. Mixpanel is an app used for tracking customer behavior. It enables you to track how users engage with your product and analyze this data with interactive reports that let you query and visualize the results with just a few clicks. As a Mixpanel user, you can connect AWS Glue to your Mixpanel account. Then, you can use Mixpanel as a data source in your ETL jobs. Run these jobs to transfer data between Mixpanel and AWS services or other supported applications.
 

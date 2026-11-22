@@ -1,7 +1,6 @@
 
 
 # Known issues for AWS Glue
-<a name="glue-known-issues"></a>
 
 Note the following known issues for AWS Glue.
 

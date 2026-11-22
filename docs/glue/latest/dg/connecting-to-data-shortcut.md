@@ -1,7 +1,6 @@
 
 
 # Connecting to Shortcut in AWS Glue Studio
-<a name="connecting-to-data-shortcut"></a>
 
 Shortcut (formerly Clubhouse) is a project-management and issue-tracking tool for software teams. Because you are a Shortcut user, you can connect AWS Glue to your Shortcut account. You can then use Shortcut as a data source in your AWS Glue ETL jobs to transfer data between Shortcut and AWS services or other supported applications.
 

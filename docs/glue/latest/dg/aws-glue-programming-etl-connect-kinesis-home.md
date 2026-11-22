@@ -1,7 +1,6 @@
 
 
 # Kinesis connections
-<a name="aws-glue-programming-etl-connect-kinesis-home"></a>
 
 You can use a Kinesis connection to read and write to Amazon Kinesis data streams using information stored in a Data Catalog table, or by providing information to directly access the data stream. You can read information from Kinesis into a Spark DataFrame, then convert it to a AWS Glue DynamicFrame. You can write DynamicFrames to Kinesis in a JSON format. If you directly access the data stream, use these options to provide the information about how to access the data stream.
 

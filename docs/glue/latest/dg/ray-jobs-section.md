@@ -1,7 +1,6 @@
 
 
 # Working with Ray jobs in AWS Glue
-<a name="ray-jobs-section"></a>
 
 **Important**  
 AWS Glue for Ray is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Glue for Ray end of support](https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html).

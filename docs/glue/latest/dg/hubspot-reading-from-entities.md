@@ -1,7 +1,6 @@
 
 
 # Reading from HubSpot entities
-<a name="hubspot-reading-from-entities"></a>
 
 **Prerequisite**
 

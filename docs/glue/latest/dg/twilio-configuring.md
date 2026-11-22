@@ -1,7 +1,6 @@
 
 
 # Configuring Twilio
-<a name="twilio-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Twilio, you must meet these requirements:
 

@@ -1,7 +1,6 @@
 
 
 # Connecting to Google Analytics 4
-<a name="connecting-to-googleanalytics"></a>
 
  Google Analytics 4 is an analytics service that tracks and reports metrics about visitor interactions with your apps and websites. These metrics include page views, active users, and events. If you are a Google Analytics 4 user, you can connect AWS Glue to your Google Analytics 4 account. You can use Google Analytics 4 as a data source in your ETL jobs. Run these jobs to transfer data from Google Analytics 4 to AWS services or other supported applications. 
 

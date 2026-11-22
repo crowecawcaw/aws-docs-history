@@ -1,7 +1,6 @@
 
 
 # How the schema registry works
-<a name="schema-registry-works"></a>
 
 This section describes how the serialization and deserialization processes in schema registry work.
 

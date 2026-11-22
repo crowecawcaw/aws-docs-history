@@ -1,7 +1,6 @@
 
 
 # Configuring Blackbaud Raiser's Edge NXT connections
-<a name="blackbaud-configuring-connections"></a>
 
 Blackbaud Raiser's Edge NXT supports the AUTHORIZATION\_CODE grant type for OAuth2.
 + This grant type is considered "three-legged" OAuth as it relies on redirecting users to a third-party authorization server to authenticate the user. It is used when creating connections via the AWS Glue console. The AWS Glue console will redirect the user to Blackbaud Raiser's Edge NXT where the user must login and allow AWS Glue the requested permissions to access their Blackbaud Raiser's Edge NXT instance.
@@ -34,7 +33,7 @@ To configure a Blackbaud Raiser's Edge NXT connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

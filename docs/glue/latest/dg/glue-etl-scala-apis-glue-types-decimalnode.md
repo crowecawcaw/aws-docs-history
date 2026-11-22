@@ -1,7 +1,6 @@
 
 
 # AWS Glue Scala DecimalNode APIs
-<a name="glue-etl-scala-apis-glue-types-decimalnode"></a>
 
 **Package: com.amazonaws.services.glue.types**
 

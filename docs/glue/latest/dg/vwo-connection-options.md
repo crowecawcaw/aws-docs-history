@@ -1,7 +1,6 @@
 
 
 # VWO connection options
-<a name="vwo-connection-options"></a>
 
 The following are connection options for VWO:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the VWO object to read.

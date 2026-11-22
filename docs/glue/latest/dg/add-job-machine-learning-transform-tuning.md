@@ -1,7 +1,6 @@
 
 
 # Tuning machine learning transforms in AWS Glue
-<a name="add-job-machine-learning-transform-tuning"></a>
 
 You can tune your machine learning transforms in AWS Glue to improve the results of your data-cleansing jobs to meet your objectives. To improve your transform, you can teach it by generating a labeling set, adding labels, and then repeating these steps several times until you get your desired results. You can also tune by changing some machine learning parameters. 
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Insightly entities
-<a name="insightly-reading-from-entities"></a>
 
 **Prerequisites**
 

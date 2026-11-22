@@ -1,7 +1,6 @@
 
 
 # Author and run data preparation recipes in a visual ETL AWS Glue job
-<a name="glue-studio-data-preparation-recipe-transform-tutorial"></a>
 
  In this scenario, you can author data preparation recipes without having to first create them in DataBrew. Before you can start authoring recipes, you must: 
 +  Have an active Data Preview session running. When the data preview session is READY, then **Author Recipe** will become active and you can begin authoring or editing your recipe.   

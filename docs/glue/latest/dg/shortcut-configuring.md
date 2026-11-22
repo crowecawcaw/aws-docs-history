@@ -1,7 +1,6 @@
 
 
 # Configuring Shortcut
-<a name="shortcut-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Shortcut, you must meet the following requirements:
 

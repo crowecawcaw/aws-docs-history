@@ -1,7 +1,6 @@
 
 
 # Configuring Nimble
-<a name="nimble-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Nimble, you must meet the following requirements:
 

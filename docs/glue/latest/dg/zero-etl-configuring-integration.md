@@ -1,7 +1,6 @@
 
 
 # Configuring an integration
-<a name="zero-etl-configuring-integration"></a>
 
 When setting up a zero-ETL integration, you can configure various parameters to control how data is synchronized between your source and target systems. The following settings are currently available for SaaS sources only.
 

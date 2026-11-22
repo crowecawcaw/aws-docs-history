@@ -1,7 +1,6 @@
 
 
 # Setting up IAM permissions for AWS Glue
-<a name="set-up-iam"></a>
 
 The instructions in this topic help you quickly set up AWS Identity and Access Management (IAM) permissions for AWS Glue. You will complete the following tasks:
 + Grant your IAM identities access to AWS Glue resources.

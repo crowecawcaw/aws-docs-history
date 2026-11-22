@@ -1,7 +1,6 @@
 
 
 # Configuring Vonage
-<a name="vonage-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Vonage, you must meet the following requirements:
 

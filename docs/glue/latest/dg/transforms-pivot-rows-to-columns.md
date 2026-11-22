@@ -1,7 +1,6 @@
 
 
 # Using the Pivot Rows to Columns transform
-<a name="transforms-pivot-rows-to-columns"></a>
 
  The **Pivot Rows to Columns** transform allows you to aggregate a numeric column by rotating unique values on selected columns which become new columns (if multiple columns are selected, the values are concatenated to name the new columns). That way rows are consolidated while having more columns with partial aggregations for each unique value. For example, if you have this dataset of sales by month and country (sorted to be easier to illustrate): 
 

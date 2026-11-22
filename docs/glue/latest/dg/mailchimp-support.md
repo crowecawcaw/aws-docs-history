@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Mailchimp
-<a name="mailchimp-support"></a>
 
 AWS Glue supports Mailchimp as follows:
 

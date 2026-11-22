@@ -1,7 +1,6 @@
 
 
 # Tutorial: Use a REPL shell with your development endpoint
-<a name="dev-endpoint-tutorial-repl"></a>
 
  In AWS Glue, you can create a development endpoint and then invoke a REPL (Read–Evaluate–Print Loop) shell to run PySpark code incrementally so that you can interactively debug your ETL scripts before deploying them.
 
@@ -43,7 +42,7 @@
 
 1. Now you can try executing the following simple script, line by line, in the shell:
 
-   ```
+   ```python
    import sys
    from pyspark.context import SparkContext
    from awsglue.context import GlueContext

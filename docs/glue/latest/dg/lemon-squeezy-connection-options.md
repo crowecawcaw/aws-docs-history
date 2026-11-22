@@ -1,7 +1,6 @@
 
 
 # Lemon Squeezy connection options
-<a name="lemon-squeezy-connection-options"></a>
 
 The following are connection options for Lemon Squeezy:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Lemon Squeezy object to read.

@@ -1,7 +1,6 @@
 
 
 # Storing connection credentials in AWS Secrets Manager
-<a name="connection-properties-secrets-manager"></a>
 
 We recommend that you use AWS Secrets Manager to supply connection credentials for your data store. Using Secrets Manager this way lets AWS Glue access your secret at runtime for ETL jobs and crawler runs, and helps keep your credentials secure.
 

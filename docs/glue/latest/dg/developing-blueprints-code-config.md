@@ -1,7 +1,6 @@
 
 
 # Creating the configuration file
-<a name="developing-blueprints-code-config"></a>
 
 The blueprint configuration file is a required file that defines the script entry point for generating the workflow, and the parameters that the blueprint accepts. The file must be named `blueprint.cfg`.
 

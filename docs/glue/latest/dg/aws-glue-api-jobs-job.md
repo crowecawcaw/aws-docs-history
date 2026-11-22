@@ -1,7 +1,6 @@
 
 
 # Jobs
-<a name="aws-glue-api-jobs-job"></a>
 
 The Jobs API describes the data types and API related to creating, updating, deleting, or viewing jobs in AWS Glue.
 

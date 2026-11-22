@@ -1,7 +1,6 @@
 
 
 # Using Git version control systems in AWS Glue
-<a name="edit-job-add-source-control-integration"></a>
 
 **Note**  
  Notebooks are not currently supported for version control in AWS Glue Studio. However, version control for AWS Glue job scripts and visual ETL jobs are supported. 

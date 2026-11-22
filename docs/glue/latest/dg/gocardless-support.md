@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for GoCardless
-<a name="gocardless-support"></a>
 
 AWS Glue supports GoCardless as follows:
 

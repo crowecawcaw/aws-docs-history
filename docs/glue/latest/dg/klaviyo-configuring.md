@@ -1,7 +1,6 @@
 
 
 # Configuring Klaviyo
-<a name="klaviyo-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Klaviyo, you must meet the following requirements:
 

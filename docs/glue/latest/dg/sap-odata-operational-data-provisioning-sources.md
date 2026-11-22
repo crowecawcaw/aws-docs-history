@@ -1,7 +1,6 @@
 
 
 # Operational Data Provisioning (ODP) Sources
-<a name="sap-odata-operational-data-provisioning-sources"></a>
 
 Operational Data Provisioning (ODP) provides a technical infrastructure that you can use to support data extraction and replication for various target applications and supports delta mechanisms in these scenarios. In case of a delta procedure, the data from a source (ODP Provider) is automatically written to a delta queue (Operational Delta Queue – ODQ) using an update process or passed to the delta queue using an extractor interface. An ODP Provider can be a DataSource (extractors), ABAP Core Data Services Views (ABAP CDS Views), SAP BW or SAP BW/4HANA, SAP Landscape Transformation Replication Server (SLT), and SAP HANA Information Views (calculation views). The target applications (referred to as ODQ 'subscribers' or more generally “ODP Consumers”) retrieve the data from the delta queue and continue processing the data.
 

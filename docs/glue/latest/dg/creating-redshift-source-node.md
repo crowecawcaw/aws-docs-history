@@ -1,7 +1,6 @@
 
 
 # Creating a Amazon Redshift source node
-<a name="creating-redshift-source-node"></a>
 
 ## Permissions needed
 <a name="creating-redshift-source-node-permissions"></a>

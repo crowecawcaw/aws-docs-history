@@ -1,7 +1,6 @@
 
 
 # Reading from Lemon Squeezy entities
-<a name="lemon-squeezy-reading-from-entities"></a>
 
 **Prerequisites**
 

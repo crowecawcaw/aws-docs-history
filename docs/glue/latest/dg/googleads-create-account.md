@@ -1,7 +1,6 @@
 
 
 # Creating a Google Ads account
-<a name="googleads-create-account"></a>
 
 1.  Log in to [Google Ads Developer Account](https://console.cloud.google.com) with your credentials, and go to \*MyProject.   
 ![The screenshot shows the welcome screen to log in to the Google Ads Developer Account.](https://docs.aws.amazon.com/glue/latest/dg/images/google-ads-log-in-developer-account.png)

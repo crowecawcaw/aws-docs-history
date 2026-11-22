@@ -1,7 +1,6 @@
 
 
 # Reading from Mixpanel entities
-<a name="mixpanel-reading-from-entities"></a>
 
  **Prerequisites** 
 

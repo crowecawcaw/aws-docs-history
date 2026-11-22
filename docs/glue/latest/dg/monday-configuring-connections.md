@@ -1,7 +1,6 @@
 
 
 # Configuring Monday connections
-<a name="monday-configuring-connections"></a>
 
 Monday supports following two types for authentication mechanism:
 
@@ -39,7 +38,7 @@ To configure a Monday connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

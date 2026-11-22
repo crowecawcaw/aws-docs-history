@@ -1,7 +1,6 @@
 
 
 # Step 2: Create an IAM role for AWS Glue
-<a name="create-an-iam-role"></a>
 
 You need to grant your IAM role permissions that AWS Glue can assume when calling other services on your behalf. This includes access to Amazon S3 for any sources, targets, scripts, and temporary directories that you use with AWS Glue. Permission is needed by crawlers, jobs, and development endpoints.
 
@@ -43,7 +42,7 @@ The following is an example.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -67,7 +66,7 @@ Create a new policy for your role using the following example. Replace the accou
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

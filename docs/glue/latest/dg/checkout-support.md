@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Checkout.com
-<a name="checkout-support"></a>
 
 AWS Glue supports Checkout.com as follows:
 

@@ -1,7 +1,6 @@
 
 
 # Configuring GoCardless
-<a name="gocardless-configuring"></a>
 
 Before you can use AWS Glue to transfer data from GoCardless, you must meet the following requirements:
 

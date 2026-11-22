@@ -1,7 +1,6 @@
 
 
 # Configuring ClickUp connections
-<a name="clickup-configuring-connections"></a>
 
 ClickUp connections authenticate with an API key (or token). You store the key in Secrets Manager and reference that secret when you create the connection in AWS Glue Studio.
 

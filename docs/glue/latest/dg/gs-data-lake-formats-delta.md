@@ -1,7 +1,6 @@
 
 
 # Using Delta Lake framework in AWS Glue Studio
-<a name="gs-data-lake-formats-delta"></a>
 
 ## Using Delta Lake framework in data sources
 <a name="gs-data-lake-formats-delta-source"></a>

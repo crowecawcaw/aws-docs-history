@@ -1,7 +1,6 @@
 
 
 # Developing custom connectors
-<a name="developing-custom-connectors"></a>
 
 You can write the code that reads data from or writes data to your data store and formats the data for use with AWS Glue Studio jobs. You can create connectors for Spark, Athena, and JDBC data stores. Sample code posted on GitHub provides an overview of the basic interfaces you need to implement.
 

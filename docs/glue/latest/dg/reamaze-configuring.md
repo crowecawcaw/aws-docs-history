@@ -1,7 +1,6 @@
 
 
 # Configuring Re:amaze
-<a name="reamaze-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Re:amaze, you must meet the following requirements:
 

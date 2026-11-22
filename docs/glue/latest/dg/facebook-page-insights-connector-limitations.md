@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for Facebook Page Insights connector
-<a name="facebook-page-insights-connector-limitations"></a>
 
 The following are limitations or notes for the Facebook Page Insights connector:
 + Most metrics will update once every 24 hours.

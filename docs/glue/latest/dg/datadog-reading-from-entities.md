@@ -1,7 +1,6 @@
 
 
 # Reading from Datadog entities
-<a name="datadog-reading-from-entities"></a>
 
  **Prerequisites** 
 

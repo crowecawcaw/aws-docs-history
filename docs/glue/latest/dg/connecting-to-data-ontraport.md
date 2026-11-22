@@ -1,7 +1,6 @@
 
 
 # Connecting to Ontraport in AWS Glue Studio
-<a name="connecting-to-data-ontraport"></a>
 
 Ontraport is a CRM, marketing-automation, and e-commerce platform. Because you are an Ontraport user, you can connect AWS Glue to your Ontraport account. You can then use Ontraport as a data source in your AWS Glue ETL jobs to transfer data between Ontraport and AWS services or other supported applications.
 

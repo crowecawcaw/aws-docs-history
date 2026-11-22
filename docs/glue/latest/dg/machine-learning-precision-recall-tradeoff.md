@@ -1,7 +1,6 @@
 
 
 # Deciding between precision and recall
-<a name="machine-learning-precision-recall-tradeoff"></a>
 
 Each `FindMatches` transform contains a `precision-recall` parameter. You use this parameter to specify one of the following:
 + If you are more concerned about the transform falsely reporting that two records match when they actually don't match, then you should emphasize *precision*. 

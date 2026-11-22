@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Google Ads
-<a name="googleads-support"></a>
 
 AWS Glue supports Google Ads as follows:
 
@@ -12,4 +11,4 @@ Yes. You can use AWS Glue ETL jobs to query data from Google Ads.
 No.
 
 **Supported Google Ads API versions**  
-v18
+v23, v24, v25, v26 (default: v26)

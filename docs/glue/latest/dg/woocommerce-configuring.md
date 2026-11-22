@@ -1,7 +1,6 @@
 
 
 # Configuring WooCommerce
-<a name="woocommerce-configuring"></a>
 
 Before you can use AWS Glue to transfer data from WooCommerce, you must meet these requirements:
 

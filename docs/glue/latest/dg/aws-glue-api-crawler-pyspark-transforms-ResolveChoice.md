@@ -1,7 +1,6 @@
 
 
 # ResolveChoice class
-<a name="aws-glue-api-crawler-pyspark-transforms-ResolveChoice"></a>
 
 Resolves a choice type within a `DynamicFrame`.
 

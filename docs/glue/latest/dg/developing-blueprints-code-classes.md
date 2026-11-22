@@ -1,7 +1,6 @@
 
 
 # AWS Glue blueprint classes reference
-<a name="developing-blueprints-code-classes"></a>
 
 The libraries for AWS Glue blueprints define three classes that you use in your workflow layout script: `Job`, `Crawler`, and `Workflow`.
 

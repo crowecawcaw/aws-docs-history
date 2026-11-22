@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Contentful
-<a name="contentful-support"></a>
 
 AWS Glue supports Contentful as follows:
 

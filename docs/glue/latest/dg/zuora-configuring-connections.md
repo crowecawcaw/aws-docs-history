@@ -1,7 +1,6 @@
 
 
 # Configuring Zuora connections
-<a name="zuora-configuring-connections"></a>
 
 Zuora connections use the OAuth 2.0 client credentials grant. This grant is two-legged: AWS Glue sends your Zuora OAuth client ID and client secret to the Zuora token endpoint and receives an access token. There is no consent screen or redirect URL. AWS Glue requests a new token when the current token expires.
 

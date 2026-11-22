@@ -1,7 +1,6 @@
 
 
 # Configuring Finch
-<a name="finch-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Finch, you must meet the following requirements:
 

@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Smartlook connector
-<a name="smartlook-connector-limitations"></a>
 
 The following are limitations and notes for the Smartlook connector:
 + Smartlook is supported as a source only. Writing to Smartlook is not supported.

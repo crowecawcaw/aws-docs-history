@@ -1,7 +1,6 @@
 
 
 # Using a streaming data source
-<a name="edit-jobs-source-streaming"></a>
 
 You can create streaming extract, transform, and load (ETL) jobs that run continuously and consume data from streaming sources in Amazon Kinesis Data Streams, Apache Kafka, and Amazon Managed Streaming for Apache Kafka (Amazon MSK).
 

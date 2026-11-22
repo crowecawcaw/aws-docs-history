@@ -1,7 +1,6 @@
 
 
 # Configuring Workday Live Data Query
-<a name="workday-ldq-configuring"></a>
 
 Before you can use AWS Glue to query data from Workday Live Data Query, you must meet these requirements.
 

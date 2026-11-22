@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Oracle NetSuite
-<a name="oracle-netsuite-support"></a>
 
 AWS Glue supports Oracle NetSuite as follows:
 

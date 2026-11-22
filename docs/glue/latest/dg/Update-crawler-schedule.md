@@ -1,7 +1,6 @@
 
 
 # Create a schedule for an existing crawler
-<a name="Update-crawler-schedule"></a>
 
 Follow these steps to set up a recurring schedule for an existing crawler.
 

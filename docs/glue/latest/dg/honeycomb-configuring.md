@@ -1,7 +1,6 @@
 
 
 # Configuring Honeycomb
-<a name="honeycomb-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Honeycomb, you must meet the following requirements:
 

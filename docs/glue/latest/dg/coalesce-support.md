@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Coalesce
-<a name="coalesce-support"></a>
 
 AWS Glue supports Coalesce as follows:
 

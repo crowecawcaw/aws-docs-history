@@ -1,7 +1,6 @@
 
 
 # DynamicFrameCollection class
-<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-collection"></a>
 
 A `DynamicFrameCollection` is a dictionary of [DynamicFrame class](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md) objects, in which the keys are the names of the `DynamicFrames` and the values are the `DynamicFrame` objects.
 

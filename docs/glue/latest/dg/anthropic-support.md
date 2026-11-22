@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Anthropic
-<a name="anthropic-support"></a>
 
 AWS Glue supports Anthropic as follows:
 

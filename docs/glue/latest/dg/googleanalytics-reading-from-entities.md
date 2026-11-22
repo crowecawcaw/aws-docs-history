@@ -1,7 +1,6 @@
 
 
 # Reading from Google Analytics 4 entities
-<a name="googleanalytics-reading-from-entities"></a>
 
  **Prerequisites** 
 +  A Google Analytics 4 object you would like to read from. Refer the supported entities table below to check the available entities. 

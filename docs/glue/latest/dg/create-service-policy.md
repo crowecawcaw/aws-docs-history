@@ -1,7 +1,6 @@
 
 
 # Step 1: Create an IAM policy for the AWS Glue service
-<a name="create-service-policy"></a>
 
 For any operation that accesses data on another AWS resource, such as accessing your objects in Amazon S3, AWS Glue needs permission to access the resource on your behalf. You provide those permissions by using AWS Identity and Access Management (IAM). 
 
@@ -29,7 +28,7 @@ Add any permissions needed for Amazon S3 resources. You might want to scope the 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

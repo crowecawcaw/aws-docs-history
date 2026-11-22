@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon Redshift target node
-<a name="creating-redshift-target-node"></a>
 
 ## Permissions needed
 <a name="creating-redshift-target-node-permissions"></a>

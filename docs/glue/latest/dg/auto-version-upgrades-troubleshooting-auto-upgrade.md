@@ -1,7 +1,6 @@
 
 
 # Troubleshooting auto upgrade
-<a name="auto-version-upgrades-troubleshooting-auto-upgrade"></a>
 
 To find why an evaluation failed, read the auto upgrade evaluation summary. You can also read `ErrorMessage` in the `GetJobUpgradeAnalysis` response. Or read `failureReason` in the event. To fix a job and upgrade it, see [Upgrading a job after a failed evaluation](auto-version-upgrades-managing-auto-upgrade.md#auto-version-upgrades-upgrading-a-job-after-a-failed-evaluation).
 

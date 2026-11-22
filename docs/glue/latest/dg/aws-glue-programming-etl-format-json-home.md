@@ -1,7 +1,6 @@
 
 
 # Using the JSON format in AWS Glue
-<a name="aws-glue-programming-etl-format-json-home"></a>
 
 AWS Glue retrieves data from sources and writes data to targets stored and transported in various data formats. If your data is stored or transported in the JSON data format, this document introduces you to available features for using your data in AWS Glue.
 
@@ -28,7 +27,7 @@ You can use AWS Glue to read JSON files from Amazon S3, as well as `bzip` and `g
 
 For this example, use the [create\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options) method.
 
-```
+```python
 # Example: Read JSON from S3
 # For show, we handle a nested JSON file that we can limit with the JsonPath parameter
 # For show, we also handle a JSON where a single entry spans multiple lines
@@ -55,7 +54,7 @@ dynamicFrame = glueContext.create_dynamic_frame.from_options(
 
 You can also use DataFrames in a script (`pyspark.sql.DataFrame`).
 
-```
+```python
 dataFrame = spark.read\
     .option("multiline", "true")\
     .json("s3://{{s3path}}")
@@ -66,7 +65,7 @@ dataFrame = spark.read\
 
 For this example, use the [getSourceWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSourceWithFormat) operation.
 
-```
+```scala
 // Example: Read JSON from S3
 // For show, we handle a nested JSON file that we can limit with the JsonPath parameter
 // For show, we also handle a JSON where a single entry spans multiple lines
@@ -93,7 +92,7 @@ object GlueApp {
 
 You can also use DataFrames in a script (`pyspark.sql.DataFrame`).
 
-```
+```scala
 val dataFrame = spark.read
     .option("multiline", "true")
     .json("s3://{{s3path}}")
@@ -115,7 +114,7 @@ The following AWS Glue ETL script shows the process of writing JSON files or fol
 
 For this example, use the [write\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options) method.
 
-```
+```python
 # Example: Write JSON to S3
 
 from pyspark.context import SparkContext
@@ -134,7 +133,7 @@ glueContext.write_dynamic_frame.from_options(
 
 You can also use DataFrames in a script (`pyspark.sql.DataFrame`).
 
-```
+```python
 df.write.json("s3://{{s3path}}/")
 ```
 
@@ -143,7 +142,7 @@ df.write.json("s3://{{s3path}}/")
 
 For this example, use the [getSinkWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSinkWithFormat) method.
 
-```
+```scala
 // Example: Write JSON to S3
 
 import com.amazonaws.services.glue.util.JsonOptions
@@ -166,7 +165,7 @@ object GlueApp {
 
 You can also use DataFrames in a script (`pyspark.sql.DataFrame`).
 
-```
+```scala
 df.write.json("s3://{{s3path}}")
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Creating an ETL job using notebooks in AWS Glue Studio
-<a name="create-notebook-job"></a>
 
 **To start using notebooks in the AWS Glue Studio console**
 

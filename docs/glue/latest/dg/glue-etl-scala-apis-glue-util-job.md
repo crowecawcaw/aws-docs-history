@@ -1,7 +1,6 @@
 
 
 # AWS Glue Scala job APIs
-<a name="glue-etl-scala-apis-glue-util-job"></a>
 
 **Package: com.amazonaws.services.glue.util**
 

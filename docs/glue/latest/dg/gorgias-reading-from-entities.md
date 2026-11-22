@@ -1,7 +1,6 @@
 
 
 # Reading from Gorgias entities
-<a name="gorgias-reading-from-entities"></a>
 
 **Prerequisites**
 

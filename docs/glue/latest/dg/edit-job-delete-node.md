@@ -1,7 +1,6 @@
 
 
 # Deleting nodes from the job diagram
-<a name="edit-job-delete-node"></a>
 
  When working with Visual ETL jobs, you can remove nodes from the canvas without having to re-add or restructure any nodes that are connected to the removed node. 
 

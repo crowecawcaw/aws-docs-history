@@ -1,7 +1,6 @@
 
 
 # Setting up a crawler for Amazon S3 event notifications for a Data Catalog table
-<a name="crawler-s3-event-notifications-setup-console-catalog-target"></a>
 
 When you have a Data Catalog table, set up a crawler for Amazon S3 event notifications using the AWS Glue console:
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Domo entities
-<a name="domo-reading-from-entities"></a>
 
 **Prerequisite**
 

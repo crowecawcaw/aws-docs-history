@@ -1,7 +1,6 @@
 
 
 # Configuring Rho
-<a name="rho-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Rho, you must meet the following requirements:
 

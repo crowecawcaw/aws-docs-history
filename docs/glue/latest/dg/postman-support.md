@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Postman
-<a name="postman-support"></a>
 
 AWS Glue supports Postman as follows:
 

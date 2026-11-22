@@ -1,7 +1,6 @@
 
 
 # Debugging demanding stages and straggler tasks
-<a name="monitor-profile-debug-straggler"></a>
 
 You can use AWS Glue job profiling to identify demanding stages and straggler tasks in your extract, transform, and load (ETL) jobs. A straggler task takes much longer than the rest of the tasks in a stage of an AWS Glue job. As a result, the stage takes longer to complete, which also delays the total execution time of the job.
 

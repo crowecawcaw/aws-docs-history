@@ -1,7 +1,6 @@
 
 
 # AWS Glue Scala ByteNode APIs
-<a name="glue-etl-scala-apis-glue-types-bytenode"></a>
 
 **Package: com.amazonaws.services.glue.types**
 

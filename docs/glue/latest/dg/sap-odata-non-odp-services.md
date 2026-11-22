@@ -1,7 +1,6 @@
 
 
 # OData Services (Non-ODP Sources)
-<a name="sap-odata-non-odp-services"></a>
 
 ## Full Load
 <a name="sap-odata-non-odp-full-load"></a>

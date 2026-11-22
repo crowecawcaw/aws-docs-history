@@ -1,7 +1,6 @@
 
 
 # Step 2. Implement the transform logic
-<a name="custom-visual-transform-implementation"></a>
 
 **Note**  
  Custom visual transforms only support Python scripts. Scala is not supported. 

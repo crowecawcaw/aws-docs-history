@@ -1,7 +1,6 @@
 
 
 # Connecting to Okta
-<a name="connecting-to-okta"></a>
 
  The Okta API is the programmatic interface to Okta, used for managing large or complex Okta accounts and campaigns. If you're a Okta user, you can connect AWS Glue to your Okta account. Then, you can use Okta as a data source in your ETL jobs. Run these jobs to transfer data between Okta and AWS services or other supported applications. 
 

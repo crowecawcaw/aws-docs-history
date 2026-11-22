@@ -1,7 +1,6 @@
 
 
 # Parsing a string column containing JSON data
-<a name="transforms-parse-json-column"></a>
 
 This transform parses a string column containing JSON data and convert it to a struct or an array column, depending if the JSON is an object or an array, respectively. Optionally you can keep both the parsed and original column.
 

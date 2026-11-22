@@ -1,7 +1,6 @@
 
 
 # Pendo connection options
-<a name="pendo-connection-options"></a>
 
 The following are connection options for Pendo:
 +  `ENTITY_NAME`(String) – (Required) Used for Read/Write. The name of your Object in Pendo. 

@@ -1,7 +1,6 @@
 
 
 # Limitations
-<a name="limitations"></a>
 
 ## Partitioning limitations
 <a name="partitioning-limitations"></a>

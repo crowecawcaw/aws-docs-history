@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Jira Cloud
-<a name="jira-cloud-support"></a>
 
 AWS Glue supports Jira Cloud as follows:
 

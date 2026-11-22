@@ -1,7 +1,6 @@
 
 
 # Table optimizer API
-<a name="aws-glue-api-table-optimizers"></a>
 
 The table optimizer API describes the AWS Glue API for enabling compaction to improve read performance.
 

@@ -1,13 +1,12 @@
 
 
 # IsComplete
-<a name="dqdl-rule-types-IsComplete"></a>
 
 Checks whether all of the values in a column are complete (non-null). 
 
 **Syntax**
 
-```
+```json
 IsComplete {{<COL_NAME>}}
 ```
 + **COL\_NAME** – The name of the column that you want to evaluate the data quality rule against.
@@ -18,7 +17,7 @@ IsComplete {{<COL_NAME>}}
 
 The following example checks whether all of the values in a column named `email` are non-null.
 
-```
+```json
 IsComplete "email"
 IsComplete "Email" where "Customer_ID between 1 and 50"
 IsComplete "Customer_ID"  where "Customer_ID < 16 and Customer_ID != 12"

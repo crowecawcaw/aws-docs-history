@@ -1,7 +1,6 @@
 
 
 # Creating an Mailchimp account
-<a name="mailchimp-create-account"></a>
 
 1. Navigate to the [Mailchimp login page](https://login.mailchimp.com/?locale=en), enter your email ID and password, and then choose **Sign up**.
 

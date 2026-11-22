@@ -1,7 +1,6 @@
 
 
 # AWS Glue Scala TimestampNode APIs
-<a name="glue-etl-scala-apis-glue-types-timestampnode"></a>
 
 **Package: com.amazonaws.services.glue.types**
 

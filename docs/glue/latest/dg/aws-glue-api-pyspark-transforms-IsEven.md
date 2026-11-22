@@ -1,7 +1,6 @@
 
 
 # IsEven class
-<a name="aws-glue-api-pyspark-transforms-IsEven"></a>
 
  The `IsEven` transform returns a Boolean value in a new column that indicates whether the source column or value is even. If the source column or value is a decimal, the result is false. 
 

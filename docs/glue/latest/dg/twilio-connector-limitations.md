@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for Twilio connector
-<a name="twilio-connector-limitations"></a>
 
 The following are limitations or notes for the Twilio connector:
 + Record-based partitioning is not supported, as there is no provision to retrieve the total count of records from Twilio.

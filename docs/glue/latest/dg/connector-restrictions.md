@@ -1,7 +1,6 @@
 
 
 # Restrictions for using connectors and connections in AWS Glue Studio
-<a name="connector-restrictions"></a>
 
 When you're using custom connectors or connectors from AWS Marketplace, take note of the following restrictions:
 + The testConnection API isn't supported with connections created for custom connectors.

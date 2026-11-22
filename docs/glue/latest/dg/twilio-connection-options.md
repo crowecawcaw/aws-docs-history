@@ -1,7 +1,6 @@
 
 
 # Twilio connection options
-<a name="twilio-connection-options"></a>
 
 The following are connection options for Twilio:
 + `ENTITY_NAME`(String) - (Required) Used for Read. The name of your object in Twilio.

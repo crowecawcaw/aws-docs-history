@@ -1,7 +1,6 @@
 
 
 # Providing your own custom scripts
-<a name="console-custom-created"></a>
 
 Scripts perform the extract, transform, and load (ETL) work in AWS Glue. A script is created when you automatically generate the source code logic for a job. You can either edit this generated script, or you can provide your own custom script.
 

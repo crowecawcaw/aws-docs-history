@@ -1,7 +1,6 @@
 
 
 # Join class
-<a name="aws-glue-api-crawler-pyspark-transforms-join"></a>
 
 Performs an equality join on two `DynamicFrames`.
 

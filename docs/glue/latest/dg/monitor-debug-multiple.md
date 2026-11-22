@@ -1,7 +1,6 @@
 
 
 # Monitoring the progress of multiple jobs
-<a name="monitor-debug-multiple"></a>
 
 You can profile multiple AWS Glue jobs together and monitor the flow of data between them. This is a common workflow pattern, and requires monitoring for individual job progress, data processing backlog, data reprocessing, and job bookmarks.
 

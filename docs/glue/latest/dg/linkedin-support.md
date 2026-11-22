@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for LinkedIn
-<a name="linkedin-support"></a>
 
 AWS Glue supports LinkedIn as follows:
 

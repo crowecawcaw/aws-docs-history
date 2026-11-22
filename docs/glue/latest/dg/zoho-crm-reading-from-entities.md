@@ -1,7 +1,6 @@
 
 
 # Reading from Zoho CRM entities
-<a name="zoho-crm-reading-from-entities"></a>
 
 **Prerequisite**
 

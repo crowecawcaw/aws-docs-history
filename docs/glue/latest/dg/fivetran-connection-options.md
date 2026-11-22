@@ -1,7 +1,6 @@
 
 
 # Fivetran connection options
-<a name="fivetran-connection-options"></a>
 
 The following are connection options for Fivetran:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Fivetran object to read.

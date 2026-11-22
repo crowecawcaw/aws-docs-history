@@ -1,7 +1,6 @@
 
 
 # Reading from Square entities
-<a name="square-reading-from-entities"></a>
 
 **Prerequisites**
 

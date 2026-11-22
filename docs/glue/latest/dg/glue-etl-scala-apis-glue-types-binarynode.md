@@ -1,7 +1,6 @@
 
 
 # AWS Glue Scala BinaryNode APIs
-<a name="glue-etl-scala-apis-glue-types-binarynode"></a>
 
 **Package: com.amazonaws.services.glue.types**
 

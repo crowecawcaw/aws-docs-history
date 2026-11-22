@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Slack
-<a name="slack-support"></a>
 
 AWS Glue supports Slack as follows:
 

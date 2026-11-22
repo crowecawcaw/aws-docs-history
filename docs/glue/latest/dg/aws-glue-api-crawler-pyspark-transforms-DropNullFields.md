@@ -1,7 +1,6 @@
 
 
 # DropNullFields class
-<a name="aws-glue-api-crawler-pyspark-transforms-DropNullFields"></a>
 
 Drops all null fields in a `DynamicFrame` whose type is `NullType`. These are fields with missing or null values in every record in the `DynamicFrame` dataset.
 
@@ -13,7 +12,7 @@ This example uses `DropNullFields` to create a new `DynamicFrame` where fields o
 **Note**  
 To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling).
 
-```
+```python
 # Example: Use DropNullFields to create a new DynamicFrame without NullType fields
 
 from pyspark.context import SparkContext
@@ -49,7 +48,7 @@ persons_no_nulls.printSchema()
 ### Output
 <a name="drop_null_fields-example-output"></a>
 
-```
+```python
 Schema for the persons DynamicFrame:
 root
 |-- family_name: string

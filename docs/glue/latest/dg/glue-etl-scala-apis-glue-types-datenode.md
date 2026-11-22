@@ -1,7 +1,6 @@
 
 
 # AWS Glue Scala DateNode APIs
-<a name="glue-etl-scala-apis-glue-types-datenode"></a>
 
 **Package: com.amazonaws.services.glue.types**
 

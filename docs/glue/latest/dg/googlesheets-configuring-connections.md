@@ -1,7 +1,6 @@
 
 
 # Configuring Google Sheets connections
-<a name="googlesheets-configuring-connections"></a>
 
 To configure a Google Sheet connection:
 
@@ -27,7 +26,7 @@ To configure a Google Sheet connection:
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Connecting to Weaviate in AWS Glue Studio
-<a name="connecting-to-data-weaviate"></a>
 
 Weaviate is an open-source vector database. Because you are a Weaviate user, you can connect AWS Glue to your Weaviate account. You can then use Weaviate as a data source in your AWS Glue ETL jobs to transfer data between Weaviate and AWS services or other supported applications.
 

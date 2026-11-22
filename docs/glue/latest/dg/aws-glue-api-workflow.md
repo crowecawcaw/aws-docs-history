@@ -1,7 +1,6 @@
 
 
 # Workflows
-<a name="aws-glue-api-workflow"></a>
 
  The Workflows API describes the data types and API related to creating, updating, or viewing workflows in AWS Glue. Job run history is accessible for 90 days for your workflow and job run. 
 

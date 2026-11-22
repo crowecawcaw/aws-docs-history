@@ -1,7 +1,6 @@
 
 
 # CustomSQL
-<a name="dqdl-rule-types-CustomSql"></a>
 
 This rule type has been extended to support two use cases:
 + Run a custom SQL statement against a dataset and checks the return value against a given expression.
@@ -9,7 +8,7 @@ This rule type has been extended to support two use cases:
 
 **Syntax**
 
-```
+```json
 CustomSql {{<SQL_STATEMENT>}} {{<EXPRESSION>}}
 ```
 + **SQL\_STATEMENT** – A SQL statement that returns a single numeric value, surrounded by double quotes.
@@ -19,7 +18,7 @@ CustomSql {{<SQL_STATEMENT>}} {{<EXPRESSION>}}
 
 This example rule uses a SQL statement to retrieve the record count for a data set. The rule then checks that the record count is between 10 and 20.
 
-```
+```json
 CustomSql "select count(*) from primary" between 10 and 20
 ```
 
@@ -27,13 +26,13 @@ CustomSql "select count(*) from primary" between 10 and 20
 
 This example rule uses a SQL statement wherein you specify a column name in your SELECT statement against which you compare with some condition to get row level results. A threshold condition expression defines a threshold of how many records should fail for the entire rule to fail. Note that a rule may not contain both a condition and keyword together.
 
-```
+```json
 CustomSql "select Name from primary where Age  > 18"
 ```
 
 or
 
-```
+```json
 CustomSql "select Name from primary where Age > 18" with threshold  > 3
 ```
 
@@ -42,13 +41,13 @@ The `primary` alias stands in for the name of the data set that you want to eval
 
 If you are in AWS Glue Data Catalog, you can also use the actual table names:
 
-```
+```json
 CustomSql "select count(*) from database.table" between 10 and 20
 ```
 
 You can also join multiple tables to compare different data elements:
 
-```
+```json
 CustomSql "select count(*) from database.table inner join database.table2 on id1 = id2" between 10 and 20
 ```
 
@@ -63,13 +62,13 @@ CustomSql "select count(*) from database.table inner join database.table2 on id1
 
 The following rule will ensure that records with age < 100 are identified as successful and records that are above are marked as failed.
 
-```
+```json
 CustomSql "select id from primary where age < 100" 
 ```
 
 This CustomSQL rule will pass when 50% of the records have age > 10 and will also identify records that failed. The records returned by this CustomSQL will be considered passed while the ones not returned will be considered failed.
 
-```
+```json
 CustomSQL "select ID, CustomerID from primary where age > 10" with threshold > 0.5
 ```
 

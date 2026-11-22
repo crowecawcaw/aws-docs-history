@@ -1,7 +1,6 @@
 
 
 # Stopping column statistics task run
-<a name="stop-stats-run"></a>
 
 You can stop a column statistics task run for a table using AWS Glue console, AWS CLI or using [StopColumnStatisticsTaskRun](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html#aws-glue-api-crawler-column-statistics-StopColumnStatisticsTaskRun) operation.
 

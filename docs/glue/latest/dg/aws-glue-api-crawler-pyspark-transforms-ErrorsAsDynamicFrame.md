@@ -1,7 +1,6 @@
 
 
 # ErrorsAsDynamicFrame class
-<a name="aws-glue-api-crawler-pyspark-transforms-ErrorsAsDynamicFrame"></a>
 
 Returns a `DynamicFrame` that contains nested records for errors that occurred while the source `DynamicFrame` was created.
 

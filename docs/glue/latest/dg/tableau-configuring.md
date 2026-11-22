@@ -1,7 +1,6 @@
 
 
 # Configuring Tableau
-<a name="tableau-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Tableau, you must meet the following requirements:
 

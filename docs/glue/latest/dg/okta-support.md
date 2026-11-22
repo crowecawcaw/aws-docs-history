@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Okta
-<a name="okta-support"></a>
 
 AWS Glue supports Okta as follows:
 

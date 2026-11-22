@@ -1,14 +1,13 @@
 
 
 # Troubleshooting AWS Glue
-<a name="troubleshooting-glue"></a>
 
  If you encounter issues when working with AWS Glue, consult the topics in this section. 
 
 
 |  | 
 | --- |
-| For Apache Spark troubleshooting in AWS Glue, see [Generative AI troubleshooting for Apache Spark in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/troubleshoot-spark.html) which provides AI-powered assistance for diagnosing and resolving Spark job issues.<br />Transform your Apache Spark troubleshooting with our AI-powered Troubleshooting Agent, now supporting all major deployment modes including AWS Glue, Amazon EMR-EC2, Amazon EMR-Serverless and Amazon SageMaker AI Notebooks. This powerful agent eliminates complex debugging processes by combining natural language interactions, real-time workload analysis, and smart code recommendations into a seamless experience. For implementation details, refer to [What is Apache Spark Troubleshooting Agent for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/spark-troubleshoot.html). | 
+| For Apache Spark troubleshooting in AWS Glue, see [Generative AI troubleshooting for Apache Spark in AWS Glue](troubleshoot-spark.md), which provides AI-powered assistance for diagnosing and resolving Spark job issues.<br />The Apache Spark Troubleshooting Agent analyzes failed Apache Spark workloads on AWS Glue, Amazon EMR on EC2, Amazon EMR Serverless, Amazon EMR on EKS, and Amazon SageMaker AI notebooks. It combines natural language interaction, analysis of your workload, and code recommendations to help you find the root cause of a failure and fix it. For more information, see [Apache Spark Troubleshooting Agent for Amazon EMR and AWS Glue](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/spark-troubleshooting-agent.html). | 
 
 **Topics**
 + [Gathering AWS Glue troubleshooting information](troubleshooting-contact-support.md)

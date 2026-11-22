@@ -1,7 +1,6 @@
 
 
 # Configuring a crawler
-<a name="define-crawler"></a>
 
 A crawler accesses your data store, identifies metadata, and creates table definitions in the AWS Glue Data Catalog. The **Crawlers** pane in the AWS Glue console lists all the crawlers that you create. The list displays status and metrics from the last run of your crawler.
 

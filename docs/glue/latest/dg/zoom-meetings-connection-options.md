@@ -1,7 +1,6 @@
 
 
 # Zoom Meetings connection options
-<a name="zoom-meetings-connection-options"></a>
 
 The following are connection options for Zoom Meetings:
 + `ENTITY_NAME`(String) - (Required) Used for Read. The name of the Zoom Meetings entity. For example, `group`.

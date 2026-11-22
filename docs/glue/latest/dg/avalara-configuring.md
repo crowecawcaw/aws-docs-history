@@ -1,7 +1,6 @@
 
 
 # Configuring Avalara
-<a name="avalara-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Avalara, you must meet the following requirements:
 

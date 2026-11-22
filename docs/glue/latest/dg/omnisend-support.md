@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Omnisend
-<a name="omnisend-support"></a>
 
 AWS Glue supports Omnisend as follows:
 

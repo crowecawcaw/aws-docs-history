@@ -1,7 +1,6 @@
 
 
 # Reading from Amplitude entities
-<a name="amplitude-reading-from-entities"></a>
 
 **Prerequisites**
 

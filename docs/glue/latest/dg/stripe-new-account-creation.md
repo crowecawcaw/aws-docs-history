@@ -1,7 +1,6 @@
 
 
 # Creating a new Stripe account and configuring the client app
-<a name="stripe-new-account-creation"></a>
 
 **Creating a Stripe account**
 

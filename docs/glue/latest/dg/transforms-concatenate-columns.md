@@ -1,7 +1,6 @@
 
 
 # Using the Concatenate Columns transform to append columns
-<a name="transforms-concatenate-columns"></a>
 
  The Concatenate transform allows you to build a new string column using the values of other columns with an optional spacer. For example, if we define a concatenated column “date” as the concatenation of “year”, “month” and “day” (in that order) with “-” as the spacer, we would get: 
 

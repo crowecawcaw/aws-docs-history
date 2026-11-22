@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Fivetran
-<a name="fivetran-support"></a>
 
 AWS Glue supports Fivetran as follows:
 

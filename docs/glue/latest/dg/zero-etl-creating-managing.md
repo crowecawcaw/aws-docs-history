@@ -1,7 +1,6 @@
 
 
 # Creating and managing integrations
-<a name="zero-etl-creating-managing"></a>
 
 
 

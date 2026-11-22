@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for ServiceNow
-<a name="servicenow-support"></a>
 
 AWS Glue supports ServiceNow as follows:
 

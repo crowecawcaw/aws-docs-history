@@ -1,7 +1,6 @@
 
 
 # Programming AWS Glue ETL scripts in Scala
-<a name="aws-glue-programming-scala"></a>
 
 You can find Scala code examples and utilities for AWS Glue in the [AWS Glue samples repository](https://github.com/awslabs/aws-glue-samples) on the GitHub website.
 

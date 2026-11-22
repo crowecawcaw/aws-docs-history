@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for RudderStack
-<a name="rudderstack-support"></a>
 
 AWS Glue supports RudderStack as follows:
 

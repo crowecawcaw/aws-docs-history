@@ -1,7 +1,6 @@
 
 
 # Configuring Snapchat Ads connections
-<a name="snapchat-ads-configuring-connections"></a>
 
  Snapchat Ads supports only the `AUTHORIZATION_CODE` grant type. 
 
@@ -32,7 +31,7 @@ To configure a Snapchat Ads connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

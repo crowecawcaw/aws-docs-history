@@ -1,7 +1,6 @@
 
 
 # Configuring Trello connections
-<a name="trello-configuring-connections"></a>
 
 Trello connections authenticate with an API key and an API token. You store both values in one Secrets Manager secret and reference that secret when you create the connection in AWS Glue Studio.
 

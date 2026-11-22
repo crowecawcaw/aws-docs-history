@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Harness connector
-<a name="harness-connector-limitations"></a>
 
 The following are limitations and notes for the Harness connector:
 + Harness is supported as a source only. Writing to Harness is not supported.

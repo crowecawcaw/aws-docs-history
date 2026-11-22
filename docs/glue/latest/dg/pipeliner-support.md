@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Pipeliner
-<a name="pipeliner-support"></a>
 
 AWS Glue supports Pipeliner as follows:
 

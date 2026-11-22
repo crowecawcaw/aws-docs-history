@@ -1,7 +1,6 @@
 
 
 # Querying workflows using the AWS Glue API
-<a name="workflows_api_concepts"></a>
 
 AWS Glue provides a rich API for managing workflows. You can retrieve a static view of a workflow or a dynamic view of a running workflow using the AWS Glue API. For more information, see [Workflows](aws-glue-api-workflow.md).
 

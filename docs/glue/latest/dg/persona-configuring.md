@@ -1,7 +1,6 @@
 
 
 # Configuring Persona
-<a name="persona-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Persona, you must meet the following requirements:
 

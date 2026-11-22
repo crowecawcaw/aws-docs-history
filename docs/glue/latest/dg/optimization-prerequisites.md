@@ -1,7 +1,6 @@
 
 
 # Table optimization prerequisites
-<a name="optimization-prerequisites"></a>
 
 The table optimizer assumes the permissions of the AWS Identity and Access Management (IAM) role that you specify when you enable optimization options (compaction, snapshot retention, and orphan file deletion) for a table. You can either create a single role for all optimizers or create separate roles for each optimizer.
 
@@ -18,7 +17,7 @@ The IAM role must have the permissions to read data and update metadata in the D
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -83,7 +82,7 @@ The IAM role must have the permissions to read data and update metadata in the D
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -147,7 +146,7 @@ The IAM role must have the permissions to read data and update metadata in the D
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -173,7 +172,7 @@ The IAM role must have the permissions to read data and update metadata in the D
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -198,7 +197,7 @@ The IAM role must have the permissions to read data and update metadata in the D
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

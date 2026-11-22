@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Coda
-<a name="coda-support"></a>
 
 AWS Glue supports Coda as follows:
 

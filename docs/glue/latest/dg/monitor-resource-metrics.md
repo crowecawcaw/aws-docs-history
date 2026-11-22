@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Glue resources
-<a name="monitor-resource-metrics"></a>
 
 AWS Glue has service limits to protect customers from unexpected excessive provisioning and from malicious actions intended to increase your bill. The limits also protect the service. Logging into the AWS Service Quota console, customers can view their current resource limits and request an increase (where appropriate).
 
@@ -42,7 +41,7 @@ We emit metrics whenever your resource usage has a change (such as an increase o
 
 You can also configure alarms using AWS CloudFormation as in the following example. In this example, once the workflow resource usage reaches 80%, it triggers an alarm to send a message to the existing SNS topic, where you can subscribe to it to get notifications.
 
-```
+```JSON
 {
 	"Type": "AWS::CloudWatch::Alarm",
 	"Properties": {

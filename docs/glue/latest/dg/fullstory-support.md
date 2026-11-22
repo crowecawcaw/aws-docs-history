@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Fullstory
-<a name="fullstory-support"></a>
 
 AWS Glue supports Fullstory as follows:
 

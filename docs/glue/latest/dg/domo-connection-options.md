@@ -1,7 +1,6 @@
 
 
 # Domo connection options
-<a name="domo-connection-options"></a>
 
 The following are connection options for Domo:
 + `ENTITY_NAME`(String) - (Required) Used for Read. The name of your object in Domo.

@@ -1,7 +1,6 @@
 
 
 # Improving performance for AWS Glue for Apache Spark jobs
-<a name="tuning-aws-glue-for-apache-spark"></a>
 
 In order to improve AWS Glue for Spark performance, you may consider updating certain performance related AWS Glue and Spark parameters.
 

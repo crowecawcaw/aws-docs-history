@@ -1,7 +1,6 @@
 
 
 # Building visual ETL jobs
-<a name="author-job-glue"></a>
 
 ## Build visual ETL jobs with AWS Glue Studio
 <a name="build-etl-jobs-glue-studio"></a>

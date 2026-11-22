@@ -1,7 +1,6 @@
 
 
 # Configuring Amplitude Experiment
-<a name="amplitude-experiment-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Amplitude Experiment, you must meet the following requirements:
 

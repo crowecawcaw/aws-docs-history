@@ -1,7 +1,6 @@
 
 
 # UniqueValueRatio
-<a name="dqdl-rule-types-UniqueValueRatio"></a>
 
 Checks the *unique value ratio* of a column against a given expression. A unique value ratio is the fraction of unique values divided by the number of all distinct values in a column. Unique values occur exactly one time, while distinct values occur *at least* once. 
 
@@ -9,7 +8,7 @@ For example, the set `[a, a, b]` contains one unique value (`b`) and two distinc
 
 **Syntax**
 
-```
+```json
 UniqueValueRatio {{<COL_NAME>}} {{<EXPRESSION>}}
 ```
 + **COL\_NAME** – The name of the column that you want to evaluate the data quality rule against.
@@ -21,7 +20,7 @@ UniqueValueRatio {{<COL_NAME>}} {{<EXPRESSION>}}
 
 This example checks the unique value ratio of a column against a range of values.
 
-```
+```json
 UniqueValueRatio "test_score" between 0 and 0.5
 UniqueValueRatio "Customer_ID" between 0 and 0.9 where "Customer_ID < 10"
 ```

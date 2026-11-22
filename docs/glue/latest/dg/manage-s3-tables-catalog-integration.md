@@ -1,7 +1,6 @@
 
 
 # Managing S3 Tables integration
-<a name="manage-s3-tables-catalog-integration"></a>
 
 ## Enable AWS Lake Formation
 <a name="manage-s3-tables-enable-lf"></a>
@@ -35,7 +34,7 @@ Ensure that you have the necessary permissions to list, edit, and delete catalog
 ### Delete integration (AWS CLI)
 <a name="delete-s3-tables-cli"></a>
 
-```
+```bash
 aws glue delete-catalog \
   --region {{region}} \
   --catalog-id "s3tablescatalog"

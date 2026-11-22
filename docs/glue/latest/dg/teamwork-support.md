@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Teamwork
-<a name="teamwork-support"></a>
 
 AWS Glue supports Teamwork as follows:
 

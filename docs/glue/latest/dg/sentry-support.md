@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Sentry
-<a name="sentry-support"></a>
 
 AWS Glue supports Sentry as follows:
 

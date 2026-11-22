@@ -1,7 +1,6 @@
 
 
 # Reading from SonarCloud entities
-<a name="sonarcloud-reading-from-entities"></a>
 
 **Prerequisites**
 

@@ -1,7 +1,6 @@
 
 
 # Anomaly detection in AWS Glue Data Quality
-<a name="data-quality-anomaly-detection"></a>
 
 [![AWS Videos](https://img.youtube.com/vi/IWHzrupqlGM/0.jpg)](https://www.youtube.com/watch?v=IWHzrupqlGM)
 
@@ -144,7 +143,7 @@ aws glue start-data-quality-ruleset-evaluation-run \
 
 For AWS Glue ETL jobs, use the `observations.mode` option:
 
-```
+```python
 additional_options = {
     "observations.scope": "ALL",
     "observations.mode": "FIXED"

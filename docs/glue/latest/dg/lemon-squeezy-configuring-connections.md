@@ -1,7 +1,6 @@
 
 
 # Configuring Lemon Squeezy connections
-<a name="lemon-squeezy-configuring-connections"></a>
 
 Lemon Squeezy connections authenticate with an API key (or token). You store the key in Secrets Manager and reference that secret when you create the connection in AWS Glue Studio.
 

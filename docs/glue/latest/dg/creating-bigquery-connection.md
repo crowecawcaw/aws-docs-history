@@ -1,7 +1,6 @@
 
 
 # Creating a BigQuery connection
-<a name="creating-bigquery-connection"></a>
 
 To connect to Google BigQuery from AWS Glue, you will need to create and store your Google Cloud Platform credentials in a AWS Secrets Manager secret, then associate that secret with a Google BigQuery AWS Glue connection.
 

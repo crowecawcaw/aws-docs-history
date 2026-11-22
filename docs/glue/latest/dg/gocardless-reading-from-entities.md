@@ -1,7 +1,6 @@
 
 
 # Reading from GoCardless entities
-<a name="gocardless-reading-from-entities"></a>
 
 **Prerequisites**
 

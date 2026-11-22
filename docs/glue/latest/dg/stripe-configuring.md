@@ -1,7 +1,6 @@
 
 
 # Configuring Stripe
-<a name="stripe-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Stripe, you must meet these requirements:
 

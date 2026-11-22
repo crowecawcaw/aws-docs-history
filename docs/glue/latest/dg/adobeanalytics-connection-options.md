@@ -1,7 +1,6 @@
 
 
 # Adobe Analytics connection options
-<a name="adobeanalytics-connection-options"></a>
 
 The following are connection options for Adobe Analytics:
 +  `ENTITY_NAME`(String) – (Required) Used for Read/Write. The name of your Object in Adobe Analytics. 

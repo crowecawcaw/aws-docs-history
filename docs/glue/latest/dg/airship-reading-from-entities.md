@@ -1,7 +1,6 @@
 
 
 # Reading from Airship entities
-<a name="airship-reading-from-entities"></a>
 
 **Prerequisites**
 

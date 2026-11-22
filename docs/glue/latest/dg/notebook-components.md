@@ -1,7 +1,6 @@
 
 
 # Notebook editor components
-<a name="notebook-components"></a>
 
  The notebook editor interface has the following main sections. 
 +  Notebook interface (main panel) and toolbar 

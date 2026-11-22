@@ -1,7 +1,6 @@
 
 
 # Maintenance windows for AWS Glue Streaming
-<a name="glue-streaming-maintenance"></a>
 
 AWS Glue periodically performs maintenance activities. During these maintenance windows, AWS Glue will need to restart your streaming jobs. You can control when the jobs are restarted by specifying maintenance windows. In this section, we outline where you can setup the maintenance window and specific behaviors you should consider.
 

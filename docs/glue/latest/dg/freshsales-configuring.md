@@ -1,7 +1,6 @@
 
 
 # Configuring Freshsales
-<a name="freshsales-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Freshsales, you must meet these requirements:
 

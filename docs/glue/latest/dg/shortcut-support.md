@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Shortcut
-<a name="shortcut-support"></a>
 
 AWS Glue supports Shortcut as follows:
 

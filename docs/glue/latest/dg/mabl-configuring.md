@@ -1,7 +1,6 @@
 
 
 # Configuring mabl
-<a name="mabl-configuring"></a>
 
 Before you can use AWS Glue to transfer data from mabl, you must meet the following requirements:
 

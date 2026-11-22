@@ -1,7 +1,6 @@
 
 
 # Configuring Chargebee connections
-<a name="chargebee-configuring-connections"></a>
 
 Chargebee connections use basic authentication. You store the credential in Secrets Manager and reference that secret when you create the connection in AWS Glue Studio.
 

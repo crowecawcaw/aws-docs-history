@@ -1,7 +1,6 @@
 
 
 # Configuring Stripe connections
-<a name="stripe-configuring-connections"></a>
 
  Stripe supports custom authentication. For more information on generating the required API keys for custom authorization, see [STRIPE REST API Documentation](https://docs.stripe.com/api/authentication). 
 
@@ -22,7 +21,7 @@ To configure a Stripe connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

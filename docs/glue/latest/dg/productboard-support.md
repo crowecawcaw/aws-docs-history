@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Productboard
-<a name="productboard-support"></a>
 
 AWS Glue supports Productboard as follows:
 

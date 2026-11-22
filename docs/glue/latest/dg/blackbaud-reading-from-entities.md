@@ -1,7 +1,6 @@
 
 
 # Reading from Blackbaud Raiser's Edge NXT entities
-<a name="blackbaud-reading-from-entities"></a>
 
 **Prerequisite**
 

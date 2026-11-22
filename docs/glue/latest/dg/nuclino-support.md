@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Nuclino
-<a name="nuclino-support"></a>
 
 AWS Glue supports Nuclino as follows:
 

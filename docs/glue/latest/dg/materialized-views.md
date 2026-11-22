@@ -1,7 +1,6 @@
 
 
 # Using materialized views with AWS Glue
-<a name="materialized-views"></a>
 
 AWS Glue version 5.1 and later supports creating and managing Apache Iceberg materialized views in the AWS Glue Data Catalog. A materialized view is a managed table that stores the precomputed result of a SQL query in Apache Iceberg format and incrementally updates as the underlying source tables change. You can use materialized views to simplify data transformation pipelines and accelerate query performance for complex analytical workloads.
 

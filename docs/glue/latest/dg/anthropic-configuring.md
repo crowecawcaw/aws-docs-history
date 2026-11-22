@@ -1,7 +1,6 @@
 
 
 # Configuring Anthropic
-<a name="anthropic-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Anthropic, you must meet the following requirements:
 

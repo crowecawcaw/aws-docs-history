@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for FireHydrant
-<a name="firehydrant-support"></a>
 
 AWS Glue supports FireHydrant as follows:
 

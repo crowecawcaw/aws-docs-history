@@ -1,7 +1,6 @@
 
 
 # Configuring Copper
-<a name="copper-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Copper, you must meet the following requirements:
 

@@ -1,7 +1,6 @@
 
 
 # Populating and managing transactional tables
-<a name="populate-otf"></a>
 
 [Apache Iceberg](https://iceberg.apache.org/), [Apache Hudi](https://hudi.incubator.apache.org/), and Linux Foundation [Delta Lake](https://delta.io/) are open-source table formats designed for handling large-scale data analytics and data lake workloads in Apache Spark. 
 

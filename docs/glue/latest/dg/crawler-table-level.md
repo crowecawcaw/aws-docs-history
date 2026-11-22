@@ -1,7 +1,6 @@
 
 
 # Specifying the table location and partitioning level
-<a name="crawler-table-level"></a>
 
 By default, when a crawler defines tables for data stored in Amazon S3 the crawler attempts to merge schemas together, and create top-level tables (`year=2019`). In some cases, you may expect the crawler to create a table for the folder `month=Jan` but instead the crawler creates a partition since a sibling folder (`month=Mar`) was merged into the same table.
 

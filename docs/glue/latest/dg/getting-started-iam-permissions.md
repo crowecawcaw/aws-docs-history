@@ -1,7 +1,6 @@
 
 
 # Set up IAM permissions for AWS Glue Studio
-<a name="getting-started-iam-permissions"></a>
 
 You can create the roles and assign policies to users and job roles by using the AWS administrator user. 
 
@@ -75,7 +74,7 @@ Any AWS user that signs in to the AWS Glue Studio console must have permissions 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

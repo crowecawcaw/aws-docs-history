@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Facebook Page Insights
-<a name="facebook-page-insights-support"></a>
 
 AWS Glue supports Facebook Page Insights as follows:
 

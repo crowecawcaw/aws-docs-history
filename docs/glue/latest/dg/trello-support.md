@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Trello
-<a name="trello-support"></a>
 
 AWS Glue supports Trello as follows:
 

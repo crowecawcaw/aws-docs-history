@@ -1,7 +1,6 @@
 
 
 # Troubleshooting zero-ETL integrations
-<a name="zero-etl-troubleshooting"></a>
 
 Use the following sections to help troubleshoot problems that you have with AWS Glue zero-ETL integrations.
 

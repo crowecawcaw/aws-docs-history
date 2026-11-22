@@ -1,7 +1,6 @@
 
 
 # Migrating AWS Glue for Spark jobs to AWS Glue version 5.1
-<a name="migrating-version-51"></a>
 
 This topic describes the changes between AWS Glue versions 0.9, 1.0, 2.0, 3.0, 4.0 and 5.0 to allow you to migrate your Spark applications and ETL jobs to AWS Glue 5.1. It also describes the features in AWS Glue 5.1 and the advantages of using it. 
 

@@ -1,7 +1,6 @@
 
 
 # Updating a schema or registry
-<a name="schema-registry-gs5"></a>
 
 Once created you can edit your schemas, schema versions, or registry.
 

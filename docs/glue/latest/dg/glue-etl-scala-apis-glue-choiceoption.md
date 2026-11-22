@@ -1,7 +1,6 @@
 
 
 # AWS Glue Scala ChoiceOption APIs
-<a name="glue-etl-scala-apis-glue-choiceoption"></a>
 
 **Topics**
 + [ChoiceOption trait](#glue-etl-scala-apis-glue-choiceoption-trait)

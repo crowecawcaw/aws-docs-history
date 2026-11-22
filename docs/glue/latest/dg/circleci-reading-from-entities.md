@@ -1,7 +1,6 @@
 
 
 # Reading from CircleCI entities
-<a name="circleci-reading-from-entities"></a>
 
 **Prerequisite**
 

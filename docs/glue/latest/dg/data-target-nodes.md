@@ -1,7 +1,6 @@
 
 
 # Configuring data target nodes
-<a name="data-target-nodes"></a>
 
 The data target is where the job writes the transformed data. 
 

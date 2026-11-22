@@ -1,7 +1,6 @@
 
 
 # Configuring a crawler to use Lake Formation credentials
-<a name="crawler-lf-integ"></a>
 
 You can configure a crawler to use AWS Lake Formation credentials to access an Amazon S3 data store or a Data Catalog table with an underlying Amazon S3 location within the same AWS account or another AWS account. You can configure an existing Data Catalog table as a crawler's target, if the crawler and the Data Catalog table reside in the same account. Currently, only a single catalog target with a single catalog table is allowed when using a Data Catalog table as a crawler’s target.
 

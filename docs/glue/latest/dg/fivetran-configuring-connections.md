@@ -1,7 +1,6 @@
 
 
 # Configuring Fivetran connections
-<a name="fivetran-configuring-connections"></a>
 
 Fivetran connections use basic authentication. You store the credential in Secrets Manager and reference that secret when you create the connection in AWS Glue Studio.
 

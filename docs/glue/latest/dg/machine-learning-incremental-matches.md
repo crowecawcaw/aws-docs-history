@@ -1,7 +1,6 @@
 
 
 # Finding incremental matches
-<a name="machine-learning-incremental-matches"></a>
 
 The Find matches feature allows you to identify duplicate or matching records in your dataset, even when the records don’t have a common unique identifier and no fields match exactly. The initial release of the Find matches transform identified matching records within a single dataset. When you add new data to the dataset, you had to merge it with the existing clean dataset and rerun matching against the complete merged dataset.
 

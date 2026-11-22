@@ -1,7 +1,6 @@
 
 
 # Database API
-<a name="aws-glue-api-catalog-databases"></a>
 
 The Database API describes database data types, and includes the API for creating, deleting, locating, updating, and listing databases.
 

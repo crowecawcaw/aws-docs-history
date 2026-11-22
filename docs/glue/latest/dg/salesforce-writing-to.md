@@ -1,7 +1,6 @@
 
 
 # Writing to Salesforce
-<a name="salesforce-writing-to"></a>
 
 **Prerequisites**
 

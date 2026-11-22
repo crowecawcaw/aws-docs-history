@@ -1,7 +1,6 @@
 
 
 # Partition API
-<a name="aws-glue-api-catalog-partitions"></a>
 
 The Partition API describes data types and operations used to work with partitions.
 

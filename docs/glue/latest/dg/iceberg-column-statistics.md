@@ -1,7 +1,6 @@
 
 
 # Optimizing query performance for Iceberg tables
-<a name="iceberg-column-statistics"></a>
 
 Apache Iceberg is a high-performance open table format for huge analytic datasets. AWS Glue supports calculating and updating number of distinct values (NDVs) for each column in Iceberg tables. These statistics can facilitate better query optimization, data management, and performance efficiency for data engineers and scientists working with large-scale datasets.
 

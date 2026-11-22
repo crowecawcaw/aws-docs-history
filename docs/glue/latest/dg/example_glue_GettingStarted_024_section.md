@@ -1,7 +1,6 @@
 
 
 # Getting started with the data catalog
-<a name="example_glue_GettingStarted_024_section"></a>
 
 The following code example shows how to:
 + Create a database
@@ -14,7 +13,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/024-glue-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # AWS Glue Data Catalog Tutorial Script

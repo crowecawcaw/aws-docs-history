@@ -1,7 +1,6 @@
 
 
 # Configuring BugSnag
-<a name="bugsnag-configuring"></a>
 
 Before you can use AWS Glue to transfer data from BugSnag, you must meet the following requirements:
 

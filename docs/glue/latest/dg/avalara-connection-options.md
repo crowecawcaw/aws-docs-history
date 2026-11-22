@@ -1,7 +1,6 @@
 
 
 # Avalara connection options
-<a name="avalara-connection-options"></a>
 
 The following are connection options for Avalara:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Avalara object to read. Four entities take a parent value that AWS Glue discovers for you. For these, use the entity path, for example `transactions/{{company-code}}`, `companies-nexus-bytaxtypegroup/{{company-id}}/{{tax-type-group}}`, `definitions-countries-ratetypes/{{country-code}}`, or `definitions-countries-regions/{{country-code}}`.

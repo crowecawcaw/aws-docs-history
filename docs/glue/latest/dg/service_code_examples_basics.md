@@ -1,7 +1,6 @@
 
 
 # Basic examples for AWS Glue using AWS SDKs
-<a name="service_code_examples_basics"></a>
 
 The following code examples show how to use the basics of AWS Glue with AWS SDKs. 
 

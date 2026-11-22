@@ -1,7 +1,6 @@
 
 
 # Updating a schema
-<a name="schema-registry-gs5b"></a>
 
 You can update the description or compatibility setting for a schema.
 

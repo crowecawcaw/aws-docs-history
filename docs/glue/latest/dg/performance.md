@@ -1,7 +1,11 @@
 
 
 # Improving AWS Glue performance
-<a name="performance"></a>
+
+
+|  | 
+| --- |
+| For Apache Spark optimization in AWS Glue, see [Apache Spark Optimization Agent for Amazon EMR and AWS Glue](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/spark-optimization-agent.html), which provides AI-powered recommendations for improving the performance and cost of your Spark jobs.<br />The Apache Spark Optimization Agent analyzes successful Apache Spark workloads on AWS Glue and Amazon EMR Serverless. It combines natural language interaction and analysis of your workload's run data to return prioritized configuration, infrastructure, and data recommendations that improve performance or reduce cost. | 
 
 **Baseline strategy for performance tuning**
 
@@ -24,7 +28,7 @@ Generally, performance tuning is performed in the following workflow:
 1. Repeat steps 2-4 until you achieve the intended target.
 
 ## Tuning strategies for your job type
-<a name="w2aac97c15"></a>
+<a name="w2aac97c17"></a>
 
 **Spark jobs**–follow the guidance in [Best practices for performance tuning AWS Glue for Apache Spark jobs](https://docs.aws.amazon.com/prescriptive-guidance/latest/tuning-aws-glue-for-apache-spark/introduction.html) on AWS Prescriptive Guidance.
 

@@ -1,7 +1,6 @@
 
 
 # Reading from dbt Cloud entities
-<a name="dbt-reading-from-entities"></a>
 
 **Prerequisites**
 

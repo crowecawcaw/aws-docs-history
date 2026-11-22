@@ -1,7 +1,6 @@
 
 
 # Connecting to Microsoft Teams
-<a name="connecting-to-microsoft-teams"></a>
 
  Microsoft Teams is a collaborative workspace within Microsoft 365 that acts as a central hub for workplace conversations, collaborative teamwork, video chats and document sharing, all designed to aid worker productivity in a unified suite of tools. 
 

@@ -1,7 +1,6 @@
 
 
 # Configuring Weaviate
-<a name="weaviate-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Weaviate, you must meet the following requirements:
 

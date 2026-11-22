@@ -1,7 +1,6 @@
 
 
 # Specifying blueprint parameters
-<a name="developing-blueprints-code-parameters"></a>
 
 The configuration file contains blueprint parameter specifications in a `parameterSpec` JSON object. `parameterSpec` contains one or more parameter objects.
 

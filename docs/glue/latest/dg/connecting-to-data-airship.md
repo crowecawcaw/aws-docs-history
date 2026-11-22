@@ -1,7 +1,6 @@
 
 
 # Connecting to Airship in AWS Glue Studio
-<a name="connecting-to-data-airship"></a>
 
 Airship is a customer-engagement / push-notification platform. Because you are an Airship user, you can connect AWS Glue to your Airship account. You can then use Airship as a data source in your AWS Glue ETL jobs to transfer data between Airship and AWS services or other supported applications.
 

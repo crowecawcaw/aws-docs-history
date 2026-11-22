@@ -1,7 +1,6 @@
 
 
 # Connectivity / VPC Connection
-<a name="sap-odata-connectivity-vpc-connection"></a>
 
 Steps for VPC Connection:
 

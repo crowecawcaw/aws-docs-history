@@ -1,7 +1,6 @@
 
 
 # Semantic search for AWS Glue Data Catalog
-<a name="catalog-semantic-search"></a>
 
 **Note**  
 Business context and semantic search is in preview for AWS Glue and is subject to change.
@@ -16,14 +15,14 @@ The `SearchAssets` API accepts `SearchText`, `FilterClause`, or both. When neith
 ### Text search
 <a name="catalog-semantic-search-text"></a>
 
-```
+```bash
 aws glue search-assets \
     --search-text "customer purchases"
 ```
 
 Example output:
 
-```
+```json
 {
     "Items": [
         {"Id": "c9vq7sh2fk4t2h", "AssetName": "Customer Sales Transactions", "AssetTypeId": "Table"}
@@ -33,7 +32,7 @@ Example output:
 
 Limit results with `--max-results`:
 
-```
+```bash
 aws glue search-assets \
     --search-text "quarterly revenue" \
     --max-results 5
@@ -50,7 +49,7 @@ Use `FilterClause` to narrow results. Supported filter types:
 **To filter by a single attribute**  
 Filter to table assets only:
 
-```
+```bash
 aws glue search-assets \
     --search-text "revenue" \
     --filter-clause '{
@@ -65,13 +64,13 @@ aws glue search-assets \
 **To combine filters with AND logic**  
 Find table assets updated after a timestamp:
 
-```
+```bash
 aws glue search-assets \
     --search-text "customer data" \
     --filter-clause '{
         "AndAllFilters": [
             {"AttributeFilter": {"Attribute": "type", "Operator": "equals", "Value": {"StringValue": "Table"}}},
-            {"AttributeFilter": {"Attribute": "updatedAt", "Operator": "greaterThan", "Value": {"LongValue": 1718400000}}}
+            {"AttributeFilter": {"Attribute": "updatedAt", "Operator": "greaterThan", "Value": {"LongValue": 1718400000000}}}
         ]
     }'
 ```
@@ -79,7 +78,7 @@ aws glue search-assets \
 **To combine filters with OR logic**  
 Search for tables or skill assets:
 
-```
+```bash
 aws glue search-assets \
     --search-text "customer data" \
     --filter-clause '{
@@ -93,7 +92,7 @@ aws glue search-assets \
 **To filter by glossary term**  
 Filter to assets tagged with a specific glossary term (by term ID):
 
-```
+```bash
 aws glue search-assets \
     --search-text "financial data" \
     --filter-clause '{
@@ -108,7 +107,7 @@ aws glue search-assets \
 **To use nested AND and OR filters**  
 Find table or skill assets with a specific glossary term:
 
-```
+```bash
 aws glue search-assets \
     --search-text "customer" \
     --filter-clause '{
@@ -127,13 +126,7 @@ aws glue search-assets \
 
 By default, results are sorted by semantic relevance. To sort by attribute:
 
-```
-aws glue search-assets \
-    --search-text "customer purchases" \
-    --sort '{"Attribute": "assetName", "Order": "ASCENDING"}'
-```
-
-```
+```bash
 aws glue search-assets \
     --search-text "customer purchases" \
     --sort '{"Attribute": "updatedAt", "Order": "DESCENDING"}'
@@ -147,7 +140,7 @@ When you specify a sort attribute, results are ordered by that attribute rather 
 
 When results exceed `MaxResults`, the response includes a `NextToken`. Use it to retrieve additional pages.
 
-```
+```bash
 aws glue search-assets \
     --search-text "customer data" \
     --max-results 10 \
@@ -161,7 +154,7 @@ Continue until the response no longer includes a `NextToken`.
 
 Use only `FilterClause` without `SearchText` to list assets without semantic ranking.
 
-```
+```bash
 aws glue search-assets \
     --filter-clause '{"AttributeFilter": {"Attribute": "type", "Operator": "equals", "Value": {"StringValue": "Table"}}}' \
     --max-results 20
@@ -176,7 +169,7 @@ When you omit both `SearchText` and `FilterClause`, the API returns all assets.
 **To discover skill assets for a domain**  
 Find skill assets related to sales data:
 
-```
+```bash
 aws glue search-assets \
     --search-text "sales domain usage rules" \
     --filter-clause '{"AttributeFilter": {"Attribute": "type", "Operator": "equals", "Value": {"StringValue": "Skill"}}}'
@@ -188,7 +181,7 @@ This query returns only custom skill assets. Managed skills are not returned by 
 **To combine text search and sorting**  
 Get a comprehensive view of matching assets:
 
-```
+```bash
 aws glue search-assets \
     --search-text "customer" \
     --sort '{"Attribute": "updatedAt", "Order": "DESCENDING"}' \

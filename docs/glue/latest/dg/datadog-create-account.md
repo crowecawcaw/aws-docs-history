@@ -1,7 +1,6 @@
 
 
 # Creating a Datadog account
-<a name="datadog-create-account"></a>
 
 1. Go to [https://www.datadoghq.com/](https://api.datadoghq.com). 
 

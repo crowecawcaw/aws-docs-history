@@ -1,7 +1,6 @@
 
 
 # Data Quality API
-<a name="aws-glue-api-data-quality-api"></a>
 
 The Data Quality API describes the data quality data types, and includes the API for creating, deleting, or updating data quality rulesets, runs and evaluations.
 
@@ -43,6 +42,12 @@ The Data Quality API describes the data quality data types, and includes the API
 + [RowLevelResultsOptions structure](#aws-glue-api-data-quality-api-RowLevelResultsOptions)
 + [CatalogTableConfigOptions structure](#aws-glue-api-data-quality-api-CatalogTableConfigOptions)
 + [DistributionResultsOptions structure](#aws-glue-api-data-quality-api-DistributionResultsOptions)
++ [DataQualityEvaluationConfigDataSource structure](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigDataSource)
++ [DataQualityEvaluationConfigGlueTables structure](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigGlueTables)
++ [DataQualityEvaluationConfigAdditionalRunOptions structure](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigAdditionalRunOptions)
++ [DataQualityEvaluationConfigListDetails structure](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigListDetails)
++ [DataQualityEvaluationConfigListDataSource structure](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigListDataSource)
++ [DataQualityEvaluationConfigListGlueTables structure](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigListGlueTables)
 
 ## DataSource structure
 <a name="aws-glue-api-data-quality-api-DataSource"></a>
@@ -278,6 +283,12 @@ Describes a data quality result.
 + `ResultId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
   A unique result ID for the data quality result.
++ `EvaluationRunMode` – UTF-8 string (valid values: `ON_DEMAND` \| `EVALUATION_CONFIG`).
+
+  How the evaluation run that produced the result started: `ON_DEMAND` for a run started by `StartDataQualityRulesetEvaluationRun`, or `EVALUATION_CONFIG` for a run started by a data quality evaluation configuration. Not returned for results that no evaluation run produced, such as results from any ETL job.
++ `DataQualityEvaluationConfig` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality evaluation configuration that started the evaluation run, returned when `EvaluationRunMode` is `EVALUATION_CONFIG`.
 + `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
   The Profile ID for the data quality result.
@@ -454,6 +465,12 @@ Describes a data quality result.
 + `ResultId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
   The unique result ID for this data quality result.
++ `EvaluationRunMode` – UTF-8 string (valid values: `ON_DEMAND` \| `EVALUATION_CONFIG`).
+
+  How the evaluation run that produced the result started: `ON_DEMAND` for a run started by `StartDataQualityRulesetEvaluationRun`, or `EVALUATION_CONFIG` for a run started by a data quality evaluation configuration. Not returned for results that no evaluation run produced, such as results from any ETL job.
++ `DataQualityEvaluationConfig` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality evaluation configuration that started the evaluation run, returned when `EvaluationRunMode` is `EVALUATION_CONFIG`.
 + `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
   The table name associated with the data quality result.
@@ -488,6 +505,12 @@ Criteria used to return data quality results.
 + `StartedBefore` – Timestamp.
 
   Filter results by runs that started before this time.
++ `EvaluationRunMode` – UTF-8 string (valid values: `ON_DEMAND` \| `EVALUATION_CONFIG`).
+
+  Filter results by how their evaluation run started: `ON_DEMAND` or `EVALUATION_CONFIG`. Results that no evaluation run produced match neither value.
++ `DataQualityEvaluationConfig` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  Filter results by the evaluation configuration name which started the evaluation run.
 
 ## DataQualityRulesetFilterCriteria structure
 <a name="aws-glue-api-data-quality-api-DataQualityRulesetFilterCriteria"></a>
@@ -847,6 +870,146 @@ The configuration for writing distribution results.
 
   The AWS Glue Data Catalog table configuration for storing the distribution results.
 
+## DataQualityEvaluationConfigDataSource structure
+<a name="aws-glue-api-data-quality-api-DataQualityEvaluationConfigDataSource"></a>
+
+The data source that a data quality evaluation configuration applies to.
+
+**Fields**
++ `GlueTables` – A [DataQualityEvaluationConfigGlueTables](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigGlueTables) object.
+
+  The AWS Glue Data Catalog tables that the configuration applies to.
+
+## DataQualityEvaluationConfigGlueTables structure
+<a name="aws-glue-api-data-quality-api-DataQualityEvaluationConfigGlueTables"></a>
+
+Identifies the AWS Glue Data Catalog tables that a data quality evaluation configuration applies to.
+
+**Fields**
++ `CatalogId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  A unique identifier for the AWS Glue Data Catalog. The catalog must be in your account. For an Amazon S3 Tables catalog, specify `account-id:s3tablescatalog` for every table bucket, or `account-id:s3tablescatalog/table-bucket-name` for one table bucket.
++ `DatabaseName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  A database name in the AWS Glue Data Catalog.
++ `TableNamePattern` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  For the `CATALOG` and `DATABASE` levels, a glob pattern, such as `orders_*`, that selects tables. If you don't specify a pattern, every table at the level is in scope. For the `TABLE` level, the name of the table.
++ `PreProcessingQuery` – UTF-8 string, not more than 51200 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
+
+  SQL Query of SparkSQL format that can be used to pre-process the data for the table in AWS Glue Data Catalog, before running the Data Quality Operation.
+
+  For the `CATALOG` and `DATABASE` levels, use the `{{DATABASE_NAME}}` and `{{TABLE_NAME}}` placeholders, which are filled in for each table.
++ `ConnectionName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the connection to the AWS Glue Data Catalog.
++ `AdditionalOptions` – A map array of key-value pairs, not less than 1 or more than 10 pairs.
+
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  Each value is a Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
+
+  Options for reading the table. The following keys are supported:
+  + `pushDownPredicate`: to filter on partitions without having to list and read all the files in your dataset.
+  + `catalogPartitionPredicate`: to use server-side partition pruning using partition indexes in the AWS Glue Data Catalog.
+
+## DataQualityEvaluationConfigAdditionalRunOptions structure
+<a name="aws-glue-api-data-quality-api-DataQualityEvaluationConfigAdditionalRunOptions"></a>
+
+Additional run options for each evaluation of a data quality evaluation configuration.
+
+**Fields**
++ `CloudWatchMetricsEnabled` – Boolean.
+
+  Specifies whether to enable CloudWatch metrics.
++ `ResultsS3Prefix` – UTF-8 string.
+
+  Prefix for Amazon S3 to store results.
++ `CompositeRuleEvaluationMethod` – UTF-8 string (valid values: `COLUMN` \| `ROW`).
+
+  Set the evaluation method for composite rules in the ruleset to ROW/COLUMN
++ `RowLevelResults` – A [RowLevelResultsOptions](#aws-glue-api-data-quality-api-RowLevelResultsOptions) object.
+
+  The configuration for writing row-level evaluation results to a AWS Glue Data Catalog table.
++ `ProfilingResults` – A [ProfilingResultsOptions](#aws-glue-api-data-quality-api-ProfilingResultsOptions) object.
+
+  The configuration for writing profiling results to a AWS Glue Data Catalog table.
++ `ObservationScope` – UTF-8 string (valid values: `ALL` \| `NONE`).
+
+  The scope of the observation for the evaluation run. Specifies whether anomaly detection is enabled or disabled.
++ `ObservationMode` – UTF-8 string (valid values: `SCHEDULED` \| `FIXED`).
+
+  The observation mode for the evaluation run. Specifies how anomaly detection bounds are calculated.
++ `DataQualityRuleResults` – A [DataQualityRuleResultsOptions](#aws-glue-api-data-quality-api-DataQualityRuleResultsOptions) object.
+
+  The configuration for writing rule results to a AWS Glue Data Catalog table.
++ `ObservationResults` – An [ObservationResultsOptions](#aws-glue-api-data-quality-api-ObservationResultsOptions) object.
+
+  The configuration for writing observation results to a AWS Glue Data Catalog table.
++ `CustomLogGroupPrefix` – UTF-8 string.
+
+  A custom prefix for the CloudWatch log group names. When specified, evaluation run logs are written to `<CustomLogGroupPrefix>/error` and `<CustomLogGroupPrefix>/output` instead of the default `/aws-glue/data-quality/error` and `/aws-glue/data-quality/output` log groups.
+
+## DataQualityEvaluationConfigListDetails structure
+<a name="aws-glue-api-data-quality-api-DataQualityEvaluationConfigListDetails"></a>
+
+Describes a data quality evaluation configuration.
+
+**Fields**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality evaluation configuration.
++ `EvaluationRunMode` – UTF-8 string (valid values: `ON_DEMAND` \| `EVALUATION_CONFIG`).
+
+  The evaluation run mode of the configuration's results, which is `EVALUATION_CONFIG`.
++ `CreatedOn` – Timestamp.
+
+  The time when the configuration was created.
++ `LastModifiedOn` – Timestamp.
+
+  The time when the configuration was last modified.
++ `Level` – UTF-8 string (valid values: `CATALOG` \| `DATABASE` \| `TABLE`).
+
+  The AWS Glue Data Catalog hierarchical level that the configuration applies to.
++ `DataSource` – A [DataQualityEvaluationConfigListDataSource](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigListDataSource) object.
+
+  The catalog, database, or table that the configuration applies to.
++ `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality ruleset that tables are evaluated with.
++ `ManagedRulesetName` – UTF-8 string (valid values: `SIMPLE` \| `ADVANCED`).
+
+  The built-in ruleset that tables are evaluated with.
++ `PauseRuns` – Boolean.
+
+  Specifies whether evaluations are paused.
+
+## DataQualityEvaluationConfigListDataSource structure
+<a name="aws-glue-api-data-quality-api-DataQualityEvaluationConfigListDataSource"></a>
+
+The data source that a data quality evaluation configuration applies to.
+
+**Fields**
++ `GlueTables` – A [DataQualityEvaluationConfigListGlueTables](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigListGlueTables) object.
+
+  The AWS Glue Data Catalog tables that the configuration applies to.
+
+## DataQualityEvaluationConfigListGlueTables structure
+<a name="aws-glue-api-data-quality-api-DataQualityEvaluationConfigListGlueTables"></a>
+
+Identifies the AWS Glue Data Catalog tables that a data quality evaluation configuration applies to.
+
+**Fields**
++ `CatalogId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  A unique identifier for the AWS Glue Data Catalog.
++ `DatabaseName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  A database name in the AWS Glue Data Catalog.
++ `TableNamePattern` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  For the `CATALOG` and `DATABASE` levels, a glob pattern, such as `orders_*`, that selects tables. If you don't specify a pattern, every table at the level is in scope. For the `TABLE` level, the name of the table.
+
 ## Operations
 <a name="aws-glue-api-data-quality-api-actions"></a>
 + [StartDataQualityRulesetEvaluationRun action (Python: start\_data\_quality\_ruleset\_evaluation\_run)](#aws-glue-api-data-quality-api-StartDataQualityRulesetEvaluationRun)
@@ -878,6 +1041,11 @@ The configuration for writing distribution results.
 + [GetDataQualityModelResult action (Python: get\_data\_quality\_model\_result)](#aws-glue-api-data-quality-api-GetDataQualityModelResult)
 + [ListDataQualityStatisticAnnotations action (Python: list\_data\_quality\_statistic\_annotations)](#aws-glue-api-data-quality-api-ListDataQualityStatisticAnnotations)
 + [PutDataQualityProfileAnnotation action (Python: put\_data\_quality\_profile\_annotation)](#aws-glue-api-data-quality-api-PutDataQualityProfileAnnotation)
++ [CreateDataQualityEvaluationConfig action (Python: create\_data\_quality\_evaluation\_config)](#aws-glue-api-data-quality-api-CreateDataQualityEvaluationConfig)
++ [GetDataQualityEvaluationConfig action (Python: get\_data\_quality\_evaluation\_config)](#aws-glue-api-data-quality-api-GetDataQualityEvaluationConfig)
++ [UpdateDataQualityEvaluationConfig action (Python: update\_data\_quality\_evaluation\_config)](#aws-glue-api-data-quality-api-UpdateDataQualityEvaluationConfig)
++ [DeleteDataQualityEvaluationConfig action (Python: delete\_data\_quality\_evaluation\_config)](#aws-glue-api-data-quality-api-DeleteDataQualityEvaluationConfig)
++ [ListDataQualityEvaluationConfigs action (Python: list\_data\_quality\_evaluation\_configs)](#aws-glue-api-data-quality-api-ListDataQualityEvaluationConfigs)
 
 ## StartDataQualityRulesetEvaluationRun action (Python: start\_data\_quality\_ruleset\_evaluation\_run)
 <a name="aws-glue-api-data-quality-api-StartDataQualityRulesetEvaluationRun"></a>
@@ -1258,6 +1426,12 @@ The response for the data quality result.
 + `ResultId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
   A unique result ID for the data quality result.
++ `EvaluationRunMode` – UTF-8 string (valid values: `ON_DEMAND` \| `EVALUATION_CONFIG`).
+
+  How the evaluation run that produced the result started: `ON_DEMAND` for a run started by `StartDataQualityRulesetEvaluationRun`, or `EVALUATION_CONFIG` for a run started by a data quality evaluation configuration. Not returned for results that no evaluation run produced, such as results from any ETL job.
++ `DataQualityEvaluationConfig` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality evaluation configuration that started the evaluation run, returned when `EvaluationRunMode` is `EVALUATION_CONFIG`.
 + `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
   The Profile ID for the data quality result.
@@ -1669,6 +1843,12 @@ The response for the data quality result.
 + `ResultId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
   A unique result ID for the data quality result.
++ `EvaluationRunMode` – UTF-8 string (valid values: `ON_DEMAND` \| `EVALUATION_CONFIG`).
+
+  How the evaluation run that produced the result started: `ON_DEMAND` for a run started by `StartDataQualityRulesetEvaluationRun`, or `EVALUATION_CONFIG` for a run started by a data quality evaluation configuration. Not returned for results that no evaluation run produced, such as results from any ETL job.
++ `DataQualityEvaluationConfig` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality evaluation configuration that started the evaluation run, returned when `EvaluationRunMode` is `EVALUATION_CONFIG`.
 + `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
   The Profile ID for the data quality result.
@@ -1944,4 +2124,365 @@ Annotate all datapoints for a Profile.
 **Errors**
 + `EntityNotFoundException`
 + `InvalidInputException`
++ `InternalServiceException`
+
+## CreateDataQualityEvaluationConfig action (Python: create\_data\_quality\_evaluation\_config)
+<a name="aws-glue-api-data-quality-api-CreateDataQualityEvaluationConfig"></a>
+
+Creates a data quality evaluation configuration, which evaluates the data quality of a collection of tables in the AWS Glue Data Catalog once, on a schedule, or when table metadata changes. A configuration applies to a catalog, a database, or a single table, and evaluates every table in scope, including tables added later, without per-table setup.
+
+When configurations at more than one level apply to the same table, the most specific configuration applies. Each table is evaluated at most once an hour, whichever triggers you choose.
+
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  A name for the data quality evaluation configuration. The name must be unique within your account.
++ `Level` – *Required:* UTF-8 string (valid values: `CATALOG` \| `DATABASE` \| `TABLE`).
+
+  The AWS Glue Data Catalog hierarchical level that the configuration applies to. Valid values are `CATALOG`, `DATABASE`, and `TABLE`.
++ `DataSource` – *Required:* A [DataQualityEvaluationConfigDataSource](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigDataSource) object.
+
+  The catalog, database, or table that the configuration applies to, as specified by `Level`.
++ `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of a Data Quality Definition Language (DQDL) ruleset, containing analyzers, rules, or both, to evaluate tables with. You create the ruleset using the `CreateDataQualityRuleset` API. Specify either `RulesetName` or `ManagedRulesetName`, not both.
++ `ManagedRulesetName` – UTF-8 string (valid values: `SIMPLE` \| `ADVANCED`).
+
+  A built-in ruleset that profiles each table, used when `RulesetName` is not set. The default is `SIMPLE`. Choose from the following built-in rulesets:  
+SIMPLE  
+Row count and column count, completeness, minimum, and maximum for every column, mean, sum, and standard deviation for numeric columns, and column length for string columns.  
+ADVANCED  
+Every statistic in `SIMPLE`, plus distribution, uniqueness, entropy, and distinct values count.
++ `Triggers` – An array of UTF-8 strings, not less than 1 or more than 3 strings.
+
+  When the configuration evaluates tables. You can choose one or more triggers, and each table is evaluated at most once an hour. The default is `ONCE`. Choose from the following triggers:  
+ONCE  
+Evaluates each table one time, including when tables are added to a database or catalog.  
+SCHEDULE  
+Evaluates each table on the cron or rate expression in `ScheduleExpression`, between the optional `StartAt` and `EndAt` times.  
+METADATA\_CHANGE  
+Evaluates a table whenever its AWS Glue Data Catalog metadata changes, such as a schema change or an Apache Iceberg commit.
++ `ScheduleExpression` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+  A cron or rate expression, in UTC, for the `SCHEDULE` trigger, for example `cron(0 6 * * ? *)`. The schedule can run at most once an hour.
++ `StartAt` – Timestamp.
+
+  The time from which the schedule runs, inclusive.
++ `EndAt` – Timestamp.
+
+  The time at which the schedule stops running, exclusive.
++ `Role` – *Required:* UTF-8 string.
+
+  The IAM role that evaluations assume. You can specify the role name or the role Amazon Resource Name (ARN).
+
+  The role must allow the `glue.amazonaws.com` service principal to assume it. The role must have permissions to read the catalog (`glue:GetCatalog`, `glue:GetDatabase`, `glue:GetTable`, `glue:SearchTables`, and `glue:GetPartitions`), read and create rulesets (`glue:GetDataQualityRuleset` and `glue:CreateDataQualityRuleset`), start and track evaluations (`glue:StartDataQualityRulesetEvaluationRun`, `glue:GetDataQualityRulesetEvaluationRun`, `glue:PublishDataQuality`, and `iam:PassRole` on the role itself), read the tables' data in Amazon S3, and write logs to Amazon CloudWatch Logs. If a catalog-level or database-level configuration applies to an Amazon S3 Tables catalog, the role must also have `s3tables:ListTableBuckets` and `s3tables:ListTables`. If you use Lake Formation, the role must have the `DESCRIBE` permission on the tables, and for tables whose data Lake Formation manages, such as Amazon S3 Tables, `lakeformation:GetDataAccess` and the `SELECT` permission.
++ `NumberOfWorkers` – Number (integer).
+
+  The number of `G.1X` workers to be used in the run. The default is 5, and the minimum is 2.
++ `Timeout` – Number (integer), at least 1.
+
+  The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters `TIMEOUT` status. The default and maximum is 2,880 minutes (48 hours).
++ `AdditionalRunOptions` – A [DataQualityEvaluationConfigAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigAdditionalRunOptions) object.
+
+  Additional run options you can specify for an evaluation run.
++ `AdditionalDataSources` – A map array of key-value pairs.
+
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  Each value is a A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
+
+  A map of reference strings to additional data sources you can specify for an evaluation run.
++ `Tags` – A map array of key-value pairs, not more than 50 pairs.
+
+  Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
+
+  Each value is a UTF-8 string, not more than 256 bytes long.
+
+  A list of tags applied to the data quality evaluation configuration.
++ `ClientToken` – UTF-8 string, not less than 1 or more than 64 bytes long, matching the [Custom string pattern #82](aws-glue-api-common.md#regex_82).
+
+  A unique, case-sensitive identifier that you provide to ensure the operation completes no more than one time. If you repeat a request with the same token and parameters, the service returns the existing configuration. If the parameters differ, the request fails with `IdempotentParameterMismatchException`.
+
+**Response**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality evaluation configuration.
++ `EvaluationRunMode` – UTF-8 string (valid values: `ON_DEMAND` \| `EVALUATION_CONFIG`).
+
+  The evaluation run mode of the configuration's results, which is `EVALUATION_CONFIG`.
+
+**Errors**
++ `AccessDeniedException`
++ `AlreadyExistsException`
++ `EntityNotFoundException`
++ `IdempotentParameterMismatchException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
++ `ResourceNumberLimitExceededException`
+
+## GetDataQualityEvaluationConfig action (Python: get\_data\_quality\_evaluation\_config)
+<a name="aws-glue-api-data-quality-api-GetDataQualityEvaluationConfig"></a>
+
+Retrieves a data quality evaluation configuration.
+
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality evaluation configuration.
+
+**Response**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality evaluation configuration.
++ `EvaluationRunMode` – UTF-8 string (valid values: `ON_DEMAND` \| `EVALUATION_CONFIG`).
+
+  The evaluation run mode of the configuration's results, which is `EVALUATION_CONFIG`.
++ `CreatedOn` – Timestamp.
+
+  The time when the configuration was created.
++ `LastModifiedOn` – Timestamp.
+
+  The time when the configuration was last modified.
++ `Level` – UTF-8 string (valid values: `CATALOG` \| `DATABASE` \| `TABLE`).
+
+  The AWS Glue Data Catalog hierarchical level that the configuration applies to.
++ `DataSource` – A [DataQualityEvaluationConfigDataSource](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigDataSource) object.
+
+  The catalog, database, or table that the configuration applies to.
++ `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality ruleset that tables are evaluated with.
++ `ManagedRulesetName` – UTF-8 string (valid values: `SIMPLE` \| `ADVANCED`).
+
+  The built-in ruleset that tables are evaluated with.
++ `Triggers` – An array of UTF-8 strings, not less than 1 or more than 3 strings.
+
+  When the configuration evaluates tables:  
+ONCE  
+Each table is evaluated one time, including when tables are added to a database or catalog.  
+SCHEDULE  
+Each table is evaluated on the cron or rate expression in `ScheduleExpression`.  
+METADATA\_CHANGE  
+A table is evaluated whenever its AWS Glue Data Catalog metadata changes.
++ `ScheduleExpression` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+  The cron or rate expression, in UTC, for the `SCHEDULE` trigger.
++ `StartAt` – Timestamp.
+
+  The time from which the schedule runs, inclusive.
++ `EndAt` – Timestamp.
+
+  The time at which the schedule stops running, exclusive.
++ `PauseRuns` – Boolean.
+
+  Specifies whether evaluations are paused.
++ `Role` – UTF-8 string.
+
+  The Amazon Resource Name (ARN) of the IAM role that evaluation runs assume.
++ `NumberOfWorkers` – Number (integer).
+
+  The number of `G.1X` workers to be used in the run. The default is 5.
++ `Timeout` – Number (integer), at least 1.
+
+  The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters `TIMEOUT` status. The default is 2,880 minutes (48 hours).
++ `AdditionalRunOptions` – A [DataQualityEvaluationConfigAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigAdditionalRunOptions) object.
+
+  Additional run options you can specify for an evaluation run.
++ `AdditionalDataSources` – A map array of key-value pairs.
+
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  Each value is a A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
+
+  A map of reference strings to additional data sources you can specify for an evaluation run.
+
+**Errors**
++ `AccessDeniedException`
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
+
+## UpdateDataQualityEvaluationConfig action (Python: update\_data\_quality\_evaluation\_config)
+<a name="aws-glue-api-data-quality-api-UpdateDataQualityEvaluationConfig"></a>
+
+Updates a data quality evaluation configuration. Fields that you don't specify keep their current values.
+
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality evaluation configuration to update.
++ `DataSource` – A [DataQualityEvaluationConfigDataSource](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigDataSource) object.
+
+  The catalog, database, or table that the configuration applies to. Replaces the current data source, including its `PreProcessingQuery`. You can't change the catalog.
++ `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of a Data Quality Definition Language (DQDL) ruleset, containing analyzers, rules, or both, to evaluate tables with. You create the ruleset using the `CreateDataQualityRuleset` API. Specify either `RulesetName` or `ManagedRulesetName`, not both. Replaces the current ruleset.
++ `ManagedRulesetName` – UTF-8 string (valid values: `SIMPLE` \| `ADVANCED`).
+
+  A built-in ruleset, `SIMPLE` or `ADVANCED`, that profiles each table. Replaces the current ruleset.
++ `Triggers` – An array of UTF-8 strings, not less than 1 or more than 3 strings.
+
+  When the configuration evaluates tables. Replaces the current triggers, and removing `SCHEDULE` also removes `ScheduleExpression`, `StartAt`, and `EndAt`. Choose from the following triggers:  
+ONCE  
+Evaluates each table one time, including when tables are added to a database or catalog.  
+SCHEDULE  
+Evaluates each table on the cron or rate expression in `ScheduleExpression`, between the optional `StartAt` and `EndAt` times.  
+METADATA\_CHANGE  
+Evaluates a table whenever its AWS Glue Data Catalog metadata changes, such as a schema change or an Apache Iceberg commit.
++ `ScheduleExpression` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+  A cron or rate expression, in UTC, for the `SCHEDULE` trigger, for example `cron(0 6 * * ? *)`. The schedule can run at most once an hour.
++ `StartAt` – Timestamp.
+
+  The time from which the schedule runs, inclusive.
++ `EndAt` – Timestamp.
+
+  The time at which the schedule stops running, exclusive.
++ `PauseRuns` – Boolean.
+
+  Specifies whether to pause the configuration. While paused, the configuration evaluates nothing, including tables added to the catalog or database. You can pause only a configuration whose triggers include `SCHEDULE` or `METADATA_CHANGE`.
++ `Role` – UTF-8 string.
+
+  The IAM role that evaluations assume. You can specify the role name or the role Amazon Resource Name (ARN). The role needs the trust policy and permissions described for `CreateDataQualityEvaluationConfig`. Required unless the update only sets `PauseRuns`.
++ `NumberOfWorkers` – Number (integer).
+
+  The number of `G.1X` workers to be used in the run. The default is 5, and the minimum is 2.
++ `Timeout` – Number (integer), at least 1.
+
+  The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters `TIMEOUT` status. The default and maximum is 2,880 minutes (48 hours).
++ `AdditionalRunOptions` – A [DataQualityEvaluationConfigAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigAdditionalRunOptions) object.
+
+  Additional run options you can specify for an evaluation run.
++ `AdditionalDataSources` – A map array of key-value pairs.
+
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  Each value is a A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
+
+  A map of reference strings to additional data sources you can specify for an evaluation run.
+
+**Response**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality evaluation configuration.
++ `EvaluationRunMode` – UTF-8 string (valid values: `ON_DEMAND` \| `EVALUATION_CONFIG`).
+
+  The evaluation run mode of the configuration's results, which is `EVALUATION_CONFIG`.
++ `CreatedOn` – Timestamp.
+
+  The time when the configuration was created.
++ `LastModifiedOn` – Timestamp.
+
+  The time when the configuration was last modified.
++ `Level` – UTF-8 string (valid values: `CATALOG` \| `DATABASE` \| `TABLE`).
+
+  The AWS Glue Data Catalog hierarchical level that the configuration applies to.
++ `DataSource` – A [DataQualityEvaluationConfigDataSource](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigDataSource) object.
+
+  The catalog, database, or table that the configuration applies to.
++ `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality ruleset that tables are evaluated with.
++ `ManagedRulesetName` – UTF-8 string (valid values: `SIMPLE` \| `ADVANCED`).
+
+  The built-in ruleset that tables are evaluated with.
++ `Triggers` – An array of UTF-8 strings, not less than 1 or more than 3 strings.
+
+  When the configuration evaluates tables:  
+ONCE  
+Each table is evaluated one time, including when tables are added to a database or catalog.  
+SCHEDULE  
+Each table is evaluated on the cron or rate expression in `ScheduleExpression`.  
+METADATA\_CHANGE  
+A table is evaluated whenever its AWS Glue Data Catalog metadata changes.
++ `ScheduleExpression` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+  The cron or rate expression, in UTC, for the `SCHEDULE` trigger.
++ `StartAt` – Timestamp.
+
+  The time from which the schedule runs, inclusive.
++ `EndAt` – Timestamp.
+
+  The time at which the schedule stops running, exclusive.
++ `PauseRuns` – Boolean.
+
+  Specifies whether evaluations are paused.
++ `Role` – UTF-8 string.
+
+  The Amazon Resource Name (ARN) of the IAM role that evaluation runs assume.
++ `NumberOfWorkers` – Number (integer).
+
+  The number of `G.1X` workers to be used in the run. The default is 5.
++ `Timeout` – Number (integer), at least 1.
+
+  The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters `TIMEOUT` status. The default is 2,880 minutes (48 hours).
++ `AdditionalRunOptions` – A [DataQualityEvaluationConfigAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigAdditionalRunOptions) object.
+
+  Additional run options you can specify for an evaluation run.
++ `AdditionalDataSources` – A map array of key-value pairs.
+
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  Each value is a A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
+
+  A map of reference strings to additional data sources you can specify for an evaluation run.
+
+**Errors**
++ `AccessDeniedException`
++ `ConcurrentModificationException`
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
+
+## DeleteDataQualityEvaluationConfig action (Python: delete\_data\_quality\_evaluation\_config)
+<a name="aws-glue-api-data-quality-api-DeleteDataQualityEvaluationConfig"></a>
+
+Deletes a data quality evaluation configuration.
+
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The name of the data quality evaluation configuration to delete.
+
+**Response**
++ *No Response parameters.*
+
+**Errors**
++ `AccessDeniedException`
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
+
+## ListDataQualityEvaluationConfigs action (Python: list\_data\_quality\_evaluation\_configs)
+<a name="aws-glue-api-data-quality-api-ListDataQualityEvaluationConfigs"></a>
+
+Lists the data quality evaluation configurations in your account, optionally filtered by level.
+
+**Request**
++ `Level` – UTF-8 string (valid values: `CATALOG` \| `DATABASE` \| `TABLE`).
+
+  Lists only the configurations that apply to this level.
++ `MaxResults` – Number (integer), not less than 1 or more than 50.
+
+  The maximum number of results to return. The default is 20.
++ `NextToken` – UTF-8 string.
+
+  A paginated token to offset the results. If you don't specify a token, the operation returns results starting from the beginning of the list.
+
+**Response**
++ `DataQualityEvaluationConfigs` – An array of [DataQualityEvaluationConfigListDetails](#aws-glue-api-data-quality-api-DataQualityEvaluationConfigListDetails) objects.
+
+  A list of `DataQualityEvaluationConfigListDetails` objects.
++ `NextToken` – UTF-8 string.
+
+  A pagination token, if more results are available.
+
+**Errors**
++ `AccessDeniedException`
++ `InvalidInputException`
++ `OperationTimeoutException`
 + `InternalServiceException`

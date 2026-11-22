@@ -1,7 +1,6 @@
 
 
 # Limitations
-<a name="googleads-connector-limitations"></a>
 
 The following are limitations for the Google Ads connector:
 + `MANAGER_ID` is an optional input when creating a connection. But when you want to access the customers underlying any particular manager, then `MANAGER_ID` is a mandatory input. The table below explains the access limitations based on whether `MANAGER_ID` is included or not in a connection.

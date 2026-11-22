@@ -1,7 +1,6 @@
 
 
 # Cross-account cross-Region access to DynamoDB tables
-<a name="aws-glue-programming-etl-dynamo-db-cross-account"></a>
 
 AWS Glue ETL jobs support both cross-region and cross-account access to DynamoDB tables. AWS Glue ETL jobs support both reading data from another AWS Account's DynamoDB table, and writing data into another AWS Account's DynamoDB table. AWS Glue also supports both reading from a DynamoDB table in another region, and writing into a DynamoDB table in another region. This section gives instructions on setting up the access, and provides an example script. 
 
@@ -22,7 +21,7 @@ Follow [step 2 in the tutorial](https://docs.aws.amazon.com/IAM/latest/UserGuide
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

@@ -1,7 +1,6 @@
 
 
 # Reading from FireHydrant entities
-<a name="firehydrant-reading-from-entities"></a>
 
 **Prerequisites**
 

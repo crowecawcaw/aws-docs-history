@@ -1,7 +1,6 @@
 
 
 # Reading from Ontraport entities
-<a name="ontraport-reading-from-entities"></a>
 
 **Prerequisites**
 

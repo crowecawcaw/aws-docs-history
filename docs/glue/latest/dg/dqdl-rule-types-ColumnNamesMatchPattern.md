@@ -1,13 +1,12 @@
 
 
 # ColumnNamesMatchPattern
-<a name="dqdl-rule-types-ColumnNamesMatchPattern"></a>
 
 Checks whether the names of all columns in the primary dataset match the given regular expression.
 
 **Syntax**
 
-```
+```json
 ColumnNamesMatchPattern {{<PATTERN>}}
 ```
 + **PATTERN** – The pattern you want to evaluate the data quality rule against.
@@ -18,7 +17,7 @@ ColumnNamesMatchPattern {{<PATTERN>}}
 
 The following example rule checks whether all columns start with the prefix "aws\_"
 
-```
+```json
 ColumnNamesMatchPattern "aws_.*"
 ColumnNamesMatchPattern "aws_.*" where "weightinkgs > 10"
 ```

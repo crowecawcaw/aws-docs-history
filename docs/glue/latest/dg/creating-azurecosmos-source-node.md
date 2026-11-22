@@ -1,7 +1,6 @@
 
 
 # Creating a Azure Cosmos DB source node
-<a name="creating-azurecosmos-source-node"></a>
 
 ## Prerequisites needed
 <a name="creating-azurecosmos-source-node-prerequisites"></a>

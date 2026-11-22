@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Crisp
-<a name="crisp-support"></a>
 
 AWS Glue supports Crisp as follows:
 

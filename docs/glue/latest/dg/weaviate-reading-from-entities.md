@@ -1,7 +1,6 @@
 
 
 # Reading from Weaviate entities
-<a name="weaviate-reading-from-entities"></a>
 
 **Prerequisites**
 

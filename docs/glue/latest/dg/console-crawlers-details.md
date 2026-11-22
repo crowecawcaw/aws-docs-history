@@ -1,7 +1,6 @@
 
 
 # Viewing crawler results and details
-<a name="console-crawlers-details"></a>
 
  After the crawler runs successfully, it creates table definitions in the Data Catalog. Choose **Tables** in the navigation pane to see the tables that were created by your crawler in the database that you specified. 
 

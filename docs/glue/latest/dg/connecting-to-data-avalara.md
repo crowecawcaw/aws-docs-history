@@ -1,7 +1,6 @@
 
 
 # Connecting to Avalara in AWS Glue Studio
-<a name="connecting-to-data-avalara"></a>
 
 Avalara AvaTax is tax calculation and compliance. Because you are an Avalara user, you can connect AWS Glue to your Avalara account. You can then use Avalara as a data source in your AWS Glue ETL jobs to transfer data between Avalara and AWS services or other supported applications.
 

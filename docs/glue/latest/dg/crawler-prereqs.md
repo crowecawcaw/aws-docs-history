@@ -1,7 +1,6 @@
 
 
 # Crawler prerequisites
-<a name="crawler-prereqs"></a>
 
 The crawler assumes the permissions of the AWS Identity and Access Management (IAM) role that you specify when you define it. This IAM role must have permissions to extract data from your data store and write to the Data Catalog. The AWS Glue console lists only IAM roles that have attached a trust policy for the AWS Glue principal service. From the console, you can also create an IAM role with an IAM policy to access Amazon S3 data stores accessed by the crawler. For more information about providing roles for AWS Glue, see [Identity-based policies for AWS Glue](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies).
 
@@ -22,7 +21,7 @@ If you specify an existing role for a crawler, ensure that it includes the `AWSG
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -48,7 +47,7 @@ For an Amazon DynamoDB data store, the policy would at a minimum be the followin
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

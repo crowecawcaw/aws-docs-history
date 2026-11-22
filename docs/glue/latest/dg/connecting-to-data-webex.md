@@ -1,7 +1,6 @@
 
 
 # Connecting to Webex in AWS Glue Studio
-<a name="connecting-to-data-webex"></a>
 
 Webex is Cisco's collaboration platform. Because you are a Webex user, you can connect AWS Glue to your Webex account. You can then use Webex as a data source in your AWS Glue ETL jobs to transfer data between Webex and AWS services or other supported applications.
 

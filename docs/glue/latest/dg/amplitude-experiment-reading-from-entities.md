@@ -1,7 +1,6 @@
 
 
 # Reading from Amplitude Experiment entities
-<a name="amplitude-experiment-reading-from-entities"></a>
 
 **Prerequisites**
 

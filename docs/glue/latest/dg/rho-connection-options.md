@@ -1,7 +1,6 @@
 
 
 # Rho connection options
-<a name="rho-connection-options"></a>
 
 The following are connection options for Rho:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Rho object to read.

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Vonage
-<a name="vonage-support"></a>
 
 AWS Glue supports Vonage as follows:
 

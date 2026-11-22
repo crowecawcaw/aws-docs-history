@@ -1,7 +1,6 @@
 
 
 # EvaluateDataQuality class
-<a name="aws-glue-api-crawler-pyspark-transforms-EvaluateDataQuality"></a>
 
 Evaluates a data quality ruleset against a `DynamicFrame` and returns a new `DynamicFrame` with results of the evaluation.
 
@@ -48,7 +47,7 @@ dqResults.toDF().show()
 ### Output
 <a name="pyspark-EvaluateDataQuality-example-output"></a>
 
-```
+```json
 root
 |-- Rule: string
 |-- Outcome: string

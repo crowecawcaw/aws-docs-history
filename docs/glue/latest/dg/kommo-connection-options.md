@@ -1,7 +1,6 @@
 
 
 # Kommo connection options
-<a name="kommo-connection-options"></a>
 
 The following are connection options for Kommo:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Kommo object to read.

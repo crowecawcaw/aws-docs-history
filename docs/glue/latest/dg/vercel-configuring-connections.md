@@ -1,7 +1,6 @@
 
 
 # Configuring Vercel connections
-<a name="vercel-configuring-connections"></a>
 
 Vercel connections authenticate with an API key (or token). You store the key in Secrets Manager and reference that secret when you create the connection in AWS Glue Studio.
 

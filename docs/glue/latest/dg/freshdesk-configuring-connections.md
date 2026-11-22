@@ -1,7 +1,6 @@
 
 
 # Configuring Freshdesk connections
-<a name="freshdesk-configuring-connections"></a>
 
 Freshdesk supports custom authentication.
 
@@ -20,7 +19,7 @@ The following are the steps to configure Freshdesk connection:
 
 ****  
 
-    ```
+    ```json
     {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

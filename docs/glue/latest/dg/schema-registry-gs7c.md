@@ -1,7 +1,6 @@
 
 
 # Deleting a registry
-<a name="schema-registry-gs7c"></a>
 
 You may want to delete a registry when the schemas it contains should no longer be organized under that registry. You will need to reassign those schemas to another registry.
 

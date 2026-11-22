@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Gorgias
-<a name="gorgias-support"></a>
 
 AWS Glue supports Gorgias as follows:
 

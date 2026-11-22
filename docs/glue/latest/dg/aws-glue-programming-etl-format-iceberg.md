@@ -1,7 +1,6 @@
 
 
 # Using the Iceberg framework in AWS Glue
-<a name="aws-glue-programming-etl-format-iceberg"></a>
 
 AWS Glue 3.0 and later supports the Apache Iceberg framework for data lakes. Iceberg provides a high-performance table format that works just like a SQL table. This topic covers available features for using your data in AWS Glue when you transport or store your data in an Iceberg table. To learn more about Iceberg, see the official [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/). 
 
@@ -119,7 +118,7 @@ This example script demonstrates how to write an Iceberg table to Amazon S3. The
 ------
 #### [ Python ]
 
-```
+```python
 # Example: Create an Iceberg table from a DataFrame 
 # and register the table to Glue Data Catalog
 
@@ -137,7 +136,7 @@ spark.sql(query)
 ------
 #### [ Scala ]
 
-```
+```scala
 // Example: Example: Create an Iceberg table from a DataFrame
 // and register the table to Glue Data Catalog
 
@@ -164,7 +163,7 @@ This example writes an Iceberg table to Amazon S3 and the Data Catalog using Spa
 ------
 #### [ Python ]
 
-```
+```python
 # Example: Write an Iceberg table to S3 on the Glue Data Catalog
 
 # Create (equivalent to CREATE TABLE AS SELECT)
@@ -181,7 +180,7 @@ dataFrame.writeTo("glue_catalog.{{databaseName}}.{{tableName}}") \
 ------
 #### [ Scala ]
 
-```
+```scala
 // Example: Write an Iceberg table to S3 on the Glue Data Catalog
 
 // Create (equivalent to CREATE TABLE AS SELECT)
@@ -207,7 +206,7 @@ This example reads the Iceberg table that you created in [Example: Write an Iceb
 
 For this example, use the `GlueContext.create\_data\_frame.from\_catalog()` method.
 
-```
+```python
 # Example: Read an Iceberg table from Glue Data Catalog
 
 from awsglue.context import GlueContext
@@ -228,7 +227,7 @@ df = glueContext.create_data_frame.from_catalog(
 
 For this example, use the [getCatalogSource](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getCatalogSource) method.
 
-```
+```scala
 // Example: Read an Iceberg table from Glue Data Catalog
 
 import com.amazonaws.services.glue.GlueContext
@@ -260,7 +259,7 @@ This example requires you to set the `--enable-glue-datacatalog` job parameter i
 
 For this example, use the `GlueContext.write\_data\_frame.from\_catalog()` method.
 
-```
+```python
 # Example: Insert into an Iceberg table from Glue Data Catalog
 
 from awsglue.context import GlueContext
@@ -282,7 +281,7 @@ glueContext.write_data_frame.from_catalog(
 
 For this example, use the [getCatalogSink](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getCatalogSink) method.
 
-```
+```scala
 // Example: Insert into an Iceberg table from Glue Data Catalog
 
 import com.amazonaws.services.glue.GlueContext
@@ -313,7 +312,7 @@ This example reads an Iceberg table in Amazon S3 from the Data Catalog using Spa
 ------
 #### [ Python ]
 
-```
+```python
 # Example: Read an Iceberg table on S3 as a DataFrame from the Glue Data Catalog
 
 dataFrame = spark.read.format("iceberg").load("glue_catalog.{{databaseName}}.{{tableName}}")
@@ -322,7 +321,7 @@ dataFrame = spark.read.format("iceberg").load("glue_catalog.{{databaseName}}.{{t
 ------
 #### [ Scala ]
 
-```
+```scala
 // Example: Read an Iceberg table on S3 as a DataFrame from the Glue Data Catalog
 
 val dataFrame = spark.read.format("iceberg").load("glue_catalog.{{databaseName}}.{{tableName}}")

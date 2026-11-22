@@ -1,7 +1,6 @@
 
 
 # Publishing a blueprint
-<a name="developing-blueprints-publishing"></a>
 
 After you develop a blueprint, you must upload it to Amazon S3. You must have write permissions on the Amazon S3 bucket that you use to publish the blueprint. You must also make sure that the AWS Glue administrator, who will register the blueprint, has read access to the Amazon S3 bucket. For the suggested AWS Identity and Access Management (IAM) permissions policies for personas and roles for AWS Glue blueprints, see [Permissions for personas and roles for AWS Glue blueprints](blueprints-personas-permissions.md).
 
@@ -24,7 +23,7 @@ After you develop a blueprint, you must upload it to Amazon S3. You must have wr
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

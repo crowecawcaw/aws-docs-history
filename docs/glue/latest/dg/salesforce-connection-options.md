@@ -1,7 +1,6 @@
 
 
 # Salesforce connection options
-<a name="salesforce-connection-options"></a>
 
 The following connection options are supported for the Salesforce connector:
 + `ENTITY_NAME`(String) - (Required) Used for Read/Write. The name of your Object in Salesforce.

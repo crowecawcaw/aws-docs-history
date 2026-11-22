@@ -1,7 +1,6 @@
 
 
 # Integrating with AWS Glue Schema Registry
-<a name="schema-registry-integrations"></a>
 
 These sections describe integrations with AWS Glue schema registry. The examples in these section show a schema with AVRO data format. For more examples, including schemas with JSON data format, see the integration tests and ReadMe information in the [AWS Glue Schema Registry open source repository](https://github.com/awslabs/aws-glue-schema-registry).
 

@@ -1,7 +1,6 @@
 
 
 # Connecting to Datadog
-<a name="connecting-to-datadog"></a>
 
 Datadog is a monitoring and analytics platform for cloud-scale applications, including infrastructure, applications, services, and tools.
 

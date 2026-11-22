@@ -1,7 +1,6 @@
 
 
 # Tutorial: Use a SageMaker AI notebook with your development endpoint
-<a name="dev-endpoint-tutorial-sage"></a>
 
  In AWS Glue, you can create a development endpoint and then create a SageMaker AI notebook to help develop your ETL and machine learning scripts. A SageMaker AI notebook is a fully managed machine learning compute instance running the Jupyter Notebook application.
 
@@ -47,7 +46,7 @@
 
 1. Create a dynamic frame and run a query against it: Copy, paste, and run the following code, which outputs the count and schema of the `persons_json` table.
 
-   ```
+   ```python
    import sys
    from pyspark.context import SparkContext
    from awsglue.context import GlueContext

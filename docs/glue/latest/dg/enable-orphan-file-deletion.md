@@ -1,7 +1,6 @@
 
 
 # Enabling orphan file deletion
-<a name="enable-orphan-file-deletion"></a>
 
  You can use AWS Glue console, AWS CLI, or AWS API to enable orphan file deletion for your Apache Iceberg tables in the Data Catalog. For new tables, you can choose Apache Iceberg as table format and enable orphan file deletion optimizer when you create the table. Snapshot retention is disabled by default for new tables.
 

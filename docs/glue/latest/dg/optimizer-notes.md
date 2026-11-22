@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations
-<a name="optimizer-notes"></a>
 
  This section includes things to consider when using table optimizers within the AWS Glue Data Catalog. 
 

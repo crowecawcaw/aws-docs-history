@@ -1,7 +1,6 @@
 
 
 # Configuring Adyen
-<a name="adyen-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Adyen, you must meet the following requirements:
 

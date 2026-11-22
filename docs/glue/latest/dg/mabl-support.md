@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for mabl
-<a name="mabl-support"></a>
 
 AWS Glue supports mabl as follows:
 

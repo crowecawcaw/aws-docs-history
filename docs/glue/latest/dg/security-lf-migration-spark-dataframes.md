@@ -1,7 +1,6 @@
 
 
 # Migrating from GlueContext/Glue DynamicFrame to Spark DataFrame
-<a name="security-lf-migration-spark-dataframes"></a>
 
 The following are Python and Scala examples of migrating `GlueContext`/Glue `DynamicFrame` in Glue 4.0 to Spark `DataFrame` in Glue 5.0.
 

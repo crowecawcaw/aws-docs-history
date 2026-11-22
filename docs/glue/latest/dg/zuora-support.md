@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Zuora
-<a name="zuora-support"></a>
 
 AWS Glue supports Zuora as follows:
 

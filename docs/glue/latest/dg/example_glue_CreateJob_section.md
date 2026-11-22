@@ -1,7 +1,6 @@
 
 
 # Use `CreateJob` with an AWS SDK or CLI
-<a name="example_glue_CreateJob_section"></a>
 
 The following code examples show how to use `CreateJob`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Create an AWS Glue job.
     /// </summary>
@@ -64,7 +63,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region in which the bucket was created (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -185,7 +184,7 @@ For more information, see [Working with jobs in AWS Glue](https://docs.aws.amazo
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples). 
 
-```
+```java
     /**
      * Creates a new AWS Glue job.
      *
@@ -229,7 +228,7 @@ For more information, see [Working with jobs in AWS Glue](https://docs.aws.amazo
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples). 
 
-```
+```javascript
 const createJob = (name, role, scriptBucketName, scriptKey) => {
   const client = new GlueClient({});
 
@@ -255,7 +254,7 @@ const createJob = (name, role, scriptBucketName, scriptKey) => {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples). 
 
-```
+```php
         $role = $iamService->getRole("AWSGlueServiceRole-DocExample");
 
         $jobName = 'test-job-' . $uniqid;
@@ -285,7 +284,7 @@ const createJob = (name, role, scriptBucketName, scriptKey) => {
 **Tools for PowerShell V4**  
 **Example 1: This example creates a new job in AWS Glue. The command name value is always `glueetl`. AWS Glue supports running job scripts written in Python or Scala. In this example, the job script (MyTestGlueJob.py) is written in Python. Python parameters are specified in the `$DefArgs` variable, and then passed to the PowerShell command in the `DefaultArguments` parameter, which accepts a hashtable. The parameters in the `$JobParams` variable come from the CreateJob API, documented in the Jobs (https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html) topic of the AWS Glue API reference.**  
 
-```
+```powershell
 $Command = New-Object Amazon.Glue.Model.JobCommand
 $Command.Name = 'glueetl'
 $Command.ScriptLocation = 's3://amzn-s3-demo-source-bucket/admin/MyTestGlueJob.py'
@@ -326,7 +325,7 @@ New-GlueJob @JobParams
 **Tools for PowerShell V5**  
 **Example 1: This example creates a new job in AWS Glue. The command name value is always `glueetl`. AWS Glue supports running job scripts written in Python or Scala. In this example, the job script (MyTestGlueJob.py) is written in Python. Python parameters are specified in the `$DefArgs` variable, and then passed to the PowerShell command in the `DefaultArguments` parameter, which accepts a hashtable. The parameters in the `$JobParams` variable come from the CreateJob API, documented in the Jobs (https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html) topic of the AWS Glue API reference.**  
 
-```
+```powershell
 $Command = New-Object Amazon.Glue.Model.JobCommand
 $Command.Name = 'glueetl'
 $Command.ScriptLocation = 's3://amzn-s3-demo-source-bucket/admin/MyTestGlueJob.py'
@@ -370,7 +369,7 @@ New-GlueJob @JobParams
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples). 
 
-```
+```python
 class GlueWrapper:
     """Encapsulates AWS Glue actions."""
 
@@ -423,7 +422,7 @@ class GlueWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples). 
 
-```
+```ruby
 # The `GlueWrapper` class serves as a wrapper around the AWS Glue API, providing a simplified interface for common operations.
 # It encapsulates the functionality of the AWS SDK for Glue and provides methods for interacting with Glue crawlers, databases, tables, jobs, and S3 resources.
 # The class initializes with a Glue client and a logger, allowing it to make API calls and log any errors or informational messages.
@@ -465,7 +464,7 @@ class GlueWrapper
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples). 
 
-```
+```rust
         let create_job = glue
             .create_job()
             .name(self.job())
@@ -494,7 +493,7 @@ class GlueWrapper
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples). 
 
-```
+```sap-abap
     TRY.
         " iv_job_name = 'my-etl-job'
         " iv_description = 'ETL job for data transformation'
@@ -537,7 +536,7 @@ class GlueWrapper
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples). 
 
-```
+```swift
 import AWSClientRuntime
 import AWSGlue
 

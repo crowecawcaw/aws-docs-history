@@ -1,13 +1,12 @@
 
 
 # ColumnDataType
-<a name="dqdl-rule-types-ColumnDataType"></a>
 
  Checks if the values in a given column can be cast in Apache Spark to the provided type. Accepts a `with threshold` expression to check for a subset of the values in the column. 
 
  **Syntax** 
 
-```
+```json
 ColumnDataType {{<COL_NAME>}} = {{<EXPECTED_TYPE>}}
 ```
 + **COL\_NAME** – The name of the column that you want to evaluate the data quality rule against.
@@ -28,7 +27,7 @@ ColumnDataType {{<COL_NAME>}} = {{<EXPECTED_TYPE>}}
 
  The following example rule checks whether the values in the given column, which is of type string, can be cast as integers.
 
-```
+```json
 ColumnDataType "colA" = "INTEGER"
 ```
 
@@ -36,6 +35,6 @@ ColumnDataType "colA" = "INTEGER"
 
  The following example rule checks whether more than 90% of the values in the given column, which is of type string, can be cast as integers. 
 
-```
+```json
 ColumnDataType "colA" = "INTEGER" with threshold > 0.9
 ```

@@ -1,7 +1,6 @@
 
 
 # Renaming a field in the dataset
-<a name="transforms-configure-rename-field"></a>
 
 You can use the *RenameField* transform to change the name for an individual property key in the dataset. 
 

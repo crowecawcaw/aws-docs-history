@@ -1,7 +1,6 @@
 
 
 # Configuring Zoom Meetings
-<a name="zoom-meetings-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Zoom Meetings, you must meet these requirements:
 

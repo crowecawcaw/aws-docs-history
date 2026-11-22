@@ -1,7 +1,6 @@
 
 
 # Configuring Teamwork connections
-<a name="teamwork-configuring-connections"></a>
 
 Teamwork connections use basic authentication. You store the credential in Secrets Manager and reference that secret when you create the connection in AWS Glue Studio.
 

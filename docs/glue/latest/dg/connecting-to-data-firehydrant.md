@@ -1,7 +1,6 @@
 
 
 # Connecting to FireHydrant in AWS Glue Studio
-<a name="connecting-to-data-firehydrant"></a>
 
 FireHydrant is an incident-management platform for coordinating alerts, on-call response, automated incident workflows, retrospectives, and service ownership. Because you are a FireHydrant user, you can connect AWS Glue to your FireHydrant account. You can then use FireHydrant as a data source in your AWS Glue ETL jobs to transfer data between FireHydrant and AWS services or other supported applications.
 

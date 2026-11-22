@@ -1,7 +1,6 @@
 
 
 # Configuring Webflow
-<a name="webflow-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Webflow, you must meet the following requirements:
 

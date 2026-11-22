@@ -1,7 +1,6 @@
 
 
 # GetResponse connection options
-<a name="getresponse-connection-options"></a>
 
 The following are connection options for GetResponse:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the GetResponse object to read.

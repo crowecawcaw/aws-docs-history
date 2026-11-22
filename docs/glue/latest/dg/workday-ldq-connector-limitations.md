@@ -1,7 +1,6 @@
 
 
 # Limitations for the Workday Live Data Query connector
-<a name="workday-ldq-connector-limitations"></a>
 
 The following are limitations or notes for the Workday Live Data Query connector:
 + The connector is read-only. You can't use Workday Live Data Query as a target in AWS Glue ETL jobs.

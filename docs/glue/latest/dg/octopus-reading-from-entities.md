@@ -1,7 +1,6 @@
 
 
 # Reading from Octopus Deploy entities
-<a name="octopus-reading-from-entities"></a>
 
 **Prerequisites**
 

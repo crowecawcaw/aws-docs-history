@@ -1,7 +1,6 @@
 
 
 # DynamoDB connections
-<a name="aws-glue-programming-etl-connect-dynamodb-home"></a>
 
 You can use AWS Glue for Spark to read from and write to tables in DynamoDB in AWS Glue. You connect to DynamoDB using IAM permissions attached to your AWS Glue job. AWS Glue supports writing data into another AWS account's DynamoDB table. For more information, see [Cross-account cross-Region access to DynamoDB tables](aws-glue-programming-etl-dynamo-db-cross-account.md).
 

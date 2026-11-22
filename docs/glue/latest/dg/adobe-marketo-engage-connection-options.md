@@ -1,7 +1,6 @@
 
 
 # Adobe Marketo Engage connection options
-<a name="adobe-marketo-engage-connection-options"></a>
 
 The following are connection options for Adobe Marketo Engage:
 + `ENTITY_NAME`(String) - (Required) Used for Read. The name of your object in Adobe Marketo Engage.

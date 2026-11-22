@@ -1,7 +1,6 @@
 
 
 # Configuring Tableau connections
-<a name="tableau-configuring-connections"></a>
 
 Tableau connections authenticate with a credentials token returned by the Tableau REST API sign-in operation. You store the token in Secrets Manager and reference that secret when you create the connection in AWS Glue Studio.
 

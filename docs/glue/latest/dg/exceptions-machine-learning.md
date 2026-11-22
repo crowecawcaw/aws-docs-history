@@ -1,7 +1,6 @@
 
 
 # AWS Glue machine learning exceptions
-<a name="exceptions-machine-learning"></a>
 
 This topic describes HTTP error codes and strings for AWS Glue exceptions related to machine learning. The error codes and error strings are provided for each machine learning activity that may occur when you perform an operation. Also, you can see whether it is possible to retry the operation that resulted in the error.
 

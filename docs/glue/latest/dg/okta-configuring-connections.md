@@ -1,7 +1,6 @@
 
 
 # Configuring Okta connections
-<a name="okta-configuring-connections"></a>
 
  Okta supports two types of authentication mechanisms: 
 +  OAuth auth: Okta supports the `AUTHORIZATION_CODE` grant type. 
@@ -39,7 +38,7 @@ To configure an Okta connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

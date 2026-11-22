@@ -1,7 +1,6 @@
 
 
 # Connecting to LogRocket in AWS Glue Studio
-<a name="connecting-to-data-logrocket"></a>
 
 LogRocket is a session-replay, product-analytics, and error-monitoring platform. Because you are a LogRocket user, you can connect AWS Glue to your LogRocket account. You can then use LogRocket as a data source in your AWS Glue ETL jobs to transfer data between LogRocket and AWS services or other supported applications.
 

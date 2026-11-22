@@ -1,7 +1,6 @@
 
 
 # Reading from Asana entities
-<a name="asana-reading-from-entities"></a>
 
  **Prerequisites** 
 

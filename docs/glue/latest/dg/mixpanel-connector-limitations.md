@@ -1,7 +1,6 @@
 
 
 # Limitations
-<a name="mixpanel-connector-limitations"></a>
 
 The following are limitations for the Mixpanel connector:
 + For `Segmentation Numeric` entity, the Mixpanel API throws a `400 (Bad Request)` error if no numeric data is found for the mandatory filters. We are treating this as an `OK` response to prevent flow failure.

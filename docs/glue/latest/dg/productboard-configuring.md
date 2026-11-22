@@ -1,7 +1,6 @@
 
 
 # Configuring Productboard
-<a name="productboard-configuring"></a>
 
 Before you can use AWS Glue to transfer from Productboard, you must meet the following requirements:
 

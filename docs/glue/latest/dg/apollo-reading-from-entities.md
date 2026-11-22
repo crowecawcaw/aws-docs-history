@@ -1,7 +1,6 @@
 
 
 # Reading from Apollo entities
-<a name="apollo-reading-from-entities"></a>
 
 **Prerequisites**
 

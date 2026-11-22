@@ -1,7 +1,6 @@
 
 
 # AWS Glue worker types
-<a name="worker-types"></a>
 
 ## Overview
 <a name="worker-types-overview"></a>

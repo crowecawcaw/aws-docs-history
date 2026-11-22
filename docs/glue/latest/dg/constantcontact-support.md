@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Constant Contact
-<a name="constantcontact-support"></a>
 
 AWS Glue supports Constant Contact as follows:
 

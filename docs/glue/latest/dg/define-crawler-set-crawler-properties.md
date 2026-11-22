@@ -1,7 +1,6 @@
 
 
 # Step 1: Set crawler properties
-<a name="define-crawler-set-crawler-properties"></a>
 
 **To configure a crawler**
 

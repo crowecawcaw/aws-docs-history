@@ -1,7 +1,6 @@
 
 
 # Managing connectors and connections
-<a name="managing-connectors"></a>
 
 You use the **Connections** page in AWS Glue to manage your connectors and connections.
 

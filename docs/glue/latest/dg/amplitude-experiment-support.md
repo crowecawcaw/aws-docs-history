@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Amplitude Experiment
-<a name="amplitude-experiment-support"></a>
 
 AWS Glue supports Amplitude Experiment as follows:
 

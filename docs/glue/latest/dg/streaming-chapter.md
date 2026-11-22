@@ -1,7 +1,6 @@
 
 
 # AWS Glue Streaming
-<a name="streaming-chapter"></a>
 
 AWS Glue Streaming, a component of AWS Glue, enables you to efficiently handle streaming data in near real-time, empowering you to carry out crucial tasks such as data ingestion, processing, and machine learning. Using the Apache Spark Streaming framework, AWS Glue Streaming provides a serverless service that can handle streaming data at scale. AWS Glue provides various optimizations on top of Apache Spark such as serverless infrastructure, auto-scaling, visual job development, instant-on notebooks for streaming jobs and other performance improvements.
 
@@ -169,7 +168,7 @@ The `--enable-real-time-mode` flag is stored in the `DefaultArguments` map of th
 **To create a new job (AWS CLI)**  
 Run the following command:
 
-```
+```bash
 aws glue create-job \
   --name my-rtm-job \
   --role arn:aws:iam::123456789012:role/MyGlueRole \
@@ -188,7 +187,7 @@ aws glue create-job \
 **To create a new job (boto3)**  
 Use the following code:
 
-```
+```python
 import boto3
 
 glue = boto3.client("glue", region_name="us-east-2")
@@ -215,7 +214,7 @@ glue.create_job(
 **To update an existing job (AWS CLI)**  
 Run the following command:
 
-```
+```bash
 aws glue update-job \
   --job-name my-existing-job \
   --job-update '{
@@ -234,7 +233,7 @@ The job argument declares the intent to use real-time mode. Your script selects 
 
 The following Scala example shows a streaming query that uses `Trigger.RealTime`:
 
-```
+```scala
 import org.apache.spark.sql.streaming.Trigger
 
 val query = df.writeStream
@@ -250,7 +249,7 @@ query.awaitTermination()
 
 You can mix modes in one script as long as the flag is set:
 
-```
+```scala
 dfA.writeStream.outputMode("update").trigger(Trigger.RealTime(60000L)).start()
 dfB.writeStream.outputMode("append").trigger(Trigger.ProcessingTime("30 seconds")).start()
 ```

@@ -1,7 +1,6 @@
 
 
 # Reading from Gusto entities
-<a name="gusto-reading-from-entities"></a>
 
 **Prerequisites**
 

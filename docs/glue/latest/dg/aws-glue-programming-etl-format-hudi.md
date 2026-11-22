@@ -1,7 +1,6 @@
 
 
 # Using the Hudi framework in AWS Glue
-<a name="aws-glue-programming-etl-format-hudi"></a>
 
 AWS Glue 3.0 and later supports Apache Hudi framework for data lakes. Hudi is an open-source data lake storage framework that simplifies incremental data processing and data pipeline development. This topic covers available features for using your data in AWS Glue when you transport or store your data in a Hudi table. To learn more about Hudi, see the official [Apache Hudi documentation](https://hudi.apache.org/docs/overview/). 
 
@@ -51,7 +50,7 @@ This example requires you to set the `--enable-glue-datacatalog` job parameter i
 ------
 #### [ Python ]
 
-```
+```python
 # Example: Create a Hudi table from a DataFrame 
 # and register the table to Glue Data Catalog
 
@@ -83,7 +82,7 @@ dataFrame.write.format("hudi") \
 ------
 #### [ Scala ]
 
-```
+```scala
 // Example: Example: Create a Hudi table from a DataFrame
 // and register the table to Glue Data Catalog
 
@@ -126,7 +125,7 @@ This example requires you to set the `--enable-glue-datacatalog` job parameter i
 
 For this example, use the `GlueContext.create\_data\_frame.from\_catalog()` method.
 
-```
+```python
 # Example: Read a Hudi table from Glue Data Catalog
 
 from awsglue.context import GlueContext
@@ -146,7 +145,7 @@ dataFrame = glueContext.create_data_frame.from_catalog(
 
 For this example, use the [getCatalogSource](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getCatalogSource) method.
 
-```
+```scala
 // Example: Read a Hudi table from Glue Data Catalog
 
 import com.amazonaws.services.glue.GlueContext
@@ -180,7 +179,7 @@ This example requires you to set the `--enable-glue-datacatalog` job parameter i
 
 For this example, use the `GlueContext.write\_data\_frame.from\_catalog()` method.
 
-```
+```python
 # Example: Upsert a Hudi table from Glue Data Catalog
 
 from awsglue.context import GlueContext
@@ -218,7 +217,7 @@ glueContext.write_data_frame.from_catalog(
 
 For this example, use the [getCatalogSink](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getCatalogSink) method.
 
-```
+```scala
 // Example: Upsert a Hudi table from Glue Data Catalog
 
 import com.amazonaws.services.glue.GlueContext
@@ -262,7 +261,7 @@ This example reads a Hudi table from Amazon S3 using the Spark DataFrame API.
 ------
 #### [ Python ]
 
-```
+```python
 # Example: Read a Hudi table from S3 using a Spark DataFrame
 
 dataFrame = spark.read.format("hudi").load("s3://{{<s3path/>}}")
@@ -271,7 +270,7 @@ dataFrame = spark.read.format("hudi").load("s3://{{<s3path/>}}")
 ------
 #### [ Scala ]
 
-```
+```scala
 // Example: Read a Hudi table from S3 using a Spark DataFrame
 
 val dataFrame = spark.read.format("hudi").load("s3://{{<s3path/>}}")
@@ -287,7 +286,7 @@ This example writes a Hudi table to Amazon S3 using Spark.
 ------
 #### [ Python ]
 
-```
+```python
 # Example: Write a Hudi table to S3 using a Spark DataFrame
 
 dataFrame.write.format("hudi") \
@@ -299,7 +298,7 @@ dataFrame.write.format("hudi") \
 ------
 #### [ Scala ]
 
-```
+```scala
 // Example: Write a Hudi table to S3 using a Spark DataFrame
 
 dataFrame.write.format("hudi")

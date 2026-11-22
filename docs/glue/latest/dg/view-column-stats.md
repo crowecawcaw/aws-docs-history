@@ -1,7 +1,6 @@
 
 
 # Viewing column statistics
-<a name="view-column-stats"></a>
 
 After generating the statistics successfully, Data Catalog stores this information for the cost-based optimizers in Amazon Athena and Amazon Redshift to make optimal choices when running queries. The statistics varies based on the type of the column.
 

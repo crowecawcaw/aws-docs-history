@@ -1,7 +1,6 @@
 
 
 # Configuring Freshsales connections
-<a name="freshsales-configuring-connections"></a>
 
 Freshsales supports custom authentication.
 
@@ -28,7 +27,7 @@ To configure a Freshsales connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

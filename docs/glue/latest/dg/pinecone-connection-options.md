@@ -1,7 +1,6 @@
 
 
 # Pinecone connection options
-<a name="pinecone-connection-options"></a>
 
 The following are connection options for Pinecone:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Pinecone object to read.

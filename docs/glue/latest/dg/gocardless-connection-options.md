@@ -1,7 +1,6 @@
 
 
 # GoCardless connection options
-<a name="gocardless-connection-options"></a>
 
 The following are connection options for GoCardless:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the GoCardless object to read.

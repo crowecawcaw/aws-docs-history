@@ -1,7 +1,6 @@
 
 
 # Convert a column to timestamp type
-<a name="transforms-to-timestamp"></a>
 
 You can use the transform *To timestamp* to change the data type of a numeric or string column into timestamp, so that it can be stored with that data type or applied to other transforms that require a timestamp.
 

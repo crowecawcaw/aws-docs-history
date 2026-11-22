@@ -1,7 +1,6 @@
 
 
 # Connecting to Kameleoon in AWS Glue Studio
-<a name="connecting-to-data-kameleoon"></a>
 
 Kameleoon is an experimentation, feature-management, and personalization platform. Because you are a Kameleoon user, you can connect AWS Glue to your Kameleoon account. You can then use Kameleoon as a data source in your AWS Glue ETL jobs to transfer data between Kameleoon and AWS services or other supported applications.
 

@@ -1,7 +1,6 @@
 
 
 # Interactive sessions with IAM
-<a name="glue-is-security"></a>
 
  These sections describe security considerations for AWS Glue interactive sessions. 
 
@@ -48,7 +47,7 @@
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -93,7 +92,7 @@
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -121,7 +120,7 @@
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -154,7 +153,7 @@
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -198,7 +197,7 @@ You can attach the **AWSGlueSessionUserRestrictedPolicy** to IAM roles attached 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

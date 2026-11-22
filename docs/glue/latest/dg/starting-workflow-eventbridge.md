@@ -1,7 +1,6 @@
 
 
 # Starting an AWS Glue workflow with an Amazon EventBridge event
-<a name="starting-workflow-eventbridge"></a>
 
 Amazon EventBridge, also known as CloudWatch Events, enables you to automate your AWS services and respond automatically to system events such as application availability issues or resource changes. Events from AWS services are delivered to EventBridge in near real time. You can write simple rules to indicate which events are of interest to you, and what automated actions to take when an event matches a rule.
 
@@ -31,7 +30,7 @@ In the following commands, replace:
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -68,7 +67,7 @@ In the following commands, replace:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

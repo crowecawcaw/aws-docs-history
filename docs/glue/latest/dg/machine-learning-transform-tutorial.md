@@ -1,7 +1,6 @@
 
 
 # Tutorial: Creating a machine learning transform with AWS Glue
-<a name="machine-learning-transform-tutorial"></a>
 
 This tutorial guides you through the actions to create and manage a machine learning (ML) transform using AWS Glue. Before using this tutorial, you should be familiar with using the AWS Glue console to add crawlers and jobs and edit scripts. You should also be familiar with finding and downloading files on the Amazon Simple Storage Service (Amazon S3) console.
 
@@ -117,7 +116,7 @@ In this step, you use your machine learning transform to add and run a job in AW
 
 1. Edit the script to add a statement to cause the job output to the **Target path** to be written to a single partition file. Add this statement immediately following the statement that runs the `FindMatches` transform. The statement is similar to the following.
 
-   ```
+   ```scala
    val single_partition = findmatches1.repartition(1) 
    ```
 
@@ -125,7 +124,7 @@ In this step, you use your machine learning transform to add and run a job in AW
 
 1. After you edit the script, choose **Save**. The modified script looks similar to the following code, but customized for your environment.
 
-   ```
+   ```scala
    import com.amazonaws.services.glue.GlueContext
    import com.amazonaws.services.glue.errors.CallSite
    import com.amazonaws.services.glue.ml.FindMatches

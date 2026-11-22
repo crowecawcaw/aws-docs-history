@@ -1,7 +1,6 @@
 
 
 # Tutorial: Creating a REST API ConnectionType and Connection
-<a name="rest-api-example"></a>
 
 **Connecting to the Foo REST API**
 

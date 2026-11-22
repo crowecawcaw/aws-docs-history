@@ -1,7 +1,6 @@
 
 
 # Turning on auto upgrade with the console or AWS CLI
-<a name="auto-version-upgrades-turning-on-auto-upgrade-with-the-console-or-aws-cli"></a>
 
 This section describes how to turn on auto upgrade for a new job or an existing job. The `GlueVersion` value is case sensitive. Use lowercase `auto`.
 
@@ -25,7 +24,7 @@ This section describes how to turn on auto upgrade for a new job or an existing 
 
 The following command creates a job with auto upgrade turned on.
 
-```
+```bash
 aws glue create-job \
   --name my-etl-job \
   --role arn:aws:iam::111122223333:role/MyGlueJobRole \
@@ -54,7 +53,7 @@ aws glue create-job \
 
 Set `GlueVersion` to `auto` and `MaxRetries` to 1 or higher. `update-job` replaces the whole job definition, so include every setting that you want to keep.
 
-```
+```bash
 aws glue update-job \
   --job-name my-etl-job \
   --job-update '{
@@ -81,6 +80,6 @@ To stop using auto upgrade on a job, set `GlueVersion` to a specific version. Fo
 
 To remove a job that you created only to try auto upgrade, delete the job. For example, run the following command.
 
-```
+```bash
 aws glue delete-job --job-name my-etl-job
 ```

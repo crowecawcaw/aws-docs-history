@@ -1,7 +1,6 @@
 
 
 # Reading from Facebook Page Insights entities
-<a name="facebook-page-insights-reading-from-entities"></a>
 
 **Prerequisite**
 

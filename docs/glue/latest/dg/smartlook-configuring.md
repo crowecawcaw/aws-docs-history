@@ -1,7 +1,6 @@
 
 
 # Configuring Smartlook
-<a name="smartlook-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Smartlook, you must meet the following requirements:
 

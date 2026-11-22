@@ -1,7 +1,6 @@
 
 
 # Registering a blueprint in AWS Glue
-<a name="registering-blueprints"></a>
 
 After the AWS Glue developer has coded the blueprint and uploaded a ZIP archive to Amazon Simple Storage Service (Amazon S3), an AWS Glue administrator must register the blueprint. Registering the blueprint makes it available for use.
 
@@ -33,7 +32,7 @@ You can register a blueprint by using the AWS Glue console, AWS Glue API, or AWS
 
 1. If the status is `FAILED`, select the blueprint, and on the **Actions** menu, choose **View**.
 
-   The detail page shows the reason for the failure. If the error message is "Unable to access object at location..." or "Access denied on object at location...", review the following requirements:
+   The detail page shows the reason for the failure. If the error message is `"Unable to access object at location..."` or `"Access denied on object at location..."`, review the following requirements:
    + The user that you are signed in as must have read permission on the blueprint ZIP archive in Amazon S3.
    + The Amazon S3 bucket that contains the ZIP archive must have a bucket policy that grants read permission on the object to your AWS account ID. For more information, see [Developing blueprints in AWS Glue](developing-blueprints.md).
    + The Amazon S3 bucket that you're using must be in the same Region as the Region that you're signed into on the console.
@@ -56,7 +55,7 @@ You can register a blueprint by using the AWS Glue console, AWS Glue API, or AWS
    aws glue get-blueprint --name {{<blueprint-name>}}
    ```
 
-   If the status is `FAILED` and the error message is "Unable to access object at location..." or "Access denied on object at location...", review the following requirements:
+   If the status is `FAILED` and the error message is `"Unable to access object at location..."` or `"Access denied on object at location..."`, review the following requirements:
    + The user that you are signed in as must have read permission on the blueprint ZIP archive in Amazon S3.
    + The Amazon S3 bucket containing the ZIP archive must have a bucket policy that grants read permission on the object to your AWS account ID. For more information, see [Publishing a blueprint](developing-blueprints-publishing.md).
    + The Amazon S3 bucket that you're using must be in the same Region as the Region that you're signed into on the console.

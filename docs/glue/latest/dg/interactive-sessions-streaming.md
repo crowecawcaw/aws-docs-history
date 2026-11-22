@@ -1,7 +1,6 @@
 
 
 # Working with streaming operations in AWS Glue interactive sessions
-<a name="interactive-sessions-streaming"></a>
 
 ## Switching streaming session type
 <a name="interactive-sessions-switching-streaming-session-type"></a>

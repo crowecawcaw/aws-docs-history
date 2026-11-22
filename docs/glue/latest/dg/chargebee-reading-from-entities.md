@@ -1,7 +1,6 @@
 
 
 # Reading from Chargebee entities
-<a name="chargebee-reading-from-entities"></a>
 
 **Prerequisites**
 

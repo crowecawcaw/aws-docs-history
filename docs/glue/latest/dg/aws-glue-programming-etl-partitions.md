@@ -1,7 +1,6 @@
 
 
 # Managing partitions for ETL output in AWS Glue
-<a name="aws-glue-programming-etl-partitions"></a>
 
 Partitioning is an important technique for organizing datasets so they can be queried efficiently. It organizes data in a hierarchical directory structure based on the distinct values of one or more columns.
 
@@ -24,7 +23,7 @@ In many cases, you can use a pushdown predicate to filter on partitions without 
 
 For example, in Python, you could write the following.
 
-```
+```python
 glue_context.create_dynamic_frame.from_catalog(
     database = "my_S3_data_set",
     table_name = "catalog_data_table",
@@ -75,7 +74,7 @@ By default, a DynamicFrame is not partitioned when it is written. All of the out
 
 However, DynamicFrames now support native partitioning using a sequence of keys, using the `partitionKeys` option when you create a sink. For example, the following Python code writes out a dataset to Amazon S3 in the Parquet format, into directories partitioned by the type field. From there, you can process these partitions using other systems, such as Amazon Athena.
 
-```
+```python
 glue_context.write_dynamic_frame.from_options(
     frame = projectedEvents,
     connection_type = "s3",    

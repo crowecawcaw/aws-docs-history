@@ -1,7 +1,6 @@
 
 
 # Reading from Kommo entities
-<a name="kommo-reading-from-entities"></a>
 
 **Prerequisites**
 

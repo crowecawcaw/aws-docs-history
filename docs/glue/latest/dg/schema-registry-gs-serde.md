@@ -1,7 +1,6 @@
 
 
 # Installing SerDe Libraries
-<a name="schema-registry-gs-serde"></a>
 
 The SerDe libraries provide a framework for serializing and deserializing data. 
 

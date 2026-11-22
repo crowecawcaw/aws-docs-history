@@ -1,7 +1,6 @@
 
 
 # Connecting to Zoho Desk in AWS Glue Studio
-<a name="connecting-to-data-zohodesk"></a>
 
 Zoho Desk is a customer-support help desk. Because you are a Zoho Desk user, you can connect AWS Glue to your Zoho Desk account. You can then use Zoho Desk as a data source in your AWS Glue ETL jobs to transfer data between Zoho Desk and AWS services or other supported applications.
 

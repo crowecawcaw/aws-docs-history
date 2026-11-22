@@ -1,7 +1,6 @@
 
 
 # Connecting to Anthropic in AWS Glue Studio
-<a name="connecting-to-data-anthropic"></a>
 
 Anthropic is an AI safety and research company that builds Claude, a family of large language models accessed through the Anthropic API. Because you are an Anthropic user, you can connect AWS Glue to your Anthropic account. You can then use Anthropic as a data source in your AWS Glue ETL jobs to transfer data between Anthropic and AWS services or other supported applications.
 

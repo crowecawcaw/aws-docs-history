@@ -1,7 +1,6 @@
 
 
 # Monitoring an integration
-<a name="zero-etl-monitoring"></a>
 
 
 
@@ -25,7 +24,7 @@ When creating your integration, the following IAM permissions are needed by the 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

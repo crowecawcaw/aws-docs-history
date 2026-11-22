@@ -1,7 +1,6 @@
 
 
 # Configuring Intercom
-<a name="intercom-configuring"></a>
 
 Before you can use AWS Glue to transfer from Intercom, you must meet these requirements:
 

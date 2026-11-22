@@ -1,7 +1,6 @@
 
 
 # DevRev connection options
-<a name="devrev-connection-options"></a>
 
 The following are connection options for DevRev:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the DevRev object to read.

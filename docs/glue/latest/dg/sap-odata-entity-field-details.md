@@ -1,7 +1,6 @@
 
 
 # SAP OData entity and field details
-<a name="sap-odata-entity-field-details"></a>
 
 
 

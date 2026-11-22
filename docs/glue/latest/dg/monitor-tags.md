@@ -1,7 +1,6 @@
 
 
 # AWS tags in AWS Glue
-<a name="monitor-tags"></a>
 
 To help you manage your AWS Glue resources, you can optionally assign your own tags to some AWS Glue resource types. A tag is a label that you assign to an AWS resource. Each tag consists of a key and an optional value, both of which you define. You can use tags in AWS Glue to organize and identify your resources. Tags can be used to create cost accounting reports and restrict access to resources. If you're using AWS Identity and Access Management, you can control which users in your AWS account have permission to create, edit, or delete tags. In addition to the permissions to call the tag-related APIs, you also need the `glue:GetConnection` permission to call tagging APIs on connections, and the `glue:GetDatabase` permission to call tagging APIs on databases. For more information, see [ABAC with AWS Glue](security_iam_service-with-iam.md#security_iam_service-with-iam-tags). 
 
@@ -17,6 +16,7 @@ In AWS Glue, you can tag the following resources:
 + Blueprint
 + Machine learning transform
 + Data quality ruleset
++ Data quality evaluation configuration
 + Stream schemas
 + Stream schema registries
 
@@ -71,7 +71,7 @@ aws glue create-job --name job-test-tags --role MyJobRole --command Name=glueetl
 
 **CloudFormation JSON**
 
-```
+```json
 {
   "Description": "AWS Glue Job Test Tags",
   "Resources": {

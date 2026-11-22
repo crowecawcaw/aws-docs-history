@@ -1,7 +1,6 @@
 
 
 # Using FindMatches in a visual job
-<a name="find-matches-visual-job"></a>
 
  To use the **FindMatches** transform in AWS Glue Studio, you can use the **Custom Transform** node that invokes the FindMatches API. For more information on how to use a custom transform, see [Creating a custom transformation](https://docs.aws.amazon.com/glue/latest/ug/transforms-custom.html) 
 

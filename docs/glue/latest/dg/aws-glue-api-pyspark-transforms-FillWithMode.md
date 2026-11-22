@@ -1,7 +1,6 @@
 
 
 # FillWithMode class
-<a name="aws-glue-api-pyspark-transforms-FillWithMode"></a>
 
  The `FillWithMode` transform formats a column according to the phone numberformat you specify. You can also specify tie-breaker logic, where some of the values are identical. For example, consider the following values: `1 2 2 3 3 4` 
 

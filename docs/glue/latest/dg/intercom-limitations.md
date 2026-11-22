@@ -1,7 +1,6 @@
 
 
 # Limitations
-<a name="intercom-limitations"></a>
 
 The following are limitations for the Intercom connector:
 +  When using the Company entity, there is a limit of 10,000 Companies that can be returned. For more information, see [ List all companies API](https://developers.intercom.com/docs/references/2.5/rest-api/companies/list-companies). 

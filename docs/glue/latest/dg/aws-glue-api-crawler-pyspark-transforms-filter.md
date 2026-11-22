@@ -1,7 +1,6 @@
 
 
 # Filter class
-<a name="aws-glue-api-crawler-pyspark-transforms-filter"></a>
 
 Builds a new `DynamicFrame` that contains records from the input `DynamicFrame` that satisfy a specified predicate function.
 

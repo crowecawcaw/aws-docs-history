@@ -1,7 +1,6 @@
 
 
 # Parameters set on Data Catalog tables by crawler
-<a name="table-properties-crawler"></a>
 
  These table properties are set by AWS Glue crawlers. We expect users to consume the `classification` and `compressionType` properties. Other properties, including table size estimates, are used for internal calculations, and we do not guarantee their accuracy or applicability to customer use cases. Changing these parameters may alter the behavior of the crawler, we do not support this workflow. 
 

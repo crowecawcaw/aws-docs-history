@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the LaunchDarkly connector
-<a name="launchdarkly-connector-limitations"></a>
 
 The following are limitations and notes for the LaunchDarkly connector:
 + LaunchDarkly is supported as a source only. Writing to LaunchDarkly is not supported.

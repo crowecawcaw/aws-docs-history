@@ -1,7 +1,6 @@
 
 
 # Configuring Microsoft Teams
-<a name="microsoft-teams-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Microsoft Teams, you must meet these requirements:
 

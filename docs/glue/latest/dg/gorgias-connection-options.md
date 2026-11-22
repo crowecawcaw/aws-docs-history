@@ -1,7 +1,6 @@
 
 
 # Gorgias connection options
-<a name="gorgias-connection-options"></a>
 
 The following are connection options for Gorgias:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Gorgias object to read.

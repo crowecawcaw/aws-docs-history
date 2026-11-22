@@ -1,7 +1,6 @@
 
 
 # Snapchat Ads connection options
-<a name="snapchat-ads-connection-options"></a>
 
 The following are connection options for Snapchat Ads:
 +  `ENTITY_NAME`(String) - (Required) Used for Read. The name of Snapchat Ads entity. Example: ` campaign `. 

@@ -1,7 +1,6 @@
 
 
 # Reading from Zoho Desk entities
-<a name="zohodesk-reading-from-entities"></a>
 
 **Prerequisites**
 

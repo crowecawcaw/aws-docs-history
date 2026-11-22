@@ -1,7 +1,6 @@
 
 
 # Examples of custom visual scripts
-<a name="custom-visual-transform-example-scripts"></a>
 
  The following examples perform equivalent transformations. However, the second example (SparkSQL) is the cleanest and most efficient, followed by the Pandas UDF and finally the low level mapping in the first example. The following example is a complete example of a simple transformation to add up two columns: 
 

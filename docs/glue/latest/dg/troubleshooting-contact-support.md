@@ -1,7 +1,6 @@
 
 
 # Gathering AWS Glue troubleshooting information
-<a name="troubleshooting-contact-support"></a>
 
 If you encounter errors or unexpected behavior in AWS Glue and need to contact AWS Support, you should first gather information about names, IDs, and logs that are associated with the failed action. Having this information available enables Support to help you resolve the problems you're experiencing. 
 

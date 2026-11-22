@@ -1,7 +1,6 @@
 
 
 # Logging for AWS Glue jobs
-<a name="monitor-continuous-logging"></a>
 
  In AWS Glue 5.0, all jobs have real-time logging capabilities. Additionally, you can specify custom configuration options to tailor the logging behavior. These options include setting the Amazon CloudWatch log group name, the Amazon CloudWatch log stream prefix (which will precede the AWS Glue job run ID and driver/executor ID), and the log conversion pattern for log messages. These configurations allow you to aggregate logs in custom Amazon CloudWatch log groups with different expiration policies. Furthermore, you can analyze the logs more effectively by using custom log stream prefixes and conversion patterns. This level of customization enables you to optimize log management and analysis according to your specific requirements. 
 

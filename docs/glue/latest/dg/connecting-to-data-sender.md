@@ -1,7 +1,6 @@
 
 
 # Connecting to Sender in AWS Glue Studio
-<a name="connecting-to-data-sender"></a>
 
 Sender.net is an email \+ SMS marketing automation platform. Because you are a Sender user, you can connect AWS Glue to your Sender account. You can then use Sender as a data source in your AWS Glue ETL jobs to transfer data between Sender and AWS services or other supported applications.
 

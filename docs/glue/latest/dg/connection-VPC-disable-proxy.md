@@ -1,7 +1,6 @@
 
 
 # Configuring AWS calls to go through your VPC
-<a name="connection-VPC-disable-proxy"></a>
 
  The special job parameter `disable-proxy-v2` allows you to route your calls to services such as Amazon S3, CloudWatch, and AWS Glue through your VPC. By default, AWS Glue uses a local proxy to send traffic through the AWS Glue VPC to download scripts and libraries from Amazon S3, to send requests to CloudWatch for publishing logs and metrics, and to send requests to AWS Glue for accessing data catalogs. This proxy allows the job to function normally even if your VPC doesn't configure a proper route to other AWS services, such as Amazon S3, CloudWatch, and AWS Glue. AWS Glue now offers a parameter for you to turn off this behavior. For more information, see [ Job parameters used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html). AWS Glue will continue to use local proxy for publishing CloudWatch logs of your AWS Glue jobs. 
 

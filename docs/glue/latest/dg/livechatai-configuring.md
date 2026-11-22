@@ -1,7 +1,6 @@
 
 
 # Configuring LiveChatAI
-<a name="livechatai-configuring"></a>
 
 Before you can use AWS Glue to transfer data from LiveChatAI, you must meet the following requirements:
 

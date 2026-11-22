@@ -1,7 +1,6 @@
 
 
 # Brex connection options
-<a name="brex-connection-options"></a>
 
 The following are connection options for Brex:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Brex object to read.

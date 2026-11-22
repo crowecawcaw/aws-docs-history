@@ -1,7 +1,6 @@
 
 
 # Configuring dbt Cloud
-<a name="dbt-configuring"></a>
 
 Before you can use AWS Glue to transfer data from dbt Cloud, you must meet the following requirements:
 

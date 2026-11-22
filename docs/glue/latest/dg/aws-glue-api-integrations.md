@@ -1,7 +1,6 @@
 
 
 # Integration APIs in AWS Glue
-<a name="aws-glue-api-integrations"></a>
 
 ## Data types
 <a name="aws-glue-api-integrations-objects"></a>
@@ -15,6 +14,10 @@
 + [TargetProcessingProperties structure](#aws-glue-api-integrations-TargetProcessingProperties)
 + [SourceTableConfig structure](#aws-glue-api-integrations-SourceTableConfig)
 + [TargetTableConfig structure](#aws-glue-api-integrations-TargetTableConfig)
++ [IntegrationTableProperties structure](#aws-glue-api-integrations-IntegrationTableProperties)
++ [IntegrationTablePropertiesFilter structure](#aws-glue-api-integrations-IntegrationTablePropertiesFilter)
++ [IntegrationResourceProperty structure](#aws-glue-api-integrations-IntegrationResourceProperty)
++ [IntegrationResourcePropertyFilter structure](#aws-glue-api-integrations-IntegrationResourcePropertyFilter)
 
 ## Integration structure
 <a name="aws-glue-api-integrations-Integration"></a>
@@ -92,6 +95,11 @@ Properties associated with the integration.
 + `ContinuousSync` – Boolean.
 
   Enables continuous synchronization for on-demand data extractions from SaaS applications to AWS data services like Amazon Redshift and Amazon S3.
++ `TargetNamespace` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #81](aws-glue-api-common.md#regex_81).
+
+  An optional custom namespace for the integration's target. Supply this parameter only when the target is an Amazon S3 Tables table bucket; it is not accepted for other target types. The integration replicates data into the namespace you specify, reusing it if it already exists. If you omit this parameter, the target namespace defaults to `zetl_` followed by the integration ID, with hyphens converted to underscores.
+
+  The value is immutable after the integration is created; `ModifyIntegration` rejects changes to it. It must be a valid Amazon S3 Tables namespace name: 1 to 255 characters using lowercase letters, numbers, and underscores, with no leading or trailing underscore and no reserved `aws` prefix.
 
 ## IntegrationPartition structure
 <a name="aws-glue-api-integrations-IntegrationPartition"></a>
@@ -248,6 +256,73 @@ Properties used by the target leg to partition the data on the target.
 + `TargetTableName` – UTF-8 string, not less than 1 or more than 128 bytes long.
 
   The optional name of a target table.
++ `IntegrationArn` – UTF-8 string, not less than 1 or more than 128 bytes long.
+
+  The ARN of the integration that owns this target table configuration.
+
+## IntegrationTableProperties structure
+<a name="aws-glue-api-integrations-IntegrationTableProperties"></a>
+
+The properties of a single integration table, including the resource ARN, the table name, and the source or target table configuration.
+
+**Fields**
++ `ResourceArn` – *Required:* UTF-8 string, not less than 1 or more than 512 bytes long.
+
+  The connection ARN of the source, or the database ARN of the target.
++ `TableName` – *Required:* UTF-8 string, not less than 1 or more than 128 bytes long.
+
+  The name of the source table to be replicated.
++ `SourceTableConfig` – A [SourceTableConfig](#aws-glue-api-integrations-SourceTableConfig) object.
+
+  A structure for the source table configuration.
++ `TargetTableConfig` – A [TargetTableConfig](#aws-glue-api-integrations-TargetTableConfig) object.
+
+  A structure for the target table configuration.
+
+## IntegrationTablePropertiesFilter structure
+<a name="aws-glue-api-integrations-IntegrationTablePropertiesFilter"></a>
+
+A key-value filter used to narrow the list of integration table properties returned by ListIntegrationTableProperties. Specify a filter key and one or more values to match.
+
+**Fields**
++ `Name` – UTF-8 string, not less than 1 or more than 128 bytes long.
+
+  The name of the filter. Supported filter keys are `SourceArn`, `TargetArn`, `SourceTableName`, and `TargetTableName`.
++ `Values` – An array of UTF-8 strings.
+
+  A list of filter values.
+
+## IntegrationResourceProperty structure
+<a name="aws-glue-api-integrations-IntegrationResourceProperty"></a>
+
+A structure representing an integration resource property.
+
+**Fields**
++ `ResourceArn` – *Required:* UTF-8 string, not less than 1 or more than 512 bytes long.
+
+  The connection ARN of the source, or the database ARN of the target.
++ `ResourcePropertyArn` – UTF-8 string, not less than 1 or more than 512 bytes long.
+
+  The resource ARN created through this create API. The format is something like arn:aws:glue:<region>:<account\_id>:integrationresourceproperty/\*
++ `SourceProcessingProperties` – A [SourceProcessingProperties](#aws-glue-api-integrations-SourceProcessingProperties) object.
+
+  The resource properties associated with the integration source.
++ `TargetProcessingProperties` – A [TargetProcessingProperties](#aws-glue-api-integrations-TargetProcessingProperties) object.
+
+  The resource properties associated with the integration target.
+
+## IntegrationResourcePropertyFilter structure
+<a name="aws-glue-api-integrations-IntegrationResourcePropertyFilter"></a>
+
+A filter for integration resource properties.
+
+**Fields**
++ `Name` – UTF-8 string, not less than 1 or more than 128 bytes long.
+
+  The name of the filter. Supported filter keys are `SourceArn` and `TargetArn`.
++ `Values` – An array of UTF-8 strings.
+
+  A list of filter values.
 
 ## Operations
 <a name="aws-glue-api-integrations-actions"></a>
@@ -260,9 +335,12 @@ Properties used by the target leg to partition the data on the target.
 + [UpdateIntegrationTableProperties action (Python: update\_integration\_table\_properties)](#aws-glue-api-integrations-UpdateIntegrationTableProperties)
 + [GetIntegrationTableProperties action (Python: get\_integration\_table\_properties)](#aws-glue-api-integrations-GetIntegrationTableProperties)
 + [DeleteIntegrationTableProperties action (Python: delete\_integration\_table\_properties)](#aws-glue-api-integrations-DeleteIntegrationTableProperties)
++ [ListIntegrationTableProperties action (Python: list\_integration\_table\_properties)](#aws-glue-api-integrations-ListIntegrationTableProperties)
 + [CreateIntegrationResourceProperty action (Python: create\_integration\_resource\_property)](#aws-glue-api-integrations-CreateIntegrationResourceProperty)
 + [UpdateIntegrationResourceProperty action (Python: update\_integration\_resource\_property)](#aws-glue-api-integrations-UpdateIntegrationResourceProperty)
 + [GetIntegrationResourceProperty action (Python: get\_integration\_resource\_property)](#aws-glue-api-integrations-GetIntegrationResourceProperty)
++ [ListIntegrationResourceProperties action (Python: list\_integration\_resource\_properties)](#aws-glue-api-integrations-ListIntegrationResourceProperties)
++ [DeleteIntegrationResourceProperty action (Python: delete\_integration\_resource\_property)](#aws-glue-api-integrations-DeleteIntegrationResourceProperty)
 + [UntagResource action (Python: untag\_resource)](#aws-glue-api-integrations-UntagResource)
 + [ListTagsForResource action (Python: list\_tags\_for\_resource)](#aws-glue-api-integrations-ListTagsForResource)
 
@@ -734,6 +812,39 @@ Deletes the table properties that have been created for the tables that need to 
 + `InternalServiceException`
 + `InvalidInputException`
 
+## ListIntegrationTableProperties action (Python: list\_integration\_table\_properties)
+<a name="aws-glue-api-integrations-ListIntegrationTableProperties"></a>
+
+Lists the integration table properties in your account. This operation supports filtering and pagination.
+
+**Request**
++ `Marker` – UTF-8 string, not less than 1 or more than 4096 bytes long.
+
+  The pagination token for the next page of results. The initial value is `null`.
++ `Filters` – An array of [IntegrationTablePropertiesFilter](#aws-glue-api-integrations-IntegrationTablePropertiesFilter) objects.
+
+  A list of filters. Supported filter keys are `SourceArn`, `TargetArn`, `SourceTableName`, and `TargetTableName`.
++ `MaxRecords` – Number (integer).
+
+  The maximum number of records to return in the response.
+
+**Response**
++ `IntegrationTablePropertiesList` – An array of [IntegrationTableProperties](#aws-glue-api-integrations-IntegrationTableProperties) objects.
+
+  A list of integration table properties meeting the filter criteria.
++ `Marker` – UTF-8 string, not less than 1 or more than 4096 bytes long.
+
+  The pagination token for the next page. Returns `null` if there are no more results.
+
+**Errors**
++ `ValidationException`
++ `AccessDeniedException`
++ `ResourceNotFoundException`
++ `InternalServerException`
++ `EntityNotFoundException`
++ `InternalServiceException`
++ `InvalidInputException`
+
 ## CreateIntegrationResourceProperty action (Python: create\_integration\_resource\_property)
 <a name="aws-glue-api-integrations-CreateIntegrationResourceProperty"></a>
 
@@ -839,6 +950,61 @@ This API is used for fetching the `ResourceProperty` of the AWS Glue connection 
 + `TargetProcessingProperties` – A [TargetProcessingProperties](#aws-glue-api-integrations-TargetProcessingProperties) object.
 
   The resource properties associated with the integration target.
+
+**Errors**
++ `ValidationException`
++ `AccessDeniedException`
++ `InternalServerException`
++ `ResourceNotFoundException`
++ `EntityNotFoundException`
++ `InternalServiceException`
++ `InvalidInputException`
+
+## ListIntegrationResourceProperties action (Python: list\_integration\_resource\_properties)
+<a name="aws-glue-api-integrations-ListIntegrationResourceProperties"></a>
+
+List integration resource properties for a single customer. It supports the filters, maxRecords and markers.
+
+**Request**
++ `Marker` – UTF-8 string, not less than 1 or more than 4096 bytes long.
+
+  This is the pagination token for next page, initial value is `null`.
++ `Filters` – An array of [IntegrationResourcePropertyFilter](#aws-glue-api-integrations-IntegrationResourcePropertyFilter) objects.
+
+  A list of filters, supported filter Key is `SourceArn` and `TargetArn`.
++ `MaxRecords` – Number (integer).
+
+  This is total number of items to be evaluated.
+
+**Response**
++ `IntegrationResourcePropertyList` – An array of [IntegrationResourceProperty](#aws-glue-api-integrations-IntegrationResourceProperty) objects.
+
+  A list of integration resource property meeting the filter criteria.
++ `Marker` – UTF-8 string, not less than 1 or more than 4096 bytes long.
+
+  This is the pagination token for the next page.
+
+**Errors**
++ `ValidationException`
++ `AccessDeniedException`
++ `InternalServerException`
++ `ResourceNotFoundException`
++ `EntityNotFoundException`
++ `InternalServiceException`
++ `InvalidInputException`
+
+## DeleteIntegrationResourceProperty action (Python: delete\_integration\_resource\_property)
+<a name="aws-glue-api-integrations-DeleteIntegrationResourceProperty"></a>
+
+This API is used for deleting the `ResourceProperty` of the AWS Glue connection (for the source) or AWS Glue database ARN (for the target).
+
+**Request**
++ `ResourceArn` – *Required:* UTF-8 string, not less than 1 or more than 512 bytes long.
+
+  The connection ARN of the source, or the database ARN of the target.
+
+**Response**
++ *No Response parameters.*
 
 **Errors**
 + `ValidationException`

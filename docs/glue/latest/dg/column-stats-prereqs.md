@@ -1,7 +1,6 @@
 
 
 # Prerequisites for generating column statistics
-<a name="column-stats-prereqs"></a>
 
 To generate or update column statistics, the statistics generation task assumes an AWS Identity and Access Management (IAM) role on your behalf. Based on the permissions granted to the role, the column statistics generation task can read the data from the Amazon S3 data store.
 
@@ -35,7 +34,7 @@ In the following policies, replace account ID with a valid AWS account, and repl
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -64,7 +63,7 @@ In the following policies, replace account ID with a valid AWS account, and repl
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -95,7 +94,7 @@ In the following policies, replace account ID with a valid AWS account, and repl
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -144,7 +143,7 @@ In the following policies, replace account ID with a valid AWS account, and repl
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -170,7 +169,7 @@ In the following policies, replace account ID with a valid AWS account, and repl
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

@@ -1,7 +1,6 @@
 
 
 # TestRail connection options
-<a name="testrail-connection-options"></a>
 
 The following are connection options for TestRail:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the TestRail object to read.

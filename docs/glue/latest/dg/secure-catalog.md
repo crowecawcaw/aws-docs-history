@@ -1,7 +1,6 @@
 
 
 # Securing your Data Catalog using Lake Formation
-<a name="secure-catalog"></a>
 
  AWS Lake Formation is a service that makes it easier to set up a secure data lake in AWS. It provides a central place to create and securely manage your data lakes by defining fine-granied access control permissions. Lake Formation uses the Data Catalog to store and retrieve metadata about your data lake, such as table definitions, schema information, and data access control settings.
 

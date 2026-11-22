@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Salesforce Marketing Cloud Account Engagement
-<a name="salesforce-marketing-cloud-account-engagement-support"></a>
 
 AWS Glue supports Salesforce Marketing Cloud Account Engagement as follows:
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Rollbar entities
-<a name="rollbar-reading-from-entities"></a>
 
 **Prerequisites**
 

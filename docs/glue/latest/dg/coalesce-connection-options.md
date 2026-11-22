@@ -1,7 +1,6 @@
 
 
 # Coalesce connection options
-<a name="coalesce-connection-options"></a>
 
 The following are connection options for Coalesce:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Coalesce object to read.

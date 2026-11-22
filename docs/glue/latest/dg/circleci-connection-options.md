@@ -1,7 +1,6 @@
 
 
 # CircleCI connection options
-<a name="circleci-connection-options"></a>
 
 The following are connection options for CircleCI:
 + `ENTITY_NAME`(String) - (Required) Used for Read. The name of your object in CircleCI.

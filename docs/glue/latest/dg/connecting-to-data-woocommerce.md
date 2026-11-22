@@ -1,7 +1,6 @@
 
 
 # Connecting to WooCommerce
-<a name="connecting-to-data-woocommerce"></a>
 
 WooCommerce is an open-source flexible software solution built for WordPress-based websites. It's commonly used to create online e-commerce shops. With this software solution, anyone can turn their regular website into a fully-functioning online store.
 

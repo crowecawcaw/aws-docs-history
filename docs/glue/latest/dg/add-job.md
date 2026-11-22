@@ -1,7 +1,6 @@
 
 
 # Configuring job properties for Spark jobs in AWS Glue
-<a name="add-job"></a>
 
 When you define your job on the AWS Glue console, you provide values for properties to control the AWS Glue runtime environment. 
 

@@ -1,7 +1,6 @@
 
 
 # Configuring Pipedrive
-<a name="pipedrive-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Pipedrive, you must meet these requirements:
 

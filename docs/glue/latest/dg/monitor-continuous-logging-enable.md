@@ -1,7 +1,6 @@
 
 
 # Enabling continuous logging for AWS Glue 4.0 and earlier jobs
-<a name="monitor-continuous-logging-enable"></a>
 
 **Note**  
  In AWS Glue 4.0 and earlier versions, continuous logging was an available feature. However, with the introduction of AWS Glue 5.0, all jobs have real-time logging capability. For more details on the logging capabilities and configuration options in AWS Glue 5.0, see [Logging for AWS Glue jobs](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuous-logging.html). 

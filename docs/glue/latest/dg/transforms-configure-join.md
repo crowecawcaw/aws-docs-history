@@ -1,7 +1,6 @@
 
 
 # Joining datasets
-<a name="transforms-configure-join"></a>
 
 The *Join* transform allows you to combine two datasets into one. You specify the key names in the schema of each dataset to compare. The output `DynamicFrame` contains rows where keys meet the join condition. The rows in each dataset that meet the join condition are combined into a single row in the output `DynamicFrame` that contains all the columns found in either dataset.
 

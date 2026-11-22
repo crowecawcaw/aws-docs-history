@@ -1,7 +1,6 @@
 
 
 # EvaluateDataQuality class
-<a name="glue-etl-scala-apis-glue-dq-EvaluateDataQuality"></a>
 
 
 |  | 

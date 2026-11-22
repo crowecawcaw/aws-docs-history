@@ -1,7 +1,6 @@
 
 
 # Reading from Sender entities
-<a name="sender-reading-from-entities"></a>
 
 **Prerequisites**
 

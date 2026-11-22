@@ -1,7 +1,6 @@
 
 
 # Extracting string fragments using a regular expression
-<a name="transforms-regex-extractor"></a>
 
 This transform extracts string fragments using a regular expression and creates a new column out of it, or multiple columns if using regex groups.
 

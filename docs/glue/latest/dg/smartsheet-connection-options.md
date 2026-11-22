@@ -1,7 +1,6 @@
 
 
 # Smartsheet connection options
-<a name="smartsheet-connection-options"></a>
 
 The following are connection options for Smartsheet:
 + `ENTITY_NAME`(String) – (Required) Used for Read/Write. The name of your Object in Smartsheet. 

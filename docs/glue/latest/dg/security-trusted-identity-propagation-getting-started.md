@@ -1,7 +1,6 @@
 
 
 # Getting started with trusted identity propagation in AWS Glue ETL
-<a name="security-trusted-identity-propagation-getting-started"></a>
 
 This section helps you configure AWS Glue application with interactive sessions to integrate with IAM Identity Center and enable [Trusted identity propagation](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html). 
 
@@ -21,7 +20,7 @@ The role that creates IAM Identity Center connection requires permissions to cre
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -55,7 +54,7 @@ Use the following inline policy to allow an IAM role to view a AWS Glue integrat
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -81,7 +80,7 @@ Use the following inline policy to allow an IAM role to update AWS Glue integrat
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -109,7 +108,7 @@ Use the following inline policy to allow an IAM role to delete a AWS Glue integr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -195,7 +194,7 @@ After you connect AWS Glue with IAM Identity Center, you can use [ identity-enha
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

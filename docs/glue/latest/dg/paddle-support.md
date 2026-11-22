@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Paddle
-<a name="paddle-support"></a>
 
 AWS Glue supports Paddle as follows:
 

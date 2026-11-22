@@ -1,7 +1,6 @@
 
 
 # Connecting to Contentful in AWS Glue Studio
-<a name="connecting-to-data-contentful"></a>
 
 Contentful is a headless content management system. Because you are a Contentful user, you can connect AWS Glue to your Contentful account. You can then use Contentful as a data source in your AWS Glue ETL jobs to transfer data between Contentful and AWS services or other supported applications.
 

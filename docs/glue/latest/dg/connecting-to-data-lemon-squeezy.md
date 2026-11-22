@@ -1,7 +1,6 @@
 
 
 # Connecting to Lemon Squeezy in AWS Glue Studio
-<a name="connecting-to-data-lemon-squeezy"></a>
 
 Lemon Squeezy is a merchant-of-record platform for digital products, subscriptions, checkouts, and software licenses. Because you are a Lemon Squeezy user, you can connect AWS Glue to your Lemon Squeezy account. You can then use Lemon Squeezy as a data source in your AWS Glue ETL jobs to transfer data between Lemon Squeezy and AWS services or other supported applications.
 

@@ -1,7 +1,6 @@
 
 
 # Nuclino connection options
-<a name="nuclino-connection-options"></a>
 
 The following are connection options for Nuclino:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Nuclino object to read.

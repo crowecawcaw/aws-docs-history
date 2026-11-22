@@ -1,7 +1,6 @@
 
 
 # Generating column statistics on demand
-<a name="column-stats-on-demand"></a>
 
 You can run the column statistics task for the AWS Glue Data Catalog tables task on-demand without a set schedule. This option is useful for ad-hoc analysis or when statistics need to be computed immediately.
 

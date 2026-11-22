@@ -1,7 +1,6 @@
 
 
 # Supported data sources for crawling
-<a name="crawler-data-stores"></a>
 
 Crawlers can crawl the following file-based and table-based data stores.
 

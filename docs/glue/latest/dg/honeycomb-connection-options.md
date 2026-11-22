@@ -1,7 +1,6 @@
 
 
 # Honeycomb connection options
-<a name="honeycomb-connection-options"></a>
 
 The following are connection options for Honeycomb:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Honeycomb object to read.

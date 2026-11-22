@@ -1,7 +1,6 @@
 
 
 # Connecting to Adobe Marketo Engage
-<a name="connecting-to-data-adobe-marketo-engage"></a>
 
 Adobe Marketo Engage is a marketing automation platform that enables marketers to manage personalized multi-channel programs and campaigns to prospects and customers.
 

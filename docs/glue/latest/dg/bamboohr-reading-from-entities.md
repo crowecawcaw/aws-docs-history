@@ -1,7 +1,6 @@
 
 
 # Reading from BambooHR entities
-<a name="bamboohr-reading-from-entities"></a>
 
 **Prerequisites**
 

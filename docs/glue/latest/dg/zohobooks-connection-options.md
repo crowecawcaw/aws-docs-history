@@ -1,7 +1,6 @@
 
 
 # Zoho Books connection options
-<a name="zohobooks-connection-options"></a>
 
 The following are connection options for Zoho Books:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Zoho Books object to read.

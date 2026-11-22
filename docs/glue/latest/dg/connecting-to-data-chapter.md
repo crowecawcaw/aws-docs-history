@@ -1,7 +1,6 @@
 
 
 # Connecting to data sources using Visual ETL jobs
-<a name="connecting-to-data-chapter"></a>
 
  While creating a new job, you can use connections to connect to data when editing visual ETL jobs in AWS Glue. You can do this by adding source nodes that use connectors to read in data, and target nodes to specify the location for writing out data. 
 

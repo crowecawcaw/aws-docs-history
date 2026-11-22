@@ -1,7 +1,6 @@
 
 
 # Overview of blueprints in AWS Glue
-<a name="blueprints-overview"></a>
 
 **Note**  
 The blueprints feature is currently unavailable in the following Regions in the AWS Glue console: Asia Pacific (Jakarta) and Middle East (UAE).

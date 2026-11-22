@@ -1,7 +1,6 @@
 
 
 # Reading from Zoho Invoice entities
-<a name="zohoinvoice-reading-from-entities"></a>
 
 **Prerequisites**
 

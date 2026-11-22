@@ -1,7 +1,6 @@
 
 
 # Managed Sensitive Data Types
-<a name="sensitive-data-managed-data-types"></a>
 
  **Global entities** 
 

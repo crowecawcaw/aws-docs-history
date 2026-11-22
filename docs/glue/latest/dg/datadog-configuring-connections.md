@@ -1,7 +1,6 @@
 
 
 # Configuring Datadog connections
-<a name="datadog-configuring-connections"></a>
 
 Datadog supports custom authentication. Following are the steps to configure Datadog connection:
 
@@ -26,7 +25,7 @@ It is a must to create a secret per connection in AWS Glue.
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

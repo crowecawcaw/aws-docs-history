@@ -1,7 +1,6 @@
 
 
 # Configuring job properties for Python shell jobs in AWS Glue
-<a name="add-job-python"></a>
 
  You can use a Python shell job to run Python scripts as a shell in AWS Glue. With a Python shell job, you can run scripts that are compatible with Python 3.6 or Python 3.9. 
 
@@ -133,7 +132,7 @@ The environment for running a Python shell job supports the following libraries:
 
 You can use the `NumPy` library in a Python shell job for scientific computing. For more information, see [NumPy](http://www.numpy.org). The following example shows a NumPy script that can be used in a Python shell job. The script prints "Hello world" and the results of several mathematical calculations.
 
-```
+```python
 import numpy as np
 print("Hello world")
 
@@ -247,7 +246,7 @@ If you aren't sure how to create an `.egg` or a `.whl` file from a Python librar
 
 1. Create a Python file to be used as a script for the AWS Glue job, and add the following code to the file.
 
-   ```
+   ```python
    from redshift_module import pygresql_redshift_common as rs_common
    
    con1 = rs_common.get_connection({{redshift_endpoint}})

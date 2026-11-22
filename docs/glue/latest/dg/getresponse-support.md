@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for GetResponse
-<a name="getresponse-support"></a>
 
 AWS Glue supports GetResponse as follows:
 

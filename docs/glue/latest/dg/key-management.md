@@ -1,7 +1,6 @@
 
 
 # Key management
-<a name="key-management"></a>
 
 You can use AWS Identity and Access Management (IAM) with AWS Glue to define users, AWS resources, groups, roles and fine-grained policies regarding access, denial, and more.
 

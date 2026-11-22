@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Ghost
-<a name="ghost-support"></a>
 
 AWS Glue supports Ghost as follows:
 

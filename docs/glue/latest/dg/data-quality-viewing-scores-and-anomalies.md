@@ -1,7 +1,6 @@
 
 
 # Viewing data quality scores and anomalies
-<a name="data-quality-viewing-scores-and-anomalies"></a>
 
  In this section, we will explore the data quality dashboard and different functionalities that it provides. 
 

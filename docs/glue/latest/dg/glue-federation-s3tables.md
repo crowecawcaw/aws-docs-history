@@ -1,7 +1,6 @@
 
 
 # Integrating with Amazon S3 Tables
-<a name="glue-federation-s3tables"></a>
 
 AWS Glue Data Catalog integration with Amazon S3 Tables allows you to discover, query, and join S3 Tables with data in Amazon S3 data lakes using a single catalog. When you integrate S3 Tables with the Data Catalog, the service creates a federated catalog structure that maps S3 Tables resources to AWS Glue catalog objects:
 + An S3 table bucket becomes a catalog in the Data Catalog

@@ -1,7 +1,6 @@
 
 
 # Limitations
-<a name="microsoft-dynamics-365-connector-limitations"></a>
 
 The following are limitations for the Microsoft Dynamics 365 CRM connector:
 +  In Microsoft Dynamics 365 CRM, record based partitioning is not supported as it does not support an offset parameter, and thus record based partitioning cannot be supported. 

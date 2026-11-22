@@ -1,7 +1,6 @@
 
 
 # Connecting to Smartlook in AWS Glue Studio
-<a name="connecting-to-data-smartlook"></a>
 
 Smartlook is a product-analytics tool that records web and mobile sessions and derives behavioral analytics. Because you are a Smartlook user, you can connect AWS Glue to your Smartlook account. You can then use Smartlook as a data source in your AWS Glue ETL jobs to transfer data between Smartlook and AWS services or other supported applications.
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Re:amaze entities
-<a name="reamaze-reading-from-entities"></a>
 
 **Prerequisites**
 

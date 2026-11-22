@@ -1,7 +1,6 @@
 
 
 # Reading from Persona entities
-<a name="persona-reading-from-entities"></a>
 
 **Prerequisites**
 

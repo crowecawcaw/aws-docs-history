@@ -1,7 +1,6 @@
 
 
 # Creating a OpenSearch Service source node
-<a name="creating-opensearch-source-node"></a>
 
 ## Prerequisites needed
 <a name="creating-opensearch-source-node-prerequisites"></a>

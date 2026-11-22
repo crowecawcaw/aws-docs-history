@@ -1,7 +1,6 @@
 
 
 # Granting cross-account access
-<a name="cross-account-access"></a>
 
 Granting access to Data Catalog resources across accounts enables your extract, transform, and load (ETL) jobs to query and join data from different accounts.
 
@@ -60,7 +59,7 @@ For example, to give the `Dev` role in Account B access to database `db1` in Acc
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -92,7 +91,7 @@ In addition, Account B would have to attach the following IAM policy to the `Dev
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -161,7 +160,7 @@ The following example shows the permissions required by the grantee to run an ET
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

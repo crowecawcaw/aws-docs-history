@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations for AWS Glue ETL Trusted Identity Propagation integration
-<a name="security-trusted-identity-propagation-considerations"></a>
 
 **Important**  
  By default sessions are not private which means one IdC user can access another IdC user's session. You can use [tagOnCreate](https://docs.aws.amazon.com/glue/latest/dg/glue-is-security.html#glue-is-tagoncreate) to make your sessions private. For example, the session can be tagged with an owner tag and the value of it as IDC User Id and then on the policy, you can use a global condition key like [`identitystore:UserId`](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-identity-store-user-id) to validate against the owner tag in the client principal/runtime role policy for all session API operations to ensure that one IdC User isn't able to access another IdC user's session. 

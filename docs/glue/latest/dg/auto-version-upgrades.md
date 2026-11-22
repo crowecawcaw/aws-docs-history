@@ -1,7 +1,6 @@
 
 
 # Automatic version upgrades for AWS Glue jobs
-<a name="auto-version-upgrades"></a>
 
 AWS Glue automatic version upgrades (auto upgrade) keep your AWS Glue for Apache Spark jobs on the latest stable AWS Glue version. Your jobs get new features, faster runs, and security fixes. You don't need a migration project.
 
@@ -64,13 +63,13 @@ Auto upgrade supports jobs that meet the following requirements:
 
 1. To assess your jobs, enter a prompt such as the following. This step is read-only.
 
-   ```
+   ```text
    Assess my Glue jobs in us-west-2 for auto upgrade. Use AWS profile my-profile.
    ```
 
 1. To turn on auto upgrade and set up email notifications, enter a prompt such as the following.
 
-   ```
+   ```text
    Proceed with the eligible jobs, and set up auto upgrade email notifications to data-team@example.com.
    ```
 
@@ -78,11 +77,11 @@ Auto upgrade supports jobs that meet the following requirements:
 
 1. When you get an approval request, review it with the agent. Then approve it. For example:
 
-   ```
+   ```text
    Which of my Glue jobs in us-west-2 are waiting for upgrade approval?
    ```
 
-   ```
+   ```text
    Approve the upgrade for my-etl-job.
    ```
 **Important**  

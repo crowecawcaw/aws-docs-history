@@ -1,7 +1,6 @@
 
 
 # Reading from Twilio entities
-<a name="twilio-reading-from-entities"></a>
 
 **Prerequisite**
 

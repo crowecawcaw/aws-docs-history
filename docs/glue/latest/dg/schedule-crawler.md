@@ -1,7 +1,6 @@
 
 
 # Scheduling a crawler
-<a name="schedule-crawler"></a>
 
 You can run an AWS Glue crawler on demand or on a regular schedule. When you set up a crawler based on a schedule, you can specify certain constraints, such as the frequency of the crawler runs, which days of the week it runs, and at what time. You can create these custom schedules in *cron* format. For more information, see [cron](http://en.wikipedia.org/wiki/Cron) in Wikipedia.
 

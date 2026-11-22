@@ -1,7 +1,6 @@
 
 
 # Reading from Front entities
-<a name="front-reading-from-entities"></a>
 
 **Prerequisites**
 

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Adyen
-<a name="adyen-support"></a>
 
 AWS Glue supports Adyen as follows:
 

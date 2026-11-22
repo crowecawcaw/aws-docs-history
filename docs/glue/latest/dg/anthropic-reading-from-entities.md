@@ -1,7 +1,6 @@
 
 
 # Reading from Anthropic entities
-<a name="anthropic-reading-from-entities"></a>
 
 **Prerequisites**
 

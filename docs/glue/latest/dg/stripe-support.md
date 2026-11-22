@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Stripe
-<a name="stripe-support"></a>
 
 AWS Glue supports Stripe as follows:
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Fullstory entities
-<a name="fullstory-reading-from-entities"></a>
 
 **Prerequisites**
 

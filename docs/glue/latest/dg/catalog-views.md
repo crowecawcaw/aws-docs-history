@@ -1,7 +1,6 @@
 
 
 # Working with AWS Glue Data Catalog views in AWS Glue
-<a name="catalog-views"></a>
 
  You can create and manage views in the AWS Glue Data Catalog, commonly known as AWS Glue Data Catalog views. These views are useful because they support multiple SQL query engines, allowing you to access the same view across different AWS services, such as Amazon Athena, Amazon Redshift, and AWS Glue. You can use views based on Apache Iceberg, Apache Hudi, and Delta Lake. 
 

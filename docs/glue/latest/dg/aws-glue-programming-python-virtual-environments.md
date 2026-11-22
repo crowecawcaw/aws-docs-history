@@ -1,7 +1,6 @@
 
 
 # Using Python virtual environments with AWS Glue
-<a name="aws-glue-programming-python-virtual-environments"></a>
 
  Starting with AWS Glue 5.0, you can run your ETL jobs in a Python virtual environment (venv). Virtual environments remove runtime dependency resolution from your job runs, ensure that each run uses the same packages, and prevent failures caused by upstream package changes. 
 
@@ -73,7 +72,7 @@ The `--python-virtual-env-storage-prefix` parameter specifies the Amazon S3 loca
 
 To enable a service-generated virtual environment, add the `--python-virtual-env-storage-prefix` parameter to your job and keep your existing `--additional-python-modules` parameter.
 
-```
+```json
 "--additional-python-modules": "requests==2.32.3,scikit-learn==1.5.0"
 "--python-virtual-env-storage-prefix": "s3://{{amzn-s3-demo-bucket}}/venv-cache/"
 ```
@@ -84,7 +83,7 @@ You can also use the following optional parameters:
 
 To enable caching for an existing job, add the storage prefix parameter. The first run takes longer because AWS Glue builds and uploads the virtual environment, but later runs use the cached virtual environment and perform no pip resolution.
 
-```
+```json
 # Before
 "--additional-python-modules": "requests==2.32.3"
 
@@ -136,7 +135,7 @@ Create two requirements files that define the packages for your virtual environm
 
 1. Create `additional-requirements.txt`. Add the packages from your existing `--additional-python-modules` parameter, one per line. For example:
 
-   ```
+   ```text
    cryptography
    requests-oauthlib
    sqlalchemy
@@ -159,7 +158,7 @@ Create a Dockerfile that matches the environment of your target AWS Glue version
 
 AWS Glue 5.0 and 5.1 use Python 3.11 on Amazon Linux 2023.
 
-```
+```bash
 FROM --platform=linux/amd64 public.ecr.aws/amazonlinux/amazonlinux:2023-minimal
 
 RUN dnf install -y python3.11 zip && \
@@ -170,7 +169,7 @@ WORKDIR /build
 
 AWS Glue 6.0 uses Python 3.13 on Amazon Linux 2023.
 
-```
+```bash
 FROM --platform=linux/amd64 public.ecr.aws/amazonlinux/amazonlinux:2023-minimal
 
 RUN dnf install -y python3.13 zip && \
@@ -184,7 +183,7 @@ WORKDIR /build
 
 Build the Docker image. Then start a container with your requirements files and job script mounted.
 
-```
+```bash
 docker build --platform linux/amd64 -t glue-venv-builder .
 
 docker run --platform linux/amd64 \
@@ -205,7 +204,7 @@ Inside the container, build a temporary venv that mirrors the AWS Glue runtime. 
 
 For AWS Glue 5.0 and 5.1, which use Python 3.11, run the following commands.
 
-```
+```bash
 # Create a temporary venv to reproduce the AWS Glue runtime environment
 python3.11 -m venv temp_venv
 source temp_venv/bin/activate
@@ -249,7 +248,7 @@ rm -rf temp_venv
 
 For AWS Glue 6.0, which uses Python 3.13, run the following commands.
 
-```
+```bash
 # Create a temporary venv to reproduce the AWS Glue runtime environment
 python3.13 -m venv temp_venv
 source temp_venv/bin/activate
@@ -301,7 +300,7 @@ Create the final venv with only the packages your job needs. Then package it as 
 
 For AWS Glue 5.0 and 5.1, which use Python 3.11, run the following commands.
 
-```
+```bash
 python3.11 -m venv pyspark_venv
 source pyspark_venv/bin/activate
 
@@ -321,7 +320,7 @@ exit
 
 For AWS Glue 6.0, which uses Python 3.13, run the following commands.
 
-```
+```bash
 python3.13 -m venv pyspark_venv
 source pyspark_venv/bin/activate
 
@@ -343,7 +342,7 @@ exit
 
 Upload the packaged virtual environment to your Amazon S3 bucket.
 
-```
+```bash
 aws s3 cp pyspark_venv.tar.gz s3://{{amzn-s3-demo-bucket}}/{{path}}/pyspark_venv.tar.gz
 ```
 
@@ -354,7 +353,7 @@ Update your AWS Glue job configuration to use `--python-virtual-env` instead of 
 
 Remove the `--additional-python-modules` parameter and add the `--python-virtual-env` parameter pointing to your uploaded tarball.
 
-```
+```json
 # Before
 "--additional-python-modules": "cryptography"
 
@@ -391,7 +390,7 @@ When you ask Kiro to migrate your AWS Glue job from `--additional-python-modules
 
 Provide your AWS Glue version, your additional Python modules, and your job script. For example:
 
-```
+```text
 I have a Glue 5.1 job with the following:
 --additional-python-modules: ephem, awscli
 
@@ -428,7 +427,7 @@ A pip version conflict means that two packages require incompatible versions of 
 
 1. Preview what pip would resolve without installing anything. Add `--dry-run --report install-report.json` to your install command, as in the following example.
 
-   ```
+   ```bash
    pip install -r additional-requirements.txt --dry-run --report install-report.json
    ```
 

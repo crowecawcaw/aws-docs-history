@@ -1,7 +1,6 @@
 
 
 # Configuring Gusto
-<a name="gusto-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Gusto, you must meet the following requirements:
 

@@ -1,7 +1,6 @@
 
 
 # Configuring Octopus Deploy
-<a name="octopus-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Octopus Deploy, you must meet the following requirements:
 

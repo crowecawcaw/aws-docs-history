@@ -1,7 +1,6 @@
 
 
 # Configure IAM permissions for AWS Glue Data Quality
-<a name="data-quality-authorization"></a>
 
 This topic provides information to help you understand the actions and resources that you an IAM administrator can use in an AWS Identity and Access Management (IAM) policy for AWS Glue Data Quality. It also includes sample IAM policies with the minimum permissions you need to use AWS Glue Data Quality with the AWS Glue Data Catalog.
 
@@ -37,6 +36,11 @@ The following table lists the permissions that a user needs in order to perform 
 | glue:GetDataQualityModelResult | Grants permission to retrieve Data Quality Model Results. | ::dataQualityRuleset/<name>, ::job/<name>  | 
 | glue:PutDataQualityStatisticAnnotation |  Grants permission to add annotations to Statistics. This IAM action also provides permissions to the following APIS: +   `BatchPutDataQualityStatisticAnnotation`    | ::dataQualityRuleset/<name>, ::job/<name>  | 
 | glue:PutDataQualityProfileAnnotation | Grants permission to put annotations to all Statistics in a Profile. | ::dataQualityRuleset/<name>, ::job/<name>  | 
+| glue:CreateDataQualityEvaluationConfig | Grants permission to create a data quality evaluation configuration. If you specify tags, you also need glue:TagResource. | ::dataQualityEvaluationConfig/<name> | 
+| glue:GetDataQualityEvaluationConfig | Grants permission to retrieve a data quality evaluation configuration. | ::dataQualityEvaluationConfig/<name> | 
+| glue:UpdateDataQualityEvaluationConfig | Grants permission to update a data quality evaluation configuration. | ::dataQualityEvaluationConfig/<name> | 
+| glue:DeleteDataQualityEvaluationConfig | Grants permission to delete a data quality evaluation configuration. | ::dataQualityEvaluationConfig/<name> | 
+| glue:ListDataQualityEvaluationConfigs | Grants permission to retrieve all data quality evaluation configurations. | ::dataQualityEvaluationConfig/\* | 
 
 ## IAM setup required for scheduling evaluation runs
 <a name="data-quality-iam-setup-evaluation-runs"></a>
@@ -72,7 +76,7 @@ The AWS Glue and AWS EventBridge Scheduler services need to be listed in the tru
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -96,6 +100,220 @@ The AWS Glue and AWS EventBridge Scheduler services need to be listed in the tru
 
 ------
 
+## IAM permissions for data quality evaluation configurations
+<a name="data-quality-authorization-evaluation-configs"></a>
+
+A data quality evaluation configuration involves two sets of permissions:
++ **Caller permissions** – The permissions that you need to create and manage configurations, pass the configuration's role, and read the results.
++ **Role permissions** – The permissions that the configuration's role needs so that AWS Glue Data Quality can find the tables in scope, start an evaluation run for each table, and read each table's data during the run.
+
+For an overview of evaluation configurations, see [Data quality monitoring at the catalog and database level](data-quality-catalog-monitoring.md).
+
+### Permissions to manage evaluation configurations
+<a name="data-quality-authorization-evaluation-configs-caller"></a>
+
+The following identity-based policy allows a user to manage evaluation configurations and read their results. It includes the following permissions:
++ The evaluation configuration actions. Each action authorizes the configuration's ARN, so you can limit access to specific configurations by name or by tag.
++ `glue:TagResource`, which you need to create a configuration with tags and to tag it later.
++ `glue:GetCatalog`, `glue:GetDatabase`, and `glue:GetTable`. When you create or update a configuration, AWS Glue checks that you can describe the catalog, database, or table that it applies to.
++ `iam:PassRole` for the configuration's role. You need this permission whenever you specify the role in a create or update request.
++ Actions to read evaluation runs and results.
+
+```JSON
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ManageEvaluationConfigs",
+      "Effect": "Allow",
+      "Action": [
+        "glue:CreateDataQualityEvaluationConfig",
+        "glue:GetDataQualityEvaluationConfig",
+        "glue:UpdateDataQualityEvaluationConfig",
+        "glue:DeleteDataQualityEvaluationConfig",
+        "glue:ListDataQualityEvaluationConfigs",
+        "glue:TagResource",
+        "glue:UntagResource",
+        "glue:GetTags"
+      ],
+      "Resource": "arn:aws:glue:{{us-east-1}}:111122223333:dataQualityEvaluationConfig/*"
+    },
+    {
+      "Sid": "DescribeConfigurationTargets",
+      "Effect": "Allow",
+      "Action": [
+        "glue:GetCatalog",
+        "glue:GetDatabase",
+        "glue:GetTable"
+      ],
+      "Resource": [
+        "arn:aws:glue:{{us-east-1}}:111122223333:catalog",
+        "arn:aws:glue:{{us-east-1}}:111122223333:database/{{database-name}}",
+        "arn:aws:glue:{{us-east-1}}:111122223333:table/{{database-name}}/*"
+      ]
+    },
+    {
+      "Sid": "ReadEvaluationResults",
+      "Effect": "Allow",
+      "Action": [
+        "glue:ListDataQualityResults",
+        "glue:GetDataQualityResult",
+        "glue:ListDataQualityRulesetEvaluationRuns",
+        "glue:GetDataQualityRulesetEvaluationRun"
+      ],
+      "Resource": "arn:aws:glue:{{us-east-1}}:111122223333:dataQualityRuleset/*"
+    },
+    {
+      "Sid": "PassEvaluationConfigRole",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "arn:aws:iam::111122223333:role/DataQualityEvaluationConfigRole",
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "glue.amazonaws.com"
+        }
+      }
+    }
+  ]
+}
+```
+
+If you use your own rulesets, also allow `glue:CreateDataQualityRuleset` and `glue:UpdateDataQualityRuleset`. If you use Lake Formation, you also need the `DESCRIBE` permission on the catalog, database, or table to create, get, or update a configuration that applies to it.
+
+If a configuration applies to an Amazon S3 Tables catalog, also allow `lakeformation:GetDataAccess`, and add the Amazon S3 Tables forms of the catalog, database, and table ARNs to the `DescribeConfigurationTargets` statement. For example, for every table bucket in the account, add the following resources:
+
+```JSON
+"arn:aws:glue:{{us-east-1}}:111122223333:catalog/s3tablescatalog",
+"arn:aws:glue:{{us-east-1}}:111122223333:catalog/s3tablescatalog/*",
+"arn:aws:glue:{{us-east-1}}:111122223333:database/s3tablescatalog/*",
+"arn:aws:glue:{{us-east-1}}:111122223333:table/s3tablescatalog/*"
+```
+
+To control access with tags, use the `aws:RequestTag/{{tag-key}}` and `aws:TagKeys` condition keys with `glue:CreateDataQualityEvaluationConfig`, and the `aws:ResourceTag/{{tag-key}}` condition key with the other actions. For more information, see [Specifying AWS Glue resource ARNs](glue-specifying-resource-arns.md).
+
+### Trust policy for the configuration role
+<a name="data-quality-authorization-evaluation-configs-trust"></a>
+
+AWS Glue assumes the configuration's role to find tables and to start each evaluation run, and the evaluation run assumes the role to read the table. Use the following trust policy to allow AWS Glue to assume the role for your account's catalog and tables.
+
+AWS Glue sets [aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn) to your catalog's ARN or a table's ARN, and [aws:SourceAccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount) to your account ID. The trust policy must allow both ARN forms. When you create or update a configuration, AWS Glue checks that it can assume the role with each form.
+
+```JSON
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "glue.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "111122223333"
+        },
+        "ArnLike": {
+          "aws:SourceArn": [
+            "arn:aws:glue:{{us-east-1}}:111122223333:catalog",
+            "arn:aws:glue:{{us-east-1}}:111122223333:table/*"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+### Permissions policy for the configuration role
+<a name="data-quality-authorization-evaluation-configs-permissions"></a>
+
+The configuration's role needs permissions for each of the following tasks:
++ **Find the tables in scope** – `glue:GetCatalog`, `glue:GetDatabase`, and `glue:GetTable` to describe the catalog, database, or table, and `glue:SearchTables` to list the tables in a catalog or database.
++ **Prepare the ruleset** – `glue:GetDataQualityRuleset` to read the ruleset, and `glue:CreateDataQualityRuleset` and `glue:UpdateDataQualityRuleset` to create and maintain the built-in rulesets in your account.
++ **Start evaluation runs** – `glue:StartDataQualityRulesetEvaluationRun`, and `iam:PassRole` on the role itself, because AWS Glue starts each run with the same role.
++ **Evaluate the data** – The permissions that any data quality evaluation run needs: `glue:GetPartitions`, `glue:GetDataQualityRulesetEvaluationRun`, `glue:PublishDataQuality`, read access to the table's data in Amazon S3, and permissions to write logs to Amazon CloudWatch Logs.
+
+Attach the following permissions policy to the role. Replace the bucket with the locations of your tables' data.
+
+```JSON
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "FindTables",
+      "Effect": "Allow",
+      "Action": [
+        "glue:GetCatalog",
+        "glue:GetDatabase",
+        "glue:GetTable",
+        "glue:SearchTables",
+        "glue:GetPartitions"
+      ],
+      "Resource": [
+        "arn:aws:glue:{{us-east-1}}:111122223333:catalog",
+        "arn:aws:glue:{{us-east-1}}:111122223333:catalog/*",
+        "arn:aws:glue:{{us-east-1}}:111122223333:database/*",
+        "arn:aws:glue:{{us-east-1}}:111122223333:table/*"
+      ]
+    },
+    {
+      "Sid": "PrepareRulesetsAndStartRuns",
+      "Effect": "Allow",
+      "Action": [
+        "glue:GetDataQualityRuleset",
+        "glue:CreateDataQualityRuleset",
+        "glue:UpdateDataQualityRuleset",
+        "glue:StartDataQualityRulesetEvaluationRun",
+        "glue:GetDataQualityRulesetEvaluationRun",
+        "glue:PublishDataQuality"
+      ],
+      "Resource": "arn:aws:glue:{{us-east-1}}:111122223333:dataQualityRuleset/*"
+    },
+    {
+      "Sid": "PassThisRoleToGlue",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "arn:aws:iam::111122223333:role/DataQualityEvaluationConfigRole",
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "glue.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid": "ReadTableData",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::{{amzn-s3-demo-bucket}}",
+        "arn:aws:s3:::{{amzn-s3-demo-bucket}}/*"
+      ]
+    },
+    {
+      "Sid": "WriteRunLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:{{us-east-1}}:111122223333:log-group:/aws-glue/*"
+    }
+  ]
+}
+```
+
+If a condition in this list applies, add the related permissions to the role:
++ If a catalog-level or database-level configuration applies to an Amazon S3 Tables catalog, add `s3tables:ListTableBuckets` and `s3tables:ListTables`. AWS Glue uses these actions instead of `glue:SearchTables` to find the tables in a table bucket.
++ If you use Lake Formation, grant the role the `DESCRIBE` permission on the tables to evaluate. The configuration evaluates only the tables that the role can describe.
++ If Lake Formation manages the tables' data, as it does for all Amazon S3 Tables, add `lakeformation:GetDataAccess` and grant the role the `SELECT` permission on each table, without column or data filters. In the Lake Formation data lake settings, also allow external engines to access data with full table access. For more information, see [Supported source types](data-quality-getting-started.md#data-quality-get-started-supported-source-types).
++ If you set `CloudWatchMetricsEnabled` in the run options, add `cloudwatch:PutMetricData`.
++ If you write results to Amazon S3 with `ResultsS3Prefix`, add `s3:PutObject` on that location. For information about writing results to AWS Glue Data Catalog tables, see [Prerequisites](data-quality-results-catalog-tables.md#data-quality-results-catalog-tables-prereqs).
++ If your data is encrypted with an AWS KMS key, add `kms:Decrypt` on that key.
+
 ## Example IAM policies
 <a name="data-quality-authorization-example-policy"></a>
 
@@ -115,7 +333,7 @@ This example policy includes the permissions you need in order to generate recom
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -176,7 +394,7 @@ Use this trust policy to allow AWS Glue to assume the recommendation role for yo
 
 Set [aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn) to the full source table ARN. Use the account ID from that ARN for [aws:SourceAccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount).
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -210,7 +428,7 @@ For subsequent runs, AWS Glue reuses the existing workgroup and bucket. For deta
 
 Attach the following permissions policy to your recommendation role.
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -291,7 +509,7 @@ If a condition in this list applies, add the related permissions to your recomme
 + If you specify `CreatedRulesetName`, add `glue:CreateDataQualityRuleset` permission.
 + If you specify a data quality security configuration with a customer managed key, add the following statement for that key.
 
-  ```
+  ```JSON
   {
     "Sid": "AllowDataQualityEncryption",
     "Effect": "Allow",
@@ -309,7 +527,7 @@ If a condition in this list applies, add the related permissions to your recomme
   Your recommendation role needs these actions for query result encryption and AWS Glue Data Quality asset encryption. The key policy must also allow these actions for your role. For details, see [Key policy](data-quality-encryption.md#data-quality-encryption-customer-managed-key-policy).
 + If the source objects use SSE-KMS, add the following statement.
 
-  ```
+  ```JSON
   {
     "Sid": "AllowSourceDataDecryption",
     "Effect": "Allow",
@@ -334,7 +552,7 @@ The following policy statements are optional, depending on your use case:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -411,7 +629,7 @@ The following policy statements are optional, depending on your use case:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

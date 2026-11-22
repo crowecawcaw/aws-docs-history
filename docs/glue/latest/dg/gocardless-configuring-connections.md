@@ -1,7 +1,6 @@
 
 
 # Configuring GoCardless connections
-<a name="gocardless-configuring-connections"></a>
 
 GoCardless connections authenticate with an API key (or token). You store the key in Secrets Manager and reference that secret when you create the connection in AWS Glue Studio.
 

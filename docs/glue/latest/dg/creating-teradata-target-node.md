@@ -1,7 +1,6 @@
 
 
 # Creating a Teradata target node
-<a name="creating-teradata-target-node"></a>
 
 ## Prerequisites needed
 <a name="creating-teradata-target-node-prerequisites"></a>

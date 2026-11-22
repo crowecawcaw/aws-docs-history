@@ -1,7 +1,6 @@
 
 
 # FindIncrementalMatches class
-<a name="glue-etl-scala-apis-glue-ml-findincrementalmatches"></a>
 
 **Package: com.amazonaws.services.glue.ml**
 

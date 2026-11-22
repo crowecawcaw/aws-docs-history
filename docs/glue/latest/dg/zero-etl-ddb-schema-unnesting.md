@@ -1,7 +1,6 @@
 
 
 # Schema unnesting
-<a name="zero-etl-ddb-schema-unnesting"></a>
 
  When integrating with analytics services through Zero-ETL, you can choose how nested structures are represented in the target tables. AWS Glue Zero-ETL provides schema unnesting options to flatten complex data structures into more analytics-friendly formats. 
 

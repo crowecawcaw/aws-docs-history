@@ -1,7 +1,6 @@
 
 
 # Reading from Recurly entities
-<a name="recurly-reading-from-entities"></a>
 
 **Prerequisites**
 

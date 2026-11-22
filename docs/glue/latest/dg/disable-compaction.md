@@ -1,7 +1,6 @@
 
 
 # Disabling compaction optimizer
-<a name="disable-compaction"></a>
 
  You can disable automatic compaction for a particular Apache Iceberg table using AWS Glue console or AWS CLI. 
 

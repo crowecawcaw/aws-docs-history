@@ -1,7 +1,6 @@
 
 
 # Using the Explode Array or Map Into Rows transform
-<a name="transforms-explode-array"></a>
 
  The **Explode** transform allows you to extract values from a nested structure into individual rows that are easier to manipulate. In the case of an array, the transform will generate a row for each value of the array, replicating the values for the other columns in the row. In the case of a map, the transform will generate a row for each entry with the key and value as columns plus any other columns in the row. 
 

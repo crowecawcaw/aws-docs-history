@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Airship
-<a name="airship-support"></a>
 
 AWS Glue supports Airship as follows:
 

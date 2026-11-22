@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Blackbaud Raiser's Edge NXT
-<a name="blackbaud-support"></a>
 
 AWS Glue supports Blackbaud Raiser's Edge NXT as follows:
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Facebook Ads entities
-<a name="facebook-ads-reading-from-entities"></a>
 
 **Prerequisite**
 

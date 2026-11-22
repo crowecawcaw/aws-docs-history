@@ -1,7 +1,6 @@
 
 
 # Configuring SendGrid connections
-<a name="sendgrid-configuring-connections"></a>
 
 SendGrid supports custom authentication.
 
@@ -28,7 +27,7 @@ To configure a SendGrid connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

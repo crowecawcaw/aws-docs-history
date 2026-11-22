@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for Facebook Ads connector
-<a name="facebook-ads-connector-limitations"></a>
 
 The following are limitations or notes for the Facebook Ads connector:
 + As Facebook Ads supports dynamic metadata, all fields can be queried. All the fields support filtration and records are fetched if the data is available, or else Facebook returns a Bad request (400) response with a proper error message.

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Adobe Analytics
-<a name="adobe-analytics-support"></a>
 
 AWS Glue supports Adobe Analytics as follows:
 

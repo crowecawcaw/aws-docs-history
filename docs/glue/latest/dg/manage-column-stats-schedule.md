@@ -1,7 +1,6 @@
 
 
 # Managing the schedule for column statistics generation
-<a name="manage-column-stats-schedule"></a>
 
 You can manage the scheduling operations such as updating, starting, stopping, and deleting schedules for the column statistics generation in AWS Glue. You can use AWS Glue console, AWS CLI, or [AWS Glue column statistics API operations](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html) to perform these tasks.
 

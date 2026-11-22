@@ -1,7 +1,6 @@
 
 
 # Docusign Monitor connection options
-<a name="docusign-monitor-connection-options"></a>
 
 The following are connection options for Docusign Monitor:
 + `ENTITY_NAME`(String) - (Required) Used for Read. The name of your object in Docusign Monitor.

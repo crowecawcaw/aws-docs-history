@@ -1,7 +1,6 @@
 
 
 # Configuring Contentful
-<a name="contentful-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Contentful, you must meet the following requirements:
 

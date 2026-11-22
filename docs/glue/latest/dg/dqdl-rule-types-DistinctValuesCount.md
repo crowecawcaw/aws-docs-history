@@ -1,13 +1,12 @@
 
 
 # DistinctValuesCount
-<a name="dqdl-rule-types-DistinctValuesCount"></a>
 
 Checks the number of distinct values in a column against a given expression.
 
 **Syntax**
 
-```
+```json
 DistinctValuesCount {{<COL_NAME>}} {{<EXPRESSION>}}
 ```
 + **COL\_NAME** – The name of the column that you want to evaluate the data quality rule against.
@@ -19,7 +18,7 @@ DistinctValuesCount {{<COL_NAME>}} {{<EXPRESSION>}}
 
 The following example rule checks that the column named `State` contains more than 3 distinct values.
 
-```
+```json
 DistinctValuesCount "State" > 3
 DistinctValuesCount "Customer_ID" < 6  where "Customer_ID < 10"
 ```

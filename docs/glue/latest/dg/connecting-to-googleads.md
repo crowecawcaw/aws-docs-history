@@ -1,7 +1,6 @@
 
 
 # Connecting to Google Ads
-<a name="connecting-to-googleads"></a>
 
  The Google Ads API is the programmatic interface to Google Ads, used for managing large or complex Google Ads accounts and campaigns. If you're a Google Ads user, you can connect AWS Glue to your Google Ads account. Then, you can use Google Ads as a data source in your ETL jobs. Run these jobs to transfer data between Google Ads and AWS services or other supported applications. 
 

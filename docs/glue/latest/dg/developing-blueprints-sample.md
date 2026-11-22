@@ -1,7 +1,6 @@
 
 
 # Sample blueprint project
-<a name="developing-blueprints-sample"></a>
 
 Data format conversion is a frequent extract, transform, and load (ETL) use case. In typical analytic workloads, column-based file formats like Parquet or ORC are preferred over text formats like CSV or JSON. This sample blueprint enables you to convert data from CSV/JSON/etc. into Parquet for files on Amazon S3. 
 

@@ -1,7 +1,6 @@
 
 
 # Create a crawler schedule
-<a name="create-crawler-schedule"></a>
 
 You can create a schedule for the crawler using the AWS Glue console or AWS CLI.
 

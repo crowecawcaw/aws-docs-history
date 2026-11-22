@@ -1,7 +1,6 @@
 
 
 # Creating connections for connectors
-<a name="creating-connections"></a>
 
 An AWS Glue connection is a Data Catalog object that stores connection information for a particular data store. Connections store login credentials, URI strings, virtual private cloud (VPC) information, and more. Creating connections in the Data Catalog saves the effort of having to specify all connection details every time you create a job.
 

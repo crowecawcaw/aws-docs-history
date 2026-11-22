@@ -1,7 +1,6 @@
 
 
 # Azure SQL connections
-<a name="aws-glue-programming-etl-connect-azuresql-home"></a>
 
 You can use AWS Glue for Spark to read from and write to tables on Azure SQL Managed Instances in AWS Glue 4.0 and later versions. You can define what to read from Azure SQL with a SQL query. You connect to Azure SQL using user and password credentials stored in AWS Secrets Manager through a AWS Glue connection.
 

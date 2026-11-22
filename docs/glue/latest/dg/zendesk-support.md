@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Zendesk
-<a name="zendesk-support"></a>
 
 AWS Glue supports Zendesk as follows:
 

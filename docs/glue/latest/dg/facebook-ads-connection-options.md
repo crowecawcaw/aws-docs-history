@@ -1,7 +1,6 @@
 
 
 # Facebook Ads connection options
-<a name="facebook-ads-connection-options"></a>
 
 The following are connection options for Facebook Ads:
 + `ENTITY_NAME`(String) - (Required) Used for read. The name of your object in Facebook Ads.

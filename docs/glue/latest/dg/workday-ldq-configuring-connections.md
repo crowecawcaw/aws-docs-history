@@ -1,7 +1,6 @@
 
 
 # Configuring Workday Live Data Query connections
-<a name="workday-ldq-configuring-connections"></a>
 
 Workday Live Data Query uses the OAuth 2.0 JWT bearer grant type (RFC 7523). AWS Glue creates a JSON Web Token (JWT) for your Workday Integration System User (ISU), signs it with your private key, and exchanges it at your Workday OAuth 2.0 token endpoint for a short-lived access token. AWS Glue requests a new access token when the current one expires, without user interaction. This grant type works well for automation because no user needs to sign in to Workday when the connection is created or used.
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Port entities
-<a name="port-reading-from-entities"></a>
 
 **Prerequisites**
 

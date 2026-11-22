@@ -1,7 +1,6 @@
 
 
 # Configuring Miro connections
-<a name="miro-configuring-connections"></a>
 
 Miro connections use the OAuth 2.0 `AUTHORIZATION_CODE` grant type with a client app that you create in Miro. This grant type is three-legged: AWS Glue redirects you to Miro to sign in and approve access. AWS Glue stores the resulting access token and refresh token in your Secrets Manager secret and refreshes the access token automatically.
 

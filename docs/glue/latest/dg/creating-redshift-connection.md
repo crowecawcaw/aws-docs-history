@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon Redshift connection
-<a name="creating-redshift-connection"></a>
 
 ## Permissions needed
 <a name="creating-redshift-connection-permissions"></a>

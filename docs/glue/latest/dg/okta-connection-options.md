@@ -1,7 +1,6 @@
 
 
 # Okta connection option reference
-<a name="okta-connection-options"></a>
 
 The following are connection options for Okta:
 +  `ENTITY_NAME`(String) - (Required) Used for Read/Write. The name of your Object in Okta. 

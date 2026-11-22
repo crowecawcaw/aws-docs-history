@@ -1,7 +1,6 @@
 
 
 # Partitioning for Non ODP entities
-<a name="sap-odata-non-odp-entities-partitioning"></a>
 
 In Apache Spark, partitioning refers to the way data is divided and distributed across the worker nodes in a cluster for parallel processing. Each partition is a logical chunk of data that can be processed independently by a task. Partitioning is a fundamental concept in Spark that directly impacts performance, scalability, and resource utilization. AWS Glue jobs use Spark's partitioning mechanism to divide the dataset into smaller chunks (partitions) that can be processed in parallel across the cluster's worker nodes. Note that partitioning is not applicable for ODP entities.
 

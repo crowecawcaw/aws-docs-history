@@ -1,7 +1,6 @@
 
 
 # Webflow connection options
-<a name="webflow-connection-options"></a>
 
 The following are connection options for Webflow:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Webflow object to read.

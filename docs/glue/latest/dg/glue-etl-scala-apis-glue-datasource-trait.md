@@ -1,7 +1,6 @@
 
 
 # AWS Glue Scala DataSource trait
-<a name="glue-etl-scala-apis-glue-datasource-trait"></a>
 
 **Package: com.amazonaws.services.glue**
 

@@ -1,7 +1,6 @@
 
 
 # Exceptions
-<a name="aws-glue-api-exceptions"></a>
 
 This section describes AWS Glue exceptions that you can use to find the source of problems and fix them. For more information on HTTP error codes and strings for exceptions related to machine learning, see [AWS Glue machine learning exceptions](exceptions-machine-learning.md).
 

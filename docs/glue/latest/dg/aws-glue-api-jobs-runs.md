@@ -1,7 +1,6 @@
 
 
 # Job runs
-<a name="aws-glue-api-jobs-runs"></a>
 
  The Jobs Runs API describes the data types and API related to starting, stopping, or viewing job runs, and resetting job bookmarks, in AWS Glue. Job run history is accessible for 90 days for your workflow and job run. 
 

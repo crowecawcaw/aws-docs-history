@@ -1,7 +1,6 @@
 
 
 # Reading from Klaviyo entities
-<a name="klaviyo-reading-from-entities"></a>
 
 **Prerequisites**
 

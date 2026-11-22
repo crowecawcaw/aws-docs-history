@@ -1,7 +1,6 @@
 
 
 # Convert a timestamp column to a formatted string
-<a name="transforms-format-timestamp"></a>
 
 Format a timestamp column into a string based on a pattern. You can use *Format timestamp* to get date and time as a string with the desired format. You can define the format using [Spark date syntax](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html) as well as most of the [Python date codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes).
 

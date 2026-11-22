@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Honeycomb
-<a name="honeycomb-support"></a>
 
 AWS Glue supports Honeycomb as follows:
 

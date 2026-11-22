@@ -1,7 +1,6 @@
 
 
 # Connecting to Recurly in AWS Glue Studio
-<a name="connecting-to-data-recurly"></a>
 
 Recurly is a recurring-billing and subscription-management platform. Because you are a Recurly user, you can connect AWS Glue to your Recurly account. You can then use Recurly as a data source in your AWS Glue ETL jobs to transfer data between Recurly and AWS services or other supported applications.
 

@@ -1,7 +1,6 @@
 
 
 # DropFields class
-<a name="aws-glue-api-crawler-pyspark-transforms-DropFields"></a>
 
 Drops fields within a `DynamicFrame`.
 

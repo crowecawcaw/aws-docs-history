@@ -1,7 +1,6 @@
 
 
 # Using a MongoDB or MongoDB Atlas connection
-<a name="connection-mongodb"></a>
 
 After you create a connection for MongoDB or MongoDB Atlas, you can use the connection in your ETL job. You create a table in the AWS Glue Data Catalog and specify the MongoDB or MongoDB Atlas connection for the `connection` attribute of the table. 
 

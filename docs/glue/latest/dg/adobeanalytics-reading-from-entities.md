@@ -1,7 +1,6 @@
 
 
 # Reading from Adobe Analytics entities
-<a name="adobeanalytics-reading-from-entities"></a>
 
  **Prerequisites** 
 

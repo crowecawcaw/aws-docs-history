@@ -1,7 +1,6 @@
 
 
 # Add an identifier column
-<a name="transforms-identifier"></a>
 
 Assign a numeric *Identifier* for each row in the dataset.
 

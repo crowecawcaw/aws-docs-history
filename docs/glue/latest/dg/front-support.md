@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Front
-<a name="front-support"></a>
 
 AWS Glue supports Front as follows:
 

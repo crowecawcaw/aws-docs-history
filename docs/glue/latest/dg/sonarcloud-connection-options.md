@@ -1,7 +1,6 @@
 
 
 # SonarCloud connection options
-<a name="sonarcloud-connection-options"></a>
 
 The following are connection options for SonarCloud:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the SonarCloud object to read.

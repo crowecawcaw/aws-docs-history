@@ -1,7 +1,6 @@
 
 
 # Development endpoints API
-<a name="aws-glue-api-dev-endpoint"></a>
 
 The Development endpoints API describes the AWS Glue API related to testing using a custom DevEndpoint.
 

@@ -1,7 +1,6 @@
 
 
 # Disabling snapshot retention optimizer
-<a name="disable-snapshot-retention"></a>
 
  You can disable the snapshot retention optimizer for a particular Apache Iceberg table using AWS Glue console or AWS CLI. 
 

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Asana
-<a name="asana-support"></a>
 
 AWS Glue supports Asana as follows:
 

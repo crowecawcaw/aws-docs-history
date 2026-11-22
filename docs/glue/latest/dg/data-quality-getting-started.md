@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Glue Data Quality for the Data Catalog
-<a name="data-quality-getting-started"></a>
 
  This getting started section provides instructions to help you get started with AWS Glue Data Quality on the AWS Glue console. You'll learn how to complete essential tasks such as generating data quality rule recommendations and evaluating a ruleset against your data. 
 
@@ -395,32 +394,74 @@ FROM `mydatabase.mytable`
 ## Supported source types
 <a name="data-quality-get-started-supported-source-types"></a>
 
+ The following tables show which sources and table formats you can evaluate with AWS Glue Data Quality, and which AWS Lake Formation permission setups each one works with. Sources that aren't listed aren't supported. 
 
-**Table type support by AWS Lake Formation configuration**  
 
-| Table Type | AWS Lake Formation - All Table Access | AWS Lake Formation Enabled with Columns | AWS Lake Formation Enabled with Data Filters | Cross-Account AWS Lake Formation Support - All Table Access | AWS Lake Formation Disabled | 
-| --- | --- | --- | --- | --- | --- | 
-| Parquet | Supported | Not Supported | Not Supported | Supported | Supported | 
-| ORC | Supported | Not Supported | Not Supported | Supported | Supported | 
-| CSV, JSON, TSV | Supported | Not Supported | Not Supported | Supported | Supported | 
-| Avro | Supported | Not Supported | Not Supported | Supported | Supported | 
-| JSON | Supported | Not Supported | Not Supported | Supported | Supported | 
-| Iceberg | Supported | Not Supported | Not Supported | Supported | Supported | 
-| Amazon Athena view | Supported | Not Supported | Not Supported | Supported | Supported | 
-| Protected multi-dialect Data Catalog view | Not Supported | Not Supported | Not Supported | Not Supported | Not Supported | 
-| HUDI | Not Supported | Not Supported | Not Supported | Not Supported | Supported | 
-| Delta | Not Supported | Not Supported | Not Supported | Not Supported | Supported | 
-| RMS | Supported\* | Supported\* | Supported\* | Not Supported | Not Supported | 
-| Amazon S3 Tables | Supported\* | Not Supported | Not Supported | Not applicable | Supported | 
-| Amazon RDS and Aurora | Not applicable | Not applicable | Not applicable | Not applicable | Not Supported | 
-| JDBC | Not applicable | Not applicable | Not applicable | Not applicable | Supported | 
+**Supported sources and table formats**  
 
- \* Amazon S3 tables and SageMaker Lakehouse support in AWS Glue Console is not supported. Currently, Amazon S3 table and SageMaker Lakehouse Data Catalog Recommendation Runs and Data Catalog Data Quality Evaluation runs are only supported via the CLI. 
+| Source or table format | Supported | Where you can start runs | 
+| --- | --- | --- | 
+| Parquet, ORC, Avro, CSV, JSON, TSV | Yes | AWS Glue console, API/AWS CLI, Amazon SageMaker Unified Studio | 
+| Apache Iceberg, Apache Hudi, Delta Lake | Yes | AWS Glue console, API/AWS CLI, Amazon SageMaker Unified Studio | 
+| Amazon S3 Tables | Yes | API/AWS CLI, Amazon SageMaker Unified Studio | 
+| Amazon Athena views | Yes | AWS Glue console, API/AWS CLI, Amazon SageMaker Unified Studio | 
+| Amazon Redshift managed storage (RMS) catalogs | Yes | API/AWS CLI, Amazon SageMaker Unified Studio | 
+| Amazon Redshift namespaces registered in the Data Catalog | Yes | API/AWS CLI, Amazon SageMaker Unified Studio | 
+| Amazon Redshift through a REDSHIFT connection | Yes | AWS Glue console, API/AWS CLI | 
+| JDBC connections to MySQL, MariaDB, PostgreSQL, Microsoft SQL Server, or Oracle databases, including Amazon RDS and Aurora | Yes | AWS Glue console, API/AWS CLI | 
+| Amazon DocumentDB and MongoDB through a MONGODB connection | Yes | AWS Glue console, API/AWS CLI | 
+| DynamoDB tables cataloged by a crawler | Yes | AWS Glue console, API/AWS CLI | 
+| Federated catalogs for sources other than Amazon Redshift (for example, Snowflake, BigQuery, Amazon RDS, DynamoDB, or a remote Iceberg REST catalog) | No | For a database that a supported JDBC connection can reach, use a JDBC connection. Otherwise, evaluate the data in an AWS Glue ETL job, or copy the data to Amazon S3 | 
+| Snowflake through a JDBC connection | No | Evaluate the data in an AWS Glue ETL job that uses a SNOWFLAKE connection, or copy the data to Amazon S3 | 
+| Connections other than JDBC, REDSHIFT, and MONGODB (for example, SNOWFLAKE, BIGQUERY, or SALESFORCE) | No | Evaluate the data in an AWS Glue ETL job, or copy the data to Amazon S3 | 
+| Streaming tables, Delta Lake symlink tables, protected multi-dialect Data Catalog views | No | Copy the data to Amazon S3 | 
+
+ A source that you reach through an unsupported federated catalog or connection can often still be evaluated another way. If a supported JDBC connection can reach the database, as with Amazon RDS, create a table in your default Data Catalog that reads the same table through a JDBC connection, and evaluate that table. For other sources, such as Snowflake, evaluate the data in an AWS Glue ETL job instead: read the data with the source's connection and apply the `EvaluateDataQuality` transform. For example, read a Snowflake table through a `SNOWFLAKE` connection. You can't evaluate a Data Catalog table that reads Snowflake through a JDBC connection, even though a crawler can create that table. For more information, see [Evaluating data quality with AWS Glue Studio](data-quality-gs-studio.md) and [Snowflake connections](aws-glue-programming-etl-connect-snowflake-home.md). You can also copy the data to Amazon S3 and evaluate the resulting table. 
+
+ To evaluate a Amazon DocumentDB or MongoDB table through a `MONGODB` connection, set up the connection as follows: 
++ Include the database and collection in the connection URL, for example `mongodb://{{host}}:27017/{{database}}.{{collection}}`. AWS Glue Data Quality reads the collection that the connection URL names, so use a separate connection for each collection that you evaluate. If the user is defined in a different database, also add `authSource` to the URL, for example `?authSource=admin`.
++ Store the user name and password in the connection. AWS Glue Data Quality doesn't read MongoDB credentials from an AWS Secrets Manager secret.
+
+
+**Supported AWS Lake Formation permission setups**  
+
+| Permission setup | Amazon S3-based sources (table formats, Amazon S3 Tables, Amazon Athena views) | Amazon Redshift catalogs (RMS catalogs and registered namespaces) | 
+| --- | --- | --- | 
+| AWS Lake Formation, full table access | Yes | Yes | 
+| AWS Lake Formation, column permissions or data filters | No | Yes | 
+| AWS Lake Formation, cross-account full table access | Yes | No | 
+| No AWS Lake Formation (IAM only) | Yes | No | 
+
+ AWS Lake Formation doesn't apply to sources that you read through a `REDSHIFT`, JDBC, or `MONGODB` connection, or to DynamoDB tables. Some setups for Amazon S3-based sources need additional permissions: 
++ With AWS Lake Formation, grant the data quality IAM role `SELECT` on the whole table.
++ For cross-account Apache Iceberg tables, create a resource link in the account that runs AWS Glue Data Quality. You can't reference the producer account's catalog ID directly.
++ For cross-account Apache Hudi, Delta Lake, and Amazon S3 Tables, the producer account must also grant the data quality IAM role direct access to the underlying data location, for example with an Amazon S3 bucket policy or an Amazon S3 table bucket policy.
++ Store Amazon Athena views in the account that runs AWS Glue Data Quality. For more information, see [Amazon Athena view support](#data-quality-athena-view-support).
+
+### Amazon Redshift support
+<a name="data-quality-redshift-support"></a>
+
+ You can evaluate data in Amazon Redshift with AWS Glue Data Quality. How you set it up depends on how your Amazon Redshift data is available to AWS Glue: 
+
+
+**Ways to evaluate Amazon Redshift data**  
+
+| If your Amazon Redshift data is | Evaluate it through | Access control | Where you can start runs | 
+| --- | --- | --- | --- | 
+| In Amazon Redshift managed storage (RMS) catalogs in the Data Catalog | The RMS catalog tables | AWS Lake Formation (full table access, column permissions, or data filters) | API/AWS CLI, Amazon SageMaker Unified Studio | 
+| In a provisioned cluster or Serverless namespace registered in the Data Catalog | The federated catalog for the namespace | AWS Lake Formation (full table access, column permissions, or data filters) | API/AWS CLI, Amazon SageMaker Unified Studio | 
+| In a provisioned cluster or Serverless namespace that isn't registered in the Data Catalog | A Data Catalog table that uses a REDSHIFT connection | The connection's credentials | AWS Glue console, API/AWS CLI | 
+
+For RMS catalogs and registered namespaces, keep the following in mind:
++ The Amazon Redshift database user that the data quality IAM role maps to (`IAMR:{{role-name}}`) must have `USAGE` on the schema and `SELECT` on the table. Alternatively, tag the role with `RedshiftDbUser` or `RedshiftDbRoles` to map it to a database user or role that has these privileges.
++ For registered namespaces, also allow the data quality IAM role `redshift-serverless:GetCredentials` and the Amazon Redshift Data API actions (`redshift-data:BatchExecuteStatement`, `redshift-data:DescribeStatement`, and `redshift-data:GetStatementResult`).
++ You can't evaluate columns of type `SUPER`.
++ Cross-account access and setups without AWS Lake Formation aren't supported.
 
 ### Amazon Athena view support
 <a name="data-quality-athena-view-support"></a>
 
- AWS Glue Data Quality supports rule recommendation and evaluation runs for Amazon Athena views created using `CREATE VIEW` and stored in the Data Catalog. Same-account, cross-account, and nested Amazon Athena views are supported. 
+ AWS Glue Data Quality supports rule recommendation and evaluation runs for Amazon Athena views created using `CREATE VIEW` and stored in the Data Catalog of the account that runs AWS Glue Data Quality. Nested views are supported. To evaluate data in another account, create the view in your account and reference the other account's tables through resource links. 
 
  AWS Glue Data Quality evaluates an Amazon Athena view using the permissions of the IAM role that you provide for the data quality run. Grant this role access to the view and to every underlying table, partition, data location, and encryption key that the view references. For cross-account views, configure the required AWS Glue, AWS Lake Formation, Amazon S3, and AWS KMS permissions in each participating account. If you use resource links, configure them in the account that runs AWS Glue Data Quality. 
 
@@ -430,11 +471,6 @@ Consider the following limitations:
 +  Each physical table referenced by a view must use a source type that AWS Glue Data Quality supports. 
 +  The view query must use SQL syntax and functions that are compatible with the AWS Glue Spark SQL runtime. 
 +  Catalog partition predicates are not supported for view sources. 
-
-### Other known limitations
-<a name="w2aac49c43c47b9"></a>
-+  Delta Lake Symlink Tables: Not supported for AWS Glue Data Quality recommendation runs or Data Catalog Data Quality evaluation runs. 
-+  Amazon S3 Table Asset publishing in SageMaker Unified Studio: Currently, publishing Amazon S3 Tables as Assets in SageMaker Unified Studio is unavailable; visualizing Amazon S3 Table Data Quality runs is unavailable from SageMaker Unified Studio as a result. 
 
 ## Related topics
 <a name="data-quality-get-started-related"></a>

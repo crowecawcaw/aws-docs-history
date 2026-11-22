@@ -1,7 +1,6 @@
 
 
 # Using AWS Glue with AWS Lake Formation for fine-grained access control
-<a name="security-lf-enable"></a>
 
 ## Overview
 <a name="security-lf-enable-overview"></a>
@@ -63,7 +62,7 @@ The following is an example policy of how to provide IAM permissions to access a
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

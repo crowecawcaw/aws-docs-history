@@ -1,7 +1,6 @@
 
 
 # Viewing the EventBridge events that started a workflow
-<a name="viewing-start-event-info"></a>
 
 You can view the event ID of the Amazon EventBridge event that started your workflow. If your workflow was started by a batch of events, you can view the event IDs of all events in the batch.
 
@@ -24,7 +23,7 @@ For workflows with a batch size greater than one, you can also see which batch c
 **To view the EventBridge events that started a workflow (AWS API)**
 + Include the following code in your Python script.
 
-  ```
+  ```Python
   workflow_params = glue_client.get_workflow_run_properties(Name=workflow_name,RunId=workflow_run_id)
   batched_events = workflow_params['aws:eventIds']
   ```

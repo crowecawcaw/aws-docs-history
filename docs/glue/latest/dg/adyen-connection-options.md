@@ -1,7 +1,6 @@
 
 
 # Adyen connection options
-<a name="adyen-connection-options"></a>
 
 The following are connection options for Adyen:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Adyen object to read.

@@ -1,7 +1,6 @@
 
 
 # Configuring Asana connections
-<a name="asana-configuring-connections"></a>
 
 Asana supports the `AUTHORIZATION_CODE` grant type for `OAuth2`. 
 
@@ -32,7 +31,7 @@ You must create a secret for the connection in AWS Glue.
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

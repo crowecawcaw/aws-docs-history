@@ -1,7 +1,6 @@
 
 
 # MapToCollection class
-<a name="aws-glue-api-crawler-pyspark-transforms-MapToCollection"></a>
 
 Applies a transform to each `DynamicFrame` in the specified `DynamicFrameCollection`.
 

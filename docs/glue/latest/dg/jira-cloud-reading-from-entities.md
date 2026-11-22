@@ -1,7 +1,6 @@
 
 
 # Reading from Jira Cloud entities
-<a name="jira-cloud-reading-from-entities"></a>
 
 **Prerequisite**
 

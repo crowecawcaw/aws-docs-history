@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Klaviyo
-<a name="klaviyo-support"></a>
 
 AWS Glue supports Klaviyo as follows:
 

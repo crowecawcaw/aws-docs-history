@@ -1,7 +1,6 @@
 
 
 # Reading from Shortcut entities
-<a name="shortcut-reading-from-entities"></a>
 
 **Prerequisites**
 

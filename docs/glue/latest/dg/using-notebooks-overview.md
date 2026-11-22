@@ -1,7 +1,6 @@
 
 
 # Overview of using notebooks
-<a name="using-notebooks-overview"></a>
 
  AWS Glue Studio allows you to interactively author jobs in a notebook interface based on Jupyter Notebooks. Through notebooks in AWS Glue Studio, you can edit job scripts and view the output without having to run a full job, and you can edit data integration code and view the output without having to run a full job, and you can add markdown and save notebooks as .ipynb files and job scripts. You can start a notebook without installing software locally or managing servers. When you are satisfied with your code, AWS Glue Studio can convert your notebook to a Glue job with the click of a button. 
 

@@ -1,7 +1,6 @@
 
 
 # Service quotas
-<a name="zero-etl-service-quotas"></a>
 
 AWS Glue Zero-ETL has the following service quotas:
 + Each account can create 25 integrations by default.

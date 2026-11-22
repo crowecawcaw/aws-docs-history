@@ -1,7 +1,6 @@
 
 
 # Configuring Mollie
-<a name="mollie-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Mollie, you must meet the following requirements:
 

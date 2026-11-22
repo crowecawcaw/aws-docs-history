@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Webex
-<a name="webex-support"></a>
 
 AWS Glue supports Webex as follows:
 

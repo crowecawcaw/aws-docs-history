@@ -1,7 +1,6 @@
 
 
 # Encrypt class
-<a name="aws-glue-api-pyspark-transforms-Encrypt"></a>
 
  The `Encrypt` transform encrypts source columns using the AWS Key Management Service key. The `Encrypt` transform can encrypt up to 128 MiB per cell. It will attempt to preserve the format on decryption. To preserve the data type, the data type metadata must serialize to less than 1KB. Otherwise, you must set the `preserve_data_type` parameter to false. The data type metadata will be stored in plaintext in the encryption context. 
 

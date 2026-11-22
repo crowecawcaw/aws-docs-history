@@ -1,7 +1,6 @@
 
 
 # Visualizing AWS Glue streaming metrics
-<a name="glue-streaming-monitoring-visualizing"></a>
 
 To plot visual metrics:
 

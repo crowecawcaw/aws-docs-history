@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Calendly
-<a name="calendly-support"></a>
 
 AWS Glue supports Calendly as follows:
 

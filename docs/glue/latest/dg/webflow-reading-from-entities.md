@@ -1,7 +1,6 @@
 
 
 # Reading from Webflow entities
-<a name="webflow-reading-from-entities"></a>
 
 **Prerequisites**
 

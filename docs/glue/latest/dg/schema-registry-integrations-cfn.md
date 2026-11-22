@@ -1,7 +1,6 @@
 
 
 # Sample CloudFormation template for schema registry
-<a name="schema-registry-integrations-cfn"></a>
 
 The following is a sample template for creating Schema Registry resources in CloudFormation. To create this stack in your account, copy the above template into a file `SampleTemplate.yaml`, and run the following command:
 

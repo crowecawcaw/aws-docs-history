@@ -1,7 +1,6 @@
 
 
 # Creating a BigQuery target node
-<a name="creating-bigquery-target-node"></a>
 
 ## Prerequisites needed
 <a name="creating-bigquery-target-node-prerequisites"></a>

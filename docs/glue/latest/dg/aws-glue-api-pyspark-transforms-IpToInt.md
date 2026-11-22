@@ -1,7 +1,6 @@
 
 
 # IpToInt class
-<a name="aws-glue-api-pyspark-transforms-IpToInt"></a>
 
 The `IpToInt` transform converts the Internet Protocol version 4 (IPv4) value of the source column or other value to the corresponding integer value in the target column, and returns the result in a new column. 
 

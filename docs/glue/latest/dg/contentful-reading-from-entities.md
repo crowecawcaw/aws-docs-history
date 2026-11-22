@@ -1,7 +1,6 @@
 
 
 # Reading from Contentful entities
-<a name="contentful-reading-from-entities"></a>
 
 **Prerequisites**
 

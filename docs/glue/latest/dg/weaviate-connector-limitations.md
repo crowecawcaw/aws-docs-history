@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Weaviate connector
-<a name="weaviate-connector-limitations"></a>
 
 The following are limitations and notes for the Weaviate connector:
 + Weaviate is supported as a source only. Writing to Weaviate is not supported.

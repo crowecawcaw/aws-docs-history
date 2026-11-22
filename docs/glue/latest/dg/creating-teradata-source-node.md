@@ -1,7 +1,6 @@
 
 
 # Creating a Teradata source node
-<a name="creating-teradata-source-node"></a>
 
 ## Prerequisites needed
 <a name="creating-teradata-source-node-prerequisites"></a>

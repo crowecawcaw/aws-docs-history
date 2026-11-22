@@ -1,7 +1,6 @@
 
 
 # Configuring AWS Glue interactive sessions
-<a name="interactive-sessions-spark-connect-configuring"></a>
 
 Before you connect to a AWS Glue interactive session using Spark Connect, you must configure the session with the appropriate settings.
 
@@ -16,7 +15,7 @@ Before you connect to a AWS Glue interactive session using Spark Connect, you mu
 
 To create a Spark Connect session, call the `CreateSession` API with the `SessionType` parameter set to `SPARK_CONNECT`.
 
-```
+```python
 import boto3
 
 glue_client = boto3.client("glue")
@@ -32,7 +31,7 @@ response = glue_client.create_session(
 
 Wait for the session to reach the `READY` state:
 
-```
+```python
 response = glue_client.get_session(
     Id="{{my-spark-connect-session}}"
 )
@@ -49,7 +48,7 @@ You can configure the number and type of workers for your Spark Connect session 
 + `WorkerType` – The type of workers (for example, `G.1X`, `G.2X`).
 + `NumberOfWorkers` – The number of workers to allocate.
 
-```
+```python
 response = glue_client.create_session(
     Id="{{my-spark-connect-session}}",
     Role="arn:aws:iam::{{123456789012}}:role/{{GlueRole}}",

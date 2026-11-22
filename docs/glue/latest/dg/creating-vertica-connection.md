@@ -1,7 +1,6 @@
 
 
 # Creating a Vertica connection
-<a name="creating-vertica-connection"></a>
 
 **Prerequisites**:
 + An Amazon S3 bucket or folder to use for temporary storage when reading from and writing to the database, referred to by {{tempS3Path}}.

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Finch
-<a name="finch-support"></a>
 
 AWS Glue supports Finch as follows:
 

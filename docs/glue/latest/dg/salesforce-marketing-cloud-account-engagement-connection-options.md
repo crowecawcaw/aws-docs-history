@@ -1,7 +1,6 @@
 
 
 # Salesforce Marketing Cloud Account Engagement connection options
-<a name="salesforce-marketing-cloud-account-engagement-connection-options"></a>
 
 The following are connection options for Salesforce Marketing Cloud Account Engagement:
 + `ENTITY_NAME`(String) - (Required) Used for Read. The name of your object in Salesforce Marketing Cloud Account Engagement.

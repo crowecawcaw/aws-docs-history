@@ -1,7 +1,6 @@
 
 
 # Configuring Monday
-<a name="monday-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Monday, you must meet these requirements:
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Maxio entities
-<a name="maxio-reading-from-entities"></a>
 
 **Prerequisites**
 

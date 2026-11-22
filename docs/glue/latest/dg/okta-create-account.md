@@ -1,7 +1,6 @@
 
 
 # Okta New Account and Developer App creation steps
-<a name="okta-create-account"></a>
 
  Create a developer account on Okta for getting access to the Okta API. A free Okta developer account gives access to most key developer features required for accessing Okt API. 
 

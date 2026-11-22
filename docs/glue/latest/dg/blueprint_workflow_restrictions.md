@@ -1,7 +1,6 @@
 
 
 # Blueprint and workflow restrictions in AWS Glue
-<a name="blueprint_workflow_restrictions"></a>
 
 The following are restrictions for blueprints and workflows.
 

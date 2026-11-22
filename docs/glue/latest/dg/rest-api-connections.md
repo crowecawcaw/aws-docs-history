@@ -1,7 +1,6 @@
 
 
 # REST API Connections
-<a name="rest-api-connections"></a>
 
  AWS Glue connectors cover a wide range of data sources both AWS and external. However, there may be proprietary systems or emerging platforms that native AWS Glue connectors do not support. The AWS Glue REST connector provides a mechanism to configure a customized connector for any data source that has a REST-based API which then works the same way as natively supported AWS Glue connectors. This capability minimizes the need to build custom libraries or ETL scripts to access these data sources. 
 

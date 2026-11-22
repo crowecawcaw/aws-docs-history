@@ -1,7 +1,6 @@
 
 
 # Reading from Salesforce Commerce Cloud entities
-<a name="salesforce-commerce-cloud-reading-from-entities"></a>
 
  **Prerequisites** 
 +  A Salesforce Commerce Cloud Object you would like to read from. Refer the supported entities table below to check the available entities. 

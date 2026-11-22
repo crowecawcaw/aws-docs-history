@@ -1,7 +1,6 @@
 
 
 # Configuring Productboard connections
-<a name="productboard-configuring-connections"></a>
 
  
 
@@ -30,7 +29,7 @@ It is a must to create a secret per connection in AWS Glue.
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

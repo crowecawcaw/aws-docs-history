@@ -1,7 +1,6 @@
 
 
 # Accessing the Data Catalog
-<a name="access_catalog"></a>
 
  You can use the AWS Glue Data Catalog (Data Catalog) to discover and understand your data. Data Catalog provides a consistent way to maintain schema definitions, data types, locations, and other metadata. You can access the Data Catalog using the following methods:
 + AWS Glue console – You can access and manage the Data Catalog through the AWS Glue console, a web-based user interface. The console allows you to browse and search for databases, tables, and their associated metadata, as well as create, update, and delete metadata definitions. 

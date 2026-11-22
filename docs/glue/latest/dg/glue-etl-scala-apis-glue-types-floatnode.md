@@ -1,7 +1,6 @@
 
 
 # AWS Glue Scala FloatNode APIs
-<a name="glue-etl-scala-apis-glue-types-floatnode"></a>
 
 **Package: com.amazonaws.services.glue.types**
 

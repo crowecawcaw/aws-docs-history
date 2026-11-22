@@ -1,7 +1,6 @@
 
 
 # Creating a Azure SQL target node
-<a name="creating-azuresql-target-node"></a>
 
 ## Prerequisites needed
 <a name="creating-azuresql-target-node-prerequisites"></a>

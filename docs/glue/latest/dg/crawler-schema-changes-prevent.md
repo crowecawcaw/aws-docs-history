@@ -1,7 +1,6 @@
 
 
 # Preventing a crawler from changing an existing schema
-<a name="crawler-schema-changes-prevent"></a>
 
  You can prevent AWS Glue crawlers from making any schema changes to the Data Catalog when they run. By default, crawlers updates the schema in the Data Catalog to match the data source being crawled. However, in some cases, you may want to prevent the Crawler from modifying the existing schema, especially if you have transformed or cleaned the data and don't want the original schema to overwrite the changes.
 

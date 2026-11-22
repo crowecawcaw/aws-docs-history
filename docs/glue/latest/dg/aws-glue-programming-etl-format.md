@@ -1,7 +1,6 @@
 
 
 # Data format options for inputs and outputs in AWS Glue for Spark
-<a name="aws-glue-programming-etl-format"></a>
 
 These pages offer information about feature support and configuration parameters for data formats supported by AWS Glue for Spark. See the following for a description of the usage and applicablity of this information. 
 

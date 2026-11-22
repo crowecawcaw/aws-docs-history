@@ -1,7 +1,6 @@
 
 
 # Kustomer connection options
-<a name="kustomer-connection-options"></a>
 
 The following are connection options for Kustomer:
 + `ENTITY_NAME`(String) - (Required) Used for Read. The name of your object in Kustomer.

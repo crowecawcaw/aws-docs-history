@@ -1,7 +1,6 @@
 
 
 # Connecting to Constant Contact in AWS Glue Studio
-<a name="connecting-to-data-constantcontact"></a>
 
 Constant Contact is an email, SMS, and event marketing platform for small and midsize businesses. Because you are a Constant Contact user, you can connect AWS Glue to your Constant Contact account. You can then use Constant Contact as a data source in your AWS Glue ETL jobs to transfer data between Constant Contact and AWS services or other supported applications.
 

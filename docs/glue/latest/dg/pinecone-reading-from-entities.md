@@ -1,7 +1,6 @@
 
 
 # Reading from Pinecone entities
-<a name="pinecone-reading-from-entities"></a>
 
 **Prerequisites**
 

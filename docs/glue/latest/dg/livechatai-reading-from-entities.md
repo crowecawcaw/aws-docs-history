@@ -1,7 +1,6 @@
 
 
 # Reading from LiveChatAI entities
-<a name="livechatai-reading-from-entities"></a>
 
 **Prerequisites**
 

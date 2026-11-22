@@ -1,7 +1,6 @@
 
 
 # Features and optimizations for programming AWS Glue for Spark ETL scripts
-<a name="aws-glue-programming-general"></a>
 
 The following sections describe techniques and values that apply generally to AWS Glue for Spark ETL (extract, transform, and load) programming in any language.
 

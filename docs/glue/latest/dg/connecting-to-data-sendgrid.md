@@ -1,7 +1,6 @@
 
 
 # Connecting to SendGrid
-<a name="connecting-to-data-sendgrid"></a>
 
 SendGrid is a customer communication platform for transactional and marketing emails.
 + SendGrid connector helps in creating and managing contact lists and creating email marketing campaigns.

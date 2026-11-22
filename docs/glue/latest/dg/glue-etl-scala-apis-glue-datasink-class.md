@@ -1,7 +1,6 @@
 
 
 # Abstract DataSink class
-<a name="glue-etl-scala-apis-glue-datasink-class"></a>
 
 **Topics**
 + [Def writeDynamicFrame](#glue-etl-scala-apis-glue-datasink-class-defs-writeDynamicFrame)

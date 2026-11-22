@@ -1,7 +1,6 @@
 
 
 # Configuring TestRail connections
-<a name="testrail-configuring-connections"></a>
 
 TestRail connections use basic authentication. You store the credential in Secrets Manager and reference that secret when you create the connection in AWS Glue Studio.
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Microsoft Teams entities
-<a name="microsoft-teams-reading-from-entities"></a>
 
  **Prerequisites** 
 +  A Microsoft Teams object you would like to read from. You will need the object name such as team or channel-message. The following table shows the supported entities. 

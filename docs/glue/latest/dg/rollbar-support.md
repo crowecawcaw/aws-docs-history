@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Rollbar
-<a name="rollbar-support"></a>
 
 AWS Glue supports Rollbar as follows:
 

@@ -1,7 +1,6 @@
 
 
 # Creating a Azure Cosmos DB connection
-<a name="creating-azurecosmos-connection"></a>
 
 **Prerequisites**:
 + In Azure, you will need to identify or generate an Azure Cosmos DB Key for use by AWS Glue, `cosmosKey`. For more information, see [Secure access to data in Azure Cosmos DB](https://learn.microsoft.com/en-us/azure/cosmos-db/secure-access-to-data?tabs=using-primary-key) in the Azure documentation.

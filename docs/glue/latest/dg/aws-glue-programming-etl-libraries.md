@@ -1,7 +1,6 @@
 
 
 # Developing and testing AWS Glue job scripts locally
-<a name="aws-glue-programming-etl-libraries"></a>
 
 When you develop and test your AWS Glue for Spark job scripts, there are multiple available options:
 + AWS Glue Studio console

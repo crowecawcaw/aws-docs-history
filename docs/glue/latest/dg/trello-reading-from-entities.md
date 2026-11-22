@@ -1,7 +1,6 @@
 
 
 # Reading from Trello entities
-<a name="trello-reading-from-entities"></a>
 
 **Prerequisites**
 

@@ -1,7 +1,6 @@
 
 
 # Updating snapshot retention optimizer
-<a name="update-snapshot-retention"></a>
 
  You can update the existing configuration of an snapshot retention optimizer for a particular Apache Iceberg table using the AWS Glue console, AWS CLI, or the UpdateTableOptimizer API. 
 
@@ -25,7 +24,7 @@
 
  To update a snapshot retention optimizer using the AWS CLI, you can use the following command: 
 
-```
+```bash
 aws glue update-table-optimizer \
  --catalog-id {{123456789012}} \
  --database-name {{iceberg_db}} \

@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Smartsheet
-<a name="smartsheet-support"></a>
 
 AWS Glue supports Smartsheet as follows:
 

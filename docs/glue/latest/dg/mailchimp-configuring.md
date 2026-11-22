@@ -1,7 +1,6 @@
 
 
 # Configuring Mailchimp
-<a name="mailchimp-configuring"></a>
 
 Before you can use AWS Glue to transfer from Mailchimp, you must meet the following requirements:
 

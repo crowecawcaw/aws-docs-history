@@ -1,7 +1,6 @@
 
 
 # DynamoDB connector with Spark DataFrame support
-<a name="aws-glue-programming-etl-connect-dynamodb-dataframe-support"></a>
 
 DynamoDB connector with Spark DataFrame support allows you to read from and write to tables in DynamoDB using Spark DataFrame APIs. The connector setup steps are the same as for DynamicFrame-based connector and can be found [here](aws-glue-programming-etl-connect-dynamodb-home.md#aws-glue-programming-etl-connect-dynamodb-configure).
 

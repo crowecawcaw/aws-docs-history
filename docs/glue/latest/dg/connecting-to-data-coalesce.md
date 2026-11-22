@@ -1,7 +1,6 @@
 
 
 # Connecting to Coalesce in AWS Glue Studio
-<a name="connecting-to-data-coalesce"></a>
 
 Coalesce (Transform) is a data-transformation platform (a GUI/SQL layer over the warehouse, dbt-like) for building, deploying, and running data pipelines. Because you are a Coalesce user, you can connect AWS Glue to your Coalesce account. You can then use Coalesce as a data source in your AWS Glue ETL jobs to transfer data between Coalesce and AWS services or other supported applications.
 

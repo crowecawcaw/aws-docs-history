@@ -1,13 +1,12 @@
 
 
 # Entropy
-<a name="dqdl-rule-types-Entropy"></a>
 
 Checks whether the *entropy* value of a column matches a given expression. Entropy measures the level of information that's contained in a message. Given the probability distribution over values in a column, entropy describes how many bits are required to identify a value.
 
 **Syntax**
 
-```
+```json
 Entropy {{<COL_NAME>}} {{<EXPRESSION>}}
 ```
 + **COL\_NAME** – The name of the column that you want to evaluate the data quality rule against.
@@ -19,7 +18,7 @@ Entropy {{<COL_NAME>}} {{<EXPRESSION>}}
 
 The following example rule checks that the column named `Feedback` has an entropy value greater than one.
 
-```
+```json
 Entropy "Star_Rating" > 1
 Entropy "First_Name" > 1  where "Customer_ID < 10"
 ```

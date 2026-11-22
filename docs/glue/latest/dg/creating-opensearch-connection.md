@@ -1,7 +1,6 @@
 
 
 # Creating a OpenSearch Service connection
-<a name="creating-opensearch-connection"></a>
 
 **Prerequisites**:
 + Identify the domain endpoint, {{aosEndpoint}} and port, {{aosPort}} you would like to read from, or create the resource by following instructions in the Amazon OpenSearch Service documentation. For more information on creating a domain, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the Amazon OpenSearch Service documentation.

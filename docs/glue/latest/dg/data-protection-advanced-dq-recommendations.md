@@ -1,7 +1,6 @@
 
 
 # Data protection for advanced data quality rule recommendations
-<a name="data-protection-advanced-dq-recommendations"></a>
 
 For an `ADVANCED` run, Athena samples rows from the source table. AWS Glue does not exclude any table column from the sample.
 

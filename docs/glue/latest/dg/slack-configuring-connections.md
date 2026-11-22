@@ -1,7 +1,6 @@
 
 
 # Configuring Slack connections
-<a name="slack-configuring-connections"></a>
 
  Slack supports the `AUTHORIZATION_CODE` grant type for OAuth 2. 
 
@@ -32,7 +31,7 @@ To configure an Slack connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

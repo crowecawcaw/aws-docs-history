@@ -1,7 +1,6 @@
 
 
 # Tutorial: Set up a Jupyter notebook in JupyterLab to test and debug ETL scripts
-<a name="dev-endpoint-tutorial-local-jupyter"></a>
 
 In this tutorial, you connect a Jupyter notebook in JupyterLab running on your local machine to a development endpoint. You do this so that you can interactively run, debug, and test AWS Glue extract, transform, and load (ETL) scripts before deploying them. This tutorial uses Secure Shell (SSH) port forwarding to connect your local machine to an AWS Glue development endpoint. For more information, see [Port forwarding](https://en.wikipedia.org/wiki/Port_forwarding) on Wikipedia.
 
@@ -14,7 +13,7 @@ If you're installing on macOS, you must have Xcode installed before you can inst
 
 1. Install JupyterLab, Sparkmagic, and the related extensions.
 
-   ```
+   ```bsh
    $ conda install -c conda-forge jupyterlab
    $ pip install sparkmagic
    $ jupyter nbextension enable --py --sys-prefix widgetsnbextension
@@ -23,14 +22,14 @@ If you're installing on macOS, you must have Xcode installed before you can inst
 
 1. Check the `sparkmagic` directory from `Location`. 
 
-   ```
+   ```bsh
    $ pip show sparkmagic | grep Location
    Location: /Users/{{username}}/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages
    ```
 
 1. Change your directory to the one returned for `Location`, and install the kernels for Scala and PySpark.
 
-   ```
+   ```bsh
    $ cd /Users/{{username}}/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages
    $ jupyter-kernelspec install sparkmagic/kernels/sparkkernel
    $ jupyter-kernelspec install sparkmagic/kernels/pysparkkernel
@@ -38,7 +37,7 @@ If you're installing on macOS, you must have Xcode installed before you can inst
 
 1. Download a sample `config` file. 
 
-   ```
+   ```bsh
    $ curl -o ~/.sparkmagic/config.json https://raw.githubusercontent.com/jupyter-incubator/sparkmagic/master/sparkmagic/example_config.json
    ```
 
@@ -49,7 +48,7 @@ If you're installing on macOS, you must have Xcode installed before you can inst
 
 When you start JupyterLab, your default web browser is automatically opened, and the URL `http://localhost:8888/lab/workspaces/{workspace_name}` is shown.
 
-```
+```bsh
 $ jupyter lab
 ```
 
@@ -93,7 +92,7 @@ Now your notebook in JupyterLab should work with your development endpoint. Ente
 
 1. Check that Spark is running successfully. The following command instructs Spark to calculate `1` and then print the value.
 
-   ```
+   ```sql
    spark.sql("select 1").show()
    ```
 
@@ -107,7 +106,7 @@ Now your notebook in JupyterLab should work with your development endpoint. Ente
 
    The following script uses the `persons_json` table metadata in the AWS Glue Data Catalog to create a `DynamicFrame` from your sample data. It then prints out the item count and the schema of this data. 
 
-```
+```python
 import sys
 from pyspark.context import SparkContext
 from awsglue.context import GlueContext

@@ -1,7 +1,6 @@
 
 
 # Building AWS Glue jobs with interactive sessions
-<a name="interactive-sessions-chapter"></a>
 
  Data engineers can author AWS Glue jobs faster and more easily than before using interactive sessions in AWS Glue. 
 

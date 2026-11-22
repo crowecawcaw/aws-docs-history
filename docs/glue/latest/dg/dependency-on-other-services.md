@@ -1,7 +1,6 @@
 
 
 # AWS Glue dependency on other AWS services
-<a name="dependency-on-other-services"></a>
 
 For a user to work with the AWS Glue console, that user must have a minimum set of permissions that allows them to work with the AWS Glue resources for their AWS account. In addition to these AWS Glue permissions, the console requires permissions from the following services: 
 + Amazon CloudWatch Logs permissions to display logs.

@@ -1,7 +1,6 @@
 
 
 # Reading from RudderStack entities
-<a name="rudderstack-reading-from-entities"></a>
 
 **Prerequisites**
 

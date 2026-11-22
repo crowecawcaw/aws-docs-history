@@ -1,7 +1,6 @@
 
 
 # Pipeliner connection options
-<a name="pipeliner-connection-options"></a>
 
 The following are connection options for Pipeliner:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Pipeliner object to read.

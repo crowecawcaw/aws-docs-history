@@ -1,7 +1,6 @@
 
 
 # SAP OData activation
-<a name="sap-odata-activation"></a>
 
 Complete the following steps for SAP OData connection:
 

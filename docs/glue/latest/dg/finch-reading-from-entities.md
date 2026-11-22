@@ -1,7 +1,6 @@
 
 
 # Reading from Finch entities
-<a name="finch-reading-from-entities"></a>
 
 **Prerequisites**
 

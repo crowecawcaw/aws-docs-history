@@ -1,7 +1,6 @@
 
 
 # Chargebee connection options
-<a name="chargebee-connection-options"></a>
 
 The following are connection options for Chargebee:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Chargebee object to read.

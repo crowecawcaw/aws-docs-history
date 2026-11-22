@@ -1,7 +1,6 @@
 
 
 # Connecting to Zoom Meetings
-<a name="connecting-to-data-zoom-meetings"></a>
 
 Zoom Meetings is a cloud-based video conferencing platform that can be used for video conferencing meetings, audio conferencing, webinars, meeting recordings, and live chat.
 

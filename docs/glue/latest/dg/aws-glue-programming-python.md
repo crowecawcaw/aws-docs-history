@@ -1,7 +1,6 @@
 
 
 # Program AWS Glue ETL scripts in PySpark
-<a name="aws-glue-programming-python"></a>
 
 You can find Python code examples and utilities for AWS Glue in the [AWS Glue samples repository](https://github.com/awslabs/aws-glue-samples) on the GitHub website.
 

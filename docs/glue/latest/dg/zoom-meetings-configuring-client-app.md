@@ -1,7 +1,6 @@
 
 
 # Configuring the Zoom Meetings client app
-<a name="zoom-meetings-configuring-client-app"></a>
 
 1. Log into the Zoom App Marketplace.
 

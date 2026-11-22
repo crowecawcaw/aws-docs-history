@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Honeycomb connector
-<a name="honeycomb-connector-limitations"></a>
 
 The following are limitations and notes for the Honeycomb connector:
 + Honeycomb is supported as a source only. Writing to Honeycomb is not supported.

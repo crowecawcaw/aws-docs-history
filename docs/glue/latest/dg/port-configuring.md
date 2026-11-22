@@ -1,7 +1,6 @@
 
 
 # Configuring Port
-<a name="port-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Port, you must meet the following requirements:
 

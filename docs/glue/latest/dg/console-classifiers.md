@@ -1,7 +1,6 @@
 
 
 # Creating classifiers using the AWS Glue console
-<a name="console-classifiers"></a>
 
 A classifier determines the schema of your data. You can write a custom classifier and point to it from AWS Glue. 
 

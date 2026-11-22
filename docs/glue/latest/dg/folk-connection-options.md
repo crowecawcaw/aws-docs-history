@@ -1,7 +1,6 @@
 
 
 # Folk connection options
-<a name="folk-connection-options"></a>
 
 The following are connection options for Folk:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Folk object to read.

@@ -1,7 +1,6 @@
 
 
 # Connecting to HubSpot
-<a name="connecting-to-data-hubspot"></a>
 
 HubSpot's CRM platform has all the tools and integrations you need for marketing, sales, content management, and customer service.
 + Marketing Hub - Marketing software to help you grow traffic, convert more visitors, and run complete inbound marketing campaigns at scale.

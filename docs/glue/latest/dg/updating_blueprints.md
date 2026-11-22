@@ -1,7 +1,6 @@
 
 
 # Updating a blueprint in AWS Glue
-<a name="updating_blueprints"></a>
 
 You can update a blueprint if you have a revised layout script, a revised set of blueprint parameters, or revised supporting files. Updating a blueprint creates a new version.
 
@@ -31,7 +30,7 @@ The following procedure assumes that the AWS Glue developer has created and uplo
 
 1. If the status is `FAILED`, select the blueprint, and on the **Actions** menu, choose **View**.
 
-   The detail page shows the reason for the failure. If the error message is "Unable to access object at location..." or "Access denied on object at location...", review the following requirements:
+   The detail page shows the reason for the failure. If the error message is `"Unable to access object at location..."` or `"Access denied on object at location..."`, review the following requirements:
    + The user that you are signed in as must have read permission on the blueprint ZIP archive in Amazon S3.
    + The Amazon S3 bucket that contains the ZIP archive must have a bucket policy that grants read permission on the object to your AWS account ID. For more information, see [Publishing a blueprint](developing-blueprints-publishing.md).
    + The Amazon S3 bucket that you're using must be in the same Region as the Region that you're signed into on the console.
@@ -52,7 +51,7 @@ If the update fails, the next blueprint run uses the latest version of the bluep
    aws glue get-blueprint --name {{<blueprint-name>}}
    ```
 
-   If the status is `FAILED` and the error message is "Unable to access object at location..." or "Access denied on object at location...", review the following requirements:
+   If the status is `FAILED` and the error message is `"Unable to access object at location..."` or `"Access denied on object at location..."`, review the following requirements:
    + The user that you are signed in as must have read permission on the blueprint ZIP archive in Amazon S3.
    + The Amazon S3 bucket containing the ZIP archive must have a bucket policy that grants read permission on the object to your AWS account ID. For more information, see [Publishing a blueprint](developing-blueprints-publishing.md).
    + The Amazon S3 bucket that you're using must be in the same Region as the Region that you're signed into on the console.

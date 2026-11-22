@@ -1,13 +1,12 @@
 
 
 # Sum
-<a name="dqdl-rule-types-Sum"></a>
 
 Checks the sum of all the values in a column against a given expression.
 
 **Syntax**
 
-```
+```json
 Sum {{<COL_NAME>}} {{<EXPRESSION>}}
 ```
 + **COL\_NAME** – The name of the column that you want to evaluate the data quality rule against.
@@ -19,7 +18,7 @@ Sum {{<COL_NAME>}} {{<EXPRESSION>}}
 
 The following example rule checks whether the sum of all of the values in a column exceeds a given threshold.
 
-```
+```json
 Sum "transaction_total" > 500000
 Sum "Salary" < 55600 where "Customer_ID < 10"
 ```

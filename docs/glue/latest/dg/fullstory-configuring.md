@@ -1,7 +1,6 @@
 
 
 # Configuring Fullstory
-<a name="fullstory-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Fullstory, you must meet the following requirements:
 

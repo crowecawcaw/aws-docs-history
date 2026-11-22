@@ -1,7 +1,6 @@
 
 
 # Using the Split String transform to break up a string column
-<a name="transforms-split-string"></a>
 
  The Split String transform allows you to break up a string into an array of tokens using a regular expression to define how the split is done. You can then keep the column as an array type or apply an **Array To Columns** transform after this one, to extract the array values onto top level fields, assuming that each token has a meaning we know beforehand. Also, if the order of the tokens is irrelevant (for instance, a set of categories), you can use the **Explode** transform to generate a separate row for each value. 
 

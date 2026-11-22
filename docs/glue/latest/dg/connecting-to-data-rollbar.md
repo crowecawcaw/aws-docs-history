@@ -1,7 +1,6 @@
 
 
 # Connecting to Rollbar in AWS Glue Studio
-<a name="connecting-to-data-rollbar"></a>
 
 SDKs report occurrences (individual error/message events) which Rollbar groups into items (deduplicated errors, the unit a developer triages), scoped to a project within an account. Because you are a Rollbar user, you can connect AWS Glue to your Rollbar account. You can then use Rollbar as a data source in your AWS Glue ETL jobs to transfer data between Rollbar and AWS services or other supported applications.
 

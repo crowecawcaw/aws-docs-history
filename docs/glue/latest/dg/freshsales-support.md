@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Freshsales
-<a name="freshsales-support"></a>
 
 AWS Glue supports Freshsales as follows:
 

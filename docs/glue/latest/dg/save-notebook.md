@@ -1,7 +1,6 @@
 
 
 # Saving your notebook and job script
-<a name="save-notebook"></a>
 
  You can save your notebook and the job script you are creating at any time. Simply choose the **Save** button in the upper right corner, the same as if you were using the visual or script editor. 
 

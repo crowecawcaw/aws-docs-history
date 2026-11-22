@@ -1,7 +1,6 @@
 
 
 # Using DropFields to keep most data property keys
-<a name="transforms-configure-drop-fields"></a>
 
 You can create a subset of data property keys from the dataset using the *DropFields* transform. You indicate which data property keys you want to remove from the dataset and the rest of the keys are retained.
 

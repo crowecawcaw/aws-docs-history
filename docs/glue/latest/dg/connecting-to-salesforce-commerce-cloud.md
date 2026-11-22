@@ -1,7 +1,6 @@
 
 
 # Connecting to Salesforce Commerce Cloud
-<a name="connecting-to-salesforce-commerce-cloud"></a>
 
  The B2C Commerce API is a collection of RESTful APIs for interacting with B2C Commerce instances. It goes by a few different names: Salesforce Commerce API, the acronym SCAPI, or just Commerce API.
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Smartlook entities
-<a name="smartlook-reading-from-entities"></a>
 
 **Prerequisites**
 

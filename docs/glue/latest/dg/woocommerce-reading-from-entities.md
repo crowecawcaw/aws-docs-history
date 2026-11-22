@@ -1,7 +1,6 @@
 
 
 # Reading from WooCommerce entities
-<a name="woocommerce-reading-from-entities"></a>
 
 **Prerequisite**
 

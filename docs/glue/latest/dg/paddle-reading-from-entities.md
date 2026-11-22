@@ -1,7 +1,6 @@
 
 
 # Reading from Paddle entities
-<a name="paddle-reading-from-entities"></a>
 
 **Prerequisites**
 

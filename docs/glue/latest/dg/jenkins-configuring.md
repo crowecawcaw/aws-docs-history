@@ -1,7 +1,6 @@
 
 
 # Configuring Jenkins
-<a name="jenkins-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Jenkins, you must meet the following requirements:
 

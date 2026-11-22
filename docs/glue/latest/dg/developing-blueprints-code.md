@@ -1,7 +1,6 @@
 
 
 # Writing the blueprint code
-<a name="developing-blueprints-code"></a>
 
 Each blueprint project that you create must contain at a minimum the following files:
 + A Python layout script that defines the workflow. The script contains a function that defines the entities (jobs and crawlers) in a workflow, and the dependencies between them.

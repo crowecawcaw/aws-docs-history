@@ -1,13 +1,12 @@
 
 
 # StandardDeviation
-<a name="dqdl-rule-types-StandardDeviation"></a>
 
 Checks the standard deviation of all of the values in a column against a given expression.
 
 **Syntax**
 
-```
+```json
 StandardDeviation {{<COL_NAME>}} {{<EXPRESSION>}}
 ```
 + **COL\_NAME** – The name of the column that you want to evaluate the data quality rule against.
@@ -19,7 +18,7 @@ StandardDeviation {{<COL_NAME>}} {{<EXPRESSION>}}
 
 The following example rule checks whether the standard deviation of the values in a column named `colA` is less than a specified value.
 
-```
+```json
 StandardDeviation "Star_Rating" < 1.5
 StandardDeviation "Salary" < 3500 where "Customer_ID < 10"
 ```

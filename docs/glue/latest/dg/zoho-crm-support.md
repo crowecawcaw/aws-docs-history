@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Zoho CRM
-<a name="zoho-crm-support"></a>
 
 AWS Glue supports Zoho CRM as follows:
 

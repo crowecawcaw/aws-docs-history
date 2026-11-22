@@ -1,7 +1,6 @@
 
 
 # Amazon S3 connections
-<a name="aws-glue-programming-etl-connect-s3-home"></a>
 
 You can use AWS Glue for Spark to read and write files in Amazon S3. AWS Glue for Spark supports many common data formats stored in Amazon S3 out of the box, including CSV, Avro, JSON, Orc and Parquet. For more information about supported data formats, see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md). Each data format may support a different set of AWS Glue features. Consult the page for your data format for the specifics of feature support. Additionally, you can read and write versioned files stored in the Hudi, Iceberg and Delta Lake data lake frameworks. For more information about data lake frameworks, see [Using data lake frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md). 
 

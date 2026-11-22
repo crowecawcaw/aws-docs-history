@@ -1,7 +1,6 @@
 
 
 # Reading from PagerDuty entities
-<a name="pagerduty-reading-from-entities"></a>
 
 **Prerequisites**
 

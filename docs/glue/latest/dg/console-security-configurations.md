@@ -1,7 +1,6 @@
 
 
 # Managing security configurations on the AWS Glue console
-<a name="console-security-configurations"></a>
 
 **Warning**  
 AWS Glue security configurations are not currently supported in Ray jobs.
@@ -47,7 +46,7 @@ You can enable at-rest encryption for metadata stored in the Data Catalog in Ama
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

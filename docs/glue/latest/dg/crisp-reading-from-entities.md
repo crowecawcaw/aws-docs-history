@@ -1,7 +1,6 @@
 
 
 # Reading from Crisp entities
-<a name="crisp-reading-from-entities"></a>
 
 **Prerequisites**
 

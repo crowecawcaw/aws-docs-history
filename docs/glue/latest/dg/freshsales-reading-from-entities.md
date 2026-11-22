@@ -1,7 +1,6 @@
 
 
 # Reading from Freshsales entities
-<a name="freshsales-reading-from-entities"></a>
 
 **Prerequisite**
 

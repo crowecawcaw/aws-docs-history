@@ -1,7 +1,6 @@
 
 
 # Connecting to Gusto in AWS Glue Studio
-<a name="connecting-to-data-gusto"></a>
 
 Gusto is a payroll, benefits, and HR platform for small and midsize businesses. Because you are a Gusto user, you can connect AWS Glue to your Gusto account. You can then use Gusto as a data source in your AWS Glue ETL jobs to transfer data between Gusto and AWS services or other supported applications.
 

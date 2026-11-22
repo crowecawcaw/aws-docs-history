@@ -1,7 +1,6 @@
 
 
 # Reading from Salesforce Marketing Cloud entities
-<a name="salesforce-marketing-cloud-reading-from-entities"></a>
 
 **Prerequisite**
 

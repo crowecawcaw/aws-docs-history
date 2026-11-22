@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Amplitude
-<a name="amplitude-support"></a>
 
 AWS Glue supports Amplitude as follows:
 

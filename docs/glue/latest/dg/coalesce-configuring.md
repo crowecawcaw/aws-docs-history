@@ -1,7 +1,6 @@
 
 
 # Configuring Coalesce
-<a name="coalesce-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Coalesce, you must meet the following requirements:
 

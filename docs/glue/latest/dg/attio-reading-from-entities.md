@@ -1,7 +1,6 @@
 
 
 # Reading from Attio entities
-<a name="attio-reading-from-entities"></a>
 
 **Prerequisites**
 

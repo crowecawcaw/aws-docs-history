@@ -1,7 +1,6 @@
 
 
 # Configuring Bitbucket connections
-<a name="bitbucket-configuring-connections"></a>
 
 Bitbucket connections support two authentication types: an Atlassian API token sent with HTTP Basic authentication, and OAuth 2.0 with the authorization code grant. For either type, you store the credential in an Secrets Manager secret and reference that secret when you create the connection.
 

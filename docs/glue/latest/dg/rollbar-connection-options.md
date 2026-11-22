@@ -1,7 +1,6 @@
 
 
 # Rollbar connection options
-<a name="rollbar-connection-options"></a>
 
 The following are connection options for Rollbar:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Rollbar object to read.

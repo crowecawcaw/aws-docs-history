@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Sender
-<a name="sender-support"></a>
 
 AWS Glue supports Sender as follows:
 

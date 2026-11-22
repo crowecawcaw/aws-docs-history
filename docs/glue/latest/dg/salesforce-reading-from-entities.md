@@ -1,7 +1,6 @@
 
 
 # Reading from Salesforce
-<a name="salesforce-reading-from-entities"></a>
 
 **Prerequisite**
 

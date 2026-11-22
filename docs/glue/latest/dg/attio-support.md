@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Attio
-<a name="attio-support"></a>
 
 AWS Glue supports Attio as follows:
 

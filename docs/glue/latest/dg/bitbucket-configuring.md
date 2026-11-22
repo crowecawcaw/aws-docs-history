@@ -1,7 +1,6 @@
 
 
 # Configuring Bitbucket
-<a name="bitbucket-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Bitbucket, you must meet the following requirements:
 

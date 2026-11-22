@@ -1,7 +1,6 @@
 
 
 # GlueContext class
-<a name="aws-glue-api-crawler-pyspark-extensions-glue-context"></a>
 
 Wraps the Apache Spark [SparkContext](https://spark.apache.org/docs/latest/api/java/org/apache/spark/SparkContext.html) object, and thereby provides mechanisms for interacting with the Apache Spark platform.
 
@@ -208,7 +207,7 @@ Consider the following limitations when you use the `useSparkDataSource` option:
 
   The following example script demonstrates the correct way to use a pushdown predicate in order to perform partition filtering with the `excludeStorageClasses` option.
 
-  ```
+  ```python
   // Correct partition filtering using the AWS Glue pushdown predicate
   // with excludeStorageClasses
   read_df = glueContext.create_data_frame.from_catalog(
@@ -228,7 +227,7 @@ Consider the following limitations when you use the `useSparkDataSource` option:
 
 **Example: Creating a CSV table using the Spark data source reader**
 
-```
+```python
 //  Read a CSV table with '\t' as separator
 read_df = glueContext.create_data_frame.from_catalog(
     database={{<database_name>}},
@@ -618,7 +617,7 @@ Consider the following limitations when you use the `useSparkDataSink` option:
 
 **Example: Writing to a Hudi table using the Spark Data Source writer**
 
-```
+```python
 hudi_options = {
     'useSparkDataSink': True,
     'hoodie.table.name': {{<table_name>}},

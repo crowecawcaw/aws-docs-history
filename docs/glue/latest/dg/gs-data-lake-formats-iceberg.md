@@ -1,7 +1,6 @@
 
 
 # Using Apache Iceberg framework in AWS Glue Studio
-<a name="gs-data-lake-formats-iceberg"></a>
 
 ## Using Apache Iceberg framework in data targets
 <a name="gs-data-lake-formats-iceberg-target"></a>

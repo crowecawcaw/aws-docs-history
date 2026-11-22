@@ -1,7 +1,6 @@
 
 
 # Tutorial: Build your first streaming workload using AWS Glue Studio notebooks
-<a name="streaming-tutorial-studio-notebooks"></a>
 
 In this tutorial, you will explore how to leverage AWS Glue Studio notebooks to interactively build and refine your ETL jobs for near real-time data processing. Whether you're new to AWS Glue or looking to enhance your skill set, this guide will walk you through the process, empowering you to harness the full potential of AWS Glue interactive session notebooks.
 

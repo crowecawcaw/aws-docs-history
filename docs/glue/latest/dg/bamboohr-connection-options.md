@@ -1,7 +1,6 @@
 
 
 # BambooHR connection options
-<a name="bamboohr-connection-options"></a>
 
 The following are connection options for BambooHR:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the BambooHR object to read.

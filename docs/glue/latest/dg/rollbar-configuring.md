@@ -1,7 +1,6 @@
 
 
 # Configuring Rollbar
-<a name="rollbar-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Rollbar, you must meet the following requirements:
 

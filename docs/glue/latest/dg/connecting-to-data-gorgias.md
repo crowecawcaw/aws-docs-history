@@ -1,7 +1,6 @@
 
 
 # Connecting to Gorgias in AWS Glue Studio
-<a name="connecting-to-data-gorgias"></a>
 
 Gorgias is a customer-support helpdesk for e-commerce brands. Because you are a Gorgias user, you can connect AWS Glue to your Gorgias account. You can then use Gorgias as a data source in your AWS Glue ETL jobs to transfer data between Gorgias and AWS services or other supported applications.
 

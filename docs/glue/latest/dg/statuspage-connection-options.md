@@ -1,7 +1,6 @@
 
 
 # Statuspage connection options
-<a name="statuspage-connection-options"></a>
 
 The following are connection options for Statuspage:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Statuspage object to read.

@@ -1,7 +1,6 @@
 
 
 # Configuring Lemon Squeezy
-<a name="lemon-squeezy-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Lemon Squeezy, you must meet the following requirements:
 

@@ -1,7 +1,6 @@
 
 
 # Data partitioning
-<a name="zero-etl-data-partitioning"></a>
 
 ## What is data partitioning?
 <a name="partitioning-overview"></a>

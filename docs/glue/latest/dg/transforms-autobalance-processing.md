@@ -1,7 +1,6 @@
 
 
 # Using the Autobalance Processing transform to optimize your runtime
-<a name="transforms-autobalance-processing"></a>
 
  The **Autobalance Processing** transform redistributes the data among the workers for better performance. This helps in cases where the data is unbalanced or as it comes from the source doesn’t allow enough parallel processing on it. This is common where the source is gzipped or is JDBC. The redistribution of data has a modest performance cost, so the optimization might not always compensate that effort if the data was already well balanced. Underneath, the transform uses Apache Spark repartition to randomly reassign data among a number of partitions optimal for the cluster capacity. For advanced users, it’s possible to enter a number of partitions manually. In addition, it can be used to optimize the writing of partitioned tables by reorganizing the data based on specified columns. This results in output files that are more consolidated. 
 

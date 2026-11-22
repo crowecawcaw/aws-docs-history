@@ -1,7 +1,6 @@
 
 
 # Connecting to Klaviyo in AWS Glue Studio
-<a name="connecting-to-data-klaviyo"></a>
 
 Klaviyo is an email/SMS marketing and customer-data platform. Because you are a Klaviyo user, you can connect AWS Glue to your Klaviyo account. You can then use Klaviyo as a data source in your AWS Glue ETL jobs to transfer data between Klaviyo and AWS services or other supported applications.
 

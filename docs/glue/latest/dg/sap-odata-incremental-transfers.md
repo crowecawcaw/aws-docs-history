@@ -1,7 +1,6 @@
 
 
 # Delta Token based Incremental Transfers
-<a name="sap-odata-incremental-transfers"></a>
 
 To enable Incremental Transfer using Change Data Capture (CDC) for ODP-enabled entities that support it, follow these steps:
 

@@ -1,7 +1,6 @@
 
 
 # Configuring Smartsheet
-<a name="smartsheet-configuring"></a>
 
 Before you can use AWS Glue to transfer from Smartsheet, you must meet the following requirements:
 

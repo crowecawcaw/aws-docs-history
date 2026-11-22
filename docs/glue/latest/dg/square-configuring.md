@@ -1,7 +1,6 @@
 
 
 # Configuring Square
-<a name="square-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Square, you must meet the following requirements:
 

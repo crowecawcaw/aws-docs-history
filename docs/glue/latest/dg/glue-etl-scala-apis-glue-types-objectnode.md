@@ -1,7 +1,6 @@
 
 
 # AWS Glue Scala ObjectNode APIs
-<a name="glue-etl-scala-apis-glue-types-objectnode"></a>
 
 **Topics**
 + [ObjectNode object](#glue-etl-scala-apis-glue-types-objectnode-object)

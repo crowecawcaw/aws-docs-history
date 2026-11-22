@@ -1,7 +1,6 @@
 
 
 # Configuring Google Sheets
-<a name="googlesheets-configuring"></a>
 
 Before you can use AWS Glue to transfer from Google Sheets, you must meet these requirements:
 

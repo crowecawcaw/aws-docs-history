@@ -1,7 +1,6 @@
 
 
 # Writing data quality results to Data Catalog tables
-<a name="data-quality-results-catalog-tables"></a>
 
 You can configure AWS Glue Data Quality evaluation runs to automatically write results to Apache Iceberg tables in the AWS Glue Data Catalog. After you enable results output, you can query your data quality results directly using , build dashboards with visualization tools, and maintain a centralized history of data quality outcomes across your account.
 
@@ -35,7 +34,7 @@ The `CatalogTableConfig` structure contains the following fields:
 
 **Example: Configure rule results and profiling results**
 
-```
+```bash
 aws glue start-data-quality-ruleset-evaluation-run \
   --data-source '{
     "GlueTable": {
@@ -67,7 +66,7 @@ aws glue start-data-quality-ruleset-evaluation-run \
 
 For row-level results, you can also specify the type of records to include and a maximum number of rows to write.
 
-```
+```bash
 aws glue start-data-quality-ruleset-evaluation-run \
   --data-source '{
     "GlueTable": {
@@ -98,7 +97,7 @@ The `ResultType` parameter accepts the following values:
 
 In AWS Glue ETL jobs, you configure results output using the `additional_options` parameter with dot-notation keys:
 
-```
+```python
 result = EvaluateDataQuality.process_rows(
     frame=dynamic_frame,
     ruleset=ruleset,
@@ -122,7 +121,7 @@ result = EvaluateDataQuality.process_rows(
 
 You can configure observation results the same way as other result types. Observation results require anomaly detection to be enabled (`ObservationScope: ALL`):
 
-```
+```bash
 aws glue start-data-quality-ruleset-evaluation-run \
   --data-source '{
     "GlueTable": {
@@ -295,7 +294,7 @@ After your data quality evaluation completes, you can query the results tables d
 
 **Example: Find failed rules for a specific run**
 
-```
+```sql
 SELECT rule_name, rule_description, evaluation_message, evaluated_metrics
 FROM quality_results.rule_results
 WHERE ruleset_evaluation_run_id = 'dqr-12345678'
@@ -305,7 +304,7 @@ ORDER BY rule_name;
 
 **Example: View profiling statistics over time**
 
-```
+```sql
 SELECT stored_on, statistics_value
 FROM quality_results.profiles
 WHERE database_name = 'my_database'
@@ -317,7 +316,7 @@ ORDER BY stored_on;
 
 **Example – Identify rows that failed a specific rule**
 
-```
+```sql
 SELECT *
 FROM quality_results.row_level_results
 WHERE data_quality_evaluation_result = 'Failed'
@@ -326,7 +325,7 @@ WHERE data_quality_evaluation_result = 'Failed'
 
 **Example – View a numeric histogram**
 
-```
+```sql
 SELECT bin_index, bin_lower_bound, bin_upper_bound, bin_count
 FROM quality_results.distributions
 WHERE column_name = 'salary'
@@ -336,7 +335,7 @@ ORDER BY bin_index;
 
 **Example – View a categorical value distribution**
 
-```
+```sql
 SELECT bin_label, bin_count
 FROM quality_results.distributions
 WHERE column_name = 'department'
@@ -346,7 +345,7 @@ ORDER BY bin_count DESC;
 
 **Example – Track category frequency over time**
 
-```
+```sql
 SELECT started_on, bin_count
 FROM quality_results.distributions
 WHERE column_name = 'status' AND bin_label = 'active'
@@ -355,7 +354,7 @@ ORDER BY started_on;
 
 **Example: View anomaly detection trends with prediction bands**
 
-```
+```sql
 SELECT o.recorded_on, 
        p.statistics_value AS actual_value,
        o.expected_value, 
@@ -377,7 +376,7 @@ ORDER BY p.stored_on;
 
 Because the observation results table uses an append-only model, exclusion annotations add new rows. Use a deduplication query to get the latest state for each observation:
 
-```
+```sql
 SELECT statistic_id, statistic_name, prediction_outcome, 
        expected_value, lower_bound, upper_bound, training_input, stored_on
 FROM (

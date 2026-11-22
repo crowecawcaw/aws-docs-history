@@ -1,7 +1,6 @@
 
 
 # Connecting to Maxio in AWS Glue Studio
-<a name="connecting-to-data-maxio"></a>
 
 Maxio Advanced Billing (formerly Chargify) is a subscription-billing / recurring-revenue platform. Because you are a Maxio user, you can connect AWS Glue to your Maxio account. You can then use Maxio as a data source in your AWS Glue ETL jobs to transfer data between Maxio and AWS services or other supported applications.
 

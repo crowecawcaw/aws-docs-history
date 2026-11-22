@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Pinecone connector
-<a name="pinecone-connector-limitations"></a>
 
 The following are limitations and notes for the Pinecone connector:
 + Pinecone is supported as a source only. Writing to Pinecone is not supported.

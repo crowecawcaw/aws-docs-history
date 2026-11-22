@@ -1,7 +1,6 @@
 
 
 # Editing Spark scripts in the AWS Glue console
-<a name="edit-script-spark"></a>
 
 A script contains the code that extracts data from sources, transforms it, and loads it into targets. AWS Glue runs a script when it starts a job.
 

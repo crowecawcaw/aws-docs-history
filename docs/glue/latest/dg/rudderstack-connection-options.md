@@ -1,7 +1,6 @@
 
 
 # RudderStack connection options
-<a name="rudderstack-connection-options"></a>
 
 The following are connection options for RudderStack:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the RudderStack object to read.

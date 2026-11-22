@@ -1,7 +1,6 @@
 
 
 # DynamicFrameWriter class
-<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer"></a>
 
 
 

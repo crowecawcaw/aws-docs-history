@@ -1,7 +1,6 @@
 
 
 # Reading from Teamwork entities
-<a name="teamwork-reading-from-entities"></a>
 
 **Prerequisites**
 

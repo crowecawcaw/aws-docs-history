@@ -1,7 +1,6 @@
 
 
 # Reading from mabl entities
-<a name="mabl-reading-from-entities"></a>
 
 **Prerequisites**
 

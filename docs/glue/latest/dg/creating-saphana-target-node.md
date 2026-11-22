@@ -1,7 +1,6 @@
 
 
 # Creating a SAP HANA target node
-<a name="creating-saphana-target-node"></a>
 
 ## Prerequisites needed
 <a name="creating-saphana-target-node-prerequisites"></a>

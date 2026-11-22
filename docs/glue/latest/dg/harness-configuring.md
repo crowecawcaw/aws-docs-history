@@ -1,7 +1,6 @@
 
 
 # Configuring Harness
-<a name="harness-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Harness, you must meet the following requirements:
 

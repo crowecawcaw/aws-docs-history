@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Freshdesk
-<a name="freshdesk-support"></a>
 
 AWS Glue supports Freshdesk as follows:
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Oracle NetSuite entities
-<a name="oracle-netsuite-reading-from-entities"></a>
 
 **Prerequisite**
 

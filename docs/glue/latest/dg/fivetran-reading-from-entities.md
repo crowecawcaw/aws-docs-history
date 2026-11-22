@@ -1,7 +1,6 @@
 
 
 # Reading from Fivetran entities
-<a name="fivetran-reading-from-entities"></a>
 
 **Prerequisites**
 

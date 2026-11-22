@@ -1,7 +1,6 @@
 
 
 # Optimizing query performance using column statistics
-<a name="column-statistics"></a>
 
 You can compute column-level statistics for AWS Glue Data Catalog tables in data formats such as Parquet, ORC, JSON, ION, CSV, and XML without setting up additional data pipelines. Column statistics help you to understand data profiles by getting insights about values within a column. 
 
@@ -29,7 +28,7 @@ Column statistics do not support Iceberg v3 data types, including VARIANT, UNKNO
 
  The following video demonstrates how to enhance query performance using column statistics. 
 
-[![AWS Videos](https://img.youtube.com/vi/zUHEXJdHUxs?si=HjyhpoALR6RXJz2i/0.jpg)](https://www.youtube.com/watch?v=zUHEXJdHUxs?si=HjyhpoALR6RXJz2i)
+[![AWS Videos](https://img.youtube.com/vi/zUHEXJdHUxs/0.jpg)](https://www.youtube.com/watch?v=zUHEXJdHUxs)
 
 
 **Topics**

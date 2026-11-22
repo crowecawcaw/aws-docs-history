@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Teamwork connector
-<a name="teamwork-connector-limitations"></a>
 
 The following are limitations and notes for the Teamwork connector:
 + Teamwork is supported as a source only. Writing to Teamwork is not supported.

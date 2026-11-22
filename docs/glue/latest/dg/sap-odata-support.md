@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for SAP OData
-<a name="sap-odata-support"></a>
 
 AWS Glue supports SAP OData as follows:
 

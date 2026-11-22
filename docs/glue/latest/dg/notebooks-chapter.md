@@ -1,7 +1,6 @@
 
 
 # Authoring code with AWS Glue Studio notebooks
-<a name="notebooks-chapter"></a>
 
  Data engineers can author AWS Glue jobs faster and more easily than before using the interactive notebook interface in AWS Glue Studio or interactive sessions in AWS Glue. 
 

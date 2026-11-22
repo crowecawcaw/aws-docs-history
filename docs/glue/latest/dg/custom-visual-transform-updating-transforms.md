@@ -1,7 +1,6 @@
 
 
 # Step 4. Update custom visual transforms as needed
-<a name="custom-visual-transform-updating-transforms"></a>
 
  Once created and used, the transform script can be updated as long as the transform follows the corresponding json definition: 
 +  The name used when assigning to DynamicFrame much match the json `functionName`. 

@@ -1,7 +1,6 @@
 
 
 # Step 1. Create a JSON config file
-<a name="custom-visual-transform-json-config-file"></a>
 
  A JSON config file is required to define and describe your custom visual transform. The schema for the config file is as follows. 
 

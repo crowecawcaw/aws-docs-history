@@ -1,7 +1,6 @@
 
 
 # Common data types
-<a name="aws-glue-api-common"></a>
 
 The Common data types describes miscellaneous common data types in AWS Glue.
 
@@ -361,3 +360,5 @@ The API uses the following regular expressions to define what is valid content f
 + Custom string pattern \#78 – "`^(?![\.:])([\w.]+(::))?[A-Z]\w*$`"
 + Custom string pattern \#79 – "`^((\w+\.)+\w+|auto)$`"
 + Custom string pattern \#80 – "`ja-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`"
++ Custom string pattern \#81 – "`[a-z0-9]([a-z0-9_]*[a-z0-9])?`"
++ Custom string pattern \#82 – "`^[a-zA-Z0-9_-]+$`"

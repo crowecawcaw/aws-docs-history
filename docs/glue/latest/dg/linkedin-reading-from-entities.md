@@ -1,7 +1,6 @@
 
 
 # Reading from LinkedIn entities
-<a name="linkedin-reading-from-entities"></a>
 
 **Prerequisites** 
 

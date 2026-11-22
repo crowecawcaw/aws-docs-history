@@ -1,7 +1,6 @@
 
 
 # Business context APIs
-<a name="aws-glue-api-catalog-aws-glue-api-semantics"></a>
 
 The business context API describes the data types and operations for managing assets, asset types, form types, glossaries, glossary terms, attachments, and search in the AWS Glue Data Catalog.
 

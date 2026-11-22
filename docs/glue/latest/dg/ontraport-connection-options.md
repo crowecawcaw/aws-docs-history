@@ -1,7 +1,6 @@
 
 
 # Ontraport connection options
-<a name="ontraport-connection-options"></a>
 
 The following are connection options for Ontraport:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Ontraport object to read.

@@ -1,7 +1,6 @@
 
 
 # Octopus Deploy connection options
-<a name="octopus-connection-options"></a>
 
 The following are connection options for Octopus Deploy:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Octopus Deploy object to read.

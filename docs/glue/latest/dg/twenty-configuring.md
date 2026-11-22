@@ -1,7 +1,6 @@
 
 
 # Configuring Twenty CRM
-<a name="twenty-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Twenty CRM, you must meet the following requirements:
 

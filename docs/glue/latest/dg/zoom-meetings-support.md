@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Zoom Meetings
-<a name="zoom-meetings-support"></a>
 
 AWS Glue supports Zoom Meetings as follows:
 

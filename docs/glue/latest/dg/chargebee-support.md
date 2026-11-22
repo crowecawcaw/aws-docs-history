@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Chargebee
-<a name="chargebee-support"></a>
 
 AWS Glue supports Chargebee as follows:
 

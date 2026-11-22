@@ -1,7 +1,6 @@
 
 
 # Adding databases and tables to the S3 Tables catalog
-<a name="create-databases-tables-s3-catalog"></a>
 
 Ensure that you have the necessary permissions to list and create catalogs, databases, and tables in the Data Catalog in your Region. Ensure that S3 Tables integration is enabled in your AWS account and Region.
 
@@ -28,7 +27,7 @@ Ensure that you have the necessary permissions to list and create catalogs, data
 ### Adding a database (AWS CLI)
 <a name="add-database-s3-tables-cli"></a>
 
-```
+```bash
 aws glue create-database \
   --region {{region}} \
   --catalog-id "{{account-id}}:s3tablescatalog/{{my-catalog}}" \
@@ -62,7 +61,7 @@ aws glue create-database \
 ### Adding a table (AWS CLI)
 <a name="add-table-s3-tables-cli"></a>
 
-```
+```bash
 aws glue create-table \
   --region {{region}} \
   --catalog-id "{{account-id}}:s3tablescatalog/{{my-catalog}}" \

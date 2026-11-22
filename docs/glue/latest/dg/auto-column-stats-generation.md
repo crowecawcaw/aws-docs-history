@@ -1,7 +1,6 @@
 
 
 # Automatic column statistics generation
-<a name="auto-column-stats-generation"></a>
 
 Automatic generation of column statistics allows you to schedule and automatically compute statistics on new tables in the AWS Glue Data Catalog. When you enable automatic statistics generation, the Data Catalog discovers new tables with specific data formats such as Parquet, JSON, CSV, XML, ORC, ION, and Apache Iceberg, along with their individual bucket paths. With a one-time catalog configuration, the Data Catalog generates statistics for these tables.
 

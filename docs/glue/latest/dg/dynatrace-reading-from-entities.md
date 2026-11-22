@@ -1,7 +1,6 @@
 
 
 # Reading from Dynatrace entities
-<a name="dynatrace-reading-from-entities"></a>
 
 **Prerequisite**
 

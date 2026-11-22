@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Brex connector
-<a name="brex-connector-limitations"></a>
 
 The following are limitations and notes for the Brex connector:
 + Brex is supported as a source only. Writing to Brex is not supported.

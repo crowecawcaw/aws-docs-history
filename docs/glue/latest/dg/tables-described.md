@@ -1,7 +1,6 @@
 
 
 # Creating tables
-<a name="tables-described"></a>
 
 Even though running a crawler is the recommended method to take inventory of the data in your data stores, you can add metadata tables to the AWS Glue Data Catalog manually. This approach allows you to have more control over the metadata definitions and customize them according them to your specific requirements.
 

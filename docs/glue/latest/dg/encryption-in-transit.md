@@ -1,7 +1,6 @@
 
 
 # Encrypting data in transit
-<a name="encryption-in-transit"></a>
 
 
 

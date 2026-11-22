@@ -1,7 +1,6 @@
 
 
 # Reading from Webex entities
-<a name="webex-reading-from-entities"></a>
 
 **Prerequisites**
 

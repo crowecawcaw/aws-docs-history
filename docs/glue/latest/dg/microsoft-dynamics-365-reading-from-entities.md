@@ -1,7 +1,6 @@
 
 
 # Reading from Microsoft Dynamics 365 CRM entities
-<a name="microsoft-dynamics-365-reading-from-entities"></a>
 
  **Prerequisites** 
 +  A Microsoft Dynamics 365 CRM object you would like to read from. You will need the object name such as contacts or accounts. The following table shows the supported entities. 

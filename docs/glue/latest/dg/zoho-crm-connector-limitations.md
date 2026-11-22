@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for Zoho CRM connector
-<a name="zoho-crm-connector-limitations"></a>
 
 The following are limitations or notes for the Zoho CRM connector:
 + With API version v7, you can fetch a maximum of 100,000 records. See the [Zoho documentation](https://www.zoho.com/crm/developer/docs/api/v7/get-records.html) .

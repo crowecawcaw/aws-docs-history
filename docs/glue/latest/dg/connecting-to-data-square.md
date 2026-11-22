@@ -1,7 +1,6 @@
 
 
 # Connecting to Square in AWS Glue Studio
-<a name="connecting-to-data-square"></a>
 
 Square is commerce: payments, point of sale and staffing. Because you are a Square user, you can connect AWS Glue to your Square account. You can then use Square as a data source in your AWS Glue ETL jobs to transfer data between Square and AWS services or other supported applications.
 

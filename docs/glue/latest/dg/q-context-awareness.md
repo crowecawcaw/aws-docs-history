@@ -1,7 +1,6 @@
 
 
 # Using context awareness with Amazon Q Data Integration in AWS Glue
-<a name="q-context-awareness"></a>
 
  You can now create data processing jobs more efficiently with query based context-aware and PySpark DataFrame code generation in Amazon Q Data Integration. For example, you can use this prompt to generate PySpark code: “create a job to load sales data from Redshift table ‘analytics.salesorder’ using connection ‘erp\_conn’, filter order\_amount below 50 dollars, and save to Amazon S3 in parquet format.” 
 

@@ -1,7 +1,6 @@
 
 
 # Vonage connection options
-<a name="vonage-connection-options"></a>
 
 The following are connection options for Vonage:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Vonage object to read.

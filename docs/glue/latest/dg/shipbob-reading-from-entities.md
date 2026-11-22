@@ -1,7 +1,6 @@
 
 
 # Reading from ShipBob entities
-<a name="shipbob-reading-from-entities"></a>
 
 **Prerequisites**
 

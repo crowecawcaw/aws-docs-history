@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Workday Live Data Query
-<a name="workday-ldq-support"></a>
 
 AWS Glue supports Workday Live Data Query as follows:
 

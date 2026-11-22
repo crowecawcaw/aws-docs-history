@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Weaviate
-<a name="weaviate-support"></a>
 
 AWS Glue supports Weaviate as follows:
 

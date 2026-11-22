@@ -1,7 +1,6 @@
 
 
 # Mailchimp connection options
-<a name="mailchimp-connection-options"></a>
 
 The following are connection options for Mailchimp:
 +  `ENTITY_NAME`(String) – (Required) Used for Read/Write. The name of your Object in Mailchimp. 

@@ -1,7 +1,6 @@
 
 
 # Configuring Dynatrace
-<a name="dynatrace-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Dynatrace, you must meet these requirements:
 

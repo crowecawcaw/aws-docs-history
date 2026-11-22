@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Persona connector
-<a name="persona-connector-limitations"></a>
 
 The following are limitations and notes for the Persona connector:
 + Persona is supported as a source only. Writing to Persona is not supported.

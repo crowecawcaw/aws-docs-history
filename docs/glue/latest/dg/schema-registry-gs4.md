@@ -1,7 +1,6 @@
 
 
 # Creating a schema
-<a name="schema-registry-gs4"></a>
 
 You can create a schema using the AWS Glue APIs or the AWS Glue console. 
 

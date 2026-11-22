@@ -1,13 +1,12 @@
 
 
 # Reading from a REST API
-<a name="rest-api-reading"></a>
 
  After you register a REST API ConnectionType and create an AWS Glue connection, you can read data from the REST API in your AWS Glue ETL jobs. With this connection, you can process external REST API data alongside other sources in the same job. You need the connection name and entity name to read data. 
 
 The following example shows how to read from a REST API data source using Python:
 
-```
+```python
 rest_read = glueContext.create_dynamic_frame.from_options(
     connection_type="rest",
     connection_options={
@@ -27,7 +26,7 @@ rest_read = glueContext.create_dynamic_frame.from_options(
 
  To apply a filter predicate in your AWS Glue ETL job, use the `FILTER_PREDICATE` connection option: 
 
-```
+```python
 rest_read = glueContext.create_dynamic_frame.from_options(
     connection_type="rest",
     connection_options={
@@ -85,7 +84,7 @@ The following table describes the BETWEEN handling properties:
 **Example: QUERY\_PARAMS mode**  
  The following example shows a `FilterConfiguration` for a REST API that uses query parameters with bracket notation for operators and epoch timestamps for date values: 
 
-```
+```json
 "FilterConfiguration": {
     "FilterMode": "QUERY_PARAMS",
     "OperatorMappings": {
@@ -106,7 +105,7 @@ The following table describes the BETWEEN handling properties:
 **Example: FILTER\_STRING mode**  
  The following example shows a `FilterConfiguration` for a REST API that uses a single filter string parameter with space-padded operators: 
 
-```
+```json
 "FilterConfiguration": {
     "FilterMode": "FILTER_STRING",
     "OperatorMappings": {
@@ -146,7 +145,7 @@ The following connection options control partitioning behavior:
 **Field-based partitioning**  
  Field-based partitioning divides data into ranges based on a specified field. The following example partitions data on the `lastUpdated` field: 
 
-```
+```python
 rest_read = glueContext.create_dynamic_frame.from_options(
     connection_type="rest",
     connection_options={
@@ -170,7 +169,7 @@ With 4 partitions on the `lastUpdated` field, the work is distributed as follows
 **Configuring partition support in RegisterConnectionType**  
  To enable field-based partitioning, mark fields as partitionable in the Schema definition: 
 
-```
+```json
 "Schema": {
     "lastUpdated": {
         "FieldDataType": "TIMESTAMP",

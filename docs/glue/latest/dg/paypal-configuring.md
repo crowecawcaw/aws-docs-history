@@ -1,7 +1,6 @@
 
 
 # Configuring PayPal
-<a name="paypal-configuring"></a>
 
 Before you can use AWS Glue to transfer data from PayPal, you must meet these requirements:
 

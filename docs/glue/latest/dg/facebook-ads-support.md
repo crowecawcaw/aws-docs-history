@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Facebook Ads
-<a name="facebook-ads-support"></a>
 
 AWS Glue supports Facebook Ads as follows:
 

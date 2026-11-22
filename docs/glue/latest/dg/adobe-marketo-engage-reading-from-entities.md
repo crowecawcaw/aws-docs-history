@@ -1,7 +1,6 @@
 
 
 # Reading from Adobe Marketo Engage entities
-<a name="adobe-marketo-engage-reading-from-entities"></a>
 
 **Prerequisite**
 

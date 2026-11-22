@@ -1,7 +1,6 @@
 
 
 # Todoist connection options
-<a name="todoist-connection-options"></a>
 
 The following are connection options for Todoist:
 + `ENTITY_NAME` – (Required) Used for Read. The entity path of the Todoist object to read. Use the nested forms described in [Reading from Todoist entities](todoist-reading-from-entities.md) for `collaborators`, `comments`, `folders`, and `workspace_invitations`.

@@ -1,7 +1,6 @@
 
 
 # Data protection in AWS Glue
-<a name="data-protection"></a>
 
 AWS Glue offers several features that are designed to help protect your data.
 

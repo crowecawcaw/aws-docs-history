@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Copper
-<a name="copper-support"></a>
 
 AWS Glue supports Copper as follows:
 

@@ -1,7 +1,6 @@
 
 
 # Creating a new Intercom account and configuring the client app
-<a name="intercom-new-account-creation"></a>
 
 **Creating a Intercom account**
 

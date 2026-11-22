@@ -1,13 +1,12 @@
 
 
 # ColumnCorrelation
-<a name="dqdl-rule-types-ColumnCorrelation"></a>
 
 Checks the *correlation* between two columns against a given expression. AWS Glue Data Quality uses the Pearson correlation coefficient to measure the linear correlation between two columns. The result is a number between -1 and 1 that measures the strength and direction of the relationship. 
 
 **Syntax**
 
-```
+```json
 ColumnCorrelation {{<COL_1_NAME>}} {{<COL_2_NAME>}} {{<EXPRESSION>}}
 ```
 + **COL\_1\_NAME** – The name of the first column that you want to evaluate the data quality rule against.
@@ -22,11 +21,11 @@ ColumnCorrelation {{<COL_1_NAME>}} {{<COL_2_NAME>}} {{<EXPRESSION>}}
 
 The following example rule checks whether the correlation coefficient between the columns `height` and `weight` has a strong positive correlation (a coefficient value greater than 0.8).
 
-```
+```json
 ColumnCorrelation "height" "weight" > 0.8
 ```
 
-```
+```json
 ColumnCorrelation "weightinkgs" "Salary" > 0.8 where "weightinkgs > 40"
 ```
 

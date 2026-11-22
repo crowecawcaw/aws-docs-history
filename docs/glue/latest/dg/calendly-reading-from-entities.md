@@ -1,7 +1,6 @@
 
 
 # Reading from Calendly entities
-<a name="calendly-reading-from-entities"></a>
 
 **Prerequisites**
 

@@ -1,7 +1,6 @@
 
 
 # Reading from Google Search Console entities
-<a name="google-search-console-reading-from-entities"></a>
 
 **Prerequisite**
 

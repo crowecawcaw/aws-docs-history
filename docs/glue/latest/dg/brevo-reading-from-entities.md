@@ -1,7 +1,6 @@
 
 
 # Reading from Brevo entities
-<a name="brevo-reading-from-entities"></a>
 
 **Prerequisites**
 

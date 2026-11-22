@@ -1,7 +1,6 @@
 
 
 # Reading from Coda entities
-<a name="coda-reading-from-entities"></a>
 
 **Prerequisites**
 

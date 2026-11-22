@@ -1,7 +1,6 @@
 
 
 # Configuring Mixpanel
-<a name="mixpanel-configuring"></a>
 
 Before you can use AWS Glue to transfer from Mixpanel, you must meet these requirements:
 

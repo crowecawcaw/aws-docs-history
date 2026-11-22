@@ -1,7 +1,6 @@
 
 
 # Reading from Nimble entities
-<a name="nimble-reading-from-entities"></a>
 
 **Prerequisites**
 

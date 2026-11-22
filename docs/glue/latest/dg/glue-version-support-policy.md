@@ -1,7 +1,6 @@
 
 
 # AWS Glue version support policy
-<a name="glue-version-support-policy"></a>
 
 AWS Glue is a serverless data integration service that makes it easy to discover, prepare, and combine data for analytics, machine learning, and application development. An *AWS Glue job* contains the business logic that performs the data integration work in AWS Glue. There are three types of jobs in AWS Glue: *Spark (batch and streaming)*, *Ray* and *Python shell*. When you define your job, you specify the AWS Glue version, which configures versions in the underlying Spark, Ray or Python runtime environment. For example: an AWS Glue version 5.0 Spark job supports Spark 3.5.4 and Python 3.11.
 

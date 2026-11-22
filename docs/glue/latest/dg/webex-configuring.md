@@ -1,7 +1,6 @@
 
 
 # Configuring Webex
-<a name="webex-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Webex, you must meet the following requirements:
 

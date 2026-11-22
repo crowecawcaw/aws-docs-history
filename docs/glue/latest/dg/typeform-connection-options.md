@@ -1,7 +1,6 @@
 
 
 # Typeform connection options
-<a name="typeform-connection-options"></a>
 
 The following are connection options for Typeform:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Typeform object to read.

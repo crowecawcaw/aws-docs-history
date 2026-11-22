@@ -1,7 +1,6 @@
 
 
 # AWS Glue type systems
-<a name="glue-types"></a>
 
  AWS Glue uses multiple type systems to provide a versatile interface over data systems that store data in very different ways. This document disambiguates AWS Glue type systems and data standards.
 

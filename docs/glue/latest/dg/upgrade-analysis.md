@@ -1,7 +1,6 @@
 
 
 # Generative AI upgrades for Apache Spark in AWS Glue
-<a name="upgrade-analysis"></a>
 
  Spark Upgrades in AWS Glue enables data engineers and developers to upgrade and migrate their existing AWS Glue Spark jobs to the latest Spark releases using generative AI. Data engineers can use it to scan their AWS Glue Spark jobs, generate upgrade plans, execute plans, and validate outputs. It reduces the time and cost of Spark upgrades by automating the undifferentiated work of identifying and updating Spark scripts, configurations, dependencies, methods, and features. 
 
@@ -36,7 +35,7 @@
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -120,7 +119,7 @@
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -147,7 +146,7 @@
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -175,7 +174,7 @@
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

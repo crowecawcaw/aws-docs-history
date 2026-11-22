@@ -1,7 +1,6 @@
 
 
 # Prerequisites for generating column statistics
-<a name="iceberg-column-stats-prereqs"></a>
 
 To generate or update column statistics for Iceberg tables, the statistics generation task assumes an AWS Identity and Access Management (IAM) role on your behalf. Based on the permissions granted to the role, the column statistics generation task can read the data from the Amazon S3 data store.
 

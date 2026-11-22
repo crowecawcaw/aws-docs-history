@@ -1,7 +1,6 @@
 
 
 # Reading from TestRail entities
-<a name="testrail-reading-from-entities"></a>
 
 **Prerequisites**
 

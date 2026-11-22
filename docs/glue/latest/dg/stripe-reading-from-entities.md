@@ -1,7 +1,6 @@
 
 
 # Reading from Stripe entities
-<a name="stripe-reading-from-entities"></a>
 
  **Prerequisites** 
 +  A Stripe object you would like to read from. 

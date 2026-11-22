@@ -1,7 +1,6 @@
 
 
 # Configuring Intercom connections
-<a name="intercom-configuring-connections"></a>
 
  Intercom supports the `AUTHORIZATION_CODE` grant type for OAuth 2. 
 
@@ -32,7 +31,7 @@ To configure an Intercom connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Connecting to GoCardless in AWS Glue Studio
-<a name="connecting-to-data-gocardless"></a>
 
 GoCardless is a bank-debit (Direct Debit / ACH / SEPA / BECS) payments platform. Because you are a GoCardless user, you can connect AWS Glue to your GoCardless account. You can then use GoCardless as a data source in your AWS Glue ETL jobs to transfer data between GoCardless and AWS services or other supported applications.
 

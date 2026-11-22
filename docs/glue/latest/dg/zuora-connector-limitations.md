@@ -1,7 +1,6 @@
 
 
 # Limitations and notes for the Zuora connector
-<a name="zuora-connector-limitations"></a>
 
 The following are limitations and notes for the Zuora connector:
 + Zuora is supported as a source only. Writing to Zuora is not supported.

@@ -1,7 +1,6 @@
 
 
 # Reading from Checkout.com entities
-<a name="checkout-reading-from-entities"></a>
 
 **Prerequisites**
 

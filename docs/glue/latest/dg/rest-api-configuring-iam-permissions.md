@@ -1,7 +1,6 @@
 
 
 # Policies containing the API operations for registering connection types and creating/using connections
-<a name="rest-api-configuring-iam-permissions"></a>
 
  The following sample IAM policy describes the required permissions for registering, creating, managing and using the REST API connections within AWS Glue ETL jobs. If you are creating a new role, create a policy that contains the following: 
 

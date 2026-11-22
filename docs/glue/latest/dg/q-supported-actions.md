@@ -1,7 +1,6 @@
 
 
 # Supported code generation abilities
-<a name="q-supported-actions"></a>
 
  The following are the combinations of the code generation abilities of Amazon Q data integration.
 

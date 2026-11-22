@@ -1,7 +1,6 @@
 
 
 # Configuring Kustomer
-<a name="kustomer-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Kustomer to supported destinations, you must meet these requirements:
 

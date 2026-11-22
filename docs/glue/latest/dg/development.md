@@ -1,7 +1,6 @@
 
 
 # Development endpoints
-<a name="development"></a>
 
 **Note**  
  **The console experience for dev endpoints has been removed as of March 31, 2023.** Creating, updating, and monitoring dev endpoints is still available via the [Development endpoints API](aws-glue-api-dev-endpoint.md) and [ AWS Glue CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/index.html#cli-aws-glue).

@@ -1,7 +1,6 @@
 
 
 # DynamicFrameReader class
-<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader"></a>
 
 ##  — methods —
 <a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-_methods"></a>

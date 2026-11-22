@@ -1,7 +1,6 @@
 
 
 # Using Data Catalog tables for the data source
-<a name="edit-jobs-source-catalog-tables"></a>
 
 For all data sources except Amazon S3 and connectors, a table must exist in the AWS Glue Data Catalog for the source type that you choose. AWS Glue does not create the Data Catalog table.
 

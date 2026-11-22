@@ -1,7 +1,6 @@
 
 
 # Configuring Pinecone
-<a name="pinecone-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Pinecone, you must meet the following requirements:
 

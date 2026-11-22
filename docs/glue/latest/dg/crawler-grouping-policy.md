@@ -1,7 +1,6 @@
 
 
 # Creating a single schema for each Amazon S3 include path
-<a name="crawler-grouping-policy"></a>
 
 By default, when a crawler defines tables for data stored in Amazon S3, it considers both data compatibility and schema similarity. Data compatibility factors that it considers include whether the data is of the same format (for example, JSON), the same compression type (for example, GZIP), the structure of the Amazon S3 path, and other data attributes. Schema similarity is a measure of how closely the schemas of separate Amazon S3 objects are similar.
 

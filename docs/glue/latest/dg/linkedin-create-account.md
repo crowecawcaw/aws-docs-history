@@ -1,7 +1,6 @@
 
 
 # Creating a LinkedIn account
-<a name="linkedin-create-account"></a>
 
 **Creating a LinkedIn App and OAuth credentials**
 

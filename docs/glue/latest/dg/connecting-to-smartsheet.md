@@ -1,7 +1,6 @@
 
 
 # Connecting to Smartsheet
-<a name="connecting-to-smartsheet"></a>
 
 Smartsheet is a work management and collaboration SaaS product. Fundamentally, Smartsheet allows users to use spreadsheet-like objects to create, store, and utilize business data.
 

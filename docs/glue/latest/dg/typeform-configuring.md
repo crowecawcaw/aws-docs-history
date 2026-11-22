@@ -1,7 +1,6 @@
 
 
 # Configuring Typeform
-<a name="typeform-configuring"></a>
 
 Before you can use AWS Glue to transfer data from Typeform, you must meet the following requirements:
 

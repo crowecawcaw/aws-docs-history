@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Port
-<a name="port-support"></a>
 
 AWS Glue supports Port as follows:
 

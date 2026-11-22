@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Kameleoon
-<a name="kameleoon-support"></a>
 
 AWS Glue supports Kameleoon as follows:
 

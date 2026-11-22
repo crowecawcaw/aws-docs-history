@@ -1,7 +1,6 @@
 
 
 # AWS Glue support for Salesforce
-<a name="salesforce-support"></a>
 
 AWS Glue supports Salesforce as follows:
 

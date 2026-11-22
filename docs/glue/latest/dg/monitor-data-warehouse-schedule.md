@@ -1,7 +1,6 @@
 
 
 # Time-based schedules for jobs and crawlers
-<a name="monitor-data-warehouse-schedule"></a>
 
 You can define a time-based schedule for your crawlers and jobs in AWS Glue. The definition of these schedules uses the Unix-like [cron](http://en.wikipedia.org/wiki/Cron) syntax. You specify time in [Coordinated Universal Time (UTC)](http://en.wikipedia.org/wiki/Coordinated_Universal_Time), and the minimum precision for a schedule is 5 minutes.
 

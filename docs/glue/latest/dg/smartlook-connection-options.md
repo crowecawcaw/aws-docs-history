@@ -1,7 +1,6 @@
 
 
 # Smartlook connection options
-<a name="smartlook-connection-options"></a>
 
 The following are connection options for Smartlook:
 + `ENTITY_NAME` – (Required) Used for Read. The name of the Smartlook object to read.

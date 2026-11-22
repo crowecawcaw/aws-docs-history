@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Glue
-<a name="monitor-glue"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Glue and your other AWS solutions. AWS provides monitoring tools that you can use to watch AWS Glue, report when something is wrong, and take action automatically when appropriate:
 

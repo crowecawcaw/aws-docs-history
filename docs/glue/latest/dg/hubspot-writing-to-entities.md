@@ -1,7 +1,6 @@
 
 
 # Writing to HubSpot Entities
-<a name="hubspot-writing-to-entities"></a>
 
 ## Prerequisites
 <a name="hubspot-writing-prerequisites"></a>
@@ -36,7 +35,7 @@
 
 **INSERT Operation**
 
-```
+```python
 hubspot_write = glueContext.write_dynamic_frame.from_options(
     frame=frameToWrite,
     connection_type="hubspot",
@@ -51,7 +50,7 @@ hubspot_write = glueContext.write_dynamic_frame.from_options(
 
 **UPDATE Operation**
 
-```
+```python
 hubspot_write = glueContext.write_dynamic_frame.from_options(
     frame=frameToWrite,
     connection_type="hubspot",

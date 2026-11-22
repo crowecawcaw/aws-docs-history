@@ -1,7 +1,6 @@
 
 
 # Machine learning measurements
-<a name="machine-learning-terminology"></a>
 
 To understand the measurements that are used to tune your machine learning transform, you should be familiar with the following terminology:
 

@@ -1,7 +1,6 @@
 
 
 # Visual job API
-<a name="aws-glue-api-visual-job-api"></a>
 
 The Visual job API allows you to create data integration jobs by using the AWS Glue API from a JSON object that represents a visual configuration of a AWS Glue job. 
 

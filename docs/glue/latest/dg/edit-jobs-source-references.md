@@ -1,7 +1,6 @@
 
 
 # References
-<a name="edit-jobs-source-references"></a>
 
  **Best Practices** 
 +  [ Build an ETL service pipeline to load data incrementally from Amazon S3 to Amazon Redshift using AWS Glue](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/build-an-etl-service-pipeline-to-load-data-incrementally-from-amazon-s3-to-amazon-redshift-using-aws-glue.html) 

@@ -1,7 +1,6 @@
 
 
 # Configuring VWO
-<a name="vwo-configuring"></a>
 
 Before you can use AWS Glue to transfer data from VWO, you must meet the following requirements:
 

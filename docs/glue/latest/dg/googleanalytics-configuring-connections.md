@@ -1,7 +1,6 @@
 
 
 # Configuring Google Analytics 4 connections
-<a name="googleanalytics-configuring-connections"></a>
 
 To configure a Google Sheet connection:
 
@@ -23,7 +22,7 @@ To configure a Google Sheet connection:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

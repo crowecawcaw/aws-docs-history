@@ -1,7 +1,6 @@
 
 
 # CryptographicHash class
-<a name="aws-glue-api-pyspark-transforms-CryptographicHash"></a>
 
  The `CryptographicHash` transform applies an algorithm to hash values in the column. 
 
