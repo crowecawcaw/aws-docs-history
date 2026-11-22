@@ -1,7 +1,6 @@
 
 
 # Planning
-<a name="ase-sles-ha-planning"></a>
 
 This section covers the following topics.
 

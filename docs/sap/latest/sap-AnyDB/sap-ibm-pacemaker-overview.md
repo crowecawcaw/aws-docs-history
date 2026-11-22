@@ -1,7 +1,6 @@
 
 
 # Overview
-<a name="sap-ibm-pacemaker-overview"></a>
 
 Instructions in this document are based on recommendations provided by SAP and IBM on Db2 deployment on Linux via the SAP notes and KB articles listed in Table 1.
 

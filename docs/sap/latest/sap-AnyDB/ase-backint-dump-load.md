@@ -1,7 +1,6 @@
 
 
 # Backup and Restore
-<a name="ase-backint-dump-load"></a>
 
 **Note**  
 End of support notice: On October 29, 2026, AWS will end support for new customers for AWS Backint Agent for SAP ASE. After September 29, 2027, support for AWS Backint Agent for SAP ASE will completely end and you will no longer be able to access any AWS Backint Agent for SAP ASE resources. For more information, see [AWS Backint Agent for SAP ASE end of support](ase-backint-end-of-support.md).
@@ -62,13 +61,13 @@ If you’re performing a backup (load), Backint agent constructs the S3 location
 
 Database backups:
 
-```
+```text
 <FOLDER>/<SID>/<HOSTNAME>_<DB_NAME>_COMPLETE_<MY_PREFIX>_<STRIPES>/<TIMESTAMP>/
 ```
 
 Transaction log backups:
 
-```
+```text
 <FOLDER>/<SID>/<HOSTNAME>_<DB_NAME>_TRANSACTION_<MY_PREFIX>_<STRIPES>/<TIMESTAMP>/
 ```
 
@@ -79,20 +78,20 @@ The AWS CLI command below allows you to list available backups in Amazon S3.
 
 Database backups:
 
-```
+```console
 aws s3 ls s3://<BUCKET>/<FOLDER>/<SID>/<HOSTNAME>_<DB_NAME>_COMPLETE_<MY_PREFIX>_<STRIPES>/
 ```
 
 Transaction log backups:
 
-```
+```console
 aws s3 ls s3://<BUCKET>/<FOLDER>/<SID>/<HOSTNAME>_<DB_NAME>_TRANSACTION_<MY_PREFIX>_<STRIPES>/
 ```
 
 #### Example:
 <a name="_example"></a>
 
-```
+```console
 > aws s3 ls s3://my_s3_bucket/my_s3_folder/ABC/myhost_ABC_COMPLETE_my_daily_backup_1/
 
                            PRE 07-01-2025_120000/
@@ -108,7 +107,7 @@ Backup Striping allows adjusting the number of simultaneous backup and restore s
 
 Add the following statement `(n-1)` times for `n` stripes. The number of stripes in a load statement need to match the number of stripes when creating the backup. The maximum number of stripes is 32.
 
-```
+```sql
 stripe on "awsbackint::<MY_PREFIX/MY_S3_LOCATION>"
 ```
 
@@ -135,7 +134,7 @@ Using a backup configuration will not allow you to specify a custom prefix. Inst
 
 Create database dump configuration `my_custom_config`, using the external API for AWS Backint Agent for SAP ASE, three stripes, a block size of 16,384 bytes, and compression level of 100.
 
-```
+```sql
 sp_config_dump
 @config_name='my_custom_config',
 @ext_api='awsbackint',
@@ -147,7 +146,7 @@ go
 
 Once you have created a dump configuration, initiate a dump to Amazon S3 with the following statement.
 
-```
+```sql
 dump database ASE using config='my_custom_config'
 go
 ```
@@ -157,7 +156,7 @@ go
 
 Use the following statement to create a full database dump of your database in Amazon S3.
 
-```
+```sql
 dump database <DB_NAME> to "awsbackint::<MY_PREFIX>"
 ```
 
@@ -166,7 +165,7 @@ dump database <DB_NAME> to "awsbackint::<MY_PREFIX>"
 
 Dump database ASE to S3 with prefix `my_custom_prefix`, using two stripes.
 
-```
+```sql
 dump database ASE to "awsbackint::my_custom_prefix"
 stripe on "awsbackint::my_custom_prefix"
 go
@@ -177,7 +176,7 @@ go
 
 Use the following statement to create a transaction log dump of your database in Amazon S3.
 
-```
+```sql
 dump transaction <DB_NAME> to "awsbackint::<MY_PREFIX>"
 ```
 
@@ -186,7 +185,7 @@ dump transaction <DB_NAME> to "awsbackint::<MY_PREFIX>"
 
 Dump transaction log of database ASE to S3 with prefix `my_custom_prefix`, using one stripes.
 
-```
+```sql
 dump transaction ASE to "awsbackint::my_custom_prefix"
 go
 ```
@@ -196,7 +195,7 @@ go
 
 Use the following statement to restore your database from Amazon S3.
 
-```
+```sql
 load database <DB_NAME> from "awsbackint::<MY_S3_LOCATION>"
 ```
 
@@ -205,7 +204,7 @@ load database <DB_NAME> from "awsbackint::<MY_S3_LOCATION>"
 
 Load database ASE from S3, using two stripes.
 
-```
+```sql
 load database ASE from "awsbackint::sapaws_ASE_COMPLETE_my_custom_prefix_2/01-06-2025_1159/"
 stripe on "awsbackint::sapaws_ASE_COMPLETE_my_custom_prefix_2/01-06-2025_1159/"
 go
@@ -216,7 +215,7 @@ go
 
 Use the following statement to restore your transaction logs from Amazon S3.
 
-```
+```sql
 load transaction <DB_NAME> from "awsbackint::<MY_S3_LOCATION>"
 ```
 
@@ -225,7 +224,7 @@ load transaction <DB_NAME> from "awsbackint::<MY_S3_LOCATION>"
 
 Load transaction logs for database ASE from S3, using one stripes.
 
-```
+```sql
 load database ASE from "awsbackint::sapaws_ASE_COMPLETE_my_custom_prefix_2/01-06-2025_1159/"
 go
 ```
@@ -233,7 +232,7 @@ go
 ## Database Restore to Different Target Database
 <a name="ase-backint-database-restore-different-target"></a>
 
-```
+```sql
 load database <TARGET_DB_NAME> from "awsbackint::<MY_S3_LOCATION>::<SOURCE_DB_NAME>"
 stripe on "awsbackint::<MY_S3_LOCATION>::<SOURCE_DB_NAME>"
 ```

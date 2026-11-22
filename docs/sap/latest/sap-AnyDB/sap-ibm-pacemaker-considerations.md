@@ -1,7 +1,6 @@
 
 
 # Considerations
-<a name="sap-ibm-pacemaker-considerations"></a>
 
 ## Specialized Knowledge
 <a name="sap-ibm-pacemaker-specialized-knowledge"></a>

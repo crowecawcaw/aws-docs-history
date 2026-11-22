@@ -1,7 +1,6 @@
 
 
 # Operations
-<a name="ase-sles-ha-operations"></a>
 
 This section covers the following topics.
 

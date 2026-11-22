@@ -1,7 +1,6 @@
 
 
 # Operations
-<a name="sap-ibm-pacemaker-operations"></a>
 
 In this section we will cover some of the native AWS services that help you with day-to-day operations of your IBM Db2 database for SAP applications.
 

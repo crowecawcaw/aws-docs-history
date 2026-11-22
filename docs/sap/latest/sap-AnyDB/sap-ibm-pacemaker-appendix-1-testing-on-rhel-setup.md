@@ -1,7 +1,6 @@
 
 
 # Appendix 1: Testing on RHEL Setup
-<a name="sap-ibm-pacemaker-appendix-1-testing-on-rhel-setup"></a>
 
 ## Test Case 1: Manual Failover
 <a name="sap-ibm-pacemaker-test-case-1-manual-failover"></a>

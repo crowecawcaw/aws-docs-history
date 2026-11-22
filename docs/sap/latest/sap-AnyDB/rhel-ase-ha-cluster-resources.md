@@ -1,7 +1,6 @@
 
 
 # Cluster resources
-<a name="rhel-ase-ha-cluster-resources"></a>
 
 This section covers the following topics.
 

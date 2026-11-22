@@ -1,7 +1,6 @@
 
 
 # Sample configuration (pcs config show)
-<a name="rhel-ase-sample-configuration"></a>
 
 The following sample configuration is based on ENSA2.
 

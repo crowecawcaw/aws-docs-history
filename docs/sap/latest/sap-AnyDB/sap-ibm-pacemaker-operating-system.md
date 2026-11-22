@@ -1,7 +1,6 @@
 
 
 # Operating System
-<a name="sap-ibm-pacemaker-operating-system"></a>
 
 You can deploy your SAP workload on SUSE Linux Enterprise Server (SLES) for SAP, Red Hat Enterprise Linux for SAP with High Availability and Update Services (RHEL for SAP with HA and US), or RHEL for SAP Solutions.
 

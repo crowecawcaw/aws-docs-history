@@ -1,7 +1,6 @@
 
 
 # Installation
-<a name="ase-backint-install"></a>
 
 **Note**  
 End of support notice: On October 29, 2026, AWS will end support for new customers for AWS Backint Agent for SAP ASE. After September 29, 2027, support for AWS Backint Agent for SAP ASE will completely end and you will no longer be able to access any AWS Backint Agent for SAP ASE resources. For more information, see [AWS Backint Agent for SAP ASE end of support](ase-backint-end-of-support.md).
@@ -20,7 +19,7 @@ This section provides information to help you install the AWS Backint agent usin
 
 1. Download `install-aws-backint-agent-ase` from Amazon S3.
 
-   ```
+   ```console
    wget https://s3.amazonaws.com/awssap-backint-agent-ase/binary/latest/install-aws-backint-agent-ase
    ```
 
@@ -37,7 +36,7 @@ The Installer installs AWS Backint Agent in a central directory (`/sybase/shared
 
 Interactive mode provides a guided installation experience. You are asked to provide each configuration value before the installation starts.
 
-```
+```console
 ./install-aws-backint-agent-ase
 ```
 
@@ -46,7 +45,7 @@ Interactive mode provides a guided installation experience. You are asked to pro
 
 Silent mode allows for unattended installation without user interaction. It requires a response file - either created manually, or by running the installer in interactive mode and selecting "Create Response File".
 
-```
+```console
 ./install-aws-backint-agent-ase \
     --mode silent \
     --config-file install-aws-backint-agent-ase-response.rsp
@@ -55,7 +54,7 @@ Silent mode allows for unattended installation without user interaction. It requ
 #### Example: Response File
 <a name="ase-backint-response-file"></a>
 
-```
+```ini
 [DEFAULT]
 s3_bucket = my-s3-bucket
 s3_bucket_folder = my-backup-folder
@@ -85,19 +84,19 @@ In case you want to uninstall AWS Backint Agent for SAP ASE.
 
 1. Remove the RPM package using the RPM package manager.
 
-   ```
+   ```console
    rpm -e aws-backint-agent-ase
    ```
 
 1. Remove the Installation directory.
 
-   ```
+   ```console
    rm -r /sybase/shared/aws-backint-agent-ase
    ```
 
 1. Remove stale symbolic links in database installation directory.
 
-   ```
+   ```console
    find <install dir>/lib -type l -xtype l -delete
    ```
 
@@ -111,13 +110,13 @@ Files for installing AWS Backint Agent for SAP ASE - the installer (`install-aws
 
 1. Download public key
 
-   ```
+   ```console
    > wget https://s3.amazonaws.com/awssap-backint-agent/binary/public-key/aws-backint-agent.gpg
    ```
 
 1. Import public key into your GPG keyring
 
-   ```
+   ```bash
    > gpg --import aws-backint-agent.gpg
    
    gpg: key 1E65925B: public key "AWS Backint Agent" imported
@@ -129,7 +128,7 @@ Files for installing AWS Backint Agent for SAP ASE - the installer (`install-aws
 
 1. Verify fingerprint
 
-   ```
+   ```bash
    > gpg --fingerprint 1E65925B
    
    pub 2048R/1E65925B 2020-03-18
@@ -139,7 +138,7 @@ Files for installing AWS Backint Agent for SAP ASE - the installer (`install-aws
 
    The fingerprint should be equal to the following:
 
-   ```
+   ```text
    BD35 7A5F 1AE9 38A0 213A 82A8 80D8 5C5E 1E65 925B
    ```
 **Note**  
@@ -147,13 +146,13 @@ If the fingerprint string doesn’t match, don’t install the agent. Contact Am
 
 1. Download the signature file `install-aws-backint-agent-ase.sig` of the installer.
 
-   ```
+   ```console
    > wget https://s3.amazonaws.com/awssap-backint-agent-ase/binary/latest/install-aws-backint-agent-ase.sig
    ```
 
 1. Verify installer (`install-aws-backint-agent-ase`) and signature (`install-aws-backint-agent-ase.sig`).
 
-   ```
+   ```bash
    > gpg --verify \
        install-aws-backint-agent-ase.sig \
        install-aws-backint-agent-ase
@@ -170,13 +169,13 @@ Follow the instructions below to verify the signature manually.
 
 1. Import GPG key into RPM database.
 
-   ```
+   ```bash
    > rpm --import aws-backint-agent.gpg
    ```
 
 1. Verify the signature.
 
-   ```
+   ```bash
    > rpm -Kv aws-backint-agent-ase.rpm
    
    aws-backint-agent-ase.rpm:

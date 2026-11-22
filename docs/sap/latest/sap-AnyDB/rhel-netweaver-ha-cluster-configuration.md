@@ -1,7 +1,6 @@
 
 
 # Cluster configuration
-<a name="rhel-netweaver-ha-cluster-configuration"></a>
 
 This section covers the following topics.
 

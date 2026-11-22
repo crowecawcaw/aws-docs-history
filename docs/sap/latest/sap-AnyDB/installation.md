@@ -1,7 +1,6 @@
 
 
 # Installing the databases
-<a name="installation"></a>
 
 See the following tabs for more information.
 

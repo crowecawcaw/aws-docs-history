@@ -1,7 +1,6 @@
 
 
 # Document Revisions
-<a name="sap-ibm-pacemaker-document-revisions"></a>
 
 
 | Date | Change | 

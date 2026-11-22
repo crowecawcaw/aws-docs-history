@@ -1,7 +1,6 @@
 
 
 # Host setup for MSSQL
-<a name="mssql"></a>
 
 Use the following procedure to create volumes and LUNs for MSSQL server.
 

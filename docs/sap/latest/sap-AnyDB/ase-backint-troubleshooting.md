@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="ase-backint-troubleshooting"></a>
 
 **Note**  
 End of support notice: On October 29, 2026, AWS will end support for new customers for AWS Backint Agent for SAP ASE. After September 29, 2027, support for AWS Backint Agent for SAP ASE will completely end and you will no longer be able to access any AWS Backint Agent for SAP ASE resources. For more information, see [AWS Backint Agent for SAP ASE end of support](ase-backint-end-of-support.md).
@@ -85,7 +84,7 @@ This section covers common issues you may encounter while using AWS Backint Agen
 
 By default, the installer automatically downloads the latest available version of AWS Backint Agent for SAP ASE. In case you need to install a specific version of the RPM, you can download the RPM package of any previous version from S3 and provide the RPM package to the installer.
 
-```
+```console
 # Download installer
 wget https://s3.amazonaws.com/awssap-backint-agent-ase/binary/<version>/install-aws-backint-agent-ase
 # Download RPM package
@@ -106,7 +105,7 @@ chmod +x install-aws-backint-agent-ase
 
  **Symptoms**:
 
-```
+```text
 Error creating upload id for bucket:<bucket-name> key:<object-key>
 error:AccessDenied: User: arn:aws:sts::<account-id>:assumed-role/<role-name>/<instance-id>
 is not authorized to perform: s3:PutObject on resource: "arn:aws:s3:::<bucket-name>/<object-path>"
@@ -119,7 +118,7 @@ because no identity-based policy allows the s3:PutObject action
 
 1. Verify the S3 bucket policy includes the correct resource path:
 
-   ```
+   ```json
    {
      "Effect": "Allow",
      "Action": [
@@ -138,7 +137,7 @@ because no identity-based policy allows the s3:PutObject action
 
 1. Test permissions using AWS CLI:
 
-   ```
+   ```bash
    aws s3 cp test-file.txt s3://your-bucket-name/your-folder-name/
    ```
 
@@ -151,7 +150,7 @@ because no identity-based policy allows the s3:PutObject action
 
  **Symptoms**:
 
-```
+```text
 ListObjects error: User: arn:aws:sts::<account-id>:assumed-role/<role-name>/<instance-id>
 is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::<bucket-name>"
 because no identity-based policy allows the s3:ListBucket action
@@ -163,7 +162,7 @@ because no identity-based policy allows the s3:ListBucket action
 
 1. Add the `s3:ListBucket` permission to your IAM policy:
 
-   ```
+   ```json
    {
      "Effect": "Allow",
      "Action": [
@@ -182,7 +181,7 @@ because no identity-based policy allows the s3:ListBucket action
 
  **Symptoms**:
 
-```
+```text
 Key metadata fetch failed for bucket:<bucket-name> key:<object-key>
 error:Forbidden: Forbidden
 status code: 403
@@ -194,7 +193,7 @@ status code: 403
 
 1. Ensure your IAM policy includes `s3:GetObject` permission:
 
-   ```
+   ```json
    {
      "Effect": "Allow",
      "Action": [
@@ -208,7 +207,7 @@ status code: 403
 
 1. Verify the object exists and the path is correct using AWS CLI:
 
-   ```
+   ```bash
    aws s3 ls s3://your-bucket-name/your-folder-name/
    ```
 
@@ -222,7 +221,7 @@ status code: 403
 
  **Symptoms**:
 
-```
+```text
 Error: Mismatch stripe count, load requested with: 2 stripes instead of 1
 ```
 
@@ -234,7 +233,7 @@ Error: Mismatch stripe count, load requested with: 2 stripes instead of 1
 
 1. Use the same stripe count for restore as was used for backup:
 
-   ```
+   ```sql
    -- For single stripe backup
    LOAD DATABASE your_db FROM "awsbackint::backup_prefix"
    
@@ -252,7 +251,7 @@ Error: Mismatch stripe count, load requested with: 2 stripes instead of 1
 
  **Symptoms**:
 
-```
+```text
 Error creating named pipe for stripe 0: File exists
 ```
 
@@ -262,13 +261,13 @@ Error creating named pipe for stripe 0: File exists
 
 1.  **Immediate workaround**: Use a different backup prefix:
 
-   ```
+   ```sql
    DUMP DATABASE your_db TO "awsbackint::new_unique_prefix"
    ```
 
 1.  **Long-term solution**: Clean up temporary files from the previous attempt:
 
-   ```
+   ```bash
    # Remove temporary pipes and files from the Backint Agent working directory
    rm -f /sybase/shared/aws-backint-ase/pipes/<database>/<prefix>
    ```
@@ -285,7 +284,7 @@ Error creating named pipe for stripe 0: File exists
 
  **Symptoms**:
 
-```
+```text
 Error reading config file Failed to validate config file permission,
 other users outside of group cannot have execution permission.
 ```
@@ -296,19 +295,19 @@ other users outside of group cannot have execution permission.
 
 1. Set correct permissions on the configuration file:
 
-   ```
+   ```bash
    chmod 640 /sybase/shared/aws-backint-agent-ase/aws-backint-agent-config.yaml
    ```
 
 1. Ensure the file is owned by the correct user and group:
 
-   ```
+   ```bash
    chown sap_user:sap_group /sybase/shared/aws-backint-agent-ase/aws-backint-agent-config.yaml
    ```
 
 1. Verify permissions:
 
-   ```
+   ```bash
    ls -la /sybase/shared/aws-backint-agent-ase/aws-backint-agent-config.yaml
    ```
 
@@ -319,7 +318,7 @@ other users outside of group cannot have execution permission.
 
  **Symptoms**:
 
-```
+```text
 Error: S3 Bucket Name not found in aws-backint-agent-config.yaml
 ```
 
@@ -343,7 +342,7 @@ Error: S3 Bucket Name not found in aws-backint-agent-config.yaml
 
  **Symptoms**:
 
-```
+```text
 KMS.InvalidKeyUsageException: You cannot generate a data key with an asymmetric CMK
 ```
 
@@ -355,7 +354,7 @@ KMS.InvalidKeyUsageException: You cannot generate a data key with an asymmetric 
 
 1. Create a new symmetric key if needed:
 
-   ```
+   ```bash
    aws kms create-key --description "S3 encryption key for SAP backups" --key-usage ENCRYPT_DECRYPT
    ```
 
@@ -368,7 +367,7 @@ KMS.InvalidKeyUsageException: You cannot generate a data key with an asymmetric 
 
  **Symptoms**:
 
-```
+```text
 AccessDenied: User: arn:aws:sts::<account-id>:assumed-role/<role-name>/<instance-id>
 is not authorized to perform: kms:GenerateDataKey on resource: arn:aws:kms:<region>:<account-id>:key/<key-id>
 with an explicit deny in an identity-based policy
@@ -380,7 +379,7 @@ with an explicit deny in an identity-based policy
 
 1. Add KMS permissions to your IAM policy:
 
-   ```
+   ```json
    {
      "Effect": "Allow",
      "Action": [
@@ -397,7 +396,7 @@ with an explicit deny in an identity-based policy
 
 1. Test KMS access:
 
-   ```
+   ```bash
    aws kms generate-data-key --key-id your-key-id --key-spec AES_256
    ```
 
@@ -415,7 +414,7 @@ with an explicit deny in an identity-based policy
 
 The Backint Agent creates the following S3 path structure:
 
-```
+```text
 <bucket-name>/<path-prefix>/<SID>/sapci_<Database_Name>_COMPLETE_<custom_prefix>_<stripe_number>/<date>_<time>/
 ```
 
@@ -424,7 +423,7 @@ The Backint Agent creates the following S3 path structure:
 
 When restoring, use the exact path format:
 
-```
+```sql
 LOAD DATABASE <DB_NAME> FROM "awsbackint::<backup_location_without_database_prefix>"
 ```
 
@@ -436,7 +435,7 @@ Do not include the database name as a prefix in the restore path.
 
 Use this comprehensive IAM policy template for the Backint Agent:
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

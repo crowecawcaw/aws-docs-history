@@ -1,7 +1,6 @@
 
 
 # Host setup for databases with Amazon FSx for NetApp ONTAP
-<a name="host"></a>
 
 This section walks you through an example host setup for deploying a database system on AWS using Amazon FSx for NetApp ONTAP as the primary storage solution.
 

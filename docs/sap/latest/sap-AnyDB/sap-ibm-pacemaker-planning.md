@@ -1,7 +1,6 @@
 
 
 # Planning
-<a name="sap-ibm-pacemaker-planning"></a>
 
 ## Architecture Options
 <a name="sap-ibm-pacemaker-architecture-options"></a>

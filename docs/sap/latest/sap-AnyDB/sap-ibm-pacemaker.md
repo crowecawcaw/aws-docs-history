@@ -1,7 +1,6 @@
 
 
 # SAP on AWS – IBM Db2 HADR with Pacemaker
-<a name="sap-ibm-pacemaker"></a>
 
 SAP on AWS – IBM Db2 HADR with Pacemaker
 

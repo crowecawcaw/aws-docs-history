@@ -1,7 +1,6 @@
 
 
 # SAP and cluster setup
-<a name="rhel-sap-ase-ha-setup"></a>
 
 This section covers the following topics.
 

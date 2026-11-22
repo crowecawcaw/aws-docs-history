@@ -1,7 +1,6 @@
 
 
 # Deployment
-<a name="ase-sles-ha-deployment"></a>
 
 This section covers the following topics.
 

@@ -1,7 +1,6 @@
 
 
 # SAP ASE and cluster setup
-<a name="ase-sles-ha-setup"></a>
 
 This section covers the following topics.
 

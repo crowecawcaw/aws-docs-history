@@ -1,7 +1,6 @@
 
 
 # Analysis and maintenance
-<a name="ase-sles-ha-operations-topics"></a>
 
 This section covers the following topics.
 

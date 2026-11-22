@@ -1,7 +1,6 @@
 
 
 # SAP ASE for SAP NetWeaver on AWS: high availability configuration for SUSE Linux Enterprise Server (SLES) for SAP applications
-<a name="ase-sles-ha"></a>
 
 This topic applies to SUSE Linux Enterprise Server (SLES) operating system for SAP NetWeaver running SAP Adaptive Server Enterprise (ASE) database on AWS cloud. It covers the instructions for configuration of a pacemaker cluster for SAP ASE database when deployed on Amazon EC2 instances in two different Availability Zones within an AWS Region and FSx for ONTAP as the storage layer.
 

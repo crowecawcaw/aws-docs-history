@@ -1,7 +1,6 @@
 
 
 # SAP ASE for SAP NetWeaver on AWS: high availability configuration for Red Hat Enterprise Linux (RHEL) for SAP applications
-<a name="rhel-ase-ha"></a>
 
 This topic applies to Red Hat Enterprise Linux (RHEL) for SAP with high availability and update services operating system for SAP NetWeaver running on SAP ASE database on AWS cloud. It covers the instructions for configuration of a pacemaker cluster for SAP ASE database when deployed on Amazon EC2 instances in two different Availability Zones within an AWS Region.
 

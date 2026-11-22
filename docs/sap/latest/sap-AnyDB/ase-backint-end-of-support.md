@@ -1,7 +1,6 @@
 
 
 # AWS Backint Agent for SAP ASE end of support
-<a name="ase-backint-end-of-support"></a>
 
 After careful consideration, we have decided to end support for AWS Backint Agent for SAP ASE, effective September 29, 2027. Beginning October 29, 2026, AWS Backint Agent for SAP ASE will no longer be available to download for new customers. As an existing customer, you can continue to use AWS Backint Agent for SAP ASE until September 29, 2027. After September 29, 2027, AWS Backint Agent for SAP ASE will no longer be available to download, existing installations will no longer be supported, and backup and restore operations that use the agent will no longer be supported and might not function as expected.
 
@@ -65,7 +64,7 @@ Prerequisites:
 
 Create the target bucket in any Region other than `us-east-1`. For example, with the AWS CLI:
 
-```
+```console
 aws s3api create-bucket --bucket my-ase-backup-bucket --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2
 ```
 
@@ -75,7 +74,7 @@ For bucket naming rules and best practices, see [Bucket naming rules](https://do
 
 Create an IAM user or role with a policy that grants access to the backup bucket. The following is a minimal policy example.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -105,14 +104,14 @@ Do not store credentials in plaintext files. See [Known limitations](#ase-backin
 
 Connect to the SAP ASE instance.
 
-```
+```console
 source /opt/sap/SYBASE.sh
 isql -Usa -P<sa_password> -S<server_name>:<port> -w1024
 ```
 
 Run the `dump` command.
 
-```
+```sql
 dump database <database_name> to "syb_aws::<backup_object_name>"
 with extlib_login_name='<ACCESS_KEY_ID>',
 extlib_login_pwd='<SECRET_ACCESS_KEY>',
@@ -124,13 +123,13 @@ Replace the placeholders: `<database_name>` (the SAP ASE database to back up), `
 
 A successful backup prints the following.
 
-```
+```console
 Backup Server: 3.42.1.1: DUMP is complete (database <database_name>).
 ```
 
  **Step 4 – Restore a backup** 
 
-```
+```sql
 load database <database_name> from "syb_aws::<backup_object_name>"
 with extlib_login_name='<ACCESS_KEY_ID>',
 extlib_login_pwd='<SECRET_ACCESS_KEY>',
@@ -182,7 +181,7 @@ Benefits:
 
 1. (Optional) Configure backup parameters. Use `sp_config_dump` to create an SAP ASE database dump configuration with the backup file directory (`@stripe_dir`) set to the NFS share path.
 
-   ```
+   ```sql
    sp_config_dump @config_name='db_bkp',
    @stripe_dir='/mnt/s3-gateway', @compression='101',
    @verify='header'
@@ -193,21 +192,21 @@ Benefits:
 
 1. Run a backup. Run the `dump database` command either directly to the NFS mount, for example `/mnt/s3-gateway`:
 
-   ```
+   ```sql
    dump database <database_name> to /mnt/s3-gateway
    go
    ```
 
    Or by using the stored configuration:
 
-   ```
+   ```sql
    dump database <database_name> using config = db_bkp
    go
    ```
 
 1. Restore from backup. Use the `load database` command with the backup file path on the NFS share.
 
-   ```
+   ```sql
    load database <database_name> from '/mnt/s3-gateway/<backup_file>'
    go
    ```
@@ -266,7 +265,7 @@ Existing customer accounts are allowlisted automatically. No request is needed. 
 
 Allowlisting permits an AWS account to read the download bucket. It does not by itself grant that permission to a user or role inside the account. An additional IAM policy is required. Attach a policy such as the following to the IAM principal that performs the download. In most cases, this is the IAM role that is attached to the Amazon EC2 instance that runs SAP ASE.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -286,7 +285,7 @@ Add `s3:ListBucket` on `arn:aws:s3:::awssap-backint-agent-ase` to list the avail
 
 Unauthenticated access to the download bucket ends on October 29, 2026. Downloads over a plain HTTPS URL, for example with a web browser, `curl`, or `wget` without credentials, fail with an access denied error. Use the AWS CLI or an AWS SDK instead.
 
-```
+```console
 aws s3 cp s3://awssap-backint-agent-ase/binary/<version>/<file> .
 ```
 

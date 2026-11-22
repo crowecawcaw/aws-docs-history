@@ -1,7 +1,6 @@
 
 
 # FAQ
-<a name="sap-ibm-pacemaker-faq"></a>
 
  **Question:** Can I use Database Migration Service to migrate and deploy SAP NetWeaver on IBM Db2 based applications?
 

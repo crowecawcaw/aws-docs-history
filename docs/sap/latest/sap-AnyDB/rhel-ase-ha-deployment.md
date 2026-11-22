@@ -1,7 +1,6 @@
 
 
 # Deployment
-<a name="rhel-ase-ha-deployment"></a>
 
 This section covers the following topics.
 

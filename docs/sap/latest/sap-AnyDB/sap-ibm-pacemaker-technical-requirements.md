@@ -1,7 +1,6 @@
 
 
 # Technical Requirements
-<a name="sap-ibm-pacemaker-technical-requirements"></a>
 + Before you start the installation and configuration of IAM Db2 High Availability Disaster Recovery (HADR), ensure that you meet the following requirements:
 + Your operating system is a supported Red Hat or SUSE version. Check SAP [product availability matrix](https://support.sap.com/en/release-upgrade-maintenance.html#section_1969201630) (PAM). Login required.
 + Your database version is IBM Db2 10.5 or higher.

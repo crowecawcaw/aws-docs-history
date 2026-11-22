@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="sap-ibm-pacemaker-security"></a>
 
  AWS provides security capabilities and services to securely run your SAP applications on the AWS platform. In the context of IBM Db2 for SAP applications, you can use network services and features such as [Amazon VPC](https://aws.amazon.com/vpc/), [AWS Virtual Private Network](https://aws.amazon.com/vpn/) (AWS VPN), [AWS Direct Connect](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect.html), [Amazon EC2 Security Groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html), [network access controls lists (NACLs)](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html), [route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html), and more to restrict the access to your database.
 

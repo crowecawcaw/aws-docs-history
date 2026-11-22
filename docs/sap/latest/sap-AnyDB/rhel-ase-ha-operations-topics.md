@@ -1,7 +1,6 @@
 
 
 # Analysis and maintenance
-<a name="rhel-ase-ha-operations-topics"></a>
 
 This section covers the following topics.
 

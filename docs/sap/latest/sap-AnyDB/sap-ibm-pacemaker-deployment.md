@@ -1,7 +1,6 @@
 
 
 # Deployment
-<a name="sap-ibm-pacemaker-deployment"></a>
 
 This section discusses high level deployment process and steps. Table 2 lists the steps in the order they should be done, and each step’s purpose.
 
@@ -70,7 +69,7 @@ You need to disable source/destination check for your EC2 instance hosting prima
 For the Pacemaker setup, create two policies and attach them to the IAM role, which is attached to the Db2 primary and standby instance. This allows your EC2 instance to call the APIs which run during the failover process by Pacemaker.
 + STONITH – Allows Ec2 instance to start, stop and reboot instances.
 
-```
+```json
  {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -103,7 +102,7 @@ For the Pacemaker setup, create two policies and attach them to the IAM role, wh
 ```
 + Overlay IP – Allows the Ec2 instance to update the route table in case of failover.
 
-```
+```json
        {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

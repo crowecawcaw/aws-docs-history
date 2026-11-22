@@ -1,7 +1,6 @@
 
 
 # Databases for SAP on AWS with Amazon FSx for NetApp ONTAP
-<a name="sap-databases-fsx"></a>
 
 Amazon FSx for NetApp ONTAP is a fully managed service that provides highly reliable, scalable, high-performing, and feature-rich file storage built on NetApp’s popular ONTAP file system. You can now deploy and operate SAP applications using IBM Db2, SAP MaxDB, SAP ASE, Oracle, and MSSQL on AWS with FSx for ONTAP. For more information, see [Amazon FSx for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/).
 

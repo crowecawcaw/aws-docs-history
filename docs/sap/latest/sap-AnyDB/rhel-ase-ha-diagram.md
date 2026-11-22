@@ -1,7 +1,6 @@
 
 
 # Architecture diagram
-<a name="rhel-ase-ha-diagram"></a>
 
 The following diagram shows the cold standby SAP ASE cluster setup with FSx for ONTAP.
 
