@@ -1,7 +1,6 @@
 
 
 # Create an AWS Cloud WAN core network policy version using the console
-<a name="cloudwan-create-policy-console"></a>
 
 Use the Network Manager console to create a core network policy version. The console provides separate tabs for you to configure a network policy version, including the new routing policy capabilities. The following steps describe the high-level process. 
 

@@ -1,7 +1,6 @@
 
 
 # Delete a link from an AWS Cloud WAN global network
-<a name="cloudwan-link-delete"></a>
 
 You can delete the link between two devices without deleting the devices.
 

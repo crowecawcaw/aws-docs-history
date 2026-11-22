@@ -1,7 +1,6 @@
 
 
 # Create or delete a device connection in an AWS Cloud WAN global network
-<a name="cloudwan-devices-connections"></a>
 
 Create or delete a connection between two devices in your Cloud WAN global network.
 

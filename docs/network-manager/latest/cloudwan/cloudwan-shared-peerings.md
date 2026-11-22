@@ -1,7 +1,6 @@
 
 
 # Shared peerings in AWS Cloud WAN
-<a name="cloudwan-shared-peerings"></a>
 
 Shared peering allows you to establish peering connections between your Cloud WAN core network and transit gateways in the same AWS Region. You can dynamically exchange routing and reachability information between your core network edge and transit gateway over these peering connections, and interconnect your existing transit gateway-based network with your Cloud WAN network. You can create a new transity gateway policy table for this new shared peering or you can choose an existing transit gatewa policy table to use. 
 

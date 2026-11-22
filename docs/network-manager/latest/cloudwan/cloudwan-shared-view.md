@@ -1,7 +1,6 @@
 
 
 # View shared AWS Cloud WAN attachments
-<a name="cloudwan-shared-view"></a>
 
 View details about your shared VPC and transit gateway attachments.
 

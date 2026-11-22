@@ -1,7 +1,6 @@
 
 
 # Delete a site from an AWS Cloud WAN global network
-<a name="cloudwan-site-delete"></a>
 
 Delete sites from your Cloud WAN global network that are no longer a valid or needed. 
 

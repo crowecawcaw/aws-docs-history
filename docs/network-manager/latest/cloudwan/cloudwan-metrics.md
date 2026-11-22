@@ -1,7 +1,6 @@
 
 
 # CloudWatch metrics in AWS Cloud WAN
-<a name="cloudwan-metrics"></a>
 
 You can use the following features to monitor your Cloud WAN network, analyze traffic patterns, and troubleshoot issues with your Cloud WAN global network.
 
@@ -54,6 +53,30 @@ Cloud WAN counts each metric against the attachment whose rule applied. With dou
 + `CoreNetwork`, `Attachment`, `AvailabilityZone` (VPC attachments only)
 
 Cloud WAN publishes NAT metrics to the core network owner's account. For an attachment owned by another account, Cloud WAN also publishes them to the attachment owner's account.
+
+### Cloud WAN multipath resilience metrics
+<a name="cloudwan-metrics-multipath-resilience"></a>
+
+Cloud WAN publishes the following metrics for core networks that have multipath resilience enabled in the core network policy. For more information about enabling multipath resilience, see [Enable multipath resilience in a core network policy](enable-multipath-resilience-cloudwan.md).
+
+Cloud WAN publishes these metrics in the `AWS/Network Manager` namespace for each edge set. Each metric reports traffic in one direction between an edge location in this Region and the peer edge location. The `MultipathResilienceSLANonCompliantSecondsToPeer` metric helps you track delivery against the service level agreement (SLA). For more information about the SLA, see [Multipath Resilience SLA](https://aws.amazon.com/vpc/features/vpc-multipath-resilience/sla) on the AWS website.
+
+The following table lists the multipath resilience metrics and their descriptions.
+
+
+| Metric | Description | 
+| --- | --- | 
+| MultipathResiliencePacketsSentToPeer | The number of packets that multipath resilience received at this edge location to send to the peer edge location.<br />**Units**: Count<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| MultipathResiliencePacketsReceivedByPeer | The number of packets that the peer edge location received from this edge location.<br />**Units**: Count<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| MultipathResilienceAvailabilityToPeer | This is the percentage of packets sent to the peer edge location in a one-minute period that multipath resilience measured as delivered. The value is calculated from the total packets sent and received in that minute. A value of 100 means that multipath resilience measured no packet loss in that minute. Minutes with too little traffic to measure always show 100, and minutes with no traffic show no value.<br />**Units**: Percent<br />**Statistics**: The only meaningful statistic is `Minimum`. | 
+| MultipathResilienceSLANonCompliantSecondsToPeer | The number of seconds in which delivery of your packets from this edge location to the peer edge location was below the SLA threshold.<br />**Units**: Count<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+
+To filter the metric data, use the following combination of dimensions.
+
+
+| Dimension | Description | 
+| --- | --- | 
+| CoreNetwork, SourceEdgeLocation, DestinationEdgeLocation | Filter the metric data by core network, source edge location, and destination edge location. | 
 
 ### Cloud WAN metric dimensions
 <a name="cloudwan-metrics-dims"></a>

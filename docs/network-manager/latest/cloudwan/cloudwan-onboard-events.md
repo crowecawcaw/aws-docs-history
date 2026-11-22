@@ -1,7 +1,6 @@
 
 
 # Onboard CloudWatch Logs Insights for AWS Cloud WAN
-<a name="cloudwan-onboard-events"></a>
 
 Before viewing events on the Events dashboard, you must complete a one-time setup that registers your events with CloudWatch Logs Insights. Until you register your events, you'll be unable to view any of your events on the dashboard.
 
@@ -14,7 +13,7 @@ Before you begin, verify that an AWS Identity and Access Management (IAM) princi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

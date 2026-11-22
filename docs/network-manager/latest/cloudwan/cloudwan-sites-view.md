@@ -1,7 +1,6 @@
 
 
 # View site details in an AWS Cloud WAN global network
-<a name="cloudwan-sites-view"></a>
 
 View details about a Cloud WAN global network site. 
 

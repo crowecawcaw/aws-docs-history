@@ -1,7 +1,6 @@
 
 
 # AWS Cloud WAN transit gateway network and transit gateways dashboards
-<a name="cloudwan-visualize-tgw"></a>
 
 ## Cloud WAN transit gateway network dashboards
 <a name="cloudwan-dashboard-tgw-network"></a>

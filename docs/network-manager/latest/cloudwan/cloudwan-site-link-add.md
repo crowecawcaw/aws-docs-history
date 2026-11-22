@@ -1,7 +1,6 @@
 
 
 # Create a link for a site in an AWS Cloud WAN global network
-<a name="cloudwan-site-link-add"></a>
 
 Create a link that can be used to associate a device with a site. 
 

@@ -1,7 +1,6 @@
 
 
 # View or edit an AWS Cloud WAN transit gateway route table attachment
-<a name="cloudwan-attachments-viewing-editing-rtb"></a>
 
 You can view and edit the key-value tags associated with a transit gateway route table attachment, as well as adding a new attachment or for managing route labels For the steps to add a new transit gateway route table attachment, see[Transit gateway route table attachments in AWS Cloud WAN](cloudwan-tgw-attachment.md).
 

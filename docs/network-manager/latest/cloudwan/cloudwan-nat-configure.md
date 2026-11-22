@@ -1,7 +1,6 @@
 
 
-# Configure 1:1 NAT in AWS Cloud WAN
-<a name="cloudwan-nat-configure"></a>
+# Configuring 1:1 NAT in AWS Cloud WAN
 
 You manage NAT for an attachment through a single operation that sets the NAT options and the full rule set together. Only the core network owner can configure NAT. Every parameter except the attachment ID is optional. Cloud WAN applies changes asynchronously: the attachment transitions to **Updating** while the workflow runs and returns to **Available** on completion. The operation is complete when the attachment is back to **Available**.
 
@@ -12,7 +11,7 @@ On a VPC attachment, enabling NAT replaces the route for each VPC CIDR that a ru
 **Important**  
 1:1 NAT is a paid feature. Enabling NAT on an attachment adds an hourly charge and a data processing charge. For more information, see [Cloud WAN pricing](what-is-cloudwan.md#cloudwan-available-pricing).
 
-## Configure 1:1 NAT using the console
+## Configuring 1:1 NAT using the console
 <a name="cloudwan-nat-configure-console"></a>
 
 The **NAT system route support** setting controls whether Cloud WAN automatically installs routes for an attachment's NAT CIDRs in the attachment's segment. It works as follows for each attachment type:
@@ -43,11 +42,15 @@ No CIDR in a rule can overlap any other CIDR (match source or NAT) on the same a
 
 1. (Optional) For **NAT system route support**, choose whether Cloud WAN automatically installs routes for this attachment's NAT CIDRs in the attachment's segment.
 
-1. Under **1:1 NAT Gateway rules**, choose **Add rule**, and then enter the **Rule number**, **Match source CIDR**, and **NAT CIDR**.
+1. Under **1:1 NAT Gateway rules**, choose **Add rule**.
+
+1. Enter the **Rule number**, **Match source CIDR**, and **NAT CIDR**.
 
 1. To add more rules, choose **Add rule** again.
 
-1. Complete the remaining attachment settings, then choose **Create attachment**.
+1. Complete the remaining attachment settings.
+
+1. Choose **Create attachment**.
 
 **To enable NAT and add rules**
 
@@ -67,7 +70,9 @@ No CIDR in a rule can overlap any other CIDR (match source or NAT) on the same a
 
 1. (Optional) Under **NAT system route support**, choose whether Cloud WAN automatically installs routes for this attachment's NAT CIDRs in the attachment's segment.
 
-1. Under **1:1 NAT Gateway rules**, choose **Add rule**, and then enter the **Rule number**, **Match source CIDR**, and **NAT CIDR**.
+1. Under **1:1 NAT Gateway rules**, choose **Add rule**.
+
+1. Enter the **Rule number**, **Match source CIDR**, and **NAT CIDR**.
 
 1. To add more rules, choose **Add rule** again.
 
@@ -90,7 +95,9 @@ When you save, the rules on the form replace all existing rules on the attachmen
 
 1. Under **Core network** in the navigation pane, choose **Attachments**.
 
-1. Select the attachment, and then choose **Actions**, **Manage 1:1 NAT**.
+1. Select the attachment.
+
+1. Choose **Actions**, and then choose **Manage 1:1 NAT**.
 
 1. Add, edit, or remove rules.
 
@@ -132,7 +139,7 @@ You can't save changes while the attachment is **Updating**. You can't enable NA
 
 The attachment transitions to **Updating** while the change is applied and returns to **Available** on completion.
 
-## Configure 1:1 NAT using the AWS CLI
+## Configuring 1:1 NAT using the AWS CLI
 <a name="cloudwan-nat-configure-cli"></a>
 
 You manage the NAT configuration for a core network attachment with a single command, **update-attachment-nat-configuration**. With this command, you set the NAT options and the full rule set in one operation. Every parameter except `--attachment-id` is optional, so you can update options without changing rules, or replace rules without changing options.
@@ -141,14 +148,14 @@ Changes are applied asynchronously. While a change is in progress, the attachmen
 
 In the following examples, replace the attachment ID, core network ID, and CIDRs with your own values.
 
-### Enable NAT and configure rules
+### Enabling NAT and configuring rules
 <a name="cloudwan-nat-cli-enable"></a>
 
 The following command enables NAT on an attachment and configures two rules:
 
-```
+```bash
 aws networkmanager update-attachment-nat-configuration \
-    --attachment-id {{attachment-0123456789abcdef0}} \
+    --attachment-id {{my-attachment-id}} \
     --nat-gateway-support ENABLE \
     --nat-gateway-rules '[
         {"RuleNumber":100,"MatchSourceCidr":"{{10.100.10.0/24}}","NatCidr":"{{192.168.10.0/24}}"},
@@ -162,64 +169,64 @@ Each rule needs a unique rule number from 1 to 32766. You can specify up to 50 r
 
 `--nat-system-route-support` (`true` \| `false`) controls whether Cloud WAN automatically installs routes for the attachment's NAT CIDRs in the attachment's segment:
 + **Direct Connect gateway and BGP Site-to-Site VPN attachments** – Valid values: `true` \| `false`. If you omit it, Cloud WAN keeps the current value. For a new configuration, it defaults to `true`. When NAT system route support is set to `true`, Cloud WAN adds a system route for each NAT CIDR specified in a NAT gateway rule, and the routes your network advertises aren't changed. When it's set to `false`, advertise the NAT CIDRs from your network, or add static routes in your core network policy.
-+ **VPC attachments** – Always `true`; setting it to `false` is rejected. When a rule's `MatchSourceCidr` exactly equals one of the VPC's CIDRs, the VPC CIDR's route is replaced by a route for the rule's `NatCidr`. For rules that don't exactly match, add a static route for the `NatCidr` in your core network policy.
-+ **Connect attachments** – Always `false`; setting it to `true` is rejected. Your peers must advertise the NAT CIDRs.
++ **VPC attachments** – Always `true`. Setting it to `false` is rejected. When a rule's `MatchSourceCidr` exactly equals one of the VPC's CIDRs, the VPC CIDR's route is replaced by a route for the rule's `NatCidr`. For rules that don't exactly match, add a static route for the `NatCidr` in your core network policy.
++ **Connect attachments** – Always `false`. Setting it to `true` is rejected. Your peers must advertise the NAT CIDRs.
 
-### Replace the full rule set
+### Replacing the full rule set
 <a name="cloudwan-nat-cli-replace"></a>
 
 The list you supply replaces all existing rules on the attachment, so include every rule you want to keep in each call. If you omit `--nat-gateway-rules`, the rules stay unchanged.
 
 The following command replaces the existing rules with a single rule:
 
-```
+```bash
 aws networkmanager update-attachment-nat-configuration \
-    --attachment-id {{attachment-0123456789abcdef0}} \
+    --attachment-id {{my-attachment-id}} \
     --nat-gateway-rules '[
         {"RuleNumber":100,"MatchSourceCidr":"{{10.200.10.0/24}}","NatCidr":"{{100.64.10.0/24}}"}
     ]'
 ```
 
-### Disable NAT
+### Disabling NAT
 <a name="cloudwan-nat-cli-disable"></a>
 
 The following command disables NAT on an attachment:
 
-```
+```bash
 aws networkmanager update-attachment-nat-configuration \
-    --attachment-id {{attachment-0123456789abcdef0}} \
+    --attachment-id {{my-attachment-id}} \
     --nat-gateway-support DISABLE
 ```
 
 When you disable NAT, traffic on the attachment is no longer translated. Cloud WAN keeps your rules and changes their state to deactivated. The rules are reactivated when you enable NAT again.
 
-### Clear all rules
+### Clearing all rules
 <a name="cloudwan-nat-cli-clear"></a>
 
 To remove all rules, pass an empty list. NAT can't stay enabled with zero rules, so if NAT is enabled, disable it in the same call:
 
-```
+```bash
 aws networkmanager update-attachment-nat-configuration \
-    --attachment-id {{attachment-0123456789abcdef0}} \
+    --attachment-id {{my-attachment-id}} \
     --nat-gateway-support DISABLE \
     --nat-gateway-rules '[]'
 ```
 
-### View NAT configurations
+### Viewing NAT configurations
 <a name="cloudwan-nat-cli-view"></a>
 
 You can view the NAT configuration for one attachment, or for all attachments in a core network. Results are paginated.
 
 The following command lists the NAT configuration for one attachment:
 
-```
+```bash
 aws networkmanager list-attachment-nat-configurations \
-    --attachment-id {{attachment-0123456789abcdef0}}
+    --attachment-id {{my-attachment-id}}
 ```
 
 The following command lists the NAT configurations for all attachments in a core network:
 
-```
+```bash
 aws networkmanager list-attachment-nat-configurations \
-    --core-network-id {{core-network-0123456789abcdef0}}
+    --core-network-id {{my-core-network-id}}
 ```

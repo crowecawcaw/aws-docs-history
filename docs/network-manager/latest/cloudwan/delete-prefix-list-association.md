@@ -1,7 +1,6 @@
 
 
 # Delete an AWS Cloud WAN prefix list association
-<a name="delete-prefix-list-association"></a>
 
 **Note**  
 Before you can delete a core network prefix list association you must remove any prefix list alias that is referred to in the associated core network policy before the delete call will work.

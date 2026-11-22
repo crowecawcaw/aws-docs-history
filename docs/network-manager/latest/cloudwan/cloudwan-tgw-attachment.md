@@ -1,7 +1,6 @@
 
 
 # Transit gateway route table attachments in AWS Cloud WAN
-<a name="cloudwan-tgw-attachment"></a>
 
 Transit gateway route tables contain the rules that determine how your network traffic is routed between your VPCs and VPNs. A transit gateway route table can be added as an attachment type in your AWS Cloud WAN core network. You can create a transit gateway route table attachment through either the console or by using the command line or API. 
 

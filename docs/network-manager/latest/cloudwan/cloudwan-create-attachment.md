@@ -1,7 +1,6 @@
 
 
 # Attachments in AWS Cloud WAN
-<a name="cloudwan-create-attachment"></a>
 
 You can work with core network attachments using the Amazon VPC Console or the command line or API. 
 

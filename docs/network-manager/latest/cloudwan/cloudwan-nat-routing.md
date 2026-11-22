@@ -1,9 +1,10 @@
 
 
 # Routing behavior for 1:1 NAT in AWS Cloud WAN
-<a name="cloudwan-nat-routing"></a>
 
-The core network uses the translated (NAT) addresses to route traffic to attachments that have NAT enabled. A route to each NAT CIDR must exist in the attachment's segment route table, and in any segment that shares routes with it. Depending on the attachment type, Cloud WAN installs that route for you, or you provide it with a static route or a BGP advertisement.
+The core network uses the translated (NAT) addresses to route traffic to attachments that have NAT enabled. A route to each NAT CIDR must exist in the attachment's segment route table, and in any segment that shares routes with it. Depending on the attachment type, Cloud WAN installs that route for you, or you provide it with a static route or a Border Gateway Protocol (BGP) advertisement.
+
+The following table shows how the NAT CIDR becomes reachable for each attachment type:
 
 
 | Attachment type | `NatSystemRouteSupport` | How the NAT CIDR becomes reachable | 
@@ -26,15 +27,17 @@ A NAT CIDR that you advertise from your own BGP peers appears as propagated. The
 
 ## Direct Connect gateway and BGP Site-to-Site VPN attachments
 <a name="cloudwan-nat-routing-dx-vpn"></a>
-+ **Route installation disabled** – Cloud WAN doesn't install NAT routes. Advertise the NAT CIDRs from your own BGP routers with the attributes you need, such as AS path, MED, or communities. Use this option to control path selection: per-peer longest-prefix routes, active/standby, or ECMP.
+
+For these attachment types, you can enable or disable NAT route installation:
++ **Route installation disabled** – Cloud WAN doesn't install NAT routes. Advertise the NAT CIDRs from your own BGP routers with the attributes you need, such as AS path, Multi-Exit Discriminator (MED), or communities. Use this option to control path selection: per-peer longest-prefix routes, active/standby, or equal-cost multipath (ECMP).
 + **Route installation enabled (default)** – Cloud WAN installs a system route for each rule's NAT CIDR, with an empty AS path. Traffic to the NAT CIDR is forwarded along the routes your network advertises that overlap the rule's original CIDR. If your network advertises nothing that overlaps the original CIDR, the NAT route drops traffic. Use this option if you can't or prefer not to change your on-premises router configuration.
 
 For these attachment types, the original (pre-NAT) routes your network advertises aren't removed in either mode. Translation works the same in both modes. The setting controls only route installation.
 
-## Advertise NAT CIDRs to your on-premises network
+## Advertising NAT CIDRs to your on-premises network
 <a name="cloudwan-nat-routing-advertise"></a>
 
-When a VPC's CIDR route is replaced by its NAT CIDR, Cloud WAN advertises the NAT CIDR, not the original VPC CIDR, to BGP-capable attachments (Site-to-Site VPN, Direct Connect gateway, Connect). Your on-premises routers see the NAT CIDR with the core network's ASN in the AS path. They no longer receive the original VPC CIDR.
+When a VPC's CIDR route is replaced by its NAT CIDR, Cloud WAN advertises the NAT CIDR, not the original VPC CIDR, to BGP-capable attachments (Site-to-Site VPN, Direct Connect gateway, Connect). Your on-premises routers see the NAT CIDR with the core network's Autonomous System Number (ASN) in the AS path. They no longer receive the original VPC CIDR.
 
 ## Brief traffic loss during changes
 <a name="cloudwan-nat-routing-traffic-loss"></a>

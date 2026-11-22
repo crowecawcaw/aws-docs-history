@@ -1,7 +1,6 @@
 
 
 # Global and core networks in AWS Cloud WAN
-<a name="cloudwan-networks-working-with"></a>
 
 A core network owner can maintain all aspects of global and core networks, including viewing, deleting, and updating tags for both global and core networks. 
 

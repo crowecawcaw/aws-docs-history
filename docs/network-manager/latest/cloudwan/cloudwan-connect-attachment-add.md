@@ -1,7 +1,6 @@
 
 
 # Create a Connect attachment for an AWS Cloud WAN core network
-<a name="cloudwan-connect-attachment-add"></a>
 
 You can create a Connect attachment using either the Network Manager console or using the AWS CLI. Once you create a Connect attachment to your core network you can create a Connect peer. For the steps to create a Connect peer after creating the Connect attachment, see [Create an AWS Cloud WAN Connect peer for a core network](cloudwan-connect-peer-attachment.md).
 

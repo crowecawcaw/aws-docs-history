@@ -1,7 +1,6 @@
 
 
 # Monitor devices in an AWS Cloud WAN global network
-<a name="cloudwan-devices-monitoring"></a>
 
 Monitor device Amazon CloudWatch events on the AWS Cloud WAN Monitoring page. 
 

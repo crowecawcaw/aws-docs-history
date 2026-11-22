@@ -1,7 +1,6 @@
 
 
 # Shared attachments in AWS Cloud WAN
-<a name="cloudwan-shared-attachments"></a>
 
 You can share attachments on any of your shared core networks. For more information on sharing core networks, see [Shared AWS Cloud WAN core network](cloudwan-share-network.md).
 

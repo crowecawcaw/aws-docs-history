@@ -1,7 +1,6 @@
 
 
 # Create a shared VPC attachment in an AWS Cloud WAN core network
-<a name="cloudwan-vpc-share-create"></a>
 
  Use the AWS Network Manager console to create a shared VPC attachment that can be used across accounts.
 

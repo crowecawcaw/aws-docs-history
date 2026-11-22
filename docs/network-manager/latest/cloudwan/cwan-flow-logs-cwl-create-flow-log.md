@@ -1,7 +1,6 @@
 
 
 # Create a AWS Cloud WAN Flow Logs record that publishes to Amazon CloudWatch Logs
-<a name="cwan-flow-logs-cwl-create-flow-log"></a>
 
 You can create flow logs for core networks. If you perform these steps as an IAM user, ensure that you have permissions to use the `iam:PassRole` action. For more information, see [Permissions for IAM users to pass a role](cwan-flow-logs-cwl.md#cwan-flow-logs-iam-user).
 

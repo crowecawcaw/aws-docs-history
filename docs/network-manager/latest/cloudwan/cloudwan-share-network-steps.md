@@ -1,7 +1,6 @@
 
 
 # Share an AWS Cloud WAN core network
-<a name="cloudwan-share-network-steps"></a>
 
 The following steps guide you through sharing your core network with other AWS accounts or across your organizations.
 

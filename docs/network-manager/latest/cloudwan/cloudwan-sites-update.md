@@ -1,7 +1,6 @@
 
 
 # Update a site in an AWS Cloud WAN global network
-<a name="cloudwan-sites-update"></a>
 
 You can edit any of an existing site's details as needed, including adding, editing, and removing tags.
 

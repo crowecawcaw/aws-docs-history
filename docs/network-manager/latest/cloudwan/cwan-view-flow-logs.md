@@ -1,7 +1,6 @@
 
 
 # View AWS Cloud WAN Flow Logs records
-<a name="cwan-view-flow-logs"></a>
 
 View information about your core network flow logs through the Network Manager console. When you choose a resource, all of the flow logs for that resource are listed. The information displayed includes the ID of the flow log, the flow log configuration, and information about the status of the flow log.
 

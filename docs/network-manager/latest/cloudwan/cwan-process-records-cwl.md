@@ -1,7 +1,6 @@
 
 
 # Process AWS Cloud WAN Flow Logs records in Amazon CloudWatch Logs
-<a name="cwan-process-records-cwl"></a>
 
 You can work with flow log records as you would with any other log events collected by CloudWatch Logs. For more information about monitoring log data and metric filters, see [Creating metrics from log events using filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/MonitoringLogData.html) in the *Amazon CloudWatch User Guide*.
 

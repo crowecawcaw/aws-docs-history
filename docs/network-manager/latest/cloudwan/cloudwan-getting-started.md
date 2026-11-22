@@ -1,7 +1,6 @@
 
 
 # Quick start: Create an AWS Cloud WAN global network and core network
-<a name="cloudwan-getting-started"></a>
 
 With AWS Cloud WAN, you'll first create a global network framework, which eventually will contain all of your network resources, such as core networks, sites, devices, and attachments. During the creation process, you can choose to create your core network and core network policy simultaneously. Or you can choose to create the core network, and then create a policy at a later time. Creating a core network and policy creates the structure of your core network and implements it. Until you finish creating your core network and core network policy, you won't be able to do anything in your global network. After the structure is implemented, you can then add attachments, devices, or sites, and you can register existing transit gateways.
 

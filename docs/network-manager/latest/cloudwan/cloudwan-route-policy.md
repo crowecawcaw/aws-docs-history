@@ -1,7 +1,6 @@
 
 
 # Create an AWS Cloud WAN route policy and rule
-<a name="cloudwan-route-policy"></a>
 
 A routing policy is a set of rules that gives you precise control over route propagations in your core network allowing you better routes management, optimized performance and greater security. A routing policy rule consists of a match condition and an action used to control route propagations. The match condition determines which route propagations the rule applies to, while the action specifies how to process the route propagations in the core network. This granular control enables you to implement complex routing scenarios, such as blocking specific routes, adding BGP community tags, modifying AS paths, or setting route preferences to influence path selection across your network infrastructure. You can associate these routing policies to a) routes propagated on Cloud WAN attachments b) routes propagated across segments or c) routes propagated across core network edges (CNE) or regions (CNE-to-CNE).
 
@@ -73,6 +72,7 @@ A routing policy rule consists of a match condition and an action used to contro
    + **Remove community** - Remove a BGP community from routes
    + **Summarize** - Advertise a summary route 
    + **Set local preference** - Set priority for route selection (higher value = more preferred path)
+   + **Set MED** - Set the MED value in the route update (lower value = more preferred path)
 
 1. If adding multiple conditions, choose the logical operator:
    + **AND** - All conditions must be met for the rule to apply

@@ -1,7 +1,6 @@
 
 
 # What is AWS Cloud WAN?
-<a name="what-is-cloudwan"></a>
 
 AWS Cloud WAN is a managed wide-area networking (WAN) service that you can use to build, manage, and monitor a unified global network that connects resources running across your cloud and on-premises environments. It provides a central dashboard from which you can connect on-premises branch offices, data centers, and Amazon Virtual Private Clouds (VPCs) across the AWS global network. You can use simple network policies to centrally configure and automate network management and security tasks, and get a complete view of your global network. For key concepts and terms about global and core networks, see [Global and core network key concepts](#cloudwan-concepts-key).
 

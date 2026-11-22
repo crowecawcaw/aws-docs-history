@@ -1,7 +1,6 @@
 
 
 # Delete a device from an AWS Cloud WAN global network
-<a name="cloudwan-devices-delete"></a>
 
 Delete a device that is no longer a part of your Cloud WAN global network. 
 

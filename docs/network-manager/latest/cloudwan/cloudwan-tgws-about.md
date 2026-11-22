@@ -1,7 +1,6 @@
 
 
 # Transit gateways in AWS Cloud WAN
-<a name="cloudwan-tgws-about"></a>
 
 You can choose from a list of and register the transit gateways you want to monitor for the chosen global network. You can select transit gateways from any AWS Regions. If multi-account is enabled you'll be able to choose transit gateways from each account shared with you. A transit gateway can only be registered to one global network.
 

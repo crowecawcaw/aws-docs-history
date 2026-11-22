@@ -1,7 +1,6 @@
 
 
 # Add a device to an AWS Cloud WAN global network
-<a name="cloudwan-devices-add"></a>
 
 Add a device to your Cloud WAN global network. Devices can then be associated to sites using links. 
 

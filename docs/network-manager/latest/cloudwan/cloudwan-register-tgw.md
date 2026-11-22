@@ -1,7 +1,6 @@
 
 
 # Register a transit gateway in an AWS Cloud WAN global network
-<a name="cloudwan-register-tgw"></a>
 
 **Prerequisite:** A transit gateway must first be created on the Amazon Virtual Private Cloud console at [https://console.aws.amazon.com/vpc/home](https://console.aws.amazon.com/vpc/home). For the steps to create a transit gateway, see [Working with transit gateways](https://docs.aws.amazon.com/vpc/latest/tgw/working-with-transit-gateways.html) in the *Amazon VPC Transit Gateways Guide*
 

@@ -1,7 +1,6 @@
 
 
 # Edit a device in an AWS Cloud WAN global network
-<a name="cloudwan-device-edit"></a>
 
 Edit the details of a device, including changing whether the location type is either on-premises or AWS Cloud.
 

@@ -1,7 +1,6 @@
 
 
 # Edit a device link in an AWS Cloud WAN global network
-<a name="cloudwan-link-update"></a>
 
 Edit the link between two devices in your Cloud WAN global network.
 

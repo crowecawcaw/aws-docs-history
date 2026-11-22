@@ -1,7 +1,6 @@
 
 
 # Create a shared Direct Connect gateway attachment in an AWS Cloud WAN core network
-<a name="cloudwan-dx-share"></a>
 
 The following steps guide you through creating a shared Direct Connect gateway attachment.
 

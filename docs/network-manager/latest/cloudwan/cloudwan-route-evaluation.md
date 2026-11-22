@@ -1,7 +1,6 @@
 
 
 # Route evaluation
-<a name="cloudwan-route-evaluation"></a>
 
 Cloud WAN evaluates routes at each core network edge in the following order:
 
@@ -15,13 +14,15 @@ Cloud WAN evaluates routes at each core network edge in the following order:
 
    1. VPC-propagated routes in the same Region.
 
-   1. For dynamic routes received at the core network with an *unequal* AS path length and/or MED BGP attributes, Cloud WAN evaluates them in the following order:
+   1. For dynamic routes received at the core network with *unequal* local preference, AS path length, or MED BGP attributes, Cloud WAN evaluates them in the following order:
+
+      1.  Local preference
 
       1.  AS path length
 
       1.  MED
 
-   1. For dynamic routes received at the core network with *equal* AS path length and MED BGP attributes, Cloud WAN evaluates them in the following order:
+   1. For dynamic routes received at the core network with *equal* local preference, AS path length, and MED BGP attributes, Cloud WAN evaluates them in the following order:
 
       1.  Direct Connect gateway-propagated routes.
 

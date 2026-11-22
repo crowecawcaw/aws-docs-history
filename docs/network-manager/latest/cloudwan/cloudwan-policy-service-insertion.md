@@ -1,7 +1,6 @@
 
 
 # AWS Cloud WAN service insertion
-<a name="cloudwan-policy-service-insertion"></a>
 
 Service insertion allows you to steer same-segment or cross-segment traffic using network functions deployed in VPCs or on-premises networks attached to Cloud WAN. Network functions can be third-party network or security appliances such as NGFW, IDS, IPS appliances or native AWS network firewall or Gateway Load Balancer services. Using either the AWS Network Manager console or a JSON file, you'll create a version of one of your core network policies, create a network function group that contains a set of core network attachments where your network functions reside, and specify a segment or segment pairs for which traffic needs to be redirected to those network functions. Once the policy version is deployed and your new core network LIVE, Cloud WAN will automatically redirect network traffic between the segments to the specified core network attachments for the respective network function group. This redirection works for both same Region and cross-Region traffic on the core network. Service insertion works on both east-west (VPC to VPC) and north-south (VPC to the Internet or on-premises location) traffic. 
 

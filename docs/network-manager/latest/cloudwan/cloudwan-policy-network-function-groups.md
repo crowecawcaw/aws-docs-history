@@ -1,7 +1,6 @@
 
 
 # Create a network function group in an AWS Cloud WAN policy version
-<a name="cloudwan-policy-network-function-groups"></a>
 
 The following steps guide you through configuring a core network for a policy version using the **Policy versions** link on the AWS Network Manager console. There are no prerequisites for creating a network functions group. For more information, about network function groups, see [Network function groups](cloudwan-create-policy-version.md#cloudwan-core-network-function). 
 

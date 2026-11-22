@@ -1,7 +1,6 @@
 
 
 # AWS Cloud WAN global and core network dashboards
-<a name="cloudwan-visualize-networks"></a>
 
 AWS Cloud WAN provides two dashboards, a global network dashboard and a core network dashboard. Each dashboard is composed sub-dashboards that allow you to view details about your global and core networks.
 

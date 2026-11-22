@@ -1,7 +1,6 @@
 
 
 # Delete a shared peering from an AWS Cloud WAN global network
-<a name="cloudwan-peerings-share-delete"></a>
 
 Delete a transit gateway peering.
 

@@ -1,7 +1,6 @@
 
 
 # Core network policy version parameters in AWS Cloud WAN
-<a name="cloudwan-policies-json"></a>
 
 The following sections describe the parameters that you use to create a core network policy version using JSON. Your JSON file contains two sections that describe the policy network settings and segments. You can then add optional sections for defining network function groups and segment actions. 
 
@@ -23,9 +22,17 @@ For example JSON policies, see [AWS Cloud WAN core network policy examples](clou
 You must select a version for your core network from the following options: 
 + `2021.12`
 + `2025.11`
++ `2026.10`
 
 **Note**  
-You must select version 2025.11 to use route policies in your core network policy. Using version 2025.11 will also enable BGP community support on your core network, meaning community tags coming from BGP capable attachments will begin to be propagated through your core network. We will drop the subtype information of community tags propagated through the core network and for community tags propagated outbound of the core network the subtype will be set to Route Target. 
+You must select version 2025.11 or later to use route policies in your core network policy. Using version 2025.11 or later will also enable BGP community support on your core network, meaning community tags coming from BGP capable attachments will begin to be propagated through your core network. We will drop the subtype information of community tags propagated through the core network and for community tags propagated outbound of the core network the subtype will be set to Route Target. 
+
+**Note**  
+With version 2026.10 or later, Cloud WAN breaks ties between equivalent cross-Region routes with the same local preference and autonomous system (AS) path length. This applies when a destination has routes through more than one Region and you haven't set a preference. By default, each core network edge prefers routes from one of the connected Regions. Cloud WAN sets this preference with a default Multi-Exit Discriminator (MED) on cross-Region routes.  
+For segments, you can see the default MED values in the routing information base, and you can override them with edge location routing policies that use `set-med` or `set-local-preference`. For network function groups, you can't see or override these values. For more information about the routing information base and route evaluation, see [Routing information base](cloudwan-visualize-networks-core.md#cloudwan-visualize-core-routing-information-base) and [Route evaluation and ordering](cloudwan-routing-policies.md#cloudwan-routing-policies-considerations-route-evaluation).
+
+**Important**  
+If you haven't set a preference, traffic to a destination that has multiple equivalent routes can shift to a different Region when you update a core network to version 2026.10. This shift occurs once, when the update takes effect. To keep traffic on a specific path, set a preference with an edge location routing policy before you update.
 
 ## `core-network-configuration`
 <a name="cloudwan-network-config-json"></a>
@@ -343,13 +350,16 @@ Before you can create an attachment routing policy rule, you must have routing p
 
 `attachment-routing-policy-rules` is an optional section.
 
+**Important**  
+ For single-Region attachments, attachment routing policy rule actions are terminal. After a rule matches an attachment's `routing-policy-label` to a routing policy, no further rule evaluations will occur for that attachment. With Direct Connect gateway attachments, you can apply different routing policy rule actions to different attachment edge locations; see `edge-locations` below.
+
 ### Parameters
 <a name="cloudwan-attachment-routing-policy-rules-params"></a>
 
 The following parameters are used in `attachment-routing-policy-rules`:
 + `rule-number` — An integer from `1` to `65535` indicating the rule's processing order. Rules are processed from lowest to highest number.
 + `description` — (Optional) A user-defined description that helps identify the rule.
-+ `edge-locations` — (Optional) An array of edge locations where the routing policy should be applied. This only works with Direct Connect attachments to apply policies to specific regions.
++ `edge-locations` — (Optional) An array of edge locations where the routing policy should be applied. This only works with Direct Connect gateway attachments to apply policies to specific regions.
 + `conditions` — An array of conditions that must be met. (since attachments can only have a single routing policy label the conditions are always applied with an or operator) 
   + `type` — The type of condition to evaluate. Only `routing-policy-label` is supported. This condition type enables the core network owner to control routing policy associations independently from segment associations, providing more granular control over how routing policies are applied to attachments without relying on potentially changeable tag values.
   + `value` — The specific routing policy label identifier that attachments must have to match this condition.

@@ -1,7 +1,6 @@
 
 
 # AWS Cloud WAN Flow Logs records in Amazon Data Firehose
-<a name="cwan-flow-logs-kinesis"></a>
 
 **Topics**
 + [IAM roles for cross account delivery](#cwan-flow-logs-kinesis-iam)
@@ -33,7 +32,7 @@ When you publish to Kinesis Data Firehose, you can choose a delivery stream that
 
 In the source account, create a role that grants the following permissions. In this example, the name of the role is `mySourceRole`, but you can choose a different name for this role. The last statement allows the role in the destination account to assume this role. The condition statements ensure that this role is passed only to the log delivery service, and only when monitoring the specified resource. When you create your policy, specify the resources that you're monitoring with the condition key `iam:AssociatedResourceARN`. 
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -58,7 +57,7 @@ In the source account, create a role that grants the following permissions. In t
 
 Ensure that this role has the following trust policy, which allows the log delivery service to assume the role.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -78,7 +77,7 @@ Ensure that this role has the following trust policy, which allows the log deliv
 
 In the destination account, create a role with a name that starts with **AWSLogDeliveryFirehoseCrossAccountRole**. This role must grant the following permissions. 
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -95,7 +94,7 @@ In the destination account, create a role with a name that starts with **AWSLogD
 
 Ensure that this role has the following trust policy, which allows the role that you created in the source account to assume this role.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

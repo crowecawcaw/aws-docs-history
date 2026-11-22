@@ -1,7 +1,6 @@
 
 
 # Delete an AWS Cloud WAN Flow Logs record
-<a name="cwan-delete-flow-log"></a>
 
 You can delete a Cloud WAN flow log using the Network Manager console. 
 

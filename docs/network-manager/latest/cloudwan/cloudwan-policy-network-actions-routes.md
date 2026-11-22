@@ -1,7 +1,6 @@
 
 
 # Add segment actions in an AWS Cloud WAN core network policy version
-<a name="cloudwan-policy-network-actions-routes"></a>
 
 The following steps guide you through optionally setting segment actions for a core network for a policy version using the **Policy versions** link on the AWS Network Manager console. Before setting segment actions you must first configure your [network settings](cloudwan-core-network-config.md) and [add one or more segments](cloudwan-policy-segments.md). For more information, about segment actions, see [Segment actions](cloudwan-create-policy-version.md#cloudwan-policy-create-action). 
 
@@ -54,6 +53,9 @@ Static routes are not propagated between shared segments when using attachment-r
 
 Create a segment route for a policy version.
 
+**Note**  
+Only VPC and Site-to-Site VPN attachments can be destinations for a static route. You can't use Connect, transit gateway route table, or Direct Connect gateway attachments as static route destinations. These attachments only support routes that are dynamically propagated. If you choose one of these attachments, policy validation fails with a `CREATE_ROUTE_WITH_INVALID_ATTACHMENT_TYPE` error.
+
 **To create a segment route**
 
 1. Access the Network Manager console at [https://console.aws.amazon.com/networkmanager/home/](https://console.aws.amazon.com/networkmanager/home).
@@ -78,7 +80,7 @@ You can't leave any blank destination CIDR blocks. Choose **Remove** to delete a
 
    1. Choose **Blackhole** if you want to "black hole" the route. If you make this choice, you can't add any attachments to the route.
 
-   1. From the **Attachments** list, choose any attachments that you want to include in this route.
+   1. In the **Routes** section, from the **Attachments** list, choose the attachments that you want to use as destinations for this route. You can choose up to one attachment for each AWS Region in the segment.
 
    1. Choose **Create segment route**. 
 
@@ -90,6 +92,8 @@ You can't leave any blank destination CIDR blocks. Choose **Remove** to delete a
 <a name="cloudwan-policy-routing-associations-console"></a>
 
 Associating a routing policy to an edge location pair allows you to control how traffic flows between two specific geographic locations in your network, overriding default routing behavior. This provides control for performance optimization, cost management, failover scenarios, and compliance requirements between those specific locations.
+
+When the core network policy `version` is `2026.10` or later, the default routing behavior includes a default MED on routes that an edge location advertises to another edge location. A **Set MED** (`set-med`) action in an edge location routing policy replaces this default MED for the routes that the rule matches.
 
 **To create routing policy associations**
 

@@ -1,7 +1,6 @@
 
 
 # Delete an AWS Cloud WAN policy version
-<a name="cloudwan-policy-version-delete"></a>
 
 Any policy except your current LIVE policy can be deleted.
 

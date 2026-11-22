@@ -1,7 +1,6 @@
 
 
 # View or edit an AWS Cloud WAN Connect attachment
-<a name="cloudwan-attachments-viewing-editing-connect"></a>
 
 You can view information about a Connect attachment. For an existing attachment you can create a GRE or Tunnel-less Connect peer, as well as edit the key-value tags associated with the attachment. If you want to add a new Connect attachment, see [Connect attachments and Connect peers in AWS Cloud WAN](cloudwan-connect-attachment.md).
 

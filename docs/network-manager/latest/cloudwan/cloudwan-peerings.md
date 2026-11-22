@@ -1,7 +1,6 @@
 
 
 # Peerings in AWS Cloud WAN
-<a name="cloudwan-peerings"></a>
 
 AWS Cloud WAN peering connections allow you to interconnect your core network edge with an AWS Transit Gateway in the same Region. Peering connections between Cloud WAN and transit gateways support dynamic routing with automatic exchange of routes using BGP. You can use route table attachments on the peering connection to selectively exchange routes between a specific transit gateway route table and a Cloud WAN network segment for end-to-end segmentation and network isolation.
 

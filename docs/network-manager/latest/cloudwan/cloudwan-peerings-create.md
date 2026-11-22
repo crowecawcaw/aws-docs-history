@@ -1,7 +1,6 @@
 
 
 # Create a peering in an AWS Cloud WAN core network
-<a name="cloudwan-peerings-create"></a>
 
 Create a transit gateway peering.
 

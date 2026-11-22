@@ -1,7 +1,6 @@
 
 
 # Associate or disassociate a device link in an AWS Cloud WAN global network
-<a name="cloudwan-device-link-associate"></a>
 
 Associate a link with a device in your Cloud WAN global network. In order to associate a link with a device, you must first create a link that can be used for the device connection. For more information on creating a ink, see [Create a link for a site in an AWS Cloud WAN global network](cloudwan-site-link-add.md).
 

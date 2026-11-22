@@ -1,7 +1,6 @@
 
 
 # Create an AWS Cloud WAN Connect peer for a core network
-<a name="cloudwan-connect-peer-attachment"></a>
 
 You can create a either a GRE Connect peer or a Tunnel-less Connect peer for an existing Connect attachment using either the AWS Cloud WAN console or the command line/API. 
 

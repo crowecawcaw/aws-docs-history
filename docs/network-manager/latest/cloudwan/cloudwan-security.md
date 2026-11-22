@@ -1,7 +1,6 @@
 
 
 # Authentication and access in AWS Cloud WAN
-<a name="cloudwan-security"></a>
 
 AWS Cloud WAN uses service-linked roles for the permissions that it requires to call other AWS services on your behalf. For more information on the Network Manager service-lined role, see [AWS Global Networks for Transit Gateways service-linked roles](https://docs.aws.amazon.com/network-manager/latest/tgwnm/nm-service-linked-roles.html).
 

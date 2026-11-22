@@ -1,7 +1,6 @@
 
 
 # Accept or reject an AWS Cloud WAN core network attachment
-<a name="cloudwan-attachments-acceptance"></a>
 
 When you create an attachment and associate it to a segment that requires an acceptance from the core network owner, the newly created attachment goes into a **Pending attachment acceptance** state. The core network owner has to review the attachment and choose to accept or reject the request.
 

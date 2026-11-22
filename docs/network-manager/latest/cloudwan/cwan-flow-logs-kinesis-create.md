@@ -1,7 +1,6 @@
 
 
 # Create an AWS Cloud WAN Flow Logs record that publishes to Amazon Data Firehose
-<a name="cwan-flow-logs-kinesis-create"></a>
 
 Create a Cloud WAN Flow Log that publishes to Amazon Data Firehose. Before you can create the flow log, create the Firehose delivery stream. If you're delivering to a delivery stream in a different account, also set up the source and destination IAM roles for cross account delivery. See [Amazon Data Firehose Flow Logs](cwan-flow-logs-kinesis.md) for more information. You can create a Firehose flow log using either the Network Manager console or the AWS CLI.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Cloud WAN Flow Logs
-<a name="cwan-flow-logs"></a>
 
 Cloud WAN Flow Logs is a feature of AWS Cloud WAN that enables you to capture information about the IP traffic going to and from your core networks. Flow log data can be published to Amazon CloudWatch Logs, Amazon S3, or Firehose. After you create a flow log, you can retrieve and view its data in the chosen destination. Flow log data is collected outside of the path of your network traffic, and therefore does not affect network throughput or latency. You can create or delete flow logs without any risk of impact to network performance. Cloud WAN Flow Logs capture information related only to core networks, described in [Cloud WAN Flow Log records](#cwan-flow-log-records). If you want to capture information about IP traffic going to and from network interfaces in your VPCs, use VPC Flow Logs. See [Logging IP traffic using VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) in the *Amazon VPC User Guide* for more information.
 

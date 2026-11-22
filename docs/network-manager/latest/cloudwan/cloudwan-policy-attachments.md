@@ -1,7 +1,6 @@
 
 
 # Create an attachment policy in an AWS Cloud WAN core network policy version
-<a name="cloudwan-policy-attachments"></a>
 
 The following steps guide you through configuring a core network for a policy version using the **Policy versions** link on the AWS Network Manager console. For more information about attachment policies, see [Attachment policies](cloudwan-create-policy-version.md#cloudwan-policy-create-attachment).
 

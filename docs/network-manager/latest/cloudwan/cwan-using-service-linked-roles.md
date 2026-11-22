@@ -1,7 +1,6 @@
 
 
 # AWS Cloud WAN service-linked roles
-<a name="cwan-using-service-linked-roles"></a>
 
 AWS Cloud WAN uses the following service-linked roles for the permissions that it requires to call other AWS services on your behalf:
 + [AWSServiceRoleForNetworkManagerCloudWAN](#security-iam-awsmanpol-AWSServiceRoleForNetworkManagerCloudWAN)

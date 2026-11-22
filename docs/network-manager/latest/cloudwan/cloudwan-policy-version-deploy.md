@@ -1,7 +1,6 @@
 
 
 # Deploy an AWS Cloud WAN core network policy version
-<a name="cloudwan-policy-version-deploy"></a>
 
 fter creating a version of a policy, you can deploy the policy version as your new **LIVE** policy. Deploying a new policy version never occurs automatically. 
 

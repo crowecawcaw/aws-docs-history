@@ -1,7 +1,6 @@
 
 
 # Create a shared transit gateway route table attachment in an AWS Cloud WAN core network
-<a name="cloudwan-tgw-share"></a>
 
 The following steps guide you through creating a shared transit gateway attachment.
 

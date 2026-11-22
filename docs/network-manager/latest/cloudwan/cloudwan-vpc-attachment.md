@@ -1,7 +1,6 @@
 
 
 # VPC attachments in AWS Cloud WAN
-<a name="cloudwan-vpc-attachment"></a>
 
 When you attach a VPC to a core network edge in AWS Cloud WAN, you must specify one subnet from each Availability Zone to be used by the core network edge to route traffic. Specifying one subnet from an Availability Zone enables traffic to reach resources in every subnet in that Availability Zone. For more information about limits to core network VPC attachments, see [Transit Gateway attachment to a VPC](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html) in the *Transit Gateway User Guide*. 
 

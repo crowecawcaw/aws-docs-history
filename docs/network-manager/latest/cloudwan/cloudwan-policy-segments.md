@@ -1,7 +1,6 @@
 
 
 # Add a segment to an AWS Cloud WAN core network policy version
-<a name="cloudwan-policy-segments"></a>
 
 The following steps guide you through configuring a core network for a policy version using the **Policy versions** link on the AWS Network Manager console. Before adding a segment you must first have configured your [network settings](cloudwan-core-network-config.md). For more information, about network Segments, see [Segments](cloudwan-create-policy-version.md#cloudwan-policy-create-segment). 
 

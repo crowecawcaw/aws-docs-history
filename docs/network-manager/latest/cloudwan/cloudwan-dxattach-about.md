@@ -1,7 +1,6 @@
 
 
 # Direct Connect gateway attachments in AWS Cloud WAN
-<a name="cloudwan-dxattach-about"></a>
 
 AWS Cloud WAN now supports native integration with Direct Connect, simplifying connectivity between your on-premises networks and the AWS cloud. The new capability enables you to directly attach your Direct Connect gateways to Cloud WAN without the need for an intermediate AWS Transit Gateway, allowing seamless connectivity between your data centers or offices with Amazon Virtual Private Cloud (VPCs) across AWS Regions globally.
 
@@ -43,6 +42,27 @@ For outbound routes,
 
 You can use Border Gateway Protocol (BGP) communities with Direct Connect gateway attachments for both inbound and outbound route propagation. You can match on, add, or remove BGP communities using Cloud WAN routing policies. Some restrictions apply to the BGP communities that are supported. For more information about these restrictions, see [Direct Connect gateway and AWS Cloud WAN core network associations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-cloud-wan.html) in the *AWS Direct Connect User Guide*. For more information about routing policies, see [AWS Cloud WAN Routing policies](cloudwan-routing-policies.md).
 
+## Segment isolation
+<a name="cloudwan-dxattach-segment-isolation"></a>
+
+A Direct Connect gateway routes traffic independently of your core network. Cloud WAN routing policies, segment isolation, and the isolated attachments setting only control routing within the core network. They don't control how traffic is handled if it reaches a Direct Connect gateway. If an on-premises network advertises a supernet that overlaps with your VPC CIDRs, traffic destined for one VPC follows the supernet route to the Direct Connect gateway. The gateway then hairpins it back to the target VPC. As a result, VPCs can reach each other across the isolation boundary. This applies whether the VPCs are in different segments, or in the same segment with isolated attachments enabled. For more information about Direct Connect gateways, see [Direct Connect gateways](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-gateways-intro.html) in the *AWS Direct Connect User Guide*.
+
+For example, suppose you advertise the supernet `10.0.0.0/8` from on-premises. It overlaps the CIDRs of VPCs in a prod segment (`10.1.0.0/16`) and a dev segment (`10.2.0.0/16`). Those VPCs can communicate through the Direct Connect gateway, even though Cloud WAN keeps the segments isolated.
+
+To prevent this, advertise specific on-premises prefixes that don't overlap with your VPC CIDRs, rather than a broad supernet. This preserves Cloud WAN segmentation with no additional configuration, and it's the simplest, most reliable mitigation. If your organization can't avoid advertising an overlapping supernet, use one of the approaches in the following sections.
+
+### Cross-segment communication
+<a name="cloudwan-dxattach-segment-isolation-cross-segment"></a>
+
+Use one of the following approaches:
++ **Separate Direct Connect gateway for each routing domain.** A Direct Connect gateway attachment can be associated with only a single segment. In many designs, that attachment uses one shared hybrid segment that reaches the workload segments (such as prod and dev) through segment sharing, or through inspection with a service insertion (`send-via`) action. Because that single gateway serves multiple workload segments, an overlapping supernet can hairpin traffic between them. To maintain end-to-end segmentation, create a separate Direct Connect gateway and attachment for each routing domain. Associate each gateway directly with its workload segment. You can also associate it with its own dedicated hybrid segment when that domain is shared with several similar workload segments. Each Direct Connect gateway is its own routing domain, so traffic from one segment can't hairpin into another. Consider the type of Direct Connect connection you use, because each gateway requires additional virtual interfaces (VIFs).
++ **Blackhole routes.** Use `create-route` segment actions to install blackhole routes for CIDRs that shouldn't be reachable from a segment. Make them more specific than, or equal in prefix length to, the supernet advertised over Direct Connect. For example, to stop the dev segment from reaching the prod VPC through the `10.0.0.0/8` supernet, add a blackhole route for `10.1.0.0/16` to the dev segment. Because `10.1.0.0/16` is more specific than `10.0.0.0/8`, Cloud WAN drops that traffic instead of forwarding it to the Direct Connect gateway. Add the equivalent blackhole route for `10.2.0.0/16` to the prod segment to block the reverse path. For more information, see [Segment routes](cloudwan-policy-network-actions-routes.md#cloudwan-policy-version-routes).
+
+### Isolated attachment communication
+<a name="cloudwan-dxattach-segment-isolation-isolated-attachments"></a>
+
+A separate Direct Connect gateway doesn't help here, because all isolated attachments stay in the same segment. Use blackhole routes instead. For more information, see [Segment routes](cloudwan-policy-network-actions-routes.md#cloudwan-policy-version-routes).
+
 ## Pricing
 <a name="cloudwan-dxattach-pricing"></a>
 
@@ -52,6 +72,7 @@ As with other Cloud WAN attachments, there is a per-hour charge and per-gigabyte
 + [Prerequisites](#cloudwan-dxattach-prereqs)
 + [Limitations](#cloudwan-dxattach-limits)
 + [Route propagation](#cloudwan-dxattach-routes)
++ [Segment isolation](#cloudwan-dxattach-segment-isolation)
 + [Pricing](#cloudwan-dxattach-pricing)
 + [Create a Direct Connect gateway attachment](cloudwan-dxattachment-add.md)
 + [View or edit a Direct Connect gateway attachment](cloudwan-dxattachment-update.md)

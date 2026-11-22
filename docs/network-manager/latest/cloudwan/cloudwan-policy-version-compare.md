@@ -1,7 +1,6 @@
 
 
 # Compare AWS Cloud WAN core network policy change set versions
-<a name="cloudwan-policy-version-compare"></a>
 
 Compare two policy versions against each other using the console. The comparison returns line-by-line changes between the two policies in JSON format with changes highlighted.
 

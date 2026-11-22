@@ -1,7 +1,6 @@
 
 
 # View VPNs in an AWS Cloud WAN global network
-<a name="cloudwan-devices-vpns"></a>
 
 The VPNs page displays a list of your VPN connections for a device. 
 

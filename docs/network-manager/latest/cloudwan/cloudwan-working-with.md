@@ -1,7 +1,6 @@
 
 
 # Modify AWS Cloud WAN networks
-<a name="cloudwan-working-with"></a>
 
 After setting up your AWS Cloud WAN global and core networks set up, you can further modify these networks by performing a number of different tasks. 
 

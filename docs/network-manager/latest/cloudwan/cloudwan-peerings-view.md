@@ -1,7 +1,6 @@
 
 
 # View peering details in an AWS Cloud WAN core network
-<a name="cloudwan-peerings-view"></a>
 
 View information about a transit gateway used for peering.
 

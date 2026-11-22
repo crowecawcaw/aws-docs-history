@@ -1,7 +1,6 @@
 
 
 # Site-to-Site VPN attachments in AWS Cloud WAN
-<a name="cloudwan-s2s-vpn-attachment"></a>
 
 Attaching a Site-to-Site VPN connection to your core network edge, first requires that you create a Site-to-Site VPN connection with **Target Gateway Type** set to **Not Associated**. See [Create an AWS Cloud WAN Site-to-Site VPN attachment](https://docs.aws.amazon.com/vpn/latest/s2svpn/create-cwan-vpn-attachment.html) in the *AWS Site-to-Site VPN User Guide*.
 

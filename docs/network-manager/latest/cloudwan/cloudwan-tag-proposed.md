@@ -1,7 +1,6 @@
 
 
 # Add or update an AWS Cloud WAN resource attachment tag
-<a name="cloudwan-tag-proposed"></a>
 
 Add a tag to a Cloud WAN core network attachment or modify an existing tag. 
 

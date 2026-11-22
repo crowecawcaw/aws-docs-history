@@ -1,7 +1,6 @@
 
 
 # Create the AWS Cloud WAN Flow Logs source account role for Amazon Data Firehose
-<a name="cwan-flowlog-fh-source-create"></a>
 
 From the source account, create the source role in the AWS Identity and Access Management console. 
 
@@ -29,7 +28,7 @@ From the source account, create the source role in the AWS Identity and Access M
 
 1. For the **Trusted entity type**, choose **Custom trust policy**. For** Custom trust policy**, replace `"Principal": {},` with the following, which specifies the log delivery service. Choose **Next**.
 
-   ```
+   ```json
    "Principal": {
       "Service": "delivery.logs.amazonaws.com"
    },

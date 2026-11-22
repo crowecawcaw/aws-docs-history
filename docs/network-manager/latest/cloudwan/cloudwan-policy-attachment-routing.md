@@ -1,7 +1,6 @@
 
 
 # Create an AWS Cloud WAN attachment routing policy
-<a name="cloudwan-policy-attachment-routing"></a>
 
 Attachment routing policies are used to associate one or more route policies to attachments. Attachment route policy consists of a list of match-action rules that map one or more route policies to a route policy label which is a string identifier (max 256 characters). You will need to associate this route policy label with an attachment via the create-attachment-routing-policy-label API.<a name="cloudwan-create-attachment-routing-policy"></a>
 

@@ -1,7 +1,6 @@
 
 
 # View AWS Cloud WAN Flow Logs records in Amazon CloudWatch
-<a name="cwan-view-flow-log-records"></a>
 
 You can view your flow log records using the CloudWatch Logs console or Amazon S3 console, depending on the chosen destination type. It might take a few minutes after you've created your flow log for it to be visible in the console.
 

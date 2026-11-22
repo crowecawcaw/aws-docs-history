@@ -1,7 +1,6 @@
 
 
 # AWS Cloud WAN Routing policies
-<a name="cloudwan-routing-policies"></a>
 
 Cloud WAN Routing Policies provide customers fine-grained routing controls to optimize route management and customize network routing behavior per their individual needs. A routing policy is a set of rules that gives you precise control over route propagations in your core network allowing you flexible routes management, optimized performance and greater security by controlling your routing and reachability in your global network. Using this feature, customers can perform advanced routing techniques such as route filtering and summarization to have better control on routes exchanged across Cloud WAN and your external networks connected to Cloud WAN.
 
@@ -73,6 +72,7 @@ The following is a list of considerations that should be taken into account befo
 + Segment share policies are applied after attachment policies.
 + Routing policies associated across segments and Regions are unidirectional.
 + Routing policies are not supported for network function groups (service insertion).
++ When the core network policy `version` is `2026.10` or later, Cloud WAN sets a default MED on cross-Region routes. Summary routes created by an edge location routing policy retain a default MED of 100. The default MED can be overridden by a `set-med` routing policy.
 
 ### Attachment type support
 <a name="cloudwan-routing-policies-considerations-attachment-support"></a>
