@@ -1,7 +1,6 @@
 
 
 # What is AWS HealthImaging?
-<a name="what-is"></a>
 
 AWS HealthImaging is a HIPAA eligible service that empowers health care providers, life science organizations, and their software partners to store, analyze, and share medical images in the cloud at petabyte scale. HealthImaging use cases include:
 + **Enterprise imaging** – Store and stream your medical imaging data directly from AWS Cloud while preserving low-latency performance and high availability.

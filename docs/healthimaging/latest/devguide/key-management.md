@@ -1,7 +1,6 @@
 
 
 # Key management
-<a name="key-management"></a>
 
 AWS KMS keys (KMS keys) are the primary resource in AWS Key Management Service. You can also generate data keys for use outside of AWS KMS.
 

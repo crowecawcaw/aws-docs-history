@@ -1,7 +1,6 @@
 
 
 # DICOM element constraints
-<a name="dicom-element-constraints"></a>
 
 When importing your medical imaging data into AWS HealthImaging, max length constraints are applied to the following DICOM elements. To achieve a successful import, ensure that your data does not exceed the max length constraints.
 

@@ -1,11 +1,10 @@
 
 
 # Supported transfer syntaxes
-<a name="supported-transfer-syntaxes"></a>
 
 AWS HealthImaging supports importing DICOM P10 files with different transfer syntaxes. Some files retain their original transfer syntax encoding during import, while most lossless image frames are transcoded during import. The transcoding behavior depends on your datastore configuration. Data stores use HTJ2K as the storage format by default, but can be configured at creation time to use JPEG 2000 Lossless. The following example shows how HealthImaging records a `StoredTransferSyntaxUID` for each instance within the [metadata](getting-started-concepts.md#concept-metadata) returned by [`GetImageSetMetadata`](get-image-set-metadata.md).
 
-```
+```json
 "Instances": {
    "999.999.2.19941105.134500.2.101": {
        "StoredTransferSyntaxUID": "1.2.840.10008.1.2.4.90",

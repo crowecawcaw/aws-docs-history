@@ -1,7 +1,6 @@
 
 
 # Understanding import jobs
-<a name="understanding-import-jobs"></a>
 
 After creating a [data store](getting-started-concepts.md#concept-data-store) in AWS HealthImaging, you must import your medical imaging data from your Amazon S3 input bucket into your data store to create [image sets](getting-started-concepts.md#concept-image-set). You can use the AWS Management Console, AWS CLI, and AWS SDKs to start, describe, and list import jobs.
 
@@ -29,7 +28,7 @@ Keep the following points in mind when importing your medical imaging files from
 You can include up to 10,000 nested folders for a single import job.
   + The `job-output-manifest.json` file contains `jobSummary` output and additional details about the processed data. The following example shows output from a `job-output-manifest.json` file.
 
-    ```
+    ```json
     {
     "jobSummary": {
     "jobId": "09876543210987654321098765432109",
@@ -58,19 +57,19 @@ You can include up to 10,000 nested folders for a single import job.
     ```
   + The `SUCCESS` folder holds the `success.ndjson` file containing results of all imaging files that imported successfully. The following example shows output from a `success.ndjson` file.
 
-    ```
+    ```json
     {"inputFile":"dicomInputFolder/1.3.51.5145.5142.20010109.1105620.1.0.1.dcm","importResponse":{"imageSetId":"12345612345612345678907890789012", "isPrimary": True}} 
     {"inputFile":"dicomInputFolder/1.3.51.5145.5142.20010109.1105630.1.0.1.dcm","importResponse":{"imageSetId":"12345612345612345678917891789012", "isPrimary": True}}
     ```
   + The `FAILURE` folder holds the `failure.ndjson` file containing results of all imaging files that did not import successfully. The following example shows output from a `failure.ndjson` file.
 
-    ```
+    ```json
     {"inputFile":"dicom_input/invalidDicomFile1.dcm","exception":{"exceptionType":"ValidationException","message":"DICOM attribute TransferSyntaxUID does not exist"}}
     {"inputFile":"dicom_input/invalidDicomFile2.dcm","exception":{"exceptionType":"ValidationException","message":"DICOM attributes does not exist"}}
     ```
   + The `WARNING` folder holds the `warning.ndjson` file containing results of all imaging files that imported successfully but with warnings. The following example shows output from a `warning.ndjson` file.
 
-    ```
+    ```json
     {"inputFile":"dicom_input/warningDicomFile1.dcm","importResponse":{"imageSetId":"12345612345612345678907890789012","imageSetVersion":1,"isPrimary":true,"warnings":[{"warning_reason_code":45330,"type":"InvalidOffsetTable","message":"The file was imported but contains an invalid offset table, may see issues when retrieving certain frames."}]}}
     ```
 + Import jobs are retained in the list of jobs for 90 days and then archived.

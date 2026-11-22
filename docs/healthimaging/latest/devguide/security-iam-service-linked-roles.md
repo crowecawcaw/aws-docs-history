@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for HealthImaging
-<a name="security-iam-service-linked-roles"></a>
 
 AWS HealthImaging uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role) that are predefined by the service and include all the permissions that the service requires to call other AWS services on your behalf. For more information, see [Service-linked role permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the IAM User Guide.
 

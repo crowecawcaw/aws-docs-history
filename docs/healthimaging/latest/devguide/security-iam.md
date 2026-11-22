@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS HealthImaging
-<a name="security-iam"></a>
 
 
 

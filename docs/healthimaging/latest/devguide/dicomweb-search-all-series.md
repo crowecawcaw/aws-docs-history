@@ -1,7 +1,6 @@
 
 
 # Searching for all DICOM series in HealthImaging
-<a name="dicomweb-search-all-series"></a>
 
 Use the `SearchDICOMAllSeries` API to search for all DICOM series across an HealthImaging [data store](getting-started-concepts.md#concept-data-store). Construct a request URL with supported DICOM data elements (attributes) to filter results. The API returns series search results in JSON format, ordered by `Series Number (0020,0011)` in ascending order (oldest to latest).
 
@@ -52,7 +51,7 @@ Use the `SearchDICOMAllSeries` API to search for all DICOM series across an Heal
 ------
 #### [ curl ]
 
-   ```
+   ```sh
    curl --request GET \
      "https://dicom-medical-imaging.{{region}}.amazonaws.com/datastore/{{datastoreId}}/series[?query]" \
      --aws-sigv4 'aws:amz:{{region}}:medical-imaging' \

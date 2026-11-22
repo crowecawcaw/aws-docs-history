@@ -1,7 +1,6 @@
 
 
 # Hello HealthImaging
-<a name="example_medical-imaging_Hello_section"></a>
 
 The following code examples show how to get started using HealthImaging.
 
@@ -11,7 +10,7 @@ The following code examples show how to get started using HealthImaging.
 **SDK for C\+\+**  
 Code for the CMakeLists.txt CMake file.  
 
-```
+```cpp
 # Set the minimum required version of CMake for this project.
 cmake_minimum_required(VERSION 3.13)
 
@@ -53,7 +52,7 @@ target_link_libraries(${PROJECT_NAME}
 ```
 Code for the hello\_health\_imaging.cpp source file.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/medical-imaging/MedicalImagingClient.h>
 #include <aws/medical-imaging/model/ListDatastoresRequest.h>
@@ -135,7 +134,7 @@ int main(int argc, char **argv) {
 
 **SDK for JavaScript (v3)**  
 
-```
+```javascript
 import {
   ListDatastoresCommand,
   MedicalImagingClient,
@@ -162,7 +161,7 @@ export const helloMedicalImaging = async () => {
 
 **SDK for Python (Boto3)**  
 
-```
+```python
 import logging
 import boto3
 from botocore.exceptions import ClientError

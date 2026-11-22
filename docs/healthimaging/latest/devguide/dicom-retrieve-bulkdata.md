@@ -1,7 +1,6 @@
 
 
 # Getting DICOM bulkdata from HealthImaging
-<a name="dicom-retrieve-bulkdata"></a>
 
 Use the `GetDICOMBulkdata` action to retrieve binary data that has been separated from DICOM metadata in a HealthImaging data store. When retrieving instance or series metadata, binary attributes larger than 1MB will be represented by a `BulkDataURI` instead of inline values. You can retrieve the binary data for any primary image set in the HealthImaging data store by using the `BulkDataURI` provided in the metadata response. You can retrieve bulkdata for non-Primary image sets by providing the image set ID as a query parameter.
 

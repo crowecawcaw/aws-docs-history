@@ -1,7 +1,6 @@
 
 
 # AWS HealthImaging pixel data verification
-<a name="pixel-data-verification"></a>
 
 During import, HealthImaging provides built-in pixel data verification by checking the lossless encoding and decoding state of every image. This feature ensures that images decoded using [ HTJ2K decoding libraries](reference-libraries.md) always match the original DICOM P10 images imported into HealthImaging.
 + The image onboarding process begins when an import job captures the original pixel quality state of DICOM P10 images before they are imported. A unique immutable Image Frame Resolution Checksum (IFRC) is generated for each image using the CRC32 algorithm. The IFRC checksum value is presented in the `job-output-manifest.json` metadata document. For more information, see [Understanding import jobs](understanding-import-jobs.md).
@@ -18,7 +17,7 @@ During import, HealthImaging provides built-in pixel data verification by checki
 
    Following is example metadata output for the IFRC that is generated as part of the import job process and recorded to `job-output-manifest.json`.
 
-   ```
+   ```json
    "ImageFrames": [{
    "ID": "67890678906789012345123451234512",
    "PixelDataChecksumFromBaseToFullResolution": [
@@ -32,7 +31,7 @@ During import, HealthImaging provides built-in pixel data verification by checki
 
    For images stored in their original transfer syntax 1.2.840.10008.1.2.4.203, 1.2.840.10008.1.2.4.91, 1.2.840.10008.1.2.4.50, and 1.2.840.10008.1.2.1 (Binary Segmentation only) the `MinPixelValue` and `MaxPixelValue` will not be available. The `FrameSizeInBytes` indicates the size of the original frame.
 
-   ```
+   ```json
    "PixelDataChecksumFromBaseToFullResolution": [
       {"Width": 512, "Height": 512, "Checksum": 1379921327 }
    ],
@@ -43,7 +42,7 @@ During import, HealthImaging provides built-in pixel data verification by checki
 
    For images stored in HTJ2K Lossless with RPCL, the `FrameSizeInBytes` indicates the size of the decoded image frame.
 
-   ```
+   ```json
    "PixelDataChecksumFromBaseToFullResolution": [
       {"Width": 512, "Height": 512, "Checksum": 1379921327 }
    ],

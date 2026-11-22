@@ -1,7 +1,6 @@
 
 
 # Managing data stores with AWS HealthImaging
-<a name="managing-data-stores"></a>
 
 With AWS HealthImaging, you create and manage [data stores](getting-started-concepts.md#concept-data-store) for medical image resources. The following topics describe how to use HealthImaging cloud native actions to create, describe, list, and delete data stores using the AWS Management Console, AWS CLI, and AWS SDKs.
 

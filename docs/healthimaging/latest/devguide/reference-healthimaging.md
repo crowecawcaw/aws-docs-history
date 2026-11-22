@@ -1,7 +1,6 @@
 
 
 # AWS HealthImaging reference
-<a name="reference-healthimaging"></a>
 
 This section contains supporting data that is relevant to AWS HealthImaging.
 

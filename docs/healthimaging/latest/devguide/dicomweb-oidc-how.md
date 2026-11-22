@@ -1,7 +1,6 @@
 
 
 # Custom Token Verification with Lambda Authorizers
-<a name="dicomweb-oidc-how"></a>
 
 HealthImaging implements OIDC support through an architecture that uses Lambda authorizers, allowing customers to implement their own token verification logic. This design gives you flexible control over how tokens are validated and how access decisions are enforced, accommodating for a diverse landscape of OIDC-compatible Identity Providers (IdPs) and varying token verification methods.
 
@@ -37,6 +36,8 @@ The authorizer lambda function it not managed by AWS HealthImaging service. It e
 <a name="dicomweb-oidc-architecture-overview"></a>
 
 ![Diagram showing workflow: Client sends token, Lambda authorizer validates, HealthImaging processes request](https://docs.aws.amazon.com/healthimaging/latest/devguide/images/security-oidc-workflow-lambda.png)
+
+OIDC authentication workflow with Lambda authorizer
 
 
 ## Prerequisites

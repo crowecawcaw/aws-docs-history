@@ -1,7 +1,6 @@
 
 
 # Metadata normalization
-<a name="metadata-normalization"></a>
 
 When you import your DICOM P10 data into AWS HealthImaging, it is transformed into [image sets](getting-started-concepts.md#concept-image-set) comprised of [metadata](getting-started-concepts.md#concept-metadata) and [image frames](getting-started-concepts.md#concept-image-frame) (pixel data). During the transformation process, HealthImaging metadata keys are generated based on a specific version of the DICOM standard. HealthImaging currently generates and supports metadata keys based on the [DICOM PS3.6 2022b Data Dictionary](https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#PS3.6).
 

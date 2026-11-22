@@ -1,7 +1,6 @@
 
 
 # Starting an import job
-<a name="start-dicom-import-job"></a>
 
 Use the `StartDICOMImportJob` action to start a [pixel data verification check](pixel-data-verification.md) and bulk data import into an AWS HealthImaging [data store](getting-started-concepts.md#concept-data-store). The import job imports DICOM P10 files or enhances existing DICOM files with JSON metadata. The `inputS3Uri` parameter specifies the Amazon S3 input bucket containing the source files. The import job processing results are stored in the Amazon S3 output bucket specified by the `outputS3Uri` parameter.
 
@@ -47,7 +46,7 @@ Choose a menu based on your access preference to AWS HealthImaging.
 
 **SDK for C\+\+**  
 
-```
+```cpp
 //! Routine which starts a HealthImaging import job.
 /*!
   \param dataStoreID: The HealthImaging data store ID.
@@ -125,7 +124,7 @@ Output:
 
 **SDK for Java 2.x**  
 
-```
+```java
     public static String startDicomImportJob(MedicalImagingClient medicalImagingClient,
             String jobName,
             String datastoreId,
@@ -159,7 +158,7 @@ Output:
 
 **SDK for JavaScript (v3)**  
 
-```
+```javascript
 import { StartDICOMImportJobCommand } from "@aws-sdk/client-medical-imaging";
 import { medicalImagingClient } from "../libs/medicalImagingClient.js";
 
@@ -212,7 +211,7 @@ export const startDicomImportJob = async (
 
 **SDK for Python (Boto3)**  
 
-```
+```python
 class MedicalImagingWrapper:
     def __init__(self, health_imaging_client):
         self.health_imaging_client = health_imaging_client
@@ -251,7 +250,7 @@ class MedicalImagingWrapper:
 ```
 The following code instantiates the MedicalImagingWrapper object.   
 
-```
+```python
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
 ```
@@ -263,7 +262,7 @@ The following code instantiates the MedicalImagingWrapper object.
 
 **SDK for SAP ABAP**  
 
-```
+```sap-abap
     TRY.
         " iv_job_name = 'import-job-1'
         " iv_datastore_id = '1234567890123456789012345678901234567890'

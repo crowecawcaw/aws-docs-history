@@ -1,7 +1,6 @@
 
 
 # Getting image set properties
-<a name="get-image-set-properties"></a>
 
 Use the `GetImageSet` action to return properties for a given [image set](getting-started-concepts.md#concept-image-set) in HealthImaging. The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more information, see [`GetImageSet`](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetImageSet.html) in the *AWS HealthImaging API Reference*.
 
@@ -62,7 +61,7 @@ Output:
 
 **SDK for Java 2.x**  
 
-```
+```java
     public static GetImageSetResponse getMedicalImageSet(MedicalImagingClient medicalImagingClient,
             String datastoreId,
             String imagesetId,
@@ -93,7 +92,7 @@ Output:
 
 **SDK for JavaScript (v3)**  
 
-```
+```javascript
 import { GetImageSetCommand } from "@aws-sdk/client-medical-imaging";
 import { medicalImagingClient } from "../libs/medicalImagingClient.js";
 
@@ -146,7 +145,7 @@ export const getImageSet = async (
 
 **SDK for Python (Boto3)**  
 
-```
+```python
 class MedicalImagingWrapper:
     def __init__(self, health_imaging_client):
         self.health_imaging_client = health_imaging_client
@@ -184,7 +183,7 @@ class MedicalImagingWrapper:
 ```
 The following code instantiates the MedicalImagingWrapper object.   
 
-```
+```python
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
 ```
@@ -196,7 +195,7 @@ The following code instantiates the MedicalImagingWrapper object.
 
 **SDK for SAP ABAP**  
 
-```
+```sap-abap
     TRY.
         " iv_datastore_id = '1234567890123456789012345678901234567890'
         " iv_image_set_id = '1234567890123456789012345678901234567890'

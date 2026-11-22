@@ -1,7 +1,6 @@
 
 
 # Retrieving DICOM data from HealthImaging
-<a name="dicomweb-retrieve"></a>
 
 AWS HealthImaging offers representations of [`DICOMweb WADO-RS`](https://www.dicomstandard.org/using/dicomweb/retrieve-wado-rs-and-wado-uri) APIs to retrieve data at the series and instance levels. With these APIs, it is possible to retrieve all metadata for a DICOM series from a HealthImaging [data store](getting-started-concepts.md#concept-data-store). It is also possible to retrieve a DICOM instance, DICOM instance metadata, and DICOM instance frames (pixel data). HealthImaging's `DICOMweb WADO-RS` APIs offer flexibility in how you retrieve data stored in HealthImaging and provide interoperability with legacy applications.
 

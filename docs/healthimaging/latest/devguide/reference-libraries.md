@@ -1,7 +1,6 @@
 
 
 # Image frame decoding libraries for AWS HealthImaging
-<a name="reference-libraries"></a>
 
  During [import](importing-imaging-data.md), some transfer syntaxes retain their original encoding, while others are transcoded to High-Throughput JPEG 2000 (HTJ2K) lossless by default or JPEG 2000 Lossless (when configured) depending on your datastore configuration. HTJ2K delivers consistently fast image display and universal access to HTJ2K’s advanced features. Because image frames are encoded in either HTJ2K or JPEG 2000 Lossless during import, they must be decoded prior to viewing in an image viewer. For information about determining transfer syntaxes, see Supported transfer syntaxes. For information about determining transfer syntaxes, see [Supported transfer syntaxes](supported-transfer-syntaxes.md).
 

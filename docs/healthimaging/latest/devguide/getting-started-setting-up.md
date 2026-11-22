@@ -1,7 +1,6 @@
 
 
 # Setting up AWS HealthImaging
-<a name="getting-started-setting-up"></a>
 
 You must set up your AWS environment before using AWS HealthImaging. The following topics are prerequisites for the [tutorial](getting-started-tutorial.md) located in the next section.
 
@@ -78,7 +77,7 @@ For the purposes of this guide, the code examples in [Starting an import job](st
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -125,7 +124,7 @@ The `Condition` block in this trust policy helps prevent the confused deputy pro
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

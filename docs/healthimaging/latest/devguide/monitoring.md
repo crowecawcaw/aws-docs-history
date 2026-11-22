@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS HealthImaging
-<a name="monitoring"></a>
 
 Monitoring and logging are important parts of maintaining the security, reliability, availability, and performance of AWS HealthImaging. AWS provides the following logging and monitoring tools to watch HealthImaging, report when something is wrong, and take automatic actions when appropriate:
 + *AWS CloudTrail* captures API calls and related events made by or on behalf of your AWS account and delivers the log files to an Amazon S3 bucket that you specify. You can identify which users and accounts called AWS, the source IP address from which the calls were made, and when the calls occurred. For more information, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).

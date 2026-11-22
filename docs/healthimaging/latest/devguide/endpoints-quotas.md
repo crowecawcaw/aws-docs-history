@@ -1,7 +1,6 @@
 
 
 # AWS HealthImaging endpoints and quotas
-<a name="endpoints-quotas"></a>
 
 The following topics contain information about AWS HealthImaging service endpoints and quotas.
 

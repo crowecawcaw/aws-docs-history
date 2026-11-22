@@ -1,7 +1,6 @@
 
 
 # Searching DICOM data in HealthImaging
-<a name="dicomweb-search"></a>
 
 AWS HealthImaging offers representations of [ DICOMweb QIDO-RS](https://www.dicomstandard.org/using/dicomweb/query-qido-rs) APIs to search for studies, series, and instances by Patient ID, and receive their unique identifiers for further usage. HealthImaging's DICOMweb QIDO-RS APIs offer flexibility in how you search for data stored in HealthImaging and provide interoperability with legacy applications.
 

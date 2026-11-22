@@ -1,7 +1,6 @@
 
 
 # Importing imaging data with AWS HealthImaging
-<a name="importing-imaging-data"></a>
 
 Importing is the process of moving your medical imaging data from an Amazon S3 input bucket to an AWS HealthImaging [data store](getting-started-concepts.md#concept-data-store). During import, AWS HealthImaging performs a [pixel data verification check](pixel-data-verification.md) before transforming your DICOM P10 files into [image sets](getting-started-concepts.md#concept-image-set) comprised of [metadata](getting-started-concepts.md#concept-metadata) and [image frames](getting-started-concepts.md#concept-image-frame) (pixel data).
 

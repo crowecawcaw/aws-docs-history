@@ -1,7 +1,6 @@
 
 
 # Searching for DICOM instances in HealthImaging
-<a name="dicomweb-search-instances"></a>
 
 Use the `SearchDICOMInstances` API to search for DICOM instances in a HealthImaging [data store](getting-started-concepts.md#concept-data-store). You can search for DICOM instances in HealthImaging by constructing a URL that includes supported DICOM data elements (attributes). The Instance results are returned in JSON format, ordered by ascending (oldest to latest).
 
@@ -40,7 +39,7 @@ Use the `SearchDICOMInstances` API to search for DICOM instances in a HealthImag
 ------
 #### [ curl ]
 
-   ```
+   ```sh
    curl --request GET \
      "https://dicom-medical-imaging.us-east-1.amazonaws.com/datastore/{{datastoreId}}/studies/{{StudyInstanceUID}}/series/{{SeriesInstanceUID}}/instances[?query]"
      --aws-sigv4 'aws:amz:us-east-1:medical-imaging' \

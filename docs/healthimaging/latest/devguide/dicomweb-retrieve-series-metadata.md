@@ -1,7 +1,6 @@
 
 
 # Getting DICOM series metadata from HealthImaging
-<a name="dicomweb-retrieve-series-metadata"></a>
 
 Use the `GetDICOMSeriesMetadata` action to retrieve the metadata for a DICOM series (`.json` file) from a HealthImaging [data store](getting-started-concepts.md#concept-data-store). You can retrieve series metadata for any primary [ image set](getting-started-concepts.md#concept-image-set) in the HealthImaging data store by specifying the Study and Series UIDs associated with the resource. You can retrieve series metadata for non-Primary image sets by providing the image set ID as a query parameter. The series metadata is returned in `DICOM JSON` format.
 
@@ -21,7 +20,7 @@ Use the `GetDICOMSeriesMetadata` action to retrieve the metadata for a DICOM ser
 ------
 #### [ Shell ]
 
-   ```
+   ```sh
    curl --request GET \
     'https://dicom-medical-imaging.us-east-1.amazonaws.com/datastore/d9a2a515ab294163a2d2f4069eed584c/studies/1.3.6.1.4.1.5962.1.2.4.20040826285059.5457/series/1.3.6.1.4.1.5962.1.3.4.1.20040825185059.5457/metadata \
      --aws-sigv4 'aws:amz:us-east-1:medical-imaging' \
@@ -38,7 +37,7 @@ Use the `GetDICOMSeriesMetadata` action to retrieve the metadata for a DICOM ser
 ------
 #### [ Shell ]
 
-   ```
+   ```sh
    curl --request GET \
      'https://dicom-medical-imaging.us-east-1.amazonaws.com/datastore/d9a2a515ab294163a2d2f4069eed584c/studies/1.3.6.1.4.1.5962.1.2.4.20040826285059.5457/series/1.3.6.1.4.1.5962.1.3.4.1.20040825185059.5457/metadata?imageSetId=459e50687f121185f747b67bb60d1bc8' \
      --aws-sigv4 'aws:amz:us-east-1:medical-imaging' \

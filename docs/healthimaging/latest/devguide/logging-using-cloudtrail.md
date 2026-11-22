@@ -1,7 +1,6 @@
 
 
 # Using AWS CloudTrail with HealthImaging
-<a name="logging-using-cloudtrail"></a>
 
 AWS HealthImaging is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in HealthImaging. CloudTrail captures all API calls for HealthImaging as events. The calls captured include calls from the HealthImaging console and code calls to the HealthImaging API operations. If you create a trail, you can turn on continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for HealthImaging. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to HealthImaging, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -40,7 +39,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry for HealthImaging that demonstrates the `GetDICOMImportJob` action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

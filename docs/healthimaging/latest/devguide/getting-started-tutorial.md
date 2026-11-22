@@ -1,7 +1,6 @@
 
 
 # AWS HealthImaging tutorial
-<a name="getting-started-tutorial"></a>
 
 **Objective**  
 The objective of this tutorial is to import DICOM P10 binaries (`.dcm` files) into an AWS HealthImaging [data store](getting-started-concepts.md#concept-data-store) and transform them into [image sets](getting-started-concepts.md#concept-image-set) comprised of [ metadata](getting-started-concepts.md#concept-metadata) and [image frames](getting-started-concepts.md#concept-image-frame) (pixel data). After importing the DICOM data, you use HealthImaging cloud native actions to access the image sets, metadata, and image frames based on your [access preference](what-is.md#what-is-accessing).

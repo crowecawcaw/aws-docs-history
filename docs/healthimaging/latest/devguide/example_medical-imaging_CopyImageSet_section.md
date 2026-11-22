@@ -1,7 +1,6 @@
 
 
 # Use `CopyImageSet` with an AWS SDK or CLI
-<a name="example_medical-imaging_CopyImageSet_section"></a>
 
 The following code examples show how to use `CopyImageSet`.
 
@@ -114,7 +113,7 @@ Output:
 
 **SDK for Java 2.x**  
 
-```
+```java
     /**
      * Copy an AWS HealthImaging image set.
      *
@@ -179,7 +178,7 @@ Output:
 ```
 Utility function to create copiable attributes.  
 
-```
+```java
     /**
      * Create a JSON string of copiable image instances.
      *
@@ -230,7 +229,7 @@ Utility function to create copiable attributes.
 **SDK for JavaScript (v3)**  
 Utility function to copy an image set.  
 
-```
+```javascript
 import { CopyImageSetCommand } from "@aws-sdk/client-medical-imaging";
 import { medicalImagingClient } from "../libs/medicalImagingClient.js";
 
@@ -329,7 +328,7 @@ export const copyImageSet = async (
 ```
 Copy an image set without a destination.  
 
-```
+```javascript
   await copyImageSet(
     "12345678901234567890123456789012",
     "12345678901234567890123456789012",
@@ -338,7 +337,7 @@ Copy an image set without a destination.
 ```
 Copy an image set with a destination.  
 
-```
+```javascript
   await copyImageSet(
     "12345678901234567890123456789012",
     "12345678901234567890123456789012",
@@ -350,7 +349,7 @@ Copy an image set with a destination.
 ```
 Copy a subset of an image set with a destination and force the copy.  
 
-```
+```javascript
   await copyImageSet(
     "12345678901234567890123456789012",
     "12345678901234567890123456789012",
@@ -370,7 +369,7 @@ Copy a subset of an image set with a destination and force the copy.
 **SDK for Python (Boto3)**  
 Utility function to copy an image set.  
 
-```
+```python
 class MedicalImagingWrapper:
     def __init__(self, health_imaging_client):
         self.health_imaging_client = health_imaging_client
@@ -439,7 +438,7 @@ class MedicalImagingWrapper:
 ```
 Copy an image set without a destination.  
 
-```
+```python
             copy_image_set_information = {
                 "sourceImageSet": {"latestVersionId": version_id}
             }
@@ -453,7 +452,7 @@ Copy an image set without a destination.
 ```
 Copy an image set with a destination.  
 
-```
+```python
             copy_image_set_information = {
                 "sourceImageSet": {"latestVersionId": version_id}
             }
@@ -473,7 +472,7 @@ Copy an image set with a destination.
 ```
 Copy a subset of an image set.  
 
-```
+```python
             copy_image_set_information = {
                 "sourceImageSet": {"latestVersionId": version_id}
             }
@@ -502,7 +501,7 @@ Copy a subset of an image set.
 ```
 The following code instantiates the MedicalImagingWrapper object.   
 
-```
+```python
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
 ```
@@ -514,7 +513,7 @@ The following code instantiates the MedicalImagingWrapper object.
 
 **SDK for SAP ABAP**  
 
-```
+```sap-abap
     TRY.
         " iv_datastore_id = '1234567890123456789012345678901234567890'
         " iv_source_image_set_id = '1234567890123456789012345678901234567890'

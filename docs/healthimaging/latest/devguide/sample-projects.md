@@ -1,7 +1,6 @@
 
 
 # AWS HealthImaging sample projects
-<a name="sample-projects"></a>
 
 AWS HealthImaging provides the following sample projects on GitHub.
 

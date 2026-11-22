@@ -1,7 +1,6 @@
 
 
 # HealthImaging Warning Codes
-<a name="reference-warning-codes"></a>
 
 HealthImaging attempts to import all your medical imaging data. If data non-conformances or unrecognized data elements are encountered during imports, HealthImaging will add one of the following warnings to the `warning.ndjson` file. A warning associated with an imported instance will also be searchable via the `SearchDICOMInstances` action with the `WarningReason` element. Instances imported with a warning may have reduced support via HealthImaging APIs, as described below.
 

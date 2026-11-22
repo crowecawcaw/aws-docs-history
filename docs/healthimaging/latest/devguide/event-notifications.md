@@ -1,7 +1,6 @@
 
 
 # Using Amazon EventBridge with HealthImaging
-<a name="event-notifications"></a>
 
 Amazon EventBridge is a serverless service that uses events to connect application components together, making it easier for you to build scalable event-driven applications. The basis of EventBridge is to create [rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html) that route [events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) to [targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html). AWS HealthImaging provides durable delivery of state changes to EventBridge. For more information, see [What is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) in the *Amazon EventBridge User Guide*.
 

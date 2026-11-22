@@ -1,7 +1,6 @@
 
 
 # Set up an AWS Lambda authorizer for OIDC authentication
-<a name="dicomweb-oidc-requirements"></a>
 
 This guide assumes you have already configured your Identity Provider (IdP) of choice to provide access tokens compatible with the requirements of the HealthImaging OIDC authentication feature.
 
@@ -23,7 +22,7 @@ Here is an example of a policy allowing associated roles to access to HealthImag
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -56,7 +55,7 @@ Here is an example of the trust relationship policy that should be associated to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -88,7 +87,7 @@ This mechanism allows you to map your IdP's authorization model to specific AWS 
 
 Create a Lambda function that will verify the JWT token and return the appropriate IAM role ARN based on the token claims evaluation. This function is invoked by the health imaging service and passed an event that contains the HealthImaging datastore Id, the DICOMWeb operation, and the access token found in the HTTP request:
 
-```
+```json
 {
   "datastoreId": "{{{datastore id}}}",
   "operation": "{{{Healthimaging API name e.g. GetDICOMInstance}}}",
@@ -98,7 +97,7 @@ Create a Lambda function that will verify the JWT token and return the appropria
 
 The Lambda authorizer function must return a JSON response with the following structure:
 
-```
+```json
 {
   "isTokenValid": {true or false},
   "roleArn": "{role arn or empty string meaning to deny the request explicitly}"
@@ -112,7 +111,7 @@ Because the DICOMWeb request is only answered after the access token is verified
 
 For the HealthImaging service to be authorized to invoke the lambda authorizer function, it must have a resource policy that allows HealthImaging service to invoke it. This resource policy can be created in the permission menu of the lambda configuration tab or Using AWS CLI:
 
-```
+```bash
 aws lambda add-permission \
     --function-name YourAuthorizerFunctionName \
     --statement-id HealthImagingInvoke \
@@ -132,7 +131,7 @@ Here is an example of lambda resource policy:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "default",
@@ -164,7 +163,7 @@ To enable OIDC authentication, you must create a new datastore using the AWS CLI
 
 Here's an example of how to create a new datastore with OIDC authentication enabled:
 
-```
+```bash
 aws medical-imaging create-datastore \
     --datastore-name {{YourDatastoreName}} \
     --lambda-authorizer-arn YourAuthorizerFunctionArn
@@ -172,11 +171,11 @@ aws medical-imaging create-datastore \
 
 You can check if a specific datastore has OIDC authentication feature enabled by using the AWS CLI get-datastore command, and verifying if the attribute "lambdaAuthorizerArn" is present:
 
-```
+```bash
 aws medical-imaging get-datastore --datastore-id {{YourDatastoreId}}
 ```
 
-```
+```json
 {
     "datastoreProperties": {
         "datastoreId": {{YourdatastoreId}},
@@ -220,7 +219,7 @@ This Python example demonstrates a lambda authorizer function that verifies AWS 
 
 The Lambda authorizer implements two caching mechanisms to reduce external calls and response latency. The JWKS (JSON Web Key Set) is fetched once every hour and stored in the function's temporary folder, allowing subsequent function invocations to read it locally instead of fetching from the public network. You will also notice that a token\_cache dictionary object is instantiated in the global context of this Lambda function. Global variables are shared by all invocations that reuse the same warmed Lambda context. Thanks to this, successfully verified tokens can be stored in this dictionary and looked up quickly during the next execution of this same Lambda function. The caching method represents a generalist approach that could fit access tokens issued from most identity providers. For an AWS Cognito specific caching option, refer to [Managing User pool](https://docs.aws.amazon.com/cognito/latest/developerguide/managing-users.html) section and [caching section](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-caching-tokens.html) of [AWS Cognito documentation](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html).
 
-```
+```python
 import json
 import os
 import time

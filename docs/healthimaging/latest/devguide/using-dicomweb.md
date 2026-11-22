@@ -1,7 +1,6 @@
 
 
 # Using DICOMweb with AWS HealthImaging
-<a name="using-dicomweb"></a>
 
 You can retrieve DICOM objects from AWS HealthImaging using a representation of [DICOMweb](https://www.dicomstandard.org/using/dicomweb) APIs, which are web-based APIs that follow the DICOM standard for medical imaging. This functionality enables you to interoperate with systems that utilize DICOM Part 10 binaries while simultaneously taking advantage of HealthImaging’s [cloud native actions](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_Operations.html). The focus of this chapter is how to use HealthImaging's implementation of DICOMweb APIs to return DICOMweb responses.
 

@@ -1,7 +1,6 @@
 
 
 # Searching for DICOM studies in HealthImaging
-<a name="dicomweb-search-studies"></a>
 
 Use the `SearchDICOMStudies` API to search for DICOM studies in a HealthImaging [data store](getting-started-concepts.md#concept-data-store). You can search for DICOM studies in HealthImaging by constructing a URL that includes supported DICOM data elements (attributes). Study search results are returned in JSON format, ordered by last update, date descending (latest to oldest).
 
@@ -45,7 +44,7 @@ Use the `SearchDICOMStudies` API to search for DICOM studies in a HealthImaging 
 ------
 #### [ curl ]
 
-   ```
+   ```sh
    curl --request GET \
      "https://dicom-medical-imaging.us-east-1.amazonaws.com/datastore/{{datastoreId}}/studies[?query]"
      --aws-sigv4 'aws:amz:us-east-1:medical-imaging' \

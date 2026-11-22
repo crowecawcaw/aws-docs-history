@@ -1,7 +1,6 @@
 
 
 # Getting image set pixel data
-<a name="get-image-frame"></a>
 
 An [image frame](getting-started-concepts.md#concept-image-frame) is the pixel data that exists within an image set to make up a 2D medical image. Use the `GetImageFrame` action to retrieve an HTJ2K-encoded or native JPEG 2000 lossless image frame for a given [image set](getting-started-concepts.md#concept-image-set) in HealthImaging. The following menus provide code examples for the AWS CLI and AWS SDKs. For more information, see [`GetImageFrame`](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetImageFrame.html) in the *AWS HealthImaging API Reference*.
 
@@ -30,7 +29,7 @@ For more information about decoding and viewing image frames, see [Image frame d
 
 **SDK for C\+\+**  
 
-```
+```cpp
 //! Routine which downloads an AWS HealthImaging image frame.
 /*!
   \param dataStoreID: The HealthImaging data store ID.
@@ -106,7 +105,7 @@ The `GetImageFrame` action writes the stream of pixel data to the `imageframe.jp
 
 **SDK for Java 2.x**  
 
-```
+```java
         public static void getMedicalImageSetFrame(MedicalImagingClient medicalImagingClient,
                         String destinationPath,
                         String datastoreId,
@@ -139,7 +138,7 @@ The `GetImageFrame` action writes the stream of pixel data to the `imageframe.jp
 
 **SDK for JavaScript (v3)**  
 
-```
+```javascript
 import { GetImageFrameCommand } from "@aws-sdk/client-medical-imaging";
 import { medicalImagingClient } from "../libs/medicalImagingClient.js";
 
@@ -189,7 +188,7 @@ export const getImageFrame = async (
 
 **SDK for Python (Boto3)**  
 
-```
+```python
 class MedicalImagingWrapper:
     def __init__(self, health_imaging_client):
         self.health_imaging_client = health_imaging_client
@@ -226,7 +225,7 @@ class MedicalImagingWrapper:
 ```
 The following code instantiates the MedicalImagingWrapper object.   
 
-```
+```python
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
 ```
@@ -238,7 +237,7 @@ The following code instantiates the MedicalImagingWrapper object.
 
 **SDK for SAP ABAP**  
 
-```
+```sap-abap
     TRY.
         " iv_datastore_id = '1234567890123456789012345678901234567890'
         " iv_image_set_id = '1234567890123456789012345678901234567890'

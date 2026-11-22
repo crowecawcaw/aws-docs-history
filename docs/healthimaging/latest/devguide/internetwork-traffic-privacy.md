@@ -1,7 +1,6 @@
 
 
 # Network traffic privacy
-<a name="internetwork-traffic-privacy"></a>
 
 Traffic is protected both between HealthImaging and on-premises applications and between HealthImaging and Amazon S3. Traffic between HealthImaging and AWS Key Management Service uses HTTPS by default.
 + **AWS HealthImaging is a regional service** available in the US East (N. Virginia), US West (Oregon), Europe (Ireland), and Asia Pacific (Sydney) Regions.
