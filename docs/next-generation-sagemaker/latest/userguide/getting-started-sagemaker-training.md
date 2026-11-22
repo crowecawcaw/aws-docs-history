@@ -1,7 +1,6 @@
 
 
 # Get started fine-tuning foundation models in Amazon SageMaker Unified Studio
-<a name="getting-started-sagemaker-training"></a>
 
 Amazon SageMaker Unified Studio provides a large collection of state-of-the-art foundation models. These models support use cases such as content writing, code generation, question answering, copywriting, summarization, classification, information retrieval, and more. You can find and deploy these foundation models in the JumpStart model catalog. In some cases, you can also customize them. You can use the foundation models to build your own generative AI solutions for a wide range of applications.
 

@@ -1,7 +1,6 @@
 
 
 # Get started with importing and querying data sets for AWS Glue Data Catalog and Amazon S3 in Amazon SageMaker Unified Studio
-<a name="getting-started-sagemaker-gdc-s3"></a>
 
 In this Getting Started tutorial for the next generation of Amazon SageMaker, you will use Amazon SageMaker Unified Studio, Amazon SageMaker Catalog, and Amazon SageMaker Lakehouse to import and query data sets. You will learn how to access and leverage your existing AWS Glue Data Catalog resources within Amazon SageMaker Unified Studio, allowing you to query and analyze your data without moving or duplicating it.
 

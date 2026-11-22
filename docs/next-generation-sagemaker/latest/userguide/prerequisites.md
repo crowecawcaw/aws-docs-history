@@ -1,7 +1,6 @@
 
 
 # Prerequisites for Amazon SageMaker
-<a name="prerequisites"></a>
 
 Complete the following prerequisite tasks before you can set up Amazon SageMaker and proceed with the use cases in this guide.
 

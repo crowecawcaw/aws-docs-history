@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon S3 Tables in Amazon SageMaker Unified Studio
-<a name="s3-tables-integration"></a>
 
 Amazon SageMaker Unified Studio provides integrated support for S3 Tables, allowing you to create S3 table buckets and Apache Iceberg tables in those buckets.
 

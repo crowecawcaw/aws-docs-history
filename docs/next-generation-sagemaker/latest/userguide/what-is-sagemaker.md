@@ -1,11 +1,10 @@
 
 
 # What is Amazon SageMaker?
-<a name="what-is-sagemaker"></a>
 
  Bringing together widely adopted [artificial intelligence (AI)](https://aws.amazon.com/ai/) and [analytics](https://aws.amazon.com/big-data/datalakes-and-analytics/) capabilities, the next generation of [Amazon SageMaker](https://aws.amazon.com/sagemaker/) delivers an integrated experience for analytics and AI with unified access to all your data. Collaborate and build in Amazon SageMaker Unified Studio using familiar AWS tools for SQL analytics, data processing, model development, and generative AI, accelerated by [Amazon Q Developer](https://aws.amazon.com/q/). Access all your data whether it's stored in data lakes, data warehouses, or third-party or federated data sources, with governance built in to meet enterprise security needs. 
 
-[![AWS Videos](https://img.youtube.com/vi/EJsbKexFzrc?si=JriG72jedZHpNZvX/0.jpg)](https://www.youtube.com/watch?v=EJsbKexFzrc?si=JriG72jedZHpNZvX)
+[![AWS Videos](https://img.youtube.com/vi/EJsbKexFzrc/0.jpg)](https://www.youtube.com/watch?v=EJsbKexFzrc)
 
 
 ## Guide to SageMaker

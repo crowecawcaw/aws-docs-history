@@ -1,7 +1,6 @@
 
 
 # Get started with SageMaker Lakehouse integrated access controls for Athena federated queries in Amazon SageMaker Unified Studio
-<a name="lakehouse-athena-federated-queries"></a>
 
 Scaling data infrastructure creates challenges with data silos, fragmented access controls, and complex connectivity requirements. Data analysts need to access information across multiple storage systems but are frequently hindered by:
 + **Complex connectivity setup** - Configuring connections to various data sources requires technical expertise and access to configuration details that analysts may not have.
@@ -68,7 +67,7 @@ For more information about how to add members to your projects, see [Add project
   + To set up data sources in DynamoDB:
     + You can create a new table in DynamoDB with the partition key `cust_id` and the sort key `zipcode` and another column `mobile` through [AWS CloudShell](https://aws.amazon.com/cloudshell/) by using the following command:
 
-      ```
+      ```bash
       aws dynamodb create-table \
         --table-name customer_ddb \
         --attribute-definitions \
@@ -83,7 +82,7 @@ For more information about how to add members to your projects, see [Add project
       ```
     + You can populate the DynamoDB table with sample data by using the following commands:
 
-      ```
+      ```bash
       # First item
       aws dynamodb put-item \
         --table-name customer_ddb \
@@ -113,7 +112,7 @@ For more information about how to add members to your projects, see [Add project
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -179,7 +178,7 @@ SageMaker Unified Studio connects to the DynamoDB data source that you created i
 
    For example, run the following query. Replace {{your\_federated\_catalog\_name}} with the name of the federated catalog that you just created, {{default}} with the name of your database, and {{your\_table\_name}} with the name of your DynamoDB table. To learn more, see [SQL analytics](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/sql-query.html) in the *Amazon SageMaker Unified Studio User Guide*.
 
-   ```
+   ```sql
    select * from {{your_federated_catalog_name}}.{{default}}.{{your_table_name}} limit 10;
    ```
 
@@ -284,7 +283,7 @@ After you set up federated catalogs with fine-grained access permissions in Step
 
    For example, run the following query. Replace {{your\_federated\_catalog\_name}} with the name of your catalog, {{default}} with the name of your database, and {{your\_table\_name}} with the name of your DynamoDB table. To learn more, see [SQL analytics](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/sql-query.html) in the *Amazon SageMaker Unified Studio User Guide*.
 
-   ```
+   ```sql
    select * from {{your_federated_catalog_name}}.{{default}}.{{your_table_name}} limit 10;
    ```
 

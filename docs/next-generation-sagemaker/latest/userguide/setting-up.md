@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon SageMaker
-<a name="setting-up"></a>
 
 Complete the following tasks to set up Amazon SageMaker.
 
