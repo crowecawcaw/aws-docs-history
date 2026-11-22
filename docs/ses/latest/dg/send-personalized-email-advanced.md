@@ -1,7 +1,6 @@
 
 
 # Advanced email personalization
-<a name="send-personalized-email-advanced"></a>
 
  If you're using a *stored template*, that is, you've created a [`Template`](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_Template.html) resource in Amazon SES by using the `CreateEmailTemplate` operation with the SES v2 API, you can take advantage of the Handlebars system to create templates that include advanced features, such as nested attributes, array iteration, basic conditional statements, and the creation of inline partials. This section provides examples of these features.
 
@@ -23,7 +22,7 @@ Handlebars includes support for nested paths, which makes it easy to organize co
 
 For example, you can organize recipient data into several general categories. Within each of those categories, you can include detailed information. The following code example shows an example of this structure for a single recipient:
 
-```
+```json
 {
   "meta":{
     "userId":"51806220607"
@@ -58,7 +57,7 @@ Handlebars can parse paths that are nested several levels deep, which means you 
 
 The `each` helper function iterates through items in an array. The following code is an example of an email template that uses the `each` helper function to create an itemized list of each recipient's interests.
 
-```
+```json
 {
   "Template": {
     "TemplateName": "Preferences",
@@ -91,7 +90,7 @@ In the preceding code example, the values of the `HtmlPart` and `TextPart` attri
 
 After you create the template, you can use the `SendEmail` or the `SendBulkEmail` operation to send email to recipients using this template. As long as each recipient has at least one value in the `Interests` object, they receive an email that includes an itemized list of their interests. The following example shows a JSON file that can be used to send email to multiple recipients using the preceding template:
 
-```
+```json
 {
   "Source":"Sender Name <sender@example.com>",
   "Template":"Preferences",
@@ -127,7 +126,7 @@ When you send an email to the recipients listed in the preceding example using t
 
 This section builds on the example described in the previous section. The example in the previous section uses the `each` helper to iterate through a list of interests. However, recipients for whom no interests are specified receive an email that contains an empty list. By using the `{{if}}` helper, you can format the email differently if a certain attribute is present in the template data. The following code uses the `{{if}}` helper to display the bulleted list from the preceding section if the `Subscription` array contains any values. If the array is empty, a different block of text is displayed.
 
-```
+```json
 {
   "Template": {
     "TemplateName": "Preferences2",
@@ -172,7 +171,7 @@ In the preceding code example, the values of the `HtmlPart` and `TextPart` attri
 
 The following example shows a JSON file that can be used to send email to multiple recipients using the preceding template:
 
-```
+```json
 {
   "Source":"Sender Name <sender@example.com>",
   "Template":"Preferences2",
@@ -219,7 +218,7 @@ After you create the `fullName` partial, you can include it anywhere in your tem
 
 You can also use inline partials when iterating through arrays. You can use the following code to create a template that uses the `fullName` inline partial. In this example, the inline partial applies to both the recipient's name and to an array of other names:
 
-```
+```json
 {
   "Template": {
     "TemplateName": "Preferences3",

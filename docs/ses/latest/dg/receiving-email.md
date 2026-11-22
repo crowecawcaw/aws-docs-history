@@ -1,7 +1,6 @@
 
 
 # Email receiving with Amazon SES
-<a name="receiving-email"></a>
 
 Besides using Amazon SES to manage your email sending, you can also configure SES to receive email on behalf of one or more of your domains. As the email receiver, SES handles underlying mail-receiving operations, such as communicating with other mail servers, scanning for spam and viruses, blocking mail from untrusted sources (addresses on the block lists of either [Spamhaus](https://www.spamhaus.org/) or SES), and accepting mail for recipients in your domain.
 

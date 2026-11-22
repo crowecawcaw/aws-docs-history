@@ -1,7 +1,6 @@
 
 
 # Use `VerifyEmailIdentity` with an AWS SDK or CLI
-<a name="ses_example_ses_VerifyEmailIdentity_section"></a>
 
 The following code examples show how to use `VerifyEmailIdentity`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Starts verification of an email identity. This request sends an email
     /// from Amazon SES to the specified email address. To complete
@@ -53,7 +52,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples). 
 
-```
+```cpp
 //! Add an email address to the list of identities associated with this account and
 //! initiate verification.
 /*!
@@ -111,7 +110,7 @@ For more information, see [Creating and verifying identities in Amazon SES](http
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
-```
+```javascript
 // Import required AWS SDK clients and commands for Node.js
 import { VerifyEmailIdentityCommand } from "@aws-sdk/client-ses";
 import { sesClient } from "./libs/sesClient.js";
@@ -141,7 +140,7 @@ const run = async () => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
-```
+```python
 class SesIdentity:
     """Encapsulates Amazon SES identity functions."""
 
@@ -175,7 +174,7 @@ class SesIdentity:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-ses' # v2: require 'aws-sdk'
 
 # Replace recipient@example.com with a "To" address.
@@ -206,7 +205,7 @@ end
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_ses->verifyemailidentity( iv_emailaddress = iv_email_address ).
         MESSAGE 'Email verification initiated' TYPE 'I'.

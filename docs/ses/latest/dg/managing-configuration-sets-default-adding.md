@@ -1,7 +1,6 @@
 
 
 # Edit an identity to use a default configuration set using the SES API
-<a name="managing-configuration-sets-default-adding"></a>
 
 You can use the [PutEmailIdentityConfigurationSetAttributes](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutEmailIdentityConfigurationSetAttributes.html) operation to add or remove a default configuration set from an existing email identity.
 

@@ -1,7 +1,6 @@
 
 
 # Mail Manager for Amazon SES
-<a name="eb"></a>
 
 Mail Manager is a set of Amazon SES email gateway features designed to help you strengthen your organization's email infrastructure, simplify email workflow management, and streamline email compliance control. It integrates with your existing infrastructure, can connect different business applications, and automates inbound email processing. Mail Manager also acts as a first line of defense in maintaining a healthy email system by efficiently managing your email traffic and enhancing compliance with its email archival capability.
 

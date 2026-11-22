@@ -1,7 +1,6 @@
 
 
 # Amazon SNS notification contents for Amazon SES
-<a name="notification-contents"></a>
 
 Bounce, complaint, and delivery notifications are published to [Amazon Simple Notification Service (Amazon SNS)](https://aws.amazon.com/sns) topics in JavaScript Object Notation (JSON) format. The top-level JSON object contains a `notificationType` string, a `mail` object, and either a `bounce` object, a `complaint` object, or a `delivery` object.
 
@@ -181,7 +180,7 @@ Optionally, if a DSN is attached to the bounce, the following fields may also be
 | --- | --- | 
 |  action  | The value of the `Action` field from the DSN. This indicates the action performed by the Reporting-MTA as a result of its attempt to deliver the message to this recipient. | 
 |  status  | The value of the `Status` field from the DSN. This is the per-recipient transport-independent status code that indicates the delivery status of the message. | 
-|  diagnosticCode  | The status code issued by the reporting MTA. This is the value of the `Diagnostic-Code` field from the DSN. This field may be absent in the DSN (and therefore also absent in the JSON). | 
+|  diagnosticCode  | The status code issued by the reporting MTA. This is the value of the `Diagnostic-Code` field from the DSN. This field may be absent in the DSN (and therefore also absent in the JSON). SES can truncate this value from the end only when the notification exceeds the size limit that SES applies to it. The notification does not indicate whether SES truncated this value. | 
 
 The following is an example of an object that might be in the `bouncedRecipients` list.
 

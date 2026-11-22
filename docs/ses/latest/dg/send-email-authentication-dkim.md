@@ -1,7 +1,6 @@
 
 
 # Authenticating Email with DKIM in Amazon SES
-<a name="send-email-authentication-dkim"></a>
 
 *DomainKeys Identified Mail* (*DKIM*) is an email security standard designed to make sure that an email that claims to have come from a specific domain was indeed authorized by the owner of that domain. It uses public-key cryptography to sign an email with a private key. Recipient servers can then use a public key published to a domain's DNS to verify that parts of the email have not been modified during the transit.
 

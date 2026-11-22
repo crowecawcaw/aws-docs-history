@@ -1,7 +1,6 @@
 
 
 # Use `DeleteTenant` with an AWS SDK
-<a name="sesv2_example_sesv2_DeleteTenant_section"></a>
 
 The following code example shows how to use `DeleteTenant`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/search_filter_scenario#code-examples). 
 Delete a tenant that was created by the Amazon SES API v2 search-and-filter scenario.  
 
-```
+```python
 class SearchFilterWrapper:
     """Encapsulates Amazon SES v2 search-and-filter operations."""
 

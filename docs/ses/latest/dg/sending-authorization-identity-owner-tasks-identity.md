@@ -1,7 +1,6 @@
 
 
 # Providing the delegate sender with the identity information for Amazon SES sending authorization
-<a name="sending-authorization-identity-owner-tasks-identity"></a>
 
 After you create your sending authorization policy and attach it to your identity, you can provide the delegate sender with the Amazon Resource Name (ARN) of the identity. The delegate sender will pass that ARN to Amazon SES in the email-sending operation or in the header of the email. To find your identity's ARN, follow these steps.
 

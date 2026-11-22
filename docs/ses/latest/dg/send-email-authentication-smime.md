@@ -1,7 +1,6 @@
 
 
 # Authenticating email with S/MIME in Amazon SES
-<a name="send-email-authentication-smime"></a>
 
 *Secure/Multipurpose Internet Mail Extensions* (*S/MIME*) is a standard that uses a certificate-based digital signature. It proves that a message was sent by the holder of the From address and that its content was not altered in transit. For more information about the S/MIME message format, see [ RFC 8551: S/MIME Message Specification](https://www.rfc-editor.org/rfc/rfc8551) on the RFC Editor website.
 

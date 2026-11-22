@@ -1,7 +1,6 @@
 
 
 # Virtual Deliverability Manager advisor
-<a name="vdm-advisor"></a>
 
 The *Virtual Deliverability Manager advisor* helps to optimize your email deliverability and engagement by identifying key performance and infrastructure issues at the account and sending identity levels that are adversely affecting your email deliverability and reputation. It provides solutions by providing specific guidance on how to resolve the identified issue.
 

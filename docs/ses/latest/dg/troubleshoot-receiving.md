@@ -1,7 +1,6 @@
 
 
 # Problems with emails received from Amazon SES
-<a name="troubleshoot-receiving"></a>
 
 This section discusses some common issues that you might see when you receive emails that were sent from Amazon SES.
 

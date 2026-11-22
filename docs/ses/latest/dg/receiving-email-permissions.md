@@ -1,7 +1,6 @@
 
 
 # Giving permissions to Amazon SES for email receiving
-<a name="receiving-email-permissions"></a>
 
 Some of the tasks that you can perform when you receive email in SES, such as sending email to an Amazon Simple Storage Service (Amazon S3) bucket or calling a AWS Lambda function, require special permissions. This section includes example policies for several common use cases.
 
@@ -32,7 +31,7 @@ If you specify an IAM role for the S3 action, SES assumes that role for 'PutObje
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -80,7 +79,7 @@ The manual addition of this trust policy is only required if you did not create 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -122,7 +121,7 @@ For more information about attaching policies to S3 buckets, see [Using Bucket P
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -161,7 +160,7 @@ In order for SES to encrypt your emails, it must have permission to use the AWS 
 
 Use the following policy statement as the key policy to allow SES to use your customer managed key when it receives email on your domain.
 
-```
+```json
 {
   "Sid": "AllowSESToEncryptMessagesBelongingToThisAccount", 
   "Effect": "Allow",
@@ -189,7 +188,7 @@ Make the following changes to the preceding policy example:
 
 If you're using AWS KMS to send encrypted messages to an S3 bucket with server-side encryption enabled, then you need to add the policy action, `"kms:Decrypt"`. Using the preceding example, adding this action to your policy would appear as follows:
 
-```
+```json
 {
   "Sid": "AllowSESToEncryptMessagesBelongingToThisAccount", 
   "Effect": "Allow",
@@ -219,7 +218,7 @@ To enable SES to call a AWS Lambda function, you can choose the function when yo
 
 Alternatively, you can use the `AddPermission` operation in the AWS Lambda API to attach a policy to a function. The following call to the `AddPermission` API gives SES permission to invoke your Lambda function. For more information about attaching policies to Lambda functions, see [AWS Lambda Permissions](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) in the *AWS Lambda Developer Guide*.
 
-```
+```json
 {
   "Action": "lambda:InvokeFunction",
   "Principal": "ses.amazonaws.com",
@@ -247,7 +246,7 @@ The following policy gives SES permission to publish to an Amazon SNS topic in a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -287,7 +286,7 @@ If your Amazon SNS topic uses AWS KMS for server-side encryption, you have to ad
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

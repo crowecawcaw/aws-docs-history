@@ -1,7 +1,6 @@
 
 
 # Setting up VPC endpoints with Amazon SES
-<a name="send-email-set-up-vpc-endpoints"></a>
 
 Many Amazon SES customers have corporate policies in place that limit the ability of their internal systems to connect to the public internet. These policies prevent the use of the public Amazon SES endpoints.
 

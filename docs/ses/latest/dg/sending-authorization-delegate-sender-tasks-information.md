@@ -1,7 +1,6 @@
 
 
 # Providing information to the identity owner for Amazon SES sending authorization
-<a name="sending-authorization-delegate-sender-tasks-information"></a>
 
 As a delegate sender, you must provide the identity owner with either your AWS account ID or your IAM user Amazon Resource Name (ARN) since you will be sending email on behalf of the identity owner. The identity owner needs your account information so they can create a policy that grants you permission to send from one of their verified identities.
 

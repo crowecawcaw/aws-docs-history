@@ -1,7 +1,6 @@
 
 
 # Sending email through Amazon SES using an AWS SDK
-<a name="send-an-email-using-sdk-programmatically"></a>
 
 You can use an AWS SDK to send email through Amazon SES. AWS SDKs are available for several programming languages. For more information, see [Tools for Amazon Web Services](https://aws.amazon.com/tools/#sdk).
 
@@ -9,7 +8,7 @@ You can use an AWS SDK to send email through Amazon SES. AWS SDKs are available 
 <a name="send-an-email-using-sdk-programmatically-prereqs"></a>
 
 The following prerequisites must be completed in order to complete any of the code samples in the next section:
-+ If you haven't already done so, complete the tasks in [Setting up Amazon Simple Email Service](setting-up.md).
++ If you haven't already done so, complete the tasks in [Getting started with sending email](getting-started-sending.md).
 + **Verify your email address with Amazon SES**—Before you can send an email with Amazon SES, you must verify that you own the sender's email address. If your account is still in the Amazon SES sandbox, you must also verify the recipient email address. We recommend you use the Amazon SES console to verify email addresses. For more information, see [Creating an email address identity](creating-identities.md#verify-email-addresses-procedure). 
 + **Get your AWS credentials**—You need an AWS access key ID and AWS secret access key to access Amazon SES using an SDK. You can find your credentials by using the [Security Credentials](https://console.aws.amazon.com/iam/home?#security_credential) page in the AWS Management Console. For more information about credentials, see [Types of Amazon SES credentials](send-email-concepts-credentials.md).
 + **Create a shared credentials file**—For the sample code in this section to function properly, you must create a shared credentials file. For more information, see [Creating a shared credentials file to use when sending email through Amazon SES using an AWS SDK](create-shared-credentials-file.md).
@@ -64,7 +63,7 @@ This solution was tested using the following components:
 
 1. On the **Program.cs** tab, paste the following code:
 
-   ```
+   ```cs
     1. using Amazon;
     2. using System;
     3. using System.Collections.Generic;
@@ -213,7 +212,7 @@ The following procedure shows you how to use [Eclipse IDE for Java EE Developers
 
 1. Replace the entire contents of `AmazonSESSample.java` with the following code:
 
-   ```
+   ```java
     1. package com.amazonaws.samples;
     2. 
     3. import java.io.IOException;
@@ -320,7 +319,7 @@ This topic shows how to use the [AWS SDK for PHP](https://aws.amazon.com/sdk-for
 
 1. In a text editor, create a file named `amazon-ses-sample.php`. Paste the following code:
 
-   ```
+   ```php
     1. <?php
     2. 
     3. // If necessary, modify the path in the require statement below to refer to the 
@@ -439,7 +438,7 @@ This topic shows how to use the [AWS SDK for Ruby](https://aws.amazon.com/sdk-fo
 
 1. In a text editor, create a file named `amazon-ses-sample.rb`. Paste the following code into the file:
 
-   ```
+   ```rb
     1. require 'aws-sdk'
     2. 
     3. # Replace sender@example.com with your "From" address.
@@ -545,7 +544,7 @@ This topic shows how to use the [AWS SDK for Python (Boto3)](https://aws.amazon.
 
 1. In a text editor, create a file named `amazon-ses-sample.py`. Paste the following code into the file:
 
-   ```
+   ```py
     1. import boto3
     2. from botocore.exceptions import ClientError
     3. 

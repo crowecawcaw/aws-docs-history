@@ -1,7 +1,6 @@
 
 
 # Integrating Amazon SES with Sendmail
-<a name="send-email-sendmail"></a>
 
 Sendmail was released in the early 1980s, and has been continuously improved ever since. It's a flexible and configurable message transfer agent (MTA) with a large community of users. Sendmail was acquired by Proofpoint in 2013, but Proofpoint continues to offer an open source version of Sendmail. You can download the [open source version of Sendmail](https://www.proofpoint.com/us/open-source-email-solution) from the Proofpoint website, or through the package managers of most Linux distributions.
 
@@ -14,26 +13,22 @@ Sendmail is a third-party application, and isn't developed or supported by Amazo
 <a name="send-email-sendmail-prerequisites"></a>
 
 Before you complete the procedure in this section, you should complete the following steps:
-+ Install the Sendmail package on your server. 
-**Note**  
-Depending on which operating system distribution you use, you might also need to install the following packages: `sendmail-cf`, `m4`, and `cyrus-sasl-plain`.
++ Install a Sendmail build that supports STARTTLS. Depending on your operating system, you might also need the `sendmail-cf`, `m4`, and `cyrus-sasl-plain` packages.
 + Verify an identity to use as your From address. For more information, see [Creating an email address identity](creating-identities.md#verify-email-addresses-procedure).
 
   If your account is in the Amazon SES sandbox, you must also verify the addresses that you send email to. For more information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md).
 
 If you're using Amazon SES to send email from an Amazon EC2 instance, you should also complete the following steps:
 + You may need to assign an Elastic IP Address to your Amazon EC2 instance in order for receiving email providers to accept your email. For more information, see [Amazon EC2 Elastic IP addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide*.
-+ Amazon Elastic Compute Cloud (Amazon EC2) restricts email traffic over port 25 by default. To avoid timeouts when sending email through the SMTP endpoint from Amazon EC2, you can request that these restrictions be removed. For more information, see [How do I remove the restriction on port 25 from my Amazon EC2 instance or AWS Lambda function?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-port-25-throttle/) in the AWS Knowledge Center.
-
-  Alternatively, you can modify the procedure in this section to use port 587 rather than port 25.
++ Amazon Elastic Compute Cloud (Amazon EC2) restricts outbound email traffic over port `25` by default. This procedure uses port `25`. Request removal of the restriction before using this procedure from Amazon EC2. For more information, see [How do I remove the restriction on port 25 from my Amazon EC2 instance or AWS Lambda function?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-port-25-throttle/) in the AWS Knowledge Center. Alternatively, change the procedure to use port `587`.
 
 ## Configuring Sendmail
 <a name="send-email-sendmail-procedure"></a>
 
 Complete the steps in this section to configure Sendmail to send email by using Amazon SES.
 
-**Important**  
-The procedure in this section assumes that you want to use Amazon SES in the US West (Oregon) AWS Region. If you want to use a different Region, replace all instances of *email-smtp.us-west-2.amazonaws.com* in this procedure with the SMTP endpoint of the desired Region. For a list of SMTP endpoint URLs for the AWS Regions where Amazon SES is available, see [Amazon Simple Email Service (Amazon SES)](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region) in the *AWS General Reference*.
+**Note**  
+Replace {{smtp\_endpoint}} with the endpoint from your SMTP credentials.
 
 **To configure Sendmail**
 
@@ -42,15 +37,13 @@ The procedure in this section assumes that you want to use Amazon SES in the US 
    Add the following line to */etc/mail/authinfo*:
 
    ```
-   AuthInfo:{{email-smtp.us-west-2.amazonaws.com}} "U:root" "I:{{smtpUsername}}" "P:{{smtpPassword}}" "M:PLAIN"
+   AuthInfo:{{smtp_endpoint}} "U:root" "I:{{smtpUsername}}" "P:{{smtpPassword}}" "M:PLAIN"
    ```
 
    In the preceding example, make the following changes:
-   + Replace {{email-smtp.us-west-2.amazonaws.com}} with the Amazon SES SMTP endpoint that you want to use.
-   + Replace {{smtpUsername}} with your Amazon SES SMTP user name.
-   + Replace {{smtpPassword}} with your Amazon SES SMTP password.
-**Note**  
-Your SMTP sign-in credentials are different from your AWS Access Key ID and Secret Access Key. For more information about obtaining your SMTP sign-in credentials, see [Obtaining Amazon SES SMTP credentials](smtp-credentials.md).
+   + Replace {{smtp\_endpoint}} with the endpoint from your SMTP credentials.
+   + Replace {{smtpUsername}} with the user name from your SMTP credentials.
+   + Replace {{smtpPassword}} with the password from your SMTP credentials.
 
    When you finish, save `authinfo`.
 
@@ -60,13 +53,13 @@ Your SMTP sign-in credentials are different from your AWS Access Key ID and Secr
    sudo sh -c 'makemap hash /etc/mail/authinfo.db < /etc/mail/authinfo'
    ```
 
-1. At the command line, type the following command to add support for relaying to the Amazon SES SMTP endpoint.
+1. At the command line, type the following command to allow relaying to the selected SMTP endpoint.
 
    ```
-   sudo sh -c 'echo "Connect:{{email-smtp.us-west-2.amazonaws.com}} RELAY" >> /etc/mail/access'
+   sudo sh -c 'echo "Connect:{{smtp_endpoint}} RELAY" >> /etc/mail/access'
    ```
 
-   In the preceding command, replace {{email-smtp.us-west-2.amazonaws.com}} with the address of the Amazon SES SMTP endpoint that you want to use.
+   In the preceding command, replace {{smtp\_endpoint}} with the endpoint from your SMTP credentials.
 
 1. At the command line, type the following command to regenerate */etc/mail/access.db*:
 
@@ -83,7 +76,7 @@ Your SMTP sign-in credentials are different from your AWS Access Key ID and Secr
 1. Add the following lines to the */etc/mail/sendmail.mc* file before any `MAILER()` definitions.
 
    ```
-   define(`SMART_HOST', `{{email-smtp.us-west-2.amazonaws.com}}')dnl
+   define(`SMART_HOST', `{{smtp_endpoint}}')dnl
    define(`RELAY_MAILER_ARGS', `TCP $h 25')dnl
    define(`confAUTH_MECHANISMS', `LOGIN PLAIN')dnl
    FEATURE(`authinfo', `hash -o /etc/mail/authinfo.db')dnl
@@ -93,12 +86,10 @@ Your SMTP sign-in credentials are different from your AWS Access Key ID and Secr
    ```
 
    In the preceding text, do the following:
-   + Replace {{email-smtp.us-west-2.amazonaws.com}} with the Amazon SES SMTP endpoint that you want to use.
+   + Replace {{smtp\_endpoint}} with the endpoint from your SMTP credentials.
    + Replace {{example.com}} with the domain that you want to use to send email.
 
    When you finish, save the file.
-**Note**  
-Amazon EC2 restricts communications over port 25 by default. If you're using Sendmail in an Amazon EC2 instance, you should complete the [Request to Remove Email Sending Limitations](https://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/ec2-email-limit-rdns-request).
 
 1. At the command line, type the following command to make *sendmail.cf* writeable:
 

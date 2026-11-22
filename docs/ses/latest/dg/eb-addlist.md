@@ -1,7 +1,6 @@
 
 
 # Address Lists
-<a name="eb-addlist"></a>
 
 Address Lists is a Mail Manager feature that allows you to create and manage lists of email addresses and domains that you can use in traffic policies and rule sets to process incoming mail based on whether or not the recipient or sender of a message belongs to a specific list. Address Lists lends themselves to more granular control over email flows and help to simplify management of complex email routing scenarios.
 
@@ -266,7 +265,7 @@ The following console procedure and its AWS CLI equivalent are showing an exampl
 
 **To use an Address List in a rule condition:**
 
-1. Create a new rule or edit an existing one as explained in [Creating rule sets & rules (console)](eb-rules.md#eb-rules-create-console)
+1. Create a new rule or edit an existing one as explained in [Create and manage rule sets (console)](eb-rules-setup.md#eb-rules-create-console)
 
 1. In the **Rule conditions** container, build the rule's condition as follows.
    + Select **Recipient address** for the **Select property** field.

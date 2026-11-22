@@ -1,7 +1,6 @@
 
 
 # Contents of event data that Amazon SES publishes to Amazon SNS
-<a name="event-publishing-retrieving-sns-contents"></a>
 
 Amazon SES publishes email sending event records to Amazon Simple Notification Service in JSON format.
 
@@ -93,7 +92,7 @@ Optionally, if a DSN is attached to the bounce, the following fields may also be
 | --- | --- | 
 | `action` | The value of the `Action` field from the DSN. This indicates the action performed by the reporting MTA as a result of its attempt to deliver the message to this recipient. | 
 | `status` | The value of the `Status` field from the DSN. This is the per-recipient transport-independent status code that indicates the delivery status of the message. | 
-| `diagnosticCode` | The status code issued by the reporting MTA. This is the value of the `Diagnostic-Code` field from the DSN. This field may be absent in the DSN (and therefore also absent in the JSON). | 
+| `diagnosticCode` | The status code issued by the reporting MTA. This is the value of the `Diagnostic-Code` field from the DSN. This field may be absent in the DSN (and therefore also absent in the JSON). Amazon SES can truncate this value from the end only when the event exceeds the size limit that Amazon SES applies to it. The event does not indicate whether Amazon SES truncated this value. | 
 
 ### Bounce types
 <a name="event-publishing-retrieving-sns-contents-bounce-types"></a>
@@ -269,7 +268,7 @@ The `delayedRecipients` object contains the following values.
 | --- | --- | 
 | `emailAddress` | The email address that resulted in the delivery of the message being delayed. | 
 | `status` | The SMTP status code associated with the delivery delay. | 
-| `diagnosticCode` | The diagnostic code provided by the receiving Message Transfer Agent (MTA).  | 
+| `diagnosticCode` | The diagnostic code provided by the receiving Message Transfer Agent (MTA). Amazon SES can truncate this value from the end only when the event exceeds the size limit that Amazon SES applies to it. The event does not indicate whether Amazon SES truncated this value. | 
 
 ## Subscription object
 <a name="event-publishing-retrieving-sns-contents-subscription-object"></a>

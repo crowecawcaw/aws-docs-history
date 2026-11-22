@@ -1,7 +1,6 @@
 
 
 # Search and filter Amazon SES API v2 resources using an AWS SDK
-<a name="sesv2_example_sesv2_SearchFilterBasics_section"></a>
 
 The following code example shows how to:
 + Create multiple configuration sets, email identities, and tenants.
@@ -21,7 +20,7 @@ The following code example shows how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/search_filter_scenario#code-examples). 
 Run the Search and Filter SES resources scenario.  
 
-```
+```python
 class SearchFilterBasicsScenario:
     """Runs the SES v2 Search and Filter Basics scenario."""
 
@@ -310,7 +309,7 @@ class SearchFilterBasicsScenario:
 ```
 A wrapper class for the Amazon SES API v2 search-and-filter operations.  
 
-```
+```python
 class SearchFilterWrapper:
     """Encapsulates Amazon SES v2 search-and-filter operations."""
 

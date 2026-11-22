@@ -1,7 +1,6 @@
 
 
 # Code examples for Amazon SES using AWS SDKs
-<a name="service_code_examples_ses"></a>
 
 The following code examples show how to use Amazon SES with an AWS software development kit (SDK). 
 

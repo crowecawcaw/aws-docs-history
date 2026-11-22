@@ -1,9 +1,8 @@
 
 
 # Using the Amazon SES API to send email
-<a name="send-email-api"></a>
 
-To send production email through Amazon SES, you can use the Simple Mail Transfer Protocol (SMTP) interface or the Amazon SES API. For more information about the SMTP interface, see [Using the Amazon SES SMTP interface to send email](send-email-smtp.md). This section describes how to send email by using the API. 
+To send production email through Amazon SES, you can use the Simple Mail Transfer Protocol (SMTP) interface or the Amazon SES API. For more information about the SMTP interface, see [Using SMTP to send email](send-email-smtp.md). This section describes how to send email by using the API. 
 
 When you send an email using the Amazon SES API, you specify the content of the message, and Amazon SES assembles a MIME email for you. Alternatively, you can assemble the email yourself so that you have complete control over the content of the message. For a list of endpoint URLs for the AWS Regions where Amazon SES is available, see [Amazon Simple Email Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ses.html) in the *AWS General Reference*.
 

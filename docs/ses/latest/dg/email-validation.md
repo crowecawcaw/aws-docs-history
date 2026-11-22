@@ -1,7 +1,6 @@
 
 
 # Email Validation for Amazon SES
-<a name="email-validation"></a>
 
 Email list quality is a critical factor in maintaining high delivery rates and protecting your sender reputation. Invalid or risky email addresses can lead to high bounce rates, spam complaints, and mailbox providers may reject emails, blacklist sending domains, or throttle delivery rates.
 

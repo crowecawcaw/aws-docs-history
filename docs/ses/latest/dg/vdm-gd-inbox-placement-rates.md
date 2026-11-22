@@ -1,7 +1,6 @@
 
 
 # Inbox placement rates
-<a name="vdm-gd-inbox-placement-rates"></a>
 
 Inbox placement rates provides ISP-level inbox placement data for your monitored domains. This data is powered by analytics and updated hourly. These metrics are based on a representative sample of data and do not reflect the full volume of emails sent.
 

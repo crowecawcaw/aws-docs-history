@@ -1,7 +1,6 @@
 
 
 # Testing your connection to the Amazon SES SMTP interface using the command line
-<a name="send-email-smtp-client-command-line"></a>
 
 You can use the methods described in this section from the command line to test your connection to the Amazon SES SMTP endpoint, validate your SMTP credentials, and troubleshoot connection issues. These procedures use tools and libraries that are included with most common operating systems.
 
@@ -10,7 +9,7 @@ For additional information about troubleshooting SMTP connection problems, see [
 ## Prerequisites
 <a name="send-email-smtp-client-command-line-prereqs"></a>
 
-When you connect to the Amazon SES SMTP interface, you have to provide a set of SMTP credentials. These SMTP credentials are different from your standard AWS credentials. The two types of credentials aren't interchangeable. For more information about obtaining your SMTP credentials, see [Obtaining Amazon SES SMTP credentials](smtp-credentials.md).
+When you connect to the Amazon SES SMTP interface, you have to provide a set of SMTP credentials. These SMTP credentials are different from your standard AWS credentials. The two types of credentials aren't interchangeable. For more information about obtaining your SMTP credentials, see [Obtaining Amazon SES SMTP credentials using IAM](smtp-credentials.md).
 
 ## Testing your connection to the Amazon SES SMTP interface
 <a name="send-email-smtp-client-command-line-testing"></a>
@@ -83,7 +82,7 @@ The `Test-NetConnection` cmdlet can determine whether your computer can connect 
 **To connect to the SMTP interface using the `Test-NetConnection` cmdlet**
 + In PowerShell, enter the following command to connect to the Amazon SES SMTP server:
 
-  ```
+  ```powershell
   Test-NetConnection -Port {{587}} -ComputerName {{email-smtp.us-west-2.amazonaws.com}}
   ```
 
@@ -118,7 +117,7 @@ When you use OpenSSL to connect to the SMTP interface, you have to encode your S
 
 1. Enter the following at the command line and replace {{email-smtp.us-west-2.amazonaws.com}} with the URL of the Amazon SES SMTP endpoint for your AWS Region. For more information, see [Regions and Amazon SES](regions.md).:
 
-   ```
+   ```bash
     1. #!/bin/bash
     2. 
     3. # Prompt user to provide following information
@@ -187,7 +186,7 @@ The `Net.Mail.SmtpClient` class is officially obsolete, and Microsoft recommends
 
 1. In a text editor, create a new file. Paste the following code into the file:
 
-   ```
+   ```powershell
    function SendEmail($Server, $Port, $Sender, $Recipient, $Subject, $Body) {
        $Credentials = [Net.NetworkCredential](Get-Credential)
    
@@ -247,7 +246,7 @@ The `System.Web.Mail.SmtpMail` class is officially obsolete, and Microsoft recom
 
 1. In a text editor, create a new file. Paste the following code into the file:
 
-   ```
+   ```powershell
    [System.Reflection.Assembly]::LoadWithPartialName("System.Web") > $null
    
    function SendEmail($Server, $Port, $Sender, $Recipient, $Subject, $Body) {

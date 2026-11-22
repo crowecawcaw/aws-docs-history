@@ -1,7 +1,6 @@
 
 
 # Understanding email deliverability in Amazon SES
-<a name="send-email-concepts-deliverability"></a>
 
 You want your recipients to read your emails, find them valuable, and not label them as spam. In other words, you want to maximize email *deliverability*—the percentage of your emails that arrive in your recipients' inboxes. This topic reviews email deliverability concepts that you should be familiar with when you use Amazon SES.
 

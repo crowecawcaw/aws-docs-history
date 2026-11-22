@@ -1,7 +1,6 @@
 
 
 # Automatically pausing email sending
-<a name="monitoring-sender-reputation-pausing"></a>
 
 To protect your sender reputation, you can temporarily pause email sending for messages sent using specific configuration sets, or for all messages sent from your Amazon SES account in a specific AWS Region.
 

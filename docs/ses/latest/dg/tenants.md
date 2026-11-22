@@ -1,7 +1,6 @@
 
 
 # Tenants
-<a name="tenants"></a>
 
 This chapter explains how to use Amazon SES tenant management to isolate, monitor, and manage email sending across multiple tenants within your SES account. This feature helps Independent Software Vendors (ISVs), enterprises, and organizations sending emails on behalf of multiple downstream entities maintain separate reputation profiles and prevent issues with one tenant from affecting others.
 
@@ -73,7 +72,7 @@ When a tenant's metrics trigger a reputation finding that meets the threshold fo
 
 **Using the AWS CLI:**
 
-```
+```bash
 aws sesv2 create-tenant \
     --tenant-name "MyTenant" \
     --region us-east-1
@@ -98,7 +97,7 @@ Any attempt to delete an identity or configuration set that is associated with a
 
 **Using the AWS CLI:**
 
-```
+```bash
 # Assign an identity to a tenant
 aws sesv2 create-tenant-resource-association \
     --tenant-name "MyTenant" \
@@ -132,7 +131,7 @@ Reputation policies determine when a tenant's email sending is automatically pau
 
 **Using the AWS CLI:**
 
-```
+```json
 update-reputation-entity-policy \
     --reputation-entity-type "RESOURCE" \
     --reputation-entity-reference "arn:aws:ses:us-east-1:123456789012:tenant/tenantId" \
@@ -153,7 +152,7 @@ When sending email through a tenant, you must specify the tenant in your API cal
 
 **AWS CLI Example:**
 
-```
+```bash
 aws sesv2 send-email \
   --tenant-name "MyTenant" \
   --from-email-address "sender@example.com" \
@@ -164,7 +163,7 @@ aws sesv2 send-email \
 
 **AWS SDK for Python Example:**
 
-```
+```json
 import boto3
 
 client = boto3.client('sesv2')
@@ -195,7 +194,7 @@ response = client.send_email(
 
 When using SMTP to send email through a tenant, include the tenant information in an email header:
 
-```
+```bash
 X-SES-TENANT: MyTenant
 ```
 
@@ -234,7 +233,7 @@ This header tells SES which tenant should be used for the email sending operatio
 
 **Using the AWS CLI:**
 
-```
+```bash
 # Get tenant details
 aws sesv2 get-tenant --tenant-name "MyTenant"
 ```
@@ -260,7 +259,7 @@ You can manually pause a tenant's sending capabilities when needed, and unpause 
 
 To pause a tenant:
 
-```
+```bash
 # Pause a tenant
 aws sesv2 update-reputation-entity-customer-managed-status \
   --reputation-entity-type RESOURCE \
@@ -270,7 +269,7 @@ aws sesv2 update-reputation-entity-customer-managed-status \
 
 To unpause a tenant:
 
-```
+```bash
 # Unpause a tenant
 aws sesv2 update-reputation-entity-customer-managed-status \
   --reputation-entity-type RESOURCE \
@@ -309,14 +308,14 @@ A reputation policy pauses a tenant by setting the `Status` in `CustomerManagedS
 
 **Using the AWS CLI:**
 
-```
+```bash
 aws sesv2 list-recommendations \
    --filter='{ "RESOURCE_ARN":"arn:aws:ses:us-east-1:012345678901:tenant/tenantId"}'
 ```
 
 The response includes details about all active findings:
 
-```
+```bash
 {
     "Recommendations": [
         {
@@ -397,12 +396,15 @@ You can create rules on the default event bus to identify specific events for Ev
 The following detail-types are available:
 
 **For tenant sending status changes:**
-+ `Sending Status Enabled` – The new sending status is `ENABLED`.
-+ `Sending Status Disabled` – The new sending status is `DISABLED` or `REINSTATED`.
++ `Sending Status Enabled` – The new sending status is `ENABLED` or `REINSTATED`.
++ `Sending Status Disabled` – The new sending status is `DISABLED`.
+
+**Important**  
+Add `Sending Status Enabled` to your rule to receive an event when sending resumes after a pause. If you match only `Sending Status Disabled`, you don't receive these events.
 
 **Note**  
-SES sends `Sending Status Disabled` for both a pause and a reinstatement. Read `detail.data.record.status` to tell the two apart. A status of `DISABLED` means the origin cannot send email. A status of `REINSTATED` means the origin can send email again. Do not use the detail-type alone to decide if a tenant can send email.  
-The status in the event applies only to the origin named in `detail.data.origin`. It does not describe the tenant as a whole. If either origin is `DISABLED`, the tenant cannot send email. To read the combined status, call [GetReputationEntity](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_GetReputationEntity.html) and use the `SendingStatusAggregate` value.
+SES sends `Sending Status Enabled` when the sending status of one of a tenant's origins changes to `ENABLED` or to `REINSTATED`. To tell the two apart, read `detail.data.record.status`. `ENABLED` means the origin can send email. `REINSTATED` means the origin can send email again after a pause.  
+Don't use the detail-type alone to decide if a tenant can send email. The status in the event applies only to the origin named in `detail.data.origin`. It does not describe the tenant as a whole. If either origin is `DISABLED`, the tenant cannot send email. To read the combined status, call [GetReputationEntity](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_GetReputationEntity.html) and use the `SendingStatusAggregate` value.
 
 **For reputation findings:**
 + `Advisor Recommendation Status Open`
@@ -434,7 +436,7 @@ The status in the event applies only to the origin named in `detail.data.origin`
 
 **Example EventBridge rule pattern for reputation findings:**
 
-```
+```json
 {
   "detail-type": "Advisor Recommendation Status Open",
   "source": "aws.ses",
@@ -455,7 +457,7 @@ The status in the event applies only to the origin named in `detail.data.origin`
 
 **Example EventBridge rule pattern for sending status changes:**
 
-```
+```json
 {
         "detail-type": "Sending Status Disabled",
         "source": "aws.ses",

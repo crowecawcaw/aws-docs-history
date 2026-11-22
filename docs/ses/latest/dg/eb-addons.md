@@ -1,7 +1,6 @@
 
 
 # Email Add Ons
-<a name="eb-addons"></a>
 
 Email Add Ons is a collection of specialized security tools from SES approved providers that can be used to manage the type of email you allow into your ingress endpoint and to determine actions to be taken on certain types of email. These tools are certified security intelligence and enforcement solutions that are ready to be integrated into your email workflow and can be activated directly from the Mail Manager console.
 
@@ -41,7 +40,7 @@ Using the **Spamhaus Domain Block List** Add On in a policy statement condition 
 Using the **Trend Micro Virus Scanning** Add On in a rule condition to determine a rule action for email that passes the virus scan:  
 ![Using the Trend Micro Virus Scanning Add On in a rule condition to determine a rule action for email that passes the virus scan.](https://docs.aws.amazon.com/ses/latest/dg/images/TrendMicroAddOnRule.png)
 
-   For details on how to create rule sets and build rule conditions with Email Add Ons, see [Creating rule sets and rules in the SES console](eb-rules.md#eb-rules-create-console).
+   For details on how to create rule sets and build rule conditions with Email Add Ons, see [Create and manage rule sets in the SES console](eb-rules-setup.md#eb-rules-create-console).
 
 1. To view general details or access support for any Add On you're subscribed to, select its name on the **Email Add Ons** page to open its overview page: 
    + In **General details** you can view the date of when you subscribed and the Amazon Resource Name (ARN) of your Add On.

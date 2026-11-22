@@ -1,7 +1,6 @@
 
 
 # Quick Find Index
-<a name="quick-find"></a>
 
 The following index has been created to help you quickly find things in Amazon SES by providing two ways of searching - either by how-tos or concepts. The how-tos describe "how to" do something while concepts explain the bigger picture.
 
@@ -24,7 +23,7 @@ SES how-to links are listed alphabetically and will take you to the correspondin
   + [Block SPAM for email receiving](receiving-email-concepts.md#receiving-email-concepts-ip-filters)
   + [Configure custom open/click domains](configure-custom-open-click-domains.md)
   + [Configure SNS notifications](configure-sns-notifications.md)
-  + [Connect to a SMTP endpoint](smtp-connect.md)
+  + [Choose SMTP connection settings](smtp-connect.md)
   + [Create a configuration set](creating-configuration-sets.md)
   + [Create a domain identity](creating-identities.md#verify-domain-procedure)
   + [Create an email address identity](creating-identities.md#verify-email-addresses-procedure)
@@ -42,7 +41,7 @@ SES how-to links are listed alphabetically and will take you to the correspondin
   + [Enable email feedback forwarding](monitor-sending-activity-using-notifications-email.md#monitor-sending-activity-using-notifications-email-enabling)
   + [Export reputation metrics](configuration-sets-export-metrics.md)
   + [Get out of the sandbox](request-production-access.md)
-  + [Get started with SES](setting-up.md#quick-start-verify-email-addresses)
+  + [Get started with SES](getting-started-sending.md#quick-start-verify-email-addresses)
   + [Get started with Virtual Deliverability Manager](vdm-get-started.md)
   + [Give permissions for email receiving](receiving-email-permissions.md)
   + [Increase throughput](troubleshoot-throughput-problems.md)
@@ -143,6 +142,7 @@ SES concept links are listed alphabetically and will take you to the correspondi
   + [Event notifications through SNS](monitor-sending-activity-using-notifications-sns.md)
   + [Event publishing](monitor-using-event-publishing.md#event-publishing-how-works)
   + [FAQs *(Frequently Asked Questions)*](faqs.md)
+  + [Global shared delivery](global-shared-delivery.md)
   + [Global suppression list](sending-email-global-suppression-list.md)
   + [Header fields, supported](header-fields.md)
   + [Identities, managing](managing-identities.md)
@@ -174,6 +174,7 @@ SES concept links are listed alphabetically and will take you to the correspondi
   + [Sending authorization policy anatomy](policy-anatomy.md)
   + [Sending authorization policy examples](sending-authorization-policy-examples.md)
   + [Sending authorization process](sending-authorization-overview.md)
+  + [Shared IP addresses](shared-ip.md)
   + [SNDS metrics for dedicated IPs](snds-metrics-dedicated-ips.md)
   + [SNS notification contents](notification-contents.md)
   + [SNS notification examples](notification-examples.md)

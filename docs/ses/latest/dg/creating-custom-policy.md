@@ -1,7 +1,6 @@
 
 
 # Creating a custom policy
-<a name="creating-custom-policy"></a>
 
 If you want to create a custom policy and attach it to an identity, you have the following options:
 + **Using the Amazon SES API** – Create a policy in a text editor and then attach the policy to the identity by using the `PutIdentityPolicy` API described in the [Amazon Simple Email Service API Reference](https://docs.aws.amazon.com/ses/latest/APIReference/).

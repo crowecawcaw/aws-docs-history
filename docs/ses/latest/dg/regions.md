@@ -1,7 +1,6 @@
 
 
 # Regions and Amazon SES
-<a name="regions"></a>
 
 SES is available in several AWS Regions around the world. In each region, AWS maintains multiple Availability Zones. These Availability Zones are physically isolated from each other, but are united by private, low-latency, high-throughput, and highly redundant network connections. These Availability Zones enable us to provide very high levels of availability and redundancy, while also minimizing latency.
 

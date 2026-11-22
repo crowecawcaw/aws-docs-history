@@ -1,7 +1,6 @@
 
 
 # Amazon SES policy anatomy
-<a name="policy-anatomy"></a>
 
 Policies adhere to a specific structure, contain elements, and must meet certain requirements.
 
@@ -19,7 +18,7 @@ The following example policy grants AWS account ID *123456789012* permissions sp
 
 ****  
 
-```
+```json
 {
   "Id":"ExampleAuthorizationPolicy",
   "Version":"2012-10-17",		 	 	 

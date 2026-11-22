@@ -1,7 +1,6 @@
 
 
 # Automatically pausing email sending for your entire Amazon SES account
-<a name="monitoring-sender-reputation-pausing-account"></a>
 
 The procedures in this section explain the steps to set up Amazon SES, Amazon SNS, Amazon CloudWatch, and AWS Lambda to automatically pause email sending for your Amazon SES account in a single AWS Region. If you send email from multiple regions, repeat the procedures in this section for each region in which you want to implement this solution.
 
@@ -70,7 +69,7 @@ This function only pauses email sending in the AWS Region you select in this ste
 
 1. Under **Code source**, in the code editor, paste the following code:
 
-   ```
+   ```javascript
    'use strict';
    
    
@@ -132,7 +131,7 @@ The procedures in this section re-enable email sending for your Amazon SES accou
 
    If you see the following output, then you have successfully re-enabled email sending for your account:
 
-   ```
+   ```json
    {
        "Enabled": true 
    }
@@ -204,7 +203,7 @@ The procedures in this section are optional, but we recommend that you complete 
 
    If sending is enabled for your account, you see the following output:
 
-   ```
+   ```json
    {
        "Enabled": true 
    }
@@ -224,7 +223,7 @@ When you execute this command, the status of the alarm switches from `OK` to `AL
 
    If the Lambda function executed successfully, you see the following output:
 
-   ```
+   ```json
    {
        "Enabled": false
    }

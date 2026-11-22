@@ -1,7 +1,6 @@
 
 
 # Warming up dedicated IP addresses (standard)
-<a name="dedicated-ip-warming"></a>
 
 When determining whether to accept or reject a message, email service providers consider the reputation of the IP address that sent it. One of the factors that contributes to the reputation of an IP address is whether the address has a history of sending high-quality email. Email providers are less likely to accept mail from new IP addresses that have little or no history. Email sent from IP addresses with little or no history might end up in recipients' junk mail folders, or might be blocked altogether.
 

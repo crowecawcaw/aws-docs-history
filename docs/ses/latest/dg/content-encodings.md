@@ -1,7 +1,6 @@
 
 
 # Content encodings supported by Amazon SES
-<a name="content-encodings"></a>
 
 The following is provided for reference.
 

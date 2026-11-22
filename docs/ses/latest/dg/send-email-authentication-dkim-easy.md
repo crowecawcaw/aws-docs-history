@@ -1,7 +1,6 @@
 
 
 # Easy DKIM in Amazon SES
-<a name="send-email-authentication-dkim-easy"></a>
 
 When you set up Easy DKIM for a domain identity, Amazon SES automatically adds a 2048-bit DKIM key to every email that you send from that identity. You can configure Easy DKIM by using the Amazon SES console, or by using the API.
 

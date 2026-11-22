@@ -1,7 +1,6 @@
 
 
 # Creating and verifying identities in Amazon SES
-<a name="creating-identities"></a>
 
 In Amazon SES, you can create an identity at the domain level or you can create an email address identity. These identity types aren’t mutually exclusive. In most cases, creating a domain identity eliminates the need for creating and verifying individual email address identities, unless you want to apply custom configurations to a specific email address. Whether you create a domain and utilize email addresses based on the domain, or create individual email addresses, there are benefits to both approaches. Which method you choose is dependent on your specific needs as discussed below.
 
@@ -38,7 +37,7 @@ To send email from the same domain or email address in more than one AWS Region,
 + Email addresses *are* case sensitive. If you verify sender@EXAMPLE.com, you can't send email from sender@example.com unless you verify sender@example.com as well.
 
 **Tip**  
-If you're a first time user of SES, you can use the [Get started wizard](setting-up.md#quick-start-verify-email-addresses) to create and verify your first identity (email address or domain).
+If you're a first time user of SES, you can use the [Get started wizard](getting-started-sending.md#quick-start-verify-email-addresses) to create and verify your first identity (email address or domain).
 
 **Topics**
 + [Creating a domain identity](#verify-domain-procedure)
@@ -377,7 +376,7 @@ To complete the procedure in this section, you must use version 1.14.6 or later 
 
 1. In a text editor, create a new file. Paste the following content into the editor:
 
-   ```
+   ```json
    {
      "TemplateName": "{{SampleTemplate}}",
      "FromEmailAddress": "{{sender@example.com}}",

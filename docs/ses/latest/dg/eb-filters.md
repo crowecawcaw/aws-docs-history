@@ -1,7 +1,6 @@
 
 
 # Traffic policies and policy statements
-<a name="eb-filters"></a>
 
 A traffic policy provides firewall-like filtering for incoming Simple Mail Transfer Protocol (SMTP) traffic at an ingress endpoint. With a traffic policy, you protect the ingress endpoint and downstream mail systems by allowing or rejecting recipients before accepted messages enter rule set processing.
 
@@ -39,7 +38,7 @@ The traffic policy evaluates `DENY` statements first. A match rejects the recipi
 
 *Any listed value can match.* With `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, or `CIDR_MATCHES`, an expression matches when the value being checked matches at least one entry in the `Values` list. In the following example, `mary_major@example.com` and `mary_major@example.org` both match:
 
-```
+```json
 {
   "StringExpression": {
     "Evaluate": {"Attribute": "RECIPIENT"},
@@ -53,7 +52,7 @@ With `NOT_EQUALS` or `NOT_CIDR_MATCHES`, an expression matches only when the val
 
 *Every condition in a statement must match.* The statement's action applies only after all its conditions match. The following statement allows a recipient only when the sender is in `192.0.2.0/24` and the recipient address ends with `@example.com`:
 
-```
+```json
 {
   "Action": "ALLOW",
   "Conditions": [
@@ -77,7 +76,7 @@ With `NOT_EQUALS` or `NOT_CIDR_MATCHES`, an expression matches only when the val
 
 *A match on any statement with the same action is enough.* Statements are checked in their policy order. The first matching statement applies its action, and later statements with that action are not checked. In the following example, either `mary_major@example.com` or `sofia_martinez@example.com` matches an `ALLOW` statement:
 
-```
+```json
 {
   "DefaultAction": "DENY",
   "PolicyStatements": [
@@ -109,7 +108,7 @@ With `NOT_EQUALS` or `NOT_CIDR_MATCHES`, an expression matches only when the val
 To allow a large number of recipients, store them in an address list instead of creating one statement for each recipient. One address-list membership condition can allow every matching recipient.  
 In the following example, replace the AWS Region, account ID, and address list ID with your own values. The policy statement allows every recipient in the address list:  
 
-```
+```json
 {
   "Action": "ALLOW",
   "Conditions": [{
@@ -150,7 +149,7 @@ The following JSON fragments include only the fields needed to show evaluation b
 
 The following policy uses a default `DENY` action with a `DENY` statement and an `ALLOW` statement:
 
-```
+```json
 {
   "DefaultAction": "DENY",
   "PolicyStatements": [
@@ -183,7 +182,7 @@ The following policy uses a default `DENY` action with a `DENY` statement and an
 
 The following policy uses a default `ALLOW` action with a `DENY` statement:
 
-```
+```json
 {
   "DefaultAction": "ALLOW",
   "PolicyStatements": [{
@@ -229,7 +228,7 @@ The following examples use example IP address ranges. In each example, replace t
 
 This policy uses `DENY` as its default action. Its `ALLOW` statement accepts recipients when the connecting sender's IPv4 address is in `192.0.2.0/24`. The default action rejects all other recipients. In the following AWS CLI command, replace the AWS Region, traffic policy name, and IPv4 range with your own values. The command creates this traffic policy:
 
-```
+```bash
 PROMPT> aws mailmanager create-traffic-policy \
   --region {{us-east-1}} \
   --traffic-policy-name {{allow-ipv4-partner}} \
@@ -252,7 +251,7 @@ PROMPT> aws mailmanager create-traffic-policy \
 
 This policy uses `DENY` as its default action. One `ALLOW` statement accepts mail from the partner's IPv4 range, and a second `ALLOW` statement accepts mail from its IPv6 range. In both cases, the recipient must end with `@example.com`. The two statements are alternatives, but both conditions within a statement must match. The default action rejects all other recipients. In the following AWS CLI command, replace the AWS Region, traffic policy name, IPv4 and IPv6 ranges, and recipient domain with your own values. The command creates this traffic policy:
 
-```
+```bash
 PROMPT> aws mailmanager create-traffic-policy \
   --region {{us-east-1}} \
   --traffic-policy-name {{allow-partner-dual-stack}} \
@@ -331,7 +330,7 @@ The following table lists the Email Add On results available to traffic policies
 
 The following example allows a recipient when the add-on result field `isListed` is false. The default `DENY` action rejects traffic that does not match this explicit `ALLOW` statement. In the following AWS CLI command, replace the Region, account ID, add-on instance ID, and traffic policy name with your own values. The command sets the maximum message size to `31457280` bytes (30 MiB):
 
-```
+```bash
 PROMPT> aws mailmanager create-traffic-policy \
   --region {{us-east-1}} \
   --traffic-policy-name {{allow-unlisted-senders}} \
@@ -371,7 +370,7 @@ The `create-traffic-policy` commands in the preceding examples return a `Traffic
 
 Traffic policy properties that you omit from an update request remain unchanged. In the following AWS CLI command, replace the AWS Region and traffic policy ID with your own values. The command sets the maximum message size to `31457280` bytes (30 MiB):
 
-```
+```bash
 PROMPT> aws mailmanager update-traffic-policy \
   --region {{us-east-1}} \
   --traffic-policy-id {{tp-0123456789abcdef01234567}} \
@@ -380,7 +379,7 @@ PROMPT> aws mailmanager update-traffic-policy \
 
 In the following command, replace the AWS Region and traffic policy ID with your own values. Use `get-traffic-policy` to inspect the complete policy:
 
-```
+```bash
 PROMPT> aws mailmanager get-traffic-policy \
   --region {{us-east-1}} \
   --traffic-policy-id {{tp-0123456789abcdef01234567}}
@@ -388,7 +387,7 @@ PROMPT> aws mailmanager get-traffic-policy \
 
 In the following command, replace the AWS Region with your own value. Use `list-traffic-policies` to list the traffic policies in the Region:
 
-```
+```bash
 PROMPT> aws mailmanager list-traffic-policies \
   --region {{us-east-1}}
 ```
@@ -401,7 +400,7 @@ When you supply `--policy-statements` in an update, supply the complete list of 
 
 An ingress point requires an existing traffic policy and rule set. In the following AWS CLI command, replace the AWS Region, ingress point name, rule set ID, and traffic policy ID with your own values. The command creates an open ingress point and assigns both resources:
 
-```
+```bash
 PROMPT> aws mailmanager create-ingress-point \
   --region {{us-east-1}} \
   --ingress-point-name {{partner-ingress}} \
@@ -418,7 +417,7 @@ The command returns an `IngressPointId`. For all request options, see [CreateIng
 
 Other ingress point properties remain unchanged. In the following AWS CLI command, replace the AWS Region, ingress point ID, and traffic policy ID with your own values. The command changes the traffic policy assigned to the ingress point:
 
-```
+```bash
 PROMPT> aws mailmanager update-ingress-point \
   --region {{us-east-1}} \
   --ingress-point-id {{inp-0123456789abcdef01234567}} \
@@ -427,7 +426,7 @@ PROMPT> aws mailmanager update-ingress-point \
 
 In the following command, replace the AWS Region and ingress point ID with your own values. Run `get-ingress-point` and check that the response contains the expected `TrafficPolicyId` and `RuleSetId`:
 
-```
+```bash
 PROMPT> aws mailmanager get-ingress-point \
   --region {{us-east-1}} \
   --ingress-point-id {{inp-0123456789abcdef01234567}}
@@ -438,7 +437,7 @@ PROMPT> aws mailmanager get-ingress-point \
 
 You cannot delete a traffic policy while an ingress point references it. First, update every ingress point that references the policy to use another traffic policy. In the following AWS CLI command, replace the AWS Region and traffic policy ID with your own values. Then run the command to delete the unused policy:
 
-```
+```bash
 PROMPT> aws mailmanager delete-traffic-policy \
   --region {{us-east-1}} \
   --traffic-policy-id {{tp-0123456789abcdef01234567}}
@@ -451,7 +450,7 @@ The principal that manages traffic policies needs permission for the traffic pol
 
 In the following IAM policy, replace the AWS Region, account ID, traffic policy IDs, rule set ID, and ingress point ID with your own values. The policy allows a principal to manage traffic policies in one account, create an open ingress point only with an approved traffic policy and rule set, and update one ingress point only when assigning an approved traffic policy:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -563,7 +562,7 @@ Each item in the following list describes a supported condition, its operators, 
 Recipient address  
 Use a [string expression](https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_IngressStringExpression.html) with `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, or `CONTAINS`. The following example matches recipients in a domain:  
 
-```
+```json
 {
   "StringExpression": {
     "Evaluate": {"Attribute": "RECIPIENT"},
@@ -576,7 +575,7 @@ Use a [string expression](https://docs.aws.amazon.com/sesmailmanager/latest/APIR
 Sender IPv4 range  
 Use an [IPv4 expression](https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_IngressIpv4Expression.html) with `CIDR_MATCHES` or `NOT_CIDR_MATCHES`. The following example matches a sender in an IPv4 range:  
 
-```
+```json
 {
   "IpExpression": {
     "Evaluate": {"Attribute": "SENDER_IP"},
@@ -589,7 +588,7 @@ Use an [IPv4 expression](https://docs.aws.amazon.com/sesmailmanager/latest/APIRe
 Sender IPv6 range  
 Use an [IPv6 expression](https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_IngressIpv6Expression.html) with `CIDR_MATCHES` or `NOT_CIDR_MATCHES`. The following example matches a sender in an IPv6 range:  
 
-```
+```json
 {
   "Ipv6Expression": {
     "Evaluate": {"Attribute": "SENDER_IPV6"},
@@ -602,7 +601,7 @@ Use an [IPv6 expression](https://docs.aws.amazon.com/sesmailmanager/latest/APIRe
 TLS protocol version  
 Use a [TLS expression](https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_IngressTlsProtocolExpression.html) with `IS` or `MINIMUM_TLS_VERSION`. Supported values are `TLS1_2` and `TLS1_3`. The following example requires TLS 1.2 or later:  
 
-```
+```json
 {
   "TlsExpression": {
     "Evaluate": {"Attribute": "TLS_PROTOCOL"},
@@ -615,7 +614,7 @@ Use a [TLS expression](https://docs.aws.amazon.com/sesmailmanager/latest/APIRefe
 Recipient address list membership  
 Use `IsInAddressList` in a [boolean expression](https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_IngressBooleanExpression.html) with `IS_TRUE` or `IS_FALSE`. For instructions on creating and maintaining address lists, see [Address Lists](eb-addlist.md). In the following example, replace the AWS Region, account ID, and address list ID with your own values. The condition matches recipients in the address list:  
 
-```
+```json
 {
   "BooleanExpression": {
     "Evaluate": {
@@ -632,7 +631,7 @@ Use `IsInAddressList` in a [boolean expression](https://docs.aws.amazon.com/sesm
 Email Add On list category  
 Use an `Analysis` operand for the `listedOn` result in a [string expression](https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_IngressStringExpression.html) with `EQUALS` or `NOT_EQUALS`. For information about provider-specific values, see [Using Email Add Ons in a traffic policy](#eb-filters-addons). In the following example, replace the AWS Region, account ID, and add-on instance ID with your own values. The condition matches the `Spam` category:  
 
-```
+```json
 {
   "StringExpression": {
     "Evaluate": {
@@ -650,7 +649,7 @@ Use an `Analysis` operand for the `listedOn` result in a [string expression](htt
 Email Add On listed status  
 Use an `Analysis` operand for the `isListed` result in a [boolean expression](https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_IngressBooleanExpression.html) with `IS_TRUE` or `IS_FALSE`. For information about Email Add On results, see [Using Email Add Ons in a traffic policy](#eb-filters-addons). In the following example, replace the AWS Region, account ID, and add-on instance ID with your own values. The condition matches a listed sender:  
 
-```
+```json
 {
   "BooleanExpression": {
     "Evaluate": {

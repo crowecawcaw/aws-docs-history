@@ -1,7 +1,6 @@
 
 
 # Inbox placement tests
-<a name="vdm-gd-inbox-placement-tests"></a>
 
 Inbox placement testing sends your campaign to seed accounts across major mailbox providers before you send to real subscribers, so you can catch placement and authentication issues before they reach your audience. Results are typically available in 2–4 hours.
 

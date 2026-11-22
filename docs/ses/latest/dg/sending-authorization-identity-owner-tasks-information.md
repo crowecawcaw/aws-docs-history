@@ -1,7 +1,6 @@
 
 
 # Getting information from the delegate sender for Amazon SES sending authorization
-<a name="sending-authorization-identity-owner-tasks-information"></a>
 
 Your sending authorization policy must specify at least one *principal*, which is the entity of your delegate sender that you're granting access to so they can send on behalf of one of your verified identities. For Amazon SES sending authorization policies, the principal can be either your delegate sender's AWS account or AWS Identity and Access Management (IAM) user ARN, or an AWS service.
 
@@ -18,7 +17,7 @@ The following example policy illustrates the basic elements of what is needed in
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

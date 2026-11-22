@@ -1,16 +1,62 @@
 
 
-# Obtaining Amazon SES SMTP credentials
-<a name="smtp-credentials"></a>
+# Obtaining Amazon SES SMTP credentials using IAM
+
+**Note**  
+Mail Manager SMTP is the recommended option for sending email over SMTP. For setup instructions, see [Creating SMTP credentials using Mail Manager](smtp-credentials-mail-manager.md). This topic describes the IAM user credential option.
 
 You need Amazon SES SMTP credentials to access the SES SMTP interface.
 
-The credentials that you use to send email through the SES SMTP interface are unique to each AWS Region. If you use the SES SMTP interface to send email in more than one Region, you must generate a set of SMTP credentials for each Region that you plan to use.
+## Requirements for the Amazon SES SMTP interface
+<a name="ses-smtp-interface-requirements"></a>
 
-Your SMTP password is different from your AWS secret access key. For more information about credentials, see [Types of Amazon SES credentials](send-email-concepts-credentials.md).
+To send email using the Amazon SES SMTP interface, you need the following:
++ The SMTP endpoint address. For a list of Amazon SES SMTP endpoints, see [SMTP endpoints](https://docs.aws.amazon.com/general/latest/gr/ses.html#ses_smtp_endpoints) in the *AWS General Reference*.
++ The SMTP interface port number. The port depends on the connection method. For more information, see [Connect to the Amazon SES SMTP interface](#smtp-credentials-connect).
++ An SMTP user name and password. SMTP credentials are unique to each AWS Region. You need SMTP credentials for each Region where you use this interface. An IAM-based SMTP user name is a 20-character string of letters and numbers.
+**Important**  
+Your SMTP credentials aren't identical to your AWS access keys. They also differ from the credentials that you use to sign in to the Amazon SES console. For more information, see [Types of Amazon SES credentials](send-email-concepts-credentials.md).
 
-**Note**  
-For a list of currently available SMTP endpoints, see [SMTP endpoints](https://docs.aws.amazon.com/general/latest/gr/ses.html#ses_smtp_endpoints) in the *AWS General Reference*. 
+## Connect to the Amazon SES SMTP interface
+<a name="smtp-credentials-connect"></a>
+
+After you create the credentials, configure your SMTP client to connect to the regional Amazon SES SMTP endpoint. All connections require Transport Layer Security (TLS). Use STARTTLS or TLS Wrapper to establish an encrypted connection.
+
+Some software uses the term Secure Sockets Layer (SSL) for TLS settings. Check your software documentation to confirm whether it supports STARTTLS, TLS Wrapper, or both.
+
+Amazon Elastic Compute Cloud (Amazon EC2) throttles email traffic over port `25` by default. Use another port or submit a [Request to Remove Email Sending Limitations](https://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/ec2-email-limit-rdns-request). You can also use an [Amazon Virtual Private Cloud (Amazon VPC) endpoint](send-email-set-up-vpc-endpoints.md).
+
+### STARTTLS
+<a name="smtp-credentials-connect-starttls"></a>
+
+With STARTTLS, you can upgrade an unencrypted connection to an encrypted connection. Use STARTTLS on port `25`, `587`, or `2587`. For protocol details, see [RFC 3207](https://www.ietf.org/rfc/rfc3207.txt) on the IETF website.
+
+**To establish a STARTTLS connection**
+
+1. Connect to the SMTP endpoint and issue an `EHLO` command.
+
+1. Wait for the endpoint to announce STARTTLS support.
+
+1. Issue the `STARTTLS` command and complete TLS negotiation.
+
+1. Issue another `EHLO` command over the encrypted connection.
+
+### TLS Wrapper
+<a name="smtp-credentials-connect-tls-wrapper"></a>
+
+With TLS Wrapper, you can start an encrypted connection without first establishing an unencrypted connection. It is also known as SMTP Secure (SMTPS) or the Handshake Protocol. Use TLS Wrapper on port `465` or `2465`.
+
+Your client initiates TLS and uses it for the complete SMTP session. The endpoint presents its certificate before the client issues an `EHLO` command. TLS Wrapper is an older protocol, but many clients still support it.
+
+## Email information to provide
+<a name="smtp-parameters"></a>
+
+Your SMTP client application assembles the message. The required information depends on the application that you use. At a minimum, the SMTP exchange requires the following:
++ a source address
++ a destination address
++ message data
+
+If you enable feedback forwarding, bounces, complaints, and delivery notifications go to the `MAIL FROM` address. SES doesn't use a `Reply-To` address for these notifications.
 
 ## Obtaining SES SMTP credentials using the SES console
 <a name="smtp-credentials-console"></a>
@@ -72,7 +118,7 @@ Don't use temporary AWS credentials to derive SMTP credentials. The SES SMTP int
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -136,7 +182,7 @@ In the following example, the list of SMTP\_REGIONS is simply an example—your 
 ------
 #### [ Python ]
 
-```
+```python
 #!/usr/bin/env python3
 
 import hmac
@@ -246,7 +292,7 @@ Before migrating a SMTP user off of an existing inline policy to a group policy,
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
        "Statement": [

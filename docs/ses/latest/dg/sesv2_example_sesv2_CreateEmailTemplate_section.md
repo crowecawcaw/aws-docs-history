@@ -1,7 +1,6 @@
 
 
 # Use `CreateEmailTemplate` with an AWS SDK
-<a name="sesv2_example_sesv2_CreateEmailTemplate_section"></a>
 
 The following code examples show how to use `CreateEmailTemplate`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SESv2#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Creates an email template with the specified content.
     /// </summary>
@@ -73,7 +72,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 
-```
+```java
     try {
       // Create an email template named "weekly-coupons"
       String newsletterHtml = loadFile("resources/coupon_newsletter/coupon-newsletter.html");
@@ -113,7 +112,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples). 
 
-```
+```python
 class SESv2Wrapper:
     """Encapsulates Amazon SESv2 email sending actions."""
 
@@ -184,7 +183,7 @@ class SESv2Wrapper:
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples). 
 
-```
+```python
 def main():
     """
     The main function that orchestrates the execution of the workflow.
@@ -238,7 +237,7 @@ class SESv2Workflow:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples). 
 
-```
+```rust
         let template_html =
             std::fs::read_to_string("../resources/newsletter/coupon-newsletter.html")
                 .unwrap_or_else(|_| "Missing coupon-newsletter.html".to_string());
@@ -281,7 +280,7 @@ class SESv2Workflow:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples). 
 
-```
+```sap-abap
     TRY.
         DATA(lo_template_content) = NEW /aws1/cl_se2emailtmplcontent(
           iv_subject = iv_subject

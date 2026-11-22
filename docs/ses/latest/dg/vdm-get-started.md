@@ -1,7 +1,6 @@
 
 
 # Getting started with Virtual Deliverability Manager
-<a name="vdm-get-started"></a>
 
 To start using Virtual Deliverability Manager with your account, you must enable it using the onboarding wizard in the Amazon SES console, where you'll set up *engagement tracking* and *optimized shared delivery*. Virtual Deliverability Manager uses engagement tracking and optimized shared delivery to monitor your sending and to help you make improvements to your deliverability and reputation.
 + **Engagement tracking** – The ability to monitor recipient engagement behavior through open and click events by using a tracking pixel within a wrapped link. When triggered, the tracking pixel provides a timestamp of when a message was opened, and indicates which links were  clicked by the recipient. *Turning this on alters your URLs and links to include Amazon SES engagement tracking wrappers.*

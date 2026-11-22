@@ -1,7 +1,6 @@
 
 
 # Integrate with Amazon WorkMail action
-<a name="receiving-email-action-workmail"></a>
 
 The **WorkMail** action integrates with Amazon WorkMail. If Amazon WorkMail performs all of your email processing, you will typically not use this action directly because Amazon WorkMail takes care of the setup. This action has the following options.
 + **Organization ARN—**The ARN of the Amazon WorkMail organization. Amazon WorkMail organization ARNs are in the form `arn:aws:workmail:{{region}}:{{account_ID}}:organization/{{organization_ID}}`, where:

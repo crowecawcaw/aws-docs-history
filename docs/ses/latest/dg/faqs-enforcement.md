@@ -1,7 +1,6 @@
 
 
 # Amazon SES Sending review process FAQs
-<a name="faqs-enforcement"></a>
 
 We monitor the email that's sent through Amazon SES to make sure that the service isn't being used to deliver malicious, unsolicited, or low-quality email. If we determine that a user is sending content that falls into one of these categories, we take actions on that account. We call this process our *sending review process*.
 

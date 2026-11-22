@@ -1,7 +1,6 @@
 
 
 # Identity owner tasks for Amazon SES sending authorization
-<a name="sending-authorization-identity-owner-tasks"></a>
 
 This section describes the steps that identity owners must take when configuring sending authorization.
 

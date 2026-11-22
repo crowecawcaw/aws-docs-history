@@ -1,7 +1,6 @@
 
 
 # Deliver to S3 bucket action
-<a name="receiving-email-action-s3"></a>
 
 The **Deliver to S3 bucket** action delivers the mail to an S3 bucket and can optionally notify you through SNS and more. This action has the following options.
 + **S3 bucket** – The name of the S3 bucket to which to save received emails. You can also create a new S3 bucket when you set up your action by choosing **Create S3 Bucket**. Amazon SES provides you the raw, unmodified email, which is typically in Multipurpose Internet Mail Extensions (MIME) format. For more information about MIME format, see [RFC 2045](https://tools.ietf.org/html/rfc2045).

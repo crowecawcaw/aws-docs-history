@@ -1,7 +1,6 @@
 
 
 # Action options
-<a name="receiving-email-action"></a>
 
 Each receipt rule for Amazon SES email receiving contains an ordered list of actions. This section describes the specific options for each action type.
 

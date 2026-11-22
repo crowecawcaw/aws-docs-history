@@ -1,7 +1,6 @@
 
 
 # Verified identities in Amazon SES
-<a name="verify-addresses-and-domains"></a>
 
 In Amazon SES, a *verified identity* is a domain or email address that you use to send or receive email. Before you can send an email using Amazon SES, you must create and verify each identity that you're going to use as a "From", "Source", "Sender", or "Return-Path" address. Verifying an identity with Amazon SES confirms that you own it and helps prevent unauthorized use.
 
@@ -10,7 +9,7 @@ If your account is still in the Amazon SES sandbox, you also need to verify any 
 You can create an identity by using the Amazon SES console or the Amazon SES API. The identity verification process depends on which type of identity you choose to create.
 
 **Tip**  
-If you're a first time user of SES, you can use the [Get started wizard](setting-up.md#quick-start-verify-email-addresses) to create and verify your first identity (email address or domain).
+If you're a first time user of SES, you can use the [Get started wizard](getting-started-sending.md#quick-start-verify-email-addresses) to create and verify your first identity (email address or domain).
 
 **Topics**
 + [Creating and verifying identities in Amazon SES](creating-identities.md)

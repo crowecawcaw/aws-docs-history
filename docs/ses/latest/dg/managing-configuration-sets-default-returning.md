@@ -1,7 +1,6 @@
 
 
 # Retrieve the default configuration set used by the identity using the SES API
-<a name="managing-configuration-sets-default-returning"></a>
 
 You can use the [GetEmailIdentity](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_GetEmailIdentity.html) operation to return the default configuration set for an email identity, if applicable.
 

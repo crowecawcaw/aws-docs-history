@@ -1,7 +1,6 @@
 
 
 # Configuring custom domains to handle open and click tracking
-<a name="configure-custom-open-click-domains"></a>
 
 When you use [event publishing](monitor-using-event-publishing.md) to capture open and click events, Amazon SES makes minor changes to the emails you send. To capture open events, SES adds a 1 pixel by 1 pixel transparent GIF image in each email sent through SES which includes a unique file name for each email, and is hosted on a server operated by SES; when the image is downloaded, SES can tell exactly which message was opened and by whom.
 
@@ -161,7 +160,7 @@ In the following instructions, `{your-custom-redirect-domain}` is the custom red
 
 To authorize your iOS app to handle Universal Links on your custom redirect domain, host the following file at `https://{your-custom-redirect-domain}/.well-known/apple-app-site-association`:
 
-```
+```json
 {
   "applinks": {
     "apps": [],
@@ -186,7 +185,7 @@ After hosting this file, add your custom redirect domain to your app's Associate
 
 To authorize your Android app to handle App Links on your custom redirect domain, host the following file at `https://{your-custom-redirect-domain}/.well-known/assetlinks.json`:
 
-```
+```json
 [{
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
@@ -206,7 +205,7 @@ After hosting this file, add an intent filter in your app's `AndroidManifest.xml
 
 Use the `ses:custom-path` attribute on individual `<a>` tags in your email HTML to add a fixed path segment to the tracking URL:
 
-```
+```html
 <a href="https://example.com/product/123" ses:custom-path="myapp">View product</a>
 ```
 
@@ -222,7 +221,7 @@ The `ses:custom-path` value must meet the following requirements:
 
 The `ses:custom-path` value does not appear in click event data. To attach custom metadata to click events for link identification or analytics, use the optional `ses:tags` attribute:
 
-```
+```html
 <a href="https://example.com/product/123"
    ses:custom-path="myapp"
    ses:tags="category:product">View product</a>

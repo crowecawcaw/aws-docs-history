@@ -1,7 +1,6 @@
 
 
 # Amazon SES global suppression list
-<a name="sending-email-global-suppression-list"></a>
 
 Amazon SES maintains an internal *global suppression list* which operates and is managed in the background by SES. When any SES customer sends an email that results in a hard bounce, SES adds the email address that produced the bounce to a global suppression list. The global suppression list is *global* in the sense that it applies to all SES customers. In other words, if a different customer attempts to send an email to an address that's on the global suppression list, SES accepts the message, but doesn't send it, because the email address is suppressed.
 

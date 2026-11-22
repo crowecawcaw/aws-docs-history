@@ -1,7 +1,6 @@
 
 
 # Managing email templates
-<a name="send-personalized-email-manage-templates"></a>
 
 In addition to [creating email templates](send-personalized-email-api.md), you can also use the Amazon SES v2 API to update or delete existing templates, to list all of your existing templates, or to view the contents of a template. 
 
@@ -24,7 +23,7 @@ You can use the [`ListEmailTemplate`](https://docs.aws.amazon.com/ses/latest/API
 
   If there are existing email templates in your SES account in the current Region, this command returns a response that resembles the following example:
 
-  ```
+  ```json
   {
       "TemplatesMetadata": [
           {
@@ -57,7 +56,7 @@ You can use the [`GetEmailTemplate`](https://docs.aws.amazon.com/ses/latest/APIR
 
   If the template name that you provided matches a template that exists in your SES account, this command returns a response that resembles the following example:
 
-  ```
+  ```json
   {
       "Template": {
           "TemplateName": "TestMessage",
@@ -103,7 +102,7 @@ You can use the [`UpdateEmailTemplate`](https://docs.aws.amazon.com/ses/latest/A
 
    If the template name that you provided matches a template that exists in your SES account, this command returns a response that resembles the following example:
 
-   ```
+   ```json
    {
        "Template": {
            "TemplateName": "TestMessage",

@@ -1,7 +1,6 @@
 
 
 # Use `SendEmail` with an AWS SDK
-<a name="sesv2_example_sesv2_SendEmail_section"></a>
 
 The following code examples show how to use `SendEmail`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SESv2#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Sends an email with the specified content and options.
     /// </summary>
@@ -122,7 +121,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 Sends a message.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sesv2.model.Body;
 import software.amazon.awssdk.services.sesv2.model.Content;
@@ -228,7 +227,7 @@ public class SendEmail {
 ```
 Sends a message using a template.  
 
-```
+```java
       String coupons = Files.readString(Paths.get("resources/coupon_newsletter/sample_coupons.json"));
       for (String emailAddress : contactEmails) {
         SendEmailRequest newsletterRequest = SendEmailRequest.builder()
@@ -250,7 +249,7 @@ Sends a message using a template.
 ```
 Sends a message with header information.  
 
-```
+```java
 public class SendwithHeader {
 
     public static void main(String[] args) {
@@ -348,7 +347,7 @@ public class SendwithHeader {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples). 
 Sends a message with optional attachments.  
 
-```
+```python
 class SESv2Wrapper:
     """Encapsulates Amazon SESv2 email sending actions."""
 
@@ -446,7 +445,7 @@ class SESv2Wrapper:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples). 
 Sends a message to all members of the contact list.  
 
-```
+```python
 def main():
     """
     The main function that orchestrates the execution of the workflow.
@@ -494,7 +493,7 @@ class SESv2Workflow:
 ```
 Sends a message to all members of the contact list using a template.  
 
-```
+```python
 def main():
     """
     The main function that orchestrates the execution of the workflow.
@@ -543,7 +542,7 @@ class SESv2Workflow:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v2#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-sesv2'
 require_relative 'config' # Recipient and sender email addresses.
 
@@ -585,7 +584,7 @@ send_email(client, SENDER_EMAIL, RECIPIENT_EMAIL)
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples). 
 Sends a message to all members of the contact list.  
 
-```
+```rust
 async fn send_message(
     client: &Client,
     list: &str,
@@ -643,7 +642,7 @@ async fn send_message(
 ```
 Sends a message to all members of the contact list using a template.  
 
-```
+```rust
             let coupons = std::fs::read_to_string("../resources/newsletter/sample_coupons.json")
                 .unwrap_or_else(|_| r#"{"coupons":[]}"#.to_string());
             let email_content = EmailContent::builder()
@@ -692,7 +691,7 @@ Sends a message to all members of the contact list using a template.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples). 
 Sends a message.  
 
-```
+```sap-abap
     TRY.
         " Create destination with recipient address
         DATA lt_to_addresses TYPE /aws1/cl_se2emailaddresslist_w=>tt_emailaddresslist.
@@ -733,7 +732,7 @@ Sends a message.
 ```
 Sends a message using a template.  
 
-```
+```sap-abap
     TRY.
         " Create destination with recipient address
         DATA lt_to_addresses TYPE /aws1/cl_se2emailaddresslist_w=>tt_emailaddresslist.

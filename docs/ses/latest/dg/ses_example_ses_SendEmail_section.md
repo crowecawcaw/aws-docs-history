@@ -1,7 +1,6 @@
 
 
 # Use `SendEmail` with an AWS SDK or CLI
-<a name="ses_example_ses_SendEmail_section"></a>
 
 The following code examples show how to use `SendEmail`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples). 
 
-```
+```csharp
     /// <summary>
     ///  Send an email by using Amazon SES.
     /// </summary>
@@ -84,7 +83,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples). 
 
-```
+```cpp
 //! Send an email to a list of recipients.
 /*!
   \param recipients; Vector of recipient email addresses.
@@ -225,7 +224,7 @@ For more information, see [Sending formatted email using the Amazon SES API](htt
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.ses.SesClient;
 import software.amazon.awssdk.services.ses.model.Content;
@@ -509,7 +508,7 @@ public class SendMessageAttachment {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
-```
+```javascript
 import { SendEmailCommand } from "@aws-sdk/client-ses";
 import { sesClient } from "./libs/sesClient.js";
 
@@ -576,7 +575,7 @@ const run = async () => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
-```
+```python
 class SesMailSender:
     """Encapsulates functions to send emails with Amazon SES."""
 
@@ -635,7 +634,7 @@ class SesMailSender:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-ses' # v2: require 'aws-sdk'
 
 # Replace sender@example.com with your "From" address.
@@ -715,7 +714,7 @@ end
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
-```
+```sap-abap
     " Create message object
     DATA(lo_subject) = NEW /aws1/cl_sescontent( iv_data = iv_subject ).
     DATA(lo_text_body) = NEW /aws1/cl_sescontent( iv_data = iv_text ).

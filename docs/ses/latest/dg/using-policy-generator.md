@@ -1,7 +1,6 @@
 
 
 # Using the policy generator
-<a name="using-policy-generator"></a>
 
 You can use the policy generator to create a simple authorization policy by following these steps.
 

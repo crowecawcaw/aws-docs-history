@@ -1,7 +1,6 @@
 
 
 # Requesting and relinquishing dedicated IP addresses (standard)
-<a name="dedicated-ip-case"></a>
 
 To use *dedicated IP addresses (standard)*, you must first request them. When you no longer need them, you must relinquish them. Request and relinquish dedicated IPs (standard) through the [AWS Support Center](https://console.aws.amazon.com/support/home#/). Your account is charged an additional monthly fee for each standard dedicated IP address that you lease for use with Amazon SES. There's no minimum commitment when using dedicated IPs (standard).
 

@@ -1,7 +1,6 @@
 
 
 # A complete Amazon SES API v2 Newsletter scenario using an AWS SDK
-<a name="sesv2_example_sesv2_NewsletterWorkflow_section"></a>
 
 The following code examples show how to run the Amazon SES API v2 newsletter scenario.
 
@@ -12,7 +11,7 @@ The following code examples show how to run the Amazon SES API v2 newsletter sce
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SESv2#code-examples). 
 Run the scenario.  
 
-```
+```csharp
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using Amazon.SimpleEmailV2;
@@ -458,7 +457,7 @@ public static class NewsletterWorkflow
 ```
 Wrapper for service operations.  
 
-```
+```csharp
 using System.Net;
 using Amazon.SimpleEmailV2;
 using Amazon.SimpleEmailV2.Model;
@@ -934,7 +933,7 @@ public class SESv2Wrapper
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 
-```
+```java
     try {
       // 2. Create a contact list
       String contactListName = CONTACT_LIST_NAME;
@@ -1154,7 +1153,7 @@ public class SESv2Wrapper
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples). 
 
-```
+```python
 def main():
     """
     The main function that orchestrates the execution of the workflow.
@@ -1342,7 +1341,7 @@ class SESv2Workflow:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples). 
 
-```
+```rust
         match self
             .client
             .create_contact_list()

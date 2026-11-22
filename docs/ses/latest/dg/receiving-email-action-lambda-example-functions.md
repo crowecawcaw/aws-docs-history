@@ -1,7 +1,6 @@
 
 
 # Lambda function examples
-<a name="receiving-email-action-lambda-example-functions"></a>
 
 This topic contains examples of Lambda functions that control mail flow.
 
@@ -10,7 +9,7 @@ This topic contains examples of Lambda functions that control mail flow.
 
 This example stops processing messages that have at least one spam indicator.
 
-```
+```js
 export const handler = async (event, context, callback) => {
     console.log('Spam filter');
     
@@ -38,7 +37,7 @@ export const handler = async (event, context, callback) => {
 
 This example continues processing the current rule only if the email contains a specific header value.
 
-```
+```js
 export const handler = async (event, context, callback) => {
     console.log('Header matcher');
  
@@ -72,7 +71,7 @@ You must first write the email to Amazon S3 using an S3 Action.
 Ensure that the Lambda function has IAM permissions to fetch objects from the S3 bucket—refer to this [AWS re:Post article](https://repost.aws/knowledge-center/lambda-execution-role-s3-bucket) for more information.
 It's possible that the default Lambda execution timeouts are too short for your workflow, consider increasing them. 
 
-```
+```js
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3"; 
 const bucketName = '<Your Bucket Name>';
 
@@ -111,7 +110,7 @@ This examples sends a bounce message if an incoming email fails DMARC authentica
 When using this example, set the value of the `emailDomain` environment variable to your email receiving domain.
 Ensure that the Lambda function has the `ses:SendBounce` permissions for the SES identity that is sending the bounce messages.
 
-```
+```js
 import { SESClient, SendBounceCommand } from "@aws-sdk/client-ses";
 const sesClient = new SESClient();
 // Assign the emailDomain environment variable to a constant.

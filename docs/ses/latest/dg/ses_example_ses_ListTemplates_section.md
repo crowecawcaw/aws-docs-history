@@ -1,7 +1,6 @@
 
 
 # Use `ListTemplates` with an AWS SDK
-<a name="ses_example_ses_ListTemplates_section"></a>
 
 The following code examples show how to use `ListTemplates`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// List email templates for the current account.
     /// </summary>
@@ -44,7 +43,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sesv2.SesV2Client;
 import software.amazon.awssdk.services.sesv2.model.ListEmailTemplatesRequest;
@@ -87,7 +86,7 @@ public class ListTemplates {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
-```
+```javascript
 import { ListTemplatesCommand } from "@aws-sdk/client-ses";
 import { sesClient } from "./libs/sesClient.js";
 
@@ -113,7 +112,7 @@ const run = async () => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
-```
+```python
 class SesTemplate:
     """Encapsulates Amazon SES template functions."""
 
@@ -161,7 +160,7 @@ class SesTemplate:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
-```
+```sap-abap
     TRY.
         DATA(lo_result) = lo_ses->listtemplates( iv_maxitems = iv_max_items ).
         ot_templates = lo_result->get_templatesmetadata( ).

@@ -1,7 +1,6 @@
 
 
 # Monitoring your usage statistics using the Amazon SES API
-<a name="monitor-sending-activity-api"></a>
 
 The Amazon SES API provides the `GetSendStatistics` operation, which returns information about your service usage. We recommend that you check your sending statistics regularly, so that you can make adjustments if needed.
 
@@ -52,7 +51,7 @@ These code examples assume that you have created an AWS shared credentials file 
 ### Calling `GetSendStatistics` using the AWS SDK for Go
 <a name="code-example-getsendstatistics-golang"></a>
 
-```
+```go
  1. package main
  2.     
  3. import (
@@ -105,7 +104,7 @@ These code examples assume that you have created an AWS shared credentials file 
 ### Calling `GetSendStatistics` using the AWS SDK for PHP
 <a name="code-example-getsendstatistics-php"></a>
 
-```
+```php
  1. <?php
  2. 
  3. // Replace path_to_sdk_inclusion with the path to the SDK as described in 
@@ -137,7 +136,7 @@ These code examples assume that you have created an AWS shared credentials file 
 ### Calling `GetSendStatistics` using the AWS SDK for Python (Boto)
 <a name="code-example-getsendstatistics-python"></a>
 
-```
+```py
  1. import boto3 #pip install boto3
  2. import json
  3. from botocore.exceptions import ClientError
@@ -156,7 +155,7 @@ These code examples assume that you have created an AWS shared credentials file 
 ### Calling `GetSendStatistics` using the AWS SDK for Ruby
 <a name="code-example-getsendstatistics-ruby"></a>
 
-```
+```rb
  1. require 'aws-sdk' # gem install aws-sdk
  2. require 'json'
  3. 

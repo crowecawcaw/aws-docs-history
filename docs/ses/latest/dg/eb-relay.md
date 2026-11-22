@@ -1,7 +1,6 @@
 
 
 # SMTP relay
-<a name="eb-relay"></a>
 
 Because Mail Manager is deployed between your email environment (such as Microsoft 365, Google Workspace, or On-Premise Exchange) and the internet, Mail Manager uses SMTP relays to route incoming emails that are processed by Mail Manager to your email environment. It can also route outbound emails to another email infrastructure such as another Exchange server or a third-party email gateway before sending to end recipients.
 

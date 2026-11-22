@@ -1,7 +1,6 @@
 
 
 # Dedicated IP addresses (managed) for Amazon SES
-<a name="managed-dedicated-sending"></a>
 
 *Dedicated IP addresses (managed)* is an Amazon SES feature that automatically sets up and manages dedicated IP addresses on your behalf to provide a quick and easy way to start using dedicated IP addresses that are managed by SES. This helps to ensure that your dedicated IP addresses are used efficiently and optimally for how you send email. 
 

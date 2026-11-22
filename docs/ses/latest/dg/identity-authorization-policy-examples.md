@@ -1,7 +1,6 @@
 
 
 # Identity policy examples in Amazon SES
-<a name="identity-authorization-policy-examples"></a>
 
 Identity authorization enables you to specify the fine-grained conditions under which you allow or deny API actions for an identity.
 
@@ -22,7 +21,7 @@ The following example shows a simple policy that allows AWS ID *123456789012* to
 
 ****  
 
-```
+```json
 {
   "Id":"SampleAuthorizationPolicy",
   "Version":"2012-10-17",		 	 	 
@@ -54,7 +53,7 @@ The following example policy grants permission to two users to control the verif
 
 ****  
 
-```
+```json
 {
   "Id":"ExampleAuthorizationPolicy",
   "Version":"2012-10-17",		 	 	 
@@ -112,7 +111,7 @@ Identity authorization policies also enable you to restrict the principal to jus
 
 ****  
 
-```
+```json
 {
     "Id": "ExamplePolicy",
     "Version":"2012-10-17",		 	 	 
@@ -146,7 +145,7 @@ Your identity authorization policy can include multiple statements. The followin
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[

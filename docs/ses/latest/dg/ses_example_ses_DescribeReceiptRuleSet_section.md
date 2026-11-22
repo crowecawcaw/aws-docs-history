@@ -1,7 +1,6 @@
 
 
 # Use `DescribeReceiptRuleSet` with an AWS SDK
-<a name="ses_example_ses_DescribeReceiptRuleSet_section"></a>
 
 The following code examples show how to use `DescribeReceiptRuleSet`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `DescribeReceiptRuleSet`.
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
-```
+```python
 class SesReceiptHandler:
     """Encapsulates Amazon SES receipt handling functions."""
 
@@ -50,7 +49,7 @@ class SesReceiptHandler:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_ses->describereceiptruleset(
           iv_rulesetname = iv_rule_set_name

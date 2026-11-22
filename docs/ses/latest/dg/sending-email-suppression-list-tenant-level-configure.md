@@ -1,7 +1,6 @@
 
 
 # Configuring tenant-level suppression
-<a name="sending-email-suppression-list-tenant-level-configure"></a>
 
 Configure tenant-level suppression settings to control how Amazon Simple Email Service (Amazon SES) handles bounces and complaints for individual tenants. By default, tenants use your account-level suppression list. When you enable tenant-level suppression, SES maintains a separate suppression list for each tenant. This gives you granular control over email deliverability.
 
@@ -148,7 +147,7 @@ Use the `CreateTenant` API operation with the `SuppressionAttributes` parameter 
 
 1. Verify that the response contains the tenant ID:
 
-   ```
+   ```json
    {
        "TenantId": "tn-abc123def456"
    }
@@ -292,7 +291,7 @@ Use the `GetTenant` API operation to check a tenant's current suppression settin
 
 1. Review the response. The following example shows a tenant with tenant-level suppression enabled:
 
-   ```
+   ```json
    {
        "Tenant": {
            "TenantName": "MyTenant",

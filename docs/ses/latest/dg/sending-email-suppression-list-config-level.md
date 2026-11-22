@@ -1,7 +1,6 @@
 
 
 # Using configuration set-level suppression to override your account-level suppression list
-<a name="sending-email-suppression-list-config-level"></a>
 
 While the account-level suppression list is set for your entire account, you can customize it separately for different configuration sets by overriding it with configuration set-level suppression. This finer granularity allows you to use customized suppression settings for different email sending groups that you've assigned to their own configuration sets. For example, let's say your account-level suppression list is configured for both bounce and complaint addresses to be added, but you have a particular email demographic defined in a configuration set for which you're only interested in complaint addresses being added - you would achieve this by enabling this configuration set's suppression overrides so that email addresses are added to your account-level suppression list just for complaints (not bounces and complaints like is set in your account-level suppression list) from email sent with this configuration set.
 
@@ -35,7 +34,7 @@ Keep in mind that configuration set-level suppression is not an actual suppressi
 
 1. In the **Suppression list options** pane, choose **Edit**.
 
-1. <a name="suppression-list-config-set-level"></a>The **Suppression list options** section provides a decision set to define customized suppression starting with the option to use this configuration set to override your account-level suppression. The [configuration set-level suppression logic map](#sending-email-suppression-list-config-level) will help you understand the effects of the override combinations. These multitiered selections of overrides can be combined to implement three different levels of suppression:
+1. <a name="suppression-list-config-set-level"></a>The **Suppression list options** section provides a decision set to define customized suppression starting with the option to use this configuration set to override your account-level suppression. The [configuration set-level suppression logic map](sending-email-suppression-list-config-level.md) will help you understand the effects of the override combinations. These multitiered selections of overrides can be combined to implement three different levels of suppression:
 
    1. **Use account-level suppression:** Do not override your account-level suppression and do not implement any configuration set-level suppression - basically, any email sent using this configuration set will just use your account-level suppression. To do this:
 

@@ -1,7 +1,6 @@
 
 
 # How email sending works in Amazon SES
-<a name="send-email-concepts-process"></a>
 
 This topic describes what happens when you send an email with SES, and the various outcomes that can occur after the email is sent. The following figure is a high-level overview of the sending process:
 

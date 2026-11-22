@@ -1,7 +1,6 @@
 
 
 # Managing identities in Amazon SES
-<a name="managing-identities"></a>
 
 In the Amazon SES console, you can view your created identities for each AWS Region, open an identity to see and edit its detail settings, associate a default configuration set, or delete one or more identities.
 

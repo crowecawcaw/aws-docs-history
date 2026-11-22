@@ -1,7 +1,6 @@
 
 
 # Examples of event data that Amazon SES publishes to Firehose
-<a name="event-publishing-retrieving-firehose-examples"></a>
 
 This section provides examples of the types of email sending event record that Amazon SES publishes to Firehose.
 
@@ -25,7 +24,7 @@ In the following examples where a `tag` field is utilized, it is using event pub
 
 The following is an example of a `Bounce` event record that Amazon SES publishes to Firehose. 
 
-```
+```json
  1. {
  2.   "eventType":"Bounce",
  3.   "bounce":{
@@ -108,7 +107,7 @@ The following is an example of a `Bounce` event record that Amazon SES publishes
 
 The following is an example of a `Complaint` event record that Amazon SES publishes to Firehose. 
 
-```
+```json
  1. {
  2.   "eventType":"Complaint",
  3.   "complaint": {
@@ -187,7 +186,7 @@ The following is an example of a `Complaint` event record that Amazon SES publis
 
 The following is an example of a `Delivery` event record that Amazon SES publishes to Firehose. 
 
-```
+```json
  1. {
  2.   "eventType": "Delivery",
  3.   "mail": {
@@ -278,7 +277,7 @@ The following is an example of a `Delivery` event record that Amazon SES publish
 
 The following is an example of a `Send` event record that Amazon SES publishes to Firehose. 
 
-```
+```json
  1. {
  2.   "eventType": "Send",
  3.   "mail": {
@@ -357,7 +356,7 @@ The following is an example of a `Send` event record that Amazon SES publishes t
 
 The following is an example of a `Reject` event record that Amazon SES publishes to Firehose. 
 
-```
+```json
  1. {
  2.   "eventType": "Reject",
  3.   "mail": {
@@ -438,7 +437,7 @@ The following is an example of a `Reject` event record that Amazon SES publishes
 
 The following is an example of an `Open` event record that Amazon SES publishes to Firehose. 
 
-```
+```json
  1. {
  2.   "eventType": "Open",
  3.   "mail": {
@@ -525,7 +524,7 @@ The following is an example of an `Open` event record that Amazon SES publishes 
 
 The following is an example of a `Click` event record that Amazon SES publishes to Firehose. 
 
-```
+```json
  1. {
  2.   "eventType": "Click",
  3.   "click": {
@@ -625,7 +624,7 @@ The following is an example of a `Click` event record that Amazon SES publishes 
 
 The following is an example of a `Rendering Failure` event record that Amazon SES publishes to Firehose. 
 
-```
+```json
  1. {
  2.   "eventType":"Rendering Failure",
  3.   "mail":{
@@ -656,7 +655,7 @@ The following is an example of a `Rendering Failure` event record that Amazon SE
 
 The following is an example of a `DeliveryDelay` event record that Amazon SES publishes to Firehose. 
 
-```
+```json
  1. {
  2.   "eventType": "DeliveryDelay",
  3.   "mail":{
@@ -693,7 +692,7 @@ The following is an example of a `DeliveryDelay` event record that Amazon SES pu
 
 The following is an example of a `Subscription` event record that Amazon SES publishes to Firehose. 
 
-```
+```json
  1. {
  2.   "eventType": "Subscription",
  3.   "mail": {

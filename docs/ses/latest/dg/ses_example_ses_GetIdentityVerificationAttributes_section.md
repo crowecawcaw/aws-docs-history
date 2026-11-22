@@ -1,7 +1,6 @@
 
 
 # Use `GetIdentityVerificationAttributes` with an AWS SDK or CLI
-<a name="ses_example_ses_GetIdentityVerificationAttributes_section"></a>
 
 The following code examples show how to use `GetIdentityVerificationAttributes`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get identity verification status for an email.
     /// </summary>
@@ -80,7 +79,7 @@ For more information, see [Verified identities in Amazon SES](https://docs.aws.a
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
-```
+```python
 class SesIdentity:
     """Encapsulates Amazon SES identity functions."""
 
@@ -121,7 +120,7 @@ class SesIdentity:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-ses' # v2: require 'aws-sdk'
 
 # Create client in us-west-2 region
@@ -152,7 +151,7 @@ end
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
-```
+```sap-abap
     DATA lt_identities TYPE /aws1/cl_sesidentitylist_w=>tt_identitylist.
     APPEND NEW /aws1/cl_sesidentitylist_w( iv_value = iv_identity ) TO lt_identities.
 

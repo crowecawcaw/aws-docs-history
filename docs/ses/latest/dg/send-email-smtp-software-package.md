@@ -1,7 +1,6 @@
 
 
 # Sending email through Amazon SES using software packages
-<a name="send-email-smtp-software-package"></a>
 
 There are a number of commercial and open source software packages that support sending email through SMTP. Here are some examples:
 + Blogging platforms
@@ -9,7 +8,10 @@ There are a number of commercial and open source software packages that support 
 + List management software
 + Workflow systems
 
-You can configure any such SMTP-enabled software to send email through the Amazon SES SMTP interface. For instructions on how to configure SMTP for a particular software package, see the documentation for that software.
+You can configure SMTP-enabled software to send email through Amazon SES. Get the endpoint, user name, and password from [Creating SMTP credentials using Mail Manager](smtp-credentials-mail-manager.md) or [Obtaining Amazon SES SMTP credentials using IAM](smtp-credentials.md). For instructions that are specific to your software, see its documentation.
+
+**Important**  
+Do not use your AWS access key ID and secret access key as SMTP credentials. For more information, see [Types of Amazon SES credentials](send-email-concepts-credentials.md).
 
 The following procedure shows how to set up Amazon SES sending in JIRA, a popular issue-tracking solution. With this configuration, JIRA can notify users through email whenever there is a change in the status of a software issue.
 
@@ -34,20 +36,22 @@ The following procedure shows how to set up Amazon SES sending in JIRA, a popula
    1. **Email prefix**—A string that JIRA prepends to each subject line prior to sending.
 
    1. **Protocol**—Choose **SMTP**.
+
+   1. **Hostname**—Enter the endpoint from your SMTP credentials.
+
+   1. **SMTP port**—Enter `25` or `587`.
 **Note**  
-If you can't connect to Amazon SES using this setting, try **SECURE\_SMTP**.
-
-   1. **Hostname**—See [Connecting to an Amazon SES SMTP endpoint](smtp-connect.md) for a list of Amazon SES SMTP endpoints. For example, if you want to use the Amazon SES endpoint in the US West (Oregon) Region, the hostname would be *email-smtp.us-west-2.amazonaws.com*.
-
-   1. **SMTP port**—25, 587, or 2587 (to connect using STARTTLS), or 465 or 2465 (to connect using TLS Wrapper).
+Amazon Elastic Compute Cloud (Amazon EC2) restricts outbound email traffic over port `25` by default. Use port `587` from Amazon EC2 unless you have removed the restriction.
 
    1. **TLS**—Select this check box.
 
-   1. **User name**—Your SMTP user name.
+   1. **User name**—Enter the user name from your SMTP credentials.
 
-   1. **Password**—Your SMTP password.
+   1. **Password**—Enter the password from your SMTP credentials.
+**Credentials using IAM**  
+If JIRA cannot connect with SMTP and STARTTLS, you can select **SECURE\_SMTP**. Use TLS Wrapper on port `465` or `2465`. This option does not apply to Mail Manager SMTP.
 
-   You can see the settings for TLS Wrapper in the following image.  
-![SMTP email configuration for JIRA](https://docs.aws.amazon.com/ses/latest/dg/images/SMTP_jira.png)
+   For credentials using IAM, the following image shows the JIRA settings for TLS Wrapper.  
+![JIRA TLS Wrapper configuration for credentials using IAM](https://docs.aws.amazon.com/ses/latest/dg/images/SMTP_jira.png)
 
 1. Choose **Test Connection**. If the test email that JIRA sends through Amazon SES arrives successfully, then your configuration is complete.

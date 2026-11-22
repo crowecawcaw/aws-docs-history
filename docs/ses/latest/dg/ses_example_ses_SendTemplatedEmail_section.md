@@ -1,7 +1,6 @@
 
 
 # Use `SendTemplatedEmail` with an AWS SDK
-<a name="ses_example_ses_SendTemplatedEmail_section"></a>
 
 The following code examples show how to use `SendTemplatedEmail`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Send an email using a template.
     /// </summary>
@@ -61,7 +60,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples). 
 
-```
+```cpp
 //! Send a templated email to a list of recipients.
 /*!
   \param recipients; Vector of recipient email addresses.
@@ -139,7 +138,7 @@ bool AwsDoc::SES::sendTemplatedEmail(const Aws::Vector<Aws::String> &recipients,
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sesv2.model.Destination;
 import software.amazon.awssdk.services.sesv2.model.EmailContent;
@@ -240,7 +239,7 @@ public class SendEmailTemplate {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
-```
+```javascript
 import { SendTemplatedEmailCommand } from "@aws-sdk/client-ses";
 import {
   getUniqueName,
@@ -305,7 +304,7 @@ const run = async () => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
-```
+```python
 class SesMailSender:
     """Encapsulates functions to send emails with Amazon SES."""
 
@@ -368,7 +367,7 @@ class SesMailSender:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Send templated email
         DATA(lo_result) = lo_ses->sendtemplatedemail(

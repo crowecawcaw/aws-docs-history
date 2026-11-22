@@ -1,7 +1,6 @@
 
 
 # Use `SendBulkEmail` with an AWS SDK
-<a name="sesv2_example_sesv2_SendBulkEmail_section"></a>
 
 The following code examples show how to use `SendBulkEmail`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples). 
 
-```
+```python
 class SESv2Wrapper:
     """Encapsulates Amazon SESv2 email sending actions."""
 
@@ -106,7 +105,7 @@ class SESv2Wrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Build the default template content used for all bulk recipients
         DATA(lo_template) = NEW /aws1/cl_se2template(

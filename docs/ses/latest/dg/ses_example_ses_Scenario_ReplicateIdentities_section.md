@@ -1,7 +1,6 @@
 
 
 # Copy Amazon SES email and domain identities from one AWS Region to another using an AWS SDK
-<a name="ses_example_ses_Scenario_ReplicateIdentities_section"></a>
 
 The following code example shows how to copy Amazon SES email and domain identities from one AWS Region to another. When domain identities are managed by Route 53, verification records are copied to the domain for the destination Region.
 
@@ -11,7 +10,7 @@ The following code example shows how to copy Amazon SES email and domain identit
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
-```
+```python
 import argparse
 import json
 import logging

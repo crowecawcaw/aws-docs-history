@@ -1,7 +1,6 @@
 
 
 # Set up a CloudWatch event destination for event publishing
-<a name="event-publishing-add-event-destination-cloudwatch"></a>
 
 With [Amazon CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html), you can use event destinations to publish Amazon SES email sending events to CloudWatch. Because a CloudWatch event destination can only be set up in a configuration set, you must first [create a configuration set](event-publishing-create-configuration-set.md) and then add the event destination to the configuration set.
 

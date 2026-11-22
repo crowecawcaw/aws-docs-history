@@ -1,7 +1,6 @@
 
 
 # Working with email attachments in SES
-<a name="attachments"></a>
 
 Email attachments in SES are files that you can include with your email messages when using the SES API v2 `SendEmail` and `SendBulkEmail` operations. This feature enables you to enrich your email content by including documents such as PDFs, Word files, images, or other file types that comply with SES supported MIME types. You can also include inline images that render directly in the email content without requiring recipients to download them separately. You can include multiple attachments per email, up to the 40MB total message size limit.
 

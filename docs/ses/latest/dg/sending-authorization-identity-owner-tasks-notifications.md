@@ -1,7 +1,6 @@
 
 
 # Setting up identity owner notifications for Amazon SES sending authorization
-<a name="sending-authorization-identity-owner-tasks-notifications"></a>
 
 If you authorize a delegate sender to send email on your behalf, Amazon SES counts all bounces or complaints that those emails generate toward the delegate sender's bounce and complaint limits, rather than your own. However, if your IP address appears on third-party anti-spam, DNS-based Blackhole Lists (DNSBLs) as a result of messages sent by a delegate sender, the reputation of your identities may be damaged. For this reason, if you're an identity owner, you should set up email feedback forwarding for all your identities, including those that you've authorized for delegate sending. For more information, see [Receiving Amazon SES notifications through email](monitor-sending-activity-using-notifications-email.md).
 

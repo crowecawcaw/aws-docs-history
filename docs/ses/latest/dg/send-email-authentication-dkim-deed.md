@@ -1,7 +1,6 @@
 
 
 # Using Deterministic Easy DKIM (DEED) in Amazon SES
-<a name="send-email-authentication-dkim-deed"></a>
 
 Deterministic Easy DKIM (DEED) offers a solution for managing DKIM configurations across multiple AWS Regions. By simplifying DNS management and ensuring consistent DKIM signing, DEED helps you streamline your multi-region email sending operations while maintaining robust email authentication practices.
 
@@ -147,7 +146,7 @@ The following policy allows DKIM signing key replication from a parent identity 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

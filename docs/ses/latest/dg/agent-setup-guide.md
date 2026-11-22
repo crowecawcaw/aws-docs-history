@@ -1,7 +1,6 @@
 
 
 # Set up an AI coding agent for Amazon SES
-<a name="agent-setup-guide"></a>
 
 Amazon SES publishes the `amazon-ses` skill to help AI coding agents set up and troubleshoot email sending. The AWS MCP Server can provide the current skill when your request needs it.
 
@@ -45,7 +44,7 @@ If Claude Code reports that the plugin was not found, run `/plugin marketplace u
 
 Add the Agent Toolkit marketplace from your terminal:
 
-```
+```bash
 codex plugin marketplace add aws/agent-toolkit-for-aws
 ```
 
@@ -61,7 +60,7 @@ In Cursor, choose *Settings*, *Plugins*, *Team Marketplaces*, *Add Marketplace*,
 
 Kiro uses separate MCP and local skill configurations. Add the AWS MCP Server to `.kiro/settings/mcp.json`. Replace `us-west-2` with the default AWS Region for your operations.
 
-```
+```json
 {
   "mcpServers": {
     "aws": {
@@ -78,7 +77,7 @@ Kiro uses separate MCP and local skill configurations. Add the AWS MCP Server to
 
 From your project root, install the local `amazon-ses` skill and its reference files:
 
-```
+```bash
 npx skills add https://github.com/aws/agent-toolkit-for-aws \
     --skill amazon-ses \
     --agent kiro-cli \
@@ -90,7 +89,7 @@ npx skills add https://github.com/aws/agent-toolkit-for-aws \
 
 If you have AWS Command Line Interface version 2.35.0 or later, run the setup wizard:
 
-```
+```bash
 aws configure agent-toolkit
 ```
 

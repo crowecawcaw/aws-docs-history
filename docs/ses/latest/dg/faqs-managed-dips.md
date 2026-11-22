@@ -1,7 +1,6 @@
 
 
 # Dedicated IP addresses (managed) FAQs
-<a name="faqs-managed-dips"></a>
 
 While [Dedicated IP addresses (managed)](managed-dedicated-sending.md) offers numerous automated features for dedicated IP management, scaling, and warmup, there has been some misunderstanding about the extent of this automation and SES' responsibilities. It would be incorrect to assume that "managed" means SES completely handles all aspects of IP reputation and listing issues. To clarify these misconceptions, we need to emphasize that while the service automates technical aspects like scaling and warmup, you remain responsible for maintaining your sending reputation and managing any reputation related issues such as getting listed in a Reputation Block List (RBL). 
 

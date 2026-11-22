@@ -1,11 +1,10 @@
 
 
 # Creating SMTP credentials using Mail Manager
-<a name="smtp-credentials-mail-manager"></a>
 
 You can use Mail Manager to create SMTP credentials from the SES console. The console creates the supporting Mail Manager resources for you, including a [Traffic policies and policy statements](eb-filters.md), a [Rule sets and rules](eb-rules.md), an IAM role, and an authenticated [Ingress endpoints](eb-ingress.md).
 
-In Regions where both options are available, we recommend using Mail Manager because it's available in all AWS Regions — including opt-in Regions and the European Sovereign Cloud — and the console creates and configures the required resources for you. The IAM user credential flow described in [Obtaining Amazon SES SMTP credentials](smtp-credentials.md) remains available in the Regions where it's currently supported.
+In Regions where both options are available, we recommend using Mail Manager because it's available in all AWS Regions — including opt-in Regions and the European Sovereign Cloud — and the console creates and configures the required resources for you. The IAM user credential flow described in [Obtaining Amazon SES SMTP credentials using IAM](smtp-credentials.md) remains available in the Regions where it's currently supported.
 
 **Region availability**  
 In opt-in Regions and the European Sovereign Cloud, Mail Manager is the only option for creating SMTP credentials. In all other Regions, you can use either Mail Manager (recommended) or the IAM user credential flow.
@@ -33,7 +32,7 @@ Before you create SMTP credentials with Mail Manager, verify that your IAM user 
 
 1. For **Authentication type**, choose one of the following:
    + **SMTP password** – Enter a custom password or choose **Auto-generate** to create one automatically. The password must be 8–64 characters and include at least one uppercase letter, one lowercase letter, one digit, and one special character.
-   + **Secret** – Select an existing secret in AWS Secrets Manager, or create a new secret. The secret must be an **Other type of secret** with a key/value pair in which the key is `password` and the value is your password. For more information about configuring the secret, see [Creating an ingress endpoint in the SES console](eb-ingress.md#eb-ingress-create-console).
+   + **Secret** – Select an existing secret in AWS Secrets Manager, or create a new secret. The secret must be an **Other type of secret** with a key/value pair in which the key is `password` and the value is your password. For more information about configuring the secret, see [Creating and managing ingress points](eb-ingress.md#eb-ingress-create-console).
 
 1. Choose **Create SMTP credentials**. The console creates a traffic policy, rule set, IAM role, and authenticated ingress endpoint with auto-generated names.
 
@@ -46,6 +45,13 @@ You cannot retrieve your password after you leave this page. Download the .csv f
 
 **Note**  
 After you create your credentials, you can change the password or secret at any time on the ingress endpoint details page. For more information, see [Ingress endpoints](eb-ingress.md).
+
+## Connect to Mail Manager SMTP
+<a name="smtp-credentials-mail-manager-connect"></a>
+
+After you create the credentials, configure your SMTP client to connect to the authenticated ingress endpoint. Use the endpoint, user name, and password from the downloaded .csv file. Connect with STARTTLS on port `25` or `587`.
+
+When sending from Amazon Elastic Compute Cloud (Amazon EC2), use port `587` to avoid the default throttle on port `25`. If you must use port `25`, submit a [Request to Remove Email Sending Limitations](https://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/ec2-email-limit-rdns-request). For private connectivity, see [Receiving email through Amazon VPC endpoints](eb-ingress.md#eb-ingress-vpc-endpoint).
 
 ## Advanced settings
 <a name="smtp-credentials-mail-manager-advanced"></a>

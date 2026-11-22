@@ -1,9 +1,8 @@
 
 
 # Dedicated IP addresses for Amazon SES
-<a name="dedicated-ip"></a>
 
-When you create a new Amazon SES account, by default your emails are sent from IP addresses that are shared with other SES users. You can also use dedicated IP addresses that are reserved for your exclusive use by leasing them for [an additional cost](https://aws.amazon.com/ses/pricing). This gives you complete control over your sender reputation and enables you to isolate your reputation for different segments within email programs. Amazon SES offers two ways to provision and manage a dedicated IP address:
+When you create a new Amazon SES account, by default your emails are sent from IP addresses that are [shared with other SES users](shared-ip.md). You can also use dedicated IP addresses that are reserved for your exclusive use by leasing them for [an additional cost](https://aws.amazon.com/ses/pricing). This gives you complete control over your sender reputation and enables you to isolate your reputation for different segments within email programs. Amazon SES offers two ways to provision and manage a dedicated IP address:
 + **Standard**—refers to dedicated IP addresses that you manually set up and manage, including the option to manually warm them up and scale them out, and to manually move them in and out of IP pools. (These were formerly referred to as *dedicated IP addresses* in SES.) 
 + **Managed**—refers to dedicated IP addresses that are automatically set up on your behalf by SES to provide a quick and easy way to start using dedicated IP addresses that are managed by SES; they automatically warm up for each ISP individually and auto-scale based on your sending volume to help ensure that your dedicated IP addresses are used optimally based on how you send email.
 

@@ -1,13 +1,13 @@
 
 
 # Integrating Amazon SES with your existing email server
-<a name="send-email-smtp-existing-server"></a>
 
-If you currently administer your own email server, you can use the Amazon SES SMTP endpoint to send all of your outgoing email to Amazon SES. There is no need to modify your existing email clients and applications; the changeover to Amazon SES will be transparent to them.
+If you administer your own email server, configure it to send outgoing email through Amazon SES. You do not need to modify the email clients or applications that use the server.
 
-Several mail transfer agents (MTAs) support sending email through SMTP relays. This section provides general guidance on how to configure some popular MTAs to send email using Amazon SES SMTP interface.
+Use the SMTP endpoint, user name, and password from [Creating SMTP credentials using Mail Manager](smtp-credentials-mail-manager.md) or [Obtaining Amazon SES SMTP credentials using IAM](smtp-credentials.md). Postfix uses port `587`. Sendmail uses port `25` by default. Windows IIS SMTP supports ports `25` and `587`. Both credential types support these ports with STARTTLS.
 
-The Amazon SES SMTP endpoint requires that all connections be encrypted using Transport Layer Security (TLS).
+**Important**  
+Do not use your AWS access key ID and secret access key as SMTP credentials. For more information, see [Types of Amazon SES credentials](send-email-concepts-credentials.md).
 
 **Topics**
 + [Integrating Amazon SES with Postfix](postfix.md)

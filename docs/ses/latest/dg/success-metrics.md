@@ -1,7 +1,6 @@
 
 
 # Email program success metrics
-<a name="success-metrics"></a>
 
 There are several metrics that help measure the success of your email program.
 

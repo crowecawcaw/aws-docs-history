@@ -1,7 +1,6 @@
 
 
 # Integrating Amazon SES with Microsoft Windows Server IIS SMTP
-<a name="send-email-windows-server"></a>
 
 You can configure Microsoft Windows Server's IIS SMTP server to send email through Amazon SES. These instructions were written using Microsoft Windows Server 2022 on an Amazon EC2 instance. You can use the same configuration on Microsoft Windows Server 2016.
 
@@ -46,9 +45,7 @@ To extend the SMTP relay to private subnets, for **Relay Restriction**, use **Si
 
    1. On the **Delivery** tab, choose **Outbound Security**.
 
-   1. Select **Basic Authentication** and then enter your Amazon SES SMTP credentials. You can obtain these credentials from the Amazon SES console using the procedure in [Obtaining Amazon SES SMTP credentials](smtp-credentials.md).
-**Important**  
-Your SMTP credentials are not the same as your AWS access key ID and secret access key. Do not attempt to use your AWS credentials to authenticate yourself against the SMTP endpoint. For more information about credentials, see [Types of Amazon SES credentials](send-email-concepts-credentials.md).
+   1. Select **Basic Authentication**. Enter the user name and password from your SMTP credentials.
 
    1. Ensure that **TLS encryption** is selected.
 
@@ -56,11 +53,13 @@ Your SMTP credentials are not the same as your AWS access key ID and secret acce
 
    1. Choose **Outbound Connections**.
 
-   1. In the **Outbound Connections** dialog box, ensure that the port is 25 or 587. 
+   1. In the **Outbound Connections** dialog box, set the port to `25` or `587`.
+**Important**  
+Amazon Elastic Compute Cloud (Amazon EC2) restricts outbound email traffic over port `25` by default. Request removal of the restriction, or use port `587`. For more information, see [How do I remove the restriction on port 25 from my Amazon EC2 instance or AWS Lambda function?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-port-25-throttle/) in the AWS Knowledge Center.
 
    1. Choose **Advanced**.
 
-   1. For the **Smart host** name, enter the Amazon SES endpoint that you will use (for example, *email-smtp.us-west-2.amazonaws.com*). For a list of endpoint URLs for the AWS Regions where Amazon SES is available, see [Amazon Simple Email Service (Amazon SES)](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region) in the *AWS General Reference*.
+   1. For the **Smart host** name, enter the endpoint from your SMTP credentials.
 
    1. Return to the Server Manager Dashboard.
 

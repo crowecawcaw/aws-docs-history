@@ -1,7 +1,6 @@
 
 
 # Amazon SES notification problems
-<a name="troubleshoot-notifications"></a>
 
 If you encounter a problem with bounce, complaint, or delivery notifications, review the possible causes and solutions below.
 + **You receive bounce notifications via Amazon SNS, but you don't know which recipients the notifications correspond to**—In the future, to associate a bounce notification with a given recipient, you have the following options:

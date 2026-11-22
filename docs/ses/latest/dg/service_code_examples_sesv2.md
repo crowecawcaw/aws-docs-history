@@ -1,7 +1,6 @@
 
 
 # Code examples for Amazon SES API v2 using AWS SDKs
-<a name="service_code_examples_sesv2"></a>
 
 The following code examples show how to use Amazon SES API v2 with an AWS software development kit (SDK). 
 

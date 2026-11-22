@@ -1,7 +1,6 @@
 
 
 # Enabling S/MIME signing on a configuration set
-<a name="send-email-authentication-smime-enable"></a>
 
 You control S/MIME signing per configuration set. When you enable S/MIME signing on a configuration set, Amazon SES signs messages sent with that configuration set. Amazon SES signs the message only if the resolved email identity has an `ACTIVE` certificate attached for the From address.
 

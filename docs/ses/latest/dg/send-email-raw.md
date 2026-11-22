@@ -1,7 +1,6 @@
 
 
 # Sending raw email using the Amazon SES API v2
-<a name="send-email-raw"></a>
 
 You can use the Amazon SES API v2 `SendEmail` operation with the content type specified as `raw` to send customized messages to your recipients using the raw email format.
 
@@ -176,7 +175,7 @@ The message body must contain a properly formatted, raw email message, with appr
 
 The following code example shows how to use the [JavaMail](https://javaee.github.io/javamail/) library and the [AWS SDK for Java](https://aws.amazon.com/sdk-for-java) to compose and send a raw email.
 
-```
+```java
   1. package com.amazonaws.samples;
   2. 
   3. import java.io.ByteArrayOutputStream;
@@ -339,7 +338,7 @@ The following code example shows how to use the [JavaMail](https://javaee.github
 
 The following code example shows how to use the [Python email.mime](https://docs.python.org/3.8/library/email.mime.html) packages and the [AWS SDK for Python (Boto)](https://aws.amazon.com/sdk-for-python) to compose and send a raw email.
 
-```
+```py
  1. import json
  2. import boto3
  3. from botocore.exceptions import ClientError

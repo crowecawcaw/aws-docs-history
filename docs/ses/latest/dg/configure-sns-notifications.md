@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon SNS notifications for Amazon SES
-<a name="configure-sns-notifications"></a>
 
 Amazon SES can notify you of your bounces, complaints, and deliveries through [Amazon Simple Notification Service (Amazon SNS)](https://aws.amazon.com/sns).
 
@@ -31,7 +30,7 @@ When you create your topic using Amazon SNS, for **Type**, only choose **Standar
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Id": "notification-policy",
@@ -73,7 +72,7 @@ When you create your topic using Amazon SNS, for **Type**, only choose **Standar
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

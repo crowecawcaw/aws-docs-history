@@ -1,7 +1,6 @@
 
 
 # Use `ListContactLists` with an AWS SDK
-<a name="sesv2_example_sesv2_ListContactLists_section"></a>
 
 The following code example shows how to use `ListContactLists`.
 
@@ -11,7 +10,7 @@ The following code example shows how to use `ListContactLists`.
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples). 
 
-```
+```rust
 async fn show_lists(client: &Client) -> Result<(), Error> {
     let resp = client.list_contact_lists().send().await?;
 

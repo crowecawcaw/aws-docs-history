@@ -1,7 +1,6 @@
 
 
 # Monitoring your sending statistics using the Amazon SES console
-<a name="monitor-sending-activity-console"></a>
 
 From the Amazon SES console's **Account dashboard**, **Reputation metrics**, and **SMTP settings** pages, you can monitor all your email sending, usage, statistics, SMTP settings, overall account health, and reputation metrics. The following sections describe the metrics and statistics provided on each of these console pages.
 

@@ -1,7 +1,6 @@
 
 
 # Use `ListIdentities` with an AWS SDK or CLI
-<a name="ses_example_ses_ListIdentities_section"></a>
 
 The following code examples show how to use `ListIdentities`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SES#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get the identities of a specified type for the current account.
     /// </summary>
@@ -50,7 +49,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples). 
 
-```
+```cpp
 //! List the identities associated with this account.
 /*!
   \param identityType: The identity type enum. "NOT_SET" is a valid option.
@@ -128,7 +127,7 @@ For more information, see [Verified identities in Amazon SES](https://docs.aws.a
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.ses.SesClient;
 import software.amazon.awssdk.services.ses.model.ListIdentitiesResponse;
@@ -178,7 +177,7 @@ public class ListIdentities {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
-```
+```javascript
 import { ListIdentitiesCommand } from "@aws-sdk/client-ses";
 import { sesClient } from "./libs/sesClient.js";
 
@@ -204,7 +203,7 @@ const run = async () => {
 **Tools for PowerShell V4**  
 **Example 1: This command returns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.**  
 
-```
+```powershell
 Get-SESIdentity
 ```
 +  For API details, see [ListIdentities](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -212,7 +211,7 @@ Get-SESIdentity
 **Tools for PowerShell V5**  
 **Example 1: This command returns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.**  
 
-```
+```powershell
 Get-SESIdentity
 ```
 +  For API details, see [ListIdentities](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -223,7 +222,7 @@ Get-SESIdentity
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
-```
+```python
 class SesIdentity:
     """Encapsulates Amazon SES identity functions."""
 
@@ -262,7 +261,7 @@ class SesIdentity:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ses/v1#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-ses' # v2: require 'aws-sdk'
 
 # Create client in us-west-2 region
@@ -293,7 +292,7 @@ end
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
-```
+```sap-abap
     TRY.
         DATA(lo_result) = lo_ses->listidentities(
           iv_identitytype = iv_identity_type

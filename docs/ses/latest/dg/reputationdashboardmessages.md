@@ -1,7 +1,6 @@
 
 
 # Reputation metrics messages
-<a name="reputationdashboardmessages"></a>
 
 The Amazon SES Reputation metrics console page provides important metrics related to your account. The following sections describe the messages that might be displayed in this dashboard, and provide tips and information that you might be able to use to resolve issues related to your sender reputation.
 

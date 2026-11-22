@@ -1,7 +1,6 @@
 
 
 # Use `CreateReceiptFilter` with an AWS SDK
-<a name="ses_example_ses_CreateReceiptFilter_section"></a>
 
 The following code examples show how to use `CreateReceiptFilter`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `CreateReceiptFilter`.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples). 
 
-```
+```cpp
 //! Create an Amazon Simple Email Service (Amazon SES) receipt filter..
 /*!
   \param receiptFilterName: The name for the receipt filter.
@@ -54,7 +53,7 @@ bool AwsDoc::SES::createReceiptFilter(const Aws::String &receiptFilterName,
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
-```
+```javascript
 import {
   CreateReceiptFilterCommand,
   ReceiptFilterPolicy,
@@ -107,7 +106,7 @@ const run = async () => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
-```
+```python
 class SesReceiptHandler:
     """Encapsulates Amazon SES receipt handling functions."""
 
@@ -156,7 +155,7 @@ class SesReceiptHandler:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
-```
+```sap-abap
     " iv_allow = abap_true means 'Allow', abap_false means 'Block'
     DATA(lv_policy) = COND /aws1/sesreceiptfilterpolicy(
       WHEN iv_allow = abap_true THEN 'Allow'

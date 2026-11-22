@@ -1,7 +1,6 @@
 
 
 # Invoke Lambda function action
-<a name="receiving-email-action-lambda"></a>
 
 The Lambda action calls your code through a Lambda function and, optionally, notifies you through Amazon SNS. This action has the following options and requirements.
 
@@ -27,7 +26,7 @@ If you want to actually control the mail flow, your Lambda function must be invo
 
 For example, you can stop the receipt rule set by writing the following line at the end of your Lambda function code:
 
-```
+```js
 callback( null, { "disposition" : "STOP_RULE_SET" });
 ```
 
@@ -42,7 +41,7 @@ The data that Amazon SES passes to Lambda includes metadata about the message, a
 
 The following is a high-level view of the structure of the input that Amazon SES provides to the Lambda function.
 
-```
+```js
 {
    "Records": [
       {

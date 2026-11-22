@@ -1,7 +1,6 @@
 
 
 # Virtual Deliverability Manager for Amazon SES
-<a name="vdm"></a>
 
 Deliverability—ensuring your emails reach recipient inboxes instead of spam or junk folders—is a core element of a successful email strategy. *Virtual Deliverability Manager* is an Amazon SES feature that helps you enhance email deliverability by providing insights into your sending and delivery data, and giving advice on how to fix issues that are negatively affecting your delivery success rate and reputation.
 

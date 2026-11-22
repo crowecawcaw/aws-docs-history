@@ -1,7 +1,6 @@
 
 
 # Monitor email sending using Amazon SES event publishing
-<a name="monitor-using-event-publishing"></a>
 
 To enable you to track your email sending at a granular level, you can set up Amazon SES to publish *email sending events* to Amazon CloudWatch, Amazon Data Firehose, Amazon Pinpoint, Amazon Simple Notification Service, or Amazon EventBridge based on characteristics that you define.
 

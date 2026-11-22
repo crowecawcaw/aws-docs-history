@@ -1,7 +1,6 @@
 
 
 # Use `VerifyDomainIdentity` with an AWS SDK or CLI
-<a name="ses_example_ses_VerifyDomainIdentity_section"></a>
 
 The following code examples show how to use `VerifyDomainIdentity`.
 
@@ -37,7 +36,7 @@ To complete domain verification, you must add a TXT record with the returned ver
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
-```
+```javascript
 import { VerifyDomainIdentityCommand } from "@aws-sdk/client-ses";
 import {
   getUniqueName,
@@ -74,7 +73,7 @@ const run = async () => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
-```
+```python
 class SesIdentity:
     """Encapsulates Amazon SES identity functions."""
 
@@ -115,7 +114,7 @@ class SesIdentity:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
-```
+```sap-abap
     TRY.
         DATA(lo_result) = lo_ses->verifydomainidentity( iv_domain = iv_domain_name ).
         ov_token = lo_result->get_verificationtoken( ).

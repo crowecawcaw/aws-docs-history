@@ -1,7 +1,6 @@
 
 
 # Using configuration sets in Amazon SES
-<a name="using-configuration-sets"></a>
 
 Configuration sets are groups of rules that you can apply to your verified identities. A verified identity is a domain, subdomain, or email address you use to send email through Amazon SES. When you apply a configuration set to an email, all of the rules in that configuration set are applied to the email.
 

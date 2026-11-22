@@ -1,7 +1,6 @@
 
 
 # Set up a Data Firehose event destination for Amazon SES event publishing
-<a name="event-publishing-add-event-destination-firehose"></a>
 
 An Amazon Data Firehose event destination represents an entity that publishes specific Amazon SES email sending events to Firehose. Because a Firehose event destination can only be set up in a configuration set, you first have to [create a configuration set](event-publishing-create-configuration-set.md). Next, you add the event destination to the configuration set.
 
@@ -44,7 +43,7 @@ The following permissions policy enables the role to publish data records to you
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -79,7 +78,7 @@ The following trust policy enables Amazon SES to assume the role.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

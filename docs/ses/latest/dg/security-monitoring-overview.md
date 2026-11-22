@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in Amazon SES
-<a name="security-monitoring-overview"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon SES and your AWS solutions. AWS provides tools to help you monitor Amazon SES and respond to potential incidents.
 + *Amazon CloudWatch* monitors your AWS resources and the applications you run on AWS in real time. You can collect and track metrics, create customized dashboards, and set alarms that notify you or take actions when a specified metric reaches a threshold that you specify. For more information, see [Retrieving Amazon SES event data from CloudWatch](event-publishing-retrieving-cloudwatch.md) and [Creating reputation monitoring alarms using CloudWatch](reputationdashboard-cloudwatch-alarm.md).

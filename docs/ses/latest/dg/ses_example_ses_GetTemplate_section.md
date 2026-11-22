@@ -1,7 +1,6 @@
 
 
 # Use `GetTemplate` with an AWS SDK
-<a name="ses_example_ses_GetTemplate_section"></a>
 
 The following code examples show how to use `GetTemplate`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ses#code-examples). 
 
-```
+```cpp
 //! Get a template's attributes.
 /*!
   \param templateName: The name for the template.
@@ -52,7 +51,7 @@ bool AwsDoc::SES::getTemplate(const Aws::String &templateName,
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 
-```
+```javascript
 import { GetTemplateCommand } from "@aws-sdk/client-ses";
 import { getUniqueName } from "@aws-doc-sdk-examples/lib/utils/util-string.js";
 import { sesClient } from "./libs/sesClient.js";
@@ -85,7 +84,7 @@ const run = async () => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ses#code-examples). 
 
-```
+```python
 class SesTemplate:
     """Encapsulates Amazon SES template functions."""
 
@@ -139,7 +138,7 @@ class SesTemplate:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples). 
 
-```
+```sap-abap
     TRY.
         DATA(lo_result) = lo_ses->gettemplate( iv_templatename = iv_template_name ).
         oo_template = lo_result->get_template( ).

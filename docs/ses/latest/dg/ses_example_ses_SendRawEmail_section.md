@@ -1,7 +1,6 @@
 
 
 # Use `SendRawEmail` with an AWS SDK or CLI
-<a name="ses_example_ses_SendRawEmail_section"></a>
 
 The following code examples show how to use `SendRawEmail`.
 
@@ -46,7 +45,7 @@ For more information, see [Sending raw email using the Amazon SES API v2](https:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples). 
 Use [nodemailer](https://nodemailer.com/transports/ses) to send an email with an attachment.  
 
-```
+```javascript
 import sesClientModule from "@aws-sdk/client-ses";
 /**
  * nodemailer wraps the SES SDK and calls SendRawEmail. Use this for more advanced

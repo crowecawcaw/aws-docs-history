@@ -1,7 +1,6 @@
 
 
 # Troubleshooting DKIM problems in Amazon SES
-<a name="troubleshoot-dkim"></a>
 
 This section lists some of the problems that you may encounter when you configure DKIM authentication in Amazon SES. If you attempt to set up DKIM and you encounter problems, review the possible causes and solutions below.
 

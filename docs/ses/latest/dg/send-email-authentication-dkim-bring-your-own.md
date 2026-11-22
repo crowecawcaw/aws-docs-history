@@ -1,7 +1,6 @@
 
 
 # Provide your own DKIM authentication token (BYODKIM) in Amazon SES
-<a name="send-email-authentication-dkim-bring-your-own"></a>
 
 As an alternative to using [Easy DKIM](send-email-authentication-dkim-easy.md), you can instead configure DKIM authentication by using your own public-private key pair. This process is known as *Bring Your Own DKIM* (*BYODKIM*).
 
@@ -115,7 +114,7 @@ To configure a new domain, use the `CreateEmailIdentity` operation in the Amazon
 
 1. In a text editor, paste the following code:
 
-   ```
+   ```json
    {
        "EmailIdentity":"{{example.com}}",
        "DkimSigningAttributes":{
@@ -177,7 +176,7 @@ To configure an existing domain, use the `PutEmailIdentityDkimSigningAttributes`
 
 1. In a text editor, paste the following code:
 
-   ```
+   ```json
    {
        "SigningAttributes":{
            "DomainSigningPrivateKey":"{{privateKey}}",

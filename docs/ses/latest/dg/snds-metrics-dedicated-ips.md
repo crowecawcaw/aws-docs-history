@@ -1,7 +1,6 @@
 
 
 # SNDS metrics for dedicated IPs
-<a name="snds-metrics-dedicated-ips"></a>
 
 You can view Smart Network Data Services (SNDS) data for leased dedicated IP addresses in each AWS Region where you use Amazon SES. This SNDS data is available through the Amazon CloudWatch console.
 

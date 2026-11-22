@@ -1,7 +1,6 @@
 
 
 # Retrieving Amazon SES event data from CloudWatch
-<a name="event-publishing-retrieving-cloudwatch"></a>
 
 Amazon SES can publish metrics for your email sending events to Amazon CloudWatch. When you publish event data to CloudWatch, it provides these metrics as an ordered set of time-series data. You can use these metrics to monitor the performance of your email sending. For example, you can monitor the complaint metric and set a CloudWatch alarm to trigger when the metric exceeds a certain value.
 

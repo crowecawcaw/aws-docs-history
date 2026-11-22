@@ -1,7 +1,6 @@
 
 
 # Verifying your domain for Amazon SES email receiving
-<a name="receiving-email-verification"></a>
 
 As with any domain you want to use for sending or receiving email with Amazon SES, you must first prove that you own it. The verification procedure includes initiating domain verification with SES and then publishing the DNS records, either CNAME or TXT, to your DNS provider depending on which verification method you use.
 

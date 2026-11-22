@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon SES email receiving
-<a name="receiving-email-setting-up"></a>
 
 This section describes the prerequisites that are required before you can begin to configure Amazon SES to receive your mail. It's important that you've read [Email receiving concepts & use cases](receiving-email-concepts.md) to understand the concepts of how Amazon SES works and to consider how you want to receive, filter, and process your email.
 

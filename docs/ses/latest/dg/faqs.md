@@ -1,7 +1,6 @@
 
 
 # Amazon SES frequently asked questions (FAQs)
-<a name="faqs"></a>
 
 This section contains answers to several frequently asked questions related to using Amazon SES. 
 

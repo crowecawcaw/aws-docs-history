@@ -1,7 +1,6 @@
 
 
 # Amazon SES email sending metrics FAQs
-<a name="faqs-metrics"></a>
 
 Amazon SES collects several metrics about the emails you send. These metrics enable you to analyze the effectiveness of your email program and monitor important statistics, such as your bounce and complaint rates.
 
@@ -169,7 +168,7 @@ Issues related to improper encoding typically occur in URLs that contain query s
 
 Yes. Use the `ses:custom-path` attribute on an anchor tag to add a fixed path segment to the click-tracking URL:
 
-```
+```html
 <a href="https://example.com/product" ses:custom-path="myapp">Shop now</a>
 ```
 

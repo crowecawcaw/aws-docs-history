@@ -1,7 +1,6 @@
 
 
 # Create IP address filters console walkthrough
-<a name="receiving-email-ip-filtering-console-walkthrough"></a>
 
 This section will walk you through setting up IP address filters using the Amazon SES console. IP address filtering allows you to provide a broad level of control. These IP filters allow you to explicitly block or allow all messages from specific IP addresses or IP address ranges.
 

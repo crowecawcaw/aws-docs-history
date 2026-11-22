@@ -1,7 +1,6 @@
 
 
 # Creating a shared credentials file to use when sending email through Amazon SES using an AWS SDK
-<a name="create-shared-credentials-file"></a>
 
 The following procedure shows how to create a shared credentials file in your home directory. For the SDK sample code to function properly, you must create this file.
 

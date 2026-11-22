@@ -1,7 +1,6 @@
 
 
 # Receiving Amazon SES notifications using Amazon SNS
-<a name="monitor-sending-activity-using-notifications-sns"></a>
 
 You can configure Amazon SES to notify an Amazon SNS topic when you receive bounces or complaints, or when emails are delivered. Amazon SNS notifications are in [JavaScript Object Notation (JSON)](http://www.json.org) format, which enables you to process them programmatically.
 

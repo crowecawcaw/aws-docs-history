@@ -1,7 +1,6 @@
 
 
 # Using the Amazon SES account-level suppression list
-<a name="sending-email-suppression-list"></a>
 
 The Amazon SES account-level suppression list was introduced so that customers can create and control their own suppression list and manage their reputation, thus, your account-level suppression list applies to your account only. The account-level suppression list interface in the SES console provides an easy way to manage addresses in your account-level suppression list, including bulk actions to add or remove addresses. 
 
@@ -219,7 +218,7 @@ To add email addresses in bulk to your account-level suppression list, complete 
 
   Paste the following policy statement into the key policy to permit SES to use your customer managed key.
 
-  ```
+  ```json
   {
      "Sid": "AllowSESToDecrypt", 
      "Effect": "Allow",
@@ -301,7 +300,7 @@ You can view a list of all of the email addresses that are on your account-level
 
 The preceding command returns all of the email addresses that are in your account-level suppression list for your account. The output resembles the following example:
 
-```
+```json
 {
     "SuppressedDestinationSummaries": [
         {
@@ -457,7 +456,7 @@ To remove email addresses in bulk from your account-level suppression list, comp
 
   Paste the following policy statement into the key policy to permit SES to use your customer managed key.
 
-  ```
+  ```json
   {
      "Sid": "AllowSESToDecrypt", 
      "Effect": "Allow",
@@ -535,7 +534,7 @@ You can view a list of all of the email addresses that are on your account-level
 
 The preceding command returns all of the import jobs for the account. The output resembles the following example:
 
-```
+```json
 {
     "ImportJobs": [
         {
@@ -602,7 +601,7 @@ You can get information about an import job for the account by using the [GetImp
 
 The preceding command returns information about an import job for the account. The output resembles the following example:
 
-```
+```json
 {
     "ImportDataSource": {
         "S3Url": "s3://bucket/object",

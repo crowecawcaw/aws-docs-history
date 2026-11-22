@@ -1,7 +1,6 @@
 
 
 # Creating a sending authorization policy in Amazon SES
-<a name="sending-authorization-identity-owner-tasks-policy"></a>
 
 Similar to creating any authorization policy in Amazon SES, as explained in [Creating an identity authorization policy](identity-authorization-policies-creating.md), to authorize a delegate sender to send emails using an email address or domain (an *identity*) that you own, you create the policy with SES sending API actions specified, and then attach that policy to the identity.
 

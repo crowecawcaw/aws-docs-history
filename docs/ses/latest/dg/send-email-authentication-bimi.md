@@ -1,7 +1,6 @@
 
 
 # Using BIMI in Amazon SES
-<a name="send-email-authentication-bimi"></a>
 
 Brand Indicators for Message Identification (BIMI) is an email specification that enables email inboxes to display a brand’s logo next to the brand’s authenticated email messages within supporting email clients.
 

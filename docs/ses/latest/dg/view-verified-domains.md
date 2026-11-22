@@ -1,7 +1,6 @@
 
 
 # View identities using the SES console
-<a name="view-verified-domains"></a>
 
 You can use the Amazon SES console to view domain and email address identities that are verified or are pending verification. You can also view those identifies for which verification was unsuccessful.
 

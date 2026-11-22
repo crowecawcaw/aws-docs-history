@@ -1,7 +1,6 @@
 
 
 # Step 2: Add an event destination
-<a name="event-publishing-add-event-destination"></a>
 
 Event destinations are places that you publish Amazon SES events to. Each event destination that you set up belongs to one, and only one, configuration set. When you set up an event destination with Amazon SES, you choose the AWS service destination, and you specify parameters associated with that destination. 
 

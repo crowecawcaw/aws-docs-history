@@ -1,7 +1,6 @@
 
 
 # Set up an Amazon Pinpoint event destination for event publishing
-<a name="event-publishing-add-event-destination-pinpoint"></a>
 
 An Amazon Pinpoint event destination notifies you about the email sending events you specify in a configuration set. Because an Amazon Pinpoint event destination can only be set up in a configuration set, you have to [create a configuration set](event-publishing-create-configuration-set.md) before you add the event destination to the configuration set.
 

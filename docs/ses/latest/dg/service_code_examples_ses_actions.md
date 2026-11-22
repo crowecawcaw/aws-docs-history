@@ -1,7 +1,6 @@
 
 
 # Actions for Amazon SES using AWS SDKs
-<a name="service_code_examples_ses_actions"></a>
 
 The following code examples demonstrate how to perform individual Amazon SES actions with AWS SDKs. Each example includes a link to GitHub, where you can find instructions for setting up and running the code. 
 

@@ -1,7 +1,6 @@
 
 
 # Sending test emails in Amazon SES with the simulator
-<a name="send-an-email-from-console"></a>
 
 We recommend using the Amazon SES console to send a test email with Amazon SES. Because the console requires you to manually enter information, you typically only use it to send test emails. After you get started with Amazon SES, you will most likely send your emails by using either the Amazon SES SMTP interface or API. However,the console is useful for monitoring your sending activity.
 
@@ -17,7 +16,7 @@ In this tutorial, you send an email to yourself from the console so that you can
 Emails that you send to the mailbox simulator do not count toward your sending quota or your bounce and complaint rates, nor do they affect Virtual Deliverability Manager metrics.
  
 
-Before you follow these steps, complete the tasks in [Setting up Amazon Simple Email Service](setting-up.md).
+Before you follow these steps, complete the tasks in [Getting started with sending email](getting-started-sending.md).
 
 **To send a test email message from the Amazon SES console**
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring your Amazon SES sending activity
-<a name="monitor-sending-activity"></a>
 
 Amazon SES provides methods to monitor your sending activity using events, metrics, and statistics. An event is something that happens related to your sending activity that you’ve specified to be tracked as a metric. A metric represents a time-ordered set of data points representing the values of a monitored event type producing statistics. Statistics are metric data aggregations for a specified period of time including up to the present. 
 

@@ -1,7 +1,6 @@
 
 
 # Creating reputation monitoring alarms using CloudWatch
-<a name="reputationdashboard-cloudwatch-alarm"></a>
 
 Amazon SES automatically publishes a series of reputation-related metrics to Amazon CloudWatch. You can use these metrics to create alarms that notify you when your bounce or complaint rates reach levels that could impact your account's ability to send email.
 

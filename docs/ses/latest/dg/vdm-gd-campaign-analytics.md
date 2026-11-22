@@ -1,7 +1,6 @@
 
 
 # Campaign analytics
-<a name="vdm-gd-campaign-analytics"></a>
 
 Campaign analytics surfaces per-campaign deliverability and engagement metrics based on a representative sample of emails sent from your monitored domains, across every provider your domains send through—not just Amazon SES. Use campaign analytics to pinpoint which campaigns are performing well and where to make improvements.
 

@@ -1,7 +1,6 @@
 
 
 # Sample incoming email event
-<a name="receiving-email-action-lambda-event"></a>
 
 There are two ways to send incoming email events to a Lambda function. The first method is to use a Lambda action in your receipt rule to send the event record directly to the function. The second method is to use an Amazon SNS action in your receipt rule to send the event records to Amazon SNS, and then add the Lambda function as a subscribing endpoint to the Amazon SNS topic.
 
@@ -17,7 +16,7 @@ When you add a Lambda action to a receipt rule, Amazon SES sends an event record
 
 The following example shows the values that these event records typically contain.
 
-```
+```json
 {
   "Records": [{
     "eventSource": "aws:ses",
@@ -210,7 +209,7 @@ The `Message` attribute contains a JSON-encoded string. This string contains the
 
 The following example shows the values that are contained in the `Message` attribute.
 
-```
+```json
 {
   "notificationType": "Received",
   "mail": {

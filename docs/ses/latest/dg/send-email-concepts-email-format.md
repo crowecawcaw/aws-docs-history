@@ -1,7 +1,6 @@
 
 
 # Email format in Amazon SES
-<a name="send-email-concepts-email-format"></a>
 
 When a client makes a request to Amazon SES, Amazon SES constructs an email message compliant with the Internet Message Format specification ([RFC 5322](https://www.ietf.org/rfc/rfc5322.txt)). An email consists of a *header*, a *body*, and an *envelope*, as described below.
 + **Header—**Contains routing instructions and information about the message. Examples are the sender's address, the recipient's address, the subject, and the date. The header is analogous to the information at the top of a postal letter, though it can contain many other types of information, such as the format of the message. 
@@ -80,7 +79,7 @@ For more information about sending email using the Amazon SES API, see [Using th
 
 When you access Amazon SES through the SMTP interface, your SMTP client application assembles the message, so the information you need to provide depends on the application you are using. At a minimum, the SMTP exchange between a client and a server requires a source address, a destination address, and message data. 
 
-For more information about sending email using the Amazon SES SMTP interface, see [Using the Amazon SES SMTP interface to send email](send-email-smtp.md).
+For more information about sending email using the Amazon SES SMTP interface, see [Using SMTP to send email](send-email-smtp.md).
 
 ### Amazon SES console
 <a name="send-email-concepts-email-required-information-console"></a>

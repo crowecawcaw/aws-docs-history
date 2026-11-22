@@ -1,7 +1,6 @@
 
 
 # Virtual Deliverability Manager settings
-<a name="vdm-settings"></a>
 
 The Virtual Deliverability Manager Settings page provides controls for both SES deliverability and global deliverability. You can view or change settings at any time using the Amazon SES console or the AWS CLI.
 

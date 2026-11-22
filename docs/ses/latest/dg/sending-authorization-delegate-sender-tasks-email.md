@@ -1,7 +1,6 @@
 
 
 # Sending emails for the identity owner for Amazon SES sending authorization
-<a name="sending-authorization-delegate-sender-tasks-email"></a>
 
 As a delegate sender, you send emails the same way that other Amazon SES senders do, except that you provide the Amazon Resource Name (ARN) of the identity that the identity owner has authorized you to use. When you call Amazon SES to send the email, Amazon SES checks to see if the identity that you specified has a policy that authorizes you to send for it.
 
@@ -98,7 +97,7 @@ If you use the `SendEmail` or `SendTemplatedEmail` operation, you can specify th
 
 The following example shows how to send an email that includes the `SourceArn` and `ReturnPathArn` attributes using either the `SendEmail` or `SendTemplatedEmail` operation and the [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python).
 
-```
+```py
 import boto3
 from botocore.exceptions import ClientError
 

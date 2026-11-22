@@ -1,7 +1,6 @@
 
 
 # Use `GetSendStatistics` with a CLI
-<a name="ses_example_ses_GetSendStatistics_section"></a>
 
 The following code examples show how to use `GetSendStatistics`.
 
@@ -48,7 +47,7 @@ For more information, see [Monitoring your Amazon SES sending activity](https://
 **Tools for PowerShell V4**  
 **Example 1: This command returns the user's sending statistics. The result is a list of data points, representing the last two weeks of sending activity. Each data point in the list contains statistics for a 15-minute interval.**  
 
-```
+```powershell
 Get-SESSendStatistic
 ```
 +  For API details, see [GetSendStatistics](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -56,7 +55,7 @@ Get-SESSendStatistic
 **Tools for PowerShell V5**  
 **Example 1: This command returns the user's sending statistics. The result is a list of data points, representing the last two weeks of sending activity. Each data point in the list contains statistics for a 15-minute interval.**  
 
-```
+```powershell
 Get-SESSendStatistic
 ```
 +  For API details, see [GetSendStatistics](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

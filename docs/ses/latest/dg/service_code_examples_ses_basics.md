@@ -1,7 +1,6 @@
 
 
 # Basic examples for Amazon SES using AWS SDKs
-<a name="service_code_examples_ses_basics"></a>
 
 The following code examples show how to use the basics of Amazon Simple Email Service with AWS SDKs. 
 

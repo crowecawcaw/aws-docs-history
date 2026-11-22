@@ -1,7 +1,6 @@
 
 
 # Use `ListContacts` with an AWS SDK
-<a name="sesv2_example_sesv2_ListContacts_section"></a>
 
 The following code examples show how to use `ListContacts`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SESv2#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Lists the contacts in the specified contact list.
     /// </summary>
@@ -58,7 +57,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#code-examples). 
 
-```
+```java
       ListContactsRequest contactListRequest = ListContactsRequest.builder()
           .contactListName(CONTACT_LIST_NAME)
           .build();
@@ -83,7 +82,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples). 
 
-```
+```python
 def main():
     """
     The main function that orchestrates the execution of the workflow.
@@ -131,7 +130,7 @@ class SESv2Workflow:
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ses#code-examples). 
 
-```
+```rust
 async fn show_contacts(client: &Client, list: &str) -> Result<(), Error> {
     let resp = client
         .list_contacts()
@@ -156,7 +155,7 @@ async fn show_contacts(client: &Client, list: &str) -> Result<(), Error> {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_se2->listcontacts(
           iv_contactlistname = iv_contact_list_name ).

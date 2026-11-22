@@ -1,7 +1,6 @@
 
 
 # Using configuration overrides in Amazon SES
-<a name="configuration-overrides"></a>
 
 Most settings that control how Amazon SES processes your email are defined before you send it, at the account level or in a configuration set. That works well for settings that are stable across a mail stream, but not for settings that change from one recipient to the next. For example, tracking consent is one such setting: whether a recipient has agreed to open and click tracking is a decision that belongs to the recipient, not to your account.
 
@@ -65,7 +64,7 @@ If a principal is allowed to send but not allowed to apply tracking overrides, S
 
 The following policy allows a principal to send email and to apply any tracking override:
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -105,7 +104,7 @@ To allow some tracking overrides but not others, use the following condition key
 
 The following policy allows a principal to disable tracking, but not enable it:
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -130,7 +129,7 @@ Only the tracking values that a request actually supplies are present in the req
 
 The following statements deny enabling either tracking type, while still allowing a request to override one tracking type on its own. Because each key is always either `ENABLED` or `DISABLED`, matching `ENABLED` is enough to deny enabling tracking. Grant the sending permissions separately, scoped to the identity and configuration set that the request uses, as shown in the previous policy example:
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -173,7 +172,7 @@ Each tracking type needs its own statement, because multiple keys in a single co
 
 To match on whether an override is present in the request at all, use the `Null` condition operator. A value of `false` means "the key is present in the request." The following statement grants the override action only to requests that state an open tracking preference explicitly:
 
-```
+```json
 {
   "Sid": "AllowTrackingOverridesOnlyWhenOpenTrackingIsSpecified",
   "Effect": "Allow",

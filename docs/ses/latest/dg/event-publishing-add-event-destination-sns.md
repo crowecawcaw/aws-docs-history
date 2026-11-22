@@ -1,7 +1,6 @@
 
 
 # Set up an Amazon SNS event destination for event publishing
-<a name="event-publishing-add-event-destination-sns"></a>
 
 An Amazon SNS event destination notifies you about the email sending events you specify in a configuration set. Because an Amazon SNS event destination can only be set up in a configuration set, you have to [create a configuration set](event-publishing-create-configuration-set.md) before you add the event destination to the configuration set.
 
@@ -41,7 +40,7 @@ When you create your topic using Amazon SNS, for **Type**, only choose **Standar
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Id": "notification-policy",

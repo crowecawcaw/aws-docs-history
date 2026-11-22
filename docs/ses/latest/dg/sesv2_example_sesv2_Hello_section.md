@@ -1,7 +1,6 @@
 
 
 # Hello Amazon SES API v2
-<a name="sesv2_example_sesv2_Hello_section"></a>
 
 The following code example shows how to get started using Amazon SES API v2.
 
@@ -11,7 +10,7 @@ The following code example shows how to get started using Amazon SES API v2.
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples). 
 
-```
+```python
 def hello_sesv2(sesv2_client):
     """
     Use the AWS SDK for Python (Boto3) to create an Amazon SESv2 client and

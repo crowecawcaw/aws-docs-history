@@ -1,7 +1,6 @@
 
 
 # Domain and Email address verification problems
-<a name="troubleshoot-verification"></a>
 
 To verify a domain or an email address with Amazon SES, you initiate the process using either the Amazon SES console or the Amazon SES API. This section contains information that may help resolve issues with the verification process.
 

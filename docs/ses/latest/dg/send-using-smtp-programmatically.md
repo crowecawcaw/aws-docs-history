@@ -1,23 +1,24 @@
 
 
-# Sending emails programmatically through the Amazon SES SMTP interface
-<a name="send-using-smtp-programmatically"></a>
+# Sending emails programmatically over SMTP
 
-To send an email using the Amazon SES SMTP interface, you can use an SMTP-enabled programming language, email server, or application. Before you start, complete the tasks in [Setting up Amazon Simple Email Service](setting-up.md). You also need to get the following information: 
-+ Your Amazon SES SMTP credentials, which enable you to connect to the Amazon SES SMTP endpoint. To get your Amazon SES SMTP credentials, see [Obtaining Amazon SES SMTP credentials](smtp-credentials.md). 
+Use an SMTP-enabled programming language or application to send email through Amazon SES. Before you start, complete the tasks in [Getting started with sending email](getting-started-sending.md).
+
+Get the SMTP endpoint, user name, and password from one of the following credential topics:
++ [Creating SMTP credentials using Mail Manager](smtp-credentials-mail-manager.md) (recommended)
++ [Obtaining Amazon SES SMTP credentials using IAM](smtp-credentials.md)
+
+The examples use STARTTLS on port `587`, which both SMTP options support. For other settings, see [Choose SMTP connection settings](smtp-connect.md).
+
 **Important**  
-Your SMTP credentials are different from your AWS credentials. For more information about credentials, see [Types of Amazon SES credentials](send-email-concepts-credentials.md).
-+ The SMTP endpoint address. For a list of Amazon SES SMTP endpoints, see [Connecting to an Amazon SES SMTP endpoint](smtp-connect.md).
-+ The Amazon SES SMTP interface port number, which depends on the connection method. For more information, see [Connecting to an Amazon SES SMTP endpoint](smtp-connect.md).
+Do not use your AWS access key ID and secret access key as SMTP credentials. For more information, see [Types of Amazon SES credentials](send-email-concepts-credentials.md).
 
 ## Code examples
 <a name="send-email-smtp-code-examples"></a>
 
-You can access the Amazon SES SMTP interface by using an SMTP-enabled programming language. You provide the Amazon SES SMTP hostname and port number along with your SMTP credentials and then use the programming language's generic SMTP functions to send the email.
+Provide the SMTP endpoint, port, user name, and password to your programming language's SMTP library. The library connects and sends the email.
 
-Amazon Elastic Compute Cloud (Amazon EC2) restricts email traffic over port 25 by default. To avoid timeouts when sending email through the SMTP endpoint from Amazon EC2, you can request that these restrictions be removed. For more information, see [How do I remove the restriction on port 25 from my Amazon EC2 instance or AWS Lambda function?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-port-25-throttle/) in the AWS Knowledge Center.
-
-The code examples in this section for Java and PHP use port 587 to avoid this issue. 
+Amazon Elastic Compute Cloud (Amazon EC2) restricts email traffic over port `25` by default. To avoid timeouts, request removal of the restriction or use port `587`. For more information, see [How do I remove the restriction on port 25 from my Amazon EC2 instance or AWS Lambda function?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-port-25-throttle/) in the AWS Knowledge Center.
 
 **Note**  
 In these tutorials, you send an email to yourself so that you can check to see if you received it. For further experimentation or load testing, use the Amazon SES mailbox simulator. Emails that you send to the mailbox simulator do not count toward your sending quota or your bounce and complaint rates. For more information, see [Using the mailbox simulator manually](send-an-email-from-console.md#send-email-simulator).
@@ -25,16 +26,16 @@ In these tutorials, you send an email to yourself so that you can check to see i
 **Select a programing language to view the example for that language:**
 
 **Warning**  
-Amazon SES does not recommend using static credentials. Refer to [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) to learn how to improve your security posture by removing hard-coded credentials from your source code. This tutorial is only provided for the purpose of testing the Amazon SES SMTP interface in a non-production environment.
+Do not store SMTP credentials in your source code. Use secure storage such as [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). These examples are for testing in a non-production environment.
 
 ------
 #### [ Java ]
 
-This example uses the [Eclipse IDE](http://www.eclipse.org/) and the [JavaMail API](https://github.com/javaee/javamail/releases) to send email through Amazon SES using the SMTP interface.
+This example uses the [Eclipse IDE](http://www.eclipse.org/) and the [JavaMail API](https://github.com/javaee/javamail/releases) to send email through Amazon SES over SMTP.
 
-Before you perform the following procedure, complete the tasks in [Setting up Amazon Simple Email Service](setting-up.md).
+Before you perform the following procedure, complete the tasks in [Getting started with sending email](getting-started-sending.md).
 
-**To send an email using the Amazon SES SMTP interface with Java**
+**To send an email over SMTP with Java**
 
 1. In a web browser, go to the [JavaMail GitHub page](https://github.com/javaee/javamail/releases). Under **Assets**, choose **javax.mail.jar** to download the latest version of JavaMail.
 **Important**  
@@ -68,109 +69,104 @@ This tutorial requires JavaMail version 1.5 or later. These procedures were test
 
 1. Replace the entire contents of **AmazonSESSample.java** with the following code:
 
-   ```
-     1. import java.util.Properties;
-     2. 
-     3. import javax.mail.Message;
-     4. import javax.mail.Session;
-     5. import javax.mail.Transport;
-     6. import javax.mail.internet.InternetAddress;
-     7. import javax.mail.internet.MimeMessage;
-     8. 
-     9. public class AmazonSESSample {
-    10. 
-    11.     // Replace sender@example.com with your "From" address.
-    12.     // This address must be verified.
-    13.     static final String FROM = "sender@example.com";
-    14.     static final String FROMNAME = "Sender Name";
-    15.     
-    16.     // Replace recipient@example.com with a "To" address. If your account 
-    17.     // is still in the sandbox, this address must be verified.
-    18.     static final String TO = "recipient@example.com";
-    19.     
-    20.     // Replace smtp_username with your Amazon SES SMTP user name.
-    21.     static final String SMTP_USERNAME = "smtp_username";
-    22.       
-    23.     // The name of the Configuration Set to use for this message.
-    24.     // If you comment out or remove this variable, you will also need to
-    25.     // comment out or remove the header below.
-    26.     static final String CONFIGSET = "ConfigSet";
-    27.     
-    28.     // Amazon SES SMTP host name. This example uses the US West (Oregon) region.
-    29.     // See https://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html#region-endpoints
-    30.     // for more information.
-    31.     static final String HOST = "email-smtp.us-west-2.amazonaws.com";
-    32.     
-    33.     // The port you will connect to on the Amazon SES SMTP endpoint. 
-    34.     static final int PORT = 587;
-    35.     
-    36.     static final String SUBJECT = "Amazon SES test (SMTP interface accessed using Java)";
-    37.     
-    38.     static final String BODY = String.join(
-    39.             System.getProperty("line.separator"),
-    40.             "<h1>Amazon SES SMTP Email Test</h1>",
-    41.             "<p>This email was sent with Amazon SES using the ", 
-    42.             "<a href='https://github.com/javaee/javamail'>Javamail Package</a>",
-    43.             " for <a href='https://www.java.com'>Java</a>."
-    44.         );
-    45. 
-    46.     public static void main(String[] args) throws Exception {
-    47. 
-    48.         // Create a Properties object to contain connection configuration information.
-    49.         Properties props = System.getProperties();
-    50.         props.put("mail.transport.protocol", "smtp");
-    51.         props.put("mail.smtp.port", PORT); 
-    52.         props.put("mail.smtp.starttls.enable", "true");
-    53.         props.put("mail.smtp.auth", "true");
-    54. 
-    55.         // Create a Session object to represent a mail session with the specified properties. 
-    56.         Session session = Session.getDefaultInstance(props);
-    57. 
-    58.         // Create a message with the specified information. 
-    59.         MimeMessage msg = new MimeMessage(session);
-    60.         msg.setFrom(new InternetAddress(FROM,FROMNAME));
-    61.         msg.setRecipient(Message.RecipientType.TO, new InternetAddress(TO));
-    62.         msg.setSubject(SUBJECT);
-    63.         msg.setContent(BODY,"text/html");
-    64.         
-    65.         // Add a configuration set header. Comment or delete the 
-    66.         // next line if you are not using a configuration set
-    67.         msg.setHeader("X-SES-CONFIGURATION-SET", CONFIGSET);
-    68.             
-    69.         // Create a transport.
-    70.         Transport transport = session.getTransport();
-    71. 
-    72.         // Get the password 
-    73.         String SMTP_PASSWORD = fetchSMTPPasswordFromSecureStorage();
-    74.                     
-    75.         // Send the message.
-    76.         try
-    77.         {
-    78.             System.out.println("Sending...");
-    79.             
-    80.             // Connect to Amazon SES using the SMTP username and password you specified above.
-    81.             transport.connect(HOST, SMTP_USERNAME, SMTP_PASSWORD);
-    82.             
-    83.             // Send the email.
-    84.             transport.sendMessage(msg, msg.getAllRecipients());
-    85.             System.out.println("Email sent!");
-    86.         }
-    87.         catch (Exception ex) {
-    88.             System.out.println("The email was not sent.");
-    89.             System.out.println("Error message: " + ex.getMessage());
-    90.         }
-    91.         finally
-    92.         {
-    93.             // Close and terminate the connection.
-    94.             transport.close();
-    95.         }
-    96.     }
-    97. 
-    98.     static String fetchSMTPPasswordFromSecureStorage() {
-    99.         /* IMPLEMENT THIS METHOD */
-   100.         // For example, you might fetch it from a secure location or AWS Secrets Manager: https://aws.amazon.com/secrets-manager/
-   101.     }
-   102. }
+   ```java
+    1. import java.util.Properties;
+    2. 
+    3. import javax.mail.Message;
+    4. import javax.mail.Session;
+    5. import javax.mail.Transport;
+    6. import javax.mail.internet.InternetAddress;
+    7. import javax.mail.internet.MimeMessage;
+    8. 
+    9. public class AmazonSESSample {
+   10. 
+   11.     // Replace sender@example.com with your "From" address.
+   12.     // This address must be verified.
+   13.     static final String FROM = "sender@example.com";
+   14.     static final String FROMNAME = "Sender Name";
+   15.     
+   16.     // Replace recipient@example.com with a "To" address. If your account 
+   17.     // is still in the sandbox, this address must be verified.
+   18.     static final String TO = "recipient@example.com";
+   19.     
+   20.     // Replace smtp_username with the user name from your SMTP credentials.
+   21.     static final String SMTP_USERNAME = "smtp_username";
+   22. 
+   23.     // The name of the configuration set to use for this message.
+   24.     static final String CONFIGURATION_SET = "ConfigSet";
+   25.     
+   26.     // Replace smtp_endpoint with the endpoint from your SMTP credentials.
+   27.     static final String HOST = "smtp_endpoint";
+   28.     
+   29.     // Both SMTP credential types support STARTTLS on port 587.
+   30.     static final int PORT = 587;
+   31.     
+   32.     static final String SUBJECT = "Amazon SES test email sent over SMTP";
+   33.     
+   34.     static final String BODY = String.join(
+   35.             System.getProperty("line.separator"),
+   36.             "<h1>Amazon SES SMTP Email Test</h1>",
+   37.             "<p>This email was sent with Amazon SES using the ", 
+   38.             "<a href='https://github.com/javaee/javamail'>Javamail Package</a>",
+   39.             " for <a href='https://www.java.com'>Java</a>."
+   40.         );
+   41. 
+   42.     public static void main(String[] args) throws Exception {
+   43. 
+   44.         // Create a Properties object to contain connection configuration information.
+   45.         Properties props = System.getProperties();
+   46.         props.put("mail.transport.protocol", "smtp");
+   47.         props.put("mail.smtp.port", PORT); 
+   48.         props.put("mail.smtp.starttls.enable", "true");
+   49.         props.put("mail.smtp.auth", "true");
+   50. 
+   51.         // Create a Session object to represent a mail session with the specified properties. 
+   52.         Session session = Session.getDefaultInstance(props);
+   53. 
+   54.         // Create a message with the specified information. 
+   55.         MimeMessage msg = new MimeMessage(session);
+   56.         msg.setFrom(new InternetAddress(FROM,FROMNAME));
+   57.         msg.setRecipient(Message.RecipientType.TO, new InternetAddress(TO));
+   58.         msg.setSubject(SUBJECT);
+   59.         msg.setContent(BODY,"text/html");
+   60. 
+   61.         // Add the configuration set header.
+   62.         msg.setHeader("X-SES-CONFIGURATION-SET", CONFIGURATION_SET);
+   63.             
+   64.         // Create a transport.
+   65.         Transport transport = session.getTransport();
+   66. 
+   67.         // Get the password 
+   68.         String SMTP_PASSWORD = fetchSMTPPasswordFromSecureStorage();
+   69.                     
+   70.         // Send the message.
+   71.         try
+   72.         {
+   73.             System.out.println("Sending...");
+   74.             
+   75.             // Connect using the SMTP endpoint, user name, and password specified above.
+   76.             transport.connect(HOST, SMTP_USERNAME, SMTP_PASSWORD);
+   77.             
+   78.             // Send the email.
+   79.             transport.sendMessage(msg, msg.getAllRecipients());
+   80.             System.out.println("Email sent!");
+   81.         }
+   82.         catch (Exception ex) {
+   83.             System.out.println("The email was not sent.");
+   84.             System.out.println("Error message: " + ex.getMessage());
+   85.         }
+   86.         finally
+   87.         {
+   88.             // Close and terminate the connection.
+   89.             transport.close();
+   90.         }
+   91.     }
+   92. 
+   93.     static String fetchSMTPPasswordFromSecureStorage() {
+   94.         /* IMPLEMENT THIS METHOD */
+   95.         // For example, you might fetch it from a secure location or AWS Secrets Manager: https://aws.amazon.com/secrets-manager/
+   96.     }
+   97. }
    ```
 
 1. In **AmazonSESSample.java**, replace the following email addresses with your own values:
@@ -180,12 +176,12 @@ The email addresses are case-sensitive. Make sure that the addresses are exactly
    + {{recipient@example.com}} – Replace with your "To" email address. If your account is still in the sandbox, you must verify this address before you use it. For more information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md).
 
 1. In **AmazonSESSample.java** replace the following with your own values:
-   + {{smtp\_username}} – Replace with your SMTP user name credential. Note that your SMTP user name credential is a 20-character string of letters and numbers, not an intelligible name.
+   + {{smtp\_username}} – Replace with the user name from your SMTP credentials.
    + {{smtp\_password}} – Implement ``fetchSMTPPasswordFromSecureStorage`` to fetch the password.
 
-1. (Optional) If you want to use an Amazon SES SMTP endpoint in an AWS Region other than {{email-smtp.us-west-2.amazonaws.com}}, change the value of the variable `HOST` to the endpoint you want to use. For a list of regions where Amazon SES is available, see [Amazon Simple Email Service (Amazon SES)](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region) in the *AWS General Reference*.
+1. Replace {{smtp\_endpoint}} with the endpoint from your SMTP credentials.
 
-1. (Optional) If you want to use a configuration set when sending this email, change the value of the variable {{ConfigSet}} to the name of the configuration set. For more information about configuration sets, see [Using configuration sets in Amazon SES](using-configuration-sets.md).
+1. (Optional) To use a configuration set, set `CONFIGURATION_SET` to its name. For more information, see [Specifying a configuration set when you send email](using-configuration-sets-in-email.md).
 
 1. Save **AmazonSESSample.java**.
 
@@ -200,9 +196,9 @@ The email addresses are case-sensitive. Make sure that the addresses are exactly
 ------
 #### [ PHP  ]
 
-This example uses the PHPMailer class to send email through Amazon SES using the SMTP interface. 
+This example uses the PHPMailer class to send email through Amazon SES over SMTP.
 
-Before you perform the following procedure you must complete the tasks in [Setting up Amazon Simple Email Service](setting-up.md). In addition to setting up Amazon SES you must complete the following prerequisites to sending email with PHP:
+Before you perform the following procedure you must complete the tasks in [Getting started with sending email](getting-started-sending.md). In addition to setting up Amazon SES you must complete the following prerequisites to sending email with PHP:
 
 **Prerequisites:**
 + **Install PHP** – PHP is available at [http://php.net/downloads.php](https://php.net/downloads.php). After you install PHP, add the path to PHP in your environment variables so that you can run PHP from any command prompt.
@@ -215,11 +211,11 @@ Before you perform the following procedure you must complete the tasks in [Setti
 
   In the preceding command, replace {{path/to/}} with the path where you installed Composer.
 
-**To send an email using the Amazon SES SMTP interface with PHP**
+**To send an email over SMTP with PHP**
 
 1. Create a file named **amazon-ses-smtp-sample.php**. Open the file with a text editor and paste in the following code:
 
-   ```
+   ```php
     1. <?php
     2. 
     3. // Import PHPMailer classes into the global namespace
@@ -240,78 +236,79 @@ Before you perform the following procedure you must complete the tasks in [Setti
    18. // is still in the sandbox, this address must be verified.
    19. $recipient = 'recipient@example.com';
    20. 
-   21. // Replace smtp_username with your Amazon SES SMTP user name.
+   21. // Replace smtp_username with the user name from your SMTP credentials.
    22. $usernameSmtp = 'smtp_username';
    23. 
-   24. // Specify a configuration set. If you do not want to use a configuration
-   25. // set, comment or remove the next line.
-   26. $configurationSet = 'ConfigSet';
-   27. 
-   28. // If you're using Amazon SES in a region other than US West (Oregon),
-   29. // replace email-smtp.us-west-2.amazonaws.com with the Amazon SES SMTP
-   30. // endpoint in the appropriate region.
-   31. $host = 'email-smtp.us-west-2.amazonaws.com';
-   32. $port = 587;
-   33. 
-   34. // The subject line of the email
-   35. $subject = 'Amazon SES test (SMTP interface accessed using PHP)';
-   36. 
-   37. // The plain-text body of the email
-   38. $bodyText =  "Email Test\r\nThis email was sent through the
-   39.     Amazon SES SMTP interface using the PHPMailer class.";
-   40. 
-   41. // The HTML-formatted body of the email
-   42. $bodyHtml = '<h1>Email Test</h1>
-   43.     <p>This email was sent through the
-   44.     <a href="https://aws.amazon.com/ses">Amazon SES</a> SMTP
-   45.     interface using the <a href="https://github.com/PHPMailer/PHPMailer">
-   46.     PHPMailer</a> class.</p>';
-   47. 
-   48. $mail = new PHPMailer(true);
-   49. 
-   50. try {
-   51.     // Specify the SMTP settings.
-   52.     $mail->isSMTP();
-   53.     $mail->setFrom($sender, $senderName);
-   54.     $mail->Username   = $usernameSmtp;
-   55.     $mail->Password   = fetchSMTPPasswordFromSecureStorage();
-   56.     $mail->Host       = $host;
-   57.     $mail->Port       = $port;
-   58.     $mail->SMTPAuth   = true;
-   59.     $mail->SMTPSecure = 'tls';
-   60.     $mail->addCustomHeader('X-SES-CONFIGURATION-SET', $configurationSet);
-   61. 
-   62.     // Specify the message recipients.
-   63.     $mail->addAddress($recipient);
-   64.     // You can also add CC, BCC, and additional To recipients here.
-   65. 
-   66.     // Specify the content of the message.
-   67.     $mail->isHTML(true);
-   68.     $mail->Subject    = $subject;
-   69.     $mail->Body       = $bodyHtml;
-   70.     $mail->AltBody    = $bodyText;
-   71.     $mail->Send();
-   72.     echo "Email sent!" , PHP_EOL;
-   73. } catch (phpmailerException $e) {
-   74.     echo "An error occurred. {$e->errorMessage()}", PHP_EOL; //Catch errors from PHPMailer.
-   75. } catch (Exception $e) {
-   76.     echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
-   77. }
-   78. function fetchSMTPPasswordFromSecureStorage() {
-   79. /* IMPLEMENT THIS METHOD */
-   80. // For example, you might fetch it from a secure location or AWS Secrets Manager: https://aws.amazon.com/secrets-manager/
-   81. }
-   82. 
-   83. ?>
+   24. // The name of the configuration set to use for this message.
+   25. $configurationSet = 'ConfigSet';
+   26. 
+   27. // Replace smtp_endpoint with the endpoint from your SMTP credentials.
+   28. $host = 'smtp_endpoint';
+   29. 
+   30. // Both SMTP credential types support STARTTLS on port 587.
+   31. $port = 587;
+   32. 
+   33. // The subject line of the email
+   34. $subject = 'Amazon SES test email sent over SMTP';
+   35. 
+   36. // The plain-text body of the email
+   37. $bodyText =  "Email Test\r\nThis email was sent to Amazon SES over SMTP
+   38.     using the PHPMailer class.";
+   39. 
+   40. // The HTML-formatted body of the email
+   41. $bodyHtml = '<h1>Email Test</h1>
+   42.     <p>This email was sent to
+   43.     <a href="https://aws.amazon.com/ses">Amazon SES</a> over SMTP
+   44.     using the <a href="https://github.com/PHPMailer/PHPMailer">
+   45.     PHPMailer</a> class.</p>';
+   46. 
+   47. $mail = new PHPMailer(true);
+   48. 
+   49. try {
+   50.     // Specify the SMTP settings.
+   51.     $mail->isSMTP();
+   52.     $mail->setFrom($sender, $senderName);
+   53.     $mail->Username   = $usernameSmtp;
+   54.     $mail->Password   = fetchSMTPPasswordFromSecureStorage();
+   55.     $mail->Host       = $host;
+   56.     $mail->Port       = $port;
+   57.     $mail->SMTPAuth   = true;
+   58.     $mail->SMTPSecure = 'tls';
+   59. 
+   60.     // Add the configuration set header.
+   61.     $mail->addCustomHeader('X-SES-CONFIGURATION-SET', $configurationSet);
+   62. 
+   63.     // Specify the message recipients.
+   64.     $mail->addAddress($recipient);
+   65.     // You can also add CC, BCC, and additional To recipients here.
+   66. 
+   67.     // Specify the content of the message.
+   68.     $mail->isHTML(true);
+   69.     $mail->Subject    = $subject;
+   70.     $mail->Body       = $bodyHtml;
+   71.     $mail->AltBody    = $bodyText;
+   72.     $mail->Send();
+   73.     echo "Email sent!" , PHP_EOL;
+   74. } catch (phpmailerException $e) {
+   75.     echo "An error occurred. {$e->errorMessage()}", PHP_EOL; //Catch errors from PHPMailer.
+   76. } catch (Exception $e) {
+   77.     echo "Email not sent. {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
+   78. }
+   79. function fetchSMTPPasswordFromSecureStorage() {
+   80. /* IMPLEMENT THIS METHOD */
+   81. // For example, you might fetch it from a secure location or AWS Secrets Manager: https://aws.amazon.com/secrets-manager/
+   82. }
+   83. 
+   84. ?>
    ```
 
 1. In **amazon-ses-smtp-sample.php**, replace the following with your own values:
    + {{sender@example.com}} – Replace with an email address that you have verified with Amazon SES. For more information, see [Verified identities](verify-addresses-and-domains.md). Email addresses in Amazon SES are case-sensitive. Make sure that the address you enter is exactly the same as the one you verified.
    + {{recipient@example.com}} – Replace with the address of the recipient. If your account is still in the sandbox, you must verify this address before you use it. For more information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md). Make sure that the address you enter is exactly the same as the one you verified.
-   + {{smtp\_username}} – Replace with your SMTP user name credential, which you obtained from the [SMTP Settings](https://console.aws.amazon.com/ses/home?#smtp-settings:) page of the Amazon SES console. This is **not** the same as your AWS access key ID. Note that your SMTP user name credential is a 20-character string of letters and numbers, not an intelligible name.
+   + {{smtp\_username}} – Replace with the user name from your SMTP credentials.
    + {{smtp\_password}} – Implement ``fetchSMTPPasswordFromSecureStorage`` to fetch the password.
-   + (Optional) {{ConfigSet}} – If you want to use a configuration set when sending this email, replace this value with the name of the configuration set. For more information about configuration sets, see [Using configuration sets in Amazon SES](using-configuration-sets.md).
-   + (Optional) {{email-smtp.us-west-2.amazonaws.com}} – If you want to use an Amazon SES SMTP endpoint in a Region other than US West (Oregon), replace this with the Amazon SES SMTP endpoint in the Region you want to use. For a list of SMTP endpoint URLs for the AWS Regions where Amazon SES is available, see [Amazon Simple Email Service (Amazon SES)](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region) in the *AWS General Reference*.
+   + {{smtp\_endpoint}} – Replace with the endpoint from your SMTP credentials.
+   + (Optional) {{configurationSet}} – To use a configuration set, set this value to its name. For more information, see [Specifying a configuration set when you send email](using-configuration-sets-in-email.md).
 
 1. Save **amazon-ses-smtp-sample.php**.
 

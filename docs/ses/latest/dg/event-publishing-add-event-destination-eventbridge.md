@@ -1,7 +1,6 @@
 
 
 # Set up an Amazon EventBridge destination for event publishing
-<a name="event-publishing-add-event-destination-eventbridge"></a>
 
 An Amazon EventBridge event destination notifies you about the email sending events you specify in a configuration set. SES generates and sends email sending events that you define when creating an event destination to the EventBridge default event bus. An [event bus](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html) is a router that receives events and can deliver them to multiple destinations. You can learn more about integrating email sending events with Amazon EventBridge in [Monitoring SES events using Amazon EventBridge](monitoring-eventbridge.md). Because an EventBridge event destination can only be set up in a configuration set, you have to [create a configuration set](event-publishing-create-configuration-set.md) before you add the event destination to the configuration set.
 

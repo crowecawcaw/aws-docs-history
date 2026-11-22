@@ -1,7 +1,6 @@
 
 
 # Using list management
-<a name="sending-email-list-management"></a>
 
 Amazon SES offers list management capabilities, which means customers can manage their own mailing lists, known as contact lists. A *contact list* is a list that allows you to store all of your contacts that have subscribed to a particular topic or topics. A *contact* is an end-user who is receiving your emails. A *topic* is an interest group, theme, or label within a list. Lists can have multiple topics.
 
@@ -44,7 +43,7 @@ You can use the [`CreateContactList`](https://docs.aws.amazon.com/ses/latest/API
 
   An example `CreateContactList` input JSON file for the request is as follows:
 
-  ```
+  ```json
   {
       "ContactListName": "ExampleContactListName",
       "Description": "Creating a contact list example",
@@ -93,7 +92,7 @@ You can use the [`CreateContact`](https://docs.aws.amazon.com/ses/latest/APIRefe
 
   An example `CreateContact` input JSON file for the request is as follows:
 
-  ```
+  ```json
   {
       "ContactListName": "ExampleContactListName",
       "EmailAddress": "john.doe@example.com",
@@ -178,7 +177,7 @@ To add contacts in bulk to your contact list, complete the following steps.
 
   Paste the following policy statement into the key policy to permit SES to use your customer managed key.
 
-  ```
+  ```json
   {
      "Sid": "AllowSESToDecrypt", 
      "Effect": "Allow",
@@ -219,7 +218,7 @@ The following walkthrough provides examples of how you can use list management t
 
    An example `ListContacts` input JSON file for the request is as follows:
 
-   ```
+   ```json
    {
        "ContactListName": "ExampleContactListName",
        "Filter": {
@@ -243,7 +242,7 @@ The following walkthrough provides examples of how you can use list management t
 
    To use `ListManagementOptions` with the `SendEmail` operation, include the [`contactListName`](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_ListManagementOptions.html) and [`topicName`](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_ListManagementOptions.html) to which the email belongs (the `topicName` is optional):
 
-   ```
+   ```json
    ListManagementOptions:
        String contactListName
        String topicName

@@ -1,7 +1,6 @@
 
 
 # Using subscription management
-<a name="sending-email-subscription-management"></a>
 
 Amazon SES provides a subscription management capability, in which Amazon SES automatically enables the unsubscribe links in every outgoing email when you specify the `contactListName` and `topicName` within [`ListManagementOptions`](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_ListManagementOptions.html) in the [`SendEmail`](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_SendEmail.html) operation request.
 

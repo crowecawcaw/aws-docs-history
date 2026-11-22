@@ -1,7 +1,6 @@
 
 
 # Identity and access management in Amazon SES
-<a name="control-user-access"></a>
 
 You can use AWS Identity and Access Management (IAM) with Amazon Simple Email Service (Amazon SES) to specify which SES API actions an user, group, or role can perform. (In this topic we refer to these entities collectively as *user*.) You can also control which email addresses the user can use for the "From", recipient, and "Return-Path" addresses of emails.
 
@@ -13,7 +12,7 @@ To use IAM, you define an IAM policy, which is a document that explicitly define
 If your account is in the SES sandbox, its restrictions well prevent the implementation of some of these polices - see [Request production access](request-production-access.md).
 You can also control access to SES by using sending authorization policies. Whereas IAM policies constrain what individual users can do, sending authorization policies constrain how individual verified identities can be used. Further, only sending authorization policies can grant cross-account access. For more information about sending authorization, see [Using sending authorization with Amazon SES](sending-authorization.md).
 
-If you are looking for information about how to generate SES SMTP credentials for an existing user, see [Obtaining Amazon SES SMTP credentials](smtp-credentials.md).
+If you are looking for information about how to generate SES SMTP credentials for an existing user, see [Obtaining Amazon SES SMTP credentials using IAM](smtp-credentials.md).
 
 ## Creating IAM Policies for Access to SES
 <a name="iam-and-ses"></a>
@@ -110,7 +109,7 @@ The following policy allows a user to call any SES action.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -137,7 +136,7 @@ The following policy allows a user to call only the SES actions of API version 2
 
 ****  
 
-```
+```json
 {
   		                 "Version":"2012-10-17",		 	 	 
   		                 "Statement":[
@@ -169,7 +168,7 @@ The following policy permits a user to send email using SES, but does not permit
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -197,7 +196,7 @@ The following policy permits a user to call SES email-sending APIs only during t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -233,7 +232,7 @@ The following policy permits a user to call the SES email-sending APIs, but only
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -268,7 +267,7 @@ The following policy permits a user to call the SES email-sending APIs, but only
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -301,7 +300,7 @@ The following policy permits a user to call the [SendBounce](https://docs.aws.am
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -333,7 +332,7 @@ The following policy permits a user to call the SES email-sending APIs, but only
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -366,7 +365,7 @@ The following policy permits a user to call the SES email-sending APIs, but only
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[

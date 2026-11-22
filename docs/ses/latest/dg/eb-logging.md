@@ -1,7 +1,6 @@
 
 
 # Mail Manager logging
-<a name="eb-logging"></a>
 
 Mail Manager logging provides detailed visibility into your Mail Manager operations. The logging functionality tracks message flow from initial receipt at ingress endpoints through message processing based on your configured rule sets and rules.
 
@@ -46,7 +45,7 @@ In addition, Mail Manager requires the following user permissions to configure l
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

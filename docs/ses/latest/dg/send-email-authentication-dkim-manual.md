@@ -1,7 +1,6 @@
 
 
 # Manual DKIM signing in Amazon SES
-<a name="send-email-authentication-dkim-manual"></a>
 
 As an alternative to using Easy DKIM, you can instead manually add DKIM signatures to your messages, and then send those messages using Amazon SES. If you choose to manually sign your messages, you first have to create a DKIM signature. After you create the message and the DKIM signature, you can use the [SendRawEmail](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendRawEmail.html) API to send it.
 

@@ -1,7 +1,6 @@
 
 
 # Attaching a certificate to an email identity
-<a name="send-email-authentication-smime-associate"></a>
 
 Before you can attach a certificate to an email identity, you must meet the following prerequisites:
 + A verified email identity.

@@ -1,7 +1,6 @@
 
 
 # Integrating Amazon SES with Postfix
-<a name="postfix"></a>
 
 Postfix is an alternative to the widely used Sendmail Message Transfer Agent (MTA). For information about Postfix, go to [http://www.postfix.org](http://www.postfix.org). The procedures in this topic will work with Linux, macOS, or Unix.
 
@@ -30,7 +29,7 @@ Complete the following procedures to configure your mail server to send email th
 1. At the command line, type the following command:
 
    ```
-   sudo postconf -e "relayhost = [{{email-smtp.us-west-2.amazonaws.com}}]:587" \
+   sudo postconf -e "relayhost = [{{smtp_endpoint}}]:587" \
    "smtp_sasl_auth_enable = yes" \
    "smtp_sasl_security_options = noanonymous" \
    "smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd" \
@@ -39,7 +38,7 @@ Complete the following procedures to configure your mail server to send email th
    "smtp_tls_note_starttls_offer = yes"
    ```
 **Note**  
-If you use Amazon SES in an AWS Region other than US West (Oregon), replace {{email-smtp.us-west-2.amazonaws.com}} in the preceding command with the SMTP endpoint of the appropriate Region. For more information, see [Regions and Amazon SES](regions.md).
+Replace {{smtp\_endpoint}} with the endpoint from your SMTP credentials.
 
 1. In a text editor, open the file `/etc/postfix/master.cf`. Search for the following entry:
 
@@ -56,11 +55,10 @@ If you use Amazon SES in an AWS Region other than US West (Oregon), replace {{em
 1. Add the following line to `/etc/postfix/sasl_passwd`:
 
    ```
-   [{{email-smtp.us-west-2.amazonaws.com}}]:587 {{SMTPUSERNAME}}:{{SMTPPASSWORD}}
+   [{{smtp_endpoint}}]:587 {{SMTPUSERNAME}}:{{SMTPPASSWORD}}
    ```
 **Note**  
-Replace {{SMTPUSERNAME}} and {{SMTPPASSWORD}} with your SMTP sign-in credentials. Your SMTP sign-in credentials aren't the same as your AWS access key ID and secret access key. For more information about credentials, see [Obtaining Amazon SES SMTP credentials](smtp-credentials.md).  
-If you use Amazon SES in an AWS Region other than US West (Oregon), replace {{email-smtp.us-west-2.amazonaws.com}} in the preceding example with the SMTP endpoint of the appropriate Region. For more information, see [Regions and Amazon SES](regions.md).
+Replace {{SMTPUSERNAME}} and {{SMTPPASSWORD}} with the user name and password from your SMTP credentials. Replace {{smtp\_endpoint}} with the endpoint from those credentials.
 
    Save and close `sasl_passwd`.
 
@@ -128,7 +126,7 @@ If you use Amazon SES in an AWS Region other than US West (Oregon), replace {{em
 ## Advanced usage example
 <a name="send-email-postfix-advanced"></a>
 
-This example shows how to send an email that uses a [configuration set](using-configuration-sets.md), and that uses MIME-multipart encoding to send both a plain text and an HTML version of the message, along with an attachment. It also includes a [link tag](faqs-metrics.md#sending-metric-faqs-clicks-q5), which can be used for categorizing click events. The content of the email is specified in an external file, so that you do not have to manually type the commands in the Postfix session.
+This example uses a [configuration set](using-configuration-sets.md) and MIME-multipart encoding to send plain text and HTML content with an attachment. It also includes a [link tag](faqs-metrics.md#sending-metric-faqs-clicks-q5) for categorizing click events. The message content is stored in a file, so you do not need to type it in the Postfix session.
 
 **To send a multipart MIME email using Postfix**
 
@@ -152,7 +150,7 @@ This example shows how to send an email that uses a [configuration set](using-co
    
    Amazon SES Test
    
-   This message was sent from Amazon SES using the SMTP interface.
+   This message was sent to Amazon SES over SMTP.
    
    For more information, see:
    http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-smtp.html
@@ -166,11 +164,11 @@ This example shows how to send an email that uses a [configuration set](using-co
    </head>
      <body>
        <h1>Amazon SES Test</h1>
-         <p>This message was sent from Amazon SES using the SMTP interface.</p>
+         <p>This message was sent to Amazon SES over SMTP.</p>
          <p>For more information, see
-         <a ses:tags="samplekey0:samplevalue0;samplekey1:samplevalue1;" 
+         <a ses:tags="samplekey0:samplevalue0;samplekey1:samplevalue1;"
          href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-smtp.html">
-         Using the Amazon SES SMTP Interface to Send Email</a> in the <em>Amazon SES
+         Using SMTP to Send Email</a> in the <em>Amazon SES
          Developer Guide</em>.</p>
      </body>
    </html>
