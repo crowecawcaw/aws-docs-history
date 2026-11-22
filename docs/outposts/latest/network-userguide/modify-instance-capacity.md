@@ -1,7 +1,6 @@
 
 
 # Modify AWS Outposts instance capacity
-<a name="modify-instance-capacity"></a>
 
 The capacity of each new Outpost order is configured with a default capacity configuration. You can convert the default configuration to create various instances to meet your business needs. To do so, you create a capacity task, choose an Outposts or a single asset, specify the instance sizes and quantity, and run the capacity task to implement the changes.
 
@@ -91,7 +90,7 @@ To prevent capacity management from recommending specific instances to stop, spe
 
    Example JSON file:
 
-   ```
+   ```JSON
    {
      "InstancePools": [
        {

@@ -1,7 +1,6 @@
 
 
 # Connectivity through service link
-<a name="service-links"></a>
 
 The service link is a necessary connection between your Outposts and the AWS Region (or home Region). It allows for the management of the Outposts and the exchange of traffic to and from the AWS Region. The service link leverages an encrypted set of VPN connections to communicate with the home Region.
 

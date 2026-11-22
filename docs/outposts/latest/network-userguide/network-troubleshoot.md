@@ -1,7 +1,6 @@
 
 
 # Outposts rack network troubleshooting checklist
-<a name="network-troubleshoot"></a>
 
 Use this checklist to help troubleshoot a service link that has a status of `DOWN`.
 

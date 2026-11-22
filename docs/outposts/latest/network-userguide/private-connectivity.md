@@ -1,7 +1,6 @@
 
 
 # Service link private connectivity options
-<a name="private-connectivity"></a>
 
 You can configure the service link with a private connection for the traffic between the Outposts and home AWS Region. You can choose to use Direct Connect private or transit VIFs.
 
@@ -59,7 +58,7 @@ Both TCP and UDP on port 443 are required for private connectivity to function p
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

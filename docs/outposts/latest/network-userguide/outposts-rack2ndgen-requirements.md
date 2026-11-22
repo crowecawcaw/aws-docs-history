@@ -1,7 +1,6 @@
 
 
 # Site requirements for second-generation Outposts racks (multi-rack configuration)
-<a name="outposts-rack2ndgen-requirements"></a>
 
 This page covers site requirements for the multi-rack configuration of second-generation Outposts racks (one or more compute racks with a dedicated network rack). If you are deploying the single-rack configuration – a single 42U rack that integrates compute, storage, and networking – see [Site requirements for second-generation Outposts racks (single-rack configuration)](https://docs.aws.amazon.com/outposts/latest/network-userguide/outposts-rack2ndgen-requirements-single-rack.html).
 

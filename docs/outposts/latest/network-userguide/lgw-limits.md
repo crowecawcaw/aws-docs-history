@@ -1,7 +1,6 @@
 
 
 # Limits
-<a name="lgw-limits"></a>
 
 The following limits apply to a local gateway and its route tables.
 

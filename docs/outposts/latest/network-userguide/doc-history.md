@@ -1,17 +1,17 @@
 
 
 # Document history for Outposts racks
-<a name="doc-history"></a>
 
 The following table describes the documentation updates for Outposts racks.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Decommissioning Outposts racks](https://docs.aws.amazon.com/outposts/latest/network-userguide/term-end-racks.html) | You can submit a decommission request for the single-rack and the multi-rack configuration from the AWS Outposts console. A request applies to the entire Outpost, so you cannot decommission an individual compute rack in a multi-rack Outpost. The preparation steps now list the Amazon S3 and local gateway resources that block a decommission request. | November 10, 2026 | 
 | [AWS Outposts supports external block volumes from Dell and HPE storage arrays](https://docs.aws.amazon.com/outposts/latest/network-userguide/outpost-third-party-block-storage.html) | You can use external block data and boot volumes backed by third-party vendors such as, Dell PowerStore and HPE Alletra Storage MP B10000. | September 30, 2025 | 
 | [Support for AWS services](https://docs.aws.amazon.com/outposts/latest/network-userguide/what-is-outposts.html#second-gen-rack-service-available) | AWS Outposts supports AWS services based on the AWS Region in which your Outpost operates. | September 18, 2025 | 
 | [Metrics available for VIF connection status and BGP session state.](https://docs.aws.amazon.com/outposts/latest/network-userguide/outposts-cloudwatch-metrics.html) | You can monitor the status of your AWS Outposts VIF connection and BGP session on the CloudWatch console with the **ConnectionStatus** and the **BGPSessionState** metrics.  | July 31, 2025 | 
-| [Renewing your subscription and preparing racks for return](https://docs.aws.amazon.com/outposts/latest/network-userguide/term-end-racks.html) | To renew a subscription or return a rack, you must complete the process at least 10 business days before the current subscription ends. | July 16, 2025 | 
+| [Renewing your subscription and preparing racks for return](https://docs.aws.amazon.com/outposts/latest/network-userguide/term-end-racks.html) | To renew a subscription or return a rack, you must complete the process at least 5 business days before the current subscription ends. | July 16, 2025 | 
 | [Support for gp3 volume type](https://docs.aws.amazon.com/outposts/latest/network-userguide/launch-instance.html#launch-instances) | Second-generation Outpost racks now supports Amazon EBS gp3 volumes. | June 30, 2025 | 
 | [Virtual interfaces (VIFs) and VIF Groups](https://docs.aws.amazon.com/outposts/latest/network-userguide/vif-vif-groups.html) | Local gateway VIFs (Virtual Interface) is a logical interface component of Outposts racks that sets up VLAN, IP, and BGP connectivity between an Outposts networking device and an on-premise networking device for local gateway connectivity. You must create local gateway VIFs and VIF groups. | May 5, 2025 | 
 | [Updates to static stability](https://docs.aws.amazon.com/outposts/latest/network-userguide/outpost-maintenance.html#outpost-network-equipment-maintenance) | In the event that your network is interrupted, instance metrics and logs will be cached locally for up to 7 days. | May 1, 2025 | 
-| [Initial release](#doc-history) | This is the initial release of AWS Outposts racks second generation for accelerated networking. | April 29, 2025 | 
+| [Initial release](doc-history.md) | This is the initial release of AWS Outposts racks second generation for accelerated networking. | April 29, 2025 | 

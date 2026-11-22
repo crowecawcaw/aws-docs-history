@@ -1,7 +1,6 @@
 
 
 # VIF and VIF groups
-<a name="vif-vif-groups"></a>
 
 Local gateway virtual interfaces (VIFs) is a logical interface component of Outposts racks that sets up VLAN, IP, and BGP connectivity between your Outposts networking devices and an on-premise networking device for local gateway connectivity. VIFs are created within VIF groups. VIF groups are logical groupings of VIFs and VIFs are created within VIF groups. You must create four local gateway VIFs within each VIF group.
 

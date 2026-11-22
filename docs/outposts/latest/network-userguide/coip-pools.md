@@ -1,7 +1,6 @@
 
 
 # Create a CoIP pool
-<a name="coip-pools"></a>
 
 You can provide IP address ranges to facilitate communication between your on-premises network and instances in your VPC. For more information, see [Customer-owned IP addresses](routing.md#ip-addressing).
 
@@ -45,7 +44,7 @@ Use the following procedure to create a CoIP pool.
 
    The following is example output.
 
-   ```
+   ```json
    {
        "CoipPool": {
            "PoolId": "ipv4pool-coip-1234567890abcdefg",
@@ -63,7 +62,7 @@ Use the following procedure to create a CoIP pool.
 
    The following is example output.
 
-   ```
+   ```json
    {
        "CoipCidr": {
            "Cidr": "15.0.0.0/24",
@@ -113,7 +112,7 @@ After you create a CoIP pool, use the following procedure to assign an address t
 
    The following is example output.
 
-   ```
+   ```json
    {
        "CoipPools": [
            {
@@ -135,7 +134,7 @@ After you create a CoIP pool, use the following procedure to assign an address t
 
    The following is example output.
 
-   ```
+   ```json
    {
        "CustomerOwnedIp": "192.0.2.128",
        "AllocationId": "eipalloc-02463d08ceEXAMPLE",
@@ -151,7 +150,7 @@ After you create a CoIP pool, use the following procedure to assign an address t
 
    The following is example output.
 
-   ```
+   ```json
    {
        "AssociationId": "eipassoc-02463d08ceEXAMPLE",
    }

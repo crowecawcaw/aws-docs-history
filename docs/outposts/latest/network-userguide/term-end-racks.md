@@ -1,7 +1,6 @@
 
 
 # Outposts rack end-of-term options
-<a name="term-end-racks"></a>
 
 At the end of your AWS Outposts term, you must choose between the following options:
 + [Renew your subscription](#renew-subscription) and keep your existing Outposts racks.
@@ -36,6 +35,8 @@ If you do not indicate that you want to renew your subscription or return your O
 You must prepare your AWS Outposts rack for return and complete the decommission process at least **5 business days** before the current subscription for your Outposts rack ends. AWS can't start the return process until you do so. Failing to complete these steps at least 5 business days before the current subscription ends might result in delays in decommissioning and unanticipated charges.
 
 You will not be charged a shipping fee when you return an Outposts rack. However, if you return a rack that is damaged, you might incur a cost.
+
+A decommission request applies to the entire Outpost. If your Outpost uses the multi-rack configuration, you cannot decommission an individual compute rack.
 
 **To prepare your AWS Outposts rack for return:**
 **Important**  
@@ -77,7 +78,7 @@ Some AWS-managed services running on your Outpost, such as Application Load Bala
 
 1. Delete the Amazon EBS volumes associated with your Outpost.
 
-   1. Open the Amazon EC2 console console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
+   1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
    1. From the navigation pane, choose **Volumes**.
 
@@ -85,9 +86,28 @@ Some AWS-managed services running on your Outpost, such as Application Load Bala
 
    1. In the confirmation dialog box, choose **Delete**.
 
+1. If you have Amazon S3 on Outposts, delete any local snapshots on the Outposts.
+
+   1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
+
+   1. From the navigation pane, choose **Snapshots**.
+
+   1. Select the snapshots with an Outpost ARN.
+
+   1. Choose **Actions** and **Delete snapshots**.
+
+   1. In the confirmation dialog box, choose **Delete**.
+
+1. Delete any Amazon S3 buckets associated with your Outposts rack. To delete the buckets, follow the instructions in [Deleting your Amazon S3 on Outposts bucket](https://docs.aws.amazon.com/AmazonS3/latest/s3-outposts/S3OutpostsDeleteBucket.html) in the *Amazon S3 on Outposts User Guide*.
+
 1. Delete any VPC associations and customer-owned IP address pool (CoIP) CIDRs associated with your Outpost.
 
-An AWS retrieval team will power down the rack. After it's powered down, you can destroy the AWS Nitro Security Key or the AWS retrieval team can do so on your behalf.
+1. Delete the local gateway resources associated with your Outpost. Your decommission request is blocked while any of the following resources exist:
+   + Local gateway route tables
+   + Local gateway routing domains
+   + Local gateway virtual interface (VIF) groups, and the VIFs that they contain
+
+   For more information about local gateway route tables, see [Local gateway route tables](routing.md). For more information about VIF groups, see [VIF and VIF groups](vif-vif-groups.md).
 
 **To return your AWS Outposts racks**
 **Important**  
@@ -104,6 +124,10 @@ AWS can't stop the return process after you have submitted your decommission req
 1. Choose **Submit request**.
 
    An AWS representative will contact you to begin the decommissioning process.
+
+If resources are still associated with the Outpost, your request is blocked and the console lists the resource types that you must remove. Complete the preparation steps for those resource types, and then submit the request again.
+
+If an order for this Outpost is still in progress, resolve the order before submitting a decommission request. Cancel the order if it can still be canceled. Otherwise, contact AWS Support.
 
 **Note**  
 Returning your racks before the current subscription for your Outposts racks ends will not terminate any outstanding charges associated with this Outpost.

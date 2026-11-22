@@ -1,7 +1,6 @@
 
 
 # Log AWS Outposts API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Outposts is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls for AWS Outposts as events. The calls captured include calls from the AWS Outposts console and code calls to the AWS Outposts API operations. Using the information collected by CloudTrail, you can determine the request that was made to AWS Outposts, the IP address from which the request was made, when it was made, and additional details.
 
@@ -31,7 +30,7 @@ AWS Outposts logs all AWS Outposts control plane operations as management events
 
 The following example shows a CloudTrail event that demonstrates the `SetSiteAddress` operation.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

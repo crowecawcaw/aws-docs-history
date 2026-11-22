@@ -1,7 +1,6 @@
 
 
 # Site requirements for second-generation Outposts racks (single-rack configuration)
-<a name="outposts-rack2ndgen-requirements-single-rack"></a>
 
 AWS Outposts sites are available in select countries and territories.
 
