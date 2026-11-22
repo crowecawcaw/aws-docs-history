@@ -1,7 +1,6 @@
 
 
 # Purchasing and licensing an add-on package
-<a name="ref-licenses-purchase"></a>
 
 To purchase an add-on package, contact your AWS Elemental sales person. 
 

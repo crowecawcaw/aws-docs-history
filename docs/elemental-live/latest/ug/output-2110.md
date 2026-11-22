@@ -1,7 +1,6 @@
 
 
 # Configuring SMPTE 2110 outputs
-<a name="output-2110"></a>
 
 You can include one or more SMPTE 2110 outputs in an AWS Elemental Live event. You can optionally configure the output to implement SMPTE 2022-7, so that the output delivers identical content to two destinations, which improves resiliency for the downstream system.
 

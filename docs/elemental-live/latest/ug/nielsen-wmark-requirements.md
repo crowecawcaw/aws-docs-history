@@ -1,7 +1,6 @@
 
 
 # Audio requirements
-<a name="nielsen-wmark-requirements"></a>
 
 ## Supported audio
 <a name="nielsen-wmark-supportedaudio"></a>

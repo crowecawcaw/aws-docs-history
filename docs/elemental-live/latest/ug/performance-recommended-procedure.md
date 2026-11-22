@@ -1,7 +1,6 @@
 
 
 # Recommended testing procedure
-<a name="performance-recommended-procedure"></a>
 
 We strongly recommend that you perform this performance testing before you deploy a new appliance into production.
 

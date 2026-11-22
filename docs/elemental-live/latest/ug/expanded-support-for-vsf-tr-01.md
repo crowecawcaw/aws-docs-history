@@ -1,7 +1,6 @@
 
 
 # Ingesting from VSF TR-01 in a TS input
-<a name="expanded-support-for-vsf-tr-01"></a>
 
 Elemental Live supports VSF TR-01 ingest over a transport stream (TS). Support for TR-01 provides a solution to migrating from SDI infrastructure to an all-IP infrastructure. Handling of IP inputs using TR-01 is almost feature-equivalent to the handling of SDI inputs.
 

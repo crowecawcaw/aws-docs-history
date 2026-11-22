@@ -1,7 +1,6 @@
 
 
 # Get ready: Reserve cores for SMPTE 2022-6
-<a name="enable-2022-6"></a>
 
 Before you can run an event that has SMPTE 2022-6 inputs, you must reserve cores on the appliance NIC. When you reserve these cores, Elemental Live uses them only for processing SMPTE 2022-6 and/or SMPTE 2110.
 

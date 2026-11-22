@@ -1,7 +1,6 @@
 
 
 # Use case 3: Distributed encoding with output redundancy
-<a name="output-locking-distrib-plus-redundancy"></a>
 
 You might combine distributed encoding with output redundancy, and also include output locking. For example, you might create three events, each producing a separate output. To add redundancy, duplicate each of those events (outputs) to create *event pairs*. Then to include output locking, make sure that each event in the pair is on a different appliance. 
 

@@ -1,7 +1,6 @@
 
 
 # Input switching
-<a name="input-switching-overview"></a>
 
 You can configure an Elemental Live event with multiple inputs, and then implement an input switching mechanism to switch from ingesting one of those inputs to ingesting another.
 

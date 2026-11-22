@@ -1,7 +1,6 @@
 
 
 # Supported codecs
-<a name="supported-inputs-live-codecs"></a>
 
 This table specifies the codecs that are supported for each input media type that Elemental Live supports. 
 

@@ -1,7 +1,6 @@
 
 
 # Step D: Showing and hiding the motion overlay
-<a name="html5-step-manage-the-overlay-on-a-running-event"></a>
 
 If you have configured the motion overlay for [REST control](step-design-controls-html5.md#html5-controls-rest), start the event , then enter REST API commands to show and hide the motion overlay.
 

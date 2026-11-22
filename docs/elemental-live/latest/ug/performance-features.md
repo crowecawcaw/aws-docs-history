@@ -1,7 +1,6 @@
 
 
 # Features that affect performance
-<a name="performance-features"></a>
 
 ## Motion graphic overlays
 <a name="performance-features-motion-gx"></a>

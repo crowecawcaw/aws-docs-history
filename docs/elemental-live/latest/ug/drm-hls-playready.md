@@ -1,7 +1,6 @@
 
 
 # HLS output with PlayReady
-<a name="drm-hls-playready"></a>
 
 Encryption mode: Always AES CTR (AES-128)
 

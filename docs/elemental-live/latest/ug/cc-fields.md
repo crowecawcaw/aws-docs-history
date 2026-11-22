@@ -1,7 +1,6 @@
 
 
 # Completing the fields in the CC channel number
-<a name="cc-fields"></a>
 + **CC Channel number**: This field specifies the language to extract. Complete as follows: 
   + If you are setting up embedded passthrough only (you are creating only one captions selector for the input embedded captions), this field is ignored, so keep the default.
   + If you are setting up embedded-to-another-format, (you are creating several captions selectors, one for each language), enter the number of the CC instance (from the input) that holds the desired language. For example, if this captions selector is intended to hold the French captions and the French captions are in event 2, enter 2 in this field.

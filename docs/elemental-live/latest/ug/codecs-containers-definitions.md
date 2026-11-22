@@ -1,7 +1,6 @@
 
 
 # Definition of containers and codecs
-<a name="codecs-containers-definitions"></a>
 
 
 | Codec or Container | Direction | Statement | 

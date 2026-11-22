@@ -1,7 +1,6 @@
 
 
 # Secondary fields for converting scan type
-<a name="vq-scan-type-secondary"></a>
 
 ## Description
 <a name="description-vq-scan-type-secondary"></a>

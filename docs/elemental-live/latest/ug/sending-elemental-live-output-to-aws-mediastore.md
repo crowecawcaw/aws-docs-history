@@ -1,7 +1,6 @@
 
 
 # Sending Elemental Live output to AWS Elemental MediaStore
-<a name="sending-elemental-live-output-to-aws-mediastore"></a>
 
 In AWS Elemental Live , you can set up a container on AWS Elemental MediaStore as the destination for Apple HLS and DASH outputs.
 

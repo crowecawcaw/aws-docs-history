@@ -1,7 +1,6 @@
 
 
 # Reference: Languages supported with OCR captions
-<a name="captions-ocr-languages"></a>
 
 Following is a list of world languages that are supported in source captions when Elemental Live uses [OCR translation](support-for-ocr.md) to convert the source captions to the output format. 
 

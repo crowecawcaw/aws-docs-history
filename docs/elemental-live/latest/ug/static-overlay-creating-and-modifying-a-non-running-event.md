@@ -1,7 +1,6 @@
 
 
 # Static overlay, creating and modifying a non-running event
-<a name="static-overlay-creating-and-modifying-a-non-running-event"></a>
 
 ## Overlays at top level
 <a name="overlays-at-top-level"></a>

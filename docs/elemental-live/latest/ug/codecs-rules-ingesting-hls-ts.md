@@ -1,7 +1,6 @@
 
 
 # Rules for ingesting Apple HLS TS sources
-<a name="codecs-rules-ingesting-hls-ts"></a>
 
 For video, each AWS Elemental Live event can extract only one video from only one rendition. Elemental Live will not reject inputs that contain multiple renditions, but it will handle only one of the renditions. There are fields in the event for specifying which video to extract.
 

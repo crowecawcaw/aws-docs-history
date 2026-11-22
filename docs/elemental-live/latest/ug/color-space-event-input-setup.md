@@ -1,7 +1,6 @@
 
 
 # Step 3: Set up each input
-<a name="color-space-event-input-setup"></a>
 
 **To set up each input in the event**
 **Note**  

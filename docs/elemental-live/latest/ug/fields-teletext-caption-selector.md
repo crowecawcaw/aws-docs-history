@@ -1,7 +1,6 @@
 
 
 # Completing the fields in the Captions Selector Group
-<a name="fields-teletext-caption-selector"></a>
 + **Source**: Choose **Teletext**.
 + **Page**: This field specifies the page of the desired language. Complete as follows: 
   + If you are setting up teletext passthrough captions (you are creating only one captions selector for the input captions), leave blank: the value is ignored.

@@ -1,7 +1,6 @@
 
 
 # Location of HDR fields on the web interface
-<a name="hdr-location-of-fields-on-the-web-interface"></a>
 + Input > Video Selector > Color Space
 + Input > Video Selector > Force Color
 + Input > Video Selector > HDR Master Display Information group of fields

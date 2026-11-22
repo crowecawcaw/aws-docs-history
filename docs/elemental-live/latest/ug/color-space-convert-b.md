@@ -1,7 +1,6 @@
 
 
 # Converting one HDR color space to another
-<a name="color-space-convert-b"></a>
 
 You can convert video between the HDR10 color space and the HLG color space, in either direction. In this case, Elemental Live makes the following changes:
 + It changes the pixel values, if necessary, to fit the colors into the different color space.

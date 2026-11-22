@@ -1,7 +1,6 @@
 
 
 # Noise reduction
-<a name="vq-noise-reduction"></a>
 
 ## Description
 <a name="description-vq-noise"></a>

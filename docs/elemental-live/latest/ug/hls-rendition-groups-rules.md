@@ -1,7 +1,6 @@
 
 
 # Rules for rendition groups
-<a name="hls-rendition-groups-rules"></a>
 
 Rules exist for associating both audio and video streams in their respective rendition groups. These are described following.
 + A given audio stream can belong to only one audio rendition group. 

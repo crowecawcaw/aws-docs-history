@@ -1,7 +1,6 @@
 
 
 # Creating the output
-<a name="zixi-output-setup"></a>
 
 1. In the Elemental Live event, go to **Output Groups** > **Reliable TS**.
 

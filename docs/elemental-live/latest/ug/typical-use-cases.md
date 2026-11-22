@@ -1,7 +1,6 @@
 
 
 # Typical use cases
-<a name="typical-use-cases"></a>
 
 ## Use case 1
 <a name="use-case-1"></a>

@@ -1,7 +1,6 @@
 
 
 # Virtual input switching using SCTE-35 messages
-<a name="vips-s35"></a>
 
 This type of input switching works with SCTE-35 messages that are in a transport stream source. When Elemental Live encounters an SCTE 35 message in the source, it sends the message to the POIS. The POIS might decide to send a request to switch input. Note that there is no sense of a particular type of SCTE 35 message that can trigger an input switch request. The POIS can request a switch in response to any type of SCTE 35 message that it receives.
 

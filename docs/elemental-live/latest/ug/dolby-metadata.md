@@ -1,7 +1,6 @@
 
 
 # Working with Dolby metadata
-<a name="dolby-metadata"></a>
 
 Audio encoded with a Dolby codec always includes Dolby metadata, as per the ATSC A/52 2012 standard. This Dolby metadata is used by AWS Elemental Live in two ways when the stream is encoded with Dolby codec:
 + It is used to manipulate the audio just before encoding the output.

@@ -1,7 +1,6 @@
 
 
 # CPU usage
-<a name="performance-cpu-usage"></a>
 
 CPU usage is the percentage of CPU power being used. CPU usage is affected primarily by the complexity of the output encode. 
 

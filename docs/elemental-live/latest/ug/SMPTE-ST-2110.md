@@ -1,7 +1,6 @@
 
 
 # Working with SMPTE 2110
-<a name="SMPTE-ST-2110"></a>
 
 Elemental Live supports both inputs and outputs that are compliant with the SMPTE 2110 suite of standards. 
 

@@ -1,7 +1,6 @@
 
 
 # Details on activating inputs
-<a name="details-on-activating-inputs"></a>
 
 ## Dynamic playlist order rules
 <a name="dynamic-playlist-order-rules"></a>

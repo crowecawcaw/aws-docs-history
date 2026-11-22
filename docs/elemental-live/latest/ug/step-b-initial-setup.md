@@ -1,7 +1,6 @@
 
 
 # Step B: Initial setup
-<a name="step-b-initial-setup"></a>
 
 Create or modify the event as follows: 
 

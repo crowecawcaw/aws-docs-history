@@ -1,7 +1,6 @@
 
 
 # Elemental Live Features
-<a name="container-features"></a>
 
 This chapter describes the features you can implement in AWS Elemental Live.
 

@@ -1,7 +1,6 @@
 
 
 # How epoch locking works
-<a name="opl-epoch-how-it-works"></a>
 
 You can set up to use the epoch locking variation of output locking. Or you can set up to use [standard output locking](opl-standard-how-it-works.md).
 

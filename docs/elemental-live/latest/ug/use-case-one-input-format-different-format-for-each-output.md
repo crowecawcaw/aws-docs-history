@@ -1,7 +1,6 @@
 
 
 # Use case 3: One input format converted to different formats, one format for each output
-<a name="use-case-one-input-format-different-format-for-each-output"></a>
 
 This example shows how to implement [the third use case](typical-scenarios.md#use-case-one-input-format-to-several-output-formats) from the typical scenarios. The input is set up with one format of captions and two or more languages. You want to produce several different types of output. In each output, you want to convert the captions to a different format but include all the languages.
 

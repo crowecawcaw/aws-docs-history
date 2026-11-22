@@ -1,7 +1,6 @@
 
 
 # Blanking is global
-<a name="blanking-is-global"></a>
 
 Both Ad avail blanking and Blackout apply to all outputs. You cannot choose to blank out for some outputs and not blank out for others: it is an all-or-nothing decision. 
 

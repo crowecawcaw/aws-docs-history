@@ -1,7 +1,6 @@
 
 
 # Creating HLS rendition groups (web interface)
-<a name="hls-rendition-groups-create-using-web-interface"></a>
 
 **Topics**
 + [Step 1. Create video-only outputs](#hls-rendition-groups-create-using-web-interface-video-only-outputs)

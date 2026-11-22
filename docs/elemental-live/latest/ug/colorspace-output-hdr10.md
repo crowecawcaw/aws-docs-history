@@ -1,7 +1,6 @@
 
 
 # Converting color space: Procedure B
-<a name="colorspace-output-hdr10"></a>
 
 Follow this procedure to convert to one of these color spaces:
 + HDR10

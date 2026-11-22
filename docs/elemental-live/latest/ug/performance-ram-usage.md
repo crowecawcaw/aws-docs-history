@@ -1,7 +1,6 @@
 
 
 # RAM usage
-<a name="performance-ram-usage"></a>
 
 RAM usage is the percentage of the memory being used on the appliance memory cards. 
 

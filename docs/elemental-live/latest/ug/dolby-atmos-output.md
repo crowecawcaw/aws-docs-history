@@ -1,7 +1,6 @@
 
 
 # Converting to Dolby Digital Plus with Atmos
-<a name="dolby-atmos-output"></a>
 
 The following handling is supported:
 + Encoding an audio output as Dolby Digital Plus with Atmos. The audio source must be a source that contains up to 16 channels.

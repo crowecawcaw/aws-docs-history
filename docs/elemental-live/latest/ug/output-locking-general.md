@@ -1,7 +1,6 @@
 
 
 # Output locking use cases
-<a name="output-locking-general"></a>
 
 Implement output locking for either or both of these reasons:
 + To enhance output redundancy.

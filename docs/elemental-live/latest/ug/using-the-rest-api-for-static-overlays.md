@@ -1,7 +1,6 @@
 
 
 # Using the REST API for static overlays
-<a name="using-the-rest-api-for-static-overlays"></a>
 
 **Topics**
 + [Static graphic overlay commands](static-graphic-overlay-commands.md)

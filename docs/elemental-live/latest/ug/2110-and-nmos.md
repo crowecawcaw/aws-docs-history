@@ -1,7 +1,6 @@
 
 
 # Support for NMOS IS-04 stream discovery
-<a name="2110-and-nmos"></a>
 
 Elemental Live supports NMOS IS-04 with both SMPTE 2110 inputs and outputs.
 

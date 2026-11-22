@@ -1,7 +1,6 @@
 
 
 # Step C: Manage overlays on a running event
-<a name="step-c-manage-overlays-on-a-running-event"></a>
 
 Once the event has started, you can work with static overlays only via the REST API. You cannot work with static overlays on a running event via the web interface. 
 

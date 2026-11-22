@@ -1,7 +1,6 @@
 
 
 # How video is associated with audio rendition groups
-<a name="hls-rendition-groups-how-video-is-associated-with-audio-rendition-groups"></a>
 
 The different “sets” of media are created as follows:
 + Create one “video-only” stream assembly containing only one video stream.

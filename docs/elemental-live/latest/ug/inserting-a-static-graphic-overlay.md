@@ -1,7 +1,6 @@
 
 
 # Procedure
-<a name="inserting-a-static-graphic-overlay"></a>
 
 
 |   | Step | Methods available | 

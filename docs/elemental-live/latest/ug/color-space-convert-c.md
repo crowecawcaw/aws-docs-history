@@ -1,7 +1,6 @@
 
 
 # Converting an HDR color space to SDR
-<a name="color-space-convert-c"></a>
 
 You can convert HDR10 or HLG video to an SDR color space. In this case, Elemental Live makes the following changes:
 + It changes the pixel values, if necessary, to fit the colors into the smaller color space.

@@ -1,7 +1,6 @@
 
 
 # HLS output with SecureMedia
-<a name="drm-hls-securemedia"></a>
 
 Encryption mode: Always AES CTR (AES-128)
 

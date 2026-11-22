@@ -1,7 +1,6 @@
 
 
 # Supported source captions and output captions in an MXF output container
-<a name="captions-mxf-output-container"></a>
 
 To read this table, find the type of container and captions from your input. The supported caption formats for this *output *container are then shown in the last column. 
 

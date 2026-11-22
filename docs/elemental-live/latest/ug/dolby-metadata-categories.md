@@ -1,7 +1,6 @@
 
 
 # Categories of metadata: Delivered and encoder control
-<a name="dolby-metadata-categories"></a>
 
 There are two categories of parameters in the Dolby metadata, characterized by how Elemental Live uses it:
 + Delivered: Elemental Live does not read these parameters, so they have no effect on the audio produced by Elemental Live. Instead, they are included as metadata in the output in order to **deliver ** them to the downstream decoder.

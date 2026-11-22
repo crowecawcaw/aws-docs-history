@@ -1,7 +1,6 @@
 
 
 # Get event status
-<a name="get-event-status"></a>
 
 Get the status of the inputs in the specified event.
 

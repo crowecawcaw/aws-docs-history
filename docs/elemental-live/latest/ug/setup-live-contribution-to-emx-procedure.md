@@ -1,7 +1,6 @@
 
 
 # Setup procedure
-<a name="setup-live-contribution-to-emx-procedure"></a>
 
 ## Step A: Create a role in IAM and attach policies
 <a name="setting-up-live-as-contribution-encoder-for-mediaconnect-step-A"></a>

@@ -1,7 +1,6 @@
 
 
 # SCTE-35 and SCTE-104 message processing in Elemental Live
-<a name="scte-message-processing"></a>
 
 You can use Elemental Live to manipulate the SCTE-35 messages in a TS input and to manipulate the SCTE-104 messages in an HD-SDI input. You can also use Elemental Live to remove or include the cueing information conveyed by SCTE messages in the output streams (video, audio, closed captioning, data) and any associated manifests.
 

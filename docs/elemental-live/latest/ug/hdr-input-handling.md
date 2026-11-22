@@ -1,7 +1,6 @@
 
 
 # Configuring the handling in the input
-<a name="hdr-input-handling"></a>
 
 You must decide what you need to do with *color space metadata* in the input. You might need to clean up the metadata to ensure that Elemental Live handles the color space correctly in the output.
 

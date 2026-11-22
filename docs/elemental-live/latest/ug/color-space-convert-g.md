@@ -1,7 +1,6 @@
 
 
 # Converting a mixed color space to one color space
-<a name="color-space-convert-g"></a>
 
 The video in your input or inputs might contain a mix of color spaces. You can still set up to convert these color spaces to one color space. 
 

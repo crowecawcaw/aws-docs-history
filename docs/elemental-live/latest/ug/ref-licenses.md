@@ -1,7 +1,6 @@
 
 
 # Reference: add-on packages for features
-<a name="ref-licenses"></a>
 
 Some features of Elemental Live require that you purchase an add-on package from AWS Elemental. This section includes tables that list the features and the audio and video codecs that require an add-on package.
 

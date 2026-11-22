@@ -1,7 +1,6 @@
 
 
 # VOD outputs: Supported codecs
-<a name="codec-vod-outputs"></a>
 
 This table specifies the codecs that are supported in output groups that support VOD outputs.
 

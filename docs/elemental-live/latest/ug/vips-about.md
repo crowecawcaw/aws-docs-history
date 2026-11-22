@@ -1,7 +1,6 @@
 
 
 # About virtual input switching
-<a name="vips-about"></a>
 
 ## Supported version of the specification
 <a name="vips-about-spec"></a>

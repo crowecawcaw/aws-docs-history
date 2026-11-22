@@ -1,7 +1,6 @@
 
 
 # Ingesting SMPTE 2110 content
-<a name="input-2110"></a>
 
 You can create a SMPTE 2110 input in AWS Elemental Live in order to ingest a source that is compliant with the SMPTE 2110 specification. You can optionally configure the input to use SMPTE 2022-7, if the source offers it.
 

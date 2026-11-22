@@ -1,7 +1,6 @@
 
 
 # Working with outputs
-<a name="container-outputs"></a>
 
 This chapter describes how to set up the different types of outputs that AWS Elemental Live supports.
 

@@ -1,7 +1,6 @@
 
 
 # Create a receiver group input
-<a name="s2110-nmos-create-input"></a>
 
 You must create a receiver group input that connects to the appropriate SMPTE 2110 receiver streams. 
 

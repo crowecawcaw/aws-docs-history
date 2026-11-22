@@ -1,7 +1,6 @@
 
 
 # Format of an SDP file for audio
-<a name="2120-sdp-audio"></a>
 
 ```
 v=0

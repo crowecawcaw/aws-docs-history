@@ -1,7 +1,6 @@
 
 
 # Step 4: Match formats to categories
-<a name="categories-captions"></a>
 
 There are different procedures to follow to create captions encodes in the output. The correct procedure depends on the "category" that the output captions belong to. There are five categories of captions, described in the following table.
 

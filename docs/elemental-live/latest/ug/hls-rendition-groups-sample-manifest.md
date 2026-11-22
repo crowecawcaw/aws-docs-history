@@ -1,7 +1,6 @@
 
 
 # Sample HLS output group with audio rendition group event manifest
-<a name="hls-rendition-groups-sample-manifest"></a>
 
 ## Video information for an HLS output group with audio rendition group event
 <a name="hls-rendition-groups-sample-manifest-video-information"></a>

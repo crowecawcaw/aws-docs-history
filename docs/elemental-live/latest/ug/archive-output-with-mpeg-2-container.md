@@ -1,7 +1,6 @@
 
 
 # Archive output with MPEG-2 container
-<a name="archive-output-with-mpeg-2-container"></a>
 
 A transport stream (TS) in an MPEG-2 container supports passthrough of the SCTE-35 messages, but it does not support creation of a manifest. Therefore, usable options are:
 

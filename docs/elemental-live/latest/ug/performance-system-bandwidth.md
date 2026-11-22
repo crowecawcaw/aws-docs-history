@@ -1,7 +1,6 @@
 
 
 # System bandwidth
-<a name="performance-system-bandwidth"></a>
 
 System bandwidth is the rate at which network and data traffic moves between process on each core, and between those cores and memory. 
 

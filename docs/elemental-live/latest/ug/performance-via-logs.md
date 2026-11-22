@@ -1,7 +1,6 @@
 
 
 # Assessing performance with logging messages
-<a name="performance-via-logs"></a>
 
 Elemental Live continually writes to log files to capture status information about the health of each event. 
 

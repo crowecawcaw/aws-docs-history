@@ -1,7 +1,6 @@
 
 
 # Creating HLS rendition groups (REST API)
-<a name="hls-rendition-groups-create-using-rest-api"></a>
 
 The following information assumes that you have read [Creating HLS rendition groups (web interface)](hls-rendition-groups-create-using-web-interface.md) and are therefore familiar with the construction and association of an output containing video and rendition groups.
 

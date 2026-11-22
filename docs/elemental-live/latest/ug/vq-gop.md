@@ -1,7 +1,6 @@
 
 
 # Group of pictures (GOP) configuration
-<a name="vq-gop"></a>
 
 ## Description
 <a name="description-vp-gop"></a>

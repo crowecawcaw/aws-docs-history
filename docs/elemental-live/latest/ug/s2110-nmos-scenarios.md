@@ -1,7 +1,6 @@
 
 
 # Choose the resiliency scenario
-<a name="s2110-nmos-scenarios"></a>
 
 You can configure the receiver groups and inputs in an Elemental Live event or Conductor Live profile to support three scenarios. Note that all of the scenarios include NMOS patching, because you must always set up inputs for patching.
 + [Scenario A](input-2110.md): NMOS patching only. With this setup, the NMOS controller can send requests to Elemental Live that patch SDP files with new content. Elemental Live switches to processing the new content.

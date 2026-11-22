@@ -1,7 +1,6 @@
 
 
 # Step 1: Coordinate with the POIS operator
-<a name="vips-setup-step-coordinate"></a>
 
 Talk to the POIS operator, and agree on the values for this data:
 + The label for each input. This value must be identical, and it is case sensitive.

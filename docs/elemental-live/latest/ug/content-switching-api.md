@@ -1,7 +1,6 @@
 
 
 # Using the REST API
-<a name="content-switching-api"></a>
 
 **Topics**
 + [List of commands](list-of-commands.md)

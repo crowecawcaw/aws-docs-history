@@ -1,7 +1,6 @@
 
 
 # Step 3: Set up the inputs in the event
-<a name="vips-setup-step-inputs"></a>
 
 **To set up an MPTS program**
 

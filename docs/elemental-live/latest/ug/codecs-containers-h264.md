@@ -1,7 +1,6 @@
 
 
 # Video: H.264 (AVC) support
-<a name="codecs-containers-h264"></a>
 
 H.264 is supported in the following variations.
 

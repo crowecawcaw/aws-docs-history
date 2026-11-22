@@ -1,7 +1,6 @@
 
 
 # Use case 1: Enhancing output redundancy
-<a name="output-locking-output-redundancy"></a>
 
 You can implement output locking to enhance output redundancy. You can set up output redundancy to work on the same or different Elemental Live appliances:
 + If you set up both events on the same appliance, you achieve resiliency if there is a problem with one event. However, if the entire appliance fails, both outputs stop, and there is no fallback.

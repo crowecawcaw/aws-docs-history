@@ -1,7 +1,6 @@
 
 
 # How Elemental Live works
-<a name="how-live-works"></a>
 
 From the point of view of Elemental Live, a live streaming workflow that includes Elemental Live involves three systems: 
 + An Elemental Live *event*, which ingests and transcodes source content.

@@ -1,7 +1,6 @@
 
 
 # Rules for converting source captions to output captions
-<a name="captions-support-tables"></a>
 
 This section helps you to ensure that when creating an event or profile, you select a format that is valid for your output captions.
 

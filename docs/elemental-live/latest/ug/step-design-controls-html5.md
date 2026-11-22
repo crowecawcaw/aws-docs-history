@@ -1,7 +1,6 @@
 
 
 # Step A: Choose the method for show/hide
-<a name="step-design-controls-html5"></a>
 
 You must speak to the operator of the authoring system and decide how the overlay will be controlled. There are several options.
 

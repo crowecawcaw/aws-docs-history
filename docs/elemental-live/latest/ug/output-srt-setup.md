@@ -1,7 +1,6 @@
 
 
 # Creating the output
-<a name="output-srt-setup"></a>
 
 The setup for the output is identical for both roles (caller or listener), except for the **SRT Connection Mode**
 

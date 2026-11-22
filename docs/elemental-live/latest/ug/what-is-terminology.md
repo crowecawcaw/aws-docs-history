@@ -1,7 +1,6 @@
 
 
 # Elemental Live terminology
-<a name="what-is-terminology"></a>
 
 CDN  
 A content distribution network (CDN) is a network of servers that is downstream of the origin server or packager. The CDN distributes the content from the origin server to dozens or hundreds of networked servers that serve the content to your viewing users. This distributed network ensures that content can be delivered to thousands or millions of viewing users simultaneously.

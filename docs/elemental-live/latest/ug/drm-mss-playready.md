@@ -1,7 +1,6 @@
 
 
 # Microsoft smooth output with PlayReady
-<a name="drm-mss-playready"></a>
 
 Encryption mode: Always AES CTR (AES-128)
 

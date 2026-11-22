@@ -1,7 +1,6 @@
 
 
 # Output locking pairs
-<a name="opl-redundant-pairs"></a>
 
 In an output redundancy implementation, there are also redundant pairs of events, outputs, and encodes. Encode pairs are typically identical.
 

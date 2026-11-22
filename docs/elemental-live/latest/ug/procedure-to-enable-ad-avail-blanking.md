@@ -1,7 +1,6 @@
 
 
 # Procedure to enable ad avail blanking
-<a name="procedure-to-enable-ad-avail-blanking"></a>
 
 **To enable ad avail blanking**
 

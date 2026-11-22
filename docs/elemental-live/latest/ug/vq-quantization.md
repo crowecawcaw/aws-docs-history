@@ -1,7 +1,6 @@
 
 
 # Quantization controls
-<a name="vq-quantization"></a>
 
 ## Description
 <a name="description-vq-quant"></a>

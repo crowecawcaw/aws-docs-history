@@ -1,7 +1,6 @@
 
 
 # Dynamic input switching
-<a name="dynamic-content-switching"></a>
 
 The dynamic input switching feature lets you use REST API commands to switch inputs in an AWS Elemental Live event. This method of input switching has two key features:
 + The switching control (the REST API) is built into Elemental Live. You don't need an external server to control switching.

@@ -1,7 +1,6 @@
 
 
 # Support for conversion and passthrough
-<a name="color-space-conversions"></a>
 
 ## Handling of supported color spaces
 <a name="color-space-supported-handling"></a>

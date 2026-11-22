@@ -1,7 +1,6 @@
 
 
 # Static overlay plus dynamic content switching
-<a name="graphic-overlay-plus-dynamic-content-switching"></a>
 
 You can combine the static overlays with the dynamic content switching feature. You can use dynamic content switching to continually add and modify inputs in an event that is running. As you add inputs, you can insert static or motion overlays, as desired. For information about dynamic content switching, see [Dynamic input switching](dynamic-content-switching.md).
 

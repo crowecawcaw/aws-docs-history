@@ -1,7 +1,6 @@
 
 
 # Supported features
-<a name="captions-supported-features"></a>
 
 This section provides information on the various features of captions that Elemental Live supports.
 

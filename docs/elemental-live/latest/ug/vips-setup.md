@@ -1,7 +1,6 @@
 
 
 # Setting up for virtual input switching
-<a name="vips-setup"></a>
 
 With virtual input switching, the Elemental Live event and the POIS must be set up with identical information. 
 

@@ -1,7 +1,6 @@
 
 
 # Getting ready
-<a name="nielsen-wmark-get-ready"></a>
 
 **To get ready for watermarks**
 

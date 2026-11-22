@@ -1,7 +1,6 @@
 
 
 # Setting up an SRT input
-<a name="input-srt-setup"></a>
 
 You create an SRT input in Elemental Live in order to ingest a transport stream. The upstream system that provides the transport stream is the sender and is set up as an SRT listener. 
 

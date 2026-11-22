@@ -1,7 +1,6 @@
 
 
 # Add-on packages for audio codecs
-<a name="ref-license-codecs-audio"></a>
 
 Some audio codecs require an add-on package. This table lists audio codecs in alphabetical order. Each row identifies whether Elemental Live requires an add-on package to decode an audio source that uses this codec, to pass through the audio source to the output, or to encode an output with this codec.
 

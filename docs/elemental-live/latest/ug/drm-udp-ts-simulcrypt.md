@@ -1,7 +1,6 @@
 
 
 # UDP/TS outputs with DVB Simulcrypt Standard
-<a name="drm-udp-ts-simulcrypt"></a>
 
 Encryption mode: Always AES CBC as described in ATIS-0800006
 

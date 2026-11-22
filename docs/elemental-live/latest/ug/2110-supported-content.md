@@ -1,7 +1,6 @@
 
 
 # Supported content
-<a name="2110-supported-content"></a>
 
 The following table describes the content that Elemental Live supports in SMPTE 2110 sources (inputs) and SMPTE 2110 outputs.
 + For inputs, Elemental Live supports ingest of one instance of each type of stream—one video stream, zero or one audio stream, and zero or one ancillary data stream.

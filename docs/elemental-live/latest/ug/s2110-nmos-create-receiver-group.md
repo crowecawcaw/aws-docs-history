@@ -1,7 +1,6 @@
 
 
 # Create the receiver group
-<a name="s2110-nmos-create-receiver-group"></a>
 
 You must create the SMPTE 2110 receiver groups that you need. Each receiver group identifies the set of individual streams of video, audio, and ancillary data (captions and SCTE 104 messages) that you want to treat as one input.
 

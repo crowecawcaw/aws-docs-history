@@ -1,7 +1,6 @@
 
 
 # Supported content
-<a name="2022-6-inputs-supported-content"></a>
 
 With SMPTE 2022-6, the video, audio, and ancillary data are muxed into one feed. Compare this design to SMPTE 2110, where the content is each in a separate essence.
 

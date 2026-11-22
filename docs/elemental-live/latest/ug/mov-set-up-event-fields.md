@@ -1,7 +1,6 @@
 
 
 # Fields for a MOV asset
-<a name="mov-set-up-event-fields"></a>
 
 
 | Field on web interface | Tag in the XML | Type | Description | 

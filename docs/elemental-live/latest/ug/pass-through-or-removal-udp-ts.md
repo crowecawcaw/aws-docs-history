@@ -1,7 +1,6 @@
 
 
 # UDP/TS procedure
-<a name="pass-through-or-removal-udp-ts"></a>
 
 Passthrough is enabled or disabled individually for each output, which means it can be applied differently for different outputs in the same group.
 

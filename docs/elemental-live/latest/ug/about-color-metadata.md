@@ -1,7 +1,6 @@
 
 
 # General information about color space
-<a name="about-color-metadata"></a>
 
 Following is some general information about color space.
 

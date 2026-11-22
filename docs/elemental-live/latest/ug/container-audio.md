@@ -1,7 +1,6 @@
 
 
 # Working with Audio
-<a name="container-audio"></a>
 
 This chapter describes how to set up the audio features of AWS Elemental Live.
 

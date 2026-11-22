@@ -1,7 +1,6 @@
 
 
 # Virtual input switching using asynchronous ESAM messages
-<a name="vips-asynch"></a>
 
 ## Input types
 <a name="vips-asynch-inputs"></a>

@@ -1,7 +1,6 @@
 
 
 # Miscellaneous video tuning parameters
-<a name="vq-miscellaneous-tuning"></a>
 
 ## Description
 <a name="description-vq-rc-tuning"></a>

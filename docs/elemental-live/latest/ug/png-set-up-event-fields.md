@@ -1,7 +1,6 @@
 
 
 # Fields for a PNG asset
-<a name="png-set-up-event-fields"></a>
 
 
 | Field on web interface | Tag in the XML | Type | Description | 

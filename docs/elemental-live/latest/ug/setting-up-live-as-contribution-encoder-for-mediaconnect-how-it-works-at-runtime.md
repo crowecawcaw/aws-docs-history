@@ -1,7 +1,6 @@
 
 
 # How delivery from Elemental Live to MediaConnect works at runtime
-<a name="setting-up-live-as-contribution-encoder-for-mediaconnect-how-it-works-at-runtime"></a>
 
 Here is the data that AWS Elemental Live has: The flow ARN. The Access key ID and Secret access key. Here is the data that MediaConnect has: The flow ARN. The destination IPs and protocol details. The encryption type and algorithm. The role ARN (for obtaining the secret - the encryption key). The secret ARN. When the event starts, Elemental Live authenticates with AWS using the AWS access key ID and AWS secret access key. It then sends the flow ARN to MediaConnect. MediaConnect accepts the request because Elemental Live has permission to make requests to MediaConnect. MediaConnect looks up the flow and determines if the flow is set up for encryption.
 + If the flow is set up for encryption, MediaConnect sends the encryption type and algorithm information, and the secret ARN to Elemental Live. Elemental Live uses the secret ARN to get the secret (the encryption key) from Secrets Manager. Secrets Manager accepts the request from Elemental Live because Elemental Live has permission to get this secret.

@@ -1,7 +1,6 @@
 
 
 # TTML captions wrapped in ID3 data
-<a name="output-ttml-in-id3"></a>
 
 Follow this procedure to produce an output that includes TTML captions wrapped in ID3 data. This format is supported only in an MSS output. Unlike unwrapped TTML captions (which you create as described in [Sidecar captions or SMPTE-TT captions in MS Smooth](output-sidecar-and-smptett-mss.md)), these captions are included as an ID3 object in the same stream as the video. 
 

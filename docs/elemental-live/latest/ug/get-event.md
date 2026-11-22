@@ -1,7 +1,6 @@
 
 
 # Get event
-<a name="get-event"></a>
 
 Get a list of the inputs in the specified event.
 

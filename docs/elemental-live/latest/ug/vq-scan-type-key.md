@@ -1,7 +1,6 @@
 
 
 # Key fields for converting scan type
-<a name="vq-scan-type-key"></a>
 
 ## Description
 <a name="description-vq-scan-type-key"></a>

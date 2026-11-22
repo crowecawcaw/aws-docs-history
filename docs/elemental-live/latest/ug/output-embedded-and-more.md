@@ -1,7 +1,6 @@
 
 
 # All captions except sidecar or SMPTE-TT in MS Smooth
-<a name="output-embedded-and-more"></a>
 
 Follow this procedure if the format of the captions asset that you want to add belongs to the category of embedded, burn-in, or object. You will set up the captions and video and audio in the same output.
 

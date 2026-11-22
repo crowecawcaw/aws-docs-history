@@ -1,7 +1,6 @@
 
 
 # POIS conditioning
-<a name="pois-conditioning"></a>
 
 Elemental Live events can be configured to communicate with a POIS server. During processing of the input, each time a SCTE-35 message is encountered, Elemental Live sends the message contents to the server. The POIS responds with SCTE-35 content that might be identical to the original, slightly different from, or completely different from the original.
 

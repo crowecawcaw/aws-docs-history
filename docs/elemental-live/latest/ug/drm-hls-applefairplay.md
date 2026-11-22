@@ -1,7 +1,6 @@
 
 
 # HLS output with Apple FairPlay
-<a name="drm-hls-applefairplay"></a>
 
 Encryption mode: Always AES CBC (Sample AES)
 

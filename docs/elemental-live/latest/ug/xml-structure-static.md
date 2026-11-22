@@ -1,7 +1,6 @@
 
 
 # XML structure
-<a name="xml-structure-static"></a>
 
 **Topics**
 + [Static overlay, creating and modifying a non-running event](static-overlay-creating-and-modifying-a-non-running-event.md)

@@ -1,7 +1,6 @@
 
 
 # Assessing performance by measuring
-<a name="performance-measures"></a>
 
 There are several features of the appliance that affect performance:
 + CPU usage

@@ -1,7 +1,6 @@
 
 
 # Creating HLS rendition groups
-<a name="hls-rendition-groups-create"></a>
 
 The key to creating rendition groups is that each output you create must contain only one stream. Therefore, for each video to include in the output group, you create a stream assembly that contains only one video (no audio or captions). For each audio to include in a rendition group, you create a stream assembly that contains only one audio (no video or captions).
 

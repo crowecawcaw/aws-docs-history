@@ -1,7 +1,6 @@
 
 
 # The procedures
-<a name="content-switching-procedure"></a>
 
 **Topics**
 + [General procedure](general-procedure.md)

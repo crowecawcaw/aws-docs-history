@@ -1,7 +1,6 @@
 
 
 # Insert a new splice insert message
-<a name="insert-a-new-splice-insert-message"></a>
 
 Inserts a SCTE-35 message of type splice\_insert in the stream either immediately or at a specified time. The command always includes a start time. It can also include a duration (which implies an end time). 
 

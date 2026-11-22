@@ -1,7 +1,6 @@
 
 
 # Information for Teletext
-<a name="teletext"></a>
 
 This section provides information specific to Teletext input captions. It describes the fields that appear when you choose **SCC** in the **Source** field in the **Caption Selector** section of the event. For more context, see [Step 1: Identify the source captions that you want](identify-captions-in-the-input.md).
 

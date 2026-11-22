@@ -1,7 +1,6 @@
 
 
 # Use case 4: One captions output shared by multiple video encodes
-<a name="use-case-one-captions-output-shared-by-multiple-video-encode"></a>
 
 This example shows how to set up captions in an ABR workflow. The first setup shows how to set up an ABR workflow when the captions are in the same output as the video, meaning that the captions are either embedded or captions style.
 

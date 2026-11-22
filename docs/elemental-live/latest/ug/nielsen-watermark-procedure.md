@@ -1,7 +1,6 @@
 
 
 # Setting up Nielsen watermarks
-<a name="nielsen-watermark-procedure"></a>
 
 You can create new Nielsen watermarks on the output audio encoding. To pass through existing Nielsen watermarks or convert them to ID3, see [Converting Nielsen watermarks to ID3](feature-nielsen-id3.md).
 

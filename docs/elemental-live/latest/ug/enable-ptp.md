@@ -1,7 +1,6 @@
 
 
 # Setup: Enable precision time protocol (PTP)
-<a name="enable-ptp"></a>
 
 If you set up SMPTE 2110 outputs in events, you must enable Precision Time Protocol (PTP). You don't need to enable it if you only set up SMPTE 2110 inputs. 
 

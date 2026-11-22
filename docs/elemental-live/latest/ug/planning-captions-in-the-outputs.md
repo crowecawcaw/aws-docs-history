@@ -1,7 +1,6 @@
 
 
 # Step 3: Plan captions for the outputs
-<a name="planning-captions-in-the-outputs"></a>
 
 If you followed the instructions in [Step 1: Identify the source captions that you want](identify-captions-in-the-input.md), you should have a list of the captions formats and languages that will be available for inclusion in the outputs. 
 

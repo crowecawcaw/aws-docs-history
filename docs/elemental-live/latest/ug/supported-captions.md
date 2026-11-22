@@ -1,7 +1,6 @@
 
 
 # Reference: Supported captions
-<a name="supported-captions"></a>
 
 This section provides reference information about the captions formats that Elemental Live supports.
 

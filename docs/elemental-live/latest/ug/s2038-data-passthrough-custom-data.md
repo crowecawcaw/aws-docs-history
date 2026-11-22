@@ -1,7 +1,6 @@
 
 
 # Setting up the event to pass through custom data
-<a name="s2038-data-passthrough-custom-data"></a>
 
 After you have enabled SMPTE 2038, you can identify the custom data to extract, and then set up to include that data in your SMPTE 2110 outputs.
 

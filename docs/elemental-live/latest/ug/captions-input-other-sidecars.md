@@ -1,7 +1,6 @@
 
 
 # Information for SMI, SMPTE-TT, SRT, STL, TTML
-<a name="captions-input-other-sidecars"></a>
 
 This section provides information specific to SMI, SMPTE-TT, SRT, STL, and TTML input captions. describes the fields that appear when you choose **SCC** in the **Source** field in the **Caption Selector** section of the **Create New Live Event** screen. For more context, see [Step 1: Identify the source captions that you want](identify-captions-in-the-input.md).
 

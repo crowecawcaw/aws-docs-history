@@ -1,7 +1,6 @@
 
 
 # Step 3: Create SMPTE 2110 output group
-<a name="config-output-2110"></a>
 
 In a SMPTE 2110 output group, you create one output for the single video, for each audio, and for the single (optional) ancillary data stream.
 

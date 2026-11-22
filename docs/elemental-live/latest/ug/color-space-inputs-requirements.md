@@ -1,7 +1,6 @@
 
 
 # Requirements for inputs
-<a name="color-space-inputs-requirements"></a>
 
 **Supported input types**
 

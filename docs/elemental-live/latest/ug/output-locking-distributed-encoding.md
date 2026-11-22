@@ -1,7 +1,6 @@
 
 
 # Use case 2: Distributed encoding
-<a name="output-locking-distributed-encoding"></a>
 
 You can set up output locking to implement distributed encoding. A typical use case for distributed encoding is to build an ABR stack that consists of different renditions (resolutions) of the same video content.
 

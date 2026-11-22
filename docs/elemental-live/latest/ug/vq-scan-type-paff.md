@@ -1,7 +1,6 @@
 
 
 # Adaptive field frame controls
-<a name="vq-scan-type-paff"></a>
 
 ## Description
 <a name="description-vq-scan-type"></a>

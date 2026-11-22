@@ -1,7 +1,6 @@
 
 
 # Format of an SDP file for video
-<a name="2120-sdp-video"></a>
 
 ```
 v=0

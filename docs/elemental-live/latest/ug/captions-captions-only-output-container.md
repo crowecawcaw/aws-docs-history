@@ -1,7 +1,6 @@
 
 
 # Supported source captions and output captions in a captions-only output container
-<a name="captions-captions-only-output-container"></a>
 
 This table describes the caption formats that can be included on their own in an output. With this option, *the container is always a raw container that contains only the captions* (video would be in another container that may be a raw container or may be some other type).
 

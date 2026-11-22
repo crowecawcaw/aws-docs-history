@@ -1,7 +1,6 @@
 
 
 # Support for font styles in output captions
-<a name="support-for-font-styles-in-output-captions"></a>
 
 Depending on the scenario, there are three possibilities for the font style for output captions:
 + You can specify the style you want for fonts, including color, outline, and background color.

@@ -1,7 +1,6 @@
 
 
 # DASH output
-<a name="drm-dash-output"></a>
 
 Encryption mode: Always AES CTR (AES-128)
 

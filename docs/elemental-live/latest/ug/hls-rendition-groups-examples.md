@@ -1,7 +1,6 @@
 
 
 # Examples of HLS rendition groups
-<a name="hls-rendition-groups-examples"></a>
 
 ## Example 1
 <a name="hls-rendition-groups-example-1"></a>

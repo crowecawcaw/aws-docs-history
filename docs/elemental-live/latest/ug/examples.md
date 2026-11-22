@@ -1,7 +1,6 @@
 
 
 # Examples of implementing use cases
-<a name="examples"></a>
 
 The following examples describe how to implement the use cases from [Typical scenarios](typical-scenarios.md). 
 

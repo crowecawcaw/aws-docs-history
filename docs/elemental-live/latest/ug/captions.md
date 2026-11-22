@@ -1,7 +1,6 @@
 
 
 # Working with captions
-<a name="captions"></a>
 
 You can set up Elemental Live to extract captions when it ingests the source and to include those captions in the output in either the same or a different format. You can include several captions in the output. For example, you can include captions for several languages. You can take a source captions asset and convert it to one format in one output and to another format in a different output. 
 

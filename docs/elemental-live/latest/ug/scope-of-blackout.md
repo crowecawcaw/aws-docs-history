@@ -1,7 +1,6 @@
 
 
 # Scope of blackout of SCTE-35 messages
-<a name="scope-of-blackout"></a>
 
 All SCTE-35 messages that are “Other type” are blanked out as follows:
 

@@ -1,7 +1,6 @@
 
 
 # I/O bandwidth
-<a name="performance-io-bandwidth"></a>
 
 I/O bandwidth is the rate at which the CPU reads from input or writes to output through a network interface card. Therefore, network inputs and outputs affect I/O bandwidth. SDI inputs don't affect I/O bandwidth.
 

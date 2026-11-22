@@ -1,7 +1,6 @@
 
 
 # Setting up an HLS output group
-<a name="opl-setup-hls"></a>
 
 This section shows how to set up an HLS output group to implement Elemental Live output locking. 
 

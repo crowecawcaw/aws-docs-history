@@ -1,7 +1,6 @@
 
 
 # Information for embedded
-<a name="embedded"></a>
 
 This section provides information specific to embedded input captions. It describes the fields that appear when you choose **Embedded** in the **Source** field in the **Caption Selector** section of the event. For more context, see the steps earlier in this section.
 

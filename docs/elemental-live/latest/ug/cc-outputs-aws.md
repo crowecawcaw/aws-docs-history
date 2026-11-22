@@ -1,7 +1,6 @@
 
 
 # Output types for delivery to an AWS service
-<a name="cc-outputs-aws"></a>
 
 This table describes options that you can use to send output from Elemental Live to a downstream system that is an AWS service. Each row describes a different use case. 
 

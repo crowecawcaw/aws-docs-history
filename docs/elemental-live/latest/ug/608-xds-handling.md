@@ -1,7 +1,6 @@
 
 
 # Setting up for 608 XDS data
-<a name="608-xds-handling"></a>
 
 If your source content includes 608 XDS data, you can set up the event to include it or strip it from the output. 
 

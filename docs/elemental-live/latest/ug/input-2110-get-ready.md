@@ -1,7 +1,6 @@
 
 
 # Get ready
-<a name="input-2110-get-ready"></a>
 
 Before you set up a SMPTE 2110 input in an event, read the following information:
 + [Setup: Remove bonded interfaces](s2110-setup-bonded-if.md)

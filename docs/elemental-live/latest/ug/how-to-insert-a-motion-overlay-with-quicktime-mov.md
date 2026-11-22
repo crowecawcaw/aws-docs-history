@@ -1,7 +1,6 @@
 
 
 # How to insert a motion overlay with QuickTime MOV
-<a name="how-to-insert-a-motion-overlay-with-quicktime-mov"></a>
 
 You can use a `.mov` file as an asset for the motion image overlay. 
 

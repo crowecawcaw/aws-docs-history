@@ -1,7 +1,6 @@
 
 
 # Support for multiple languages
-<a name="support-for-languages"></a>
 
 If the source includes captions in multiple languages, you can include multiple languages in the output as follows:
 + **Embedded Passthrough**. For any of the embedded source formats, if you specify embedded as the output format, then all languages that are in the input are included in the output. You can't remove any of the languages.

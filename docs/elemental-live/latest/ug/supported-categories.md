@@ -1,7 +1,6 @@
 
 
 # Definitions of captions categories
-<a name="supported-categories"></a>
 
 Elemental Live groups captions formats into several categories. You set up captions differently, depending on the category.
 

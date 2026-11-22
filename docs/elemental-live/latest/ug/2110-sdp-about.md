@@ -1,7 +1,6 @@
 
 
 # About SDP files
-<a name="2110-sdp-about"></a>
 
 The SMPTE 2110 specification relies on SDP files to describe the contents of the SMPTE 2110 streams. There is one file for each type of stream. The file for each stream contains the following information:
 + The source IP address for the file. This is an address that the sender controls.
@@ -13,7 +12,7 @@ The SMPTE 2110 specification relies on SDP files to describe the contents of the
 For SMPTE 2110 inputs, Elemental Live is the receiver and the upstream system is the sender.
 + Typically, the sender (the upstream system) is responsible for creating the *source SDP file*. 
 
-  If the sender hasn't created the file, or if your organization is the originator of the stream and the file wasn't created by an automated system, then you can create the file. For more information, see [About SDP files](#2110-sdp-about).
+  If the sender hasn't created the file, or if your organization is the originator of the stream and the file wasn't created by an automated system, then you can create the file. For more information, see [About SDP files](2110-sdp-about.md).
 + If the source SMPTE 2110 streams aren't managed by NMOS, the source SDP files must be stored on a server that Elemental Live can access using HTTP. You and the sender should agree on a suitable location.
 + If the source SMPTE 2110 streams are being managed by NMOS, you should have already set up the stream in the NMOS registry.
 

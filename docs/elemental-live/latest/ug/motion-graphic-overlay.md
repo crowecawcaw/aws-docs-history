@@ -1,7 +1,6 @@
 
 
 # Insert a motion graphic overlay in Elemental Live
-<a name="motion-graphic-overlay"></a>
 
 This guide shows you how to insert a motion graphic overlay in AWS Elemental Live for video that it encodes. You can insert one asset into the event so that you can use it as a motion graphic overlay on all video outputs. 
 

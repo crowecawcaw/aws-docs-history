@@ -1,7 +1,6 @@
 
 
 # The results of different types of conversions
-<a name="color-space-conversion-results"></a>
 
 Following is information about how Elemental Live handles the different types of conversion of the color space.
 

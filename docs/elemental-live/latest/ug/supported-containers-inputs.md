@@ -1,7 +1,6 @@
 
 
 # Rules for extracting captions from sources
-<a name="supported-containers-inputs"></a>
 
 To use captions in a source, Elemental Live must be able to extract the captions. The rules are as follows:
 + Elemental Live can always extract sidecar captions from the source, so long as Elemental Live supports the captions format.

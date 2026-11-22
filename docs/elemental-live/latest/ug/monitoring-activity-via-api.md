@@ -1,7 +1,6 @@
 
 
 # Monitoring activity through the API
-<a name="monitoring-activity-via-api"></a>
 
 ## Fine points and pitfalls
 <a name="fine-points-and-pitfalls"></a>

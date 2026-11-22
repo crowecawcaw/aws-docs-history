@@ -1,7 +1,6 @@
 
 
 # Insertion options and the effect on outputs
-<a name="insertion-options-and-the-effect-on-outputs"></a>
 
 ## In the input section: Insert in portion of all outputs
 <a name="in-the-input-section-insert-in-portion-of-all-outputs"></a>

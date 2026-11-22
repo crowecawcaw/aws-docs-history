@@ -1,7 +1,6 @@
 
 
 # Video: HEVC (H.265) support
-<a name="codecs-containers-hevc"></a>
 
 HEVC is supported in the following variations.
 

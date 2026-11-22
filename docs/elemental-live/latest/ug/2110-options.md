@@ -1,7 +1,6 @@
 
 
 # Support for SMPTE 2022-7 – seamless protection switching
-<a name="2110-options"></a>
 
 Elemental Live supports seamless protection switching (conforming with SMPTE 2022-7) for both SMPTE 2110 inputs and SMPTE 2110 outputs. The Elemental Live implementation of SMPTE 2022-7 provides protection against packet loss, interface failure, and network loss (because the two interfaces use different network paths).
 + For inputs, if the source implements SMPTE 2022-7, you can configure some or all of the SMPTE 2110 streams in your event to accept inputs over two interfaces. Elemental Live will then perform seamless protection switching at the packet level, to ensure uninterrupted ingest of the content.

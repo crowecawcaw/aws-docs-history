@@ -1,7 +1,6 @@
 
 
 # Step 5: Create captions encodes
-<a name="create-captions-encodes"></a>
 
 Go through the list of outputs you created and set up the captions in each output group, one by one.
 

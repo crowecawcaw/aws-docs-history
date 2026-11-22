@@ -1,7 +1,6 @@
 
 
 # Step D: Run the event again
-<a name="mov-step-run-again"></a>
 
 You might want to run the same event again. If you do so, make sure that the motion overlay is set up correctly. You must do this because when you enter REST API commands to control the motion overlay when the event is running, the event XML for the motion overlay changes.
 

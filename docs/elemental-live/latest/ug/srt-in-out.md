@@ -1,7 +1,6 @@
 
 
 # Working with SRT
-<a name="srt-in-out"></a>
 
 Elemental Live supports both inputs and outputs that use the SRT (secure reliable transport) protocol. 
 

@@ -1,7 +1,6 @@
 
 
 # Supported caption formats
-<a name="captions-supported-formats"></a>
 
 <a name="table-captions-supported-formats"></a>
 

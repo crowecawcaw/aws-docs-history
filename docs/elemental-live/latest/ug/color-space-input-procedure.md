@@ -1,7 +1,6 @@
 
 
 # Step 1: Decide on the input handling
-<a name="color-space-input-procedure"></a>
 
 If you plan to pass through or convert the color space on the output side of the event, you must decide whether you need to change the color space metadata in the input. 
 

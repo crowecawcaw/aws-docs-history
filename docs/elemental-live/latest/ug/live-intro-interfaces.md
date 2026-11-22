@@ -1,7 +1,6 @@
 
 
 # Interfaces for Elemental Live
-<a name="live-intro-interfaces"></a>
 
 Elemental Live can be controlled, configured, and monitored through the following interfaces.
 

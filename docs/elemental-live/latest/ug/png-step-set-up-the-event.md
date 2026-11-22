@@ -1,7 +1,6 @@
 
 
 # Step B: Set up the event
-<a name="png-step-set-up-the-event"></a>
 
 You configure the event with information about the first motion overlay. You can configure this information when creating an event. Or you can change the existing motion overlay configuration on a non-running event. You can configure the information using the web interface or the REST API. 
 

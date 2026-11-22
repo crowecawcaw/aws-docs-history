@@ -1,7 +1,6 @@
 
 
 # Details on preparing inputs
-<a name="details-on-preparing-inputs"></a>
 
 Read this section if your inputs are not being prepared as expected.
 

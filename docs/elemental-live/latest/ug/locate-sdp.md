@@ -1,7 +1,6 @@
 
 
 # Step 4: Download and post the SDP file
-<a name="locate-sdp"></a>
 
 If your organization doesn't use NMOS, you must make sure that the downstream system (the SMPTE 2110 receiver) can access them:
 + If the location is accessible and doesn't need user credentials, provide the downstream system operator with the full path so that they can download the SDP files.

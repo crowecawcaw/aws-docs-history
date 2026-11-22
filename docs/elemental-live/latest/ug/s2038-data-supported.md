@@ -1,7 +1,6 @@
 
 
 # Supported ancillary data
-<a name="s2038-data-supported"></a>
 
 Elemental Live can ingest several types of ancillary data. After the data has been ingested, Elemental Live can handle it in one of two ways—use it, following the instructions you set up in the channel, or passing it through in the output, so that a downstream system can use it.
 

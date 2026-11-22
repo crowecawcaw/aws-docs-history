@@ -1,7 +1,6 @@
 
 
 # Example of a workflow
-<a name="opl-example"></a>
 
 This section provides an example of the design of an output lock workflow that implements distributed encoding. 
 

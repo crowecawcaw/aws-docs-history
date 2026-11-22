@@ -1,7 +1,6 @@
 
 
 # Combinations of input and output codec
-<a name="dolby-metadata-impact-combination-input-output-codec"></a>
 
 The possible input and output codec combinations (in which at least one codec is a Dolby codec) are as follows. All these combinations support including metadata in the output.
 

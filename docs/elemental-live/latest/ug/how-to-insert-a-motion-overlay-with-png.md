@@ -1,7 +1,6 @@
 
 
 # How to insert a motion overlay with a set of PNG files
-<a name="how-to-insert-a-motion-overlay-with-png"></a>
 
 You can use a set of `.png` files as an asset for the motion image overlay. 
 

@@ -1,7 +1,6 @@
 
 
 # Supported upstream systems for file inputs
-<a name="supported-inputs-file-types"></a>
 
 This table describes the different upstream systems that can provide file content to Elemental Live. 
 

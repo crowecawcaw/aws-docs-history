@@ -1,7 +1,6 @@
 
 
 # HLS output with Verimatrix
-<a name="drm-hls-verimatrix"></a>
 
 Encryption mode: Always AES CTR (AES-128)
 

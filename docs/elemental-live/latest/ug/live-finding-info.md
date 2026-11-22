@@ -1,7 +1,6 @@
 
 
 # Information about using Elemental Live
-<a name="live-finding-info"></a>
 
  Information about AWS Elemental Live is available in the following guides and resources. 
 

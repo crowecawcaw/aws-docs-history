@@ -1,7 +1,6 @@
 
 
 # Step 4: Set up the output groups and outputs
-<a name="opl-setup-output-groups"></a>
 
 This section shows how to set up output groups and outputs in an Elemental Live event that implements output locking. 
 

@@ -1,7 +1,6 @@
 
 
 # Format of an SDP file for ancillary data
-<a name="2120-sdp-ancillary"></a>
 
 ```
 v=0

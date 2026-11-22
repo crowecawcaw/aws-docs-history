@@ -1,7 +1,6 @@
 
 
 # Static graphic overlay commands
-<a name="static-graphic-overlay-commands"></a>
 
 
 | Nickname | Action | Signature | Description | 

@@ -1,7 +1,6 @@
 
 
 # Delivering HLS output to MediaPackage version 2
-<a name="output-empV4"></a>
 
 This section describes how to deliver an HLS output from AWS Elemental Live to an AWS Elemental MediaPackage channel that uses MediaPackage v2. You can optionally configure the video output for low latency, to support a glass-to-glass low latency workflow. 
 

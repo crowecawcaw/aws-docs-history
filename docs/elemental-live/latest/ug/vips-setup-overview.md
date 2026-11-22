@@ -1,7 +1,6 @@
 
 
 # Overview
-<a name="vips-setup-overview"></a>
 
 The POIS must be set up with the following information:
 + A tag for the Elemental Live input. Each input must be unique in the Elemental Live event.

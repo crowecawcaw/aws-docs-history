@@ -1,7 +1,6 @@
 
 
 # Audio: Transcode support and passthrough support for Dolby audio codecs
-<a name="codecs-containers-transcode-support"></a>
 
 Three Dolby codecs are supported and can be transcoded or passed through as follows:
 + Dolby Digital (AC-3): Can be re-encoded as Dolby Digital or the original Dolby Digital can be passed through.

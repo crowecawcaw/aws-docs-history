@@ -1,7 +1,6 @@
 
 
 # Working with Inputs
-<a name="container-inputs"></a>
 
 This chapter describes how to set up the different types of inputs that AWS Elemental Live supports.
 

@@ -1,7 +1,6 @@
 
 
 # Working with Video
-<a name="container-video"></a>
 
 This chapter describes how to set up the video features of AWS Elemental Live.
 

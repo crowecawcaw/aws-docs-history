@@ -1,7 +1,6 @@
 
 
 # Using the web interface
-<a name="html5-set-up-event-web-interface"></a>
 
 **To configure the event using the web interface**
 

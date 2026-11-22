@@ -1,7 +1,6 @@
 
 
 # Inserting Nielsen watermarks
-<a name="feature-nielsen-watermark"></a>
 
 Starting with Elemental Live version 2.22.0, you can set up to create new Nielsen watermarks and insert them into your audio. Typically, only content and distribution providers use Nielsen watermarks. If you're not working with The Nielsen Company to implement watermarks, you don't need to read this section. 
 

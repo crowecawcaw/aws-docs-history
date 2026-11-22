@@ -1,7 +1,6 @@
 
 
 # Resiliency scenario A: Supporting NMOS patching
-<a name="s2110-nmos-scenario-patching"></a>
 
 With this setup, the NMOS controller can send SDP content that provides patching instructions to Elemental Live. For example, in a curling match, it can send a patch that switches the source from the camera on the curling rink to the camera in the studio. 
 

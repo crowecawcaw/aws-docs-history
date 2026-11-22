@@ -1,7 +1,6 @@
 
 
 # Interleave 4K inputs
-<a name="interleave-2si-inputs"></a>
 
 AWS Elemental Live supports 4K uncompressed sources that are formatted as 2SI (2 Sample Interleave). 
 

@@ -1,7 +1,6 @@
 
 
 # Assumptions
-<a name="setting-up-live-as-contribution-encoder-for-mediaconnect-assumptions"></a>
 
 This section assumes the following:
 + We assume that you know how to use the AWS console, AWS Identity and Access Management, and AWS Elemental MediaConnect, and that you have access to the user guides for the AWS services:

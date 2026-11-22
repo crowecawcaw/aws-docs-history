@@ -1,7 +1,6 @@
 
 
 # Delete dynamic playlist input
-<a name="delete-dynamic-playlist-input"></a>
 
 In the specified event (which must be currently running), delete the specified non-Active input from the dynamic playlist. 
 

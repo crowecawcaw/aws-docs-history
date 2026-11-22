@@ -1,7 +1,6 @@
 
 
 # Use case 2: One input format converted to one different output format
-<a name="use-case-one-input-format-to-one-different-output-format"></a>
 
 This example shows how to implement [the second use case](typical-scenarios.md#use-case-one-input-format-to-different-output-formats) from the typical scenarios. The input includes two captions languages, and the single output will convert those captions. For example, the input has embedded captions in German and French. You want to produce a UDP output with both captions converted to DVB-Sub, plus one video and one audio. 
 

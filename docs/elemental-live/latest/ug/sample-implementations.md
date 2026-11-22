@@ -1,7 +1,6 @@
 
 
 # Sample implementations
-<a name="sample-implementations"></a>
 
 ## Implementing use case 1
 <a name="implementing-use-case-1"></a>

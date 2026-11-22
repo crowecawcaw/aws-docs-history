@@ -1,7 +1,6 @@
 
 
 # Requirements for the appliance and network
-<a name="2110-appliance-reqs"></a>
 
 A SMPTE 2110 input or output requires an Elemental Live appliance with a high-speed network interface card (NIC). Therefore, to set up a SMPTE 2110 input or output, you must create the event on one of the following appliances.
 

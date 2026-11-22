@@ -1,7 +1,6 @@
 
 
 # Location of HDR fields in the XML
-<a name="hdr-location-of-fields-in-the-xml"></a>
 
 <a name="input-video-selector"></a>
 

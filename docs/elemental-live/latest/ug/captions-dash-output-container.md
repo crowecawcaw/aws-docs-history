@@ -1,7 +1,6 @@
 
 
 # Supported source captions and output captions in a DASH output container
-<a name="captions-dash-output-container"></a>
 
 To read this table, find the type of container and captions from your input. The supported captions formats for this *output *container are then shown in the last column. 
 

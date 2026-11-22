@@ -1,7 +1,6 @@
 
 
 # Setting up Elemental Live as a Contribution Encoder for AWS Elemental MediaConnect
-<a name="setting-up-live-as-contribution-encoder-for-mediaconnect"></a>
 
 You can set up an AWS Elemental MediaConnect flow as the output from Elemental Live. In this setup, Elemental Live is the contribution encoder for a MediaConnect flow. You can choose to encrypt the output during delivery to MediaConnect.
 

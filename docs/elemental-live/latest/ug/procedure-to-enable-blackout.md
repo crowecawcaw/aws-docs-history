@@ -1,7 +1,6 @@
 
 
 # Procedure to enable blackout
-<a name="procedure-to-enable-blackout"></a>
 
 **To enable blackout**
 

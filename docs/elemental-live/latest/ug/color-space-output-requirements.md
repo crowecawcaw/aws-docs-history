@@ -1,7 +1,6 @@
 
 
 # Requirements for outputs
-<a name="color-space-output-requirements"></a>
 
 **Supported output types**
 

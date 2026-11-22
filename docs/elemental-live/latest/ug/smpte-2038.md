@@ -1,7 +1,6 @@
 
 
 # Handling ancillary data in SMPTE 2038
-<a name="smpte-2038"></a>
 
 Whenever you plan to set up a transport stream (TS) source, you should find out if the content provider has set up the TS so that some data is included in SMPTE 2038 packets, rather than in the standard locations. The content provider typically sets up the TS in this way because they have converted an SDI stream to a TS.
 

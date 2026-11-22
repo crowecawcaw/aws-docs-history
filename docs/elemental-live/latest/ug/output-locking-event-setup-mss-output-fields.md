@@ -1,7 +1,6 @@
 
 
 # Setting up an MS Smooth output group
-<a name="output-locking-event-setup-mss-output-fields"></a>
 
 This section shows how to set up an MS Smooth output group to implement Elemental Live output locking. 
 

@@ -1,7 +1,6 @@
 
 
 # Reference: Supported DRM solutions
-<a name="drm-support-solutions"></a>
 
 This chapter lists the Digital Rights Management (DRM) solutions that are available for the types of outputs supported by AWS Elemental Live. The tables are organized alphabetically by output type and the DRM technology provider name.
 

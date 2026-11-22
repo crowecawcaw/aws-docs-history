@@ -1,7 +1,6 @@
 
 
 # Passthrough or removal of SCTE messages
-<a name="pass-through-or-removal"></a>
 
 SCTE-35 messages from the input can be passed through (included) in the data stream for the following outputs.
 + Archive outputs with MPEG-2 as the container: You specify whether to pass through at the output level.

@@ -1,7 +1,6 @@
 
 
 # Setting up the event to use the ancillary data
-<a name="s2038-data-use-data"></a>
 
 After you have enabled SMPTE 2038, you should specify how you want Elemental Live to use the timecode, captions, AFD signals, and SCTE 104 messages that it detects.
 

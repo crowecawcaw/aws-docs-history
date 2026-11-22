@@ -1,7 +1,6 @@
 
 
 # Frame rate conversion
-<a name="vq-framerate-conversion"></a>
 
 ## Description
 <a name="description-vq-framerate"></a>

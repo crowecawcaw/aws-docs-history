@@ -1,7 +1,6 @@
 
 
 # DASH output
-<a name="dash-output"></a>
 
 DASH ISO output does not support passthrough of the SCTE-35 messages or manifest decoration. Therefore, the only workable option is the default behavior:
 

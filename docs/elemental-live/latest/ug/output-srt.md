@@ -1,7 +1,6 @@
 
 
 # Delivering TS using the SRT protocol
-<a name="output-srt"></a>
 
 In AWS Elemental Live , you can deliver a transport stream (TS) output from using the SRT protocol. You can choose to encrypt the content with AES. This SRT delivery option is part of the Reliable TS output group.
 

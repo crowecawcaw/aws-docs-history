@@ -1,7 +1,6 @@
 
 
 # Setup: Reserve cores for SMPTE 2110
-<a name="enable-2110"></a>
 
 Before you can run an event using SMPTE 2110, you must reserve cores on the appliance NIC. When you reserve these cores, AWS Elemental Live uses them only for processing SMPTE 2110 and/or SMPTE 2022-6. 
 

@@ -1,7 +1,6 @@
 
 
 # Captions in events with multiple inputs
-<a name="captions-events-multi-input"></a>
 
 If your event includes multiple inputs, these rules apply to Elemental Live handling of captions: 
 + The captions formats in one input can be different from the captions formats in another input. For example, 608 embedded captions might be in one input and teletext might be in another.

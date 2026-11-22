@@ -1,7 +1,6 @@
 
 
 # Supported source captions and output captions in MPEG2-TS or MPEG2-UDP
-<a name="captions-mpeg2-ts-file-mpeg2-udp-streaming-output-container"></a>
 
 The table provides information about captions in an MPEG2-TS file output container or MPEG2-UDP streaming output container.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring activity through the web interface
-<a name="monitoring-activity-via-web"></a>
 
 The operator can monitor dynamic playlist activity through the Elemental Live web interface.
 

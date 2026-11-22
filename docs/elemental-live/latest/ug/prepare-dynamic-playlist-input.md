@@ -1,7 +1,6 @@
 
 
 # Prepare dynamic playlist input
-<a name="prepare-dynamic-playlist-input"></a>
 
 In the specified event (which must be currently running), manually prepare the specified dynamic playlist input either at the specified time or immediately.
 

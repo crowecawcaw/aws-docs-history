@@ -1,7 +1,6 @@
 
 
 # Step 1: Identify the source captions that you want
-<a name="identify-captions-in-the-input"></a>
 
 You must identify the captions that you want to use and assign each to a captions selector. If you don't create any captions selectors, you will not be able to include captions in the output. All the captions will be removed from the media.
 

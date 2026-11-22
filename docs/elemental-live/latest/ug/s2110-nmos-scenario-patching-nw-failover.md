@@ -1,7 +1,6 @@
 
 
 # Resiliency scenario C: Supporting NMOS patching and network failover
-<a name="s2110-nmos-scenario-patching-nw-failover"></a>
 
 You can set up inputs in a configuration that combines NMOS patching with hot backup and network redundancy. In this scenario, the hot backup configuration allows failover between the redundant networks that are set up between the upstream system (the content source) and Elemental Live. Network redundancy lets Elemental Live fail over to sources that are being delivered over a different network, if the main network fails. Network redundancy lets you fail over to a different live source, instead of failing over to a slate (as shown in scenario B).
 

@@ -1,7 +1,6 @@
 
 
 # Appliance hardware requirements
-<a name="input-2022-6-prereqs"></a>
 
 A SMPTE 2022-6 input requires an Elemental Live appliance with a high-speed network interface card (NIC). Therefore, to set up a SMPTE 2022-6 input, you must create the event on one of the following appliances.
 

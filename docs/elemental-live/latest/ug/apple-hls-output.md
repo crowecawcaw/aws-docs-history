@@ -1,7 +1,6 @@
 
 
 # Apple HLS output
-<a name="apple-hls-output"></a>
 
 Apple HLS output supports both passthrough of the SCTE-35 messages and manifest decoration. In fact, with HLS outputs, passthrough and manifest decoration are either both enabled or both disabled. Therefore, workable options are: 
 

@@ -1,7 +1,6 @@
 
 
 # Using the REST API
-<a name="html5-set-up-event-fields-api"></a>
 
 This description assumes that you are familiar with using the REST API and with the XML body for a `live_event`.
 

@@ -1,7 +1,6 @@
 
 
 # Use case 1: one input format to one output
-<a name="use-case-one-input-format-to-one-output"></a>
 
 This example shows how to implement [the first use case](typical-scenarios.md#use-case-one-input-format-to-one-output-format-not-converted) from the typical scenarios. The input is set up with one format of captions and two or more languages. Assume that you want to maintain the format in the output and that you want to produce only one type of output and include all the languages in that output.
 

@@ -1,7 +1,6 @@
 
 
 # General procedure
-<a name="general-procedure"></a>
 
 **Topics**
 + [Step A: Design the dynamic playlist](#step-design)

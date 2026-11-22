@@ -1,7 +1,6 @@
 
 
 # Step 2: Set up the event
-<a name="vips-setup-step-event"></a>
 
 These steps show you how to configure the event with information about the POIS server.
 

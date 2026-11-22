@@ -1,7 +1,6 @@
 
 
 # Getting ready
-<a name="output-srt-get-ready"></a>
 
 Before you create an SRT output in your event, perform the following preparation.
 + Decide if you want to deliver redundant streams in the output. Each stream has a different destination on the downstream system. The downstream destination initially handles one stream. If that stream fails, the downstream destination can switch to the other stream.

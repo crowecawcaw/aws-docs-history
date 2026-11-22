@@ -1,7 +1,6 @@
 
 
 # Reference: Supported outputs
-<a name="ref-outputs-and-codecs"></a>
 
 The following tables describe the supported mechanisms for delivering output to the downstream destination. Read this section to find the output group type that applies to your intended downstream destination.
 

@@ -1,7 +1,6 @@
 
 
 # Reference Information
-<a name="container-ref"></a>
 
 This chapter provides reference information about AWS Elemental Live.
 

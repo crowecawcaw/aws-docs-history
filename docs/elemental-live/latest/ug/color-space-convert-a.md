@@ -1,7 +1,6 @@
 
 
 # Converting an SDR color space to HDR
-<a name="color-space-convert-a"></a>
 
 You can convert an SDR color space to HDR10 or HLG color space. In this case, Elemental Live makes the following changes:
 + It changes the pixel values, if necessary, to fit the colors into the different color space.
